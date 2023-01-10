@@ -22,13 +22,7 @@ const getXWS = async (url: string) => {
   try {
     xws = await res.json();
   } catch {
-    console.error(
-      'Error',
-      url.replace(
-        'https://yasb.app',
-        'https://squad2xws.objectivecat.com/yasb/xws'
-      )
-    );
+    throw new Error(`Failed to parse JSON for ${url}...`);
   }
 
   return xws;
