@@ -1,5 +1,38 @@
-const URL_REGEXP =
-  /https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)/;
+const YASB_REGEXP = /https:\/\/yasb\.app\/\?f(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)/;
+
+const getXWS = async (url: string) => {
+  // Currently only supporting YASB links
+  if (!/yasb\.app/.test(url)) {
+    return null;
+  }
+
+  // Get XWS using https://github.com/zacharyp/squad2xws
+  const res = await fetch(
+    url.replace(
+      'https://yasb.app',
+      'https://squad2xws.objectivecat.com/yasb/xws'
+    )
+  );
+
+  if (!res.ok) {
+    throw new Error(`Failed to fetch XWS data for ${url}...`);
+  }
+
+  let xws: any = null;
+  try {
+    xws = await res.json();
+  } catch {
+    console.error(
+      'Error',
+      url.replace(
+        'https://yasb.app',
+        'https://squad2xws.objectivecat.com/yasb/xws'
+      )
+    );
+  }
+
+  return xws;
+};
 
 const getListsFromEvent = async (event: string) => {
   const res = await fetch(
@@ -10,28 +43,27 @@ const getListsFromEvent = async (event: string) => {
     throw new Error('Failed to fetch event data...');
   }
 
+  // Poor mans web scraper...
   const html = await res.text();
-
-  /**
-   * Poor mans web scraper...
-   */
   const matches = html.matchAll(
-    /id=\"(?<id>list_\d+)\" value=\"(?<value>[^"]*)\"/g
+    /id=\"list_(?<id>\d+)\" value=\"(?<value>[^"]*)\"/g
   );
-  const lists = Array.from(matches, m => {
-    const val = m.groups?.value;
-    const id = m.groups?.id!;
 
-    if (!val) return { id };
+  const lists = await Promise.all(
+    Array.from(matches).map(async m => {
+      const val = m.groups?.value || '';
+      const id = m.groups?.id!;
+      const url = (val.replace(/\n/g, ' ').match(YASB_REGEXP) || [null])[0];
+      const xws = await getXWS(url || '');
 
-    const matches = val.replace(/\n/g, ' ').match(URL_REGEXP);
-    console.log(matches);
-
-    return {
-      id,
-      link: matches ? matches[0] : 'TODO: FIX ME!',
-    };
-  });
+      return {
+        id,
+        url,
+        xws,
+        // TODO: add plain value to object if no link can be found
+      };
+    })
+  );
 
   return lists;
 };
@@ -49,7 +81,9 @@ const Page = async ({ params }: PageParams) => {
     <ul>
       {data.map(item => (
         <li key={item.id}>
-          {item.id}: {item.link}
+          {item.id}: {item.url}
+          <br />
+          {item.xws && JSON.stringify(item.xws)}
         </li>
       ))}
     </ul>
