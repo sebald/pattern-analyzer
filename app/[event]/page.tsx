@@ -1,3 +1,5 @@
+import { Title } from 'components/title';
+
 const YASB_REGEXP = /https:\/\/yasb\.app\/\?f(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)/;
 
 const getXWS = async (url: string) => {
@@ -72,15 +74,18 @@ const Page = async ({ params }: PageParams) => {
   const data = await getListsFromEvent(params.event);
 
   return (
-    <ul>
-      {data.map(item => (
-        <li key={item.id}>
-          {item.id}: {item.url}
-          <br />
-          {item.xws && JSON.stringify(item.xws)}
-        </li>
-      ))}
-    </ul>
+    <main>
+      <Title>Event #{params.event}</Title>
+      <ul>
+        {data.map(item => (
+          <li key={item.id}>
+            {item.id}: {item.url}
+            <br />
+            {item.xws && JSON.stringify(item.xws)}
+          </li>
+        ))}
+      </ul>
+    </main>
   );
 };
 
