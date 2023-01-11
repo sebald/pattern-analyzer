@@ -65,13 +65,13 @@ const getListsFromEvent = async (event: string) => {
   return lists;
 };
 
-export interface PageParams {
+export interface PageProps {
   params: {
     event: string;
   };
 }
 
-const Page = async ({ params }: PageParams) => {
+const Page = async ({ params }: PageProps) => {
   const data = await getListsFromEvent(params.event);
 
   return (
