@@ -1,3 +1,4 @@
+import { Card } from 'components/card';
 import { Title } from 'components/title';
 
 const YASB_REGEXP = /https:\/\/yasb\.app\/\?f(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)/;
@@ -79,9 +80,11 @@ const Page = async ({ params }: PageParams) => {
       <ul>
         {data.map(item => (
           <li key={item.id}>
-            {item.id}: {item.url}
-            <br />
-            {item.xws && JSON.stringify(item.xws)}
+            <Card>
+              {item.id}
+              <br />
+              {item.xws && JSON.stringify(item.xws)}
+            </Card>
           </li>
         ))}
       </ul>
