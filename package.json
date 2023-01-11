@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "update-xwindg-data": "zx scripts/update-xwing-data.mjs"
+    "update-data": "zx scripts/update-xwing-data.mjs"
   },
   "dependencies": {
     "@next/font": "13.1.1",

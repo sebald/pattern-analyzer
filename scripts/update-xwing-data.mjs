@@ -6,15 +6,86 @@ import 'zx/globals';
  * Only required data is gathered and flatten before writting to a JSON file.
  */
 const PROJECT_ROOT = path.resolve(__dirname, '..');
+const TARGET = path.join(PROJECT_ROOT, 'data');
 
 // Small helper to read in data
 const XWING_DATA_ROOT = path.resolve(PROJECT_ROOT, 'node_modules/xwing-data2');
-const read = async file =>
-  await fs.readJson(path.resolve(XWING_DATA_ROOT, file));
+const read = file => fs.readJsonSync(path.resolve(XWING_DATA_ROOT, file));
 
 // The manifest contains relative file paths to all JSON files.
-const manifest = await read('data/manifest.json');
+const manifest = read('data/manifest.json');
 
-const factions = await read(manifest.factions[0]);
+// Faction Data
+// ---------------
 
-echo(JSON.stringify(factions, null, 2));
+const SCENARIOS = {
+  'Siege of Coruscant': 'SoC',
+  'Battle of Yavin': 'BoY',
+};
+
+/**
+ * Only take certain properties from pilot and
+ * append scenario abbreviation to name if applicable.
+ */
+const parsePilots = pilots =>
+  pilots.reduce((o, pilot) => {
+    const { xws: id, name, caption } = pilot;
+    o[id] = {
+      id,
+      name: SCENARIOS[caption] ? `${name} (${SCENARIOS[caption]})` : name,
+      caption,
+    };
+
+    return o;
+  }, {});
+
+/**
+ * Transforms data to `<faction id>.<ship id>.pilots.<pilot id>`,
+ * where the id is the corresponding XWS key.
+ */
+const getShipsByFaction = faction => {
+  const ships = manifest.pilots.find(item => item.faction === faction).ships;
+  return ships.reduce((o, ship) => {
+    const { xws: id, name, icon, pilots } = read(ship);
+    o[id] = {
+      id,
+      name,
+      icon,
+      pilots: parsePilots(pilots),
+    };
+    return o;
+  }, {});
+};
+
+const factions = read(manifest.factions[0]).reduce(
+  (o, { xws: id, name, icon }) => {
+    o[id] = {
+      id,
+      name,
+      icon,
+      ships: getShipsByFaction(id),
+    };
+
+    return o;
+  },
+  {}
+);
+await fs.outputJson(`${TARGET}/factions.json`, factions, { spaces: 2 });
+
+// Upgrades
+// ---------------
+const upgrades = manifest.upgrades
+  .map(file => read(file))
+  .flat()
+  .map(({ xws: id, name }) => ({
+    id,
+    name,
+  }))
+  .reduce((o, upgrade) => {
+    o[upgrade.id] = {
+      ...upgrade,
+    };
+    return o;
+  }, {});
+
+await fs.outputJson(`${TARGET}/upgrades.json`, upgrades, { spaces: 2 });
