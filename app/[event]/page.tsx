@@ -1,4 +1,4 @@
-import { Caption, Card, Squad, Tiles, Title } from 'components';
+import { Caption, Card, Link, Squad, Tiles, Title } from 'components';
 import type { XWSSquad } from 'lib/xws';
 
 const YASB_REGEXP = /https:\/\/yasb\.app\/\?f(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)/;
@@ -85,7 +85,18 @@ const Page = async ({ params }: PageProps) => {
         <Tiles>
           {dataWithXWS.map(item => (
             <Card key={item.id}>
-              <Squad xws={item.xws!} />
+              <Card.Body>
+                <Squad xws={item.xws!} />
+              </Card.Body>
+              <Card.Footer>
+                <Link
+                  className="text-xs text-secondary-300"
+                  href={item.url!}
+                  target="_blank"
+                >
+                  View in YASB
+                </Link>
+              </Card.Footer>
             </Card>
           ))}
         </Tiles>
