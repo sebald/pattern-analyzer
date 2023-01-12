@@ -1,4 +1,5 @@
 import { Card } from 'components/card';
+import { Squad } from 'components/squad';
 import { Title } from 'components/title';
 
 const YASB_REGEXP = /https:\/\/yasb\.app\/\?f(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)/;
@@ -57,7 +58,7 @@ const getListsFromEvent = async (event: string) => {
         id,
         url,
         xws,
-        // TODO: add plain value to object if no link can be found
+        raw: val,
       };
     })
   );
@@ -83,7 +84,7 @@ const Page = async ({ params }: PageProps) => {
             <Card>
               {item.id}
               <br />
-              {item.xws && JSON.stringify(item.xws)}
+              {item.xws ? <Squad xws={item.xws} /> : item.raw}
             </Card>
           </li>
         ))}

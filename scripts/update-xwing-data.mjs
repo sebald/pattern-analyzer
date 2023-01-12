@@ -6,7 +6,7 @@ import 'zx/globals';
  * Only required data is gathered and flatten before writting to a JSON file.
  */
 const PROJECT_ROOT = path.resolve(__dirname, '..');
-const TARGET = path.join(PROJECT_ROOT, 'data');
+const TARGET = path.join(PROJECT_ROOT, 'lib/data');
 
 // Small helper to read in data
 const XWING_DATA_ROOT = path.resolve(PROJECT_ROOT, 'node_modules/xwing-data2');
