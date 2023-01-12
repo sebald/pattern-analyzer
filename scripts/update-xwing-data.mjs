@@ -74,18 +74,23 @@ await fs.outputJson(`${TARGET}/factions.json`, factions, { spaces: 2 });
 
 // Upgrades
 // ---------------
-const upgrades = manifest.upgrades
-  .map(file => read(file))
-  .flat()
-  .map(({ xws: id, name }) => ({
-    id,
-    name,
-  }))
-  .reduce((o, upgrade) => {
-    o[upgrade.id] = {
-      ...upgrade,
-    };
+/**
+ * Only take certain properties from upgrades and
+ * transform them to a map.
+ */
+const parseUpgrades = upgrades =>
+  upgrades.reduce((o, { xws: id, name }) => {
+    o[id] = { id, name };
     return o;
   }, {});
+
+const upgrades = manifest.upgrades.reduce((o, file) => {
+  const upgrades = read(file);
+  const type = path.parse(file).name;
+
+  o[type] = parseUpgrades(upgrades);
+
+  return o;
+}, {});
 
 await fs.outputJson(`${TARGET}/upgrades.json`, upgrades, { spaces: 2 });

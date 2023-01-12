@@ -8,7 +8,7 @@ export type XWSFaction =
   | 'separatistalliance';
 
 export interface XWSSquad {
-  faction: string;
+  faction: XWSFaction;
   pilots: XWSPilot[];
   points: number;
   vendor: XWSVendor;
@@ -20,10 +20,10 @@ export interface XWSPilot {
   id: string;
   ship: string;
   points: number;
-  upgrades: XWSUPgares;
+  upgrades: XWSUpgrades;
 }
 
-export interface XWSUPgares {
+export interface XWSUpgrades {
   astromech?: string[];
   cannon?: string[];
   cargo?: string[];

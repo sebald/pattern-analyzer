@@ -1,6 +1,5 @@
-import { Card } from 'components/card';
-import { Squad } from 'components/squad';
-import { Title } from 'components/title';
+import { Caption, Card, Squad, Tiles, Title } from 'components';
+import type { XWSSquad } from 'lib/xws';
 
 const YASB_REGEXP = /https:\/\/yasb\.app\/\?f(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)/;
 
@@ -22,14 +21,14 @@ const getXWS = async (url: string) => {
     throw new Error(`Failed to fetch XWS data for ${url}...`);
   }
 
-  let xws: any = null;
+  let xws;
   try {
     xws = await res.json();
   } catch {
     throw new Error(`Failed to parse JSON for ${url}...`);
   }
 
-  return xws;
+  return xws as XWSSquad;
 };
 
 const getListsFromEvent = async (event: string) => {
@@ -74,21 +73,23 @@ export interface PageProps {
 
 const Page = async ({ params }: PageProps) => {
   const data = await getListsFromEvent(params.event);
+  const dataWithXWS = data.filter(item => Boolean(item.xws));
 
   return (
-    <main>
+    <main className="p-4">
       <Title>Event #{params.event}</Title>
-      <ul>
-        {data.map(item => (
-          <li key={item.id}>
-            <Card>
-              {item.id}
-              <br />
-              {item.xws ? <Squad xws={item.xws} /> : item.raw}
+      <Caption>
+        Showing {dataWithXWS.length}/{data.length} lists
+      </Caption>
+      <div className="mx-auto my-4 w-[min(100%_-_3rem,_75rem)]">
+        <Tiles>
+          {dataWithXWS.map(item => (
+            <Card key={item.id}>
+              <Squad xws={item.xws!} />
             </Card>
-          </li>
-        ))}
-      </ul>
+          ))}
+        </Tiles>
+      </div>
     </main>
   );
 };

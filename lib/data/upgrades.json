@@ -1,1938 +1,1982 @@
 {
-  "chopper": {
-    "id": "chopper",
-    "name": "“Chopper”"
-  },
-  "genius": {
-    "id": "genius",
-    "name": "“Genius”"
-  },
-  "r2astromech": {
-    "id": "r2astromech",
-    "name": "R2 Astromech"
-  },
-  "r2d2": {
-    "id": "r2d2",
-    "name": "R2-D2"
-  },
-  "r3astromech": {
-    "id": "r3astromech",
-    "name": "R3 Astromech"
-  },
-  "r4astromech": {
-    "id": "r4astromech",
-    "name": "R4 Astromech"
-  },
-  "r5astromech": {
-    "id": "r5astromech",
-    "name": "R5 Astromech"
-  },
-  "r5d8": {
-    "id": "r5d8",
-    "name": "R5-D8"
-  },
-  "r5p8": {
-    "id": "r5p8",
-    "name": "R5-P8"
-  },
-  "r5tk": {
-    "id": "r5tk",
-    "name": "R5-TK"
-  },
-  "r5x3": {
-    "id": "r5x3",
-    "name": "R5-X3"
-  },
-  "r2ha": {
-    "id": "r2ha",
-    "name": "R2-HA"
-  },
-  "bb8": {
-    "id": "bb8",
-    "name": "BB-8"
-  },
-  "bbastromech": {
-    "id": "bbastromech",
-    "name": "BB Astromech"
-  },
-  "m9g8": {
-    "id": "m9g8",
-    "name": "M9-G8"
-  },
-  "r2c4": {
-    "id": "r2c4",
-    "name": "R2-C4"
-  },
-  "r4pastromech": {
-    "id": "r4pastromech",
-    "name": "R4-P Astromech"
-  },
-  "r4p17": {
-    "id": "r4p17",
-    "name": "R4-P17"
-  },
-  "r4p44": {
-    "id": "r4p44",
-    "name": "R4-P44"
-  },
-  "r2a6": {
-    "id": "r2a6",
-    "name": "R2-A6"
-  },
-  "c110p": {
-    "id": "c110p",
-    "name": "C1-10P"
-  },
-  "r1j5": {
-    "id": "r1j5",
-    "name": "R1-J5"
-  },
-  "q7astromech": {
-    "id": "q7astromech",
-    "name": "Q7 Astromech"
-  },
-  "r2d2-republic": {
-    "id": "r2d2-republic",
-    "name": "R2-D2"
-  },
-  "r2d2-resistance": {
-    "id": "r2d2-resistance",
-    "name": "R2-D2"
-  },
-  "r6d8": {
-    "id": "r6d8",
-    "name": "R6-D8"
-  },
-  "r7a7": {
-    "id": "r7a7",
-    "name": "R7-A7"
-  },
-  "r4b11": {
-    "id": "r4b11",
-    "name": "R4-B11"
-  },
-  "watchfulastromech": {
-    "id": "watchfulastromech",
-    "name": "Watchful Astromech"
-  },
-  "l4er5": {
-    "id": "l4er5",
-    "name": "L4E-R5"
-  },
-  "r2a3-battleofyavin": {
-    "id": "r2a3-battleofyavin",
-    "name": "R2-A3"
-  },
-  "r2d2-battleofyavin": {
-    "id": "r2d2-battleofyavin",
-    "name": "R2-D2"
-  },
-  "r2f2-battleofyavin": {
-    "id": "r2f2-battleofyavin",
-    "name": "R2-F2"
-  },
-  "r5d8-battleofyavin": {
-    "id": "r5d8-battleofyavin",
-    "name": "R5-D8"
-  },
-  "r5k6-battleofyavin": {
-    "id": "r5k6-battleofyavin",
-    "name": "R5-K6"
-  },
-  "preciseastromech-battleofyavin": {
-    "id": "preciseastromech-battleofyavin",
-    "name": "Precise Astromech"
-  },
-  "targetingastromech-battleofyavin": {
-    "id": "targetingastromech-battleofyavin",
-    "name": "Targeting Astromech"
-  },
-  "r4p17-siegeofcoruscant": {
-    "id": "r4p17-siegeofcoruscant",
-    "name": "R4-P17"
-  },
-  "heavylasercannon": {
-    "id": "heavylasercannon",
-    "name": "Heavy Laser Cannon"
-  },
-  "ioncannon": {
-    "id": "ioncannon",
-    "name": "Ion Cannon"
-  },
-  "jammingbeam": {
-    "id": "jammingbeam",
-    "name": "Jamming Beam"
-  },
-  "tractorbeam": {
-    "id": "tractorbeam",
-    "name": "Tractor Beam"
-  },
-  "autoblasters": {
-    "id": "autoblasters",
-    "name": "Autoblasters"
-  },
-  "syncedlasercannons": {
-    "id": "syncedlasercannons",
-    "name": "Synced Laser Cannons"
-  },
-  "protoncannons": {
-    "id": "protoncannons",
-    "name": "Proton Cannons"
-  },
-  "underslungblastercannon": {
-    "id": "underslungblastercannon",
-    "name": "Underslung Blaster Cannon"
-  },
-  "ancillaryionweapons-siegeofcoruscant": {
-    "id": "ancillaryionweapons-siegeofcoruscant",
-    "name": "Ancillary Ion Weapons"
-  },
-  "adaptiveshields": {
-    "id": "adaptiveshields",
-    "name": "Adaptive Shields"
-  },
-  "boostedscanners": {
-    "id": "boostedscanners",
-    "name": "Boosted Scanners"
-  },
-  "optimizedpowercore": {
-    "id": "optimizedpowercore",
-    "name": "Optimized Power Core"
-  },
-  "tibannareserves": {
-    "id": "tibannareserves",
-    "name": "Tibanna Reserves"
-  },
-  "agentoftheempire": {
-    "id": "agentoftheempire",
-    "name": "Agent of the Empire"
-  },
-  "dreadnoughthunter": {
-    "id": "dreadnoughthunter",
-    "name": "Dreadnought Hunter"
-  },
-  "firstorderelite": {
-    "id": "firstorderelite",
-    "name": "First Order Elite"
-  },
-  "veteranwingleader": {
-    "id": "veteranwingleader",
-    "name": "Veteran Wing Leader"
-  },
-  "admiralozzel": {
-    "id": "admiralozzel",
-    "name": "Admiral Ozzel"
-  },
-  "azmorigan": {
-    "id": "azmorigan",
-    "name": "Azmorigan"
-  },
-  "captainneeda": {
-    "id": "captainneeda",
-    "name": "Captain Needa"
-  },
-  "carlistrieekan": {
-    "id": "carlistrieekan",
-    "name": "Carlist Rieekan"
-  },
-  "jandodonna": {
-    "id": "jandodonna",
-    "name": "Jan Dodonna"
-  },
-  "raymusantilles": {
-    "id": "raymusantilles",
-    "name": "Raymus Antilles"
-  },
-  "stalwartcaptain": {
-    "id": "stalwartcaptain",
-    "name": "Stalwart Captain"
-  },
-  "strategiccommander": {
-    "id": "strategiccommander",
-    "name": "Strategic Commander"
-  },
-  "jedicommander": {
-    "id": "jedicommander",
-    "name": "Jedi Commander"
-  },
-  "b6bladewingprototype-command": {
-    "id": "b6bladewingprototype-command",
-    "name": "B6 Blade Wing Prototype"
-  },
-  "bounty": {
-    "id": "bounty",
-    "name": "Bounty"
-  },
-  "phoenixsquadron": {
-    "id": "phoenixsquadron",
-    "name": "Phoenix Squadron"
-  },
-  "shadowwing": {
-    "id": "shadowwing",
-    "name": "Shadow Wing"
-  },
-  "skystrikeacademyclass": {
-    "id": "skystrikeacademyclass",
-    "name": "Skystrike Academy Class"
-  },
-  "initforthemoneyrebellion": {
-    "id": "initforthemoneyrebellion",
-    "name": "In It For The Money/Rebellion"
-  },
-  "martuuk": {
-    "id": "martuuk",
-    "name": "Mar Tuuk"
-  },
-  "rifftamson": {
-    "id": "rifftamson",
-    "name": "Riff Tamson"
-  },
-  "asajjventresscommand": {
-    "id": "asajjventresscommand",
-    "name": "Asajj Ventress"
-  },
-  "zealouscaptain": {
-    "id": "zealouscaptain",
-    "name": "Zealous Captain"
-  },
-  "hondoohnakacommand": {
-    "id": "hondoohnakacommand",
-    "name": "Hondo Ohnaka"
-  },
-  "generalgrievouscommand": {
-    "id": "generalgrievouscommand",
-    "name": "General Grievous"
-  },
-  "combatboardingtube": {
-    "id": "combatboardingtube",
-    "name": "Combat Boarding Tube"
-  },
-  "integratedsfoils": {
-    "id": "integratedsfoils",
-    "name": "Integrated S-foils"
-  },
-  "os1arsenalloadout": {
-    "id": "os1arsenalloadout",
-    "name": "Os-1 Arsenal Loadout"
-  },
-  "pivotwing": {
-    "id": "pivotwing",
-    "name": "Pivot Wing"
-  },
-  "swivelwing": {
-    "id": "swivelwing",
-    "name": "Swivel Wing"
-  },
-  "servomotorsfoils": {
-    "id": "servomotorsfoils",
-    "name": "Servomotor S-foils"
-  },
-  "xg1assaultconfiguration": {
-    "id": "xg1assaultconfiguration",
-    "name": "Xg-1 Assault Configuration"
-  },
-  "grapplingstruts": {
-    "id": "grapplingstruts",
-    "name": "Grappling Struts"
-  },
-  "delta7b": {
-    "id": "delta7b",
-    "name": "Delta-7B"
-  },
-  "calibratedlasertargeting": {
-    "id": "calibratedlasertargeting",
-    "name": "Calibrated Laser Targeting"
-  },
-  "landingstruts": {
-    "id": "landingstruts",
-    "name": "Landing Struts"
-  },
-  "corsairrefit": {
-    "id": "corsairrefit",
-    "name": "Corsair Refit"
-  },
-  "stabilizedsfoils": {
-    "id": "stabilizedsfoils",
-    "name": "Stabilized S-foils"
-  },
-  "repulsorliftstabilizers": {
-    "id": "repulsorliftstabilizers",
-    "name": "Repulsorlift Stabilizers"
-  },
-  "alpha3bbesh": {
-    "id": "alpha3bbesh",
-    "name": "Alpha-3B “Besh”"
-  },
-  "alpha3eesk": {
-    "id": "alpha3eesk",
-    "name": "Alpha-3E “Esk”"
-  },
-  "interceptbooster": {
-    "id": "interceptbooster",
-    "name": "Intercept Booster"
-  },
-  "maneuverassistmgk300": {
-    "id": "maneuverassistmgk300",
-    "name": "Maneuver-Assist MGK-300"
-  },
-  "targetassistmgk300": {
-    "id": "targetassistmgk300",
-    "name": "Target-Assist MGK-300"
-  },
-  "sensitivecontrols": {
-    "id": "sensitivecontrols",
-    "name": "Sensitive Controls"
-  },
-  "tiedefenderelite": {
-    "id": "tiedefenderelite",
-    "name": "TIE Defender Elite"
-  },
-  "vectoredcannonsrz1": {
-    "id": "vectoredcannonsrz1",
-    "name": "Vectored Cannons (RZ-1)"
-  },
-  "wartimeloadout": {
-    "id": "wartimeloadout",
-    "name": "Wartime Loadout"
-  },
-  "enhancedjammingsuite": {
-    "id": "enhancedjammingsuite",
-    "name": "Enhanced Jamming Suite"
-  },
-  "l337sprogramming-battleofyavin": {
-    "id": "l337sprogramming-battleofyavin",
-    "name": "L3-37's Programming"
-  },
-  "strutlockoverride-siegeofcoruscant": {
-    "id": "strutlockoverride-siegeofcoruscant",
-    "name": "Strut-Lock Override"
-  },
-  "chopper-crew": {
-    "id": "chopper-crew",
-    "name": "“Chopper”"
-  },
-  "zeborrelios": {
-    "id": "zeborrelios",
-    "name": "“Zeb” Orrelios"
-  },
-  "000": {
-    "id": "000",
-    "name": "0-0-0"
-  },
-  "4lom": {
-    "id": "4lom",
-    "name": "4-LOM"
-  },
-  "admiralsloane": {
-    "id": "admiralsloane",
-    "name": "Admiral Sloane"
-  },
-  "agentkallus": {
-    "id": "agentkallus",
-    "name": "Agent Kallus"
-  },
-  "bazemalbus": {
-    "id": "bazemalbus",
-    "name": "Baze Malbus"
-  },
-  "bobafett": {
-    "id": "bobafett",
-    "name": "Boba Fett"
-  },
-  "c3po": {
-    "id": "c3po",
-    "name": "C-3PO"
-  },
-  "cadbane": {
-    "id": "cadbane",
-    "name": "Cad Bane"
-  },
-  "captainphasma": {
-    "id": "captainphasma",
-    "name": "Captain Phasma"
-  },
-  "cassianandor": {
-    "id": "cassianandor",
-    "name": "Cassian Andor"
-  },
-  "chewbacca": {
-    "id": "chewbacca",
-    "name": "Chewbacca"
-  },
-  "chewbacca-crew": {
-    "id": "chewbacca-crew",
-    "name": "Chewbacca"
-  },
-  "cienaree": {
-    "id": "cienaree",
-    "name": "Ciena Ree"
-  },
-  "cikatrovizago": {
-    "id": "cikatrovizago",
-    "name": "Cikatro Vizago"
-  },
-  "darthvader": {
-    "id": "darthvader",
-    "name": "Darth Vader"
-  },
-  "deathtroopers": {
-    "id": "deathtroopers",
-    "name": "Death Troopers"
-  },
-  "directorkrennic": {
-    "id": "directorkrennic",
-    "name": "Director Krennic"
-  },
-  "emperorpalpatine": {
-    "id": "emperorpalpatine",
-    "name": "Emperor Palpatine"
-  },
-  "freelanceslicer": {
-    "id": "freelanceslicer",
-    "name": "Freelance Slicer"
-  },
-  "generalhux": {
-    "id": "generalhux",
-    "name": "General Hux"
-  },
-  "gnkgonkdroid": {
-    "id": "gnkgonkdroid",
-    "name": "GNK “Gonk” Droid"
-  },
-  "grandinquisitor": {
-    "id": "grandinquisitor",
-    "name": "Grand Inquisitor"
-  },
-  "grandmofftarkin": {
-    "id": "grandmofftarkin",
-    "name": "Grand Moff Tarkin"
-  },
-  "herasyndulla": {
-    "id": "herasyndulla",
-    "name": "Hera Syndulla"
-  },
-  "ig88d": {
-    "id": "ig88d",
-    "name": "IG-88D"
-  },
-  "isbslicer": {
-    "id": "isbslicer",
-    "name": "ISB Slicer"
-  },
-  "informant": {
-    "id": "informant",
-    "name": "Informant"
-  },
-  "jabbathehutt": {
-    "id": "jabbathehutt",
-    "name": "Jabba the Hutt"
-  },
-  "jynerso": {
-    "id": "jynerso",
-    "name": "Jyn Erso"
-  },
-  "kananjarrus": {
-    "id": "kananjarrus",
-    "name": "Kanan Jarrus"
-  },
-  "ketsuonyo": {
-    "id": "ketsuonyo",
-    "name": "Ketsu Onyo"
-  },
-  "kyloren": {
-    "id": "kyloren",
-    "name": "Kylo Ren"
-  },
-  "l337": {
-    "id": "l337",
-    "name": "L3-37"
-  },
-  "landocalrissian-crew": {
-    "id": "landocalrissian-crew",
-    "name": "Lando Calrissian"
-  },
-  "landocalrissian": {
-    "id": "landocalrissian",
-    "name": "Lando Calrissian"
-  },
-  "lattsrazzi": {
-    "id": "lattsrazzi",
-    "name": "Latts Razzi"
-  },
-  "leiaorgana": {
-    "id": "leiaorgana",
-    "name": "Leia Organa"
-  },
-  "magvayarro": {
-    "id": "magvayarro",
-    "name": "Magva Yarro"
-  },
-  "maul": {
-    "id": "maul",
-    "name": "Maul"
-  },
-  "ministertua": {
-    "id": "ministertua",
-    "name": "Minister Tua"
-  },
-  "moffjerjerrod": {
-    "id": "moffjerjerrod",
-    "name": "Moff Jerjerrod"
-  },
-  "niennunb": {
-    "id": "niennunb",
-    "name": "Nien Nunb"
-  },
-  "novicetechnician": {
-    "id": "novicetechnician",
-    "name": "Novice Technician"
-  },
-  "perceptivecopilot": {
-    "id": "perceptivecopilot",
-    "name": "Perceptive Copilot"
-  },
-  "pettyofficerthanisson": {
-    "id": "pettyofficerthanisson",
-    "name": "Petty Officer Thanisson"
-  },
-  "qira": {
-    "id": "qira",
-    "name": "Qi'ra"
-  },
-  "r2d2-crew": {
-    "id": "r2d2-crew",
-    "name": "R2-D2"
-  },
-  "sabinewren": {
-    "id": "sabinewren",
-    "name": "Sabine Wren"
-  },
-  "sawgerrera": {
-    "id": "sawgerrera",
-    "name": "Saw Gerrera"
-  },
-  "seasonednavigator": {
-    "id": "seasonednavigator",
-    "name": "Seasoned Navigator"
-  },
-  "seventhsister": {
-    "id": "seventhsister",
-    "name": "Seventh Sister"
-  },
-  "supremeleadersnoke": {
-    "id": "supremeleadersnoke",
-    "name": "Supreme Leader Snoke"
-  },
-  "tacticalofficer": {
-    "id": "tacticalofficer",
-    "name": "Tactical Officer"
-  },
-  "tobiasbeckett": {
-    "id": "tobiasbeckett",
-    "name": "Tobias Beckett"
-  },
-  "unkarplutt": {
-    "id": "unkarplutt",
-    "name": "Unkar Plutt"
-  },
-  "zuckuss": {
-    "id": "zuckuss",
-    "name": "Zuckuss"
-  },
-  "c3po-crew": {
-    "id": "c3po-crew",
-    "name": "C-3PO"
-  },
-  "hansolo-crew": {
-    "id": "hansolo-crew",
-    "name": "Han Solo"
-  },
-  "chewbacca-crew-swz19": {
-    "id": "chewbacca-crew-swz19",
-    "name": "Chewbacca"
-  },
-  "rosetico": {
-    "id": "rosetico",
-    "name": "Rose Tico"
-  },
-  "chancellorpalpatine": {
-    "id": "chancellorpalpatine",
-    "name": "Palpatine/Sidious"
-  },
-  "countdooku": {
-    "id": "countdooku",
-    "name": "Count Dooku"
-  },
-  "generalgrievous": {
-    "id": "generalgrievous",
-    "name": "General Grievous"
-  },
-  "amilynholdo": {
-    "id": "amilynholdo",
-    "name": "Amilyn Holdo"
-  },
-  "ga97": {
-    "id": "ga97",
-    "name": "GA-97"
-  },
-  "kaydelconnix": {
-    "id": "kaydelconnix",
-    "name": "Kaydel Connix"
-  },
-  "korrsella": {
-    "id": "korrsella",
-    "name": "Korr Sella"
-  },
-  "larmadacy": {
-    "id": "larmadacy",
-    "name": "Larma D'Acy"
-  },
-  "leiaorgana-resistance": {
-    "id": "leiaorgana-resistance",
-    "name": "Leia Organa"
-  },
-  "pz4co": {
-    "id": "pz4co",
-    "name": "PZ-4CO"
-  },
-  "c3po-republic": {
-    "id": "c3po-republic",
-    "name": "C-3PO"
-  },
-  "aaylasecura": {
-    "id": "aaylasecura",
-    "name": "Aayla Secura"
-  },
-  "agentterex": {
-    "id": "agentterex",
-    "name": "Agent Terex"
-  },
-  "k2so": {
-    "id": "k2so",
-    "name": "K-2SO"
-  },
-  "plokoon": {
-    "id": "plokoon",
-    "name": "Plo Koon"
-  },
-  "torynfarr": {
-    "id": "torynfarr",
-    "name": "Toryn Farr"
-  },
-  "kitfisto": {
-    "id": "kitfisto",
-    "name": "Kit Fisto"
-  },
-  "yoda": {
-    "id": "yoda",
-    "name": "Yoda"
-  },
-  "fives": {
-    "id": "fives",
-    "name": "“Fives”"
-  },
-  "wolfpack": {
-    "id": "wolfpack",
-    "name": "Wolfpack"
-  },
-  "commandermalarus": {
-    "id": "commandermalarus",
-    "name": "Commander Malarus"
-  },
-  "ghostcompany": {
-    "id": "ghostcompany",
-    "name": "Ghost Company"
-  },
-  "commanderpyre": {
-    "id": "commanderpyre",
-    "name": "Commander Pyre"
-  },
-  "hondoohnaka": {
-    "id": "hondoohnaka",
-    "name": "Hondo Ohnaka"
-  },
-  "jangofett": {
-    "id": "jangofett",
-    "name": "Jango Fett"
-  },
-  "zamwesell": {
-    "id": "zamwesell",
-    "name": "Zam Wesell"
-  },
-  "gamutkey": {
-    "id": "gamutkey",
-    "name": "Gamut Key"
-  },
-  "protectorategleb": {
-    "id": "protectorategleb",
-    "name": "Protectorate Gleb"
-  },
-  "themandalorian": {
-    "id": "themandalorian",
-    "name": "The Mandalorian"
-  },
-  "thechild": {
-    "id": "thechild",
-    "name": "The Child"
-  },
-  "ig11": {
-    "id": "ig11",
-    "name": "IG-11"
-  },
-  "greefkarga": {
-    "id": "greefkarga",
-    "name": "Greef Karga"
-  },
-  "kuiil": {
-    "id": "kuiil",
-    "name": "Kuiil"
-  },
-  "pelimotto": {
-    "id": "pelimotto",
-    "name": "Peli Motto"
-  },
-  "primeministeralmec": {
-    "id": "primeministeralmec",
-    "name": "Prime Minister Almec"
-  },
-  "rookkast": {
-    "id": "rookkast",
-    "name": "Rook Kast"
-  },
-  "obiwankenobi": {
-    "id": "obiwankenobi",
-    "name": "Obi-Wan Kenobi"
-  },
-  "bokatankryze": {
-    "id": "bokatankryze",
-    "name": "Bo-Katan Kryze"
-  },
-  "bokatankryze-rebel-scum": {
-    "id": "bokatankryze-rebel-scum",
-    "name": "Bo-Katan Kryze"
-  },
-  "korkiekryze": {
-    "id": "korkiekryze",
-    "name": "Korkie Kryze"
-  },
-  "satinekryze": {
-    "id": "satinekryze",
-    "name": "Satine Kryze"
-  },
-  "talmerrik": {
-    "id": "talmerrik",
-    "name": "Tal Merrik"
-  },
-  "savageopress": {
-    "id": "savageopress",
-    "name": "Savage Opress"
-  },
-  "fennrau": {
-    "id": "fennrau",
-    "name": "Fenn Rau"
-  },
-  "garsaxon": {
-    "id": "garsaxon",
-    "name": "Gar Saxon"
-  },
-  "previzsla": {
-    "id": "previzsla",
-    "name": "Pre Vizsla"
-  },
-  "tristanwren": {
-    "id": "tristanwren",
-    "name": "Tristan Wren"
-  },
-  "ursawren": {
-    "id": "ursawren",
-    "name": "Ursa Wren"
-  },
-  "captainhark": {
-    "id": "captainhark",
-    "name": "Captain Hark"
-  },
-  "ahsokatano-crew": {
-    "id": "ahsokatano-crew",
-    "name": "Ahsoka Tano"
-  },
-  "maul-crew": {
-    "id": "maul-crew",
-    "name": "Maul"
-  },
-  "clanwrencommandos": {
-    "id": "clanwrencommandos",
-    "name": "Clan Wren Commandos"
-  },
-  "imperialsupercommandos": {
-    "id": "imperialsupercommandos",
-    "name": "Imperial Super Commandos"
-  },
-  "mandaloriansupercommandos": {
-    "id": "mandaloriansupercommandos",
-    "name": "Mandalorian Super Commandos"
-  },
-  "niteowlcommandos": {
-    "id": "niteowlcommandos",
-    "name": "Nite Owl Commandos"
-  },
-  "deathwatchcommandos": {
-    "id": "deathwatchcommandos",
-    "name": "Death Watch Commandos"
-  },
-  "chewbacca-battleofyavin": {
-    "id": "chewbacca-battleofyavin",
-    "name": "Chewbacca"
-  },
-  "wolfpack-siegeofcoruscant": {
-    "id": "wolfpack-siegeofcoruscant",
-    "name": "Wolfpack"
-  },
-  "bombletgenerator": {
-    "id": "bombletgenerator",
-    "name": "Bomblet Generator"
-  },
-  "blazerbomb": {
-    "id": "blazerbomb",
-    "name": "Blazer Bomb"
-  },
-  "connernets": {
-    "id": "connernets",
-    "name": "Conner Nets"
-  },
-  "protonbombs": {
-    "id": "protonbombs",
-    "name": "Proton Bombs"
-  },
-  "proximitymines": {
-    "id": "proximitymines",
-    "name": "Proximity Mines"
-  },
-  "seismiccharges": {
-    "id": "seismiccharges",
-    "name": "Seismic Charges"
-  },
-  "drk1probedroids": {
-    "id": "drk1probedroids",
-    "name": "DRK-1 Probe Droids"
-  },
-  "electroprotonbomb": {
-    "id": "electroprotonbomb",
-    "name": "Electro-Proton Bomb"
-  },
-  "clustermines": {
-    "id": "clustermines",
-    "name": "Cluster Mines"
-  },
-  "ionbombs": {
-    "id": "ionbombs",
-    "name": "Ion Bombs"
-  },
-  "concussionbombs": {
-    "id": "concussionbombs",
-    "name": "Concussion Bombs"
-  },
-  "thermaldetonators": {
-    "id": "thermaldetonators",
-    "name": "Thermal Detonators"
-  },
-  "heightenedperception": {
-    "id": "heightenedperception",
-    "name": "Heightened Perception"
-  },
-  "instinctiveaim": {
-    "id": "instinctiveaim",
-    "name": "Instinctive Aim"
-  },
-  "sense": {
-    "id": "sense",
-    "name": "Sense"
-  },
-  "supernaturalreflexes": {
-    "id": "supernaturalreflexes",
-    "name": "Supernatural Reflexes"
-  },
-  "brilliantevasion": {
-    "id": "brilliantevasion",
-    "name": "Brilliant Evasion"
-  },
-  "hate": {
-    "id": "hate",
-    "name": "Hate"
-  },
-  "predictiveshot": {
-    "id": "predictiveshot",
-    "name": "Predictive Shot"
-  },
-  "battlemeditation": {
-    "id": "battlemeditation",
-    "name": "Battle Meditation"
-  },
-  "foresight": {
-    "id": "foresight",
-    "name": "Foresight"
-  },
-  "precognitivereflexes": {
-    "id": "precognitivereflexes",
-    "name": "Precognitive Reflexes"
-  },
-  "extrememaneuvers": {
-    "id": "extrememaneuvers",
-    "name": "Extreme Maneuvers"
-  },
-  "compassion": {
-    "id": "compassion",
-    "name": "Compassion"
-  },
-  "malice": {
-    "id": "malice",
-    "name": "Malice"
-  },
-  "shatteringshot": {
-    "id": "shatteringshot",
-    "name": "Shattering Shot"
-  },
-  "patience": {
-    "id": "patience",
-    "name": "Patience"
-  },
-  "roilinganger-siegeofcoruscant": {
-    "id": "roilinganger-siegeofcoruscant",
-    "name": "Roiling Anger"
-  },
-  "agilegunner": {
-    "id": "agilegunner",
-    "name": "Agile Gunner"
-  },
-  "bt1": {
-    "id": "bt1",
-    "name": "BT-1"
-  },
-  "bistan": {
-    "id": "bistan",
-    "name": "Bistan"
-  },
-  "bossk": {
-    "id": "bossk",
-    "name": "Bossk"
-  },
-  "dengar": {
-    "id": "dengar",
-    "name": "Dengar"
-  },
-  "ezrabridger": {
-    "id": "ezrabridger",
-    "name": "Ezra Bridger"
-  },
-  "fifthbrother": {
-    "id": "fifthbrother",
-    "name": "Fifth Brother"
-  },
-  "greedo": {
-    "id": "greedo",
-    "name": "Greedo"
-  },
-  "hansolo": {
-    "id": "hansolo",
-    "name": "Han Solo"
-  },
-  "hansolo-gunner": {
-    "id": "hansolo-gunner",
-    "name": "Han Solo"
-  },
-  "hotshotgunner": {
-    "id": "hotshotgunner",
-    "name": "Hotshot Gunner"
-  },
-  "lukeskywalker": {
-    "id": "lukeskywalker",
-    "name": "Luke Skywalker"
-  },
-  "skilledbombardier": {
-    "id": "skilledbombardier",
-    "name": "Skilled Bombardier"
-  },
-  "specialforcesgunner": {
-    "id": "specialforcesgunner",
-    "name": "Special Forces Gunner"
-  },
-  "veterantailgunner": {
-    "id": "veterantailgunner",
-    "name": "Veteran Tail Gunner"
-  },
-  "veteranturretgunner": {
-    "id": "veteranturretgunner",
-    "name": "Veteran Turret Gunner"
-  },
-  "finn": {
-    "id": "finn",
-    "name": "Finn"
-  },
-  "paigetico": {
-    "id": "paigetico",
-    "name": "Paige Tico"
-  },
-  "rey-gunner": {
-    "id": "rey-gunner",
-    "name": "Rey"
-  },
-  "seventhfleetgunner": {
-    "id": "seventhfleetgunner",
-    "name": "Seventh Fleet Gunner"
-  },
-  "clonecommandercody": {
-    "id": "clonecommandercody",
-    "name": "Clone Commander Cody"
-  },
-  "ahsokatano": {
-    "id": "ahsokatano",
-    "name": "Ahsoka Tano"
-  },
-  "clonecaptainrex": {
-    "id": "clonecaptainrex",
-    "name": "Clone Captain Rex"
-  },
-  "suppressivegunner": {
-    "id": "suppressivegunner",
-    "name": "Suppressive Gunner"
-  },
-  "bobafett-gunner": {
-    "id": "bobafett-gunner",
-    "name": "Boba Fett"
-  },
-  "weaponssystemsofficer": {
-    "id": "weaponssystemsofficer",
-    "name": "Weapons Systems Officer"
-  },
-  "sabinewren-gunner": {
-    "id": "sabinewren-gunner",
-    "name": "Sabine Wren"
-  },
-  "dt798": {
-    "id": "dt798",
-    "name": "DT-798"
-  },
-  "firstorderordnancetech": {
-    "id": "firstorderordnancetech",
-    "name": "First Order Ordnance Tech"
-  },
-  "garsaxon-gunner": {
-    "id": "garsaxon-gunner",
-    "name": "Gar Saxon"
-  },
-  "tibersaxon": {
-    "id": "tibersaxon",
-    "name": "Tiber Saxon"
-  },
-  "ursawren-gunner": {
-    "id": "ursawren-gunner",
-    "name": "Ursa Wren"
-  },
-  "migsmayfeld": {
-    "id": "migsmayfeld",
-    "name": "Migs Mayfeld"
-  },
-  "ioncannonbattery": {
-    "id": "ioncannonbattery",
-    "name": "Ion Cannon Battery"
-  },
-  "ordnancetubes": {
-    "id": "ordnancetubes",
-    "name": "Ordnance Tubes"
-  },
-  "pointdefensebattery": {
-    "id": "pointdefensebattery",
-    "name": "Point-Defense Battery"
-  },
-  "targetingbattery": {
-    "id": "targetingbattery",
-    "name": "Targeting Battery"
-  },
-  "turbolaserbattery": {
-    "id": "turbolaserbattery",
-    "name": "Turbolaser Battery"
-  },
-  "tractortentacles": {
-    "id": "tractortentacles",
-    "name": "Tractor Tentacles"
-  },
-  "protoncannonbattery": {
-    "id": "protoncannonbattery",
-    "name": "Proton Cannon Battery"
-  },
-  "enhancedpropulsion": {
-    "id": "enhancedpropulsion",
-    "name": "Enhanced Propulsion"
-  },
-  "drillbeak": {
-    "id": "drillbeak",
-    "name": "Drill Beak"
-  },
-  "syliure31hyperdrive": {
-    "id": "syliure31hyperdrive",
-    "name": "Syliure-31 Hyperdrive"
-  },
-  "cloakingdevice": {
-    "id": "cloakingdevice",
-    "name": "Cloaking Device"
-  },
-  "contrabandcybernetics": {
-    "id": "contrabandcybernetics",
-    "name": "Contraband Cybernetics"
-  },
-  "deadmansswitch": {
-    "id": "deadmansswitch",
-    "name": "Deadman's Switch"
-  },
-  "feedbackarray": {
-    "id": "feedbackarray",
-    "name": "Feedback Array"
-  },
-  "inertialdampeners": {
-    "id": "inertialdampeners",
-    "name": "Inertial Dampeners"
-  },
-  "riggedcargochute": {
-    "id": "riggedcargochute",
-    "name": "Rigged Cargo Chute"
-  },
-  "coaxiumhyperfuel": {
-    "id": "coaxiumhyperfuel",
-    "name": "Coaxium Hyperfuel"
-  },
-  "quickreleaselocks": {
-    "id": "quickreleaselocks",
-    "name": "Quick-Release Locks"
-  },
-  "saboteursmap": {
-    "id": "saboteursmap",
-    "name": "Saboteur's Map"
-  },
-  "scannerbaffler": {
-    "id": "scannerbaffler",
-    "name": "Scanner Baffler"
-  },
-  "falsetranspondercodes": {
-    "id": "falsetranspondercodes",
-    "name": "False Transponder Codes"
-  },
-  "babufrik": {
-    "id": "babufrik",
-    "name": "Babu Frik"
-  },
-  "overtunedmodulators": {
-    "id": "overtunedmodulators",
-    "name": "Overtuned Modulators"
-  },
-  "trackingfob": {
-    "id": "trackingfob",
-    "name": "Tracking Fob"
-  },
-  "hotshottailblaster": {
-    "id": "hotshottailblaster",
-    "name": "Hotshot Tail Blaster"
-  },
-  "barragerockets": {
-    "id": "barragerockets",
-    "name": "Barrage Rockets"
-  },
-  "clustermissiles": {
-    "id": "clustermissiles",
-    "name": "Cluster Missiles"
-  },
-  "concussionmissiles": {
-    "id": "concussionmissiles",
-    "name": "Concussion Missiles"
-  },
-  "homingmissiles": {
-    "id": "homingmissiles",
-    "name": "Homing Missiles"
-  },
-  "ionmissiles": {
-    "id": "ionmissiles",
-    "name": "Ion Missiles"
-  },
-  "protonrockets": {
-    "id": "protonrockets",
-    "name": "Proton Rockets"
-  },
-  "energyshellcharges": {
-    "id": "energyshellcharges",
-    "name": "Energy-Shell Charges"
-  },
-  "discordmissiles": {
-    "id": "discordmissiles",
-    "name": "Discord Missiles"
-  },
-  "diamondboronmissiles": {
-    "id": "diamondboronmissiles",
-    "name": "Diamond-Boron Missiles"
-  },
-  "magpulsewarheads": {
-    "id": "magpulsewarheads",
-    "name": "Mag-Pulse Warheads"
-  },
-  "electrochaffmissiles": {
-    "id": "electrochaffmissiles",
-    "name": "Electro-Chaff Missiles"
-  },
-  "multimissilepods": {
-    "id": "multimissilepods",
-    "name": "Multi-Missile Pods"
-  },
-  "xx23sthreadtracers": {
-    "id": "xx23sthreadtracers",
-    "name": "XX-23 S-Thread Tracers"
-  },
-  "ablativeplating": {
-    "id": "ablativeplating",
-    "name": "Ablative Plating"
-  },
-  "advancedslam": {
-    "id": "advancedslam",
-    "name": "Advanced SLAM"
-  },
-  "afterburners": {
-    "id": "afterburners",
-    "name": "Afterburners"
-  },
-  "electronicbaffle": {
-    "id": "electronicbaffle",
-    "name": "Electronic Baffle"
-  },
-  "engineupgrade": {
-    "id": "engineupgrade",
-    "name": "Engine Upgrade"
-  },
-  "hullupgrade": {
-    "id": "hullupgrade",
-    "name": "Hull Upgrade"
-  },
-  "munitionsfailsafe": {
-    "id": "munitionsfailsafe",
-    "name": "Munitions Failsafe"
-  },
-  "shieldupgrade": {
-    "id": "shieldupgrade",
-    "name": "Shield Upgrade"
-  },
-  "staticdischargevanes": {
-    "id": "staticdischargevanes",
-    "name": "Static Discharge Vanes"
-  },
-  "stealthdevice": {
-    "id": "stealthdevice",
-    "name": "Stealth Device"
-  },
-  "tacticalscrambler": {
-    "id": "tacticalscrambler",
-    "name": "Tactical Scrambler"
-  },
-  "imperviumplating": {
-    "id": "imperviumplating",
-    "name": "Impervium Plating"
-  },
-  "synchronizedconsole": {
-    "id": "synchronizedconsole",
-    "name": "Synchronized Console"
-  },
-  "sparepartscanisters": {
-    "id": "sparepartscanisters",
-    "name": "Spare Parts Canisters"
-  },
-  "delayedfuses": {
-    "id": "delayedfuses",
-    "name": "Delayed Fuses"
-  },
-  "angleddeflectors": {
-    "id": "angleddeflectors",
-    "name": "Angled Deflectors"
-  },
-  "targetingcomputer": {
-    "id": "targetingcomputer",
-    "name": "Targeting Computer"
-  },
-  "independentcalculations": {
-    "id": "independentcalculations",
-    "name": "Independent Calculations"
-  },
-  "overdrivethruster": {
-    "id": "overdrivethruster",
-    "name": "Overdrive Thruster"
-  },
-  "precisionionengines": {
-    "id": "precisionionengines",
-    "name": "Precision Ion Engines"
-  },
-  "mandalorianoptics": {
-    "id": "mandalorianoptics",
-    "name": "Mandalorian Optics"
-  },
-  "dropseatbay": {
-    "id": "dropseatbay",
-    "name": "Drop-Seat bay"
-  },
-  "beskarreinforcedplating": {
-    "id": "beskarreinforcedplating",
-    "name": "Beskar Reinforced Plating"
-  },
-  "burnoutthrusters": {
-    "id": "burnoutthrusters",
-    "name": "Burnout Thrusters"
-  },
-  "unstablesublightengines-battleofyavin": {
-    "id": "unstablesublightengines-battleofyavin",
-    "name": "Unstable Sublight Engines"
-  },
-  "sensorjammer-battleofyavin": {
-    "id": "sensorjammer-battleofyavin",
-    "name": "Sensor Jammer"
-  },
-  "contingencyprotocol-siegeofcoruscant": {
-    "id": "contingencyprotocol-siegeofcoruscant",
-    "name": "Contingency Protocol"
-  },
-  "evasionsequence7-siegeofcoruscant": {
-    "id": "evasionsequence7-siegeofcoruscant",
-    "name": "Evasion Sequence 7"
-  },
-  "advancedsensors": {
-    "id": "advancedsensors",
-    "name": "Advanced Sensors"
-  },
-  "collisiondetector": {
-    "id": "collisiondetector",
-    "name": "Collision Detector"
-  },
-  "firecontrolsystem": {
-    "id": "firecontrolsystem",
-    "name": "Fire-Control System"
-  },
-  "trajectorysimulator": {
-    "id": "trajectorysimulator",
-    "name": "Trajectory Simulator"
-  },
-  "passivesensors": {
-    "id": "passivesensors",
-    "name": "Passive Sensors"
-  },
-  "kraken": {
-    "id": "kraken",
-    "name": "Kraken"
-  },
-  "tv94": {
-    "id": "tv94",
-    "name": "TV-94"
-  },
-  "k2b4": {
-    "id": "k2b4",
-    "name": "K2-B4"
-  },
-  "ta175": {
-    "id": "ta175",
-    "name": "TA-175"
-  },
-  "kalani": {
-    "id": "kalani",
-    "name": "Kalani"
-  },
-  "composure": {
-    "id": "composure",
-    "name": "Composure"
-  },
-  "crackshot": {
-    "id": "crackshot",
-    "name": "Crack Shot"
-  },
-  "daredevil": {
-    "id": "daredevil",
-    "name": "Daredevil"
-  },
-  "debrisgambit": {
-    "id": "debrisgambit",
-    "name": "Debris Gambit"
-  },
-  "elusive": {
-    "id": "elusive",
-    "name": "Elusive"
-  },
-  "experthandling": {
-    "id": "experthandling",
-    "name": "Expert Handling"
-  },
-  "fanatical": {
-    "id": "fanatical",
-    "name": "Fanatical"
-  },
-  "fearless": {
-    "id": "fearless",
-    "name": "Fearless"
-  },
-  "heroic": {
-    "id": "heroic",
-    "name": "Heroic"
-  },
-  "intimidation": {
-    "id": "intimidation",
-    "name": "Intimidation"
-  },
-  "juke": {
-    "id": "juke",
-    "name": "Juke"
-  },
-  "lonewolf": {
-    "id": "lonewolf",
-    "name": "Lone Wolf"
-  },
-  "marksmanship": {
-    "id": "marksmanship",
-    "name": "Marksmanship"
-  },
-  "outmaneuver": {
-    "id": "outmaneuver",
-    "name": "Outmaneuver"
-  },
-  "predator": {
-    "id": "predator",
-    "name": "Predator"
-  },
-  "ruthless": {
-    "id": "ruthless",
-    "name": "Ruthless"
-  },
-  "saturationsalvo": {
-    "id": "saturationsalvo",
-    "name": "Saturation Salvo"
-  },
-  "selfless": {
-    "id": "selfless",
-    "name": "Selfless"
-  },
-  "squadleader": {
-    "id": "squadleader",
-    "name": "Squad Leader"
-  },
-  "swarmtactics": {
-    "id": "swarmtactics",
-    "name": "Swarm Tactics"
-  },
-  "trickshot": {
-    "id": "trickshot",
-    "name": "Trick Shot"
-  },
-  "treacherous": {
-    "id": "treacherous",
-    "name": "Treacherous"
-  },
-  "dedicated": {
-    "id": "dedicated",
-    "name": "Dedicated"
-  },
-  "ensnare": {
-    "id": "ensnare",
-    "name": "Ensnare"
-  },
-  "snapshot": {
-    "id": "snapshot",
-    "name": "Snap Shot"
-  },
-  "graviticdeflection": {
-    "id": "graviticdeflection",
-    "name": "Gravitic Deflection"
-  },
-  "proudtradition": {
-    "id": "proudtradition",
-    "name": "Proud Tradition"
-  },
-  "deadeyeshot": {
-    "id": "deadeyeshot",
-    "name": "Deadeye Shot"
-  },
-  "backwardstailslide": {
-    "id": "backwardstailslide",
-    "name": "Backwards Tailslide"
-  },
-  "ionlimiteroverride": {
-    "id": "ionlimiteroverride",
-    "name": "Ion Limiter Override"
-  },
-  "margsablclosure": {
-    "id": "margsablclosure",
-    "name": "Marg Sabl Closure"
-  },
-  "starbirdslash": {
-    "id": "starbirdslash",
-    "name": "Starbird Slash"
-  },
-  "cutthroat": {
-    "id": "cutthroat",
-    "name": "Cutthroat"
-  },
-  "disciplined": {
-    "id": "disciplined",
-    "name": "Disciplined"
-  },
-  "hopeful": {
-    "id": "hopeful",
-    "name": "Hopeful"
-  },
-  "interloperturn": {
-    "id": "interloperturn",
-    "name": "Interloper Turn"
-  },
-  "tierfonbellyrun": {
-    "id": "tierfonbellyrun",
-    "name": "Tierfon Belly Run"
-  },
-  "feedbackping": {
-    "id": "feedbackping",
-    "name": "Feedback Ping"
-  },
-  "clantraining": {
-    "id": "clantraining",
-    "name": "Clan Training"
-  },
-  "notorious": {
-    "id": "notorious",
-    "name": "Notorious"
-  },
-  "enduring": {
-    "id": "enduring",
-    "name": "Enduring"
-  },
-  "attackspeed-battleofyavin": {
-    "id": "attackspeed-battleofyavin",
-    "name": "Attack Speed"
-  },
-  "fanatic-battleofyavin": {
-    "id": "fanatic-battleofyavin",
-    "name": "Fanatic"
-  },
-  "vengeful-battleofyavin": {
-    "id": "vengeful-battleofyavin",
-    "name": "Vengeful"
-  },
-  "bombardmentspecialists": {
-    "id": "bombardmentspecialists",
-    "name": "Bombardment Specialists"
-  },
-  "commsteam": {
-    "id": "commsteam",
-    "name": "Comms Team"
-  },
-  "damagecontrolteam": {
-    "id": "damagecontrolteam",
-    "name": "Damage Control Team"
-  },
-  "gunneryspecialists": {
-    "id": "gunneryspecialists",
-    "name": "Gunnery Specialists"
-  },
-  "igrmdroids": {
-    "id": "igrmdroids",
-    "name": "IG-RM Droids"
-  },
-  "ordnanceteam": {
-    "id": "ordnanceteam",
-    "name": "Ordnance Team"
-  },
-  "sensorexperts": {
-    "id": "sensorexperts",
-    "name": "Sensor Experts"
-  },
-  "tractortechnicians": {
-    "id": "tractortechnicians",
-    "name": "Tractor Technicians"
-  },
-  "corsaircrew": {
-    "id": "corsaircrew",
-    "name": "Corsair Crew"
-  },
-  "droidcrew": {
-    "id": "droidcrew",
-    "name": "Droid Crew"
-  },
-  "advancedoptics": {
-    "id": "advancedoptics",
-    "name": "Advanced Optics"
-  },
-  "ferrospherepaint": {
-    "id": "ferrospherepaint",
-    "name": "Ferrosphere Paint"
-  },
-  "hyperspacetrackingdata": {
-    "id": "hyperspacetrackingdata",
-    "name": "Hyperspace Tracking Data"
-  },
-  "primedthrusters": {
-    "id": "primedthrusters",
-    "name": "Primed Thrusters"
-  },
-  "targetingsynchronizer": {
-    "id": "targetingsynchronizer",
-    "name": "Targeting Synchronizer"
-  },
-  "patternanalyzer": {
-    "id": "patternanalyzer",
-    "name": "Pattern Analyzer"
-  },
-  "biohexacryptcodes": {
-    "id": "biohexacryptcodes",
-    "name": "Biohexacrypt Codes"
-  },
-  "deuteriumpowercells": {
-    "id": "deuteriumpowercells",
-    "name": "Deuterium Power Cells"
-  },
-  "automatedtargetpriority": {
-    "id": "automatedtargetpriority",
-    "name": "Automated Target Priority"
-  },
-  "sensorbuoysuite": {
-    "id": "sensorbuoysuite",
-    "name": "Sensor Buoy Suite"
-  },
-  "sensorscramblers": {
-    "id": "sensorscramblers",
-    "name": "Sensor Scramblers"
-  },
-  "andrasta": {
-    "id": "andrasta",
-    "name": "Andrasta"
-  },
-  "blackone": {
-    "id": "blackone",
-    "name": "Black One"
-  },
-  "dauntless": {
-    "id": "dauntless",
-    "name": "Dauntless"
-  },
-  "ghost": {
-    "id": "ghost",
-    "name": "Ghost"
-  },
-  "havoc": {
-    "id": "havoc",
-    "name": "Havoc"
-  },
-  "houndstooth": {
-    "id": "houndstooth",
-    "name": "Hound's Tooth"
-  },
-  "ig2000": {
-    "id": "ig2000",
-    "name": "IG-2000"
-  },
-  "landosmillenniumfalcon": {
-    "id": "landosmillenniumfalcon",
-    "name": "Lando's Millennium Falcon"
-  },
-  "marauder": {
-    "id": "marauder",
-    "name": "Marauder"
-  },
-  "millenniumfalcon": {
-    "id": "millenniumfalcon",
-    "name": "Millennium Falcon"
-  },
-  "misthunter": {
-    "id": "misthunter",
-    "name": "Mist Hunter"
-  },
-  "moldycrow": {
-    "id": "moldycrow",
-    "name": "Moldy Crow"
-  },
-  "outrider": {
-    "id": "outrider",
-    "name": "Outrider"
-  },
-  "phantom": {
-    "id": "phantom",
-    "name": "Phantom"
-  },
-  "punishingone": {
-    "id": "punishingone",
-    "name": "Punishing One"
-  },
-  "st321": {
-    "id": "st321",
-    "name": "ST-321"
-  },
-  "shadowcaster": {
-    "id": "shadowcaster",
-    "name": "Shadow Caster"
-  },
-  "slavei": {
-    "id": "slavei",
-    "name": "Slave I"
-  },
-  "virago": {
-    "id": "virago",
-    "name": "Virago"
-  },
-  "reysmillenniumfalcon": {
-    "id": "reysmillenniumfalcon",
-    "name": "Rey's Millennium Falcon"
-  },
-  "soullessone": {
-    "id": "soullessone",
-    "name": "Soulless One"
-  },
-  "scimitar": {
-    "id": "scimitar",
-    "name": "Scimitar"
-  },
-  "assailer": {
-    "id": "assailer",
-    "name": "Assailer"
-  },
-  "bloodcrow": {
-    "id": "bloodcrow",
-    "name": "Blood Crow"
-  },
-  "brighthope": {
-    "id": "brighthope",
-    "name": "Bright Hope"
-  },
-  "brokenhorn": {
-    "id": "brokenhorn",
-    "name": "Broken Horn"
-  },
-  "corvus": {
-    "id": "corvus",
-    "name": "Corvus"
-  },
-  "dodonnaspride": {
-    "id": "dodonnaspride",
-    "name": "Dodonna's Pride"
-  },
-  "impetuous": {
-    "id": "impetuous",
-    "name": "Impetuous"
-  },
-  "insatiableworrt": {
-    "id": "insatiableworrt",
-    "name": "Insatiable Worrt"
-  },
-  "instigator": {
-    "id": "instigator",
-    "name": "Instigator"
-  },
-  "jainaslight": {
-    "id": "jainaslight",
-    "name": "Jaina's Light"
-  },
-  "kazsfireball": {
-    "id": "kazsfireball",
-    "name": "Kaz's Fireball"
-  },
-  "liberator": {
-    "id": "liberator",
-    "name": "Liberator"
-  },
-  "luminous": {
-    "id": "luminous",
-    "name": "Luminous"
-  },
-  "merchantone": {
-    "id": "merchantone",
-    "name": "Merchant One"
-  },
-  "quantumstorm": {
-    "id": "quantumstorm",
-    "name": "Quantum Storm"
-  },
-  "requiem": {
-    "id": "requiem",
-    "name": "Requiem"
-  },
-  "suppressor": {
-    "id": "suppressor",
-    "name": "Suppressor"
-  },
-  "tantiveiv": {
-    "id": "tantiveiv",
-    "name": "Tantive IV"
-  },
-  "thunderstrike": {
-    "id": "thunderstrike",
-    "name": "Thunderstrike"
-  },
-  "vector": {
-    "id": "vector",
-    "name": "Vector"
-  },
-  "slavei-swz82": {
-    "id": "slavei-swz82",
-    "name": "Slave I"
-  },
-  "b6bladewingprototype": {
-    "id": "b6bladewingprototype",
-    "name": "B6 Blade Wing Prototype"
-  },
-  "nautolansrevenge": {
-    "id": "nautolansrevenge",
-    "name": "Nautolan's Revenge"
-  },
-  "grappler": {
-    "id": "grappler",
-    "name": "Grappler"
-  },
-  "neimoidiangrasp": {
-    "id": "neimoidiangrasp",
-    "name": "Neimoidian Grasp"
-  },
-  "trident": {
-    "id": "trident",
-    "name": "Trident"
-  },
-  "nightbrother": {
-    "id": "nightbrother",
-    "name": "Nightbrother"
-  },
-  "gauntlet": {
-    "id": "gauntlet",
-    "name": "Gauntlet"
-  },
-  "razorcrest": {
-    "id": "razorcrest",
-    "name": "Razor Crest"
-  },
-  "xanadublood": {
-    "id": "xanadublood",
-    "name": "Xanadu Blood"
-  },
-  "homingtorpedoes": {
-    "id": "homingtorpedoes",
-    "name": "Homing Torpedoes"
-  },
-  "advprotontorpedoes": {
-    "id": "advprotontorpedoes",
-    "name": "Adv. Proton Torpedoes"
-  },
-  "iontorpedoes": {
-    "id": "iontorpedoes",
-    "name": "Ion Torpedoes"
-  },
-  "protontorpedoes": {
-    "id": "protontorpedoes",
-    "name": "Proton Torpedoes"
-  },
-  "plasmatorpedoes": {
-    "id": "plasmatorpedoes",
-    "name": "Plasma Torpedoes"
-  },
-  "trackingtorpedoes": {
-    "id": "trackingtorpedoes",
-    "name": "Tracking Torpedoes"
-  },
-  "dorsalturret": {
-    "id": "dorsalturret",
-    "name": "Dorsal Turret"
-  },
-  "ioncannonturret": {
-    "id": "ioncannonturret",
-    "name": "Ion Cannon Turret"
+  "astromech": {
+    "chopper": {
+      "id": "chopper",
+      "name": "“Chopper”"
+    },
+    "genius": {
+      "id": "genius",
+      "name": "“Genius”"
+    },
+    "r2astromech": {
+      "id": "r2astromech",
+      "name": "R2 Astromech"
+    },
+    "r2d2": {
+      "id": "r2d2",
+      "name": "R2-D2"
+    },
+    "r3astromech": {
+      "id": "r3astromech",
+      "name": "R3 Astromech"
+    },
+    "r4astromech": {
+      "id": "r4astromech",
+      "name": "R4 Astromech"
+    },
+    "r5astromech": {
+      "id": "r5astromech",
+      "name": "R5 Astromech"
+    },
+    "r5d8": {
+      "id": "r5d8",
+      "name": "R5-D8"
+    },
+    "r5p8": {
+      "id": "r5p8",
+      "name": "R5-P8"
+    },
+    "r5tk": {
+      "id": "r5tk",
+      "name": "R5-TK"
+    },
+    "r5x3": {
+      "id": "r5x3",
+      "name": "R5-X3"
+    },
+    "r2ha": {
+      "id": "r2ha",
+      "name": "R2-HA"
+    },
+    "bb8": {
+      "id": "bb8",
+      "name": "BB-8"
+    },
+    "bbastromech": {
+      "id": "bbastromech",
+      "name": "BB Astromech"
+    },
+    "m9g8": {
+      "id": "m9g8",
+      "name": "M9-G8"
+    },
+    "r2c4": {
+      "id": "r2c4",
+      "name": "R2-C4"
+    },
+    "r4pastromech": {
+      "id": "r4pastromech",
+      "name": "R4-P Astromech"
+    },
+    "r4p17": {
+      "id": "r4p17",
+      "name": "R4-P17"
+    },
+    "r4p44": {
+      "id": "r4p44",
+      "name": "R4-P44"
+    },
+    "r2a6": {
+      "id": "r2a6",
+      "name": "R2-A6"
+    },
+    "c110p": {
+      "id": "c110p",
+      "name": "C1-10P"
+    },
+    "r1j5": {
+      "id": "r1j5",
+      "name": "R1-J5"
+    },
+    "q7astromech": {
+      "id": "q7astromech",
+      "name": "Q7 Astromech"
+    },
+    "r2d2-republic": {
+      "id": "r2d2-republic",
+      "name": "R2-D2"
+    },
+    "r2d2-resistance": {
+      "id": "r2d2-resistance",
+      "name": "R2-D2"
+    },
+    "r6d8": {
+      "id": "r6d8",
+      "name": "R6-D8"
+    },
+    "r7a7": {
+      "id": "r7a7",
+      "name": "R7-A7"
+    },
+    "r4b11": {
+      "id": "r4b11",
+      "name": "R4-B11"
+    },
+    "watchfulastromech": {
+      "id": "watchfulastromech",
+      "name": "Watchful Astromech"
+    },
+    "l4er5": {
+      "id": "l4er5",
+      "name": "L4E-R5"
+    },
+    "r2a3-battleofyavin": {
+      "id": "r2a3-battleofyavin",
+      "name": "R2-A3"
+    },
+    "r2d2-battleofyavin": {
+      "id": "r2d2-battleofyavin",
+      "name": "R2-D2"
+    },
+    "r2f2-battleofyavin": {
+      "id": "r2f2-battleofyavin",
+      "name": "R2-F2"
+    },
+    "r5d8-battleofyavin": {
+      "id": "r5d8-battleofyavin",
+      "name": "R5-D8"
+    },
+    "r5k6-battleofyavin": {
+      "id": "r5k6-battleofyavin",
+      "name": "R5-K6"
+    },
+    "preciseastromech-battleofyavin": {
+      "id": "preciseastromech-battleofyavin",
+      "name": "Precise Astromech"
+    },
+    "targetingastromech-battleofyavin": {
+      "id": "targetingastromech-battleofyavin",
+      "name": "Targeting Astromech"
+    },
+    "r4p17-siegeofcoruscant": {
+      "id": "r4p17-siegeofcoruscant",
+      "name": "R4-P17"
+    }
+  },
+  "cannon": {
+    "heavylasercannon": {
+      "id": "heavylasercannon",
+      "name": "Heavy Laser Cannon"
+    },
+    "ioncannon": {
+      "id": "ioncannon",
+      "name": "Ion Cannon"
+    },
+    "jammingbeam": {
+      "id": "jammingbeam",
+      "name": "Jamming Beam"
+    },
+    "tractorbeam": {
+      "id": "tractorbeam",
+      "name": "Tractor Beam"
+    },
+    "autoblasters": {
+      "id": "autoblasters",
+      "name": "Autoblasters"
+    },
+    "syncedlasercannons": {
+      "id": "syncedlasercannons",
+      "name": "Synced Laser Cannons"
+    },
+    "protoncannons": {
+      "id": "protoncannons",
+      "name": "Proton Cannons"
+    },
+    "underslungblastercannon": {
+      "id": "underslungblastercannon",
+      "name": "Underslung Blaster Cannon"
+    },
+    "ancillaryionweapons-siegeofcoruscant": {
+      "id": "ancillaryionweapons-siegeofcoruscant",
+      "name": "Ancillary Ion Weapons"
+    }
+  },
+  "cargo": {
+    "adaptiveshields": {
+      "id": "adaptiveshields",
+      "name": "Adaptive Shields"
+    },
+    "boostedscanners": {
+      "id": "boostedscanners",
+      "name": "Boosted Scanners"
+    },
+    "optimizedpowercore": {
+      "id": "optimizedpowercore",
+      "name": "Optimized Power Core"
+    },
+    "tibannareserves": {
+      "id": "tibannareserves",
+      "name": "Tibanna Reserves"
+    }
+  },
+  "command": {
+    "agentoftheempire": {
+      "id": "agentoftheempire",
+      "name": "Agent of the Empire"
+    },
+    "dreadnoughthunter": {
+      "id": "dreadnoughthunter",
+      "name": "Dreadnought Hunter"
+    },
+    "firstorderelite": {
+      "id": "firstorderelite",
+      "name": "First Order Elite"
+    },
+    "veteranwingleader": {
+      "id": "veteranwingleader",
+      "name": "Veteran Wing Leader"
+    },
+    "admiralozzel": {
+      "id": "admiralozzel",
+      "name": "Admiral Ozzel"
+    },
+    "azmorigan": {
+      "id": "azmorigan",
+      "name": "Azmorigan"
+    },
+    "captainneeda": {
+      "id": "captainneeda",
+      "name": "Captain Needa"
+    },
+    "carlistrieekan": {
+      "id": "carlistrieekan",
+      "name": "Carlist Rieekan"
+    },
+    "jandodonna": {
+      "id": "jandodonna",
+      "name": "Jan Dodonna"
+    },
+    "raymusantilles": {
+      "id": "raymusantilles",
+      "name": "Raymus Antilles"
+    },
+    "stalwartcaptain": {
+      "id": "stalwartcaptain",
+      "name": "Stalwart Captain"
+    },
+    "strategiccommander": {
+      "id": "strategiccommander",
+      "name": "Strategic Commander"
+    },
+    "jedicommander": {
+      "id": "jedicommander",
+      "name": "Jedi Commander"
+    },
+    "b6bladewingprototype-command": {
+      "id": "b6bladewingprototype-command",
+      "name": "B6 Blade Wing Prototype"
+    },
+    "bounty": {
+      "id": "bounty",
+      "name": "Bounty"
+    },
+    "phoenixsquadron": {
+      "id": "phoenixsquadron",
+      "name": "Phoenix Squadron"
+    },
+    "shadowwing": {
+      "id": "shadowwing",
+      "name": "Shadow Wing"
+    },
+    "skystrikeacademyclass": {
+      "id": "skystrikeacademyclass",
+      "name": "Skystrike Academy Class"
+    },
+    "initforthemoneyrebellion": {
+      "id": "initforthemoneyrebellion",
+      "name": "In It For The Money/Rebellion"
+    },
+    "martuuk": {
+      "id": "martuuk",
+      "name": "Mar Tuuk"
+    },
+    "rifftamson": {
+      "id": "rifftamson",
+      "name": "Riff Tamson"
+    },
+    "asajjventresscommand": {
+      "id": "asajjventresscommand",
+      "name": "Asajj Ventress"
+    },
+    "zealouscaptain": {
+      "id": "zealouscaptain",
+      "name": "Zealous Captain"
+    },
+    "hondoohnakacommand": {
+      "id": "hondoohnakacommand",
+      "name": "Hondo Ohnaka"
+    },
+    "generalgrievouscommand": {
+      "id": "generalgrievouscommand",
+      "name": "General Grievous"
+    },
+    "combatboardingtube": {
+      "id": "combatboardingtube",
+      "name": "Combat Boarding Tube"
+    }
+  },
+  "configuration": {
+    "integratedsfoils": {
+      "id": "integratedsfoils",
+      "name": "Integrated S-foils"
+    },
+    "os1arsenalloadout": {
+      "id": "os1arsenalloadout",
+      "name": "Os-1 Arsenal Loadout"
+    },
+    "pivotwing": {
+      "id": "pivotwing",
+      "name": "Pivot Wing"
+    },
+    "swivelwing": {
+      "id": "swivelwing",
+      "name": "Swivel Wing"
+    },
+    "servomotorsfoils": {
+      "id": "servomotorsfoils",
+      "name": "Servomotor S-foils"
+    },
+    "xg1assaultconfiguration": {
+      "id": "xg1assaultconfiguration",
+      "name": "Xg-1 Assault Configuration"
+    },
+    "grapplingstruts": {
+      "id": "grapplingstruts",
+      "name": "Grappling Struts"
+    },
+    "delta7b": {
+      "id": "delta7b",
+      "name": "Delta-7B"
+    },
+    "calibratedlasertargeting": {
+      "id": "calibratedlasertargeting",
+      "name": "Calibrated Laser Targeting"
+    },
+    "landingstruts": {
+      "id": "landingstruts",
+      "name": "Landing Struts"
+    },
+    "corsairrefit": {
+      "id": "corsairrefit",
+      "name": "Corsair Refit"
+    },
+    "stabilizedsfoils": {
+      "id": "stabilizedsfoils",
+      "name": "Stabilized S-foils"
+    },
+    "repulsorliftstabilizers": {
+      "id": "repulsorliftstabilizers",
+      "name": "Repulsorlift Stabilizers"
+    },
+    "alpha3bbesh": {
+      "id": "alpha3bbesh",
+      "name": "Alpha-3B “Besh”"
+    },
+    "alpha3eesk": {
+      "id": "alpha3eesk",
+      "name": "Alpha-3E “Esk”"
+    },
+    "interceptbooster": {
+      "id": "interceptbooster",
+      "name": "Intercept Booster"
+    },
+    "maneuverassistmgk300": {
+      "id": "maneuverassistmgk300",
+      "name": "Maneuver-Assist MGK-300"
+    },
+    "targetassistmgk300": {
+      "id": "targetassistmgk300",
+      "name": "Target-Assist MGK-300"
+    },
+    "sensitivecontrols": {
+      "id": "sensitivecontrols",
+      "name": "Sensitive Controls"
+    },
+    "tiedefenderelite": {
+      "id": "tiedefenderelite",
+      "name": "TIE Defender Elite"
+    },
+    "vectoredcannonsrz1": {
+      "id": "vectoredcannonsrz1",
+      "name": "Vectored Cannons (RZ-1)"
+    },
+    "wartimeloadout": {
+      "id": "wartimeloadout",
+      "name": "Wartime Loadout"
+    },
+    "enhancedjammingsuite": {
+      "id": "enhancedjammingsuite",
+      "name": "Enhanced Jamming Suite"
+    },
+    "l337sprogramming-battleofyavin": {
+      "id": "l337sprogramming-battleofyavin",
+      "name": "L3-37's Programming"
+    },
+    "strutlockoverride-siegeofcoruscant": {
+      "id": "strutlockoverride-siegeofcoruscant",
+      "name": "Strut-Lock Override"
+    }
+  },
+  "crew": {
+    "chopper-crew": {
+      "id": "chopper-crew",
+      "name": "“Chopper”"
+    },
+    "zeborrelios": {
+      "id": "zeborrelios",
+      "name": "“Zeb” Orrelios"
+    },
+    "000": {
+      "id": "000",
+      "name": "0-0-0"
+    },
+    "4lom": {
+      "id": "4lom",
+      "name": "4-LOM"
+    },
+    "admiralsloane": {
+      "id": "admiralsloane",
+      "name": "Admiral Sloane"
+    },
+    "agentkallus": {
+      "id": "agentkallus",
+      "name": "Agent Kallus"
+    },
+    "bazemalbus": {
+      "id": "bazemalbus",
+      "name": "Baze Malbus"
+    },
+    "bobafett": {
+      "id": "bobafett",
+      "name": "Boba Fett"
+    },
+    "c3po": {
+      "id": "c3po",
+      "name": "C-3PO"
+    },
+    "cadbane": {
+      "id": "cadbane",
+      "name": "Cad Bane"
+    },
+    "captainphasma": {
+      "id": "captainphasma",
+      "name": "Captain Phasma"
+    },
+    "cassianandor": {
+      "id": "cassianandor",
+      "name": "Cassian Andor"
+    },
+    "chewbacca": {
+      "id": "chewbacca",
+      "name": "Chewbacca"
+    },
+    "chewbacca-crew": {
+      "id": "chewbacca-crew",
+      "name": "Chewbacca"
+    },
+    "cienaree": {
+      "id": "cienaree",
+      "name": "Ciena Ree"
+    },
+    "cikatrovizago": {
+      "id": "cikatrovizago",
+      "name": "Cikatro Vizago"
+    },
+    "darthvader": {
+      "id": "darthvader",
+      "name": "Darth Vader"
+    },
+    "deathtroopers": {
+      "id": "deathtroopers",
+      "name": "Death Troopers"
+    },
+    "directorkrennic": {
+      "id": "directorkrennic",
+      "name": "Director Krennic"
+    },
+    "emperorpalpatine": {
+      "id": "emperorpalpatine",
+      "name": "Emperor Palpatine"
+    },
+    "freelanceslicer": {
+      "id": "freelanceslicer",
+      "name": "Freelance Slicer"
+    },
+    "generalhux": {
+      "id": "generalhux",
+      "name": "General Hux"
+    },
+    "gnkgonkdroid": {
+      "id": "gnkgonkdroid",
+      "name": "GNK “Gonk” Droid"
+    },
+    "grandinquisitor": {
+      "id": "grandinquisitor",
+      "name": "Grand Inquisitor"
+    },
+    "grandmofftarkin": {
+      "id": "grandmofftarkin",
+      "name": "Grand Moff Tarkin"
+    },
+    "herasyndulla": {
+      "id": "herasyndulla",
+      "name": "Hera Syndulla"
+    },
+    "ig88d": {
+      "id": "ig88d",
+      "name": "IG-88D"
+    },
+    "isbslicer": {
+      "id": "isbslicer",
+      "name": "ISB Slicer"
+    },
+    "informant": {
+      "id": "informant",
+      "name": "Informant"
+    },
+    "jabbathehutt": {
+      "id": "jabbathehutt",
+      "name": "Jabba the Hutt"
+    },
+    "jynerso": {
+      "id": "jynerso",
+      "name": "Jyn Erso"
+    },
+    "kananjarrus": {
+      "id": "kananjarrus",
+      "name": "Kanan Jarrus"
+    },
+    "ketsuonyo": {
+      "id": "ketsuonyo",
+      "name": "Ketsu Onyo"
+    },
+    "kyloren": {
+      "id": "kyloren",
+      "name": "Kylo Ren"
+    },
+    "l337": {
+      "id": "l337",
+      "name": "L3-37"
+    },
+    "landocalrissian-crew": {
+      "id": "landocalrissian-crew",
+      "name": "Lando Calrissian"
+    },
+    "landocalrissian": {
+      "id": "landocalrissian",
+      "name": "Lando Calrissian"
+    },
+    "lattsrazzi": {
+      "id": "lattsrazzi",
+      "name": "Latts Razzi"
+    },
+    "leiaorgana": {
+      "id": "leiaorgana",
+      "name": "Leia Organa"
+    },
+    "magvayarro": {
+      "id": "magvayarro",
+      "name": "Magva Yarro"
+    },
+    "maul": {
+      "id": "maul",
+      "name": "Maul"
+    },
+    "ministertua": {
+      "id": "ministertua",
+      "name": "Minister Tua"
+    },
+    "moffjerjerrod": {
+      "id": "moffjerjerrod",
+      "name": "Moff Jerjerrod"
+    },
+    "niennunb": {
+      "id": "niennunb",
+      "name": "Nien Nunb"
+    },
+    "novicetechnician": {
+      "id": "novicetechnician",
+      "name": "Novice Technician"
+    },
+    "perceptivecopilot": {
+      "id": "perceptivecopilot",
+      "name": "Perceptive Copilot"
+    },
+    "pettyofficerthanisson": {
+      "id": "pettyofficerthanisson",
+      "name": "Petty Officer Thanisson"
+    },
+    "qira": {
+      "id": "qira",
+      "name": "Qi'ra"
+    },
+    "r2d2-crew": {
+      "id": "r2d2-crew",
+      "name": "R2-D2"
+    },
+    "sabinewren": {
+      "id": "sabinewren",
+      "name": "Sabine Wren"
+    },
+    "sawgerrera": {
+      "id": "sawgerrera",
+      "name": "Saw Gerrera"
+    },
+    "seasonednavigator": {
+      "id": "seasonednavigator",
+      "name": "Seasoned Navigator"
+    },
+    "seventhsister": {
+      "id": "seventhsister",
+      "name": "Seventh Sister"
+    },
+    "supremeleadersnoke": {
+      "id": "supremeleadersnoke",
+      "name": "Supreme Leader Snoke"
+    },
+    "tacticalofficer": {
+      "id": "tacticalofficer",
+      "name": "Tactical Officer"
+    },
+    "tobiasbeckett": {
+      "id": "tobiasbeckett",
+      "name": "Tobias Beckett"
+    },
+    "unkarplutt": {
+      "id": "unkarplutt",
+      "name": "Unkar Plutt"
+    },
+    "zuckuss": {
+      "id": "zuckuss",
+      "name": "Zuckuss"
+    },
+    "c3po-crew": {
+      "id": "c3po-crew",
+      "name": "C-3PO"
+    },
+    "hansolo-crew": {
+      "id": "hansolo-crew",
+      "name": "Han Solo"
+    },
+    "chewbacca-crew-swz19": {
+      "id": "chewbacca-crew-swz19",
+      "name": "Chewbacca"
+    },
+    "rosetico": {
+      "id": "rosetico",
+      "name": "Rose Tico"
+    },
+    "chancellorpalpatine": {
+      "id": "chancellorpalpatine",
+      "name": "Palpatine/Sidious"
+    },
+    "countdooku": {
+      "id": "countdooku",
+      "name": "Count Dooku"
+    },
+    "generalgrievous": {
+      "id": "generalgrievous",
+      "name": "General Grievous"
+    },
+    "amilynholdo": {
+      "id": "amilynholdo",
+      "name": "Amilyn Holdo"
+    },
+    "ga97": {
+      "id": "ga97",
+      "name": "GA-97"
+    },
+    "kaydelconnix": {
+      "id": "kaydelconnix",
+      "name": "Kaydel Connix"
+    },
+    "korrsella": {
+      "id": "korrsella",
+      "name": "Korr Sella"
+    },
+    "larmadacy": {
+      "id": "larmadacy",
+      "name": "Larma D'Acy"
+    },
+    "leiaorgana-resistance": {
+      "id": "leiaorgana-resistance",
+      "name": "Leia Organa"
+    },
+    "pz4co": {
+      "id": "pz4co",
+      "name": "PZ-4CO"
+    },
+    "c3po-republic": {
+      "id": "c3po-republic",
+      "name": "C-3PO"
+    },
+    "aaylasecura": {
+      "id": "aaylasecura",
+      "name": "Aayla Secura"
+    },
+    "agentterex": {
+      "id": "agentterex",
+      "name": "Agent Terex"
+    },
+    "k2so": {
+      "id": "k2so",
+      "name": "K-2SO"
+    },
+    "plokoon": {
+      "id": "plokoon",
+      "name": "Plo Koon"
+    },
+    "torynfarr": {
+      "id": "torynfarr",
+      "name": "Toryn Farr"
+    },
+    "kitfisto": {
+      "id": "kitfisto",
+      "name": "Kit Fisto"
+    },
+    "yoda": {
+      "id": "yoda",
+      "name": "Yoda"
+    },
+    "fives": {
+      "id": "fives",
+      "name": "“Fives”"
+    },
+    "wolfpack": {
+      "id": "wolfpack",
+      "name": "Wolfpack"
+    },
+    "commandermalarus": {
+      "id": "commandermalarus",
+      "name": "Commander Malarus"
+    },
+    "ghostcompany": {
+      "id": "ghostcompany",
+      "name": "Ghost Company"
+    },
+    "commanderpyre": {
+      "id": "commanderpyre",
+      "name": "Commander Pyre"
+    },
+    "hondoohnaka": {
+      "id": "hondoohnaka",
+      "name": "Hondo Ohnaka"
+    },
+    "jangofett": {
+      "id": "jangofett",
+      "name": "Jango Fett"
+    },
+    "zamwesell": {
+      "id": "zamwesell",
+      "name": "Zam Wesell"
+    },
+    "gamutkey": {
+      "id": "gamutkey",
+      "name": "Gamut Key"
+    },
+    "protectorategleb": {
+      "id": "protectorategleb",
+      "name": "Protectorate Gleb"
+    },
+    "themandalorian": {
+      "id": "themandalorian",
+      "name": "The Mandalorian"
+    },
+    "thechild": {
+      "id": "thechild",
+      "name": "The Child"
+    },
+    "ig11": {
+      "id": "ig11",
+      "name": "IG-11"
+    },
+    "greefkarga": {
+      "id": "greefkarga",
+      "name": "Greef Karga"
+    },
+    "kuiil": {
+      "id": "kuiil",
+      "name": "Kuiil"
+    },
+    "pelimotto": {
+      "id": "pelimotto",
+      "name": "Peli Motto"
+    },
+    "primeministeralmec": {
+      "id": "primeministeralmec",
+      "name": "Prime Minister Almec"
+    },
+    "rookkast": {
+      "id": "rookkast",
+      "name": "Rook Kast"
+    },
+    "obiwankenobi": {
+      "id": "obiwankenobi",
+      "name": "Obi-Wan Kenobi"
+    },
+    "bokatankryze": {
+      "id": "bokatankryze",
+      "name": "Bo-Katan Kryze"
+    },
+    "bokatankryze-rebel-scum": {
+      "id": "bokatankryze-rebel-scum",
+      "name": "Bo-Katan Kryze"
+    },
+    "korkiekryze": {
+      "id": "korkiekryze",
+      "name": "Korkie Kryze"
+    },
+    "satinekryze": {
+      "id": "satinekryze",
+      "name": "Satine Kryze"
+    },
+    "talmerrik": {
+      "id": "talmerrik",
+      "name": "Tal Merrik"
+    },
+    "savageopress": {
+      "id": "savageopress",
+      "name": "Savage Opress"
+    },
+    "fennrau": {
+      "id": "fennrau",
+      "name": "Fenn Rau"
+    },
+    "garsaxon": {
+      "id": "garsaxon",
+      "name": "Gar Saxon"
+    },
+    "previzsla": {
+      "id": "previzsla",
+      "name": "Pre Vizsla"
+    },
+    "tristanwren": {
+      "id": "tristanwren",
+      "name": "Tristan Wren"
+    },
+    "ursawren": {
+      "id": "ursawren",
+      "name": "Ursa Wren"
+    },
+    "captainhark": {
+      "id": "captainhark",
+      "name": "Captain Hark"
+    },
+    "ahsokatano-crew": {
+      "id": "ahsokatano-crew",
+      "name": "Ahsoka Tano"
+    },
+    "maul-crew": {
+      "id": "maul-crew",
+      "name": "Maul"
+    },
+    "clanwrencommandos": {
+      "id": "clanwrencommandos",
+      "name": "Clan Wren Commandos"
+    },
+    "imperialsupercommandos": {
+      "id": "imperialsupercommandos",
+      "name": "Imperial Super Commandos"
+    },
+    "mandaloriansupercommandos": {
+      "id": "mandaloriansupercommandos",
+      "name": "Mandalorian Super Commandos"
+    },
+    "niteowlcommandos": {
+      "id": "niteowlcommandos",
+      "name": "Nite Owl Commandos"
+    },
+    "deathwatchcommandos": {
+      "id": "deathwatchcommandos",
+      "name": "Death Watch Commandos"
+    },
+    "chewbacca-battleofyavin": {
+      "id": "chewbacca-battleofyavin",
+      "name": "Chewbacca"
+    },
+    "wolfpack-siegeofcoruscant": {
+      "id": "wolfpack-siegeofcoruscant",
+      "name": "Wolfpack"
+    }
+  },
+  "device": {
+    "bombletgenerator": {
+      "id": "bombletgenerator",
+      "name": "Bomblet Generator"
+    },
+    "blazerbomb": {
+      "id": "blazerbomb",
+      "name": "Blazer Bomb"
+    },
+    "connernets": {
+      "id": "connernets",
+      "name": "Conner Nets"
+    },
+    "protonbombs": {
+      "id": "protonbombs",
+      "name": "Proton Bombs"
+    },
+    "proximitymines": {
+      "id": "proximitymines",
+      "name": "Proximity Mines"
+    },
+    "seismiccharges": {
+      "id": "seismiccharges",
+      "name": "Seismic Charges"
+    },
+    "drk1probedroids": {
+      "id": "drk1probedroids",
+      "name": "DRK-1 Probe Droids"
+    },
+    "electroprotonbomb": {
+      "id": "electroprotonbomb",
+      "name": "Electro-Proton Bomb"
+    },
+    "clustermines": {
+      "id": "clustermines",
+      "name": "Cluster Mines"
+    },
+    "ionbombs": {
+      "id": "ionbombs",
+      "name": "Ion Bombs"
+    },
+    "concussionbombs": {
+      "id": "concussionbombs",
+      "name": "Concussion Bombs"
+    },
+    "thermaldetonators": {
+      "id": "thermaldetonators",
+      "name": "Thermal Detonators"
+    }
+  },
+  "force-power": {
+    "heightenedperception": {
+      "id": "heightenedperception",
+      "name": "Heightened Perception"
+    },
+    "instinctiveaim": {
+      "id": "instinctiveaim",
+      "name": "Instinctive Aim"
+    },
+    "sense": {
+      "id": "sense",
+      "name": "Sense"
+    },
+    "supernaturalreflexes": {
+      "id": "supernaturalreflexes",
+      "name": "Supernatural Reflexes"
+    },
+    "brilliantevasion": {
+      "id": "brilliantevasion",
+      "name": "Brilliant Evasion"
+    },
+    "hate": {
+      "id": "hate",
+      "name": "Hate"
+    },
+    "predictiveshot": {
+      "id": "predictiveshot",
+      "name": "Predictive Shot"
+    },
+    "battlemeditation": {
+      "id": "battlemeditation",
+      "name": "Battle Meditation"
+    },
+    "foresight": {
+      "id": "foresight",
+      "name": "Foresight"
+    },
+    "precognitivereflexes": {
+      "id": "precognitivereflexes",
+      "name": "Precognitive Reflexes"
+    },
+    "extrememaneuvers": {
+      "id": "extrememaneuvers",
+      "name": "Extreme Maneuvers"
+    },
+    "compassion": {
+      "id": "compassion",
+      "name": "Compassion"
+    },
+    "malice": {
+      "id": "malice",
+      "name": "Malice"
+    },
+    "shatteringshot": {
+      "id": "shatteringshot",
+      "name": "Shattering Shot"
+    },
+    "patience": {
+      "id": "patience",
+      "name": "Patience"
+    },
+    "roilinganger-siegeofcoruscant": {
+      "id": "roilinganger-siegeofcoruscant",
+      "name": "Roiling Anger"
+    }
+  },
+  "gunner": {
+    "agilegunner": {
+      "id": "agilegunner",
+      "name": "Agile Gunner"
+    },
+    "bt1": {
+      "id": "bt1",
+      "name": "BT-1"
+    },
+    "bistan": {
+      "id": "bistan",
+      "name": "Bistan"
+    },
+    "bossk": {
+      "id": "bossk",
+      "name": "Bossk"
+    },
+    "dengar": {
+      "id": "dengar",
+      "name": "Dengar"
+    },
+    "ezrabridger": {
+      "id": "ezrabridger",
+      "name": "Ezra Bridger"
+    },
+    "fifthbrother": {
+      "id": "fifthbrother",
+      "name": "Fifth Brother"
+    },
+    "greedo": {
+      "id": "greedo",
+      "name": "Greedo"
+    },
+    "hansolo": {
+      "id": "hansolo",
+      "name": "Han Solo"
+    },
+    "hansolo-gunner": {
+      "id": "hansolo-gunner",
+      "name": "Han Solo"
+    },
+    "hotshotgunner": {
+      "id": "hotshotgunner",
+      "name": "Hotshot Gunner"
+    },
+    "lukeskywalker": {
+      "id": "lukeskywalker",
+      "name": "Luke Skywalker"
+    },
+    "skilledbombardier": {
+      "id": "skilledbombardier",
+      "name": "Skilled Bombardier"
+    },
+    "specialforcesgunner": {
+      "id": "specialforcesgunner",
+      "name": "Special Forces Gunner"
+    },
+    "veterantailgunner": {
+      "id": "veterantailgunner",
+      "name": "Veteran Tail Gunner"
+    },
+    "veteranturretgunner": {
+      "id": "veteranturretgunner",
+      "name": "Veteran Turret Gunner"
+    },
+    "finn": {
+      "id": "finn",
+      "name": "Finn"
+    },
+    "paigetico": {
+      "id": "paigetico",
+      "name": "Paige Tico"
+    },
+    "rey-gunner": {
+      "id": "rey-gunner",
+      "name": "Rey"
+    },
+    "seventhfleetgunner": {
+      "id": "seventhfleetgunner",
+      "name": "Seventh Fleet Gunner"
+    },
+    "clonecommandercody": {
+      "id": "clonecommandercody",
+      "name": "Clone Commander Cody"
+    },
+    "ahsokatano": {
+      "id": "ahsokatano",
+      "name": "Ahsoka Tano"
+    },
+    "clonecaptainrex": {
+      "id": "clonecaptainrex",
+      "name": "Clone Captain Rex"
+    },
+    "suppressivegunner": {
+      "id": "suppressivegunner",
+      "name": "Suppressive Gunner"
+    },
+    "bobafett-gunner": {
+      "id": "bobafett-gunner",
+      "name": "Boba Fett"
+    },
+    "weaponssystemsofficer": {
+      "id": "weaponssystemsofficer",
+      "name": "Weapons Systems Officer"
+    },
+    "sabinewren-gunner": {
+      "id": "sabinewren-gunner",
+      "name": "Sabine Wren"
+    },
+    "dt798": {
+      "id": "dt798",
+      "name": "DT-798"
+    },
+    "firstorderordnancetech": {
+      "id": "firstorderordnancetech",
+      "name": "First Order Ordnance Tech"
+    },
+    "garsaxon-gunner": {
+      "id": "garsaxon-gunner",
+      "name": "Gar Saxon"
+    },
+    "tibersaxon": {
+      "id": "tibersaxon",
+      "name": "Tiber Saxon"
+    },
+    "ursawren-gunner": {
+      "id": "ursawren-gunner",
+      "name": "Ursa Wren"
+    },
+    "migsmayfeld": {
+      "id": "migsmayfeld",
+      "name": "Migs Mayfeld"
+    }
+  },
+  "hardpoint": {
+    "ioncannonbattery": {
+      "id": "ioncannonbattery",
+      "name": "Ion Cannon Battery"
+    },
+    "ordnancetubes": {
+      "id": "ordnancetubes",
+      "name": "Ordnance Tubes"
+    },
+    "pointdefensebattery": {
+      "id": "pointdefensebattery",
+      "name": "Point-Defense Battery"
+    },
+    "targetingbattery": {
+      "id": "targetingbattery",
+      "name": "Targeting Battery"
+    },
+    "turbolaserbattery": {
+      "id": "turbolaserbattery",
+      "name": "Turbolaser Battery"
+    },
+    "tractortentacles": {
+      "id": "tractortentacles",
+      "name": "Tractor Tentacles"
+    },
+    "protoncannonbattery": {
+      "id": "protoncannonbattery",
+      "name": "Proton Cannon Battery"
+    },
+    "enhancedpropulsion": {
+      "id": "enhancedpropulsion",
+      "name": "Enhanced Propulsion"
+    },
+    "drillbeak": {
+      "id": "drillbeak",
+      "name": "Drill Beak"
+    }
+  },
+  "hyperdrive": {
+    "syliure31hyperdrive": {
+      "id": "syliure31hyperdrive",
+      "name": "Syliure-31 Hyperdrive"
+    }
+  },
+  "illicit": {
+    "cloakingdevice": {
+      "id": "cloakingdevice",
+      "name": "Cloaking Device"
+    },
+    "contrabandcybernetics": {
+      "id": "contrabandcybernetics",
+      "name": "Contraband Cybernetics"
+    },
+    "deadmansswitch": {
+      "id": "deadmansswitch",
+      "name": "Deadman's Switch"
+    },
+    "feedbackarray": {
+      "id": "feedbackarray",
+      "name": "Feedback Array"
+    },
+    "inertialdampeners": {
+      "id": "inertialdampeners",
+      "name": "Inertial Dampeners"
+    },
+    "riggedcargochute": {
+      "id": "riggedcargochute",
+      "name": "Rigged Cargo Chute"
+    },
+    "coaxiumhyperfuel": {
+      "id": "coaxiumhyperfuel",
+      "name": "Coaxium Hyperfuel"
+    },
+    "quickreleaselocks": {
+      "id": "quickreleaselocks",
+      "name": "Quick-Release Locks"
+    },
+    "saboteursmap": {
+      "id": "saboteursmap",
+      "name": "Saboteur's Map"
+    },
+    "scannerbaffler": {
+      "id": "scannerbaffler",
+      "name": "Scanner Baffler"
+    },
+    "falsetranspondercodes": {
+      "id": "falsetranspondercodes",
+      "name": "False Transponder Codes"
+    },
+    "babufrik": {
+      "id": "babufrik",
+      "name": "Babu Frik"
+    },
+    "overtunedmodulators": {
+      "id": "overtunedmodulators",
+      "name": "Overtuned Modulators"
+    },
+    "trackingfob": {
+      "id": "trackingfob",
+      "name": "Tracking Fob"
+    },
+    "hotshottailblaster": {
+      "id": "hotshottailblaster",
+      "name": "Hotshot Tail Blaster"
+    }
+  },
+  "missile": {
+    "barragerockets": {
+      "id": "barragerockets",
+      "name": "Barrage Rockets"
+    },
+    "clustermissiles": {
+      "id": "clustermissiles",
+      "name": "Cluster Missiles"
+    },
+    "concussionmissiles": {
+      "id": "concussionmissiles",
+      "name": "Concussion Missiles"
+    },
+    "homingmissiles": {
+      "id": "homingmissiles",
+      "name": "Homing Missiles"
+    },
+    "ionmissiles": {
+      "id": "ionmissiles",
+      "name": "Ion Missiles"
+    },
+    "protonrockets": {
+      "id": "protonrockets",
+      "name": "Proton Rockets"
+    },
+    "energyshellcharges": {
+      "id": "energyshellcharges",
+      "name": "Energy-Shell Charges"
+    },
+    "discordmissiles": {
+      "id": "discordmissiles",
+      "name": "Discord Missiles"
+    },
+    "diamondboronmissiles": {
+      "id": "diamondboronmissiles",
+      "name": "Diamond-Boron Missiles"
+    },
+    "magpulsewarheads": {
+      "id": "magpulsewarheads",
+      "name": "Mag-Pulse Warheads"
+    },
+    "electrochaffmissiles": {
+      "id": "electrochaffmissiles",
+      "name": "Electro-Chaff Missiles"
+    },
+    "multimissilepods": {
+      "id": "multimissilepods",
+      "name": "Multi-Missile Pods"
+    },
+    "xx23sthreadtracers": {
+      "id": "xx23sthreadtracers",
+      "name": "XX-23 S-Thread Tracers"
+    }
+  },
+  "modification": {
+    "ablativeplating": {
+      "id": "ablativeplating",
+      "name": "Ablative Plating"
+    },
+    "advancedslam": {
+      "id": "advancedslam",
+      "name": "Advanced SLAM"
+    },
+    "afterburners": {
+      "id": "afterburners",
+      "name": "Afterburners"
+    },
+    "electronicbaffle": {
+      "id": "electronicbaffle",
+      "name": "Electronic Baffle"
+    },
+    "engineupgrade": {
+      "id": "engineupgrade",
+      "name": "Engine Upgrade"
+    },
+    "hullupgrade": {
+      "id": "hullupgrade",
+      "name": "Hull Upgrade"
+    },
+    "munitionsfailsafe": {
+      "id": "munitionsfailsafe",
+      "name": "Munitions Failsafe"
+    },
+    "shieldupgrade": {
+      "id": "shieldupgrade",
+      "name": "Shield Upgrade"
+    },
+    "staticdischargevanes": {
+      "id": "staticdischargevanes",
+      "name": "Static Discharge Vanes"
+    },
+    "stealthdevice": {
+      "id": "stealthdevice",
+      "name": "Stealth Device"
+    },
+    "tacticalscrambler": {
+      "id": "tacticalscrambler",
+      "name": "Tactical Scrambler"
+    },
+    "imperviumplating": {
+      "id": "imperviumplating",
+      "name": "Impervium Plating"
+    },
+    "synchronizedconsole": {
+      "id": "synchronizedconsole",
+      "name": "Synchronized Console"
+    },
+    "sparepartscanisters": {
+      "id": "sparepartscanisters",
+      "name": "Spare Parts Canisters"
+    },
+    "delayedfuses": {
+      "id": "delayedfuses",
+      "name": "Delayed Fuses"
+    },
+    "angleddeflectors": {
+      "id": "angleddeflectors",
+      "name": "Angled Deflectors"
+    },
+    "targetingcomputer": {
+      "id": "targetingcomputer",
+      "name": "Targeting Computer"
+    },
+    "independentcalculations": {
+      "id": "independentcalculations",
+      "name": "Independent Calculations"
+    },
+    "overdrivethruster": {
+      "id": "overdrivethruster",
+      "name": "Overdrive Thruster"
+    },
+    "precisionionengines": {
+      "id": "precisionionengines",
+      "name": "Precision Ion Engines"
+    },
+    "mandalorianoptics": {
+      "id": "mandalorianoptics",
+      "name": "Mandalorian Optics"
+    },
+    "dropseatbay": {
+      "id": "dropseatbay",
+      "name": "Drop-Seat bay"
+    },
+    "beskarreinforcedplating": {
+      "id": "beskarreinforcedplating",
+      "name": "Beskar Reinforced Plating"
+    },
+    "burnoutthrusters": {
+      "id": "burnoutthrusters",
+      "name": "Burnout Thrusters"
+    },
+    "unstablesublightengines-battleofyavin": {
+      "id": "unstablesublightengines-battleofyavin",
+      "name": "Unstable Sublight Engines"
+    },
+    "sensorjammer-battleofyavin": {
+      "id": "sensorjammer-battleofyavin",
+      "name": "Sensor Jammer"
+    },
+    "contingencyprotocol-siegeofcoruscant": {
+      "id": "contingencyprotocol-siegeofcoruscant",
+      "name": "Contingency Protocol"
+    },
+    "evasionsequence7-siegeofcoruscant": {
+      "id": "evasionsequence7-siegeofcoruscant",
+      "name": "Evasion Sequence 7"
+    }
+  },
+  "sensor": {
+    "advancedsensors": {
+      "id": "advancedsensors",
+      "name": "Advanced Sensors"
+    },
+    "collisiondetector": {
+      "id": "collisiondetector",
+      "name": "Collision Detector"
+    },
+    "firecontrolsystem": {
+      "id": "firecontrolsystem",
+      "name": "Fire-Control System"
+    },
+    "trajectorysimulator": {
+      "id": "trajectorysimulator",
+      "name": "Trajectory Simulator"
+    },
+    "passivesensors": {
+      "id": "passivesensors",
+      "name": "Passive Sensors"
+    }
+  },
+  "tactical-relay": {
+    "kraken": {
+      "id": "kraken",
+      "name": "Kraken"
+    },
+    "tv94": {
+      "id": "tv94",
+      "name": "TV-94"
+    },
+    "k2b4": {
+      "id": "k2b4",
+      "name": "K2-B4"
+    },
+    "ta175": {
+      "id": "ta175",
+      "name": "TA-175"
+    },
+    "kalani": {
+      "id": "kalani",
+      "name": "Kalani"
+    }
+  },
+  "talent": {
+    "composure": {
+      "id": "composure",
+      "name": "Composure"
+    },
+    "crackshot": {
+      "id": "crackshot",
+      "name": "Crack Shot"
+    },
+    "daredevil": {
+      "id": "daredevil",
+      "name": "Daredevil"
+    },
+    "debrisgambit": {
+      "id": "debrisgambit",
+      "name": "Debris Gambit"
+    },
+    "elusive": {
+      "id": "elusive",
+      "name": "Elusive"
+    },
+    "experthandling": {
+      "id": "experthandling",
+      "name": "Expert Handling"
+    },
+    "fanatical": {
+      "id": "fanatical",
+      "name": "Fanatical"
+    },
+    "fearless": {
+      "id": "fearless",
+      "name": "Fearless"
+    },
+    "heroic": {
+      "id": "heroic",
+      "name": "Heroic"
+    },
+    "intimidation": {
+      "id": "intimidation",
+      "name": "Intimidation"
+    },
+    "juke": {
+      "id": "juke",
+      "name": "Juke"
+    },
+    "lonewolf": {
+      "id": "lonewolf",
+      "name": "Lone Wolf"
+    },
+    "marksmanship": {
+      "id": "marksmanship",
+      "name": "Marksmanship"
+    },
+    "outmaneuver": {
+      "id": "outmaneuver",
+      "name": "Outmaneuver"
+    },
+    "predator": {
+      "id": "predator",
+      "name": "Predator"
+    },
+    "ruthless": {
+      "id": "ruthless",
+      "name": "Ruthless"
+    },
+    "saturationsalvo": {
+      "id": "saturationsalvo",
+      "name": "Saturation Salvo"
+    },
+    "selfless": {
+      "id": "selfless",
+      "name": "Selfless"
+    },
+    "squadleader": {
+      "id": "squadleader",
+      "name": "Squad Leader"
+    },
+    "swarmtactics": {
+      "id": "swarmtactics",
+      "name": "Swarm Tactics"
+    },
+    "trickshot": {
+      "id": "trickshot",
+      "name": "Trick Shot"
+    },
+    "treacherous": {
+      "id": "treacherous",
+      "name": "Treacherous"
+    },
+    "dedicated": {
+      "id": "dedicated",
+      "name": "Dedicated"
+    },
+    "ensnare": {
+      "id": "ensnare",
+      "name": "Ensnare"
+    },
+    "snapshot": {
+      "id": "snapshot",
+      "name": "Snap Shot"
+    },
+    "graviticdeflection": {
+      "id": "graviticdeflection",
+      "name": "Gravitic Deflection"
+    },
+    "proudtradition": {
+      "id": "proudtradition",
+      "name": "Proud Tradition"
+    },
+    "deadeyeshot": {
+      "id": "deadeyeshot",
+      "name": "Deadeye Shot"
+    },
+    "backwardstailslide": {
+      "id": "backwardstailslide",
+      "name": "Backwards Tailslide"
+    },
+    "ionlimiteroverride": {
+      "id": "ionlimiteroverride",
+      "name": "Ion Limiter Override"
+    },
+    "margsablclosure": {
+      "id": "margsablclosure",
+      "name": "Marg Sabl Closure"
+    },
+    "starbirdslash": {
+      "id": "starbirdslash",
+      "name": "Starbird Slash"
+    },
+    "cutthroat": {
+      "id": "cutthroat",
+      "name": "Cutthroat"
+    },
+    "disciplined": {
+      "id": "disciplined",
+      "name": "Disciplined"
+    },
+    "hopeful": {
+      "id": "hopeful",
+      "name": "Hopeful"
+    },
+    "interloperturn": {
+      "id": "interloperturn",
+      "name": "Interloper Turn"
+    },
+    "tierfonbellyrun": {
+      "id": "tierfonbellyrun",
+      "name": "Tierfon Belly Run"
+    },
+    "feedbackping": {
+      "id": "feedbackping",
+      "name": "Feedback Ping"
+    },
+    "clantraining": {
+      "id": "clantraining",
+      "name": "Clan Training"
+    },
+    "notorious": {
+      "id": "notorious",
+      "name": "Notorious"
+    },
+    "enduring": {
+      "id": "enduring",
+      "name": "Enduring"
+    },
+    "attackspeed-battleofyavin": {
+      "id": "attackspeed-battleofyavin",
+      "name": "Attack Speed"
+    },
+    "fanatic-battleofyavin": {
+      "id": "fanatic-battleofyavin",
+      "name": "Fanatic"
+    },
+    "vengeful-battleofyavin": {
+      "id": "vengeful-battleofyavin",
+      "name": "Vengeful"
+    }
+  },
+  "team": {
+    "bombardmentspecialists": {
+      "id": "bombardmentspecialists",
+      "name": "Bombardment Specialists"
+    },
+    "commsteam": {
+      "id": "commsteam",
+      "name": "Comms Team"
+    },
+    "damagecontrolteam": {
+      "id": "damagecontrolteam",
+      "name": "Damage Control Team"
+    },
+    "gunneryspecialists": {
+      "id": "gunneryspecialists",
+      "name": "Gunnery Specialists"
+    },
+    "igrmdroids": {
+      "id": "igrmdroids",
+      "name": "IG-RM Droids"
+    },
+    "ordnanceteam": {
+      "id": "ordnanceteam",
+      "name": "Ordnance Team"
+    },
+    "sensorexperts": {
+      "id": "sensorexperts",
+      "name": "Sensor Experts"
+    },
+    "tractortechnicians": {
+      "id": "tractortechnicians",
+      "name": "Tractor Technicians"
+    },
+    "corsaircrew": {
+      "id": "corsaircrew",
+      "name": "Corsair Crew"
+    },
+    "droidcrew": {
+      "id": "droidcrew",
+      "name": "Droid Crew"
+    }
+  },
+  "tech": {
+    "advancedoptics": {
+      "id": "advancedoptics",
+      "name": "Advanced Optics"
+    },
+    "ferrospherepaint": {
+      "id": "ferrospherepaint",
+      "name": "Ferrosphere Paint"
+    },
+    "hyperspacetrackingdata": {
+      "id": "hyperspacetrackingdata",
+      "name": "Hyperspace Tracking Data"
+    },
+    "primedthrusters": {
+      "id": "primedthrusters",
+      "name": "Primed Thrusters"
+    },
+    "targetingsynchronizer": {
+      "id": "targetingsynchronizer",
+      "name": "Targeting Synchronizer"
+    },
+    "patternanalyzer": {
+      "id": "patternanalyzer",
+      "name": "Pattern Analyzer"
+    },
+    "biohexacryptcodes": {
+      "id": "biohexacryptcodes",
+      "name": "Biohexacrypt Codes"
+    },
+    "deuteriumpowercells": {
+      "id": "deuteriumpowercells",
+      "name": "Deuterium Power Cells"
+    },
+    "automatedtargetpriority": {
+      "id": "automatedtargetpriority",
+      "name": "Automated Target Priority"
+    },
+    "sensorbuoysuite": {
+      "id": "sensorbuoysuite",
+      "name": "Sensor Buoy Suite"
+    },
+    "sensorscramblers": {
+      "id": "sensorscramblers",
+      "name": "Sensor Scramblers"
+    }
+  },
+  "title": {
+    "andrasta": {
+      "id": "andrasta",
+      "name": "Andrasta"
+    },
+    "blackone": {
+      "id": "blackone",
+      "name": "Black One"
+    },
+    "dauntless": {
+      "id": "dauntless",
+      "name": "Dauntless"
+    },
+    "ghost": {
+      "id": "ghost",
+      "name": "Ghost"
+    },
+    "havoc": {
+      "id": "havoc",
+      "name": "Havoc"
+    },
+    "houndstooth": {
+      "id": "houndstooth",
+      "name": "Hound's Tooth"
+    },
+    "ig2000": {
+      "id": "ig2000",
+      "name": "IG-2000"
+    },
+    "landosmillenniumfalcon": {
+      "id": "landosmillenniumfalcon",
+      "name": "Lando's Millennium Falcon"
+    },
+    "marauder": {
+      "id": "marauder",
+      "name": "Marauder"
+    },
+    "millenniumfalcon": {
+      "id": "millenniumfalcon",
+      "name": "Millennium Falcon"
+    },
+    "misthunter": {
+      "id": "misthunter",
+      "name": "Mist Hunter"
+    },
+    "moldycrow": {
+      "id": "moldycrow",
+      "name": "Moldy Crow"
+    },
+    "outrider": {
+      "id": "outrider",
+      "name": "Outrider"
+    },
+    "phantom": {
+      "id": "phantom",
+      "name": "Phantom"
+    },
+    "punishingone": {
+      "id": "punishingone",
+      "name": "Punishing One"
+    },
+    "st321": {
+      "id": "st321",
+      "name": "ST-321"
+    },
+    "shadowcaster": {
+      "id": "shadowcaster",
+      "name": "Shadow Caster"
+    },
+    "slavei": {
+      "id": "slavei",
+      "name": "Slave I"
+    },
+    "virago": {
+      "id": "virago",
+      "name": "Virago"
+    },
+    "reysmillenniumfalcon": {
+      "id": "reysmillenniumfalcon",
+      "name": "Rey's Millennium Falcon"
+    },
+    "soullessone": {
+      "id": "soullessone",
+      "name": "Soulless One"
+    },
+    "scimitar": {
+      "id": "scimitar",
+      "name": "Scimitar"
+    },
+    "assailer": {
+      "id": "assailer",
+      "name": "Assailer"
+    },
+    "bloodcrow": {
+      "id": "bloodcrow",
+      "name": "Blood Crow"
+    },
+    "brighthope": {
+      "id": "brighthope",
+      "name": "Bright Hope"
+    },
+    "brokenhorn": {
+      "id": "brokenhorn",
+      "name": "Broken Horn"
+    },
+    "corvus": {
+      "id": "corvus",
+      "name": "Corvus"
+    },
+    "dodonnaspride": {
+      "id": "dodonnaspride",
+      "name": "Dodonna's Pride"
+    },
+    "impetuous": {
+      "id": "impetuous",
+      "name": "Impetuous"
+    },
+    "insatiableworrt": {
+      "id": "insatiableworrt",
+      "name": "Insatiable Worrt"
+    },
+    "instigator": {
+      "id": "instigator",
+      "name": "Instigator"
+    },
+    "jainaslight": {
+      "id": "jainaslight",
+      "name": "Jaina's Light"
+    },
+    "kazsfireball": {
+      "id": "kazsfireball",
+      "name": "Kaz's Fireball"
+    },
+    "liberator": {
+      "id": "liberator",
+      "name": "Liberator"
+    },
+    "luminous": {
+      "id": "luminous",
+      "name": "Luminous"
+    },
+    "merchantone": {
+      "id": "merchantone",
+      "name": "Merchant One"
+    },
+    "quantumstorm": {
+      "id": "quantumstorm",
+      "name": "Quantum Storm"
+    },
+    "requiem": {
+      "id": "requiem",
+      "name": "Requiem"
+    },
+    "suppressor": {
+      "id": "suppressor",
+      "name": "Suppressor"
+    },
+    "tantiveiv": {
+      "id": "tantiveiv",
+      "name": "Tantive IV"
+    },
+    "thunderstrike": {
+      "id": "thunderstrike",
+      "name": "Thunderstrike"
+    },
+    "vector": {
+      "id": "vector",
+      "name": "Vector"
+    },
+    "slavei-swz82": {
+      "id": "slavei-swz82",
+      "name": "Slave I"
+    },
+    "b6bladewingprototype": {
+      "id": "b6bladewingprototype",
+      "name": "B6 Blade Wing Prototype"
+    },
+    "nautolansrevenge": {
+      "id": "nautolansrevenge",
+      "name": "Nautolan's Revenge"
+    },
+    "grappler": {
+      "id": "grappler",
+      "name": "Grappler"
+    },
+    "neimoidiangrasp": {
+      "id": "neimoidiangrasp",
+      "name": "Neimoidian Grasp"
+    },
+    "trident": {
+      "id": "trident",
+      "name": "Trident"
+    },
+    "nightbrother": {
+      "id": "nightbrother",
+      "name": "Nightbrother"
+    },
+    "gauntlet": {
+      "id": "gauntlet",
+      "name": "Gauntlet"
+    },
+    "razorcrest": {
+      "id": "razorcrest",
+      "name": "Razor Crest"
+    },
+    "xanadublood": {
+      "id": "xanadublood",
+      "name": "Xanadu Blood"
+    }
+  },
+  "torpedo": {
+    "homingtorpedoes": {
+      "id": "homingtorpedoes",
+      "name": "Homing Torpedoes"
+    },
+    "advprotontorpedoes": {
+      "id": "advprotontorpedoes",
+      "name": "Adv. Proton Torpedoes"
+    },
+    "iontorpedoes": {
+      "id": "iontorpedoes",
+      "name": "Ion Torpedoes"
+    },
+    "protontorpedoes": {
+      "id": "protontorpedoes",
+      "name": "Proton Torpedoes"
+    },
+    "plasmatorpedoes": {
+      "id": "plasmatorpedoes",
+      "name": "Plasma Torpedoes"
+    },
+    "trackingtorpedoes": {
+      "id": "trackingtorpedoes",
+      "name": "Tracking Torpedoes"
+    }
+  },
+  "turret": {
+    "dorsalturret": {
+      "id": "dorsalturret",
+      "name": "Dorsal Turret"
+    },
+    "ioncannonturret": {
+      "id": "ioncannonturret",
+      "name": "Ion Cannon Turret"
+    }
   }
 }
