@@ -3,7 +3,7 @@ export interface TilesProps {
 }
 
 export const Tiles = ({ children }: TilesProps) => (
-  <h1 className="grid grid-cols-[repeat(auto-fit,_minmax(min(250px,_100%),_1fr))] gap-2">
+  <div className="grid grid-cols-[repeat(auto-fit,_minmax(min(250px,_100%),_1fr))] justify-items-stretch gap-6">
     {children}
-  </h1>
+  </div>
 );

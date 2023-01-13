@@ -3,5 +3,5 @@ export interface CaptionProps {
 }
 
 export const Caption = ({ children }: CaptionProps) => (
-  <h1 className="text-sm text-primary-300">{children}</h1>
+  <h6 className="text-sm text-primary-300">{children}</h6>
 );
