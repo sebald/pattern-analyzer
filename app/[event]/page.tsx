@@ -52,7 +52,9 @@ const getListsFromEvent = async (event: string) => {
     Array.from(matches).map(async m => {
       const val = m.groups?.value || '';
       const id = m.groups?.id!;
-      const url = (val.replace(/\n/g, ' ').match(YASB_REGEXP) || [null])[0];
+      const url = (val.replace(/(\r\n|\n|\r)/gm, '').match(YASB_REGEXP) || [
+        null,
+      ])[0];
       const xws = await getXWS(url || '');
 
       return {
