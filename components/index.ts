@@ -1,6 +1,7 @@
 export * from './caption';
 export * from './card';
 export * from './link';
+export * from './navigation';
 export * from './select';
 export * from './spinner';
 export * from './squad';
