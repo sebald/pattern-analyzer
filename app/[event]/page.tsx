@@ -1,4 +1,5 @@
-import { Caption, Card, Link, Squad, Tiles, Title } from 'components';
+import { Caption, Card, Link, Select, Squad, Tiles, Title } from 'components';
+import { getAllFactions } from 'lib/data';
 import type { XWSSquad } from 'lib/xws';
 
 const YASB_REGEXP = /https:\/\/yasb\.app\/\?f(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)/;
@@ -81,10 +82,20 @@ const Page = async ({ params }: PageProps) => {
 
   return (
     <main className="p-4">
-      <Title>Event #{params.event}</Title>
-      <Caption>
-        Showing {dataWithXWS.length}/{data.length} lists
-      </Caption>
+      <div>
+        <Title>Event #{params.event}</Title>
+        <Caption>
+          Showing {dataWithXWS.length}/{data.length} lists
+        </Caption>
+        <Select>
+          <Select.Option>All Factions</Select.Option>
+          {getAllFactions().map(({ id, name }) => (
+            <Select.Option key={id} value={id}>
+              {name}
+            </Select.Option>
+          ))}
+        </Select>
+      </div>
       <div className="mx-auto my-4 w-[min(100%_-_3rem,_75rem)]">
         <Tiles>
           {dataWithXWS.map(item => (
