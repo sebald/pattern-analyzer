@@ -14,7 +14,8 @@ const getXWS = async (url: string) => {
     url.replace(
       'https://yasb.app',
       'https://squad2xws.objectivecat.com/yasb/xws'
-    )
+    ),
+    { next: { revalidate: 86400 } } // Keep data 1 day
   );
 
   if (!res.ok) {
@@ -33,7 +34,8 @@ const getXWS = async (url: string) => {
 
 const getListsFromEvent = async (event: string) => {
   const res = await fetch(
-    `https://longshanks.org/events/detail/?event=${event}`
+    `https://longshanks.org/events/detail/?event=${event}`,
+    { next: { revalidate: 3600 } } // Keep data 1 hour
   );
 
   if (!res.ok) {
