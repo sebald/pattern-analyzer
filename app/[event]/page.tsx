@@ -1,6 +1,6 @@
-import { Caption, Card, Link, Select, Squad, Tiles, Title } from 'components';
-import { getAllFactions } from 'lib/data';
+import { Caption, Card, Link, Squad, Tiles, Title } from 'components';
 import type { XWSSquad } from 'lib/xws';
+import { Filter } from './filter';
 
 const YASB_REGEXP = /https:\/\/yasb\.app\/\?f(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)/;
 
@@ -87,16 +87,9 @@ const Page = async ({ params }: PageProps) => {
         <Caption>
           Showing {dataWithXWS.length}/{data.length} lists
         </Caption>
-        <Select>
-          <Select.Option>All Factions</Select.Option>
-          {getAllFactions().map(({ id, name }) => (
-            <Select.Option key={id} value={id}>
-              {name}
-            </Select.Option>
-          ))}
-        </Select>
       </div>
       <div className="mx-auto my-4 w-[min(100%_-_3rem,_75rem)]">
+        <Filter />
         <Tiles>
           {dataWithXWS.map(item => (
             <Card key={item.id}>
