@@ -1,7 +1,15 @@
 import factions from './factions.json';
 import upgrades from './upgrades.json';
-import type { XWSFaction, XWSUpgrades } from 'lib/xws';
+import type { XWSFaction } from 'lib/xws';
 import type { Ship, Upgrade } from './types';
+
+export type Factions = keyof typeof factions;
+
+export const getAllFactions = () =>
+  (Object.keys(factions) as Factions[]).map(id => ({
+    id,
+    name: factions[id].name,
+  }));
 
 export const getFaction = ({ faction }: { faction: XWSFaction }) =>
   factions[faction];

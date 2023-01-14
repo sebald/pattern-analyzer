@@ -1,5 +1,17 @@
-import { Caption, Card, Link, Squad, Tiles, Title } from 'components';
+import {
+  Caption,
+  Card,
+  Center,
+  Info,
+  Link,
+  Squad,
+  Tiles,
+  Title,
+} from 'components';
 import type { XWSSquad } from 'lib/xws';
+import { Filter } from './components/filter';
+import { FilterProvider } from './components/filter-context';
+import { Squads } from './components/squads';
 
 const YASB_REGEXP = /https:\/\/yasb\.app\/\?f(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)/;
 
@@ -77,33 +89,40 @@ export interface PageProps {
 
 const Page = async ({ params }: PageProps) => {
   const data = await getListsFromEvent(params.event);
-  const dataWithXWS = data.filter(item => Boolean(item.xws));
+  const dataWithXWS = data.filter(item => Boolean(item.xws)) as {
+    id: string;
+    url: string;
+    xws: XWSSquad;
+    raw: string;
+  }[];
+
+  if (dataWithXWS.length === 0) {
+    return (
+      <div className="pt-4">
+        <Center>
+          <Info>
+            <strong>No list founds.</strong>
+            <br />
+            Looks like the event has no squads including a link to YASB.
+          </Info>
+        </Center>
+      </div>
+    );
+  }
 
   return (
     <main className="p-4">
-      <Title>Event #{params.event}</Title>
-      <Caption>
-        Showing {dataWithXWS.length}/{data.length} lists
-      </Caption>
+      <div>
+        <Title>Event #{params.event}</Title>
+        <Caption>
+          Showing {dataWithXWS.length}/{data.length} lists
+        </Caption>
+      </div>
       <div className="mx-auto my-4 w-[min(100%_-_3rem,_75rem)]">
-        <Tiles>
-          {dataWithXWS.map(item => (
-            <Card key={item.id}>
-              <Card.Body>
-                <Squad xws={item.xws!} />
-              </Card.Body>
-              <Card.Footer>
-                <Link
-                  className="text-xs text-secondary-300"
-                  href={item.url!}
-                  target="_blank"
-                >
-                  View in YASB
-                </Link>
-              </Card.Footer>
-            </Card>
-          ))}
-        </Tiles>
+        <FilterProvider>
+          <Filter />
+          <Squads squads={dataWithXWS} />
+        </FilterProvider>
       </div>
     </main>
   );
