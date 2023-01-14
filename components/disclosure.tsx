@@ -4,7 +4,7 @@ export interface DisclosureProps {
 }
 
 export const Disclosure = ({ summary, children }: DisclosureProps) => (
-  <details className="group mb-4 rounded-xl border border-secondary-100 px-4 py-2">
+  <details className="group mb-4 rounded-xl bg-primary-100/50 px-4 py-2 shadow">
     <summary className="flex cursor-pointer select-none list-none items-center justify-between py-2 text-lg font-medium text-secondary-800">
       {summary}
       <div className="text-secondary-500">
