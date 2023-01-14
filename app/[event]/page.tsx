@@ -1,4 +1,13 @@
-import { Caption, Card, Link, Squad, Tiles, Title } from 'components';
+import {
+  Caption,
+  Card,
+  Center,
+  Info,
+  Link,
+  Squad,
+  Tiles,
+  Title,
+} from 'components';
 import type { XWSSquad } from 'lib/xws';
 import { Filter } from './components/filter';
 import { FilterProvider } from './components/filter-context';
@@ -86,6 +95,20 @@ const Page = async ({ params }: PageProps) => {
     xws: XWSSquad;
     raw: string;
   }[];
+
+  if (dataWithXWS.length === 0) {
+    return (
+      <div className="pt-4">
+        <Center>
+          <Info>
+            <strong>No list founds.</strong>
+            <br />
+            Looks like the event has no squads including a link to YASB.
+          </Info>
+        </Center>
+      </div>
+    );
+  }
 
   return (
     <main className="p-4">

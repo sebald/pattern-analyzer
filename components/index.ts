@@ -1,5 +1,7 @@
 export * from './caption';
 export * from './card';
+export * from './center';
+export * from './info';
 export * from './link';
 export * from './search-field';
 export * from './select';

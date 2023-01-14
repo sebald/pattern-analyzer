@@ -1,6 +1,6 @@
 'use client';
 
-import { Card, Link, Squad, Tiles } from 'components';
+import { Card, Center, Info, Link, Squad, Tiles } from 'components';
 import type { XWSSquad } from 'lib/xws';
 import { useFilter } from './filter-context';
 
@@ -31,31 +31,45 @@ export interface SquadsProps {
 
 export const Squads = ({ squads }: SquadsProps) => {
   const { faction, search } = useFilter();
+  const filtered = squads.filter(({ xws }) => {
+    const hasFaction = faction === 'all' ? true : xws.faction === faction;
+    const hasMatch = search.length === 0 ? true : match(search, xws);
+
+    return hasFaction && hasMatch;
+  });
+
+  if (filtered.length === 0) {
+    return (
+      <div className="pt-4">
+        <Center>
+          <Info>
+            <strong>Nothing found.</strong>
+            <br />
+            Looks like there is no squad matching your query.
+          </Info>
+        </Center>
+      </div>
+    );
+  }
+
   return (
     <Tiles>
-      {squads
-        .filter(({ xws }) => {
-          const hasFaction = faction === 'all' ? true : xws.faction === faction;
-          const hasMatch = search.length === 0 ? true : match(search, xws);
-
-          return hasFaction && hasMatch;
-        })
-        .map(item => (
-          <Card key={item.id}>
-            <Card.Body>
-              <Squad xws={item.xws} />
-            </Card.Body>
-            <Card.Footer>
-              <Link
-                className="text-xs text-secondary-300"
-                href={item.url}
-                target="_blank"
-              >
-                View in YASB
-              </Link>
-            </Card.Footer>
-          </Card>
-        ))}
+      {filtered.map(item => (
+        <Card key={item.id}>
+          <Card.Body>
+            <Squad xws={item.xws} />
+          </Card.Body>
+          <Card.Footer>
+            <Link
+              className="text-xs text-secondary-300"
+              href={item.url}
+              target="_blank"
+            >
+              View in YASB
+            </Link>
+          </Card.Footer>
+        </Card>
+      ))}
     </Tiles>
   );
 };
