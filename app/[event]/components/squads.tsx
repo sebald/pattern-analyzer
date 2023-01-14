@@ -18,7 +18,6 @@ export const Squads = ({ squads }: SquadsProps) => {
     <Tiles>
       {squads
         .filter(({ xws }) => {
-          console.log(faction);
           if (faction === 'all') {
             return true;
           }
