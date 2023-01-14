@@ -10,7 +10,7 @@ const Option = ({ children, ...props }: SelectOptionProps) => (
 );
 
 export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
-  label: React.ReactNode;
+  label?: React.ReactNode;
   children: React.ReactNode;
 }
 
@@ -19,15 +19,18 @@ export const Select = ({ label, children, ...props }: SelectProps) => {
 
   return (
     <div>
-      <label
-        htmlFor={id}
-        className="mb-1 block text-sm font-medium text-gray-700"
-      >
-        {label}
-      </label>
+      {label && (
+        <label
+          htmlFor={id}
+          className="mb-1 block text-sm font-medium text-secondary-700"
+        >
+          {label}
+        </label>
+      )}
       <select
         {...props}
-        className="block cursor-pointer rounded-md border-gray-300 shadow-sm hover:border-primary-400 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50"
+        id={id}
+        className="block cursor-pointer rounded-md border-secondary-200 text-xs shadow-sm hover:border-primary-400 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50"
       >
         {children}
       </select>

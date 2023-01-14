@@ -21,11 +21,11 @@ export const Squad = ({ xws }: SquadProps) => {
 
   return (
     <div>
-      {pilots.map(({ id, ship, upgrades }) => {
+      {pilots.map(({ id, ship, upgrades }, idx) => {
         const pilot = getPilot({ faction, ship, pilot: id });
 
         return (
-          <div key={id} className="pb-4">
+          <div key={`${id}-${idx}`} className="pb-4">
             <div className="prose font-semibold text-secondary-900">
               {pilot ? pilot.name : id}
             </div>

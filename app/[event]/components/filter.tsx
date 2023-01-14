@@ -1,15 +1,21 @@
 'use client';
 
-import { Disclosure, Select } from 'components';
+import { SearchField, Select } from 'components';
 import { getAllFactions } from 'lib/data';
 import { FactionOptions, useFilter } from './filter-context';
 
 export const Filter = () => {
   const filter = useFilter();
   return (
-    <Disclosure summary="Filter">
+    <div className="flex items-center justify-end gap-4 pb-8">
+      <SearchField
+        aria-label="Search"
+        placeholder="Search..."
+        value={filter.search}
+        onChange={e => filter.setSearch(e.target.value)}
+      />
       <Select
-        label="Faction"
+        aria-label="Faction"
         value={filter.faction}
         onChange={e => filter.setFaction(e.target.value as FactionOptions)}
       >
@@ -20,6 +26,6 @@ export const Filter = () => {
           </Select.Option>
         ))}
       </Select>
-    </Disclosure>
+    </div>
   );
 };
