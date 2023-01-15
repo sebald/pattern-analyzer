@@ -7,7 +7,7 @@ import { FactionOptions, useFilter } from './filter-context';
 export const Filter = () => {
   const filter = useFilter();
   return (
-    <div className="flex items-center justify-end gap-4 pb-8">
+    <div className="flex flex-col items-end justify-end gap-4 py-8 sm:flex-row sm:items-center">
       <SearchField
         aria-label="Search"
         placeholder="Search..."
