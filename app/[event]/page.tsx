@@ -4,6 +4,12 @@ import { Filter } from './components/filter';
 import { FilterProvider } from './components/filter-context';
 import { Squads } from './components/squads';
 
+/**
+ * Segment Config (see: https://beta.nextjs.org/docs/api-reference/segment-config)
+ */
+export const revalidate = 3600;
+export const fetchCache = 'force-cache';
+
 const YASB_REGEXP = /https:\/\/yasb\.app\/\?f(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)/;
 
 const getXWS = async (url: string) => {
@@ -17,8 +23,7 @@ const getXWS = async (url: string) => {
     url.replace(
       'https://yasb.app',
       'https://squad2xws.objectivecat.com/yasb/xws'
-    ),
-    { next: { revalidate: 86400 } } // Keep data 1 day
+    )
   );
 
   if (!res.ok) {
@@ -37,8 +42,7 @@ const getXWS = async (url: string) => {
 
 const getListsFromEvent = async (event: string) => {
   const res = await fetch(
-    `https://longshanks.org/events/detail/?event=${event}`,
-    { next: { revalidate: 3600 } } // Keep data 1 hour
+    `https://longshanks.org/events/detail/?event=${event}`
   );
 
   if (!res.ok) {
