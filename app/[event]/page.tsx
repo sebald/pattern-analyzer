@@ -1,13 +1,4 @@
-import {
-  Caption,
-  Card,
-  Center,
-  Info,
-  Link,
-  Squad,
-  Tiles,
-  Title,
-} from 'components';
+import { Caption, Center, Message, Title } from 'components';
 import type { XWSSquad } from 'lib/xws';
 import { Filter } from './components/filter';
 import { FilterProvider } from './components/filter-context';
@@ -100,11 +91,11 @@ const Page = async ({ params }: PageProps) => {
     return (
       <div className="pt-4">
         <Center>
-          <Info>
+          <Message>
             <strong>No list founds.</strong>
             <br />
             Looks like the event has no squads including a link to YASB.
-          </Info>
+          </Message>
         </Center>
       </div>
     );

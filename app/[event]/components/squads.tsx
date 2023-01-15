@@ -1,6 +1,6 @@
 'use client';
 
-import { Card, Center, Info, Link, Squad, Tiles } from 'components';
+import { Card, Center, Message, Link, Squad, Tiles } from 'components';
 import type { XWSSquad } from 'lib/xws';
 import { useFilter } from './filter-context';
 
@@ -43,11 +43,11 @@ export const Squads = ({ squads }: SquadsProps) => {
     return (
       <div className="pt-4">
         <Center>
-          <Info>
+          <Message>
             <strong>Nothing found.</strong>
             <br />
             Looks like there is no squad matching your query.
-          </Info>
+          </Message>
         </Center>
       </div>
     );
