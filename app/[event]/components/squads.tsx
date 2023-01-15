@@ -30,10 +30,11 @@ export interface SquadsProps {
 }
 
 export const Squads = ({ squads }: SquadsProps) => {
-  const { faction, search } = useFilter();
+  const { faction, query } = useFilter();
   const filtered = squads.filter(({ xws }) => {
     const hasFaction = faction === 'all' ? true : xws.faction === faction;
-    const hasMatch = search.length === 0 ? true : match(search, xws);
+    // Only filter if query has least two letters
+    const hasMatch = query.length < 2 ? true : match(query, xws);
 
     return hasFaction && hasMatch;
   });

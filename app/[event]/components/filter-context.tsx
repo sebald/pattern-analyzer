@@ -15,8 +15,8 @@ export type FactionOptions = 'all' | Factions;
 const Context = createContext<{
   faction: FactionOptions;
   setFaction: Dispatch<SetStateAction<FactionOptions>>;
-  search: string;
-  setSearch: Dispatch<SetStateAction<string>>;
+  query: string;
+  setQuery: Dispatch<SetStateAction<string>>;
 } | null>(null);
 
 export interface FilterProviderProps {
@@ -25,9 +25,9 @@ export interface FilterProviderProps {
 
 export const FilterProvider = ({ children }: FilterProviderProps) => {
   const [faction, setFaction] = useState<FactionOptions>('all');
-  const [search, setSearch] = useState<string>('');
+  const [query, setQuery] = useState<string>('');
   return (
-    <Context.Provider value={{ faction, setFaction, search, setSearch }}>
+    <Context.Provider value={{ faction, setFaction, query, setQuery }}>
       {children}
     </Context.Provider>
   );

@@ -1,18 +1,23 @@
 'use client';
 
+import { useState } from 'react';
+import { useDebouncedCallback } from 'use-debounce';
+
 import { SearchField, Select } from 'components';
 import { getAllFactions } from 'lib/data';
 import { FactionOptions, useFilter } from './filter-context';
 
 export const Filter = () => {
   const filter = useFilter();
+  const debounce = useDebouncedCallback(filter.setQuery, 150);
+
   return (
     <div className="flex flex-col items-end justify-end gap-4 py-8 sm:flex-row sm:items-center">
       <SearchField
         aria-label="Search"
         placeholder="Search..."
-        value={filter.search}
-        onChange={e => filter.setSearch(e.target.value)}
+        defaultValue={filter.query}
+        onChange={e => debounce(e.target.value)}
       />
       <Select
         aria-label="Faction"
