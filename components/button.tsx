@@ -1,4 +1,4 @@
-import { cva } from 'class-variance-authority';
+import { cva, VariantProps } from 'class-variance-authority';
 import { ButtonHTMLAttributes } from 'react';
 
 // Styles
@@ -39,8 +39,9 @@ const styles = cva(
 
 // Props
 // ---------------
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'default' | 'primary' | 'error';
+export interface ButtonProps
+  extends VariantProps<typeof styles>,
+    ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
 }
 
@@ -48,11 +49,12 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 // ---------------
 export const Button = ({
   variant = 'default',
+  size = 'regular',
   type = 'button',
   children,
   ...props
 }: ButtonProps) => (
-  <button {...props} type={type} className={styles({ variant })}>
+  <button {...props} type={type} className={styles({ variant, size })}>
     {children}
   </button>
 );
