@@ -14,6 +14,7 @@ export const Filter = () => {
   return (
     <div className="flex flex-col items-end justify-end gap-2 py-8 sm:flex-row sm:items-center sm:gap-4">
       <SearchField
+        size="small"
         aria-label="Search"
         placeholder="Search..."
         defaultValue={filter.query}
