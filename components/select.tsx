@@ -1,4 +1,5 @@
 import { OptionHTMLAttributes, SelectHTMLAttributes, useId } from 'react';
+import { Label } from './label';
 
 export interface SelectOptionProps
   extends OptionHTMLAttributes<HTMLOptionElement> {
@@ -19,14 +20,7 @@ export const Select = ({ label, children, ...props }: SelectProps) => {
 
   return (
     <div>
-      {label && (
-        <label
-          htmlFor={id}
-          className="mb-1 block text-sm font-medium text-secondary-700"
-        >
-          {label}
-        </label>
-      )}
+      {label && <Label htmlFor={id}>{label}</Label>}
       <select
         {...props}
         id={id}
