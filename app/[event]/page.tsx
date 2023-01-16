@@ -33,6 +33,7 @@ const getListsFromEvent = async (event: string) => {
   const html = await res.text();
 
   // Get event title
+  // use <meta itemprop="name" content="Kyber Team Championship Season 7">
   const title = html.match(/<title>(?<title>.*?)<\/title>/);
 
   // Find all lists that have a YASB link
