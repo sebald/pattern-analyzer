@@ -21,6 +21,7 @@ export const Filter = () => {
         onChange={e => debounce(e.target.value)}
       />
       <Select
+        size="small"
         aria-label="Faction"
         value={filter.faction}
         onChange={e => filter.setFaction(e.target.value as FactionOptions)}

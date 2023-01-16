@@ -8,7 +8,8 @@ import { Label } from './label';
 const styles = cva(
   [
     'block w-full rounded-md shadow-sm border-secondary-200',
-    'focus:border-primary-400 focus:ring focus:ring-primary-300 focus:ring-opacity-50',
+    'hover:border-primary-400',
+    'focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50',
     'disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500',
     'pl-8', // padding for icon
     'pr-3', // padding for close button
