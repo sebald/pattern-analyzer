@@ -26,13 +26,8 @@ export interface PageProps {
 }
 
 const Page = async ({ params }: PageProps) => {
-  const { title, squads } = await getEvent(params.event);
-  const squadsWithXWS = squads.filter(item => Boolean(item.xws)) as {
-    id: string;
-    url: string;
-    xws: XWSSquad;
-    raw: string;
-  }[];
+  const { title, players } = await getEvent(params.event);
+  const squadsWithXWS = players.filter(({ squad }) => Boolean(squad.xws));
 
   if (squadsWithXWS.length === 0) {
     return (
@@ -53,7 +48,7 @@ const Page = async ({ params }: PageProps) => {
       <div>
         <Title>{title || `Event #${params.event}`}</Title>
         <Caption>
-          Showing {squadsWithXWS.length}/{squads.length} lists
+          Showing {squadsWithXWS.length}/{players.length} lists
         </Caption>
       </div>
       <div className="mx-auto my-4 w-[min(100%_-_3rem,_75rem)]">
