@@ -1,5 +1,6 @@
 import { Caption, Center, Message, Title } from 'components';
-import type { XWSSquad } from 'lib/xws';
+import { XWSSquad, yasb2xws } from 'lib/xws';
+
 import { Filter } from './components/filter';
 import { FilterProvider } from './components/filter-context';
 import { Squads } from './components/squads';
@@ -19,34 +20,6 @@ export async function generateStaticParams() {
 
 const YASB_REGEXP = /https:\/\/yasb\.app\/\?f(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)/;
 
-const getXWS = async (url: string) => {
-  // Currently only supporting YASB links
-  if (!/yasb\.app/.test(url)) {
-    return null;
-  }
-
-  // Get XWS using https://github.com/zacharyp/squad2xws
-  const res = await fetch(
-    url.replace(
-      'https://yasb.app',
-      'https://squad2xws.objectivecat.com/yasb/xws'
-    )
-  );
-
-  if (!res.ok) {
-    throw new Error(`Failed to fetch XWS data for ${url}...`);
-  }
-
-  let xws;
-  try {
-    xws = await res.json();
-  } catch {
-    throw new Error(`Failed to parse JSON for ${url}...`);
-  }
-
-  return xws as XWSSquad;
-};
-
 const getListsFromEvent = async (event: string) => {
   const res = await fetch(
     `https://longshanks.org/events/detail/?event=${event}`
@@ -58,6 +31,11 @@ const getListsFromEvent = async (event: string) => {
 
   // Poor mans web scraper...
   const html = await res.text();
+
+  // Get event title
+  const title = html.match(/<title>(?<title>.*?)<\/title>/);
+
+  // Find all lists that have a YASB link
   const matches = html.matchAll(
     /id=\"list_(?<id>\d+)\" value=\"(?<value>[^"]*)\"/g
   );
@@ -69,7 +47,7 @@ const getListsFromEvent = async (event: string) => {
       const url = (val.replace(/(\r\n|\n|\r)/gm, '').match(YASB_REGEXP) || [
         null,
       ])[0];
-      const xws = await getXWS(url || '');
+      const xws = await yasb2xws(url || '');
 
       return {
         id,
