@@ -1,4 +1,5 @@
 import { InputHTMLAttributes, useId } from 'react';
+import { Label } from './label';
 
 export interface SearchFieldProps
   extends InputHTMLAttributes<HTMLInputElement> {
@@ -10,14 +11,7 @@ export const SearchField = ({ label, ...props }: SearchFieldProps) => {
 
   return (
     <div>
-      {label && (
-        <label
-          htmlFor={id}
-          className="mb-1 block text-sm font-medium text-secondary-700"
-        >
-          {label}
-        </label>
-      )}
+      {label && <Label htmlFor={id}>{label}</Label>}
       <div className="relative">
         <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center px-2.5">
           <svg

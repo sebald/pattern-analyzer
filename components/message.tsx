@@ -1,13 +1,8 @@
+import { cva, VariantProps } from 'class-variance-authority';
 import { ButtonHTMLAttributes } from 'react';
-import cn from 'clsx';
 
-export type InfoVariants = 'info' | 'error';
-
-export interface InfoProps {
-  variant?: InfoVariants;
-  children: React.ReactNode;
-}
-
+// Message.Action
+// ---------------
 export interface MessageActionProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
@@ -27,6 +22,8 @@ const MessageAction = ({
   </button>
 );
 
+// Message.Footer
+// ---------------
 export interface MessageFooterProps {
   children: React.ReactNode;
 }
@@ -35,14 +32,26 @@ const MessageFooter = ({ children }: MessageFooterProps) => (
   <div className="mt-2 flex space-x-4">{children}</div>
 );
 
+// Styles
+// ---------------
+const styles = cva(['flex rounded-md p-4 text-sm'], {
+  variants: {
+    variant: {
+      info: 'bg-blue-200 text-blue-500',
+      error: 'bg-red-200 text-red-500',
+    },
+  },
+  defaultVariants: {
+    variant: 'info',
+  },
+});
+
+export interface InfoProps extends VariantProps<typeof styles> {
+  children: React.ReactNode;
+}
+
 export const Message = ({ variant = 'info', children }: InfoProps) => (
-  <div
-    className={cn(
-      `flex rounded-md p-4 text-sm`,
-      variant === 'info' && 'bg-blue-200 text-blue-500',
-      variant === 'error' && 'bg-red-200 text-red-500'
-    )}
-  >
+  <div className={styles({ variant })}>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"

@@ -2,6 +2,7 @@ export * from './button';
 export * from './caption';
 export * from './card';
 export * from './center';
+export * from './label';
 export * from './link';
 export * from './message';
 export * from './search-field';
