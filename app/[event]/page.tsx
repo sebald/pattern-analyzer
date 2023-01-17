@@ -1,7 +1,7 @@
 import { load } from 'cheerio';
 
 import { Caption, Center, Message, Title } from 'components';
-import type { XWSSquad } from 'lib/xws';
+import { XWSSquad, yasb2xws } from 'lib/xws';
 
 import { Filter } from './components/filter';
 import { FilterProvider } from './components/filter-context';
@@ -22,34 +22,6 @@ export async function generateStaticParams() {
 
 // Data
 // ---------------
-const yasb2xws = async (url: string) => {
-  // Currently only supporting YASB links
-  if (!/yasb\.app/.test(url)) {
-    return null;
-  }
-
-  // Get XWS using https://github.com/zacharyp/squad2xws
-  let res = await fetch(
-    url.replace(
-      'https://yasb.app',
-      'https://squad2xws.objectivecat.com/yasb/xws'
-    )
-  );
-
-  if (!res.ok) {
-    throw new Error(`Failed to fetch XWS data for ${url}...`);
-  }
-
-  let xws;
-  try {
-    xws = await res.json();
-  } catch {
-    throw new Error(`Failed to parse JSON for ${url}...`);
-  }
-
-  return xws as XWSSquad;
-};
-
 const getEvent = async (event: string) => {
   const res = await fetch(
     `https://longshanks.org/events/detail/?event=${event}`
