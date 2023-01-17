@@ -1,6 +1,5 @@
 import { yasb2xws } from 'lib/xws';
 import { CheerioAPI, load } from 'cheerio';
-import { first } from 'cheerio/lib/api/traversing';
 
 /**
  * Scrape event title from meta tag.
