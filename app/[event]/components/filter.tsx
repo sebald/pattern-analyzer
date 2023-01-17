@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 
 import { SearchField, Select } from 'components';

@@ -5,7 +5,7 @@ import type { XWSSquad } from 'lib/xws';
 import { useFilter } from './filter-context';
 
 const match = (search: string, { pilots }: XWSSquad) => {
-  const needle = search.toLocaleLowerCase().replace(/\s/g, '');
+  const needle = search.toLocaleLowerCase().replace(/\s\'/g, '');
   const result = pilots.find(pilot => {
     // Search matches pilot name
     if (pilot.id.includes(needle)) {
