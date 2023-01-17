@@ -63,12 +63,9 @@ export const Squads = ({ squads }: SquadsProps) => {
             <Squad xws={squad.xws} />
           </Card.Body>
           <Card.Footer>
-            <div className="flex items-center justify-between gap-2 px-1 pt-1 text-xs text-secondary-300">
-              <div>by {squad.player}</div>
-              <Link className="text-right" href={squad.url} target="_blank">
-                View in YASB
-              </Link>
-            </div>
+            <Link className="text-right" href={squad.url} target="_blank">
+              View in YASB
+            </Link>
           </Card.Footer>
         </Card>
       ))}
