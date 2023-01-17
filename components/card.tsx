@@ -15,7 +15,7 @@ export interface CardFooterProps {
 }
 
 const CardFooter = ({ children }: CardFooterProps) => (
-  <div className="border-t border-secondary-100 text-center">{children}</div>
+  <div className="border-t border-secondary-100">{children}</div>
 );
 
 // Card

@@ -1,6 +1,6 @@
 import { Caption, Center, Link, Message, Title } from 'components';
 import { getEvent } from 'lib/longshanks';
-import type { XWSSquad } from 'lib/xws';
+import { SquadData } from 'lib/types';
 
 import { Filter } from './components/filter';
 import { FilterProvider } from './components/filter-context';
@@ -31,12 +31,7 @@ export interface PageProps {
 // ---------------
 const Page = async ({ params }: PageProps) => {
   const { title, url, squads } = await getEvent(params.event);
-  const squadsWithXWS = squads.filter(item => Boolean(item.xws)) as {
-    id: string;
-    url: string;
-    xws: XWSSquad;
-    raw: string;
-  }[];
+  const squadsWithXWS = squads.filter(item => Boolean(item.xws)) as SquadData[];
 
   if (squadsWithXWS.length === 0) {
     return (
@@ -57,8 +52,10 @@ const Page = async ({ params }: PageProps) => {
       <div>
         <Title>{title || `Event #${params.event}`}</Title>
         <Caption>
-          <Link href={url}>Event #{params.event}</Link> ({squadsWithXWS.length}/
-          {squads.length} squads parsed)
+          <Link href={url} target="_blank">
+            Event #{params.event}
+          </Link>{' '}
+          ({squadsWithXWS.length}/{squads.length} squads parsed)
         </Caption>
       </div>
       <div className="mx-auto my-4 w-[min(100%_-_3rem,_75rem)]">
