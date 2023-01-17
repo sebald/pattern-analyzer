@@ -1,5 +1,3 @@
-import { load } from 'cheerio';
-
 import { Caption, Center, Message, Title } from 'components';
 import { getEvent } from 'lib/longshanks';
 import type { XWSSquad } from 'lib/xws';
