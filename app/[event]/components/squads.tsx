@@ -1,7 +1,6 @@
 'use client';
 
 import { Card, Center, Message, Link, Squad, Tiles } from 'components';
-import { SquadData } from 'lib/types';
 import type { XWSSquad } from 'lib/xws';
 import { useFilter } from './filter-context';
 
