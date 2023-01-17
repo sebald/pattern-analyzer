@@ -1,6 +1,6 @@
 import { Caption, Center, Link, Message, Title } from 'components';
 import { getEvent } from 'lib/longshanks';
-import { SquadData } from 'lib/types';
+import { XWSSquad } from 'lib/xws';
 
 import { Filter } from './components/filter';
 import { FilterProvider } from './components/filter-context';
@@ -31,7 +31,13 @@ export interface PageProps {
 // ---------------
 const Page = async ({ params }: PageProps) => {
   const { title, url, squads } = await getEvent(params.event);
-  const squadsWithXWS = squads.filter(item => Boolean(item.xws)) as SquadData[];
+  const squadsWithXWS = squads.filter(item => Boolean(item.xws)) as {
+    id: string;
+    url: string;
+    xws: XWSSquad;
+    raw: string;
+    player: string;
+  }[];
 
   if (squadsWithXWS.length === 0) {
     return (

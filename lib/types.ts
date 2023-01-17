@@ -1,4 +1,4 @@
-import { XWSSquad } from './xws/types';
+import { XWSSquad } from './xws';
 
 export interface SquadData {
   id: string | undefined;

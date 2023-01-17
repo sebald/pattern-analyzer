@@ -23,7 +23,13 @@ const match = (search: string, { pilots }: XWSSquad) => {
 };
 
 export interface SquadsProps {
-  squads: SquadData[];
+  squads: {
+    id: string;
+    url: string;
+    xws: XWSSquad;
+    raw: string;
+    player: string;
+  }[];
 }
 
 export const Squads = ({ squads }: SquadsProps) => {
