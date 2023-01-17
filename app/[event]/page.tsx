@@ -1,8 +1,5 @@
-import { load } from 'cheerio';
-
 import { Caption, Center, Message, Title } from 'components';
 import type { XWSSquad } from 'lib/xws';
-
 import { Filter, FilterProvider, Squads } from './components';
 
 /**
@@ -18,16 +15,16 @@ export async function generateStaticParams() {
   return [];
 }
 
-// Data
-// ---------------
-const yasb2xws = async (url: string) => {
+const YASB_REGEXP = /https:\/\/yasb\.app\/\?f(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)/;
+
+const getXWS = async (url: string) => {
   // Currently only supporting YASB links
   if (!/yasb\.app/.test(url)) {
     return null;
   }
 
   // Get XWS using https://github.com/zacharyp/squad2xws
-  let res = await fetch(
+  const res = await fetch(
     url.replace(
       'https://yasb.app',
       'https://squad2xws.objectivecat.com/yasb/xws'
@@ -48,7 +45,7 @@ const yasb2xws = async (url: string) => {
   return xws as XWSSquad;
 };
 
-const getEvent = async (event: string) => {
+const getListsFromEvent = async (event: string) => {
   const res = await fetch(
     `https://longshanks.org/events/detail/?event=${event}`
   );
@@ -57,72 +54,49 @@ const getEvent = async (event: string) => {
     throw new Error('Failed to fetch event data...');
   }
 
+  // Poor mans web scraper...
   const html = await res.text();
-  const $ = load(html);
-
-  // Scrape event title from meta tag.
-  const title = $('head meta[property=og:title]').attr('content') || null;
-
-  /**
-   * Iterate over all player related html and scrape their name
-   * and squad.
-   */
-  const squads = await Promise.all(
-    $('[class=pop][id^=details_]')
-      .toArray()
-      .map(async el => {
-        const player = $('.player_link', el).text();
-
-        const list = $('[id^=list_]', el);
-        const id = list.attr('id');
-        const raw = list.attr('value') || '';
-
-        // Get XWS for YASB link
-        const YASB_REGEXP =
-          /https:\/\/yasb\.app\/\?f(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)/;
-        const url = (raw.replace(/(\r\n|\n|\r)/gm, '').match(YASB_REGEXP) || [
-          null,
-        ])[0];
-        let xws: XWSSquad | null = null;
-        try {
-          xws = await yasb2xws(url || '');
-        } catch {
-          throw new Error('Could not load XWS...');
-        }
-
-        return {
-          id,
-          url,
-          xws,
-          raw,
-          player,
-        };
-      })
+  const matches = html.matchAll(
+    /id=\"list_(?<id>\d+)\" value=\"(?<value>[^"]*)\"/g
   );
 
-  return { title, squads };
+  const lists = await Promise.all(
+    Array.from(matches).map(async m => {
+      const val = m.groups?.value || '';
+      const id = m.groups?.id!;
+      const url = (val.replace(/(\r\n|\n|\r)/gm, '').match(YASB_REGEXP) || [
+        null,
+      ])[0];
+      const xws = await getXWS(url || '');
+
+      return {
+        id,
+        url,
+        xws,
+        raw: val,
+      };
+    })
+  );
+
+  return lists;
 };
 
-// Props
-// ---------------
 export interface PageProps {
   params: {
     event: string;
   };
 }
 
-// Page
-// ---------------
 const Page = async ({ params }: PageProps) => {
-  const { title, squads } = await getEvent(params.event);
-  const squadsWithXWS = squads.filter(item => Boolean(item.xws)) as {
+  const data = await getListsFromEvent(params.event);
+  const dataWithXWS = data.filter(item => Boolean(item.xws)) as {
     id: string;
     url: string;
     xws: XWSSquad;
     raw: string;
   }[];
 
-  if (squadsWithXWS.length === 0) {
+  if (dataWithXWS.length === 0) {
     return (
       <div className="pt-4">
         <Center>
@@ -139,15 +113,15 @@ const Page = async ({ params }: PageProps) => {
   return (
     <main className="p-4">
       <div>
-        <Title>{title || `Event #${params.event}`}</Title>
+        <Title>Event #{params.event}</Title>
         <Caption>
-          Showing {squadsWithXWS.length}/{squads.length} lists
+          Showing {dataWithXWS.length}/{data.length} lists
         </Caption>
       </div>
       <div className="mx-auto my-4 w-[min(100%_-_3rem,_75rem)]">
         <FilterProvider>
           <Filter />
-          <Squads squads={squadsWithXWS} />
+          <Squads squads={dataWithXWS} />
         </FilterProvider>
       </div>
     </main>
