@@ -1,7 +1,8 @@
 import { load } from 'cheerio';
 
 import { Caption, Center, Message, Title } from 'components';
-import { XWSSquad, yasb2xws } from 'lib/xws';
+import { getEvent } from 'lib/longshanks';
+import type { XWSSquad } from 'lib/xws';
 
 import { Filter } from './components/filter';
 import { FilterProvider } from './components/filter-context';
@@ -19,63 +20,6 @@ export const fetchCache = 'force-cache';
 export async function generateStaticParams() {
   return [];
 }
-
-// Data
-// ---------------
-const getEvent = async (event: string) => {
-  const res = await fetch(
-    `https://longshanks.org/events/detail/?event=${event}`
-  );
-
-  if (!res.ok) {
-    throw new Error('Failed to fetch event data...');
-  }
-
-  const html = await res.text();
-  const $ = load(html);
-
-  // Scrape event title from meta tag.
-  const title = $('head meta[property=og:title]').attr('content') || null;
-
-  /**
-   * Iterate over all player related html and scrape their name
-   * and squad.
-   */
-  const squads = await Promise.all(
-    $('[class=pop][id^=details_]')
-      .toArray()
-      .map(async el => {
-        const player = $('.player_link', el).text();
-
-        const list = $('[id^=list_]', el);
-        const id = list.attr('id');
-        const raw = list.attr('value') || '';
-
-        // Get XWS for YASB link
-        const YASB_REGEXP =
-          /https:\/\/yasb\.app\/\?f(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)/;
-        const url = (raw.replace(/(\r\n|\n|\r)/gm, '').match(YASB_REGEXP) || [
-          null,
-        ])[0];
-        let xws: XWSSquad | null = null;
-        try {
-          xws = await yasb2xws(url || '');
-        } catch {
-          throw new Error('Could not load XWS...');
-        }
-
-        return {
-          id,
-          url,
-          xws,
-          raw,
-          player,
-        };
-      })
-  );
-
-  return { title, squads };
-};
 
 // Props
 // ---------------
