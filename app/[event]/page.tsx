@@ -1,4 +1,4 @@
-import { Caption, Center, Message, Title } from 'components';
+import { Caption, Center, Link, Message, Title } from 'components';
 import { getEvent } from 'lib/longshanks';
 import type { XWSSquad } from 'lib/xws';
 
@@ -30,7 +30,7 @@ export interface PageProps {
 // Page
 // ---------------
 const Page = async ({ params }: PageProps) => {
-  const { title, squads } = await getEvent(params.event);
+  const { title, url, squads } = await getEvent(params.event);
   const squadsWithXWS = squads.filter(item => Boolean(item.xws)) as {
     id: string;
     url: string;
@@ -45,7 +45,7 @@ const Page = async ({ params }: PageProps) => {
           <Message>
             <strong>No list founds.</strong>
             <br />
-            Looks like the event has no squads including a link to YASB.
+            Looks like the event has no squads including a links to YASB.
           </Message>
         </Center>
       </div>
@@ -57,7 +57,8 @@ const Page = async ({ params }: PageProps) => {
       <div>
         <Title>{title || `Event #${params.event}`}</Title>
         <Caption>
-          Showing {squadsWithXWS.length}/{squads.length} lists
+          <Link href={url}>Event #{params.event}</Link> ({squadsWithXWS.length}/
+          {squads.length} squads parsed)
         </Caption>
       </div>
       <div className="mx-auto my-4 w-[min(100%_-_3rem,_75rem)]">

@@ -45,9 +45,8 @@ export const parseSquads = async ($: CheerioAPI) =>
  * scrape data.
  */
 export const getEvent = async (event: string) => {
-  const res = await fetch(
-    `https://longshanks.org/events/detail/?event=${event}`
-  );
+  const url = `https://longshanks.org/events/detail/?event=${event}`;
+  const res = await fetch(url);
 
   if (!res.ok) {
     throw new Error('Failed to fetch event data...');
@@ -59,5 +58,5 @@ export const getEvent = async (event: string) => {
   const title = parseTitle($);
   const squads = await parseSquads($);
 
-  return { title, squads };
+  return { url, title, squads };
 };
