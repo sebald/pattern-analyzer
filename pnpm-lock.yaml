@@ -9,7 +9,7 @@ specifiers:
   '@types/react-dom': 18.0.10
   autoprefixer: 10.4.13
   cheerio: 1.0.0-rc.12
-  class-variance-authority: ^0.4.0
+  class-variance-authority: 0.4.0
   eslint: 8.31.0
   eslint-config-next: 13.1.1
   next: 13.1.1
@@ -22,7 +22,7 @@ specifiers:
   typescript: 4.9.4
   use-debounce: 9.0.3
   xwing-data2: github:guidokessels/xwing-data2
-  zx: ^7.1.1
+  zx: 7.1.1
 
 dependencies:
   '@next/font': 13.1.1
