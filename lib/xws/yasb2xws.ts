@@ -7,12 +7,17 @@ export const yasb2xws = async (url: string) => {
   }
 
   // Get XWS using https://github.com/zacharyp/squad2xws
-  let res = await fetch(
-    url.replace(
-      'https://yasb.app',
-      'https://squad2xws.objectivecat.com/yasb/xws'
-    )
-  );
+  let res: Response;
+  try {
+    res = await fetch(
+      url.replace(
+        'https://yasb.app',
+        'https://squad2xws.objectivecat.com/yasb/xws'
+      )
+    );
+  } catch {
+    throw new Error('Failed to get XWS..');
+  }
 
   if (!res.ok) {
     throw new Error(`Failed to fetch XWS data for ${url}...`);
