@@ -1,10 +1,9 @@
 import { load } from 'cheerio';
+
 import { Caption, Center, Message, Title } from 'components';
 import type { XWSSquad } from 'lib/xws';
 
-import { Filter } from './components/filter';
-import { FilterProvider } from './components/filter-context';
-import { Squads } from './components/squads';
+import { Filter, FilterProvider, Squads } from './components';
 
 /**
  * Segment Config (see: https://beta.nextjs.org/docs/api-reference/segment-config)
