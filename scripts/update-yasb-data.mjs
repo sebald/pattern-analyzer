@@ -22,10 +22,10 @@ const pilots = data.pilotsById.map(({ id, name, ship, points, xws }) => ({
   points,
   xws,
 }));
-const upgrades = data.upgradesById.map(({ id, name, points, xws }) => ({
+const upgrades = data.upgradesById.map(({ id, name, slot, xws }) => ({
   id,
   name,
-  points,
+  slot,
   xws,
 }));
 

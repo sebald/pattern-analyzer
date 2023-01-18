@@ -3888,725 +3888,724 @@
     {
       "id": 0,
       "name": "\"Chopper\" (Astromech)",
-      "points": 2,
+      "slot": "Astromech",
       "xws": "chopper"
     },
     {
       "id": 1,
       "name": "\"Genius\"",
-      "points": 2
+      "slot": "Astromech"
     },
     {
       "id": 2,
       "name": "R2 Astromech",
-      "points": 6
+      "slot": "Astromech"
     },
     {
       "id": 3,
       "name": "R2-D2",
-      "points": 8
+      "slot": "Astromech"
     },
     {
       "id": 4,
       "name": "R3 Astromech",
-      "points": 4
+      "slot": "Astromech"
     },
     {
       "id": 5,
       "name": "R4 Astromech",
-      "points": 3
+      "slot": "Astromech"
     },
     {
       "id": 6,
       "name": "R5 Astromech",
-      "points": 4
+      "slot": "Astromech"
     },
     {
       "id": 7,
       "name": "R5-D8",
-      "points": 6
+      "slot": "Astromech"
     },
     {
       "id": 8,
       "name": "R5-P8",
-      "points": 4
+      "slot": "Astromech"
     },
     {
       "id": 9,
       "name": "R5-TK",
-      "points": 0
+      "slot": "Astromech"
     },
     {
       "id": 10,
       "name": "Heavy Laser Cannon",
-      "points": 4
+      "slot": "Cannon"
     },
     {
       "id": 11,
       "name": "Ion Cannon",
-      "points": 6
+      "slot": "Cannon"
     },
     {
       "id": 12,
       "name": "Jamming Beam",
-      "points": 0
+      "slot": "Cannon"
     },
     {
       "id": 13,
       "name": "Tractor Beam",
-      "points": 4
+      "slot": "Cannon"
     },
     {
       "id": 14,
       "name": "Admiral Sloane",
-      "points": 16
+      "slot": "Crew"
     },
     {
       "id": 15,
       "name": "Agent Kallus",
-      "points": 5
+      "slot": "Crew"
     },
     {
       "id": 16,
       "name": "Boba Fett",
-      "points": 2
+      "slot": "Crew"
     },
     {
       "id": 17,
       "name": "Baze Malbus",
-      "points": 5
+      "slot": "Crew"
     },
     {
       "id": 18,
       "name": "C-3PO",
-      "points": 5
+      "slot": "Crew"
     },
     {
       "id": 19,
       "name": "Cassian Andor",
-      "points": 5
+      "slot": "Crew"
     },
     {
       "id": 20,
       "name": "Cad Bane",
-      "points": 3
+      "slot": "Crew"
     },
     {
       "id": 21,
       "name": "Chewbacca",
-      "points": 3
+      "slot": "Crew"
     },
     {
       "id": 22,
       "name": "Chewbacca (Scum)",
-      "points": 3,
+      "slot": "Crew",
       "xws": "chewbacca-crew"
     },
     {
       "id": 23,
       "name": "\"Chopper\" (Crew)",
-      "points": 1,
+      "slot": "Crew",
       "xws": "chopper-crew"
     },
     {
       "id": 24,
       "name": "Ciena Ree",
-      "points": 4
+      "slot": "Crew"
     },
     {
       "id": 25,
       "name": "Cikatro Vizago",
-      "points": 1
+      "slot": "Crew"
     },
     {
       "id": 26,
       "name": "Darth Vader",
-      "points": 14
+      "slot": "Crew"
     },
     {
       "id": 27,
       "name": "Death Troopers",
-      "points": 6
+      "slot": "Crew"
     },
     {
       "id": 28,
       "name": "Director Krennic",
-      "points": 4
+      "slot": "Crew"
     },
     {
       "id": 29,
       "name": "Emperor Palpatine",
-      "points": 12
+      "slot": "Crew"
     },
     {
       "id": 30,
       "name": "Freelance Slicer",
-      "points": 3
+      "slot": "Crew"
     },
     {
       "id": 31,
       "name": "4-LOM",
-      "points": 5
+      "slot": "Crew"
     },
     {
       "id": 32,
       "name": "GNK \"Gonk\" Droid",
-      "points": 5
+      "slot": "Crew"
     },
     {
       "id": 33,
       "name": "Grand Inquisitor",
-      "points": 13
+      "slot": "Crew"
     },
     {
       "id": 34,
       "name": "Grand Moff Tarkin",
-      "points": 4
+      "slot": "Crew"
     },
     {
       "id": 35,
       "name": "Hera Syndulla",
-      "points": 4
+      "slot": "Crew"
     },
     {
       "id": 36,
       "name": "IG-88D",
-      "points": 3
+      "slot": "Crew"
     },
     {
       "id": 37,
       "name": "Informant",
-      "points": 4
+      "slot": "Crew"
     },
     {
       "id": 38,
       "name": "ISB Slicer",
-      "points": 1
+      "slot": "Crew"
     },
     {
       "id": 39,
       "name": "Jabba the Hutt",
-      "points": 11
+      "slot": "Crew"
     },
     {
       "id": 40,
       "name": "Jyn Erso",
-      "points": 5
+      "slot": "Crew"
     },
     {
       "id": 41,
       "name": "Kanan Jarrus",
-      "points": 12
+      "slot": "Crew"
     },
     {
       "id": 42,
       "name": "Ketsu Onyo",
-      "points": 4
+      "slot": "Crew"
     },
     {
       "id": 43,
       "name": "L3-37",
-      "points": 4
+      "slot": "Crew"
     },
     {
       "id": 44,
       "name": "Lando Calrissian",
-      "points": 2,
+      "slot": "Crew",
       "xws": "landocalrissian"
     },
     {
       "id": 45,
       "name": "Lando Calrissian (Scum)",
-      "points": 4,
+      "slot": "Crew",
       "xws": "landocalrissian-crew"
     },
     {
       "id": 46,
       "name": "Leia Organa",
-      "points": 7
+      "slot": "Crew"
     },
     {
       "id": 47,
       "name": "Latts Razzi",
-      "points": 5
+      "slot": "Crew"
     },
     {
       "id": 48,
       "name": "Maul",
-      "points": 10
+      "slot": "Crew"
     },
     {
       "id": 49,
       "name": "Minister Tua",
-      "points": 4
+      "slot": "Crew"
     },
     {
       "id": 50,
       "name": "Moff Jerjerrod",
-      "points": 7
+      "slot": "Crew"
     },
     {
       "id": 51,
       "name": "Magva Yarro",
-      "points": 5
+      "slot": "Crew"
     },
     {
       "id": 52,
       "name": "Nien Nunb",
-      "points": 5
+      "slot": "Crew"
     },
     {
       "id": 53,
       "name": "Novice Technician",
-      "points": 2
+      "slot": "Crew"
     },
     {
       "id": 54,
       "name": "Perceptive Copilot",
-      "points": 8
+      "slot": "Crew"
     },
     {
       "id": 55,
       "name": "Qi'ra",
-      "points": 2
+      "slot": "Crew"
     },
     {
       "id": 56,
       "name": "R2-D2 (Crew)",
-      "points": 8,
+      "slot": "Crew",
       "xws": "r2d2-crew"
     },
     {
       "id": 57,
       "name": "Sabine Wren",
-      "points": 3
+      "slot": "Crew"
     },
     {
       "id": 58,
       "name": "Saw Gerrera",
-      "points": 9
+      "slot": "Crew"
     },
     {
       "id": 59,
       "name": "Seasoned Navigator",
-      "points": 7
+      "slot": "Crew"
     },
     {
       "id": 60,
       "name": "Seventh Sister",
-      "points": 9
+      "slot": "Crew"
     },
     {
       "id": 61,
       "name": "Tactical Officer",
-      "points": 3
+      "slot": "Crew"
     },
     {
       "id": 62,
       "name": "Tobias Beckett",
-      "points": 2
+      "slot": "Crew"
     },
     {
       "id": 63,
       "name": "0-0-0",
-      "points": 5
+      "slot": "Crew"
     },
     {
       "id": 64,
       "name": "Unkar Plutt",
-      "points": 2
+      "slot": "Crew"
     },
     {
       "id": 65,
       "name": "\"Zeb\" Orrelios",
-      "points": 1
+      "slot": "Crew"
     },
     {
       "id": 66,
       "name": "Zuckuss",
-      "points": 2
+      "slot": "Crew"
     },
     {
       "id": 67,
       "name": "Bomblet Generator",
-      "points": 2
+      "slot": "Device"
     },
     {
       "id": 68,
       "name": "Conner Nets",
-      "points": 5
+      "slot": "Device"
     },
     {
       "id": 69,
       "name": "Proton Bombs",
-      "points": 4
+      "slot": "Device"
     },
     {
       "id": 70,
       "name": "Proximity Mines",
-      "points": 8
+      "slot": "Device"
     },
     {
       "id": 71,
       "name": "Seismic Charges",
-      "points": 3
+      "slot": "Device"
     },
     {
       "id": 72,
       "name": "Heightened Perception",
-      "points": 3
+      "slot": "Force"
     },
     {
       "id": 73,
       "name": "Instinctive Aim",
-      "points": 2
+      "slot": "Force"
     },
     {
       "id": 74,
       "name": "Supernatural Reflexes",
-      "points": 24
+      "slot": "Force"
     },
     {
       "id": 75,
       "name": "Sense",
-      "points": 6
+      "slot": "Force"
     },
     {
       "id": 76,
       "name": "Agile Gunner",
-      "points": 3
+      "slot": "Gunner"
     },
     {
       "id": 77,
       "name": "Bistan",
-      "points": 8
+      "slot": "Gunner"
     },
     {
       "id": 78,
       "name": "Bossk",
-      "points": 6
+      "slot": "Gunner"
     },
     {
       "id": 79,
       "name": "BT-1",
-      "points": 2
+      "slot": "Gunner"
     },
     {
       "id": 80,
       "name": "Dengar",
-      "points": 6
+      "slot": "Gunner"
     },
     {
       "id": 81,
       "name": "Ezra Bridger",
-      "points": 10
+      "slot": "Gunner"
     },
     {
       "id": 82,
       "name": "Fifth Brother",
-      "points": 12
+      "slot": "Gunner"
     },
     {
       "id": 83,
       "name": "Greedo",
-      "points": 1
+      "slot": "Gunner"
     },
     {
       "id": 84,
       "name": "Han Solo",
-      "points": 10,
+      "slot": "Gunner",
       "xws": "hansolo"
     },
     {
       "id": 85,
       "name": "Han Solo (Scum)",
-      "points": 9,
+      "slot": "Gunner",
       "xws": "hansolo-gunner"
     },
     {
       "id": 86,
       "name": "Hotshot Gunner",
-      "points": 6
+      "slot": "Gunner"
     },
     {
       "id": 87,
       "name": "Luke Skywalker",
-      "points": 12
+      "slot": "Gunner"
     },
     {
       "id": 88,
       "name": "Skilled Bombardier",
-      "points": 2
+      "slot": "Gunner"
     },
     {
       "id": 89,
       "name": "Veteran Tail Gunner",
-      "points": 3
+      "slot": "Gunner"
     },
     {
       "id": 90,
       "name": "Veteran Turret Gunner",
-      "points": 5
+      "slot": "Gunner"
     },
     {
       "id": 91,
       "name": "Cloaking Device",
-      "points": 3
+      "slot": "Illicit"
     },
     {
       "id": 92,
       "name": "Contraband Cybernetics",
-      "points": 3
+      "slot": "Illicit"
     },
     {
       "id": 93,
       "name": "Deadman's Switch",
-      "points": 2
+      "slot": "Illicit"
     },
     {
       "id": 94,
       "name": "Feedback Array",
-      "points": 4
+      "slot": "Illicit"
     },
     {
       "id": 95,
       "name": "Inertial Dampeners",
-      "points": 8
+      "slot": "Illicit"
     },
     {
       "id": 96,
       "name": "Rigged Cargo Chute",
-      "points": 4
+      "slot": "Illicit"
     },
     {
       "id": 97,
       "name": "Barrage Rockets",
-      "points": 8
+      "slot": "Missile"
     },
     {
       "id": 98,
       "name": "Cluster Missiles",
-      "points": 4
+      "slot": "Missile"
     },
     {
       "id": 99,
       "name": "Concussion Missiles",
-      "points": 5
+      "slot": "Missile"
     },
     {
       "id": 100,
       "name": "Homing Missiles",
-      "points": 5
+      "slot": "Missile"
     },
     {
       "id": 101,
       "name": "Ion Missiles",
-      "points": 4
+      "slot": "Missile"
     },
     {
       "id": 102,
       "name": "Proton Rockets",
-      "points": 8
+      "slot": "Missile"
     },
     {
       "id": 103,
       "name": "Ablative Plating",
-      "points": 4
+      "slot": "Modification"
     },
     {
       "id": 104,
       "name": "Advanced SLAM",
-      "points": 3
+      "slot": "Modification"
     },
     {
       "id": 105,
       "name": "Afterburners",
-      "points": 10
+      "slot": "Modification"
     },
     {
       "id": 106,
       "name": "Electronic Baffle",
-      "points": 2
+      "slot": "Modification"
     },
     {
       "id": 107,
       "name": "Engine Upgrade",
-      "points": 3
+      "slot": "Modification"
     },
     {
       "id": 108,
       "name": "Munitions Failsafe",
-      "points": 1
+      "slot": "Modification"
     },
     {
       "id": 109,
       "name": "Static Discharge Vanes",
-      "points": 5
+      "slot": "Modification"
     },
     {
       "id": 110,
       "name": "Tactical Scrambler",
-      "points": 2
+      "slot": "Modification"
     },
     {
       "id": 111,
       "name": "Advanced Sensors",
-      "points": 12
+      "slot": "Sensor"
     },
     {
       "id": 112,
       "name": "Collision Detector",
-      "points": 9
+      "slot": "Sensor"
     },
     {
       "id": 113,
       "name": "Fire-Control System",
-      "points": 2
+      "slot": "Sensor"
     },
     {
       "id": 114,
       "name": "Trajectory Simulator",
-      "points": 6
+      "slot": "Sensor"
     },
     {
       "id": 115,
       "name": "Composure",
-      "points": 1
+      "slot": "Talent"
     },
     {
       "id": 116,
       "name": "Crack Shot",
-      "points": 3
+      "slot": "Talent"
     },
     {
       "id": 117,
       "name": "Daredevil",
-      "points": 2
+      "slot": "Talent"
     },
     {
       "id": 118,
       "name": "Debris Gambit",
-      "points": 6
+      "slot": "Talent"
     },
     {
       "id": 119,
       "name": "Elusive",
-      "points": 2
+      "slot": "Talent"
     },
     {
       "id": 120,
       "name": "Expert Handling",
-      "points": 2
+      "slot": "Talent"
     },
     {
       "id": 121,
       "name": "Fearless",
-      "points": 3
+      "slot": "Talent"
     },
     {
       "id": 122,
       "name": "Intimidation",
-      "points": 3
+      "slot": "Talent"
     },
     {
       "id": 123,
       "name": "Juke",
-      "points": 6
+      "slot": "Talent"
     },
     {
       "id": 124,
       "name": "Lone Wolf",
-      "points": 5
+      "slot": "Talent"
     },
     {
       "id": 125,
       "name": "Marksmanship",
-      "points": 1
+      "slot": "Talent"
     },
     {
       "id": 126,
       "name": "Outmaneuver",
-      "points": 12
+      "slot": "Talent"
     },
     {
       "id": 127,
       "name": "Predator",
-      "points": 2
+      "slot": "Talent"
     },
     {
       "id": 128,
       "name": "Ruthless",
-      "points": 1
+      "slot": "Talent"
     },
     {
       "id": 129,
       "name": "Saturation Salvo",
-      "points": 3
+      "slot": "Talent"
     },
     {
       "id": 130,
       "name": "Selfless",
-      "points": 2
+      "slot": "Talent"
     },
     {
       "id": 131,
       "name": "Squad Leader",
-      "points": 6
+      "slot": "Talent"
     },
     {
       "id": 132,
       "name": "Swarm Tactics",
-      "points": 5
+      "slot": "Talent"
     },
     {
       "id": 133,
       "name": "Trick Shot",
-      "points": 4
+      "slot": "Talent"
     },
     {
       "id": 134,
       "name": "Adv. Proton Torpedoes",
-      "points": 8
+      "slot": "Torpedo"
     },
     {
       "id": 135,
       "name": "Ion Torpedoes",
-      "points": 4
+      "slot": "Torpedo"
     },
     {
       "id": 136,
       "name": "Proton Torpedoes",
-      "points": 12
+      "slot": "Torpedo"
     },
     {
       "id": 137,
       "name": "Dorsal Turret",
-      "points": 2
+      "slot": "Turret"
     },
     {
       "id": 138,
       "name": "Ion Cannon Turret",
-      "points": 5
+      "slot": "Turret"
     },
     {
       "id": 139,
       "name": "Os-1 Arsenal Loadout",
-      "points": 0
+      "slot": "Configuration"
     },
     {
       "id": 140,
       "name": "Pivot Wing",
-      "points": 0
+      "slot": "Configuration"
     },
     {
       "id": 141,
-      "name": "Pivot Wing (Open)",
-      "points": 0
+      "name": "Pivot Wing (Open)"
     },
     {
       "id": 142,
       "name": "Servomotor S-Foils",
-      "points": 0
+      "slot": "Configuration"
     },
     {
       "id": 143,
@@ -4615,71 +4614,72 @@
     {
       "id": 144,
       "name": "Xg-1 Assault Configuration",
-      "points": 0
+      "slot": "Configuration"
     },
     {
       "id": 145,
-      "name": "L3-37's Programming (BoY)"
+      "name": "L3-37's Programming (BoY)",
+      "slot": "Configuration"
     },
     {
       "id": 146,
       "name": "Andrasta",
-      "points": 0
+      "slot": "Title"
     },
     {
       "id": 147,
       "name": "Dauntless",
-      "points": 0
+      "slot": "Title"
     },
     {
       "id": 148,
       "name": "Ghost",
-      "points": 0
+      "slot": "Title"
     },
     {
       "id": 149,
       "name": "Havoc",
-      "points": 0
+      "slot": "Title"
     },
     {
       "id": 150,
       "name": "Hound's Tooth",
-      "points": 0
+      "slot": "Title"
     },
     {
       "id": 151,
       "name": "IG-2000",
-      "points": 0
+      "slot": "Title"
     },
     {
       "id": 152,
       "name": "Lando's Millennium Falcon",
-      "points": 0
+      "slot": "Title"
     },
     {
       "id": 153,
       "name": "Marauder",
-      "points": 0
+      "slot": "Title"
     },
     {
       "id": 154,
       "name": "Millennium Falcon",
-      "points": 0
+      "slot": "Title"
     },
     {
       "id": 155,
       "name": "Mist Hunter",
-      "points": 0
+      "slot": "Title"
     },
     {
       "id": 156,
       "name": "Moldy Crow",
-      "points": 0
+      "slot": "Title"
     },
     {
       "id": 157,
       "name": "Outrider",
-      "points": 0
+      "slot": "Title"
     },
     {
       "id": 158
@@ -4687,47 +4687,47 @@
     {
       "id": 159,
       "name": "Punishing One",
-      "points": 0
+      "slot": "Title"
     },
     {
       "id": 160,
       "name": "Shadow Caster",
-      "points": 0
+      "slot": "Title"
     },
     {
       "id": 161,
       "name": "Slave I",
-      "points": 0
+      "slot": "Title"
     },
     {
       "id": 162,
       "name": "ST-321",
-      "points": 0
+      "slot": "Title"
     },
     {
       "id": 163,
       "name": "Virago",
-      "points": 0
+      "slot": "Title"
     },
     {
       "id": 164,
       "name": "Hull Upgrade",
-      "points": 6
+      "slot": "Modification"
     },
     {
       "id": 165,
       "name": "Shield Upgrade",
-      "points": 8
+      "slot": "Modification"
     },
     {
       "id": 166,
       "name": "Stealth Device",
-      "points": 8
+      "slot": "Modification"
     },
     {
       "id": 167,
       "name": "Phantom",
-      "points": 0
+      "slot": "Title"
     },
     {
       "id": 168
@@ -4741,27 +4741,27 @@
     {
       "id": 171,
       "name": "Black One",
-      "points": 0
+      "slot": "Title"
     },
     {
       "id": 172,
       "name": "Heroic",
-      "points": 2
+      "slot": "Talent"
     },
     {
       "id": 173,
       "name": "Rose Tico",
-      "points": 9
+      "slot": "Crew"
     },
     {
       "id": 174,
       "name": "Finn",
-      "points": 9
+      "slot": "Gunner"
     },
     {
       "id": 175,
       "name": "Integrated S-Foils",
-      "points": 0
+      "slot": "Configuration"
     },
     {
       "id": 176,
@@ -4770,1583 +4770,1605 @@
     {
       "id": 177,
       "name": "Targeting Synchronizer",
-      "points": 3
+      "slot": "Tech"
     },
     {
       "id": 178,
       "name": "Primed Thrusters",
-      "points": 6
+      "slot": "Tech"
     },
     {
       "id": 179,
       "name": "Kylo Ren",
-      "points": 9
+      "slot": "Crew"
     },
     {
       "id": 180,
       "name": "General Hux",
-      "points": 3
+      "slot": "Crew"
     },
     {
       "id": 181,
       "name": "Fanatical",
-      "points": 1
+      "slot": "Talent"
     },
     {
       "id": 182,
       "name": "Special Forces Gunner",
-      "points": 5
+      "slot": "Gunner"
     },
     {
       "id": 183,
       "name": "Captain Phasma",
-      "points": 5
+      "slot": "Crew"
     },
     {
       "id": 184,
       "name": "Supreme Leader Snoke",
-      "points": 13
+      "slot": "Crew"
     },
     {
       "id": 185,
       "name": "Hyperspace Tracking Data",
-      "points": 2
+      "slot": "Tech"
     },
     {
       "id": 186,
       "name": "Advanced Optics",
-      "points": 5
+      "slot": "Tech"
     },
     {
       "id": 187,
       "name": "Rey",
-      "points": 12,
+      "slot": "Gunner",
       "xws": "rey-gunner"
     },
     {
       "id": 188,
       "name": "Chewbacca (Resistance)",
-      "points": 4,
+      "slot": "Crew",
       "xws": "chewbacca-crew-swz19"
     },
     {
       "id": 189,
       "name": "Paige Tico",
-      "points": 6
+      "slot": "Gunner"
     },
     {
       "id": 190,
       "name": "R2-HA",
-      "points": 3
+      "slot": "Astromech"
     },
     {
       "id": 191,
       "name": "C-3PO (Resistance)",
-      "points": 7,
+      "slot": "Crew",
       "xws": "c3po-crew"
     },
     {
       "id": 192,
       "name": "Han Solo (Resistance)",
-      "points": 3,
+      "slot": "Crew",
       "xws": "hansolo-crew"
     },
     {
       "id": 193,
       "name": "Rey's Millennium Falcon",
-      "points": 0
+      "slot": "Title"
     },
     {
       "id": 194,
       "name": "Petty Officer Thanisson",
-      "points": 3
+      "slot": "Crew"
     },
     {
       "id": 195,
       "name": "BB-8",
-      "points": 7
+      "slot": "Astromech"
     },
     {
       "id": 196,
       "name": "BB Astromech",
-      "points": 6
+      "slot": "Astromech"
     },
     {
       "id": 197,
       "name": "M9-G8",
-      "points": 5
+      "slot": "Astromech"
     },
     {
       "id": 198,
       "name": "Ferrosphere Paint",
-      "points": 3
+      "slot": "Tech"
     },
     {
       "id": 199,
       "name": "Brilliant Evasion",
-      "points": 2
+      "slot": "Force"
     },
     {
       "id": 200,
       "name": "Calibrated Laser Targeting",
-      "points": 0
+      "slot": "Configuration"
     },
     {
       "id": 201,
       "name": "Delta-7B",
-      "points": 99
+      "slot": "Configuration"
     },
     {
       "id": 202,
       "name": "Biohexacrypt Codes",
-      "points": 1
+      "slot": "Tech"
     },
     {
       "id": 203,
       "name": "Predictive Shot",
-      "points": 1
+      "slot": "Force"
     },
     {
       "id": 204,
       "name": "Hate",
-      "points": 4
+      "slot": "Force"
     },
     {
       "id": 205,
       "name": "R5-X3",
-      "points": 5
+      "slot": "Astromech"
     },
     {
       "id": 206,
       "name": "Pattern Analyzer",
-      "points": 5
+      "slot": "Tech"
     },
     {
       "id": 207,
       "name": "Impervium Plating",
-      "points": 0
+      "slot": "Modification"
     },
     {
       "id": 208,
       "name": "Grappling Struts",
-      "points": 0
+      "slot": "Configuration"
     },
     {
       "id": 209,
       "name": "Energy-Shell Charges",
-      "points": 4
+      "slot": "Missile"
     },
     {
       "id": 210,
       "name": "Dedicated",
-      "points": 1
+      "slot": "Talent"
     },
     {
       "id": 211,
       "name": "Synchronized Console",
-      "points": 1
+      "slot": "Modification"
     },
     {
       "id": 212,
       "name": "Battle Meditation",
-      "points": 6
+      "slot": "Force"
     },
     {
       "id": 213,
       "name": "R4-P Astromech",
-      "points": 2
+      "slot": "Astromech"
     },
     {
       "id": 214,
       "name": "R4-P17",
-      "points": 4
+      "slot": "Astromech"
     },
     {
       "id": 215,
       "name": "Spare Parts Canisters",
-      "points": 3
+      "slot": "Modification"
     },
     {
       "id": 216,
       "name": "Scimitar",
-      "points": 0
+      "slot": "Title"
     },
     {
       "id": 217,
       "name": "Chancellor Palpatine",
-      "points": 14
+      "slot": "Crew"
     },
     {
       "id": 218,
       "name": "Count Dooku",
-      "points": 14
+      "slot": "Crew"
     },
     {
       "id": 219,
       "name": "General Grievous",
-      "points": 4
+      "slot": "Crew"
     },
     {
       "id": 220,
       "name": "K2-B4",
-      "points": 6
+      "slot": "Tactical Relay"
     },
     {
       "id": 221,
       "name": "DRK-1 Probe Droids",
-      "points": 5
+      "slot": "Device"
     },
     {
       "id": 222,
       "name": "Kraken",
-      "points": 10
+      "slot": "Tactical Relay"
     },
     {
       "id": 223,
       "name": "TV-94",
-      "points": 5
+      "slot": "Tactical Relay"
     },
     {
       "id": 224,
       "name": "Discord Missiles",
-      "points": 3
+      "slot": "Missile"
     },
     {
       "id": 225,
       "name": "Clone Commander Cody",
-      "points": 4
+      "slot": "Gunner"
     },
     {
       "id": 226,
       "name": "R4-P44",
-      "points": 2
+      "slot": "Astromech"
     },
     {
       "id": 227,
       "name": "Seventh Fleet Gunner",
-      "points": 8
+      "slot": "Gunner"
     },
     {
       "id": 228,
       "name": "Treacherous",
-      "points": 2
+      "slot": "Talent"
     },
     {
       "id": 229,
       "name": "Soulless One",
-      "points": 0
+      "slot": "Title"
     },
     {
       "id": 230,
       "name": "GA-97",
-      "points": 5
+      "slot": "Crew"
     },
     {
       "id": 231,
       "name": "Kaydel Connix",
-      "points": 5
+      "slot": "Crew"
     },
     {
       "id": 232,
       "name": "Autoblasters",
-      "points": 7
+      "slot": "Cannon"
     },
     {
       "id": 233,
       "name": "R2-C4",
-      "points": 3
+      "slot": "Astromech"
     },
     {
       "id": 234,
       "name": "Plasma Torpedoes",
-      "points": 7
+      "slot": "Torpedo"
     },
     {
       "id": 235,
       "name": "Electro-Proton Bomb",
-      "points": 8
+      "slot": "Device"
     },
     {
       "id": 236,
       "name": "Delayed Fuses",
-      "points": 1
+      "slot": "Modification"
     },
     {
       "id": 237,
       "name": "Landing Struts",
-      "points": 0
+      "slot": "Configuration"
     },
     {
       "id": 238,
       "name": "Diamond-Boron Missiles",
-      "points": 5
+      "slot": "Missile"
     },
     {
       "id": 239,
       "name": "TA-175",
-      "points": 8
+      "slot": "Tactical Relay"
     },
     {
       "id": 240,
       "name": "Passive Sensors",
-      "points": 5
+      "slot": "Sensor"
     },
     {
       "id": 241,
       "name": "R2-A6",
-      "points": 6
+      "slot": "Astromech"
     },
     {
       "id": 242,
       "name": "Amilyn Holdo",
-      "points": 8
+      "slot": "Crew"
     },
     {
       "id": 243,
       "name": "Larma D'Acy",
-      "points": 4
+      "slot": "Crew"
     },
     {
       "id": 244,
       "name": "Leia Organa (Resistance)",
-      "points": 16,
+      "slot": "Crew",
       "xws": "leiaorgana-resistance"
     },
     {
       "id": 245,
       "name": "Korr Sella",
-      "points": 6
+      "slot": "Crew"
     },
     {
       "id": 246,
       "name": "PZ-4CO",
-      "points": 5
+      "slot": "Crew"
     },
     {
       "id": 247,
       "name": "Angled Deflectors",
-      "points": 4
+      "slot": "Modification"
     },
     {
       "id": 248,
       "name": "Ensnare",
-      "points": 10
+      "slot": "Talent"
     },
     {
       "id": 249,
       "name": "Targeting Computer",
-      "points": 1
+      "slot": "Modification"
     },
     {
       "id": 250,
       "name": "Precognitive Reflexes",
-      "points": 15
+      "slot": "Force"
     },
     {
       "id": 251,
       "name": "Foresight",
-      "points": 6
+      "slot": "Force"
     },
     {
       "id": 252,
       "name": "C1-10P",
-      "points": 8
+      "slot": "Astromech"
     },
     {
       "id": 253,
       "name": "Ahsoka Tano",
-      "points": 12
+      "slot": "Gunner"
     },
     {
       "id": 254,
       "name": "C-3PO (Republic)",
-      "points": 6,
+      "slot": "Crew",
       "xws": "c3po-republic"
     },
     {
       "id": 255,
       "name": "Gravitic Deflection",
-      "points": 4
+      "slot": "Talent"
     },
     {
       "id": 256,
       "name": "Snap Shot",
-      "points": 9
+      "slot": "Talent"
     },
     {
       "id": 257,
       "name": "Agent of the Empire",
-      "points": 4
+      "slot": "Command"
     },
     {
       "id": 258,
       "name": "First Order Elite",
-      "points": 4
+      "slot": "Command"
     },
     {
       "id": 259,
       "name": "Veteran Wing Leader",
-      "points": 2
+      "slot": "Command"
     },
     {
       "id": 260,
       "name": "Dreadnought Hunter",
-      "points": 3
+      "slot": "Command"
     },
     {
       "id": 261,
       "name": "Admiral Ozzel",
-      "points": 6
+      "slot": "Command"
     },
     {
       "id": 262,
       "name": "Azmorigan",
-      "points": 4
+      "slot": "Command"
     },
     {
       "id": 263,
       "name": "Captain Needa",
-      "points": 8
+      "slot": "Command"
     },
     {
       "id": 264,
       "name": "Carlist Rieekan",
-      "points": 4
+      "slot": "Command"
     },
     {
       "id": 265,
       "name": "Jan Dodonna",
-      "points": 3
+      "slot": "Command"
     },
     {
       "id": 266,
       "name": "Raymus Antilles",
-      "points": 8
+      "slot": "Command"
     },
     {
       "id": 267,
       "name": "Stalwart Captain",
-      "points": 6
+      "slot": "Command"
     },
     {
       "id": 268,
       "name": "Strategic Commander",
-      "points": 6
+      "slot": "Command"
     },
     {
       "id": 269,
       "name": "Ion Cannon Battery",
-      "points": 5
+      "slot": "Hardpoint"
     },
     {
       "id": 270,
       "name": "Targeting Battery",
-      "points": 5
+      "slot": "Hardpoint"
     },
     {
       "id": 271,
       "name": "Ordnance Tubes",
-      "points": 1
+      "slot": "Hardpoint"
     },
     {
       "id": 272,
       "name": "Point-Defense Battery",
-      "points": 9
+      "slot": "Hardpoint"
     },
     {
       "id": 273,
       "name": "Turbolaser Battery",
-      "points": 10
+      "slot": "Hardpoint"
     },
     {
       "id": 274,
       "name": "Toryn Farr",
-      "points": 4
+      "slot": "Crew"
     },
     {
       "id": 275,
       "name": "Bombardment Specialists",
-      "points": 6
+      "slot": "Team"
     },
     {
       "id": 276,
       "name": "Comms Team",
-      "points": 7
+      "slot": "Team"
     },
     {
       "id": 277,
       "name": "Damage Control Team",
-      "points": 3
+      "slot": "Team"
     },
     {
       "id": 278,
       "name": "Gunnery Specialists",
-      "points": 5
+      "slot": "Team"
     },
     {
       "id": 279,
       "name": "IG-RM Droids",
-      "points": 2
+      "slot": "Team"
     },
     {
       "id": 280,
       "name": "Ordnance Team",
-      "points": 2
+      "slot": "Team"
     },
     {
       "id": 281,
       "name": "Sensor Experts",
-      "points": 6
+      "slot": "Team"
     },
     {
       "id": 282,
       "name": "Adaptive Shields",
-      "points": 5
+      "slot": "Cargo"
     },
     {
       "id": 283,
       "name": "Boosted Scanners",
-      "points": 7
+      "slot": "Cargo"
     },
     {
       "id": 284,
-      "name": "Selfless (BoY)"
+      "name": "Selfless (BoY)",
+      "slot": "Talent"
     },
     {
       "id": 285,
       "name": "Tibanna Reserves",
-      "points": 3
+      "slot": "Cargo"
     },
     {
       "id": 286,
       "name": "Optimized Power Core",
-      "points": 6
+      "slot": "Cargo"
     },
     {
       "id": 287,
       "name": "Quick-Release Locks",
-      "points": 5
+      "slot": "Illicit"
     },
     {
       "id": 288,
       "name": "Saboteur's Map",
-      "points": 3
+      "slot": "Illicit"
     },
     {
       "id": 289,
       "name": "Scanner Baffler",
-      "points": 8
+      "slot": "Illicit"
     },
     {
       "id": 290,
       "name": "Dodonna's Pride",
-      "points": 4
+      "slot": "Title"
     },
     {
       "id": 291,
       "name": "Jaina's Light",
-      "points": 4
+      "slot": "Title"
     },
     {
       "id": 292,
       "name": "Liberator",
-      "points": 5
+      "slot": "Title"
     },
     {
       "id": 293,
       "name": "Tantive IV",
-      "points": 5
+      "slot": "Title"
     },
     {
       "id": 294,
       "name": "Bright Hope",
-      "points": 5
+      "slot": "Title"
     },
     {
       "id": 295,
       "name": "Luminous",
-      "points": 12
+      "slot": "Title"
     },
     {
       "id": 296,
       "name": "Quantum Storm",
-      "points": 3
+      "slot": "Title"
     },
     {
       "id": 297,
       "name": "Assailer",
-      "points": 5
+      "slot": "Title"
     },
     {
       "id": 298,
       "name": "Corvus",
-      "points": 3
+      "slot": "Title"
     },
     {
       "id": 299,
       "name": "Impetuous",
-      "points": 4
+      "slot": "Title"
     },
     {
       "id": 300,
       "name": "Instigator",
-      "points": 6
+      "slot": "Title"
     },
     {
       "id": 301,
       "name": "Blood Crow",
-      "points": 8
+      "slot": "Title"
     },
     {
       "id": 302,
       "name": "Requiem",
-      "points": 7
+      "slot": "Title"
     },
     {
       "id": 303,
       "name": "Suppressor",
-      "points": 6
+      "slot": "Title"
     },
     {
       "id": 304,
       "name": "Vector",
-      "points": 7
+      "slot": "Title"
     },
     {
       "id": 305,
       "name": "Broken Horn",
-      "points": 4
+      "slot": "Title"
     },
     {
       "id": 306,
       "name": "Merchant One",
-      "points": 8
+      "slot": "Title"
     },
     {
       "id": 307,
       "name": "Insatiable Worrt",
-      "points": 7
+      "slot": "Title"
     },
     {
       "id": 308,
       "name": "Corsair Refit",
-      "points": 6
+      "slot": "Configuration"
     },
     {
       "id": 309,
       "name": "Thunderstrike",
-      "points": 4
+      "slot": "Title"
     },
     {
       "id": 310,
       "name": "Coaxium Hyperfuel",
-      "points": 4
+      "slot": "Illicit"
     },
     {
       "id": 311,
       "name": "Mag-Pulse Warheads",
-      "points": 4
+      "slot": "Missile"
     },
     {
       "id": 312,
       "name": "R1-J5",
-      "points": 5
+      "slot": "Astromech"
     },
     {
       "id": 313,
       "name": "Stabilized S-Foils",
-      "points": 0
+      "slot": "Configuration"
     },
     {
       "id": 314,
       "name": "K-2SO",
-      "points": 6
+      "slot": "Crew"
     },
     {
       "id": 315,
       "name": "Kaz's Fireball",
-      "points": 0
+      "slot": "Title"
     },
     {
       "id": 316,
       "name": "Cluster Mines",
-      "points": 7
+      "slot": "Device"
     },
     {
       "id": 317,
       "name": "Ion Bombs",
-      "points": 4
+      "slot": "Device"
     },
     {
       "id": 318,
       "name": "Deuterium Power Cells",
-      "points": 8
+      "slot": "Tech"
     },
     {
       "id": 319,
       "name": "Proud Tradition",
-      "points": 2
+      "slot": "Talent"
     },
     {
       "id": 320,
       "name": "Commander Pyre",
-      "points": 5
+      "slot": "Crew"
     },
     {
       "id": 321,
       "name": "Clone Captain Rex",
-      "points": 2
+      "slot": "Gunner"
     },
     {
       "id": 322,
       "name": "Yoda",
-      "points": 12
+      "slot": "Crew"
     },
     {
       "id": 323,
       "name": "Repulsorlift Stabilizers",
-      "points": 0
+      "slot": "Configuration"
     },
     {
       "id": 324,
       "name": "Agent Terex",
-      "points": 7
+      "slot": "Crew"
     },
     {
       "id": 325,
       "name": "Plo Koon",
-      "points": 9
+      "slot": "Crew"
     },
     {
       "id": 326,
       "name": "Multi-Missile Pods",
-      "points": 4
+      "slot": "Missile"
     },
     {
       "id": 327,
       "name": "Kit Fisto",
-      "points": 8
+      "slot": "Crew"
     },
     {
       "id": 328,
       "name": "Aayla Secura",
-      "points": 14
+      "slot": "Crew"
     },
     {
       "id": 329,
       "name": "Maneuver-Assist MGK-300",
-      "points": 0
+      "slot": "Configuration"
     },
     {
       "id": 330,
       "name": "Ion Limiter Override",
-      "points": 2
+      "slot": "Talent"
     },
     {
       "id": 331,
       "name": "Marg Sabl Closure",
-      "points": 1
+      "slot": "Talent"
     },
     {
       "id": 332,
       "name": "XX-23 S-Thread Tracers",
-      "points": 4
+      "slot": "Missile"
     },
     {
       "id": 333,
       "name": "Hondo Ohnaka",
-      "points": 5
+      "slot": "Crew"
     },
     {
       "id": 334,
       "name": "Boba Fett (Separatist)",
-      "points": 2,
+      "slot": "Gunner",
       "xws": "bobafett-gunner"
     },
     {
       "id": 335,
       "name": "Jango Fett",
-      "points": 3
+      "slot": "Crew"
     },
     {
       "id": 336,
       "name": "Zam Wesell",
-      "points": 11
+      "slot": "Crew"
     },
     {
       "id": 337,
       "name": "Alpha-3B \"Besh\"",
-      "points": 0
+      "slot": "Configuration"
     },
     {
       "id": 338,
       "name": "Precision Ion Engines",
-      "points": 2
+      "slot": "Modification"
     },
     {
       "id": 339,
       "name": "Thermal Detonators",
-      "points": 5
+      "slot": "Device"
     },
     {
       "id": 340,
       "name": "R2-D2 (Republic)",
-      "points": 8,
+      "slot": "Astromech",
       "xws": "r2d2-republic"
     },
     {
       "id": 341,
       "name": "Extreme Maneuvers",
-      "points": 5
+      "slot": "Force"
     },
     {
       "id": 342,
       "name": "Patience",
-      "points": 2
+      "slot": "Force"
     },
     {
       "id": 343,
       "name": "Deadeye Shot",
-      "points": 1
+      "slot": "Talent"
     },
     {
       "id": 344,
       "name": "Starbird Slash",
-      "points": 1
+      "slot": "Talent"
     },
     {
       "id": 345,
       "name": "Overdrive Thruster",
-      "points": 5
+      "slot": "Modification"
     },
     {
       "id": 346,
       "name": "\"Fives\"",
-      "points": 3
+      "slot": "Crew"
     },
     {
       "id": 347,
       "name": "Commander Malarus",
-      "points": 2
+      "slot": "Crew"
     },
     {
       "id": 348,
       "name": "Automated Target Priority",
-      "points": 1
+      "slot": "Tech"
     },
     {
       "id": 349,
       "name": "Sensor Buoy Suite",
-      "points": 4
+      "slot": "Tech"
     },
     {
       "id": 350,
       "name": "Suppressive Gunner",
-      "points": 7
+      "slot": "Gunner"
     },
     {
       "id": 351,
       "name": "Ghost Company",
-      "points": 5
+      "slot": "Crew"
     },
     {
       "id": 352,
       "name": "Wolfpack",
-      "points": 4
+      "slot": "Crew"
     },
     {
       "id": 353,
       "name": "Kalani",
-      "points": 5
+      "slot": "Tactical Relay"
     },
     {
       "id": 354,
       "name": "Synced Laser Cannons",
-      "points": 8
+      "slot": "Cannon"
     },
     {
       "id": 355,
       "name": "Concussion Bombs",
-      "points": 4
+      "slot": "Device"
     },
     {
       "id": 356,
       "name": "Target-Assist MGK-300",
-      "points": 0
+      "slot": "Configuration"
     },
     {
       "id": 357,
       "name": "Backwards Tailslide",
-      "points": 2
+      "slot": "Talent"
     },
     {
       "id": 358,
       "name": "R2-D2 (Resistance)",
-      "points": 6,
+      "slot": "Astromech",
       "xws": "r2d2-resistance"
     },
     {
       "id": 359,
       "name": "R6-D8",
-      "points": 4
+      "slot": "Astromech"
     },
     {
       "id": 360,
       "name": "Underslung Blaster Cannon",
-      "points": 2
+      "slot": "Cannon"
     },
     {
       "id": 361,
       "name": "Jedi Commander",
-      "points": 4
+      "slot": "Command"
     },
     {
       "id": 362,
       "name": "Syliure-31 Hyperdrive",
-      "points": 3
+      "slot": "Hyperdrive"
     },
     {
       "id": 363,
       "name": "Alpha-3E \"Esk\"",
-      "points": 0
+      "slot": "Configuration"
     },
     {
       "id": 364,
       "name": "R7-A7",
-      "points": 3
+      "slot": "Astromech"
     },
     {
       "id": 365,
       "name": "Q7 Astromech",
-      "points": 3
+      "slot": "Astromech"
     },
     {
       "id": 366,
       "name": "Intercept Booster",
-      "points": 0
+      "slot": "Configuration"
     },
     {
       "id": 367,
       "name": "Independent Calculations",
-      "points": 0
+      "slot": "Modification"
     },
     {
       "id": 368,
       "name": "Weapons Systems Officer",
-      "points": 5
+      "slot": "Gunner"
     },
     {
       "id": 369,
       "name": "False Transponder Codes",
-      "points": 3
+      "slot": "Illicit"
     },
     {
       "id": 370,
       "name": "Slave I (Separatist)",
-      "points": 0,
+      "slot": "Title",
       "xws": "slavei-swz82"
     },
     {
       "id": 371,
       "name": "Vectored Cannons (RZ-1)",
-      "points": 0
+      "slot": "Configuration"
     },
     {
       "id": 372,
       "name": "B6 Blade Wing Prototype",
-      "points": 0
+      "slot": "Title"
     },
     {
       "id": 373,
       "name": "TIE Defender Elite",
-      "points": 0
+      "slot": "Configuration"
     },
     {
       "id": 374,
       "name": "Sensitive Controls",
-      "points": 0
+      "slot": "Configuration"
     },
     {
       "id": 375,
       "name": "Cutthroat",
-      "points": 2
+      "slot": "Talent"
     },
     {
       "id": 376,
       "name": "Tierfon Belly Run",
-      "points": 0
+      "slot": "Talent"
     },
     {
       "id": 377,
       "name": "B6 Blade Wing Prototype (Epic)",
-      "points": 4,
+      "slot": "Command",
       "xws": "b6bladewingprototype-command"
     },
     {
       "id": 378,
       "name": "Hopeful",
-      "points": 1
+      "slot": "Talent"
     },
     {
       "id": 379,
       "name": "Sabine Wren (Gunner)",
-      "points": 2,
+      "slot": "Gunner",
       "xws": "sabinewren-gunner"
     },
     {
       "id": 380,
       "name": "Phoenix Squadron",
-      "points": 4
+      "slot": "Command"
     },
     {
       "id": 381,
       "name": "Disciplined",
-      "points": 2
+      "slot": "Talent"
     },
     {
       "id": 382,
       "name": "Skystrike Academy Class",
-      "points": 3
+      "slot": "Command"
     },
     {
       "id": 383,
       "name": "Shadow Wing",
-      "points": 4
+      "slot": "Command"
     },
     {
       "id": 384,
       "name": "In It For The Money",
-      "points": 1
+      "slot": "Command"
     },
     {
       "id": 385,
       "name": "Bounty",
-      "points": 1
+      "slot": "Command"
     },
     {
       "id": 386,
       "name": "Gamut Key",
-      "points": 6
+      "slot": "Crew"
     },
     {
       "id": 387,
       "name": "Interloper Turn",
-      "points": 1
+      "slot": "Talent"
     },
     {
       "id": 388,
       "name": "Protectorate Gleb",
-      "points": 6
+      "slot": "Crew"
     },
     {
       "id": 389,
       "name": "R4-B11",
-      "points": 3
+      "slot": "Astromech"
     },
     {
       "id": 390,
       "name": "Asajj Ventress (Command)",
-      "points": 8
+      "slot": "Command"
     },
     {
       "id": 391,
       "name": "General Grievous (Command)",
-      "points": 5
+      "slot": "Command"
     },
     {
       "id": 392,
       "name": "Hondo Ohnaka (Command)",
-      "points": 7
+      "slot": "Command"
     },
     {
       "id": 393,
       "name": "Mar Tuuk",
-      "points": 4
+      "slot": "Command"
     },
     {
       "id": 394,
       "name": "Riff Tamson",
-      "points": 6
+      "slot": "Command"
     },
     {
       "id": 395,
       "name": "Zealous Captain",
-      "points": 4
+      "slot": "Command"
     },
     {
       "id": 396,
       "name": "Tractor Tentacles",
-      "points": 0
+      "slot": "Hardpoint"
     },
     {
       "id": 397,
       "name": "Drill Beak",
-      "points": 4
+      "slot": "Hardpoint"
     },
     {
       "id": 398,
       "name": "Enhanced Propulsion",
-      "points": 6
+      "slot": "Hardpoint"
     },
     {
       "id": 399,
       "name": "Proton Cannon Battery",
-      "points": 10
+      "slot": "Hardpoint"
     },
     {
       "id": 400,
       "name": "Droid Crew",
-      "points": 5
+      "slot": "Team"
     },
     {
       "id": 401,
       "name": "Tractor Technicians",
-      "points": 2
+      "slot": "Team"
     },
     {
       "id": 402,
       "name": "Corsair Crew",
-      "points": 5
+      "slot": "Team"
     },
     {
       "id": 403,
       "name": "Grappler",
-      "points": 3
+      "slot": "Title"
     },
     {
       "id": 404,
       "name": "Nautolan's Revenge",
-      "points": 2
+      "slot": "Title"
     },
     {
       "id": 405,
       "name": "Neimoidian Grasp",
-      "points": 5
+      "slot": "Title"
     },
     {
       "id": 406,
       "name": "Trident",
-      "points": 4
+      "slot": "Title"
     },
     {
       "id": 407,
       "name": "Tracking Torpedoes",
-      "points": 8
+      "slot": "Torpedo"
     },
     {
       "id": 408,
       "name": "L4E-R5",
-      "points": 3
+      "slot": "Astromech"
     },
     {
       "id": 409,
       "name": "Wartime Loadout",
-      "points": 5
+      "slot": "Configuration"
     },
     {
       "id": 410,
       "name": "Watchful Astromech",
-      "points": 2
+      "slot": "Astromech"
     },
     {
       "id": 411,
       "name": "Overtuned Modulators",
-      "points": 3
+      "slot": "Illicit"
     },
     {
       "id": 412,
       "name": "DT-798",
-      "points": 3
+      "slot": "Gunner"
     },
     {
       "id": 413,
       "name": "Enhanced Jamming Suite",
-      "points": 0
+      "slot": "Configuration"
     },
     {
       "id": 414,
       "name": "First Order Ordnance Tech",
-      "points": 3
+      "slot": "Gunner"
     },
     {
       "id": 415,
       "name": "Sensor Scramblers",
-      "points": 1
+      "slot": "Tech"
     },
     {
       "id": 416,
       "name": "Babu Frik",
-      "points": 5
+      "slot": "Illicit"
     },
     {
       "id": 417,
       "name": "Compassion",
-      "points": 1
+      "slot": "Force"
     },
     {
       "id": 418,
       "name": "Malice",
-      "points": 4
+      "slot": "Force"
     },
     {
       "id": 419,
       "name": "Shattering Shot",
-      "points": 3
+      "slot": "Force"
     },
     {
       "id": 420,
       "name": "Electro-Chaff Missiles",
-      "points": 9
+      "slot": "Missile"
     },
     {
       "id": 421,
       "name": "Feedback Ping",
-      "points": 1
+      "slot": "Talent"
     },
     {
       "id": 422,
       "name": "Sabine Wren (Command)",
-      "points": 99
+      "slot": "Command"
     },
     {
       "id": 423,
       "name": "Clan Training",
-      "points": 3
+      "slot": "Talent"
     },
     {
       "id": 424,
       "name": "Ahsoka Tano (Crew)",
-      "points": 9,
+      "slot": "Crew",
       "xws": "ahsokatano-crew"
     },
     {
       "id": 425,
       "name": "Bo-Katan Kryze (Republic/Separatist)",
-      "points": 6,
+      "slot": "Crew",
       "xws": "bokatankryze"
     },
     {
       "id": 426,
       "name": "Bo-Katan Kryze (Rebel/Scum)",
-      "points": 4,
+      "slot": "Crew",
       "xws": "bokatankryze-rebel-scum"
     },
     {
       "id": 427,
       "name": "Captain Hark",
-      "points": 3
+      "slot": "Crew"
     },
     {
       "id": 428,
       "name": "Fenn Rau",
-      "points": 4
+      "slot": "Crew"
     },
     {
       "id": 429,
       "name": "Gar Saxon",
-      "points": 6
+      "slot": "Crew"
     },
     {
       "id": 430,
       "name": "Korkie Kryze",
-      "points": 5
+      "slot": "Crew"
     },
     {
       "id": 431,
       "name": "Obi-Wan Kenobi",
-      "points": 11
+      "slot": "Crew"
     },
     {
       "id": 432,
       "name": "Pre Vizsla",
-      "points": 9
+      "slot": "Crew"
     },
     {
       "id": 433,
       "name": "Prime Minister Almec",
-      "points": 6
+      "slot": "Crew"
     },
     {
       "id": 434,
       "name": "Rook Kast",
-      "points": 8
+      "slot": "Crew"
     },
     {
       "id": 435,
       "name": "Satine Kryze",
-      "points": 10
+      "slot": "Crew"
     },
     {
       "id": 436,
       "name": "Savage Opress",
-      "points": 10
+      "slot": "Crew"
     },
     {
       "id": 437,
       "name": "Tal Merrik",
-      "points": 7
+      "slot": "Crew"
     },
     {
       "id": 438,
       "name": "Tristan Wren",
-      "points": 2
+      "slot": "Crew"
     },
     {
       "id": 439,
       "name": "Ursa Wren",
-      "points": 6
+      "slot": "Crew"
     },
     {
       "id": 440,
       "name": "Maul (Mandalore)",
-      "points": 10,
+      "slot": "Crew",
       "xws": "maul-crew"
     },
     {
       "id": 441,
       "name": "Gar Saxon (Gunner)",
-      "points": 6,
+      "slot": "Gunner",
       "xws": "garsaxon-gunner"
     },
     {
       "id": 442,
       "name": "Tiber Saxon",
-      "points": 4
+      "slot": "Gunner"
     },
     {
       "id": 443,
       "name": "Ursa Wren (Gunner)",
-      "points": 4,
+      "slot": "Gunner",
       "xws": "ursawren-gunner"
     },
     {
       "id": 444,
       "name": "Blazer Bomb",
-      "points": 5
+      "slot": "Device"
     },
     {
       "id": 445,
       "name": "Beskar Reinforced Plating",
-      "points": 6
+      "slot": "Modification"
     },
     {
       "id": 446,
       "name": "Mandalorian Optics",
-      "points": 5
+      "slot": "Modification"
     },
     {
       "id": 447,
       "name": "Gauntlet",
-      "points": 0
+      "slot": "Title"
     },
     {
       "id": 448,
       "name": "Nightbrother",
-      "points": 0
+      "slot": "Title"
     },
     {
       "id": 449,
       "name": "Swivel Wing",
-      "points": 0
+      "slot": "Configuration"
     },
     {
       "id": 450,
       "name": "Clan Wren Commandos",
-      "points": 7
+      "slot": "Crew"
     },
     {
       "id": 451,
       "name": "Razor Crest",
-      "points": 0
+      "slot": "Title"
     },
     {
       "id": 452,
       "name": "The Mandalorian",
-      "points": 2
+      "slot": "Crew"
     },
     {
       "id": 453,
       "name": "The Child",
-      "points": 7
+      "slot": "Crew"
     },
     {
       "id": 454,
       "name": "Tracking Fob",
-      "points": 4
+      "slot": "Illicit"
     },
     {
       "id": 455,
       "name": "Notorious",
-      "points": 5
+      "slot": "Talent"
     },
     {
       "id": 456,
       "name": "Enduring",
-      "points": 5
+      "slot": "Talent"
     },
     {
       "id": 457,
       "name": "IG-11",
-      "points": 6
+      "slot": "Crew"
     },
     {
       "id": 458,
       "name": "Greef Karga",
-      "points": 6
+      "slot": "Crew"
     },
     {
       "id": 459,
       "name": "Kuiil",
-      "points": 4
+      "slot": "Crew"
     },
     {
       "id": 460,
       "name": "Peli Motto",
-      "points": 3
+      "slot": "Crew"
     },
     {
       "id": 461,
       "name": "Migs Mayfeld",
-      "points": 4
+      "slot": "Gunner"
     },
     {
       "id": 462,
       "name": "Burnout Thrusters",
-      "points": 6
+      "slot": "Modification"
     },
     {
       "id": 463,
       "name": "Hotshot Tail Blaster",
-      "points": 2
+      "slot": "Illicit"
     },
     {
       "id": 464,
       "name": "Combat Boarding Tube",
-      "points": 0
+      "slot": "Command"
     },
     {
       "id": 465,
       "name": "Drop-Seat Bay",
-      "points": 1
+      "slot": "Modification"
     },
     {
       "id": 466,
       "name": "Mandalorian Super Commandos",
-      "points": 7
+      "slot": "Crew"
     },
     {
       "id": 467,
       "name": "Imperial Super Commandos",
-      "points": 7
+      "slot": "Crew"
     },
     {
       "id": 468,
       "name": "Nite Owl Commandos",
-      "points": 7
+      "slot": "Crew"
     },
     {
       "id": 469,
       "name": "Death Watch Commandos",
-      "points": 7
+      "slot": "Crew"
     },
     {
       "id": 470,
       "name": "Proton Cannons",
-      "points": 4
+      "slot": "Cannon"
     },
     {
       "id": 471,
       "name": "Homing Torpedoes",
-      "points": 5
+      "slot": "Torpedo"
     },
     {
       "id": 472,
       "name": "Xanadu Blood",
-      "points": 0
+      "slot": "Title"
     },
     {
       "id": 473,
-      "name": "Fanatic (BoY)"
+      "name": "Fanatic (BoY)",
+      "slot": "Talent"
     },
     {
       "id": 474,
-      "name": "Chewbacca (BoY)"
+      "name": "Chewbacca (BoY)",
+      "slot": "Crew"
     },
     {
       "id": 475,
-      "name": "Attack Speed (BoY)"
+      "name": "Attack Speed (BoY)",
+      "slot": "Talent"
     },
     {
       "id": 476,
-      "name": "Unstable Sublight Engines (BoY)"
+      "name": "Unstable Sublight Engines (BoY)",
+      "slot": "Modification"
     },
     {
       "id": 477,
-      "name": "R2-D2 (BoY)"
+      "name": "R2-D2 (BoY)",
+      "slot": "Astromech"
     },
     {
       "id": 478,
-      "name": "Dorsal Turret (BoY)"
+      "name": "Dorsal Turret (BoY)",
+      "slot": "Turret"
     },
     {
       "id": 479,
-      "name": "R2-F2 (BoY)"
+      "name": "R2-F2 (BoY)",
+      "slot": "Astromech"
     },
     {
       "id": 480,
-      "name": "Precise Astromech (BoY)"
+      "name": "Precise Astromech (BoY)",
+      "slot": "Astromech"
     },
     {
       "id": 481,
-      "name": "R2-A3 (BoY)"
+      "name": "R2-A3 (BoY)",
+      "slot": "Astromech"
     },
     {
       "id": 482,
-      "name": "Vengeful (BoY)"
+      "name": "Vengeful (BoY)",
+      "slot": "Talent"
     },
     {
       "id": 483,
-      "name": "R5-D8 (BoY)"
+      "name": "R5-D8 (BoY)",
+      "slot": "Astromech"
     },
     {
       "id": 484,
-      "name": "R5-K6 (BoY)"
+      "name": "R5-K6 (BoY)",
+      "slot": "Astromech"
     },
     {
       "id": 485,
-      "name": "Sensor Jammer (BoY)"
+      "name": "Sensor Jammer (BoY)",
+      "slot": "Sensor"
     },
     {
       "id": 486,
-      "name": "Ancillary Ion Weapons (SoC)"
+      "name": "Ancillary Ion Weapons (SoC)",
+      "slot": "Cannon"
     },
     {
       "id": 487,
-      "name": "Roiling Anger (SoC)"
+      "name": "Roiling Anger (SoC)",
+      "slot": "Force"
     },
     {
       "id": 488,
-      "name": "Contingency Protocol (SoC)"
+      "name": "Contingency Protocol (SoC)",
+      "slot": "Modification"
     },
     {
       "id": 489,
-      "name": "Strut-Lock Override (SoC)"
+      "name": "Strut-Lock Override (SoC)",
+      "slot": "Configuration"
     },
     {
       "id": 490,
-      "name": "R4-P17 (SoC)"
+      "name": "R4-P17 (SoC)",
+      "slot": "Astromech"
     },
     {
       "id": 491,
-      "name": "Targeting Astromech (BoY)"
+      "name": "Targeting Astromech (BoY)",
+      "slot": "Astromech"
     },
     {
       "id": 492,
-      "name": "Wolfpack (SoC)"
+      "name": "Wolfpack (SoC)",
+      "slot": "Crew"
     },
     {
       "id": 493,
-      "name": "Evasion Sequence 7 (SoC)"
+      "name": "Evasion Sequence 7 (SoC)",
+      "slot": "Modification"
     }
   ]
 }
