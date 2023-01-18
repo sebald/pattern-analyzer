@@ -1,4 +1,4 @@
-import { yasb2xws } from 'lib/xws';
+import { yasb2xws } from 'lib/data';
 import { CheerioAPI, load } from 'cheerio';
 
 /**
@@ -11,34 +11,32 @@ export const parseTitle = ($: CheerioAPI) =>
  * Iterate over all player related html and scrape their name
  * and squad.
  */
-export const parseSquads = async ($: CheerioAPI) =>
-  await Promise.all(
-    $('[class=pop][id^=details_]')
-      .toArray()
-      .map(async el => {
-        const player = $('.player_link', el).first().text();
+export const parseSquads = ($: CheerioAPI) =>
+  $('[class=pop][id^=details_]')
+    .toArray()
+    .map(el => {
+      const player = $('.player_link', el).first().text();
 
-        const list = $('[id^=list_]', el);
-        const id = list.attr('id');
-        const raw = list.attr('value') || '';
+      const list = $('[id^=list_]', el);
+      const id = list.attr('id');
+      const raw = list.attr('value') || '';
 
-        // Get XWS for YASB link
-        const YASB_REGEXP =
-          /https:\/\/yasb\.app\/\?f(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)/;
-        const url = (raw.replace(/(\r\n|\n|\r)/gm, '').match(YASB_REGEXP) || [
-          null,
-        ])[0];
-        const xws = await yasb2xws(url || '');
+      // Get XWS for YASB link
+      const YASB_REGEXP =
+        /https:\/\/yasb\.app\/\?f(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)/;
+      const url = (raw.replace(/(\r\n|\n|\r)/gm, '').match(YASB_REGEXP) || [
+        null,
+      ])[0];
+      const xws = url ? yasb2xws(url) : null;
 
-        return {
-          id,
-          url,
-          xws,
-          raw,
-          player,
-        };
-      })
-  );
+      return {
+        id,
+        url,
+        xws,
+        raw,
+        player,
+      };
+    });
 
 /**
  * Fetch an event page from longhanks and use it to

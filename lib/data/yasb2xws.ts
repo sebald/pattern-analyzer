@@ -1,13 +1,19 @@
-import { XWSFaction, XWSPilot, XWSSquad } from 'lib/xws';
+import { XWSFaction, XWSPilot, XWSSquad, XWSUpgrades } from 'lib/xws';
 import yasb from './yasb.json';
 
 /**
- * Stolen from YASB source. This transforms a
+ * Adopted from YASB source. This transforms a
  * displayed value that can be used in XWS.
  */
-export const normalize = (val = 'unkown') =>
+export const normalize = (val: string) =>
   val
     .toLowerCase()
+    /**
+     * YASB added the ship, faction, ... to the name
+     * property of pilots and upgrades. We need to remove this
+     * in order to get the correct XWS id.
+     */
+    .replace(/\s\(.+$/, '')
     .replace(/[^a-z0-9]/g, '')
     .replace(/\s+/g, '-');
 
@@ -56,14 +62,29 @@ export const yasb2xws = (link: string): XWSSquad => {
     const upgrades = upgradeIds.reduce((o, uid) => {
       const upgrade = yasb.upgrades[Number(uid)];
 
-      return o;
-    }, {});
+      // Skip unknown upgrades.
+      if (!upgrade) {
+        return o;
+      }
 
-    // TODO: Keep display name? (as name)
+      const slot =
+        upgrade.slot === 'Force'
+          ? 'force-power'
+          : (normalize(upgrade.slot || 'unknown-slot') as keyof XWSUpgrades);
+      const name = upgrade.xws || normalize(upgrade.name || 'unknown-upgrade');
+
+      if (!o[slot]) {
+        o[slot] = [];
+      }
+      //@ts-expect-error
+      o[slot].push(name);
+
+      return o;
+    }, {} as XWSUpgrades);
+
     pilots.push({
-      id: pilot.xws || normalize(pilot.name),
-      // name: pilot.name || 'Unkown Pilot',
-      ship: normalize(ship),
+      id: pilot.xws || normalize(pilot.name || 'unknown-pilot'),
+      ship: normalize(pilot.ship || 'unknown-ship'),
       points: pilot.points || 0,
       upgrades,
     });

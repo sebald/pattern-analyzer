@@ -1,5 +1,4 @@
 import { Caption, Center, Link, Message, Title } from 'components';
-import { yasb2xws } from 'lib/data';
 import { getEvent } from 'lib/longshanks';
 import { XWSSquad } from 'lib/xws';
 
@@ -39,17 +38,6 @@ const Page = async ({ params }: PageProps) => {
     raw: string;
     player: string;
   }[];
-
-  console.log(
-    yasb2xws(
-      'https://yasb.app/?f=Resistance&d=v9ZhZ20Z442X119W172W198WWWW175W136Y298X125W206WW359WW175WY607X172WWW197WW175WY350X127W172WW54WY349XWW188W&sn=xXx&obs=yt2400debris2'
-    )
-  );
-  console.log(
-    yasb2xws(
-      'https://yasb.app/?f=Scum%20and%20Villainy&d=v9ZhZ20Z132X119W375WWW134Y133X375WW136Y473XWW339W91WWY85X375W138W134WW5WWWY458X375WWW136WWW&sn=Darth%20Johnny&obs=pomasteroid1'
-    )
-  );
 
   if (squadsWithXWS.length === 0) {
     return (
