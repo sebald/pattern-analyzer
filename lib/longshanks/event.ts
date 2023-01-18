@@ -1,18 +1,22 @@
 import { yasb2xws } from 'lib/xws';
-import { CheerioAPI, load } from 'cheerio';
+import { load } from 'cheerio';
 
 /**
  * Scrape event title from meta tag.
  */
-export const parseTitle = ($: CheerioAPI) =>
-  $('head meta[property=og:title]').attr('content') || null;
+export const parseTitle = (html: string) => {
+  const $ = load(html);
+  return $('head meta[property=og:title]').attr('content') || null;
+};
 
 /**
  * Iterate over all player related html and scrape their name
  * and squad.
  */
-export const parseSquads = async ($: CheerioAPI) =>
-  await Promise.all(
+export const parseSquads = async (html: string) => {
+  const $ = load(html);
+
+  const squads = await Promise.all(
     $('[class=pop][id^=details_]')
       .toArray()
       .map(async el => {
@@ -40,11 +44,14 @@ export const parseSquads = async ($: CheerioAPI) =>
       })
   );
 
+  return squads;
+};
+
 /**
  * Fetch an event page from longhanks and use it to
  * scrape data.
  */
-export const getEvent = async (event: string) => {
+export const getEventHtml = async (event: string) => {
   const url = `https://longshanks.org/events/detail/?event=${event}`;
   const res = await fetch(url);
 
@@ -53,10 +60,6 @@ export const getEvent = async (event: string) => {
   }
 
   const html = await res.text();
-  const $ = load(html);
 
-  const title = parseTitle($);
-  const squads = await parseSquads($);
-
-  return { url, title, squads };
+  return { url, html };
 };
