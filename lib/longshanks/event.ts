@@ -16,7 +16,7 @@ export const parseSquads = async ($: CheerioAPI) =>
     $('[class=pop][id^=details_]')
       .toArray()
       .map(async el => {
-        const player = $('.player_link', el).text();
+        const player = $('.player_link', el).first().text();
 
         const list = $('[id^=list_]', el);
         const id = list.attr('id');

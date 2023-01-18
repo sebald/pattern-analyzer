@@ -26,6 +26,8 @@ export interface SquadsProps {
     id: string;
     url: string;
     xws: XWSSquad;
+    raw: string;
+    player: string;
   }[];
 }
 
@@ -55,22 +57,28 @@ export const Squads = ({ squads }: SquadsProps) => {
 
   return (
     <Tiles>
-      {filtered.map(item => (
-        <Card key={item.id}>
+      {filtered.map(squad => (
+        <Card key={squad.id}>
           <Card.Body>
-            <Squad xws={item.xws} />
+            <Squad xws={squad.xws} />
           </Card.Body>
           <Card.Footer>
-            <Link
-              className="text-xs text-secondary-300"
-              href={item.url}
-              target="_blank"
-            >
-              View in YASB
-            </Link>
+            <div className="flex items-center justify-between gap-2 px-1 pt-1 text-xs text-secondary-300">
+              <div>by {squad.player}</div>
+              <Link className="text-right" href={squad.url} target="_blank">
+                View in YASB
+              </Link>
+            </div>
           </Card.Footer>
         </Card>
       ))}
     </Tiles>
   );
 };
+
+// <div className="flex items-center justify-between gap-2 px-1 pt-1 text-xs text-secondary-300">
+//   <div>by {squad.player}</div>
+//   <Link className="text-right" href={squad.url} target="_blank">
+//     View in YASB
+//   </Link>
+// </div>
