@@ -15,12 +15,25 @@ await fs.outputFile(YASB_FILE_PATH, contents);
 
 const data = require(YASB_FILE_PATH).basicCardData();
 
+const pilots = data.pilotsById.map(({ id, name, ship, points, xws }) => ({
+  id,
+  name,
+  ship,
+  points,
+  xws,
+}));
+const upgrades = data.upgradesById.map(({ id, name, points, xws }) => ({
+  id,
+  name,
+  points,
+  xws,
+}));
+
 await fs.outputJson(
   `${TARGET}/yasb.json`,
   {
-    pilots: data.pilotsById,
-    ships: data.ships,
-    upgrades: data.upgradesById,
+    pilots,
+    upgrades,
   },
   { spaces: 2 }
 );

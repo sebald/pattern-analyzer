@@ -8,8 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "update-data": "zx scripts/update-xwing-data.mjs",
-    "update-yasb": "zx scripts/update-yasb-data.mjs"
+    "update:data": "zx scripts/update-xwing-data.mjs",
+    "update:yasb": "zx scripts/update-yasb-data.mjs"
   },
   "dependencies": {
     "@next/font": "13.1.2",
