@@ -15,9 +15,9 @@ export const fetchCache = 'force-cache';
 /**
  * Opt into background revalidation. (see: https://github.com/vercel/next.js/discussions/43085)
  */
-export async function generateStaticParams() {
-  return [];
-}
+// export async function generateStaticParams() {
+//   return [];
+// }
 
 // Props
 // ---------------
