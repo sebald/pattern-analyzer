@@ -9,8 +9,8 @@ import { Squads } from './components/squads';
 /**
  * Segment Config (see: https://beta.nextjs.org/docs/api-reference/segment-config)
  */
-export const revalidate = 60;
-export const fetchCache = 'force-cache';
+// export const revalidate = 60;
+// export const fetchCache = 'force-cache';
 
 /**
  * Opt into background revalidation. (see: https://github.com/vercel/next.js/discussions/43085)
