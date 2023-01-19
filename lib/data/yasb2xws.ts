@@ -1,21 +1,34 @@
 import { XWSFaction, XWSPilot, XWSSquad, XWSUpgrades } from 'lib/xws';
 import yasb from './yasb.json';
 
+const SUFFIX_NORMALIZATION = {
+  SoC: '-siegeofcoruscant',
+  Boy: '-battleofyavin',
+};
+
 /**
- * Adopted from YASB source. This transforms a
- * displayed value that can be used in XWS.
+ * Take a display text (e.g. "Han Solo") and convert it to an
+ * XWS identifier.
+ *
+ * Note that xwing-data2 and YASB differ here when it comes to
+ * secondary info like ships and scenario packs. YASB includes this
+ * information in the display title (e.g. "Han Solo (BoY)" or "Han Solo (Scum)").
+ *
+ * On the other hand YASB does not append this information to the xws all
+ * the time. We nee transform this ourselves.
  */
-export const normalize = (val: string) =>
-  val
+export const normalize = (input: string) => {
+  // `suffix` can be a scenario, ship or faction
+  const [name, suffix = ''] = input.split(/[()]/);
+
+  const id = name
     .toLowerCase()
-    /**
-     * YASB added the ship, faction, ... to the name
-     * property of pilots and upgrades. We need to remove this
-     * in order to get the correct XWS id.
-     */
-    .replace(/\s\(.+$/, '')
     .replace(/[^a-z0-9]/g, '')
     .replace(/\s+/g, '-');
+
+  // @ts-expect-error (using indexsignature here is fine TS ...)
+  return `${id}${SUFFIX_NORMALIZATION[suffix] || ''}`;
+};
 
 export const yasb2xws = (link: string): XWSSquad => {
   const url = new URL(link);
