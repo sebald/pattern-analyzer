@@ -1,18 +1,16 @@
-import factions from './factions.json';
-import upgrades from './upgrades.json';
-import type { XWSFaction } from 'lib/xws';
-import type { Ship, Upgrade } from './types';
+import data from './data/xwing-data2.json';
+import type { Ship, Upgrade, XWSFaction } from './types';
 
-export type Factions = keyof typeof factions;
+export type Factions = keyof typeof data.factions;
 
 export const getAllFactions = () =>
-  (Object.keys(factions) as Factions[]).map(id => ({
+  (Object.keys(data.factions) as Factions[]).map(id => ({
     id,
-    name: factions[id].name,
+    name: data.factions[id].name,
   }));
 
 export const getFaction = ({ faction }: { faction: XWSFaction }) =>
-  factions[faction];
+  data.factions[faction];
 
 export const getShip = ({
   faction,
@@ -42,4 +40,4 @@ export const getUpgrade = ({
   name: string;
 }): Upgrade | undefined =>
   // @ts-ignore (TS doesn't like index signatures)
-  upgrades[type]?.[name];
+  data.upgrades[type]?.[name];

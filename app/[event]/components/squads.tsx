@@ -1,7 +1,8 @@
 'use client';
 
 import { Card, Center, Message, Link, Squad, Tiles } from 'components';
-import type { XWSSquad } from 'lib/xws';
+import type { XWSSquad } from 'lib/types';
+
 import { useFilter } from './filter-context';
 
 const match = (search: string, { pilots }: XWSSquad) => {

@@ -1,0 +1,6374 @@
+{
+  "pilots": [
+    {
+      "id": 0,
+      "name": "Cavern Angels Zealot",
+      "ship": "T-65 X-wing",
+      "points": 5
+    },
+    {
+      "id": 1,
+      "name": "Blue Squadron Escort",
+      "ship": "T-65 X-wing",
+      "points": 5
+    },
+    {
+      "id": 2,
+      "name": "Red Squadron Veteran",
+      "ship": "T-65 X-wing",
+      "points": 5
+    },
+    {
+      "id": 3,
+      "name": "Jek Porkins",
+      "ship": "T-65 X-wing",
+      "points": 5
+    },
+    {
+      "id": 4,
+      "name": "Luke Skywalker",
+      "ship": "T-65 X-wing",
+      "points": 6
+    },
+    {
+      "id": 5,
+      "name": "Wedge Antilles",
+      "ship": "T-65 X-wing",
+      "points": 6
+    },
+    {
+      "id": 6,
+      "name": "Garven Dreis (X-Wing)",
+      "ship": "T-65 X-wing",
+      "points": 5,
+      "xws": "garvendreis-t65xwing"
+    },
+    {
+      "id": 7,
+      "name": "Biggs Darklighter",
+      "ship": "T-65 X-wing",
+      "points": 5
+    },
+    {
+      "id": 8,
+      "name": "Edrio Two Tubes",
+      "ship": "T-65 X-wing",
+      "points": 4
+    },
+    {
+      "id": 9,
+      "name": "Thane Kyrell",
+      "ship": "T-65 X-wing",
+      "points": 5
+    },
+    {
+      "id": 10,
+      "name": "Leevan Tenza",
+      "ship": "T-65 X-wing",
+      "points": 4
+    },
+    {
+      "id": 11,
+      "name": "whoops"
+    },
+    {
+      "id": 12,
+      "name": "Kullbee Sperado",
+      "ship": "T-65 X-wing",
+      "points": 4
+    },
+    {
+      "id": 13,
+      "name": "Sabine Wren (TIE Fighter)",
+      "ship": "TIE/ln Fighter",
+      "points": 3,
+      "xws": "sabinewren-tielnfighter"
+    },
+    {
+      "id": 14,
+      "name": "Ezra Bridger (TIE Fighter)",
+      "ship": "TIE/ln Fighter",
+      "points": 3,
+      "xws": "ezrabridger-tielnfighter"
+    },
+    {
+      "id": 15,
+      "name": "\"Zeb\" Orrelios (TIE Fighter)",
+      "ship": "TIE/ln Fighter",
+      "points": 3,
+      "xws": "zeborrelios-tielnfighter"
+    },
+    {
+      "id": 16,
+      "name": "Captain Rex",
+      "ship": "TIE/ln Fighter",
+      "points": 3
+    },
+    {
+      "id": 17,
+      "name": "Miranda Doni",
+      "ship": "BTL-S8 K-wing",
+      "points": 5
+    },
+    {
+      "id": 18,
+      "name": "Esege Tuketu",
+      "ship": "BTL-S8 K-wing",
+      "points": 5
+    },
+    {
+      "id": 19,
+      "name": "empty"
+    },
+    {
+      "id": 20,
+      "name": "Warden Squadron Pilot",
+      "ship": "BTL-S8 K-wing",
+      "points": 5
+    },
+    {
+      "id": 21,
+      "name": "Corran Horn",
+      "ship": "E-wing",
+      "points": 7
+    },
+    {
+      "id": 22,
+      "name": "Gavin Darklighter",
+      "ship": "E-wing",
+      "points": 6
+    },
+    {
+      "id": 23,
+      "name": "Rogue Squadron Escort",
+      "ship": "E-wing",
+      "points": 6
+    },
+    {
+      "id": 24,
+      "name": "Knave Squadron Escort",
+      "ship": "E-wing",
+      "points": 6
+    },
+    {
+      "id": 25,
+      "name": "Norra Wexley (Y-Wing)",
+      "ship": "BTL-A4 Y-wing",
+      "points": 5,
+      "xws": "norrawexley-btla4ywing"
+    },
+    {
+      "id": 26,
+      "name": "Horton Salm",
+      "ship": "BTL-A4 Y-wing",
+      "points": 4
+    },
+    {
+      "id": 27,
+      "name": "\"Dutch\" Vander",
+      "ship": "BTL-A4 Y-wing",
+      "points": 4
+    },
+    {
+      "id": 28,
+      "name": "Evaan Verlaine",
+      "ship": "BTL-A4 Y-wing",
+      "points": 4
+    },
+    {
+      "id": 29,
+      "name": "Gold Squadron Veteran",
+      "ship": "BTL-A4 Y-wing",
+      "points": 4
+    },
+    {
+      "id": 30,
+      "name": "Gray Squadron Bomber",
+      "ship": "BTL-A4 Y-wing",
+      "points": 4
+    },
+    {
+      "id": 31,
+      "name": "Bodhi Rook",
+      "ship": "UT-60D U-wing",
+      "points": 5
+    },
+    {
+      "id": 32,
+      "name": "Cassian Andor",
+      "ship": "UT-60D U-wing",
+      "points": 5
+    },
+    {
+      "id": 33,
+      "name": "Heff Tobber",
+      "ship": "UT-60D U-wing",
+      "points": 5
+    },
+    {
+      "id": 34,
+      "name": "Magva Yarro",
+      "ship": "UT-60D U-wing",
+      "points": 5
+    },
+    {
+      "id": 35,
+      "name": "Saw Gerrera",
+      "ship": "UT-60D U-wing",
+      "points": 5
+    },
+    {
+      "id": 36,
+      "name": "Benthic Two Tubes",
+      "ship": "UT-60D U-wing",
+      "points": 5
+    },
+    {
+      "id": 37,
+      "name": "Blue Squadron Scout",
+      "ship": "UT-60D U-wing",
+      "points": 5
+    },
+    {
+      "id": 38,
+      "name": "Partisan Renegade",
+      "ship": "UT-60D U-wing",
+      "points": 5
+    },
+    {
+      "id": 39,
+      "name": "Dash Rendar",
+      "ship": "YT-2400 Light Freighter",
+      "points": 10
+    },
+    {
+      "id": 40,
+      "name": "\"Leebo\"",
+      "ship": "YT-2400 Light Freighter",
+      "points": 8
+    },
+    {
+      "id": 41,
+      "name": "Wild Space Fringer",
+      "ship": "YT-2400 Light Freighter",
+      "points": 8
+    },
+    {
+      "id": 42,
+      "name": "Han Solo",
+      "ship": "Modified YT-1300 Light Freighter",
+      "points": 8,
+      "xws": "hansolo-modifiedyt1300lightfreighter"
+    },
+    {
+      "id": 43,
+      "name": "Lando Calrissian",
+      "ship": "Modified YT-1300 Light Freighter",
+      "points": 8,
+      "xws": "landocalrissian-modifiedyt1300lightfreighter"
+    },
+    {
+      "id": 44,
+      "name": "Chewbacca",
+      "ship": "Modified YT-1300 Light Freighter",
+      "points": 7
+    },
+    {
+      "id": 45,
+      "name": "Outer Rim Smuggler",
+      "ship": "Modified YT-1300 Light Freighter",
+      "points": 7
+    },
+    {
+      "id": 46,
+      "name": "Jan Ors",
+      "ship": "HWK-290 Light Freighter",
+      "points": 6
+    },
+    {
+      "id": 47,
+      "name": "Roark Garnet",
+      "ship": "HWK-290 Light Freighter",
+      "points": 6
+    },
+    {
+      "id": 48,
+      "name": "Kyle Katarn",
+      "ship": "HWK-290 Light Freighter",
+      "points": 6
+    },
+    {
+      "id": 49,
+      "name": "Rebel Scout",
+      "ship": "HWK-290 Light Freighter",
+      "points": 4
+    },
+    {
+      "id": 50,
+      "name": "Jake Farrell",
+      "ship": "RZ-1 A-wing",
+      "points": 4
+    },
+    {
+      "id": 51,
+      "name": "Arvel Crynyd",
+      "ship": "RZ-1 A-wing",
+      "points": 3
+    },
+    {
+      "id": 52,
+      "name": "Green Squadron Pilot",
+      "ship": "RZ-1 A-wing",
+      "points": 4
+    },
+    {
+      "id": 53,
+      "name": "Phoenix Squadron Pilot",
+      "ship": "RZ-1 A-wing",
+      "points": 4
+    },
+    {
+      "id": 54,
+      "name": "Airen Cracken",
+      "ship": "Z-95-AF4 Headhunter",
+      "points": 3
+    },
+    {
+      "id": 55,
+      "name": "Lieutenant Blount",
+      "ship": "Z-95-AF4 Headhunter",
+      "points": 3
+    },
+    {
+      "id": 56,
+      "name": "Tala Squadron Pilot",
+      "ship": "Z-95-AF4 Headhunter",
+      "points": 3
+    },
+    {
+      "id": 57,
+      "name": "Bandit Squadron Pilot",
+      "ship": "Z-95-AF4 Headhunter",
+      "points": 3
+    },
+    {
+      "id": 58,
+      "name": "Wullffwarro",
+      "ship": "Auzituck Gunship",
+      "points": 5
+    },
+    {
+      "id": 59,
+      "name": "Lowhhrick",
+      "ship": "Auzituck Gunship",
+      "points": 5
+    },
+    {
+      "id": 60,
+      "name": "Kashyyyk Defender",
+      "ship": "Auzituck Gunship",
+      "points": 5
+    },
+    {
+      "id": 61,
+      "name": "Hera Syndulla (VCX-100)",
+      "ship": "VCX-100 Light Freighter",
+      "points": 7,
+      "xws": "herasyndulla-vcx100lightfreighter"
+    },
+    {
+      "id": 62,
+      "name": "Kanan Jarrus",
+      "ship": "VCX-100 Light Freighter",
+      "points": 8
+    },
+    {
+      "id": 63,
+      "name": "\"Chopper\"",
+      "ship": "VCX-100 Light Freighter",
+      "points": 7
+    },
+    {
+      "id": 64,
+      "name": "Lothal Rebel",
+      "ship": "VCX-100 Light Freighter",
+      "points": 7
+    },
+    {
+      "id": 65,
+      "name": "Hera Syndulla",
+      "ship": "Attack Shuttle",
+      "points": 4
+    },
+    {
+      "id": 66,
+      "name": "Sabine Wren",
+      "ship": "Attack Shuttle",
+      "points": 4
+    },
+    {
+      "id": 67,
+      "name": "Ezra Bridger",
+      "ship": "Attack Shuttle",
+      "points": 4
+    },
+    {
+      "id": 68,
+      "name": "\"Zeb\" Orrelios",
+      "ship": "Attack Shuttle",
+      "points": 3
+    },
+    {
+      "id": 69,
+      "name": "Fenn Rau (Sheathipede)",
+      "ship": "Sheathipede-Class Shuttle",
+      "points": 4,
+      "xws": "fennrau-sheathipedeclassshuttle"
+    },
+    {
+      "id": 70,
+      "name": "Ezra Bridger (Sheathipede)",
+      "ship": "Sheathipede-Class Shuttle",
+      "points": 4,
+      "xws": "ezrabridger-sheathipedeclassshuttle"
+    },
+    {
+      "id": 71,
+      "name": "\"Zeb\" Orrelios (Sheathipede)",
+      "ship": "Sheathipede-Class Shuttle",
+      "points": 4,
+      "xws": "zeborrelios-sheathipedeclassshuttle"
+    },
+    {
+      "id": 72,
+      "name": "AP-5",
+      "ship": "Sheathipede-Class Shuttle",
+      "points": 4
+    },
+    {
+      "id": 73,
+      "name": "Braylen Stramm",
+      "ship": "A/SF-01 B-wing",
+      "points": 5
+    },
+    {
+      "id": 74,
+      "name": "Ten Numb",
+      "ship": "A/SF-01 B-wing",
+      "points": 5
+    },
+    {
+      "id": 75,
+      "name": "Blade Squadron Veteran",
+      "ship": "A/SF-01 B-wing",
+      "points": 5
+    },
+    {
+      "id": 76,
+      "name": "Blue Squadron Pilot",
+      "ship": "A/SF-01 B-wing",
+      "points": 5
+    },
+    {
+      "id": 77,
+      "name": "Norra Wexley",
+      "ship": "ARC-170 Starfighter",
+      "points": 6
+    },
+    {
+      "id": 78,
+      "name": "Shara Bey",
+      "ship": "ARC-170 Starfighter",
+      "points": 5
+    },
+    {
+      "id": 79,
+      "name": "Garven Dreis",
+      "ship": "ARC-170 Starfighter",
+      "points": 5
+    },
+    {
+      "id": 80,
+      "name": "Ibtisam",
+      "ship": "ARC-170 Starfighter",
+      "points": 5
+    },
+    {
+      "id": 81,
+      "name": "IG-88A",
+      "ship": "Aggressor Assault Fighter",
+      "points": 7
+    },
+    {
+      "id": 82,
+      "name": "IG-88B",
+      "ship": "Aggressor Assault Fighter",
+      "points": 7
+    },
+    {
+      "id": 83,
+      "name": "IG-88C",
+      "ship": "Aggressor Assault Fighter",
+      "points": 7
+    },
+    {
+      "id": 84,
+      "name": "IG-88D",
+      "ship": "Aggressor Assault Fighter",
+      "points": 6
+    },
+    {
+      "id": 85,
+      "name": "Kavil",
+      "ship": "BTL-A4 Y-wing",
+      "points": 5
+    },
+    {
+      "id": 86,
+      "name": "Drea Renthal",
+      "ship": "BTL-A4 Y-wing",
+      "points": 5
+    },
+    {
+      "id": 87,
+      "name": "Hired Gun",
+      "ship": "BTL-A4 Y-wing",
+      "points": 4
+    },
+    {
+      "id": 88,
+      "name": "Crymorah Goon",
+      "ship": "BTL-A4 Y-wing",
+      "points": 4
+    },
+    {
+      "id": 89,
+      "name": "Han Solo (Scum)",
+      "ship": "Customized YT-1300 Light Freighter",
+      "points": 6,
+      "xws": "hansolo"
+    },
+    {
+      "id": 90,
+      "name": "Lando Calrissian (Scum)",
+      "ship": "Customized YT-1300 Light Freighter",
+      "points": 6,
+      "xws": "landocalrissian"
+    },
+    {
+      "id": 91,
+      "name": "L3-37",
+      "ship": "Customized YT-1300 Light Freighter",
+      "points": 6
+    },
+    {
+      "id": 92,
+      "name": "Freighter Captain",
+      "ship": "Customized YT-1300 Light Freighter",
+      "points": 6
+    },
+    {
+      "id": 93,
+      "name": "Lando Calrissian (Scum) (Escape Craft)",
+      "ship": "Escape Craft",
+      "points": 3,
+      "xws": "landocalrissian-escapecraft"
+    },
+    {
+      "id": 94,
+      "name": "Outer Rim Pioneer",
+      "ship": "Escape Craft",
+      "points": 3
+    },
+    {
+      "id": 95,
+      "name": "L3-37 (Escape Craft)",
+      "ship": "Escape Craft",
+      "points": 3,
+      "xws": "l337-escapecraft"
+    },
+    {
+      "id": 96,
+      "name": "Autopilot Drone",
+      "ship": "Escape Craft",
+      "points": 2
+    },
+    {
+      "id": 97,
+      "name": "Fenn Rau",
+      "ship": "Fang Fighter",
+      "points": 7
+    },
+    {
+      "id": 98,
+      "name": "Old Teroch",
+      "ship": "Fang Fighter",
+      "points": 6
+    },
+    {
+      "id": 99,
+      "name": "Kad Solus",
+      "ship": "Fang Fighter",
+      "points": 5
+    },
+    {
+      "id": 100,
+      "name": "Joy Rekkoff",
+      "ship": "Fang Fighter",
+      "points": 5
+    },
+    {
+      "id": 101,
+      "name": "Skull Squadron Pilot",
+      "ship": "Fang Fighter",
+      "points": 5
+    },
+    {
+      "id": 102,
+      "name": "Zealous Recruit",
+      "ship": "Fang Fighter",
+      "points": 5
+    },
+    {
+      "id": 103,
+      "name": "Boba Fett",
+      "ship": "Firespray-class Patrol Craft",
+      "points": 9
+    },
+    {
+      "id": 104,
+      "name": "Emon Azzameen",
+      "ship": "Firespray-class Patrol Craft",
+      "points": 7
+    },
+    {
+      "id": 105,
+      "name": "Kath Scarlet",
+      "ship": "Firespray-class Patrol Craft",
+      "points": 7
+    },
+    {
+      "id": 106,
+      "name": "Koshka Frost",
+      "ship": "Firespray-class Patrol Craft",
+      "points": 7
+    },
+    {
+      "id": 107,
+      "name": "Krassis Trelix",
+      "ship": "Firespray-class Patrol Craft",
+      "points": 7
+    },
+    {
+      "id": 108,
+      "name": "Bounty Hunter",
+      "ship": "Firespray-class Patrol Craft",
+      "points": 7
+    },
+    {
+      "id": 109,
+      "name": "4-LOM",
+      "ship": "G-1A Starfighter",
+      "points": 5
+    },
+    {
+      "id": 110,
+      "name": "Zuckuss",
+      "ship": "G-1A Starfighter",
+      "points": 5
+    },
+    {
+      "id": 111,
+      "name": "Gand Findsman",
+      "ship": "G-1A Starfighter",
+      "points": 5
+    },
+    {
+      "id": 112,
+      "name": "Palob Godalhi",
+      "ship": "HWK-290 Light Freighter",
+      "points": 5
+    },
+    {
+      "id": 113,
+      "name": "Dace Bonearm",
+      "ship": "HWK-290 Light Freighter",
+      "points": 5
+    },
+    {
+      "id": 114,
+      "name": "Torkil Mux",
+      "ship": "HWK-290 Light Freighter",
+      "points": 4
+    },
+    {
+      "id": 115,
+      "name": "Dengar",
+      "ship": "JumpMaster 5000",
+      "points": 7
+    },
+    {
+      "id": 116,
+      "name": "Tel Trevura",
+      "ship": "JumpMaster 5000",
+      "points": 6
+    },
+    {
+      "id": 117,
+      "name": "Manaroo",
+      "ship": "JumpMaster 5000",
+      "points": 5
+    },
+    {
+      "id": 118,
+      "name": "Contracted Scout",
+      "ship": "JumpMaster 5000",
+      "points": 5
+    },
+    {
+      "id": 119,
+      "name": "Talonbane Cobra",
+      "ship": "Kihraxz Fighter",
+      "points": 5
+    },
+    {
+      "id": 120,
+      "name": "Graz",
+      "ship": "Kihraxz Fighter",
+      "points": 4
+    },
+    {
+      "id": 121,
+      "name": "Viktor Hel",
+      "ship": "Kihraxz Fighter",
+      "points": 4
+    },
+    {
+      "id": 122,
+      "name": "Captain Jostero",
+      "ship": "Kihraxz Fighter",
+      "points": 4
+    },
+    {
+      "id": 123,
+      "name": "Black Sun Ace",
+      "ship": "Kihraxz Fighter",
+      "points": 4
+    },
+    {
+      "id": 124,
+      "name": "Cartel Marauder",
+      "ship": "Kihraxz Fighter",
+      "points": 4
+    },
+    {
+      "id": 125,
+      "name": "Asajj Ventress",
+      "ship": "Lancer-Class Pursuit Craft",
+      "points": 8
+    },
+    {
+      "id": 126,
+      "name": "Ketsu Onyo",
+      "ship": "Lancer-Class Pursuit Craft",
+      "points": 7
+    },
+    {
+      "id": 127,
+      "name": "Sabine Wren (Scum)",
+      "ship": "Lancer-Class Pursuit Craft",
+      "points": 6,
+      "xws": "sabinewren-lancerclasspursuitcraft"
+    },
+    {
+      "id": 128,
+      "name": "Shadowport Hunter",
+      "ship": "Lancer-Class Pursuit Craft",
+      "points": 6
+    },
+    {
+      "id": 129,
+      "name": "Torani Kulda",
+      "ship": "M12-L Kimogila Fighter",
+      "points": 5
+    },
+    {
+      "id": 130,
+      "name": "Dalan Oberos",
+      "ship": "M12-L Kimogila Fighter",
+      "points": 5
+    },
+    {
+      "id": 131,
+      "name": "Cartel Executioner",
+      "ship": "M12-L Kimogila Fighter",
+      "points": 5
+    },
+    {
+      "id": 132,
+      "name": "Serissu",
+      "ship": "M3-A Interceptor",
+      "points": 4
+    },
+    {
+      "id": 133,
+      "name": "Genesis Red",
+      "ship": "M3-A Interceptor",
+      "points": 4
+    },
+    {
+      "id": 134,
+      "name": "Laetin A'shera",
+      "ship": "M3-A Interceptor",
+      "points": 3
+    },
+    {
+      "id": 135,
+      "name": "Quinn Jast",
+      "ship": "M3-A Interceptor",
+      "points": 3
+    },
+    {
+      "id": 136,
+      "name": "Tansarii Point Veteran",
+      "ship": "M3-A Interceptor",
+      "points": 3
+    },
+    {
+      "id": 137,
+      "name": "Inaldra",
+      "ship": "M3-A Interceptor",
+      "points": 3
+    },
+    {
+      "id": 138,
+      "name": "Sunny Bounder",
+      "ship": "M3-A Interceptor",
+      "points": 3
+    },
+    {
+      "id": 139,
+      "name": "Cartel Spacer",
+      "ship": "M3-A Interceptor",
+      "points": 3
+    },
+    {
+      "id": 140,
+      "name": "Constable Zuvio",
+      "ship": "Quadrijet Transfer Spacetug",
+      "points": 4
+    },
+    {
+      "id": 141,
+      "name": "Sarco Plank",
+      "ship": "Quadrijet Transfer Spacetug",
+      "points": 4
+    },
+    {
+      "id": 142,
+      "name": "Unkar Plutt",
+      "ship": "Quadrijet Transfer Spacetug",
+      "points": 4
+    },
+    {
+      "id": 143,
+      "name": "Jakku Gunrunner",
+      "ship": "Quadrijet Transfer Spacetug",
+      "points": 4
+    },
+    {
+      "id": 144,
+      "name": "Captain Nym",
+      "ship": "Scurrg H-6 Bomber",
+      "points": 6
+    },
+    {
+      "id": 145,
+      "name": "Sol Sixxa",
+      "ship": "Scurrg H-6 Bomber",
+      "points": 5
+    },
+    {
+      "id": 146,
+      "name": "Lok Revenant",
+      "ship": "Scurrg H-6 Bomber",
+      "points": 5
+    },
+    {
+      "id": 147,
+      "name": "Guri",
+      "ship": "StarViper-class Attack Platform",
+      "points": 7
+    },
+    {
+      "id": 148,
+      "name": "Prince Xizor",
+      "ship": "StarViper-class Attack Platform",
+      "points": 5
+    },
+    {
+      "id": 149,
+      "name": "Dalan Oberos (StarViper)",
+      "ship": "StarViper-class Attack Platform",
+      "points": 5,
+      "xws": "dalanoberos-starviperclassattackplatform"
+    },
+    {
+      "id": 150,
+      "name": "Black Sun Assassin",
+      "ship": "StarViper-class Attack Platform",
+      "points": 5
+    },
+    {
+      "id": 151,
+      "name": "Black Sun Enforcer",
+      "ship": "StarViper-class Attack Platform",
+      "points": 5
+    },
+    {
+      "id": 152,
+      "name": "Moralo Eval",
+      "ship": "YV-666 Light Freighter",
+      "points": 7
+    },
+    {
+      "id": 153,
+      "name": "Bossk",
+      "ship": "YV-666 Light Freighter",
+      "points": 7
+    },
+    {
+      "id": 154,
+      "name": "Latts Razzi",
+      "ship": "YV-666 Light Freighter",
+      "points": 6
+    },
+    {
+      "id": 155,
+      "name": "Trandoshan Slaver",
+      "ship": "YV-666 Light Freighter",
+      "points": 6
+    },
+    {
+      "id": 156,
+      "name": "N'dru Suhlak",
+      "ship": "Z-95-AF4 Headhunter",
+      "points": 3
+    },
+    {
+      "id": 157,
+      "name": "Kaa'to Leeachos",
+      "ship": "Z-95-AF4 Headhunter",
+      "points": 3
+    },
+    {
+      "id": 158,
+      "name": "Black Sun Soldier",
+      "ship": "Z-95-AF4 Headhunter",
+      "points": 3
+    },
+    {
+      "id": 159,
+      "name": "Binayre Pirate",
+      "ship": "Z-95-AF4 Headhunter",
+      "points": 3
+    },
+    {
+      "id": 160,
+      "name": "Nashtah Pup",
+      "ship": "Z-95-AF4 Headhunter",
+      "points": 1
+    },
+    {
+      "id": 161,
+      "name": "Major Vynder",
+      "ship": "Alpha-Class Star Wing",
+      "points": 6
+    },
+    {
+      "id": 162,
+      "name": "Lieutenant Karsabi",
+      "ship": "Alpha-Class Star Wing",
+      "points": 5
+    },
+    {
+      "id": 163,
+      "name": "Rho Squadron Pilot",
+      "ship": "Alpha-Class Star Wing",
+      "points": 5
+    },
+    {
+      "id": 164,
+      "name": "Nu Squadron Pilot",
+      "ship": "Alpha-Class Star Wing",
+      "points": 5
+    },
+    {
+      "id": 165,
+      "name": "Captain Kagi",
+      "ship": "Lambda-class T-4a Shuttle",
+      "points": 6
+    },
+    {
+      "id": 166,
+      "name": "Lieutenant Sai",
+      "ship": "Lambda-class T-4a Shuttle",
+      "points": 5
+    },
+    {
+      "id": 167,
+      "name": "Colonel Jendon",
+      "ship": "Lambda-class T-4a Shuttle",
+      "points": 6
+    },
+    {
+      "id": 168,
+      "name": "Omicron Group Pilot",
+      "ship": "Lambda-class T-4a Shuttle",
+      "points": 5
+    },
+    {
+      "id": 169,
+      "name": "Grand Inquisitor",
+      "ship": "TIE Advanced v1",
+      "points": 6
+    },
+    {
+      "id": 170,
+      "name": "Seventh Sister",
+      "ship": "TIE Advanced v1",
+      "points": 5
+    },
+    {
+      "id": 171,
+      "name": "Inquisitor",
+      "ship": "TIE Advanced v1",
+      "points": 4
+    },
+    {
+      "id": 172,
+      "name": "Baron of the Empire",
+      "ship": "TIE Advanced v1",
+      "points": 4
+    },
+    {
+      "id": 173,
+      "name": "Darth Vader",
+      "ship": "TIE Advanced x1",
+      "points": 7
+    },
+    {
+      "id": 174,
+      "name": "Maarek Stele",
+      "ship": "TIE Advanced x1",
+      "points": 5
+    },
+    {
+      "id": 175,
+      "name": "Ved Foslo",
+      "ship": "TIE Advanced x1",
+      "points": 4
+    },
+    {
+      "id": 176,
+      "name": "Zertik Strom",
+      "ship": "TIE Advanced x1",
+      "points": 4
+    },
+    {
+      "id": 177,
+      "name": "Storm Squadron Ace",
+      "ship": "TIE Advanced x1",
+      "points": 4
+    },
+    {
+      "id": 178,
+      "name": "Tempest Squadron Pilot",
+      "ship": "TIE Advanced x1",
+      "points": 4
+    },
+    {
+      "id": 179,
+      "name": "Soontir Fel",
+      "ship": "TIE/in Interceptor",
+      "points": 6
+    },
+    {
+      "id": 180,
+      "name": "Turr Phennir",
+      "ship": "TIE/in Interceptor",
+      "points": 4
+    },
+    {
+      "id": 181,
+      "name": "Saber Squadron Ace",
+      "ship": "TIE/in Interceptor",
+      "points": 4
+    },
+    {
+      "id": 182,
+      "name": "Alpha Squadron Pilot",
+      "ship": "TIE/in Interceptor",
+      "points": 4
+    },
+    {
+      "id": 183,
+      "name": "Major Vermeil",
+      "ship": "TIE Reaper",
+      "points": 5
+    },
+    {
+      "id": 184,
+      "name": "Captain Feroph",
+      "ship": "TIE Reaper",
+      "points": 4
+    },
+    {
+      "id": 185,
+      "name": "\"Vizier\"",
+      "ship": "TIE Reaper",
+      "points": 4
+    },
+    {
+      "id": 186,
+      "name": "Scarif Base Pilot",
+      "ship": "TIE Reaper",
+      "points": 4
+    },
+    {
+      "id": 187,
+      "name": "Lieutenant Kestal",
+      "ship": "TIE/ag Aggressor",
+      "points": 5
+    },
+    {
+      "id": 188,
+      "name": "\"Double Edge\"",
+      "ship": "TIE/ag Aggressor",
+      "points": 4
+    },
+    {
+      "id": 189,
+      "name": "Onyx Squadron Scout",
+      "ship": "TIE/ag Aggressor",
+      "points": 4
+    },
+    {
+      "id": 190,
+      "name": "Sienar Specialist",
+      "ship": "TIE/ag Aggressor",
+      "points": 4
+    },
+    {
+      "id": 191,
+      "name": "\"Redline\"",
+      "ship": "TIE/ca Punisher",
+      "points": 7
+    },
+    {
+      "id": 192,
+      "name": "\"Deathrain\"",
+      "ship": "TIE/ca Punisher",
+      "points": 6
+    },
+    {
+      "id": 193,
+      "name": "Cutlass Squadron Pilot",
+      "ship": "TIE/ca Punisher",
+      "points": 5
+    },
+    {
+      "id": 194,
+      "name": "Colonel Vessery",
+      "ship": "TIE/d Defender",
+      "points": 7
+    },
+    {
+      "id": 195,
+      "name": "Countess Ryad",
+      "ship": "TIE/d Defender",
+      "points": 7
+    },
+    {
+      "id": 196,
+      "name": "Rexler Brath",
+      "ship": "TIE/d Defender",
+      "points": 7
+    },
+    {
+      "id": 197,
+      "name": "Onyx Squadron Ace",
+      "ship": "TIE/d Defender",
+      "points": 7
+    },
+    {
+      "id": 198,
+      "name": "Delta Squadron Pilot",
+      "ship": "TIE/d Defender",
+      "points": 7
+    },
+    {
+      "id": 199,
+      "name": "\"Whisper\"",
+      "ship": "TIE/ph Phantom",
+      "points": 7
+    },
+    {
+      "id": 200,
+      "name": "\"Echo\"",
+      "ship": "TIE/ph Phantom",
+      "points": 6
+    },
+    {
+      "id": 201,
+      "name": "Sigma Squadron Ace",
+      "ship": "TIE/ph Phantom",
+      "points": 6
+    },
+    {
+      "id": 202,
+      "name": "Imdaar Test Pilot",
+      "ship": "TIE/ph Phantom",
+      "points": 5
+    },
+    {
+      "id": 203,
+      "name": "Captain Jonus",
+      "ship": "TIE/sa Bomber",
+      "points": 5
+    },
+    {
+      "id": 204,
+      "name": "Major Rhymer",
+      "ship": "TIE/sa Bomber",
+      "points": 5
+    },
+    {
+      "id": 205,
+      "name": "Tomax Bren",
+      "ship": "TIE/sa Bomber",
+      "points": 4
+    },
+    {
+      "id": 206,
+      "name": "\"Deathfire\"",
+      "ship": "TIE/sa Bomber",
+      "points": 4
+    },
+    {
+      "id": 207,
+      "name": "Gamma Squadron Ace",
+      "ship": "TIE/sa Bomber",
+      "points": 4
+    },
+    {
+      "id": 208,
+      "name": "Scimitar Squadron Pilot",
+      "ship": "TIE/sa Bomber",
+      "points": 4
+    },
+    {
+      "id": 209,
+      "name": "\"Countdown\"",
+      "ship": "TIE/sk Striker",
+      "points": 4
+    },
+    {
+      "id": 210,
+      "name": "\"Pure Sabacc\"",
+      "ship": "TIE/sk Striker",
+      "points": 4
+    },
+    {
+      "id": 211,
+      "name": "\"Duchess\"",
+      "ship": "TIE/sk Striker",
+      "points": 5
+    },
+    {
+      "id": 212,
+      "name": "Black Squadron Scout",
+      "ship": "TIE/sk Striker",
+      "points": 4
+    },
+    {
+      "id": 213,
+      "name": "Planetary Sentinel",
+      "ship": "TIE/sk Striker",
+      "points": 4
+    },
+    {
+      "id": 214,
+      "name": "Rear Admiral Chiraneau",
+      "ship": "VT-49 Decimator",
+      "points": 8
+    },
+    {
+      "id": 215,
+      "name": "Captain Oicunn",
+      "ship": "VT-49 Decimator",
+      "points": 7
+    },
+    {
+      "id": 216,
+      "name": "Patrol Leader",
+      "ship": "VT-49 Decimator",
+      "points": 7
+    },
+    {
+      "id": 217,
+      "name": "\"Howlrunner\"",
+      "ship": "TIE/ln Fighter",
+      "points": 4
+    },
+    {
+      "id": 218,
+      "name": "Iden Versio",
+      "ship": "TIE/ln Fighter",
+      "points": 3
+    },
+    {
+      "id": 219,
+      "name": "\"Mauler\" Mithel",
+      "ship": "TIE/ln Fighter",
+      "points": 3
+    },
+    {
+      "id": 220,
+      "name": "\"Scourge\" Skutu",
+      "ship": "TIE/ln Fighter",
+      "points": 3
+    },
+    {
+      "id": 221,
+      "name": "\"Wampa\"",
+      "ship": "TIE/ln Fighter",
+      "points": 3
+    },
+    {
+      "id": 222,
+      "name": "Del Meeko",
+      "ship": "TIE/ln Fighter",
+      "points": 3
+    },
+    {
+      "id": 223,
+      "name": "Gideon Hask",
+      "ship": "TIE/ln Fighter",
+      "points": 3
+    },
+    {
+      "id": 224,
+      "name": "Seyn Marana",
+      "ship": "TIE/ln Fighter",
+      "points": 3
+    },
+    {
+      "id": 225,
+      "name": "Valen Rudor",
+      "ship": "TIE/ln Fighter",
+      "points": 3
+    },
+    {
+      "id": 226,
+      "name": "\"Night Beast\"",
+      "ship": "TIE/ln Fighter",
+      "points": 3
+    },
+    {
+      "id": 227,
+      "name": "Black Squadron Ace",
+      "ship": "TIE/ln Fighter",
+      "points": 2
+    },
+    {
+      "id": 228,
+      "name": "Obsidian Squadron Pilot",
+      "ship": "TIE/ln Fighter",
+      "points": 2
+    },
+    {
+      "id": 229,
+      "name": "Academy Pilot",
+      "ship": "TIE/ln Fighter",
+      "points": 2
+    },
+    {
+      "id": 230,
+      "name": "Spice Runner",
+      "ship": "HWK-290 Light Freighter",
+      "points": 3
+    },
+    {
+      "id": 231,
+      "name": "Poe Dameron",
+      "ship": "T-70 X-wing",
+      "points": 7
+    },
+    {
+      "id": 232
+    },
+    {
+      "id": 233,
+      "name": "\"Midnight\"",
+      "ship": "TIE/fo Fighter",
+      "points": 4
+    },
+    {
+      "id": 234,
+      "name": "\"Longshot\"",
+      "ship": "TIE/fo Fighter",
+      "points": 3
+    },
+    {
+      "id": 235,
+      "name": "\"Muse\"",
+      "ship": "TIE/fo Fighter",
+      "points": 3
+    },
+    {
+      "id": 236,
+      "name": "Kylo Ren",
+      "ship": "TIE/vn Silencer",
+      "points": 7
+    },
+    {
+      "id": 237,
+      "name": "\"Blackout\"",
+      "ship": "TIE/vn Silencer",
+      "points": 6
+    },
+    {
+      "id": 238,
+      "name": "Lieutenant Dormitz",
+      "ship": "Upsilon-Class Command Shuttle",
+      "points": 8
+    },
+    {
+      "id": 239,
+      "name": "L'ulo L'ampar",
+      "ship": "RZ-2 A-wing",
+      "points": 4
+    },
+    {
+      "id": 240,
+      "name": "Tallissan Lintra",
+      "ship": "RZ-2 A-wing",
+      "points": 4
+    },
+    {
+      "id": 241,
+      "name": "blanks"
+    },
+    {
+      "id": 242,
+      "name": "\"Backdraft\"",
+      "ship": "TIE/sf Fighter",
+      "points": 4
+    },
+    {
+      "id": 243,
+      "name": "\"Quickdraw\"",
+      "ship": "TIE/sf Fighter",
+      "points": 6
+    },
+    {
+      "id": 244,
+      "name": "Rey",
+      "ship": "Scavenged YT-1300",
+      "points": 8
+    },
+    {
+      "id": 245,
+      "name": "Han Solo (Resistance)",
+      "ship": "Scavenged YT-1300",
+      "points": 6,
+      "xws": "hansolo-scavengedyt1300"
+    },
+    {
+      "id": 246,
+      "name": "Chewbacca (Resistance)",
+      "ship": "Scavenged YT-1300",
+      "points": 7,
+      "xws": "chewbacca-scavengedyt1300"
+    },
+    {
+      "id": 247,
+      "name": "Captain Seevor",
+      "ship": "Modified TIE/ln Fighter",
+      "points": 4
+    },
+    {
+      "id": 248,
+      "name": "Mining Guild Surveyor",
+      "ship": "Modified TIE/ln Fighter",
+      "points": 3
+    },
+    {
+      "id": 249,
+      "name": "Ahhav",
+      "ship": "Modified TIE/ln Fighter",
+      "points": 3
+    },
+    {
+      "id": 250,
+      "name": "Finch Dallow",
+      "ship": "MG-100 StarFortress",
+      "points": 6
+    },
+    {
+      "id": 251,
+      "name": "Major Stridan",
+      "ship": "Upsilon-Class Command Shuttle",
+      "points": 7
+    },
+    {
+      "id": 252,
+      "name": "Kare Kun",
+      "ship": "T-70 X-wing",
+      "points": 5
+    },
+    {
+      "id": 253,
+      "name": "Joph Seastriker",
+      "ship": "T-70 X-wing",
+      "points": 5
+    },
+    {
+      "id": 254,
+      "name": "Lieutenant Bastian",
+      "ship": "T-70 X-wing",
+      "points": 5
+    },
+    {
+      "id": 255,
+      "name": "Jaycris Tubbs",
+      "ship": "T-70 X-wing",
+      "points": 5
+    },
+    {
+      "id": 256,
+      "name": "Black Squadron Ace (T-70)",
+      "ship": "T-70 X-wing",
+      "points": 5,
+      "xws": "blacksquadronace-t70xwing"
+    },
+    {
+      "id": 257,
+      "name": "Red Squadron Expert",
+      "ship": "T-70 X-wing",
+      "points": 5
+    },
+    {
+      "id": 258,
+      "name": "Blue Squadron Rookie",
+      "ship": "T-70 X-wing",
+      "points": 5
+    },
+    {
+      "id": 259,
+      "name": "Zeta Squadron Survivor",
+      "ship": "TIE/sf Fighter",
+      "points": 4
+    },
+    {
+      "id": 260,
+      "name": "Cobalt Squadron Bomber",
+      "ship": "MG-100 StarFortress",
+      "points": 6
+    },
+    {
+      "id": 261,
+      "name": "TN-3465",
+      "ship": "TIE/fo Fighter",
+      "points": 3
+    },
+    {
+      "id": 262,
+      "name": "\"Scorch\"",
+      "ship": "TIE/fo Fighter",
+      "points": 3
+    },
+    {
+      "id": 263,
+      "name": "\"Longshot\"",
+      "ship": "TIE/fo Fighter",
+      "points": 3
+    },
+    {
+      "id": 264,
+      "name": "\"Static\"",
+      "ship": "TIE/fo Fighter",
+      "points": 3
+    },
+    {
+      "id": 265,
+      "name": "Lieutenant Rivas",
+      "ship": "TIE/fo Fighter",
+      "points": 3
+    },
+    {
+      "id": 266,
+      "name": "Commander Malarus",
+      "ship": "TIE/fo Fighter",
+      "points": 3
+    },
+    {
+      "id": 267,
+      "name": "Omega Squadron Ace",
+      "ship": "TIE/fo Fighter",
+      "points": 3
+    },
+    {
+      "id": 268,
+      "name": "Zeta Squadron Pilot",
+      "ship": "TIE/fo Fighter",
+      "points": 3
+    },
+    {
+      "id": 269,
+      "name": "Epsilon Squadron Cadet",
+      "ship": "TIE/fo Fighter",
+      "points": 3
+    },
+    {
+      "id": 270,
+      "name": "Greer Sonnel",
+      "ship": "RZ-2 A-wing",
+      "points": 4
+    },
+    {
+      "id": 271,
+      "name": "Zari Bangel",
+      "ship": "RZ-2 A-wing",
+      "points": 4
+    },
+    {
+      "id": 272,
+      "name": "Darth Maul",
+      "ship": "Sith Infiltrator",
+      "points": 8
+    },
+    {
+      "id": 273,
+      "name": "Anakin Skywalker",
+      "ship": "Delta-7 Aethersprite",
+      "points": 6
+    },
+    {
+      "id": 274,
+      "name": "Luminara Unduli",
+      "ship": "Delta-7 Aethersprite",
+      "points": 4
+    },
+    {
+      "id": 275,
+      "name": "Barriss Offee",
+      "ship": "Delta-7 Aethersprite",
+      "points": 4
+    },
+    {
+      "id": 276,
+      "name": "Ahsoka Tano",
+      "ship": "Delta-7 Aethersprite",
+      "points": 4
+    },
+    {
+      "id": 277,
+      "name": "Jedi Knight",
+      "ship": "Delta-7 Aethersprite",
+      "points": 4
+    },
+    {
+      "id": 278,
+      "name": "Obi-Wan Kenobi",
+      "ship": "Delta-7 Aethersprite",
+      "points": 5
+    },
+    {
+      "id": 279,
+      "name": "Trade Federation Drone",
+      "ship": "Vulture-class Droid Fighter",
+      "points": 2
+    },
+    {
+      "id": 280,
+      "name": "\"Sinker\"",
+      "ship": "ARC-170 Starfighter",
+      "points": 6
+    },
+    {
+      "id": 281,
+      "name": "Petty Officer Thanisson",
+      "ship": "Upsilon-Class Command Shuttle",
+      "points": 7
+    },
+    {
+      "id": 282,
+      "name": "Captain Cardinal",
+      "ship": "Upsilon-Class Command Shuttle",
+      "points": 7
+    },
+    {
+      "id": 283,
+      "name": "\"Avenger\"",
+      "ship": "TIE/vn Silencer",
+      "points": 5
+    },
+    {
+      "id": 284,
+      "name": "\"Recoil\"",
+      "ship": "TIE/vn Silencer",
+      "points": 5
+    },
+    {
+      "id": 285,
+      "name": "Omega Squadron Expert",
+      "ship": "TIE/sf Fighter",
+      "points": 4
+    },
+    {
+      "id": 286,
+      "name": "Sienar-Jaemus Engineer",
+      "ship": "TIE/vn Silencer",
+      "points": 5
+    },
+    {
+      "id": 287,
+      "name": "First Order Test Pilot",
+      "ship": "TIE/vn Silencer",
+      "points": 5
+    },
+    {
+      "id": 288,
+      "name": "Starkiller Base Pilot",
+      "ship": "Upsilon-Class Command Shuttle",
+      "points": 7
+    },
+    {
+      "id": 289,
+      "name": "Lieutenant Tavson",
+      "ship": "Upsilon-Class Command Shuttle",
+      "points": 8
+    },
+    {
+      "id": 290,
+      "name": "\"Null\"",
+      "ship": "TIE/fo Fighter",
+      "points": 3
+    },
+    {
+      "id": 291,
+      "name": "Cat",
+      "ship": "MG-100 StarFortress",
+      "points": 5
+    },
+    {
+      "id": 292,
+      "name": "Ben Teene",
+      "ship": "MG-100 StarFortress",
+      "points": 5
+    },
+    {
+      "id": 293,
+      "name": "Edon Kappehl",
+      "ship": "MG-100 StarFortress",
+      "points": 6
+    },
+    {
+      "id": 294,
+      "name": "Vennie",
+      "ship": "MG-100 StarFortress",
+      "points": 6
+    },
+    {
+      "id": 295,
+      "name": "Resistance Sympathizer",
+      "ship": "Scavenged YT-1300",
+      "points": 6
+    },
+    {
+      "id": 296,
+      "name": "Jessika Pava",
+      "ship": "T-70 X-wing",
+      "points": 5
+    },
+    {
+      "id": 297,
+      "name": "Temmin Wexley",
+      "ship": "T-70 X-wing",
+      "points": 5
+    },
+    {
+      "id": 298,
+      "name": "Nien Nunb",
+      "ship": "T-70 X-wing",
+      "points": 5
+    },
+    {
+      "id": 299,
+      "name": "Ello Asty",
+      "ship": "T-70 X-wing",
+      "points": 5
+    },
+    {
+      "id": 300,
+      "name": "Green Squadron Expert",
+      "ship": "RZ-2 A-wing",
+      "points": 4
+    },
+    {
+      "id": 301,
+      "name": "Blue Squadron Recruit",
+      "ship": "RZ-2 A-wing",
+      "points": 4
+    },
+    {
+      "id": 302,
+      "name": "Foreman Proach",
+      "ship": "Modified TIE/ln Fighter",
+      "points": 3
+    },
+    {
+      "id": 303,
+      "name": "Overseer Yushyn",
+      "ship": "Modified TIE/ln Fighter",
+      "points": 3
+    },
+    {
+      "id": 304,
+      "name": "Mining Guild Sentry",
+      "ship": "Modified TIE/ln Fighter",
+      "points": 3
+    },
+    {
+      "id": 305,
+      "name": "General Grievous",
+      "ship": "Belbullab-22 Starfighter",
+      "points": 5
+    },
+    {
+      "id": 306,
+      "name": "Wat Tambor",
+      "ship": "Belbullab-22 Starfighter",
+      "points": 4
+    },
+    {
+      "id": 307,
+      "name": "Feethan Ottraw Autopilot",
+      "ship": "Belbullab-22 Starfighter",
+      "points": 4
+    },
+    {
+      "id": 308,
+      "name": "Captain Sear",
+      "ship": "Belbullab-22 Starfighter",
+      "points": 5
+    },
+    {
+      "id": 309,
+      "name": "Precise Hunter",
+      "ship": "Vulture-class Droid Fighter",
+      "points": 3
+    },
+    {
+      "id": 310,
+      "name": "Haor Chall Prototype",
+      "ship": "Vulture-class Droid Fighter",
+      "points": 2
+    },
+    {
+      "id": 311,
+      "name": "DFS-081",
+      "ship": "Vulture-class Droid Fighter",
+      "points": 2
+    },
+    {
+      "id": 312,
+      "name": "Plo Koon",
+      "ship": "Delta-7 Aethersprite",
+      "points": 5
+    },
+    {
+      "id": 313,
+      "name": "Saesee Tiin",
+      "ship": "Delta-7 Aethersprite",
+      "points": 4
+    },
+    {
+      "id": 314,
+      "name": "Mace Windu",
+      "ship": "Delta-7 Aethersprite",
+      "points": 4
+    },
+    {
+      "id": 315,
+      "name": "\"Kickback\"",
+      "ship": "V-19 Torrent Starfighter",
+      "points": 3
+    },
+    {
+      "id": 316,
+      "name": "\"Odd Ball\"",
+      "ship": "V-19 Torrent Starfighter",
+      "points": 4
+    },
+    {
+      "id": 317,
+      "name": "\"Swoop\"",
+      "ship": "V-19 Torrent Starfighter",
+      "points": 4
+    },
+    {
+      "id": 318,
+      "name": "\"Axe\"",
+      "ship": "V-19 Torrent Starfighter",
+      "points": 3
+    },
+    {
+      "id": 319,
+      "name": "\"Tucker\"",
+      "ship": "V-19 Torrent Starfighter",
+      "points": 4
+    },
+    {
+      "id": 320,
+      "name": "Blue Squadron Protector",
+      "ship": "V-19 Torrent Starfighter",
+      "points": 4
+    },
+    {
+      "id": 321,
+      "name": "Gold Squadron Trooper",
+      "ship": "V-19 Torrent Starfighter",
+      "points": 4
+    },
+    {
+      "id": 322,
+      "name": "Anakin Skywalker (N-1 Starfighter)",
+      "ship": "Naboo Royal N-1 Starfighter",
+      "points": 5,
+      "xws": "anakinskywalker-nabooroyaln1starfighter"
+    },
+    {
+      "id": 323,
+      "name": "Bravo Flight Officer",
+      "ship": "Naboo Royal N-1 Starfighter",
+      "points": 4
+    },
+    {
+      "id": 324,
+      "name": "Techno Union Bomber",
+      "ship": "Hyena-class Droid Bomber",
+      "points": 3
+    },
+    {
+      "id": 325,
+      "name": "Bombardment Drone",
+      "ship": "Hyena-class Droid Bomber",
+      "points": 3
+    },
+    {
+      "id": 326,
+      "name": "DBS-404",
+      "ship": "Hyena-class Droid Bomber",
+      "points": 4
+    },
+    {
+      "id": 327,
+      "name": "Separatist Bomber",
+      "ship": "Hyena-class Droid Bomber",
+      "points": 3
+    },
+    {
+      "id": 328,
+      "name": "DBS-32C",
+      "ship": "Hyena-class Droid Bomber",
+      "points": 4
+    },
+    {
+      "id": 329,
+      "name": "Baktoid Prototype",
+      "ship": "Hyena-class Droid Bomber",
+      "points": 3
+    },
+    {
+      "id": 330,
+      "name": "Naboo Handmaiden",
+      "ship": "Naboo Royal N-1 Starfighter",
+      "points": 4
+    },
+    {
+      "id": 331,
+      "name": "Dineé Ellberger",
+      "ship": "Naboo Royal N-1 Starfighter",
+      "points": 4,
+      "xws": "dineeellberger"
+    },
+    {
+      "id": 332,
+      "name": "Padmé Amidala",
+      "ship": "Naboo Royal N-1 Starfighter",
+      "points": 5,
+      "xws": "padmeamidala"
+    },
+    {
+      "id": 333,
+      "name": "Ric Olié",
+      "ship": "Naboo Royal N-1 Starfighter",
+      "points": 5,
+      "xws": "ricolie"
+    },
+    {
+      "id": 334,
+      "name": "Count Dooku",
+      "ship": "Sith Infiltrator",
+      "points": 7
+    },
+    {
+      "id": 335,
+      "name": "0-66",
+      "ship": "Sith Infiltrator",
+      "points": 6
+    },
+    {
+      "id": 336,
+      "name": "Dark Courier",
+      "ship": "Sith Infiltrator",
+      "points": 6
+    },
+    {
+      "id": 337,
+      "name": "DFS-311",
+      "ship": "Vulture-class Droid Fighter",
+      "points": 3
+    },
+    {
+      "id": 338,
+      "name": "\"Odd Ball\" (ARC-170)",
+      "ship": "ARC-170 Starfighter",
+      "points": 5,
+      "xws": "oddball-arc170starfighter"
+    },
+    {
+      "id": 339,
+      "name": "\"Jag\"",
+      "ship": "ARC-170 Starfighter",
+      "points": 5
+    },
+    {
+      "id": 340,
+      "name": "Squad Seven Veteran",
+      "ship": "ARC-170 Starfighter",
+      "points": 5
+    },
+    {
+      "id": 341,
+      "name": "104th Battalion Pilot",
+      "ship": "ARC-170 Starfighter",
+      "points": 5
+    },
+    {
+      "id": 342,
+      "name": "\"Wolffe\"",
+      "ship": "ARC-170 Starfighter",
+      "points": 5
+    },
+    {
+      "id": 343,
+      "name": "Separatist Drone",
+      "ship": "Vulture-class Droid Fighter",
+      "points": 2
+    },
+    {
+      "id": 344,
+      "name": "Skakoan Ace",
+      "ship": "Belbullab-22 Starfighter",
+      "points": 4
+    },
+    {
+      "id": 345,
+      "name": "Rose Tico",
+      "ship": "Resistance Transport Pod",
+      "points": 3
+    },
+    {
+      "id": 346,
+      "name": "Logistics Division Pilot",
+      "ship": "Resistance Transport",
+      "points": 4
+    },
+    {
+      "id": 347,
+      "name": "Pammich Nerro Goode",
+      "ship": "Resistance Transport",
+      "points": 4
+    },
+    {
+      "id": 348,
+      "name": "Vi Moradi",
+      "ship": "Resistance Transport Pod",
+      "points": 3
+    },
+    {
+      "id": 349,
+      "name": "BB-8",
+      "ship": "Resistance Transport Pod",
+      "points": 2
+    },
+    {
+      "id": 350,
+      "name": "Finn",
+      "ship": "Resistance Transport Pod",
+      "points": 3
+    },
+    {
+      "id": 351,
+      "name": "Cova Nell",
+      "ship": "Resistance Transport",
+      "points": 5
+    },
+    {
+      "id": 352,
+      "name": "Nodin Chavdri",
+      "ship": "Resistance Transport",
+      "points": 5
+    },
+    {
+      "id": 353,
+      "name": "Stalgasin Hive Guard",
+      "ship": "Nantex-Class Starfighter",
+      "points": 4
+    },
+    {
+      "id": 354,
+      "name": "Petranaki Arena Ace",
+      "ship": "Nantex-Class Starfighter",
+      "points": 4
+    },
+    {
+      "id": 355,
+      "name": "Gorgol",
+      "ship": "Nantex-Class Starfighter",
+      "points": 4
+    },
+    {
+      "id": 356,
+      "name": "Chertek",
+      "ship": "Nantex-Class Starfighter",
+      "points": 5
+    },
+    {
+      "id": 357,
+      "name": "Sun Fac",
+      "ship": "Nantex-Class Starfighter",
+      "points": 6
+    },
+    {
+      "id": 358,
+      "name": "Berwer Kret",
+      "ship": "Nantex-Class Starfighter",
+      "points": 4
+    },
+    {
+      "id": 359,
+      "name": "Anakin Skywalker (Y-Wing)",
+      "ship": "BTL-B Y-wing",
+      "points": 6,
+      "xws": "anakinskywalker-btlbywing"
+    },
+    {
+      "id": 360,
+      "name": "Shadow Squadron Veteran",
+      "ship": "BTL-B Y-wing",
+      "points": 4
+    },
+    {
+      "id": 361,
+      "name": "Red Squadron Bomber",
+      "ship": "BTL-B Y-wing",
+      "points": 4
+    },
+    {
+      "id": 362,
+      "name": "R2-D2",
+      "ship": "BTL-B Y-wing",
+      "points": 4
+    },
+    {
+      "id": 363,
+      "name": "\"Goji\"",
+      "ship": "BTL-B Y-wing",
+      "points": 4
+    },
+    {
+      "id": 364,
+      "name": "\"Broadside\"",
+      "ship": "BTL-B Y-wing",
+      "points": 4
+    },
+    {
+      "id": 365,
+      "name": "\"Matchstick\"",
+      "ship": "BTL-B Y-wing",
+      "points": 5
+    },
+    {
+      "id": 366,
+      "name": "\"Odd Ball\" (Y-Wing)",
+      "ship": "BTL-B Y-wing",
+      "points": 4,
+      "xws": "oddball-btlbywing"
+    },
+    {
+      "id": 367,
+      "name": "Republic Judiciary",
+      "ship": "CR90 Corellian Corvette",
+      "points": 0
+    },
+    {
+      "id": 368,
+      "name": "Alderaanian Guard",
+      "ship": "CR90 Corellian Corvette",
+      "points": 0
+    },
+    {
+      "id": 369,
+      "name": "Outer Rim Patrol",
+      "ship": "Raider-class Corvette",
+      "points": 0
+    },
+    {
+      "id": 370,
+      "name": "First Order Collaborators",
+      "ship": "Raider-class Corvette",
+      "points": 0
+    },
+    {
+      "id": 371,
+      "name": "Echo Base Evacuees",
+      "ship": "GR-75 Medium Transport",
+      "points": 0
+    },
+    {
+      "id": 372,
+      "name": "New Republic Volunteers",
+      "ship": "GR-75 Medium Transport",
+      "points": 0
+    },
+    {
+      "id": 373,
+      "name": "Outer Rim Garrison",
+      "ship": "Gozanti-class Cruiser",
+      "points": 0
+    },
+    {
+      "id": 374,
+      "name": "First Order Sympathizers",
+      "ship": "Gozanti-class Cruiser",
+      "points": 0
+    },
+    {
+      "id": 375,
+      "name": "Separatist Privateers",
+      "ship": "C-ROC Cruiser",
+      "points": 0
+    },
+    {
+      "id": 376,
+      "name": "Syndicate Smugglers",
+      "ship": "C-ROC Cruiser",
+      "points": 0
+    },
+    {
+      "id": 377,
+      "name": "Jarek Yeager",
+      "ship": "Fireball",
+      "points": 3
+    },
+    {
+      "id": 378,
+      "name": "Kazuda Xiono",
+      "ship": "Fireball",
+      "points": 4
+    },
+    {
+      "id": 379,
+      "name": "R1-J5",
+      "ship": "Fireball",
+      "points": 3
+    },
+    {
+      "id": 380,
+      "name": "Colossus Station Mechanic",
+      "ship": "Fireball",
+      "points": 3
+    },
+    {
+      "id": 381,
+      "name": "Major Vonreg",
+      "ship": "TIE/ba Interceptor",
+      "points": 6
+    },
+    {
+      "id": 382,
+      "name": "\"Holo\"",
+      "ship": "TIE/ba Interceptor",
+      "points": 5
+    },
+    {
+      "id": 383,
+      "name": "\"Ember\"",
+      "ship": "TIE/ba Interceptor",
+      "points": 4
+    },
+    {
+      "id": 384,
+      "name": "First Order Provocateur",
+      "ship": "TIE/ba Interceptor",
+      "points": 5
+    },
+    {
+      "id": 385,
+      "name": "Captain Phasma",
+      "ship": "TIE/sf Fighter",
+      "points": 4
+    },
+    {
+      "id": 386,
+      "name": "\"Rush\"",
+      "ship": "TIE/vn Silencer",
+      "points": 5
+    },
+    {
+      "id": 387,
+      "name": "Zizi Tlo",
+      "ship": "RZ-2 A-wing",
+      "points": 5
+    },
+    {
+      "id": 388,
+      "name": "Ronith Blario",
+      "ship": "RZ-2 A-wing",
+      "points": 4
+    },
+    {
+      "id": 389,
+      "name": "Paige Tico",
+      "ship": "MG-100 StarFortress",
+      "points": 6
+    },
+    {
+      "id": 390,
+      "name": "K-2SO",
+      "ship": "UT-60D U-wing",
+      "points": 5
+    },
+    {
+      "id": 391,
+      "name": "Gina Moonsong",
+      "ship": "A/SF-01 B-wing",
+      "points": 5
+    },
+    {
+      "id": 392,
+      "name": "Alexsandr Kallus",
+      "ship": "VCX-100 Light Freighter",
+      "points": 7
+    },
+    {
+      "id": 393,
+      "name": "Leia Organa",
+      "ship": "Modified YT-1300 Light Freighter",
+      "points": 8
+    },
+    {
+      "id": 394,
+      "name": "Fifth Brother",
+      "ship": "TIE Advanced v1",
+      "points": 5
+    },
+    {
+      "id": 395,
+      "name": "\"Vagabond\"",
+      "ship": "TIE/sk Striker",
+      "points": 4
+    },
+    {
+      "id": 396,
+      "name": "Morna Kee",
+      "ship": "VT-49 Decimator",
+      "points": 7
+    },
+    {
+      "id": 397,
+      "name": "Lieutenant LeHuse",
+      "ship": "TIE/sf Fighter",
+      "points": 5
+    },
+    {
+      "id": 398,
+      "name": "Bossk (Z-95 Headhunter)",
+      "ship": "Z-95-AF4 Headhunter",
+      "points": 3,
+      "xws": "bossk-z95af4headhunter"
+    },
+    {
+      "id": 399,
+      "name": "G4R-GOR V/M",
+      "ship": "M3-A Interceptor",
+      "points": 3
+    },
+    {
+      "id": 400,
+      "name": "Nom Lumb",
+      "ship": "JumpMaster 5000",
+      "points": 5
+    },
+    {
+      "id": 401,
+      "name": "First Order Courier",
+      "ship": "Xi-class Light Shuttle",
+      "points": 4
+    },
+    {
+      "id": 402,
+      "name": "Agent Terex",
+      "ship": "Xi-class Light Shuttle",
+      "points": 4
+    },
+    {
+      "id": 403,
+      "name": "Gideon Hask (Xi Shuttle)",
+      "ship": "Xi-class Light Shuttle",
+      "points": 4,
+      "xws": "gideonhask-xiclasslightshuttle"
+    },
+    {
+      "id": 404,
+      "name": "Commander Malarus (Xi Shuttle)",
+      "ship": "Xi-class Light Shuttle",
+      "points": 4,
+      "xws": "commandermalarus-xiclasslightshuttle"
+    },
+    {
+      "id": 405,
+      "name": "Baktoid Drone",
+      "ship": "HMP Droid Gunship",
+      "points": 5
+    },
+    {
+      "id": 406,
+      "name": "TransGalMeg Control Link",
+      "ship": "Syliure-class Hyperspace Ring",
+      "points": 2
+    },
+    {
+      "id": 407,
+      "name": "Separatist Predator",
+      "ship": "HMP Droid Gunship",
+      "points": 5
+    },
+    {
+      "id": 408,
+      "name": "Geonosian Prototype",
+      "ship": "HMP Droid Gunship",
+      "points": 5
+    },
+    {
+      "id": 409,
+      "name": "DGS-047",
+      "ship": "HMP Droid Gunship",
+      "points": 5
+    },
+    {
+      "id": 410,
+      "name": "DGS-286",
+      "ship": "HMP Droid Gunship",
+      "points": 5
+    },
+    {
+      "id": 411,
+      "name": "Onderon Oppressor",
+      "ship": "HMP Droid Gunship",
+      "points": 4
+    },
+    {
+      "id": 412,
+      "name": "212th Battalion Pilot",
+      "ship": "LAAT/i Gunship",
+      "points": 5
+    },
+    {
+      "id": 413,
+      "name": "\"Hound\"",
+      "ship": "LAAT/i Gunship",
+      "points": 6
+    },
+    {
+      "id": 414,
+      "name": "\"Warthog\"",
+      "ship": "LAAT/i Gunship",
+      "points": 6
+    },
+    {
+      "id": 415,
+      "name": "\"Hawk\"",
+      "ship": "LAAT/i Gunship",
+      "points": 5
+    },
+    {
+      "id": 416,
+      "name": "Carida Academy Cadet",
+      "ship": "TIE/rb Heavy",
+      "points": 5
+    },
+    {
+      "id": 417,
+      "name": "Onyx Squadron Sentry",
+      "ship": "TIE/rb Heavy",
+      "points": 5
+    },
+    {
+      "id": 418,
+      "name": "Lyttan Dree",
+      "ship": "TIE/rb Heavy",
+      "points": 5
+    },
+    {
+      "id": 419,
+      "name": "\"Rampage\"",
+      "ship": "TIE/rb Heavy",
+      "points": 5
+    },
+    {
+      "id": 420,
+      "name": "Fearsome Predator",
+      "ship": "Droid Tri-fighter",
+      "points": 4
+    },
+    {
+      "id": 421,
+      "name": "DIS-347",
+      "ship": "Droid Tri-fighter",
+      "points": 4
+    },
+    {
+      "id": 422,
+      "name": "DIS-T81",
+      "ship": "Droid Tri-fighter",
+      "points": 4
+    },
+    {
+      "id": 423,
+      "name": "Phlac-Arphocc Prototype",
+      "ship": "Droid Tri-fighter",
+      "points": 4
+    },
+    {
+      "id": 424,
+      "name": "Colicoid Interceptor",
+      "ship": "Droid Tri-fighter",
+      "points": 4
+    },
+    {
+      "id": 425,
+      "name": "Separatist Interceptor",
+      "ship": "Droid Tri-fighter",
+      "points": 4
+    },
+    {
+      "id": 426,
+      "name": "Separatist Racketeer",
+      "ship": "Firespray-class Patrol Craft",
+      "points": 7
+    },
+    {
+      "id": 427,
+      "name": "Boba Fett (Separatist)",
+      "ship": "Firespray-class Patrol Craft",
+      "points": 7,
+      "xws": "bobafett-separatistalliance"
+    },
+    {
+      "id": 428,
+      "name": "Zam Wesell",
+      "ship": "Firespray-class Patrol Craft",
+      "points": 9
+    },
+    {
+      "id": 429,
+      "name": "Jango Fett",
+      "ship": "Firespray-class Patrol Craft",
+      "points": 8
+    },
+    {
+      "id": 430,
+      "name": "Loyalist Volunteer",
+      "ship": "Nimbus-class V-wing",
+      "points": 3
+    },
+    {
+      "id": 431,
+      "name": "Shadow Squadron Escort",
+      "ship": "Nimbus-class V-wing",
+      "points": 3
+    },
+    {
+      "id": 432,
+      "name": "Wilhuff Tarkin",
+      "ship": "Nimbus-class V-wing",
+      "points": 3
+    },
+    {
+      "id": 433,
+      "name": "\"Klick\"",
+      "ship": "Nimbus-class V-wing",
+      "points": 3
+    },
+    {
+      "id": 434,
+      "name": "\"Contrail\"",
+      "ship": "Nimbus-class V-wing",
+      "points": 3
+    },
+    {
+      "id": 435,
+      "name": "\"Odd Ball\" (V-wing)",
+      "ship": "Nimbus-class V-wing",
+      "points": 4,
+      "xws": "oddball-nimbusclassvwing"
+    },
+    {
+      "id": 436,
+      "name": "Jedi General",
+      "ship": "Eta-2 Actis",
+      "points": 5
+    },
+    {
+      "id": 437,
+      "name": "Yoda",
+      "ship": "Eta-2 Actis",
+      "points": 5
+    },
+    {
+      "id": 438,
+      "name": "Shaak Ti",
+      "ship": "Eta-2 Actis",
+      "points": 5
+    },
+    {
+      "id": 439,
+      "name": "Aayla Secura",
+      "ship": "Eta-2 Actis",
+      "points": 5
+    },
+    {
+      "id": 440,
+      "name": "Obi-Wan Kenobi (Eta-2)",
+      "ship": "Eta-2 Actis",
+      "points": 5,
+      "xws": "obiwankenobi-eta2actis"
+    },
+    {
+      "id": 441,
+      "name": "Anakin Skywalker (Eta-2)",
+      "ship": "Eta-2 Actis",
+      "points": 6,
+      "xws": "anakinskywalker-eta2actis"
+    },
+    {
+      "id": 442,
+      "name": "Poe Dameron (HoH)",
+      "ship": "T-70 X-wing",
+      "points": 6,
+      "xws": "poedameron-swz68"
+    },
+    {
+      "id": 443,
+      "name": "Temmin Wexley (HoH)",
+      "ship": "T-70 X-wing",
+      "points": 6,
+      "xws": "temminwexley-swz68"
+    },
+    {
+      "id": 444,
+      "name": "Merl Cobben",
+      "ship": "RZ-2 A-wing",
+      "points": 3
+    },
+    {
+      "id": 445,
+      "name": "Suralinda Javos",
+      "ship": "RZ-2 A-wing",
+      "points": 4
+    },
+    {
+      "id": 446,
+      "name": "Wrobie Tyce",
+      "ship": "RZ-2 A-wing",
+      "points": 3
+    },
+    {
+      "id": 447,
+      "name": "Seftin Vanik",
+      "ship": "RZ-2 A-wing",
+      "points": 4
+    },
+    {
+      "id": 448,
+      "name": "Nimi Chireen",
+      "ship": "T-70 X-wing",
+      "points": 5
+    },
+    {
+      "id": 449,
+      "name": "C'ai Threnalli",
+      "ship": "T-70 X-wing",
+      "points": 5
+    },
+    {
+      "id": 450,
+      "name": "Hera Syndulla (B-Wing)",
+      "ship": "A/SF-01 B-wing",
+      "points": 6,
+      "xws": "herasyndulla-asf01bwing"
+    },
+    {
+      "id": 451,
+      "name": "Hera Syndulla (A-Wing)",
+      "ship": "RZ-1 A-wing",
+      "points": 5,
+      "xws": "herasyndulla-rz1awing"
+    },
+    {
+      "id": 452,
+      "name": "Wedge Antilles (A-Wing)",
+      "ship": "RZ-1 A-wing",
+      "points": 4,
+      "xws": "wedgeantilles-rz1awing"
+    },
+    {
+      "id": 453,
+      "name": "Sabine Wren (A-Wing)",
+      "ship": "RZ-1 A-wing",
+      "points": 4,
+      "xws": "sabinewren-rz1awing"
+    },
+    {
+      "id": 454,
+      "name": "Vult Skerris",
+      "ship": "TIE/d Defender",
+      "points": 7
+    },
+    {
+      "id": 455,
+      "name": "Ciena Ree",
+      "ship": "TIE/in Interceptor",
+      "points": 5
+    },
+    {
+      "id": 456,
+      "name": "Gideon Hask (TIE Interceptor)",
+      "ship": "TIE/in Interceptor",
+      "points": 5,
+      "xws": "gideonhask-tieininterceptor"
+    },
+    {
+      "id": 457,
+      "name": "Kanan Jarrus (HWK-290)",
+      "ship": "HWK-290 Light Freighter",
+      "points": 4,
+      "xws": "kananjarrus-hwk290lightfreighter"
+    },
+    {
+      "id": 458,
+      "name": "Leema Kai",
+      "ship": "BTL-A4 Y-wing",
+      "points": 4
+    },
+    {
+      "id": 459,
+      "name": "Arliz Hadrassian",
+      "ship": "BTL-A4 Y-wing",
+      "points": 4
+    },
+    {
+      "id": 460,
+      "name": "Padric",
+      "ship": "BTL-A4 Y-wing",
+      "points": 4
+    },
+    {
+      "id": 461,
+      "name": "Derek Klivian",
+      "ship": "RZ-1 A-wing",
+      "points": 3
+    },
+    {
+      "id": 462,
+      "name": "Shara Bey (A-Wing)",
+      "ship": "RZ-1 A-wing",
+      "points": 4,
+      "xws": "sharabey-rz1awing"
+    },
+    {
+      "id": 463,
+      "name": "Ahsoka Tano (A-Wing)",
+      "ship": "RZ-1 A-wing",
+      "points": 5,
+      "xws": "ahsokatano-rz1awing"
+    },
+    {
+      "id": 464,
+      "name": "Netrem Pollard",
+      "ship": "A/SF-01 B-wing",
+      "points": 5
+    },
+    {
+      "id": 465,
+      "name": "Commandant Goran",
+      "ship": "TIE/in Interceptor",
+      "points": 4
+    },
+    {
+      "id": 466,
+      "name": "Nash Windrider",
+      "ship": "TIE/in Interceptor",
+      "points": 4
+    },
+    {
+      "id": 467,
+      "name": "Lieutenant Lorrir",
+      "ship": "TIE/in Interceptor",
+      "points": 4
+    },
+    {
+      "id": 468,
+      "name": "Vult Skerris (TIE Interceptor)",
+      "ship": "TIE/in Interceptor",
+      "points": 4,
+      "xws": "vultskerris-tieininterceptor"
+    },
+    {
+      "id": 469,
+      "name": "Darth Vader (TIE Defender)",
+      "ship": "TIE/d Defender",
+      "points": 9,
+      "xws": "darthvader-tieddefender"
+    },
+    {
+      "id": 470,
+      "name": "Captain Dobbs",
+      "ship": "TIE/d Defender",
+      "points": 7
+    },
+    {
+      "id": 471,
+      "name": "Jinata Security Officer",
+      "ship": "BTL-A4 Y-wing",
+      "points": 4
+    },
+    {
+      "id": 472,
+      "name": "Amaxine Warrior",
+      "ship": "BTL-A4 Y-wing",
+      "points": 4
+    },
+    {
+      "id": 473,
+      "name": "Gamut Key",
+      "ship": "HWK-290 Light Freighter",
+      "points": 3
+    },
+    {
+      "id": 474,
+      "name": "Tápusk",
+      "ship": "HWK-290 Light Freighter",
+      "points": 4,
+      "xws": "tapusk"
+    },
+    {
+      "id": 475,
+      "name": "Colicoid Destroyer",
+      "ship": "Trident-class Assault Ship",
+      "points": 85
+    },
+    {
+      "id": 476,
+      "name": "Lawless Pirates",
+      "ship": "Trident-class Assault Ship",
+      "points": 85
+    },
+    {
+      "id": 477,
+      "name": "Zorii Bliss",
+      "ship": "BTA-NR2 Y-wing",
+      "points": 5
+    },
+    {
+      "id": 478,
+      "name": "Teza Nasz",
+      "ship": "BTA-NR2 Y-wing",
+      "points": 4
+    },
+    {
+      "id": 479,
+      "name": "Wilsa Teshlo",
+      "ship": "BTA-NR2 Y-wing",
+      "points": 4
+    },
+    {
+      "id": 480,
+      "name": "Shasa Zaro",
+      "ship": "BTA-NR2 Y-wing",
+      "points": 4
+    },
+    {
+      "id": 481,
+      "name": "Lega Fossang",
+      "ship": "BTA-NR2 Y-wing",
+      "points": 4
+    },
+    {
+      "id": 482,
+      "name": "Aftab Ackbar",
+      "ship": "BTA-NR2 Y-wing",
+      "points": 4
+    },
+    {
+      "id": 483,
+      "name": "Corus Kapellim",
+      "ship": "BTA-NR2 Y-wing",
+      "points": 4
+    },
+    {
+      "id": 484,
+      "name": "C'ai Threnalli (Y-Wing)",
+      "ship": "BTA-NR2 Y-wing",
+      "points": 4,
+      "xws": "caithrenalli-btanr2ywing"
+    },
+    {
+      "id": 485,
+      "name": "New Republic Patrol",
+      "ship": "BTA-NR2 Y-wing",
+      "points": 4
+    },
+    {
+      "id": 486,
+      "name": "Kijimi Spice Runner",
+      "ship": "BTA-NR2 Y-wing",
+      "points": 4
+    },
+    {
+      "id": 487,
+      "name": "Kylo Ren (TIE Whisper)",
+      "ship": "TIE/wi Whisper Modified Interceptor",
+      "points": 6,
+      "xws": "kyloren-tiewiwhispermodifiedinterceptor"
+    },
+    {
+      "id": 488,
+      "name": "\"Wrath\"",
+      "ship": "TIE/wi Whisper Modified Interceptor",
+      "points": 5
+    },
+    {
+      "id": 489,
+      "name": "\"Nightfall\"",
+      "ship": "TIE/wi Whisper Modified Interceptor",
+      "points": 4
+    },
+    {
+      "id": 490,
+      "name": "\"Whirlwind\"",
+      "ship": "TIE/wi Whisper Modified Interceptor",
+      "points": 4
+    },
+    {
+      "id": 491,
+      "name": "709th Legion Ace",
+      "ship": "TIE/wi Whisper Modified Interceptor",
+      "points": 4
+    },
+    {
+      "id": 492,
+      "name": "Red Fury Zealot",
+      "ship": "TIE/wi Whisper Modified Interceptor",
+      "points": 4
+    },
+    {
+      "id": 493,
+      "name": "\"Breach\"",
+      "ship": "TIE/se Bomber",
+      "points": 5
+    },
+    {
+      "id": 494,
+      "name": "\"Scorch\" (TIE/Se Bomber)",
+      "ship": "TIE/se Bomber",
+      "points": 4,
+      "xws": "scorch-tiesebomber"
+    },
+    {
+      "id": 495,
+      "name": "\"Dread\"",
+      "ship": "TIE/se Bomber",
+      "points": 4
+    },
+    {
+      "id": 496,
+      "name": "\"Grudge\"",
+      "ship": "TIE/se Bomber",
+      "points": 4
+    },
+    {
+      "id": 497,
+      "name": "First Order Cadet",
+      "ship": "TIE/se Bomber",
+      "points": 4
+    },
+    {
+      "id": 498,
+      "name": "Sienar-Jaemus Test Pilot",
+      "ship": "TIE/se Bomber",
+      "points": 4
+    },
+    {
+      "id": 499,
+      "name": "Bodica Venj",
+      "ship": "Fang Fighter",
+      "points": 5
+    },
+    {
+      "id": 500,
+      "name": "Dirk Ullodin",
+      "ship": "Fang Fighter",
+      "points": 5
+    },
+    {
+      "id": 501,
+      "name": "Fenn Rau (Rebel Fang)",
+      "ship": "Fang Fighter",
+      "points": 6,
+      "xws": "fennrau-rebel-fang"
+    },
+    {
+      "id": 502,
+      "name": "Clan Wren Volunteer",
+      "ship": "Fang Fighter",
+      "points": 5
+    },
+    {
+      "id": 503,
+      "name": "Moff Gideon",
+      "ship": "TIE/ln Fighter",
+      "points": 3
+    },
+    {
+      "id": 504,
+      "name": "ISB Jingoist",
+      "ship": "TIE/ln Fighter",
+      "points": 3
+    },
+    {
+      "id": 505,
+      "name": "Mandalorian Royal Guard",
+      "ship": "Fang Fighter",
+      "points": 5
+    },
+    {
+      "id": 506,
+      "name": "Bo-Katan Kryze"
+    },
+    {
+      "id": 507,
+      "name": "Pre Vizsla",
+      "ship": "Gauntlet Fighter",
+      "points": 7
+    },
+    {
+      "id": 508,
+      "name": "Death Watch Warrior",
+      "ship": "Gauntlet Fighter",
+      "points": 7
+    },
+    {
+      "id": 509,
+      "name": "Bo-Katan Kryze",
+      "ship": "Gauntlet Fighter",
+      "points": 7,
+      "xws": "bokatankryze-separatistalliance"
+    },
+    {
+      "id": 510,
+      "name": "Bo-Katan Kryze (Republic)",
+      "ship": "Gauntlet Fighter",
+      "points": 7,
+      "xws": "bokatankryze"
+    },
+    {
+      "id": 511,
+      "name": "Nite Owl Liberator",
+      "ship": "Gauntlet Fighter",
+      "points": 7
+    },
+    {
+      "id": 512,
+      "name": "Maul",
+      "ship": "Gauntlet Fighter",
+      "points": 9
+    },
+    {
+      "id": 513,
+      "name": "Shadow Collective Operator",
+      "ship": "Gauntlet Fighter",
+      "points": 7
+    },
+    {
+      "id": 514,
+      "name": "Rook Kast",
+      "ship": "Gauntlet Fighter",
+      "points": 7
+    },
+    {
+      "id": 515,
+      "name": "Captain Hark",
+      "ship": "Gauntlet Fighter",
+      "points": 7
+    },
+    {
+      "id": 516,
+      "name": "Imperial Super Commando",
+      "ship": "Gauntlet Fighter",
+      "points": 7
+    },
+    {
+      "id": 517,
+      "name": "Gar Saxon",
+      "ship": "Gauntlet Fighter",
+      "points": 8
+    },
+    {
+      "id": 518,
+      "name": "Mandalorian Resistance Pilot",
+      "ship": "Gauntlet Fighter",
+      "points": 7
+    },
+    {
+      "id": 519,
+      "name": "\"Chopper\" (Gauntlet Fighter)",
+      "ship": "Gauntlet Fighter",
+      "points": 7,
+      "xws": "chopper-gauntletfighter"
+    },
+    {
+      "id": 520,
+      "name": "Ezra Bridger (Gauntlet Fighter)",
+      "ship": "Gauntlet Fighter",
+      "points": 7,
+      "xws": "ezrabridger-gauntletfighter"
+    },
+    {
+      "id": 521,
+      "name": "Q9-0",
+      "ship": "ST-70 Assault Ship",
+      "points": 6
+    },
+    {
+      "id": 522,
+      "name": "The Mandalorian",
+      "ship": "ST-70 Assault Ship",
+      "points": 7
+    },
+    {
+      "id": 523,
+      "name": "Guild Bounty Hunter",
+      "ship": "ST-70 Assault Ship",
+      "points": 6
+    },
+    {
+      "id": 524,
+      "name": "Outer Rim Enforcer",
+      "ship": "ST-70 Assault Ship",
+      "points": 6
+    },
+    {
+      "id": 525,
+      "name": "Plo Koon (Delta-7b)",
+      "ship": "Delta-7b Aethersprite",
+      "points": 7,
+      "xws": "plokoon-delta7baethersprite"
+    },
+    {
+      "id": 526,
+      "name": "Saesee Tiin (Delta-7b)",
+      "ship": "Delta-7b Aethersprite",
+      "points": 6,
+      "xws": "saeseetiin-delta7baethersprite"
+    },
+    {
+      "id": 527,
+      "name": "Mace Windu (Delta-7b)",
+      "ship": "Delta-7b Aethersprite",
+      "points": 6,
+      "xws": "macewindu-delta7baethersprite"
+    },
+    {
+      "id": 528,
+      "name": "Anakin Skywalker (Delta-7b)",
+      "ship": "Delta-7b Aethersprite",
+      "points": 7,
+      "xws": "anakinskywalker-delta7baethersprite"
+    },
+    {
+      "id": 529,
+      "name": "Luminara Unduli (Delta-7b)",
+      "ship": "Delta-7b Aethersprite",
+      "points": 6,
+      "xws": "luminaraunduli-delta7baethersprite"
+    },
+    {
+      "id": 530,
+      "name": "Barriss Offee (Delta-7b)",
+      "ship": "Delta-7b Aethersprite",
+      "points": 5,
+      "xws": "barrissoffee-delta7baethersprite"
+    },
+    {
+      "id": 531,
+      "name": "Ahsoka Tano (Delta-7b)",
+      "ship": "Delta-7b Aethersprite",
+      "points": 6,
+      "xws": "ahsokatano-delta7baethersprite"
+    },
+    {
+      "id": 532,
+      "name": "Jedi Knight (Delta-7b)",
+      "ship": "Delta-7b Aethersprite",
+      "points": 6,
+      "xws": "jediknight-delta7baethersprite"
+    },
+    {
+      "id": 533,
+      "name": "Obi-Wan Kenobi (Delta-7b)",
+      "ship": "Delta-7b Aethersprite",
+      "points": 7,
+      "xws": "obiwankenobi-delta7baethersprite"
+    },
+    {
+      "id": 534,
+      "name": "Cad Bane",
+      "ship": "Rogue-class Starfighter",
+      "points": 5
+    },
+    {
+      "id": 535,
+      "name": "Viktor Hel (Rogue)",
+      "ship": "Rogue-class Starfighter",
+      "points": 5,
+      "xws": "viktorhel-rogueclassstarfighter"
+    },
+    {
+      "id": 536,
+      "name": "Nom Lumb (Rogue)",
+      "ship": "Rogue-class Starfighter",
+      "points": 5,
+      "xws": "nomlumb-rogueclassstarfighter"
+    },
+    {
+      "id": 537,
+      "name": "Outer Rim Hunter",
+      "ship": "Rogue-class Starfighter",
+      "points": 5
+    },
+    {
+      "id": 538,
+      "name": "Cad Bane (Separatist)",
+      "ship": "Rogue-class Starfighter",
+      "points": 5,
+      "xws": "cadbane-separatistalliance"
+    },
+    {
+      "id": 539,
+      "name": "IG-101",
+      "ship": "Rogue-class Starfighter",
+      "points": 5
+    },
+    {
+      "id": 540,
+      "name": "IG-102",
+      "ship": "Rogue-class Starfighter",
+      "points": 5
+    },
+    {
+      "id": 541,
+      "name": "IG-111",
+      "ship": "Rogue-class Starfighter",
+      "points": 5
+    },
+    {
+      "id": 542,
+      "name": "MagnaGuard Protector",
+      "ship": "Rogue-class Starfighter",
+      "points": 5
+    },
+    {
+      "id": 543,
+      "name": "MagnaGuard Executioner",
+      "ship": "Rogue-class Starfighter",
+      "points": 4
+    },
+    {
+      "id": 544,
+      "name": "\"Knack\"",
+      "ship": "Clone Z-95 Headhunter",
+      "points": 3
+    },
+    {
+      "id": 545,
+      "name": "\"Slider\"",
+      "ship": "Clone Z-95 Headhunter",
+      "points": 3
+    },
+    {
+      "id": 546,
+      "name": "\"Hawk\" (Z-95)",
+      "ship": "Clone Z-95 Headhunter",
+      "points": 3,
+      "xws": "hawk-clonez95headhunter"
+    },
+    {
+      "id": 547,
+      "name": "\"Warthog\" (Z-95)",
+      "ship": "Clone Z-95 Headhunter",
+      "points": 3,
+      "xws": "warthog-clonez95headhunter"
+    },
+    {
+      "id": 548,
+      "name": "\"Boost\"",
+      "ship": "Clone Z-95 Headhunter",
+      "points": 3
+    },
+    {
+      "id": 549,
+      "name": "\"Drift\"",
+      "ship": "Clone Z-95 Headhunter",
+      "points": 3
+    },
+    {
+      "id": 550,
+      "name": "\"Stub\"",
+      "ship": "Clone Z-95 Headhunter",
+      "points": 3
+    },
+    {
+      "id": 551,
+      "name": "\"Killer\"",
+      "ship": "Clone Z-95 Headhunter",
+      "points": 3
+    },
+    {
+      "id": 552,
+      "name": "Reaper Squadron Scout",
+      "ship": "Clone Z-95 Headhunter",
+      "points": 3
+    },
+    {
+      "id": 553,
+      "name": "7th Sky Corps Pilot",
+      "ship": "Clone Z-95 Headhunter",
+      "points": 3
+    },
+    {
+      "id": 554,
+      "name": "Garven Dreis (BoY)",
+      "ship": "T-65 X-wing",
+      "points": 4,
+      "xws": "garvendreis-battleofyavin"
+    },
+    {
+      "id": 555,
+      "name": "Luke Skywalker (BoY)",
+      "ship": "T-65 X-wing",
+      "points": 6,
+      "xws": "lukeskywalker-battleofyavin"
+    },
+    {
+      "id": 556,
+      "name": "Jek Porkins (BoY)",
+      "ship": "T-65 X-wing",
+      "points": 4,
+      "xws": "jekporkins-battleofyavin"
+    },
+    {
+      "id": 557,
+      "name": "Biggs Darklighter (BoY)",
+      "ship": "T-65 X-wing",
+      "points": 5,
+      "xws": "biggsdarklighter-battleofyavin"
+    },
+    {
+      "id": 558,
+      "name": "Wedge Antilles (BoY)",
+      "ship": "T-65 X-wing",
+      "points": 5,
+      "xws": "wedgeantilles-battleofyavin"
+    },
+    {
+      "id": 559,
+      "name": "Han Solo (BoY)",
+      "ship": "Modified YT-1300 Light Freighter",
+      "points": 7,
+      "xws": "hansolo-battleofyavin"
+    },
+    {
+      "id": 560,
+      "name": "\"Dutch\" Vander (BoY)",
+      "ship": "BTL-A4 Y-wing",
+      "points": 4,
+      "xws": "dutchvander-battleofyavin"
+    },
+    {
+      "id": 561,
+      "name": "Dex Tiree (BoY)",
+      "ship": "BTL-A4 Y-wing",
+      "points": 4,
+      "xws": "dextiree-battleofyavin"
+    },
+    {
+      "id": 562,
+      "name": "\"Pops\" Krail (BoY)",
+      "ship": "BTL-A4 Y-wing",
+      "points": 4,
+      "xws": "popskrail-battleofyavin"
+    },
+    {
+      "id": 563,
+      "name": "Hol Okand (BoY)",
+      "ship": "BTL-A4 Y-wing",
+      "points": 4,
+      "xws": "holokand-battleofyavin"
+    },
+    {
+      "id": 564,
+      "name": "Darth Vader (BoY)",
+      "ship": "TIE Advanced x1",
+      "points": 6,
+      "xws": "darthvader-battleofyavin"
+    },
+    {
+      "id": 565,
+      "name": "\"Backstabber\" (BoY)",
+      "ship": "TIE/ln Fighter",
+      "points": 4,
+      "xws": "backstabber-battleofyavin"
+    },
+    {
+      "id": 566,
+      "name": "\"Mauler\" Mithel (BoY)",
+      "ship": "TIE/ln Fighter",
+      "points": 3,
+      "xws": "maulermithel-battleofyavin"
+    },
+    {
+      "id": 567,
+      "name": "\"Dark Curse\" (BoY)",
+      "ship": "TIE/ln Fighter",
+      "points": 4,
+      "xws": "darkcurse-battleofyavin"
+    },
+    {
+      "id": 568,
+      "name": "\"Wampa\" (BoY)",
+      "ship": "TIE/ln Fighter",
+      "points": 3,
+      "xws": "wampa-battleofyavin"
+    },
+    {
+      "id": 569,
+      "name": "Iden Versio (BoY)",
+      "ship": "TIE/in Interceptor",
+      "points": 6,
+      "xws": "idenversio-battleofyavin"
+    },
+    {
+      "id": 570,
+      "name": "Sigma 4 (BoY)",
+      "ship": "TIE/in Interceptor",
+      "points": 4,
+      "xws": "sigma4-battleofyavin"
+    },
+    {
+      "id": 571,
+      "name": "Sigma 5 (BoY)",
+      "ship": "TIE/in Interceptor",
+      "points": 4,
+      "xws": "sigma5-battleofyavin"
+    },
+    {
+      "id": 572,
+      "name": "Sigma 6 (BoY)",
+      "ship": "TIE/in Interceptor",
+      "points": 4,
+      "xws": "sigma6-battleofyavin"
+    },
+    {
+      "id": 573,
+      "name": "Sigma 7 (BoY)",
+      "ship": "TIE/in Interceptor",
+      "points": 4,
+      "xws": "sigma7-battleofyavin"
+    },
+    {
+      "id": 574,
+      "name": "Anakin Skywalker (SoC)",
+      "ship": "Eta-2 Actis",
+      "points": 5,
+      "xws": "anakinskywalker-siegeofcoruscant"
+    },
+    {
+      "id": 575,
+      "name": "Obi-Wan Kenobi (SoC)",
+      "ship": "Eta-2 Actis",
+      "points": 4,
+      "xws": "obiwankenobi-siegeofcoruscant"
+    },
+    {
+      "id": 576,
+      "name": "Shaak Ti (SoC)",
+      "ship": "Eta-2 Actis",
+      "points": 4,
+      "xws": "shaakti-siegeofcoruscant"
+    },
+    {
+      "id": 577,
+      "name": "\"Odd Ball\" (SoC)",
+      "ship": "ARC-170 Starfighter",
+      "points": 5,
+      "xws": "oddball-siegeofcoruscant"
+    },
+    {
+      "id": 578,
+      "name": "\"Wolffe\" (SoC)",
+      "ship": "ARC-170 Starfighter",
+      "points": 4,
+      "xws": "wolffe-siegeofcoruscant"
+    },
+    {
+      "id": 579,
+      "name": "\"Jag\" (SoC)",
+      "ship": "ARC-170 Starfighter",
+      "points": 4,
+      "xws": "jag-siegeofcoruscant"
+    },
+    {
+      "id": 580,
+      "name": "\"Contrail\" (SoC)",
+      "ship": "Nimbus-class V-wing",
+      "points": 3,
+      "xws": "contrail-siegeofcoruscant"
+    },
+    {
+      "id": 581,
+      "name": "\"Klick\" (SoC)",
+      "ship": "Nimbus-class V-wing",
+      "points": 3,
+      "xws": "klick-siegeofcoruscant"
+    },
+    {
+      "id": 582,
+      "name": "\"Kickback\" (SoC)",
+      "ship": "V-19 Torrent Starfighter",
+      "points": 3,
+      "xws": "kickback-siegeofcoruscant"
+    },
+    {
+      "id": 583,
+      "name": "\"Axe\" (SoC)",
+      "ship": "V-19 Torrent Starfighter",
+      "points": 4,
+      "xws": "axe-siegeofcoruscant"
+    },
+    {
+      "id": 584,
+      "name": "Count Dooku (SoC)",
+      "ship": "Sith Infiltrator",
+      "points": 6,
+      "xws": "countdooku-siegeofcoruscant"
+    },
+    {
+      "id": 585,
+      "name": "DBS-32C (SoC)",
+      "ship": "Hyena-class Droid Bomber",
+      "points": 3,
+      "xws": "dbs32c-siegeofcoruscant"
+    },
+    {
+      "id": 586,
+      "name": "DBS-404 (SoC)",
+      "ship": "Hyena-class Droid Bomber",
+      "points": 3,
+      "xws": "dbs404-siegeofcoruscant"
+    },
+    {
+      "id": 587,
+      "name": "Baktoid Prototype (SoC)",
+      "ship": "Hyena-class Droid Bomber",
+      "points": 3,
+      "xws": "baktoidprototype-siegeofcoruscant"
+    },
+    {
+      "id": 588,
+      "name": "DIS-347 (SoC)",
+      "ship": "Droid Tri-fighter",
+      "points": 4,
+      "xws": "dis347-siegeofcoruscant"
+    },
+    {
+      "id": 589,
+      "name": "DIS-T81 (SoC)",
+      "ship": "Droid Tri-fighter",
+      "points": 5,
+      "xws": "dist81-siegeofcoruscant"
+    },
+    {
+      "id": 590,
+      "name": "Phlac-Arphocc Prototype (SoC)",
+      "ship": "Droid Tri-fighter",
+      "points": 4,
+      "xws": "phlacarphoccprototype-siegeofcoruscant"
+    },
+    {
+      "id": 591,
+      "name": "DFS-081 (SoC)",
+      "ship": "Vulture-class Droid Fighter",
+      "points": 2,
+      "xws": "dfs081-siegeofcoruscant"
+    },
+    {
+      "id": 592,
+      "name": "DFS-311 (SoC)",
+      "ship": "Vulture-class Droid Fighter",
+      "points": 3,
+      "xws": "dfs311-siegeofcoruscant"
+    },
+    {
+      "id": 593,
+      "name": "Haor Chall Prototype (SoC)",
+      "ship": "Vulture-class Droid Fighter",
+      "points": 2,
+      "xws": "haorchallprototype-siegeofcoruscant"
+    },
+    {
+      "id": 594,
+      "name": "Corran Horn (X-Wing)",
+      "ship": "T-65 X-wing",
+      "points": 5,
+      "xws": "corranhorn-t65xwing"
+    },
+    {
+      "id": 595,
+      "name": "Wes Janson",
+      "ship": "T-65 X-wing",
+      "points": 5
+    },
+    {
+      "id": 596,
+      "name": "Tycho Celchu",
+      "ship": "RZ-1 A-wing",
+      "points": 4
+    },
+    {
+      "id": 597,
+      "name": "Keo Venzee",
+      "ship": "RZ-1 A-wing",
+      "points": 3
+    },
+    {
+      "id": 598,
+      "name": "\"Pops\" Krail",
+      "ship": "BTL-A4 Y-wing",
+      "points": 4
+    },
+    {
+      "id": 599,
+      "name": "Flight Leader Ubbel",
+      "ship": "TIE/rb Heavy",
+      "points": 5
+    },
+    {
+      "id": 600,
+      "name": "Juno Eclipse",
+      "ship": "TIE Advanced x1",
+      "points": 4
+    },
+    {
+      "id": 601,
+      "name": "Second Sister",
+      "ship": "TIE/in Interceptor",
+      "points": 5
+    },
+    {
+      "id": 602,
+      "name": "Magna Tolvan",
+      "ship": "TIE/ln Fighter",
+      "points": 3
+    },
+    {
+      "id": 603,
+      "name": "Yrica Quell",
+      "ship": "TIE/ln Fighter",
+      "points": 3
+    },
+    {
+      "id": 604,
+      "name": "Poe Dameron (YT-1300)",
+      "ship": "Scavenged YT-1300",
+      "points": 7,
+      "xws": "poedameron-scavengedyt1300"
+    },
+    {
+      "id": 605,
+      "name": "Lando Calrissian (Resistance)",
+      "ship": "Scavenged YT-1300",
+      "points": 8,
+      "xws": "landocalrissian-scavengedyt1300"
+    },
+    {
+      "id": 606,
+      "name": "Venisa Doza",
+      "ship": "T-70 X-wing",
+      "points": 5
+    },
+    {
+      "id": 607,
+      "name": "Zay Versio",
+      "ship": "T-70 X-wing",
+      "points": 4
+    },
+    {
+      "id": 608,
+      "name": "Taka Jamoreesa",
+      "ship": "Resistance Transport",
+      "points": 4
+    },
+    {
+      "id": 609,
+      "name": "Hondo Ohnaka",
+      "ship": "Firespray-class Patrol Craft",
+      "points": 7
+    },
+    {
+      "id": 610,
+      "name": "Tor Phun",
+      "ship": "Fang Fighter",
+      "points": 4
+    },
+    {
+      "id": 611,
+      "name": "Durge",
+      "ship": "Rogue-class Starfighter",
+      "points": 4
+    },
+    {
+      "id": 612,
+      "name": "Doctor Aphra",
+      "ship": "YV-666 Light Freighter",
+      "points": 6
+    },
+    {
+      "id": 613,
+      "name": "Lapin",
+      "ship": "Modified TIE/ln Fighter",
+      "points": 3
+    },
+    {
+      "id": 614,
+      "name": "Volan Das",
+      "ship": "Droid Tri-fighter",
+      "points": 4
+    },
+    {
+      "id": 615,
+      "name": "Aurra Sing",
+      "ship": "Firespray-class Patrol Craft",
+      "points": 8
+    },
+    {
+      "id": 616,
+      "name": "Durge (Separatist)",
+      "ship": "Rogue-class Starfighter",
+      "points": 4,
+      "xws": "durge-separatistalliance"
+    },
+    {
+      "id": 617,
+      "name": "The Iron Assembler",
+      "ship": "Vulture-class Droid Fighter",
+      "points": 2
+    },
+    {
+      "id": 618,
+      "name": "Kelrodo-Ai Holdout",
+      "ship": "Vulture-class Droid Fighter",
+      "points": 2
+    },
+    {
+      "id": 619,
+      "name": "Adi Gallia",
+      "ship": "Delta-7 Aethersprite",
+      "points": 5
+    },
+    {
+      "id": 620,
+      "name": "Adi Gallia (Delta-7B)",
+      "ship": "Delta-7b Aethersprite",
+      "points": 7,
+      "xws": "adigallia-delta7baethersprite"
+    },
+    {
+      "id": 621,
+      "name": "\"Sicko\"",
+      "ship": "LAAT/i Gunship",
+      "points": 5
+    },
+    {
+      "id": 622,
+      "name": "Kit Fisto",
+      "ship": "Eta-2 Actis",
+      "points": 4
+    },
+    {
+      "id": 623,
+      "name": "\"Slammer\"",
+      "ship": "V-19 Torrent Starfighter",
+      "points": 3
+    },
+    {
+      "id": 624,
+      "name": "Gavyn Sykes",
+      "ship": "Naboo Royal N-1 Starfighter",
+      "points": 4
+    },
+    {
+      "id": 625,
+      "name": "Lieutenant Galek",
+      "ship": "TIE/fo Fighter",
+      "points": 3
+    },
+    {
+      "id": 626,
+      "name": "Jul Jerjerrod",
+      "ship": "TIE/se Bomber",
+      "points": 4
+    },
+    {
+      "id": 627,
+      "name": "DT-798",
+      "ship": "TIE/fo Fighter",
+      "points": 3
+    },
+    {
+      "id": 628,
+      "name": "Lin Gaava",
+      "ship": "TIE/fo Fighter",
+      "points": 3
+    },
+    {
+      "id": 629,
+      "name": "Agent Tierny",
+      "ship": "Xi-class Light Shuttle",
+      "points": 5
+    }
+  ],
+  "upgrades": [
+    {
+      "id": 0,
+      "name": "\"Chopper\" (Astromech)",
+      "slot": "Astromech",
+      "xws": "chopper"
+    },
+    {
+      "id": 1,
+      "name": "\"Genius\"",
+      "slot": "Astromech"
+    },
+    {
+      "id": 2,
+      "name": "R2 Astromech",
+      "slot": "Astromech"
+    },
+    {
+      "id": 3,
+      "name": "R2-D2",
+      "slot": "Astromech"
+    },
+    {
+      "id": 4,
+      "name": "R3 Astromech",
+      "slot": "Astromech"
+    },
+    {
+      "id": 5,
+      "name": "R4 Astromech",
+      "slot": "Astromech"
+    },
+    {
+      "id": 6,
+      "name": "R5 Astromech",
+      "slot": "Astromech"
+    },
+    {
+      "id": 7,
+      "name": "R5-D8",
+      "slot": "Astromech"
+    },
+    {
+      "id": 8,
+      "name": "R5-P8",
+      "slot": "Astromech"
+    },
+    {
+      "id": 9,
+      "name": "R5-TK",
+      "slot": "Astromech"
+    },
+    {
+      "id": 10,
+      "name": "Heavy Laser Cannon",
+      "slot": "Cannon"
+    },
+    {
+      "id": 11,
+      "name": "Ion Cannon",
+      "slot": "Cannon"
+    },
+    {
+      "id": 12,
+      "name": "Jamming Beam",
+      "slot": "Cannon"
+    },
+    {
+      "id": 13,
+      "name": "Tractor Beam",
+      "slot": "Cannon"
+    },
+    {
+      "id": 14,
+      "name": "Admiral Sloane",
+      "slot": "Crew"
+    },
+    {
+      "id": 15,
+      "name": "Agent Kallus",
+      "slot": "Crew"
+    },
+    {
+      "id": 16,
+      "name": "Boba Fett",
+      "slot": "Crew"
+    },
+    {
+      "id": 17,
+      "name": "Baze Malbus",
+      "slot": "Crew"
+    },
+    {
+      "id": 18,
+      "name": "C-3PO",
+      "slot": "Crew"
+    },
+    {
+      "id": 19,
+      "name": "Cassian Andor",
+      "slot": "Crew"
+    },
+    {
+      "id": 20,
+      "name": "Cad Bane",
+      "slot": "Crew"
+    },
+    {
+      "id": 21,
+      "name": "Chewbacca",
+      "slot": "Crew"
+    },
+    {
+      "id": 22,
+      "name": "Chewbacca (Scum)",
+      "slot": "Crew",
+      "xws": "chewbacca-crew"
+    },
+    {
+      "id": 23,
+      "name": "\"Chopper\" (Crew)",
+      "slot": "Crew",
+      "xws": "chopper-crew"
+    },
+    {
+      "id": 24,
+      "name": "Ciena Ree",
+      "slot": "Crew"
+    },
+    {
+      "id": 25,
+      "name": "Cikatro Vizago",
+      "slot": "Crew"
+    },
+    {
+      "id": 26,
+      "name": "Darth Vader",
+      "slot": "Crew"
+    },
+    {
+      "id": 27,
+      "name": "Death Troopers",
+      "slot": "Crew"
+    },
+    {
+      "id": 28,
+      "name": "Director Krennic",
+      "slot": "Crew"
+    },
+    {
+      "id": 29,
+      "name": "Emperor Palpatine",
+      "slot": "Crew"
+    },
+    {
+      "id": 30,
+      "name": "Freelance Slicer",
+      "slot": "Crew"
+    },
+    {
+      "id": 31,
+      "name": "4-LOM",
+      "slot": "Crew"
+    },
+    {
+      "id": 32,
+      "name": "GNK \"Gonk\" Droid",
+      "slot": "Crew"
+    },
+    {
+      "id": 33,
+      "name": "Grand Inquisitor",
+      "slot": "Crew"
+    },
+    {
+      "id": 34,
+      "name": "Grand Moff Tarkin",
+      "slot": "Crew"
+    },
+    {
+      "id": 35,
+      "name": "Hera Syndulla",
+      "slot": "Crew"
+    },
+    {
+      "id": 36,
+      "name": "IG-88D",
+      "slot": "Crew"
+    },
+    {
+      "id": 37,
+      "name": "Informant",
+      "slot": "Crew"
+    },
+    {
+      "id": 38,
+      "name": "ISB Slicer",
+      "slot": "Crew"
+    },
+    {
+      "id": 39,
+      "name": "Jabba the Hutt",
+      "slot": "Crew"
+    },
+    {
+      "id": 40,
+      "name": "Jyn Erso",
+      "slot": "Crew"
+    },
+    {
+      "id": 41,
+      "name": "Kanan Jarrus",
+      "slot": "Crew"
+    },
+    {
+      "id": 42,
+      "name": "Ketsu Onyo",
+      "slot": "Crew"
+    },
+    {
+      "id": 43,
+      "name": "L3-37",
+      "slot": "Crew"
+    },
+    {
+      "id": 44,
+      "name": "Lando Calrissian",
+      "slot": "Crew",
+      "xws": "landocalrissian"
+    },
+    {
+      "id": 45,
+      "name": "Lando Calrissian (Scum)",
+      "slot": "Crew",
+      "xws": "landocalrissian-crew"
+    },
+    {
+      "id": 46,
+      "name": "Leia Organa",
+      "slot": "Crew"
+    },
+    {
+      "id": 47,
+      "name": "Latts Razzi",
+      "slot": "Crew"
+    },
+    {
+      "id": 48,
+      "name": "Maul",
+      "slot": "Crew"
+    },
+    {
+      "id": 49,
+      "name": "Minister Tua",
+      "slot": "Crew"
+    },
+    {
+      "id": 50,
+      "name": "Moff Jerjerrod",
+      "slot": "Crew"
+    },
+    {
+      "id": 51,
+      "name": "Magva Yarro",
+      "slot": "Crew"
+    },
+    {
+      "id": 52,
+      "name": "Nien Nunb",
+      "slot": "Crew"
+    },
+    {
+      "id": 53,
+      "name": "Novice Technician",
+      "slot": "Crew"
+    },
+    {
+      "id": 54,
+      "name": "Perceptive Copilot",
+      "slot": "Crew"
+    },
+    {
+      "id": 55,
+      "name": "Qi'ra",
+      "slot": "Crew"
+    },
+    {
+      "id": 56,
+      "name": "R2-D2 (Crew)",
+      "slot": "Crew",
+      "xws": "r2d2-crew"
+    },
+    {
+      "id": 57,
+      "name": "Sabine Wren",
+      "slot": "Crew"
+    },
+    {
+      "id": 58,
+      "name": "Saw Gerrera",
+      "slot": "Crew"
+    },
+    {
+      "id": 59,
+      "name": "Seasoned Navigator",
+      "slot": "Crew"
+    },
+    {
+      "id": 60,
+      "name": "Seventh Sister",
+      "slot": "Crew"
+    },
+    {
+      "id": 61,
+      "name": "Tactical Officer",
+      "slot": "Crew"
+    },
+    {
+      "id": 62,
+      "name": "Tobias Beckett",
+      "slot": "Crew"
+    },
+    {
+      "id": 63,
+      "name": "0-0-0",
+      "slot": "Crew"
+    },
+    {
+      "id": 64,
+      "name": "Unkar Plutt",
+      "slot": "Crew"
+    },
+    {
+      "id": 65,
+      "name": "\"Zeb\" Orrelios",
+      "slot": "Crew"
+    },
+    {
+      "id": 66,
+      "name": "Zuckuss",
+      "slot": "Crew"
+    },
+    {
+      "id": 67,
+      "name": "Bomblet Generator",
+      "slot": "Device"
+    },
+    {
+      "id": 68,
+      "name": "Conner Nets",
+      "slot": "Device"
+    },
+    {
+      "id": 69,
+      "name": "Proton Bombs",
+      "slot": "Device"
+    },
+    {
+      "id": 70,
+      "name": "Proximity Mines",
+      "slot": "Device"
+    },
+    {
+      "id": 71,
+      "name": "Seismic Charges",
+      "slot": "Device"
+    },
+    {
+      "id": 72,
+      "name": "Heightened Perception",
+      "slot": "Force"
+    },
+    {
+      "id": 73,
+      "name": "Instinctive Aim",
+      "slot": "Force"
+    },
+    {
+      "id": 74,
+      "name": "Supernatural Reflexes",
+      "slot": "Force"
+    },
+    {
+      "id": 75,
+      "name": "Sense",
+      "slot": "Force"
+    },
+    {
+      "id": 76,
+      "name": "Agile Gunner",
+      "slot": "Gunner"
+    },
+    {
+      "id": 77,
+      "name": "Bistan",
+      "slot": "Gunner"
+    },
+    {
+      "id": 78,
+      "name": "Bossk",
+      "slot": "Gunner"
+    },
+    {
+      "id": 79,
+      "name": "BT-1",
+      "slot": "Gunner"
+    },
+    {
+      "id": 80,
+      "name": "Dengar",
+      "slot": "Gunner"
+    },
+    {
+      "id": 81,
+      "name": "Ezra Bridger",
+      "slot": "Gunner"
+    },
+    {
+      "id": 82,
+      "name": "Fifth Brother",
+      "slot": "Gunner"
+    },
+    {
+      "id": 83,
+      "name": "Greedo",
+      "slot": "Gunner"
+    },
+    {
+      "id": 84,
+      "name": "Han Solo",
+      "slot": "Gunner",
+      "xws": "hansolo"
+    },
+    {
+      "id": 85,
+      "name": "Han Solo (Scum)",
+      "slot": "Gunner",
+      "xws": "hansolo-gunner"
+    },
+    {
+      "id": 86,
+      "name": "Hotshot Gunner",
+      "slot": "Gunner"
+    },
+    {
+      "id": 87,
+      "name": "Luke Skywalker",
+      "slot": "Gunner"
+    },
+    {
+      "id": 88,
+      "name": "Skilled Bombardier",
+      "slot": "Gunner"
+    },
+    {
+      "id": 89,
+      "name": "Veteran Tail Gunner",
+      "slot": "Gunner"
+    },
+    {
+      "id": 90,
+      "name": "Veteran Turret Gunner",
+      "slot": "Gunner"
+    },
+    {
+      "id": 91,
+      "name": "Cloaking Device",
+      "slot": "Illicit"
+    },
+    {
+      "id": 92,
+      "name": "Contraband Cybernetics",
+      "slot": "Illicit"
+    },
+    {
+      "id": 93,
+      "name": "Deadman's Switch",
+      "slot": "Illicit"
+    },
+    {
+      "id": 94,
+      "name": "Feedback Array",
+      "slot": "Illicit"
+    },
+    {
+      "id": 95,
+      "name": "Inertial Dampeners",
+      "slot": "Illicit"
+    },
+    {
+      "id": 96,
+      "name": "Rigged Cargo Chute",
+      "slot": "Illicit"
+    },
+    {
+      "id": 97,
+      "name": "Barrage Rockets",
+      "slot": "Missile"
+    },
+    {
+      "id": 98,
+      "name": "Cluster Missiles",
+      "slot": "Missile"
+    },
+    {
+      "id": 99,
+      "name": "Concussion Missiles",
+      "slot": "Missile"
+    },
+    {
+      "id": 100,
+      "name": "Homing Missiles",
+      "slot": "Missile"
+    },
+    {
+      "id": 101,
+      "name": "Ion Missiles",
+      "slot": "Missile"
+    },
+    {
+      "id": 102,
+      "name": "Proton Rockets",
+      "slot": "Missile"
+    },
+    {
+      "id": 103,
+      "name": "Ablative Plating",
+      "slot": "Modification"
+    },
+    {
+      "id": 104,
+      "name": "Advanced SLAM",
+      "slot": "Modification"
+    },
+    {
+      "id": 105,
+      "name": "Afterburners",
+      "slot": "Modification"
+    },
+    {
+      "id": 106,
+      "name": "Electronic Baffle",
+      "slot": "Modification"
+    },
+    {
+      "id": 107,
+      "name": "Engine Upgrade",
+      "slot": "Modification"
+    },
+    {
+      "id": 108,
+      "name": "Munitions Failsafe",
+      "slot": "Modification"
+    },
+    {
+      "id": 109,
+      "name": "Static Discharge Vanes",
+      "slot": "Modification"
+    },
+    {
+      "id": 110,
+      "name": "Tactical Scrambler",
+      "slot": "Modification"
+    },
+    {
+      "id": 111,
+      "name": "Advanced Sensors",
+      "slot": "Sensor"
+    },
+    {
+      "id": 112,
+      "name": "Collision Detector",
+      "slot": "Sensor"
+    },
+    {
+      "id": 113,
+      "name": "Fire-Control System",
+      "slot": "Sensor"
+    },
+    {
+      "id": 114,
+      "name": "Trajectory Simulator",
+      "slot": "Sensor"
+    },
+    {
+      "id": 115,
+      "name": "Composure",
+      "slot": "Talent"
+    },
+    {
+      "id": 116,
+      "name": "Crack Shot",
+      "slot": "Talent"
+    },
+    {
+      "id": 117,
+      "name": "Daredevil",
+      "slot": "Talent"
+    },
+    {
+      "id": 118,
+      "name": "Debris Gambit",
+      "slot": "Talent"
+    },
+    {
+      "id": 119,
+      "name": "Elusive",
+      "slot": "Talent"
+    },
+    {
+      "id": 120,
+      "name": "Expert Handling",
+      "slot": "Talent"
+    },
+    {
+      "id": 121,
+      "name": "Fearless",
+      "slot": "Talent"
+    },
+    {
+      "id": 122,
+      "name": "Intimidation",
+      "slot": "Talent"
+    },
+    {
+      "id": 123,
+      "name": "Juke",
+      "slot": "Talent"
+    },
+    {
+      "id": 124,
+      "name": "Lone Wolf",
+      "slot": "Talent"
+    },
+    {
+      "id": 125,
+      "name": "Marksmanship",
+      "slot": "Talent"
+    },
+    {
+      "id": 126,
+      "name": "Outmaneuver",
+      "slot": "Talent"
+    },
+    {
+      "id": 127,
+      "name": "Predator",
+      "slot": "Talent"
+    },
+    {
+      "id": 128,
+      "name": "Ruthless",
+      "slot": "Talent"
+    },
+    {
+      "id": 129,
+      "name": "Saturation Salvo",
+      "slot": "Talent"
+    },
+    {
+      "id": 130,
+      "name": "Selfless",
+      "slot": "Talent"
+    },
+    {
+      "id": 131,
+      "name": "Squad Leader",
+      "slot": "Talent"
+    },
+    {
+      "id": 132,
+      "name": "Swarm Tactics",
+      "slot": "Talent"
+    },
+    {
+      "id": 133,
+      "name": "Trick Shot",
+      "slot": "Talent"
+    },
+    {
+      "id": 134,
+      "name": "Adv. Proton Torpedoes",
+      "slot": "Torpedo"
+    },
+    {
+      "id": 135,
+      "name": "Ion Torpedoes",
+      "slot": "Torpedo"
+    },
+    {
+      "id": 136,
+      "name": "Proton Torpedoes",
+      "slot": "Torpedo"
+    },
+    {
+      "id": 137,
+      "name": "Dorsal Turret",
+      "slot": "Turret"
+    },
+    {
+      "id": 138,
+      "name": "Ion Cannon Turret",
+      "slot": "Turret"
+    },
+    {
+      "id": 139,
+      "name": "Os-1 Arsenal Loadout",
+      "slot": "Configuration"
+    },
+    {
+      "id": 140,
+      "name": "Pivot Wing",
+      "slot": "Configuration"
+    },
+    {
+      "id": 141,
+      "name": "Pivot Wing (Open)"
+    },
+    {
+      "id": 142,
+      "name": "Servomotor S-Foils",
+      "slot": "Configuration"
+    },
+    {
+      "id": 143,
+      "name": "Blank"
+    },
+    {
+      "id": 144,
+      "name": "Xg-1 Assault Configuration",
+      "slot": "Configuration"
+    },
+    {
+      "id": 145,
+      "name": "L3-37's Programming (BoY)",
+      "slot": "Configuration"
+    },
+    {
+      "id": 146,
+      "name": "Andrasta",
+      "slot": "Title"
+    },
+    {
+      "id": 147,
+      "name": "Dauntless",
+      "slot": "Title"
+    },
+    {
+      "id": 148,
+      "name": "Ghost",
+      "slot": "Title"
+    },
+    {
+      "id": 149,
+      "name": "Havoc",
+      "slot": "Title"
+    },
+    {
+      "id": 150,
+      "name": "Hound's Tooth",
+      "slot": "Title"
+    },
+    {
+      "id": 151,
+      "name": "IG-2000",
+      "slot": "Title"
+    },
+    {
+      "id": 152,
+      "name": "Lando's Millennium Falcon",
+      "slot": "Title"
+    },
+    {
+      "id": 153,
+      "name": "Marauder",
+      "slot": "Title"
+    },
+    {
+      "id": 154,
+      "name": "Millennium Falcon",
+      "slot": "Title"
+    },
+    {
+      "id": 155,
+      "name": "Mist Hunter",
+      "slot": "Title"
+    },
+    {
+      "id": 156,
+      "name": "Moldy Crow",
+      "slot": "Title"
+    },
+    {
+      "id": 157,
+      "name": "Outrider",
+      "slot": "Title"
+    },
+    {
+      "id": 158
+    },
+    {
+      "id": 159,
+      "name": "Punishing One",
+      "slot": "Title"
+    },
+    {
+      "id": 160,
+      "name": "Shadow Caster",
+      "slot": "Title"
+    },
+    {
+      "id": 161,
+      "name": "Slave I",
+      "slot": "Title"
+    },
+    {
+      "id": 162,
+      "name": "ST-321",
+      "slot": "Title"
+    },
+    {
+      "id": 163,
+      "name": "Virago",
+      "slot": "Title"
+    },
+    {
+      "id": 164,
+      "name": "Hull Upgrade",
+      "slot": "Modification"
+    },
+    {
+      "id": 165,
+      "name": "Shield Upgrade",
+      "slot": "Modification"
+    },
+    {
+      "id": 166,
+      "name": "Stealth Device",
+      "slot": "Modification"
+    },
+    {
+      "id": 167,
+      "name": "Phantom",
+      "slot": "Title"
+    },
+    {
+      "id": 168
+    },
+    {
+      "id": 169
+    },
+    {
+      "id": 170
+    },
+    {
+      "id": 171,
+      "name": "Black One",
+      "slot": "Title"
+    },
+    {
+      "id": 172,
+      "name": "Heroic",
+      "slot": "Talent"
+    },
+    {
+      "id": 173,
+      "name": "Rose Tico",
+      "slot": "Crew"
+    },
+    {
+      "id": 174,
+      "name": "Finn",
+      "slot": "Gunner"
+    },
+    {
+      "id": 175,
+      "name": "Integrated S-Foils",
+      "slot": "Configuration"
+    },
+    {
+      "id": 176,
+      "name": "Integrated S-Foils (Open)"
+    },
+    {
+      "id": 177,
+      "name": "Targeting Synchronizer",
+      "slot": "Tech"
+    },
+    {
+      "id": 178,
+      "name": "Primed Thrusters",
+      "slot": "Tech"
+    },
+    {
+      "id": 179,
+      "name": "Kylo Ren",
+      "slot": "Crew"
+    },
+    {
+      "id": 180,
+      "name": "General Hux",
+      "slot": "Crew"
+    },
+    {
+      "id": 181,
+      "name": "Fanatical",
+      "slot": "Talent"
+    },
+    {
+      "id": 182,
+      "name": "Special Forces Gunner",
+      "slot": "Gunner"
+    },
+    {
+      "id": 183,
+      "name": "Captain Phasma",
+      "slot": "Crew"
+    },
+    {
+      "id": 184,
+      "name": "Supreme Leader Snoke",
+      "slot": "Crew"
+    },
+    {
+      "id": 185,
+      "name": "Hyperspace Tracking Data",
+      "slot": "Tech"
+    },
+    {
+      "id": 186,
+      "name": "Advanced Optics",
+      "slot": "Tech"
+    },
+    {
+      "id": 187,
+      "name": "Rey",
+      "slot": "Gunner",
+      "xws": "rey-gunner"
+    },
+    {
+      "id": 188,
+      "name": "Chewbacca (Resistance)",
+      "slot": "Crew",
+      "xws": "chewbacca-crew-swz19"
+    },
+    {
+      "id": 189,
+      "name": "Paige Tico",
+      "slot": "Gunner"
+    },
+    {
+      "id": 190,
+      "name": "R2-HA",
+      "slot": "Astromech"
+    },
+    {
+      "id": 191,
+      "name": "C-3PO (Resistance)",
+      "slot": "Crew",
+      "xws": "c3po-crew"
+    },
+    {
+      "id": 192,
+      "name": "Han Solo (Resistance)",
+      "slot": "Crew",
+      "xws": "hansolo-crew"
+    },
+    {
+      "id": 193,
+      "name": "Rey's Millennium Falcon",
+      "slot": "Title"
+    },
+    {
+      "id": 194,
+      "name": "Petty Officer Thanisson",
+      "slot": "Crew"
+    },
+    {
+      "id": 195,
+      "name": "BB-8",
+      "slot": "Astromech"
+    },
+    {
+      "id": 196,
+      "name": "BB Astromech",
+      "slot": "Astromech"
+    },
+    {
+      "id": 197,
+      "name": "M9-G8",
+      "slot": "Astromech"
+    },
+    {
+      "id": 198,
+      "name": "Ferrosphere Paint",
+      "slot": "Tech"
+    },
+    {
+      "id": 199,
+      "name": "Brilliant Evasion",
+      "slot": "Force"
+    },
+    {
+      "id": 200,
+      "name": "Calibrated Laser Targeting",
+      "slot": "Configuration"
+    },
+    {
+      "id": 201,
+      "name": "Delta-7B",
+      "slot": "Configuration"
+    },
+    {
+      "id": 202,
+      "name": "Biohexacrypt Codes",
+      "slot": "Tech"
+    },
+    {
+      "id": 203,
+      "name": "Predictive Shot",
+      "slot": "Force"
+    },
+    {
+      "id": 204,
+      "name": "Hate",
+      "slot": "Force"
+    },
+    {
+      "id": 205,
+      "name": "R5-X3",
+      "slot": "Astromech"
+    },
+    {
+      "id": 206,
+      "name": "Pattern Analyzer",
+      "slot": "Tech"
+    },
+    {
+      "id": 207,
+      "name": "Impervium Plating",
+      "slot": "Modification"
+    },
+    {
+      "id": 208,
+      "name": "Grappling Struts",
+      "slot": "Configuration"
+    },
+    {
+      "id": 209,
+      "name": "Energy-Shell Charges",
+      "slot": "Missile"
+    },
+    {
+      "id": 210,
+      "name": "Dedicated",
+      "slot": "Talent"
+    },
+    {
+      "id": 211,
+      "name": "Synchronized Console",
+      "slot": "Modification"
+    },
+    {
+      "id": 212,
+      "name": "Battle Meditation",
+      "slot": "Force"
+    },
+    {
+      "id": 213,
+      "name": "R4-P Astromech",
+      "slot": "Astromech"
+    },
+    {
+      "id": 214,
+      "name": "R4-P17",
+      "slot": "Astromech"
+    },
+    {
+      "id": 215,
+      "name": "Spare Parts Canisters",
+      "slot": "Modification"
+    },
+    {
+      "id": 216,
+      "name": "Scimitar",
+      "slot": "Title"
+    },
+    {
+      "id": 217,
+      "name": "Chancellor Palpatine",
+      "slot": "Crew"
+    },
+    {
+      "id": 218,
+      "name": "Count Dooku",
+      "slot": "Crew"
+    },
+    {
+      "id": 219,
+      "name": "General Grievous",
+      "slot": "Crew"
+    },
+    {
+      "id": 220,
+      "name": "K2-B4",
+      "slot": "Tactical Relay"
+    },
+    {
+      "id": 221,
+      "name": "DRK-1 Probe Droids",
+      "slot": "Device"
+    },
+    {
+      "id": 222,
+      "name": "Kraken",
+      "slot": "Tactical Relay"
+    },
+    {
+      "id": 223,
+      "name": "TV-94",
+      "slot": "Tactical Relay"
+    },
+    {
+      "id": 224,
+      "name": "Discord Missiles",
+      "slot": "Missile"
+    },
+    {
+      "id": 225,
+      "name": "Clone Commander Cody",
+      "slot": "Gunner"
+    },
+    {
+      "id": 226,
+      "name": "R4-P44",
+      "slot": "Astromech"
+    },
+    {
+      "id": 227,
+      "name": "Seventh Fleet Gunner",
+      "slot": "Gunner"
+    },
+    {
+      "id": 228,
+      "name": "Treacherous",
+      "slot": "Talent"
+    },
+    {
+      "id": 229,
+      "name": "Soulless One",
+      "slot": "Title"
+    },
+    {
+      "id": 230,
+      "name": "GA-97",
+      "slot": "Crew"
+    },
+    {
+      "id": 231,
+      "name": "Kaydel Connix",
+      "slot": "Crew"
+    },
+    {
+      "id": 232,
+      "name": "Autoblasters",
+      "slot": "Cannon"
+    },
+    {
+      "id": 233,
+      "name": "R2-C4",
+      "slot": "Astromech"
+    },
+    {
+      "id": 234,
+      "name": "Plasma Torpedoes",
+      "slot": "Torpedo"
+    },
+    {
+      "id": 235,
+      "name": "Electro-Proton Bomb",
+      "slot": "Device"
+    },
+    {
+      "id": 236,
+      "name": "Delayed Fuses",
+      "slot": "Modification"
+    },
+    {
+      "id": 237,
+      "name": "Landing Struts",
+      "slot": "Configuration"
+    },
+    {
+      "id": 238,
+      "name": "Diamond-Boron Missiles",
+      "slot": "Missile"
+    },
+    {
+      "id": 239,
+      "name": "TA-175",
+      "slot": "Tactical Relay"
+    },
+    {
+      "id": 240,
+      "name": "Passive Sensors",
+      "slot": "Sensor"
+    },
+    {
+      "id": 241,
+      "name": "R2-A6",
+      "slot": "Astromech"
+    },
+    {
+      "id": 242,
+      "name": "Amilyn Holdo",
+      "slot": "Crew"
+    },
+    {
+      "id": 243,
+      "name": "Larma D'Acy",
+      "slot": "Crew"
+    },
+    {
+      "id": 244,
+      "name": "Leia Organa (Resistance)",
+      "slot": "Crew",
+      "xws": "leiaorgana-resistance"
+    },
+    {
+      "id": 245,
+      "name": "Korr Sella",
+      "slot": "Crew"
+    },
+    {
+      "id": 246,
+      "name": "PZ-4CO",
+      "slot": "Crew"
+    },
+    {
+      "id": 247,
+      "name": "Angled Deflectors",
+      "slot": "Modification"
+    },
+    {
+      "id": 248,
+      "name": "Ensnare",
+      "slot": "Talent"
+    },
+    {
+      "id": 249,
+      "name": "Targeting Computer",
+      "slot": "Modification"
+    },
+    {
+      "id": 250,
+      "name": "Precognitive Reflexes",
+      "slot": "Force"
+    },
+    {
+      "id": 251,
+      "name": "Foresight",
+      "slot": "Force"
+    },
+    {
+      "id": 252,
+      "name": "C1-10P",
+      "slot": "Astromech"
+    },
+    {
+      "id": 253,
+      "name": "Ahsoka Tano",
+      "slot": "Gunner"
+    },
+    {
+      "id": 254,
+      "name": "C-3PO (Republic)",
+      "slot": "Crew",
+      "xws": "c3po-republic"
+    },
+    {
+      "id": 255,
+      "name": "Gravitic Deflection",
+      "slot": "Talent"
+    },
+    {
+      "id": 256,
+      "name": "Snap Shot",
+      "slot": "Talent"
+    },
+    {
+      "id": 257,
+      "name": "Agent of the Empire",
+      "slot": "Command"
+    },
+    {
+      "id": 258,
+      "name": "First Order Elite",
+      "slot": "Command"
+    },
+    {
+      "id": 259,
+      "name": "Veteran Wing Leader",
+      "slot": "Command"
+    },
+    {
+      "id": 260,
+      "name": "Dreadnought Hunter",
+      "slot": "Command"
+    },
+    {
+      "id": 261,
+      "name": "Admiral Ozzel",
+      "slot": "Command"
+    },
+    {
+      "id": 262,
+      "name": "Azmorigan",
+      "slot": "Command"
+    },
+    {
+      "id": 263,
+      "name": "Captain Needa",
+      "slot": "Command"
+    },
+    {
+      "id": 264,
+      "name": "Carlist Rieekan",
+      "slot": "Command"
+    },
+    {
+      "id": 265,
+      "name": "Jan Dodonna",
+      "slot": "Command"
+    },
+    {
+      "id": 266,
+      "name": "Raymus Antilles",
+      "slot": "Command"
+    },
+    {
+      "id": 267,
+      "name": "Stalwart Captain",
+      "slot": "Command"
+    },
+    {
+      "id": 268,
+      "name": "Strategic Commander",
+      "slot": "Command"
+    },
+    {
+      "id": 269,
+      "name": "Ion Cannon Battery",
+      "slot": "Hardpoint"
+    },
+    {
+      "id": 270,
+      "name": "Targeting Battery",
+      "slot": "Hardpoint"
+    },
+    {
+      "id": 271,
+      "name": "Ordnance Tubes",
+      "slot": "Hardpoint"
+    },
+    {
+      "id": 272,
+      "name": "Point-Defense Battery",
+      "slot": "Hardpoint"
+    },
+    {
+      "id": 273,
+      "name": "Turbolaser Battery",
+      "slot": "Hardpoint"
+    },
+    {
+      "id": 274,
+      "name": "Toryn Farr",
+      "slot": "Crew"
+    },
+    {
+      "id": 275,
+      "name": "Bombardment Specialists",
+      "slot": "Team"
+    },
+    {
+      "id": 276,
+      "name": "Comms Team",
+      "slot": "Team"
+    },
+    {
+      "id": 277,
+      "name": "Damage Control Team",
+      "slot": "Team"
+    },
+    {
+      "id": 278,
+      "name": "Gunnery Specialists",
+      "slot": "Team"
+    },
+    {
+      "id": 279,
+      "name": "IG-RM Droids",
+      "slot": "Team"
+    },
+    {
+      "id": 280,
+      "name": "Ordnance Team",
+      "slot": "Team"
+    },
+    {
+      "id": 281,
+      "name": "Sensor Experts",
+      "slot": "Team"
+    },
+    {
+      "id": 282,
+      "name": "Adaptive Shields",
+      "slot": "Cargo"
+    },
+    {
+      "id": 283,
+      "name": "Boosted Scanners",
+      "slot": "Cargo"
+    },
+    {
+      "id": 284,
+      "name": "Selfless (BoY)",
+      "slot": "Talent"
+    },
+    {
+      "id": 285,
+      "name": "Tibanna Reserves",
+      "slot": "Cargo"
+    },
+    {
+      "id": 286,
+      "name": "Optimized Power Core",
+      "slot": "Cargo"
+    },
+    {
+      "id": 287,
+      "name": "Quick-Release Locks",
+      "slot": "Illicit"
+    },
+    {
+      "id": 288,
+      "name": "Saboteur's Map",
+      "slot": "Illicit"
+    },
+    {
+      "id": 289,
+      "name": "Scanner Baffler",
+      "slot": "Illicit"
+    },
+    {
+      "id": 290,
+      "name": "Dodonna's Pride",
+      "slot": "Title"
+    },
+    {
+      "id": 291,
+      "name": "Jaina's Light",
+      "slot": "Title"
+    },
+    {
+      "id": 292,
+      "name": "Liberator",
+      "slot": "Title"
+    },
+    {
+      "id": 293,
+      "name": "Tantive IV",
+      "slot": "Title"
+    },
+    {
+      "id": 294,
+      "name": "Bright Hope",
+      "slot": "Title"
+    },
+    {
+      "id": 295,
+      "name": "Luminous",
+      "slot": "Title"
+    },
+    {
+      "id": 296,
+      "name": "Quantum Storm",
+      "slot": "Title"
+    },
+    {
+      "id": 297,
+      "name": "Assailer",
+      "slot": "Title"
+    },
+    {
+      "id": 298,
+      "name": "Corvus",
+      "slot": "Title"
+    },
+    {
+      "id": 299,
+      "name": "Impetuous",
+      "slot": "Title"
+    },
+    {
+      "id": 300,
+      "name": "Instigator",
+      "slot": "Title"
+    },
+    {
+      "id": 301,
+      "name": "Blood Crow",
+      "slot": "Title"
+    },
+    {
+      "id": 302,
+      "name": "Requiem",
+      "slot": "Title"
+    },
+    {
+      "id": 303,
+      "name": "Suppressor",
+      "slot": "Title"
+    },
+    {
+      "id": 304,
+      "name": "Vector",
+      "slot": "Title"
+    },
+    {
+      "id": 305,
+      "name": "Broken Horn",
+      "slot": "Title"
+    },
+    {
+      "id": 306,
+      "name": "Merchant One",
+      "slot": "Title"
+    },
+    {
+      "id": 307,
+      "name": "Insatiable Worrt",
+      "slot": "Title"
+    },
+    {
+      "id": 308,
+      "name": "Corsair Refit",
+      "slot": "Configuration"
+    },
+    {
+      "id": 309,
+      "name": "Thunderstrike",
+      "slot": "Title"
+    },
+    {
+      "id": 310,
+      "name": "Coaxium Hyperfuel",
+      "slot": "Illicit"
+    },
+    {
+      "id": 311,
+      "name": "Mag-Pulse Warheads",
+      "slot": "Missile"
+    },
+    {
+      "id": 312,
+      "name": "R1-J5",
+      "slot": "Astromech"
+    },
+    {
+      "id": 313,
+      "name": "Stabilized S-Foils",
+      "slot": "Configuration"
+    },
+    {
+      "id": 314,
+      "name": "K-2SO",
+      "slot": "Crew"
+    },
+    {
+      "id": 315,
+      "name": "Kaz's Fireball",
+      "slot": "Title"
+    },
+    {
+      "id": 316,
+      "name": "Cluster Mines",
+      "slot": "Device"
+    },
+    {
+      "id": 317,
+      "name": "Ion Bombs",
+      "slot": "Device"
+    },
+    {
+      "id": 318,
+      "name": "Deuterium Power Cells",
+      "slot": "Tech"
+    },
+    {
+      "id": 319,
+      "name": "Proud Tradition",
+      "slot": "Talent"
+    },
+    {
+      "id": 320,
+      "name": "Commander Pyre",
+      "slot": "Crew"
+    },
+    {
+      "id": 321,
+      "name": "Clone Captain Rex",
+      "slot": "Gunner"
+    },
+    {
+      "id": 322,
+      "name": "Yoda",
+      "slot": "Crew"
+    },
+    {
+      "id": 323,
+      "name": "Repulsorlift Stabilizers",
+      "slot": "Configuration"
+    },
+    {
+      "id": 324,
+      "name": "Agent Terex",
+      "slot": "Crew"
+    },
+    {
+      "id": 325,
+      "name": "Plo Koon",
+      "slot": "Crew"
+    },
+    {
+      "id": 326,
+      "name": "Multi-Missile Pods",
+      "slot": "Missile"
+    },
+    {
+      "id": 327,
+      "name": "Kit Fisto",
+      "slot": "Crew"
+    },
+    {
+      "id": 328,
+      "name": "Aayla Secura",
+      "slot": "Crew"
+    },
+    {
+      "id": 329,
+      "name": "Maneuver-Assist MGK-300",
+      "slot": "Configuration"
+    },
+    {
+      "id": 330,
+      "name": "Ion Limiter Override",
+      "slot": "Talent"
+    },
+    {
+      "id": 331,
+      "name": "Marg Sabl Closure",
+      "slot": "Talent"
+    },
+    {
+      "id": 332,
+      "name": "XX-23 S-Thread Tracers",
+      "slot": "Missile"
+    },
+    {
+      "id": 333,
+      "name": "Hondo Ohnaka",
+      "slot": "Crew"
+    },
+    {
+      "id": 334,
+      "name": "Boba Fett (Separatist)",
+      "slot": "Gunner",
+      "xws": "bobafett-gunner"
+    },
+    {
+      "id": 335,
+      "name": "Jango Fett",
+      "slot": "Crew"
+    },
+    {
+      "id": 336,
+      "name": "Zam Wesell",
+      "slot": "Crew"
+    },
+    {
+      "id": 337,
+      "name": "Alpha-3B \"Besh\"",
+      "slot": "Configuration"
+    },
+    {
+      "id": 338,
+      "name": "Precision Ion Engines",
+      "slot": "Modification"
+    },
+    {
+      "id": 339,
+      "name": "Thermal Detonators",
+      "slot": "Device"
+    },
+    {
+      "id": 340,
+      "name": "R2-D2 (Republic)",
+      "slot": "Astromech",
+      "xws": "r2d2-republic"
+    },
+    {
+      "id": 341,
+      "name": "Extreme Maneuvers",
+      "slot": "Force"
+    },
+    {
+      "id": 342,
+      "name": "Patience",
+      "slot": "Force"
+    },
+    {
+      "id": 343,
+      "name": "Deadeye Shot",
+      "slot": "Talent"
+    },
+    {
+      "id": 344,
+      "name": "Starbird Slash",
+      "slot": "Talent"
+    },
+    {
+      "id": 345,
+      "name": "Overdrive Thruster",
+      "slot": "Modification"
+    },
+    {
+      "id": 346,
+      "name": "\"Fives\"",
+      "slot": "Crew"
+    },
+    {
+      "id": 347,
+      "name": "Commander Malarus",
+      "slot": "Crew"
+    },
+    {
+      "id": 348,
+      "name": "Automated Target Priority",
+      "slot": "Tech"
+    },
+    {
+      "id": 349,
+      "name": "Sensor Buoy Suite",
+      "slot": "Tech"
+    },
+    {
+      "id": 350,
+      "name": "Suppressive Gunner",
+      "slot": "Gunner"
+    },
+    {
+      "id": 351,
+      "name": "Ghost Company",
+      "slot": "Crew"
+    },
+    {
+      "id": 352,
+      "name": "Wolfpack",
+      "slot": "Crew"
+    },
+    {
+      "id": 353,
+      "name": "Kalani",
+      "slot": "Tactical Relay"
+    },
+    {
+      "id": 354,
+      "name": "Synced Laser Cannons",
+      "slot": "Cannon"
+    },
+    {
+      "id": 355,
+      "name": "Concussion Bombs",
+      "slot": "Device"
+    },
+    {
+      "id": 356,
+      "name": "Target-Assist MGK-300",
+      "slot": "Configuration"
+    },
+    {
+      "id": 357,
+      "name": "Backwards Tailslide",
+      "slot": "Talent"
+    },
+    {
+      "id": 358,
+      "name": "R2-D2 (Resistance)",
+      "slot": "Astromech",
+      "xws": "r2d2-resistance"
+    },
+    {
+      "id": 359,
+      "name": "R6-D8",
+      "slot": "Astromech"
+    },
+    {
+      "id": 360,
+      "name": "Underslung Blaster Cannon",
+      "slot": "Cannon"
+    },
+    {
+      "id": 361,
+      "name": "Jedi Commander",
+      "slot": "Command"
+    },
+    {
+      "id": 362,
+      "name": "Syliure-31 Hyperdrive",
+      "slot": "Hyperdrive"
+    },
+    {
+      "id": 363,
+      "name": "Alpha-3E \"Esk\"",
+      "slot": "Configuration"
+    },
+    {
+      "id": 364,
+      "name": "R7-A7",
+      "slot": "Astromech"
+    },
+    {
+      "id": 365,
+      "name": "Q7 Astromech",
+      "slot": "Astromech"
+    },
+    {
+      "id": 366,
+      "name": "Intercept Booster",
+      "slot": "Configuration"
+    },
+    {
+      "id": 367,
+      "name": "Independent Calculations",
+      "slot": "Modification"
+    },
+    {
+      "id": 368,
+      "name": "Weapons Systems Officer",
+      "slot": "Gunner"
+    },
+    {
+      "id": 369,
+      "name": "False Transponder Codes",
+      "slot": "Illicit"
+    },
+    {
+      "id": 370,
+      "name": "Slave I (Separatist)",
+      "slot": "Title",
+      "xws": "slavei-swz82"
+    },
+    {
+      "id": 371,
+      "name": "Vectored Cannons (RZ-1)",
+      "slot": "Configuration"
+    },
+    {
+      "id": 372,
+      "name": "B6 Blade Wing Prototype",
+      "slot": "Title"
+    },
+    {
+      "id": 373,
+      "name": "TIE Defender Elite",
+      "slot": "Configuration"
+    },
+    {
+      "id": 374,
+      "name": "Sensitive Controls",
+      "slot": "Configuration"
+    },
+    {
+      "id": 375,
+      "name": "Cutthroat",
+      "slot": "Talent"
+    },
+    {
+      "id": 376,
+      "name": "Tierfon Belly Run",
+      "slot": "Talent"
+    },
+    {
+      "id": 377,
+      "name": "B6 Blade Wing Prototype (Epic)",
+      "slot": "Command",
+      "xws": "b6bladewingprototype-command"
+    },
+    {
+      "id": 378,
+      "name": "Hopeful",
+      "slot": "Talent"
+    },
+    {
+      "id": 379,
+      "name": "Sabine Wren (Gunner)",
+      "slot": "Gunner",
+      "xws": "sabinewren-gunner"
+    },
+    {
+      "id": 380,
+      "name": "Phoenix Squadron",
+      "slot": "Command"
+    },
+    {
+      "id": 381,
+      "name": "Disciplined",
+      "slot": "Talent"
+    },
+    {
+      "id": 382,
+      "name": "Skystrike Academy Class",
+      "slot": "Command"
+    },
+    {
+      "id": 383,
+      "name": "Shadow Wing",
+      "slot": "Command"
+    },
+    {
+      "id": 384,
+      "name": "In It For The Money",
+      "slot": "Command"
+    },
+    {
+      "id": 385,
+      "name": "Bounty",
+      "slot": "Command"
+    },
+    {
+      "id": 386,
+      "name": "Gamut Key",
+      "slot": "Crew"
+    },
+    {
+      "id": 387,
+      "name": "Interloper Turn",
+      "slot": "Talent"
+    },
+    {
+      "id": 388,
+      "name": "Protectorate Gleb",
+      "slot": "Crew"
+    },
+    {
+      "id": 389,
+      "name": "R4-B11",
+      "slot": "Astromech"
+    },
+    {
+      "id": 390,
+      "name": "Asajj Ventress (Command)",
+      "slot": "Command"
+    },
+    {
+      "id": 391,
+      "name": "General Grievous (Command)",
+      "slot": "Command"
+    },
+    {
+      "id": 392,
+      "name": "Hondo Ohnaka (Command)",
+      "slot": "Command"
+    },
+    {
+      "id": 393,
+      "name": "Mar Tuuk",
+      "slot": "Command"
+    },
+    {
+      "id": 394,
+      "name": "Riff Tamson",
+      "slot": "Command"
+    },
+    {
+      "id": 395,
+      "name": "Zealous Captain",
+      "slot": "Command"
+    },
+    {
+      "id": 396,
+      "name": "Tractor Tentacles",
+      "slot": "Hardpoint"
+    },
+    {
+      "id": 397,
+      "name": "Drill Beak",
+      "slot": "Hardpoint"
+    },
+    {
+      "id": 398,
+      "name": "Enhanced Propulsion",
+      "slot": "Hardpoint"
+    },
+    {
+      "id": 399,
+      "name": "Proton Cannon Battery",
+      "slot": "Hardpoint"
+    },
+    {
+      "id": 400,
+      "name": "Droid Crew",
+      "slot": "Team"
+    },
+    {
+      "id": 401,
+      "name": "Tractor Technicians",
+      "slot": "Team"
+    },
+    {
+      "id": 402,
+      "name": "Corsair Crew",
+      "slot": "Team"
+    },
+    {
+      "id": 403,
+      "name": "Grappler",
+      "slot": "Title"
+    },
+    {
+      "id": 404,
+      "name": "Nautolan's Revenge",
+      "slot": "Title"
+    },
+    {
+      "id": 405,
+      "name": "Neimoidian Grasp",
+      "slot": "Title"
+    },
+    {
+      "id": 406,
+      "name": "Trident",
+      "slot": "Title"
+    },
+    {
+      "id": 407,
+      "name": "Tracking Torpedoes",
+      "slot": "Torpedo"
+    },
+    {
+      "id": 408,
+      "name": "L4E-R5",
+      "slot": "Astromech"
+    },
+    {
+      "id": 409,
+      "name": "Wartime Loadout",
+      "slot": "Configuration"
+    },
+    {
+      "id": 410,
+      "name": "Watchful Astromech",
+      "slot": "Astromech"
+    },
+    {
+      "id": 411,
+      "name": "Overtuned Modulators",
+      "slot": "Illicit"
+    },
+    {
+      "id": 412,
+      "name": "DT-798",
+      "slot": "Gunner"
+    },
+    {
+      "id": 413,
+      "name": "Enhanced Jamming Suite",
+      "slot": "Configuration"
+    },
+    {
+      "id": 414,
+      "name": "First Order Ordnance Tech",
+      "slot": "Gunner"
+    },
+    {
+      "id": 415,
+      "name": "Sensor Scramblers",
+      "slot": "Tech"
+    },
+    {
+      "id": 416,
+      "name": "Babu Frik",
+      "slot": "Illicit"
+    },
+    {
+      "id": 417,
+      "name": "Compassion",
+      "slot": "Force"
+    },
+    {
+      "id": 418,
+      "name": "Malice",
+      "slot": "Force"
+    },
+    {
+      "id": 419,
+      "name": "Shattering Shot",
+      "slot": "Force"
+    },
+    {
+      "id": 420,
+      "name": "Electro-Chaff Missiles",
+      "slot": "Missile"
+    },
+    {
+      "id": 421,
+      "name": "Feedback Ping",
+      "slot": "Talent"
+    },
+    {
+      "id": 422,
+      "name": "Sabine Wren (Command)",
+      "slot": "Command"
+    },
+    {
+      "id": 423,
+      "name": "Clan Training",
+      "slot": "Talent"
+    },
+    {
+      "id": 424,
+      "name": "Ahsoka Tano (Crew)",
+      "slot": "Crew",
+      "xws": "ahsokatano-crew"
+    },
+    {
+      "id": 425,
+      "name": "Bo-Katan Kryze (Republic/Separatist)",
+      "slot": "Crew",
+      "xws": "bokatankryze"
+    },
+    {
+      "id": 426,
+      "name": "Bo-Katan Kryze (Rebel/Scum)",
+      "slot": "Crew",
+      "xws": "bokatankryze-rebel-scum"
+    },
+    {
+      "id": 427,
+      "name": "Captain Hark",
+      "slot": "Crew"
+    },
+    {
+      "id": 428,
+      "name": "Fenn Rau",
+      "slot": "Crew"
+    },
+    {
+      "id": 429,
+      "name": "Gar Saxon",
+      "slot": "Crew"
+    },
+    {
+      "id": 430,
+      "name": "Korkie Kryze",
+      "slot": "Crew"
+    },
+    {
+      "id": 431,
+      "name": "Obi-Wan Kenobi",
+      "slot": "Crew"
+    },
+    {
+      "id": 432,
+      "name": "Pre Vizsla",
+      "slot": "Crew"
+    },
+    {
+      "id": 433,
+      "name": "Prime Minister Almec",
+      "slot": "Crew"
+    },
+    {
+      "id": 434,
+      "name": "Rook Kast",
+      "slot": "Crew"
+    },
+    {
+      "id": 435,
+      "name": "Satine Kryze",
+      "slot": "Crew"
+    },
+    {
+      "id": 436,
+      "name": "Savage Opress",
+      "slot": "Crew"
+    },
+    {
+      "id": 437,
+      "name": "Tal Merrik",
+      "slot": "Crew"
+    },
+    {
+      "id": 438,
+      "name": "Tristan Wren",
+      "slot": "Crew"
+    },
+    {
+      "id": 439,
+      "name": "Ursa Wren",
+      "slot": "Crew"
+    },
+    {
+      "id": 440,
+      "name": "Maul (Mandalore)",
+      "slot": "Crew",
+      "xws": "maul-crew"
+    },
+    {
+      "id": 441,
+      "name": "Gar Saxon (Gunner)",
+      "slot": "Gunner",
+      "xws": "garsaxon-gunner"
+    },
+    {
+      "id": 442,
+      "name": "Tiber Saxon",
+      "slot": "Gunner"
+    },
+    {
+      "id": 443,
+      "name": "Ursa Wren (Gunner)",
+      "slot": "Gunner",
+      "xws": "ursawren-gunner"
+    },
+    {
+      "id": 444,
+      "name": "Blazer Bomb",
+      "slot": "Device"
+    },
+    {
+      "id": 445,
+      "name": "Beskar Reinforced Plating",
+      "slot": "Modification"
+    },
+    {
+      "id": 446,
+      "name": "Mandalorian Optics",
+      "slot": "Modification"
+    },
+    {
+      "id": 447,
+      "name": "Gauntlet",
+      "slot": "Title"
+    },
+    {
+      "id": 448,
+      "name": "Nightbrother",
+      "slot": "Title"
+    },
+    {
+      "id": 449,
+      "name": "Swivel Wing",
+      "slot": "Configuration"
+    },
+    {
+      "id": 450,
+      "name": "Clan Wren Commandos",
+      "slot": "Crew"
+    },
+    {
+      "id": 451,
+      "name": "Razor Crest",
+      "slot": "Title"
+    },
+    {
+      "id": 452,
+      "name": "The Mandalorian",
+      "slot": "Crew"
+    },
+    {
+      "id": 453,
+      "name": "The Child",
+      "slot": "Crew"
+    },
+    {
+      "id": 454,
+      "name": "Tracking Fob",
+      "slot": "Illicit"
+    },
+    {
+      "id": 455,
+      "name": "Notorious",
+      "slot": "Talent"
+    },
+    {
+      "id": 456,
+      "name": "Enduring",
+      "slot": "Talent"
+    },
+    {
+      "id": 457,
+      "name": "IG-11",
+      "slot": "Crew"
+    },
+    {
+      "id": 458,
+      "name": "Greef Karga",
+      "slot": "Crew"
+    },
+    {
+      "id": 459,
+      "name": "Kuiil",
+      "slot": "Crew"
+    },
+    {
+      "id": 460,
+      "name": "Peli Motto",
+      "slot": "Crew"
+    },
+    {
+      "id": 461,
+      "name": "Migs Mayfeld",
+      "slot": "Gunner"
+    },
+    {
+      "id": 462,
+      "name": "Burnout Thrusters",
+      "slot": "Modification"
+    },
+    {
+      "id": 463,
+      "name": "Hotshot Tail Blaster",
+      "slot": "Illicit"
+    },
+    {
+      "id": 464,
+      "name": "Combat Boarding Tube",
+      "slot": "Command"
+    },
+    {
+      "id": 465,
+      "name": "Drop-Seat Bay",
+      "slot": "Modification"
+    },
+    {
+      "id": 466,
+      "name": "Mandalorian Super Commandos",
+      "slot": "Crew"
+    },
+    {
+      "id": 467,
+      "name": "Imperial Super Commandos",
+      "slot": "Crew"
+    },
+    {
+      "id": 468,
+      "name": "Nite Owl Commandos",
+      "slot": "Crew"
+    },
+    {
+      "id": 469,
+      "name": "Death Watch Commandos",
+      "slot": "Crew"
+    },
+    {
+      "id": 470,
+      "name": "Proton Cannons",
+      "slot": "Cannon"
+    },
+    {
+      "id": 471,
+      "name": "Homing Torpedoes",
+      "slot": "Torpedo"
+    },
+    {
+      "id": 472,
+      "name": "Xanadu Blood",
+      "slot": "Title"
+    },
+    {
+      "id": 473,
+      "name": "Fanatic (BoY)",
+      "slot": "Talent"
+    },
+    {
+      "id": 474,
+      "name": "Chewbacca (BoY)",
+      "slot": "Crew"
+    },
+    {
+      "id": 475,
+      "name": "Attack Speed (BoY)",
+      "slot": "Talent"
+    },
+    {
+      "id": 476,
+      "name": "Unstable Sublight Engines (BoY)",
+      "slot": "Modification"
+    },
+    {
+      "id": 477,
+      "name": "R2-D2 (BoY)",
+      "slot": "Astromech"
+    },
+    {
+      "id": 478,
+      "name": "Dorsal Turret (BoY)",
+      "slot": "Turret"
+    },
+    {
+      "id": 479,
+      "name": "R2-F2 (BoY)",
+      "slot": "Astromech"
+    },
+    {
+      "id": 480,
+      "name": "Precise Astromech (BoY)",
+      "slot": "Astromech"
+    },
+    {
+      "id": 481,
+      "name": "R2-A3 (BoY)",
+      "slot": "Astromech"
+    },
+    {
+      "id": 482,
+      "name": "Vengeful (BoY)",
+      "slot": "Talent"
+    },
+    {
+      "id": 483,
+      "name": "R5-D8 (BoY)",
+      "slot": "Astromech"
+    },
+    {
+      "id": 484,
+      "name": "R5-K6 (BoY)",
+      "slot": "Astromech"
+    },
+    {
+      "id": 485,
+      "name": "Sensor Jammer (BoY)",
+      "slot": "Sensor"
+    },
+    {
+      "id": 486,
+      "name": "Ancillary Ion Weapons (SoC)",
+      "slot": "Cannon"
+    },
+    {
+      "id": 487,
+      "name": "Roiling Anger (SoC)",
+      "slot": "Force"
+    },
+    {
+      "id": 488,
+      "name": "Contingency Protocol (SoC)",
+      "slot": "Modification"
+    },
+    {
+      "id": 489,
+      "name": "Strut-Lock Override (SoC)",
+      "slot": "Configuration"
+    },
+    {
+      "id": 490,
+      "name": "R4-P17 (SoC)",
+      "slot": "Astromech"
+    },
+    {
+      "id": 491,
+      "name": "Targeting Astromech (BoY)",
+      "slot": "Astromech"
+    },
+    {
+      "id": 492,
+      "name": "Wolfpack (SoC)",
+      "slot": "Crew"
+    },
+    {
+      "id": 493,
+      "name": "Evasion Sequence 7 (SoC)",
+      "slot": "Modification"
+    }
+  ]
+}

@@ -70,7 +70,6 @@ const factions = read(manifest.factions[0]).reduce(
   },
   {}
 );
-await fs.outputJson(`${TARGET}/factions.json`, factions, { spaces: 2 });
 
 // Upgrades
 // ---------------
@@ -93,4 +92,10 @@ const upgrades = manifest.upgrades.reduce((o, file) => {
   return o;
 }, {});
 
-await fs.outputJson(`${TARGET}/upgrades.json`, upgrades, { spaces: 2 });
+// Output
+// ---------------
+await fs.outputJson(
+  `${TARGET}/xwing-data2.json`,
+  { factions, upgrades },
+  { spaces: 2 }
+);
