@@ -1,17 +1,17 @@
 import type { XWSFaction } from 'lib/xws';
 import type { Ship, Upgrade } from './types';
-import { factions, upgrades } from './xwing-data2.json';
+import data from './xwing-data2.json';
 
-export type Factions = keyof typeof factions;
+export type Factions = keyof typeof data.factions;
 
 export const getAllFactions = () =>
-  (Object.keys(factions) as Factions[]).map(id => ({
+  (Object.keys(data.factions) as Factions[]).map(id => ({
     id,
-    name: factions[id].name,
+    name: data.factions[id].name,
   }));
 
 export const getFaction = ({ faction }: { faction: XWSFaction }) =>
-  factions[faction];
+  data.factions[faction];
 
 export const getShip = ({
   faction,
