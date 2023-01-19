@@ -28,6 +28,7 @@ const styles = cva(
       },
       size: {
         regular: 'text-sm px-5 py-2.5',
+        large: 'text-lg px-6 py-3',
       },
     },
     defaultVariants: {
