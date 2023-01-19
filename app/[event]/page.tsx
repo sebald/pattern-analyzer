@@ -1,5 +1,5 @@
 import { Caption, Center, Link, Message, Title } from 'components';
-import { getEvent } from 'lib/longshanks';
+import { getEvent } from 'lib/longhanks';
 import { XWSSquad } from 'lib/xws';
 
 import { Filter } from './components/filter';
