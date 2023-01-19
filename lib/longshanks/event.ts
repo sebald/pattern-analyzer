@@ -22,9 +22,8 @@ export const parseSquads = ($: CheerioAPI) =>
       const raw = list.attr('value') || '';
 
       // Get XWS for YASB link
-      // FIXME: Does thies remove parts of the "obs" part?
       const YASB_REGEXP =
-        /https:\/\/yasb\.app\/\?f(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)/;
+        /https:\/\/yasb\.app\/\?f(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=,]*)/;
       const url = (raw.replace(/(\r\n|\n|\r)/gm, '').match(YASB_REGEXP) || [
         null,
       ])[0];
