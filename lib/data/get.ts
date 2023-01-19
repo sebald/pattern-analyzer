@@ -41,4 +41,4 @@ export const getUpgrade = ({
   name: string;
 }): Upgrade | undefined =>
   // @ts-ignore (TS doesn't like index signatures)
-  upgrades[type]?.[name];
+  data.upgrades[type]?.[name];
