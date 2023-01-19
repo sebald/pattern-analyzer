@@ -1,5 +1,5 @@
-import { yasb2xws } from 'lib/data';
 import { CheerioAPI, load } from 'cheerio';
+import { yasb2xws } from './yasb2xws';
 
 /**
  * Scrape event title from meta tag.
@@ -21,7 +21,9 @@ export const parseSquads = ($: CheerioAPI) =>
       const id = list.attr('id');
       const raw = list.attr('value') || '';
 
-      // Get XWS for YASB link
+      /**
+       * Try to find a YASB link and convert it to XWS.
+       */
       const YASB_REGEXP =
         /https:\/\/yasb\.app\/\?f(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=,]*)/;
       const url = (raw.replace(/(\r\n|\n|\r)/gm, '').match(YASB_REGEXP) || [

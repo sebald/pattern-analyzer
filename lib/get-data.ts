@@ -1,6 +1,5 @@
-import type { XWSFaction } from 'lib/xws';
-import type { Ship, Upgrade } from './types';
-import data from './xwing-data2.json';
+import data from './data/xwing-data2.json';
+import type { Ship, Upgrade, XWSFaction } from './types';
 
 export type Factions = keyof typeof data.factions;
 

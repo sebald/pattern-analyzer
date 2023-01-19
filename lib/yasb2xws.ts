@@ -1,5 +1,5 @@
-import { XWSFaction, XWSPilot, XWSSquad, XWSUpgrades } from 'lib/xws';
-import yasb from './yasb.json';
+import yasb from './data/yasb.json';
+import type { XWSFaction, XWSPilot, XWSSquad, XWSUpgrades } from './types';
 
 const SUFFIX_NORMALIZATION = {
   SoC: '-siegeofcoruscant',
