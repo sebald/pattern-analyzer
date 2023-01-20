@@ -1,7 +1,26 @@
-import { Card, Container, List, Logo } from 'components';
+import { Card, Container, Link, List, Logo } from 'components';
+import { getEventInfo } from 'lib/longshanks';
 import { EventForm } from './components/event-form';
+import { EVENT_IDS } from './constants';
 
-const Home = () => {
+/**
+ * Segment Config (see: https://beta.nextjs.org/docs/api-reference/segment-config)
+ */
+export const revalidate = 3600; // 1 day
+export const fetchCache = 'force-cache';
+
+/**
+ * Opt into background revalidation. (see: https://github.com/vercel/next.js/discussions/43085)
+ */
+export async function generateStaticParams() {
+  return [];
+}
+
+// Page
+// ---------------
+const Home = async () => {
+  const data = await Promise.all(EVENT_IDS.map(getEventInfo));
+
   return (
     <Container>
       <div className="grid min-h-screen place-items-center">
@@ -10,18 +29,28 @@ const Home = () => {
             <Logo />
           </div>
           <EventForm />
-          <div className="w-full px-6 pt-20">
-            <h2 className="prose pb-2 font-bold text-primary-900">
-              Recent Events
-            </h2>
-            <Card>
-              <List>
-                <List.Item>Event 1</List.Item>
-                <List.Item>Event 2</List.Item>
-                <List.Item>Event 3</List.Item>
-              </List>
-            </Card>
-          </div>
+          {data.length > 0 && (
+            <div className="w-full px-6 pt-20">
+              <h2 className="prose pb-2 font-bold text-primary-900">
+                Recent Events
+              </h2>
+              <Card>
+                <List>
+                  {data.map(({ id, title, date }) => (
+                    <List.Item key={id}>
+                      <Link
+                        className="text-lg text-secondary-900"
+                        href={`/${id}`}
+                      >
+                        <h3 className="font-medium">{title}</h3>
+                        <div className="text-sm text-secondary-500">{date}</div>
+                      </Link>
+                    </List.Item>
+                  ))}
+                </List>
+              </Card>
+            </div>
+          )}
         </div>
       </div>
     </Container>

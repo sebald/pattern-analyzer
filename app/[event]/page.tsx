@@ -1,3 +1,4 @@
+import { EVENT_IDS } from 'app/constants';
 import { Caption, Center, Container, Link, Message, Title } from 'components';
 import { getEvent } from 'lib/longshanks';
 import type { XWSSquad } from 'lib/types';
@@ -16,7 +17,7 @@ export const fetchCache = 'force-cache';
  * Opt into background revalidation. (see: https://github.com/vercel/next.js/discussions/43085)
  */
 export async function generateStaticParams() {
-  return [{ event: '5535' }];
+  return EVENT_IDS.map(event => ({ event }));
 }
 
 // Props

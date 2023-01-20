@@ -5,7 +5,7 @@ export interface ListItemProps extends React.ComponentPropsWithoutRef<'li'> {
 }
 
 export const ListItem = ({ children }: ListItemProps) => (
-  <li className="py-3">{children}</li>
+  <li className="py-6 first:pt-3 last:pb-3">{children}</li>
 );
 
 // Props

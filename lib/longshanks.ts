@@ -8,6 +8,21 @@ export const parseTitle = ($: CheerioAPI) =>
   $('head meta[property=og:title]').attr('content') || null;
 
 /**
+ * Scrape event date and description from meta tag.
+ */
+export const parseDescription = ($: CheerioAPI) => {
+  const content =
+    $('head meta[property=og:description]').attr('content') || null;
+
+  if (!content) {
+    return { date: null, description: null };
+  }
+
+  const [date, description] = content.split(' • ');
+  return { date, description };
+};
+
+/**
  * Iterate over all player related html and scrape their name
  * and squad.
  */
@@ -67,13 +82,15 @@ export const getEvent = async (event: string) => {
 };
 
 /**
- * Fetch an event page from longhanks and scrape title.
+ * Fetch an event page from longhanks and scrape title,
+ * .
  */
-export const getEventTitle = async (event: string) => {
+export const getEventInfo = async (event: string) => {
   const { url, html } = await getEventHtml(event);
   const $ = load(html);
 
   const title = parseTitle($);
+  const { date, description } = parseDescription($);
 
-  return { url, title };
+  return { url, id: event, title, date, description };
 };
