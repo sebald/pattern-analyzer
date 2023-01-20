@@ -55,7 +55,7 @@ export const Input = ({
   ...props
 }: InputProps) => {
   const id = useId();
-  console.log(error ? 'error' : variant);
+
   return (
     <div>
       {label && <Label htmlFor={id}>{label}</Label>}
