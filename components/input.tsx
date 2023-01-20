@@ -1,5 +1,5 @@
 import { cva, VariantProps } from 'class-variance-authority';
-import { InputHTMLAttributes, useId } from 'react';
+import React, { useId } from 'react';
 
 import { Label } from './label';
 
@@ -37,9 +37,9 @@ const styles = cva(
 // ---------------
 export interface InputProps
   extends VariantProps<typeof styles>,
-    Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
+    Omit<React.ComponentPropsWithoutRef<'input'>, 'size'> {
   label?: React.ReactNode;
-  htmlSize?: InputHTMLAttributes<HTMLInputElement>['size'];
+  htmlSize?: React.ComponentPropsWithoutRef<'input'>['size'];
   error?: React.ReactNode;
 }
 

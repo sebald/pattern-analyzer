@@ -1,5 +1,5 @@
 import { cva, VariantProps } from 'class-variance-authority';
-import { InputHTMLAttributes, useId } from 'react';
+import { useId } from 'react';
 
 import { Label } from './label';
 
@@ -53,9 +53,9 @@ const SearchIcon = () => (
 // ---------------
 export interface SearchFieldProps
   extends VariantProps<typeof styles>,
-    Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
+    Omit<React.ComponentPropsWithRef<'input'>, 'size'> {
   label?: React.ReactNode;
-  htmlSize?: InputHTMLAttributes<HTMLInputElement>['size'];
+  htmlSize?: React.ComponentPropsWithRef<'input'>['size'];
 }
 
 // Component

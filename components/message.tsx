@@ -1,10 +1,9 @@
 import { cva, VariantProps } from 'class-variance-authority';
-import { ButtonHTMLAttributes } from 'react';
 
 // Message.Action
 // ---------------
 export interface MessageActionProps
-  extends ButtonHTMLAttributes<HTMLButtonElement> {
+  extends React.ComponentPropsWithRef<'button'> {
   children: React.ReactNode;
 }
 

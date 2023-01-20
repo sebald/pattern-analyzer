@@ -5,6 +5,7 @@ export * from './center';
 export * from './input';
 export * from './label';
 export * from './link';
+export * from './list';
 export * from './message';
 export * from './search-field';
 export * from './select';
