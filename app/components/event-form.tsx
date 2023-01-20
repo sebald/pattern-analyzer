@@ -41,6 +41,7 @@ export const EventForm = () => {
         size="huge"
         onChange={e => handleChange(e.target.value)}
         error={error}
+        inputMode="numeric"
         autoFocus
       />
       <Button variant="primary" size="huge" type="submit">
