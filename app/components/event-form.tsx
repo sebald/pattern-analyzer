@@ -36,13 +36,14 @@ export const EventForm = () => {
   return (
     <form className="flex items-start gap-3" onSubmit={handleSubmit}>
       <Input
-        placeholder="Longshank Event ID"
+        placeholder="Event ID"
         name="event"
-        size="large"
+        size="huge"
         onChange={e => handleChange(e.target.value)}
         error={error}
+        autoFocus
       />
-      <Button variant="primary" size="large" type="submit">
+      <Button variant="primary" size="huge" type="submit">
         Submit
       </Button>
     </form>

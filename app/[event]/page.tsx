@@ -1,4 +1,4 @@
-import { Caption, Center, Link, Message, Title } from 'components';
+import { Caption, Center, Container, Link, Message, Title } from 'components';
 import { getEvent } from 'lib/longshanks';
 import type { XWSSquad } from 'lib/types';
 
@@ -64,12 +64,12 @@ const Page = async ({ params }: PageProps) => {
           ({squadsWithXWS.length}/{squads.length} squads parsed)
         </Caption>
       </div>
-      <div className="mx-auto my-4 w-[min(100%_-_3rem,_75rem)]">
+      <Container>
         <FilterProvider>
           <Filter />
           <Squads squads={squadsWithXWS} />
         </FilterProvider>
-      </div>
+      </Container>
     </main>
   );
 };

@@ -24,6 +24,7 @@ const styles = cva(
         small: 'py-2 text-xs',
         regular: 'py-2',
         large: 'py-3 text-xl',
+        huge: 'py-5 px-4 text-xl',
       },
     },
     defaultVariants: {
