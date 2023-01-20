@@ -13,7 +13,7 @@ export const fetchCache = 'force-cache';
 // ---------------
 const Home = async () => {
   const data = await Promise.all(EVENT_IDS.map(getEventInfo));
-
+  console.log(data);
   return (
     <Container>
       <div className="grid min-h-screen place-items-center">
