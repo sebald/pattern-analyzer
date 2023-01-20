@@ -1,11 +1,11 @@
 import { cva, VariantProps } from 'class-variance-authority';
-import { OptionHTMLAttributes, SelectHTMLAttributes, useId } from 'react';
+import { useId } from 'react';
 import { Label } from './label';
 
 // Select.Option
 // ---------------
 export interface SelectOptionProps
-  extends OptionHTMLAttributes<HTMLOptionElement> {
+  extends React.ComponentPropsWithRef<'option'> {
   children: React.ReactNode;
 }
 
@@ -40,9 +40,9 @@ const styles = cva(
 // ---------------
 export interface SelectProps
   extends VariantProps<typeof styles>,
-    Omit<SelectHTMLAttributes<HTMLSelectElement>, 'size'> {
+    Omit<React.ComponentPropsWithRef<'select'>, 'size'> {
   label?: React.ReactNode;
-  htmlSize?: SelectHTMLAttributes<HTMLSelectElement>['size'];
+  htmlSize?: React.ComponentPropsWithRef<'select'>['size'];
   children: React.ReactNode;
 }
 

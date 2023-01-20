@@ -1,4 +1,5 @@
-import { Caption, Center, Link, Message, Title } from 'components';
+import { EVENT_IDS } from 'app/constants';
+import { Caption, Center, Container, Link, Message, Title } from 'components';
 import { getEvent } from 'lib/longshanks';
 import type { XWSSquad } from 'lib/types';
 
@@ -16,7 +17,7 @@ export const fetchCache = 'force-cache';
  * Opt into background revalidation. (see: https://github.com/vercel/next.js/discussions/43085)
  */
 export async function generateStaticParams() {
-  return [{ event: '5535' }];
+  return EVENT_IDS.map(event => ({ event }));
 }
 
 // Props
@@ -64,12 +65,12 @@ const Page = async ({ params }: PageProps) => {
           ({squadsWithXWS.length}/{squads.length} squads parsed)
         </Caption>
       </div>
-      <div className="mx-auto my-4 w-[min(100%_-_3rem,_75rem)]">
+      <Container>
         <FilterProvider>
           <Filter />
           <Squads squads={squadsWithXWS} />
         </FilterProvider>
-      </div>
+      </Container>
     </main>
   );
 };
