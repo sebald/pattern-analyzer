@@ -1,7 +1,5 @@
+import { inter } from './fonts';
 import './globals.css';
-import { Inter } from '@next/font/google';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export interface LayoutProps {
   children: React.ReactNode;
