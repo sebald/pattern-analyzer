@@ -40,11 +40,7 @@ export const parseSquads = ($: CheerioAPI) =>
       };
     });
 
-/**
- * Fetch an event page from longhanks and use it to
- * scrape data.
- */
-export const getEvent = async (event: string) => {
+export const getEventHtml = async (event: string) => {
   const url = `https://longshanks.org/events/detail/?event=${event}`;
   const res = await fetch(url);
 
@@ -53,10 +49,31 @@ export const getEvent = async (event: string) => {
   }
 
   const html = await res.text();
+  return { url, html };
+};
+
+/**
+ * Fetch an event page from longhanks and scrape title and
+ * event data.
+ */
+export const getEvent = async (event: string) => {
+  const { url, html } = await getEventHtml(event);
   const $ = load(html);
 
   const title = parseTitle($);
-  const squads = await parseSquads($);
+  const squads = parseSquads($);
 
   return { url, title, squads };
+};
+
+/**
+ * Fetch an event page from longhanks and scrape title.
+ */
+export const getEventTitle = async (event: string) => {
+  const { url, html } = await getEventHtml(event);
+  const $ = load(html);
+
+  const title = parseTitle($);
+
+  return { url, title };
 };
