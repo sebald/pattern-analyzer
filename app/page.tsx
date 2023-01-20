@@ -9,13 +9,6 @@ import { EVENT_IDS } from './constants';
 export const revalidate = 3600; // 1 day
 export const fetchCache = 'force-cache';
 
-/**
- * Opt into background revalidation. (see: https://github.com/vercel/next.js/discussions/43085)
- */
-export async function generateStaticParams() {
-  return [];
-}
-
 // Page
 // ---------------
 const Home = async () => {
