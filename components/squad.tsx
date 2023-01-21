@@ -1,4 +1,6 @@
-import { getPilotName, getUpgradeName } from 'lib/get-value';
+import Image from 'next/image';
+
+import { getPilotName, getShipIcon, getUpgradeName } from 'lib/get-value';
 import type { XWSSquad, XWSUpgrades } from 'lib/types';
 
 const upgradesToList = (upgrades: XWSUpgrades) =>
@@ -16,16 +18,20 @@ export const Squad = ({ xws }: SquadProps) => {
 
   return (
     <div>
-      {pilots.map(({ id, ship, upgrades }, idx) => (
-        <div key={`${id}-${idx}`} className="pb-4">
-          <div className="prose font-semibold text-secondary-900">
-            {getPilotName(id) || id}
+      {pilots.map(({ id, ship, upgrades }, idx) => {
+        const icon = getShipIcon(ship);
+        console.log(icon);
+        return (
+          <div key={`${id}-${idx}`} className="pb-4">
+            <div className="prose font-semibold text-secondary-900">
+              {getPilotName(id) || id}
+            </div>
+            <div className="prose text-sm text-secondary-500">
+              {upgradesToList(upgrades)}
+            </div>
           </div>
-          <div className="prose text-sm text-secondary-500">
-            {upgradesToList(upgrades)}
-          </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 };
