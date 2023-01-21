@@ -59,7 +59,7 @@ export const Squads = ({ squads }: SquadsProps) => {
           <Message>
             <strong>Nothing found.</strong>
             <br />
-            Looks like there is no squad matching your query.
+            Looks like there is no squad or player matching your query.
           </Message>
         </Center>
       </div>
