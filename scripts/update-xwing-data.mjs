@@ -119,9 +119,13 @@ read(manifest.factions[0]).forEach(({ xws: factionId, name, icon }) => {
     display.ship[ship.id] = { name: ship.name, icon: ship.icon };
 
     Object.values(ship.pilots).forEach(pilot => {
-      display.pilot[pilot.id] = {
-        name: pilot.name,
-      };
+      display.pilot[pilot.id] = pilot.name;
+    });
+  });
+
+  Object.values(upgrades).forEach(type => {
+    Object.values(type).forEach(item => {
+      display.upgrades[item.id] = item.name;
     });
   });
 });
