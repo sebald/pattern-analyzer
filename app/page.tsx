@@ -1,7 +1,7 @@
 import { Card, Container, Link, List, Logo } from 'components';
 import { getEventInfo } from 'lib/longshanks';
 import { EventForm } from './components/event-form';
-import { EVENT_IDS } from './constants';
+import { RECENT_EVENTS } from './preload';
 
 /**
  * Segment Config (see: https://beta.nextjs.org/docs/api-reference/segment-config)
@@ -12,8 +12,8 @@ export const fetchCache = 'force-cache';
 // Page
 // ---------------
 const Home = async () => {
-  const data = await Promise.all(EVENT_IDS.map(getEventInfo));
-  console.log(data);
+  const data = await Promise.all(RECENT_EVENTS.map(getEventInfo));
+
   return (
     <Container>
       <div className="grid min-h-screen place-items-center">

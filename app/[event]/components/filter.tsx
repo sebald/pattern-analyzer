@@ -3,7 +3,7 @@
 import { useDebouncedCallback } from 'use-debounce';
 
 import { SearchField, Select } from 'components';
-import { getAllFactions } from 'lib/get-data';
+import { getAllFactions } from 'lib/get-value';
 
 import { FactionOptions, useFilter } from './filter-context';
 

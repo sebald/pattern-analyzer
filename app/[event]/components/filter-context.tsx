@@ -1,6 +1,6 @@
 'use client';
 
-import { Factions } from 'lib/get-data';
+import { Factions } from 'lib/get-value';
 import {
   createContext,
   Dispatch,
