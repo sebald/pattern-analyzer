@@ -22,6 +22,7 @@ specifiers:
   typescript: 4.9.4
   use-debounce: 9.0.3
   xwing-data2: github:guidokessels/xwing-data2#f1e22d9
+  yasb: github:raithos/xwing#52ce707
   zx: ^7.1.1
 
 dependencies:
@@ -31,9 +32,7 @@ dependencies:
   next: 13.1.2_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
-  typescript: 4.9.4
   use-debounce: 9.0.3_react@18.2.0
-  xwing-data2: github.com/guidokessels/xwing-data2/f1e22d9
 
 devDependencies:
   '@tailwindcss/forms': 0.5.3_tailwindcss@3.2.4
@@ -48,6 +47,9 @@ devDependencies:
   prettier: 2.8.3
   prettier-plugin-tailwindcss: 0.2.1_prettier@2.8.3
   tailwindcss: 3.2.4_postcss@8.4.21
+  typescript: 4.9.4
+  xwing-data2: github.com/guidokessels/xwing-data2/f1e22d9
+  yasb: github.com/raithos/xwing/52ce707
   zx: 7.1.1
 
 packages:
@@ -2503,7 +2505,7 @@ packages:
 
   /string-math/1.2.2:
     resolution: {integrity: sha512-rfRZpMZbIy+0pepaW8iDCR+iW+GONxyi0jXfdyW4MgpFATH/Vlz+d3vt8UMu/a1RjA9xiejBDFayvTXzs/ROTw==}
-    dev: false
+    dev: true
 
   /string.prototype.matchall/4.0.8:
     resolution: {integrity: sha512-6zOCOcJ+RJAQshcTvXPHoxoQGONa3e/Lqx90wUA+wEzX78sg5Bo+1tQo4N0pohS0erG9qtCqJDjNCQBjeWVxyg==}
@@ -2847,4 +2849,10 @@ packages:
     version: 3.6.3
     dependencies:
       string-math: 1.2.2
-    dev: false
+    dev: true
+
+  github.com/raithos/xwing/52ce707:
+    resolution: {tarball: https://codeload.github.com/raithos/xwing/tar.gz/52ce707}
+    name: yasb
+    version: 2.5.0
+    dev: true
