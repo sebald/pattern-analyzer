@@ -1,14 +1,9 @@
-import { getPilot, getUpgrade } from 'lib/get-data';
+import { getPilotName, getUpgradeName } from 'lib/get-value';
 import type { XWSSquad, XWSUpgrades } from 'lib/types';
 
 const upgradesToList = (upgrades: XWSUpgrades) =>
   (Object.entries(upgrades) as [keyof XWSUpgrades, string[]][])
-    .map(([type, list]) =>
-      list.map(name => {
-        const u = getUpgrade({ type, name });
-        return u ? u.name : name;
-      })
-    )
+    .map(([_, list]) => list.map(name => getUpgradeName(name) || name))
     .flat()
     .join(', ');
 
@@ -17,24 +12,20 @@ export interface SquadProps {
 }
 
 export const Squad = ({ xws }: SquadProps) => {
-  const { faction, pilots } = xws;
+  const { pilots } = xws;
 
   return (
     <div>
-      {pilots.map(({ id, ship, upgrades }, idx) => {
-        const pilot = getPilot({ faction, ship, pilot: id });
-
-        return (
-          <div key={`${id}-${idx}`} className="pb-4">
-            <div className="prose font-semibold text-secondary-900">
-              {pilot ? pilot.name : id}
-            </div>
-            <div className="prose text-sm text-secondary-500">
-              {upgradesToList(upgrades)}
-            </div>
+      {pilots.map(({ id, upgrades }, idx) => (
+        <div key={`${id}-${idx}`} className="pb-4">
+          <div className="prose font-semibold text-secondary-900">
+            {getPilotName(id) || id}
           </div>
-        );
-      })}
+          <div className="prose text-sm text-secondary-500">
+            {upgradesToList(upgrades)}
+          </div>
+        </div>
+      ))}
     </div>
   );
 };
