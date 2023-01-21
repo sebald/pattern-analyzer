@@ -5,9 +5,18 @@ import type { XWSSquad } from 'lib/types';
 
 import { useFilter } from './filter-context';
 
-const match = (search: string, { pilots }: XWSSquad) => {
+const match = (
+  search: string,
+  { xws, player }: { xws: XWSSquad; player: string }
+) => {
   const needle = search.toLocaleLowerCase().replace(/\s\'/g, '');
-  const result = pilots.find(pilot => {
+
+  // Search matches player name
+  if (player.toLocaleLowerCase().includes(needle)) {
+    return true;
+  }
+
+  const result = xws.pilots.find(pilot => {
     // Search matches pilot name
     if (pilot.id.includes(needle)) {
       return true;
@@ -34,10 +43,11 @@ export interface SquadsProps {
 
 export const Squads = ({ squads }: SquadsProps) => {
   const { faction, query } = useFilter();
-  const filtered = squads.filter(({ xws }) => {
+  const filtered = squads.filter(({ xws, player }) => {
     const hasFaction = faction === 'all' ? true : xws.faction === faction;
+
     // Only filter if query has least two letters
-    const hasMatch = query.length < 2 ? true : match(query, xws);
+    const hasMatch = query.length < 2 ? true : match(query, { xws, player });
 
     return hasFaction && hasMatch;
   });
