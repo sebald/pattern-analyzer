@@ -16,10 +16,10 @@ export const Squad = ({ xws }: SquadProps) => {
 
   return (
     <div>
-      {pilots.map(({ id, upgrades }, idx) => (
+      {pilots.map(({ id, ship, upgrades }, idx) => (
         <div key={`${id}-${idx}`} className="pb-4">
           <div className="prose font-semibold text-secondary-900">
-            {getPilotName(id) || id}
+            {ship} {getPilotName(id) || id}
           </div>
           <div className="prose text-sm text-secondary-500">
             {upgradesToList(upgrades)}

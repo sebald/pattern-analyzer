@@ -1,7 +1,9 @@
 import { Card, Container, Link, List, Logo } from 'components';
 import { getEventInfo } from 'lib/longshanks';
-import { EventForm } from './components/event-form';
+
+import { montserrat } from './fonts';
 import { RECENT_EVENTS } from './preload';
+import { EventForm } from './components/event-form';
 
 /**
  * Segment Config (see: https://beta.nextjs.org/docs/api-reference/segment-config)
@@ -23,8 +25,10 @@ const Home = async () => {
           </div>
           <EventForm />
           {data.length > 0 && (
-            <div className="w-full px-6 pt-20">
-              <h2 className="prose pb-2 font-bold text-primary-900">
+            <div className="w-full pt-20 md:px-6">
+              <h2
+                className={`${montserrat.className} prose pb-2 font-bold uppercase text-primary-400`}
+              >
                 Recent Events
               </h2>
               <Card>
