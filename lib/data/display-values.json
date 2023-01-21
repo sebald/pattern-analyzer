@@ -1,0 +1,2264 @@
+{
+  "faction": {
+    "rebelalliance": {
+      "name": "Rebel Alliance",
+      "icon": "https://squadbuilder.fantasyflightgames.com/factions/Rebel.png"
+    },
+    "galacticempire": {
+      "name": "Galactic Empire",
+      "icon": "https://squadbuilder.fantasyflightgames.com/factions/Imperial.png"
+    },
+    "scumandvillainy": {
+      "name": "Scum and Villainy",
+      "icon": "https://squadbuilder.fantasyflightgames.com/factions/Scum.png"
+    },
+    "resistance": {
+      "name": "Resistance",
+      "icon": "https://squadbuilder.fantasyflightgames.com/factions/ResistanceIcon.png"
+    },
+    "firstorder": {
+      "name": "First Order",
+      "icon": "https://squadbuilder.fantasyflightgames.com/factions/FirstOrderIcon.png"
+    },
+    "galacticrepublic": {
+      "name": "Galactic Republic",
+      "icon": "https://squadbuilder.fantasyflightgames.com/factions/RepublicIcon.png"
+    },
+    "separatistalliance": {
+      "name": "Separatist Alliance",
+      "icon": "https://squadbuilder.fantasyflightgames.com/factions/SeparatistIcon.png"
+    }
+  },
+  "ship": {
+    "asf01bwing": {
+      "name": "A/SF-01 B-wing",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_B-wing.png"
+    },
+    "arc170starfighter": {
+      "name": "ARC-170 Starfighter",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Arc-170.png"
+    },
+    "attackshuttle": {
+      "name": "Attack Shuttle",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_AttackShuttle.png"
+    },
+    "auzituckgunship": {
+      "name": "Auzituck Gunship",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Auzituck.png"
+    },
+    "btla4ywing": {
+      "name": "BTL-A4 Y-wing",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Y-wing.png"
+    },
+    "btls8kwing": {
+      "name": "BTL-S8 K-wing",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_K-wing.png"
+    },
+    "cr90corelliancorvette": {
+      "name": "CR90 Corellian Corvette",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_CR90.png"
+    },
+    "ewing": {
+      "name": "E-wing",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_E-wing.png"
+    },
+    "fangfighter": {
+      "name": "Fang Fighter",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_FangFighter.png"
+    },
+    "gauntletfighter": {
+      "name": "Gauntlet Fighter"
+    },
+    "gr75mediumtransport": {
+      "name": "GR-75 Medium Transport",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_GR-75.png"
+    },
+    "hwk290lightfreighter": {
+      "name": "HWK-290 Light Freighter",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_HWK-290.png"
+    },
+    "modifiedyt1300lightfreighter": {
+      "name": "Modified YT-1300 Light Freighter",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Falcon.png"
+    },
+    "rz1awing": {
+      "name": "RZ-1 A-wing",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_A-wing.png"
+    },
+    "sheathipedeclassshuttle": {
+      "name": "Sheathipede-class Shuttle",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Sheathipede.png"
+    },
+    "t65xwing": {
+      "name": "T-65 X-wing",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_X-wing-T65.png"
+    },
+    "tielnfighter": {
+      "name": "TIE/ln Fighter",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_TIEFighter.png"
+    },
+    "ut60duwing": {
+      "name": "UT-60D U-wing",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_U-wing.png"
+    },
+    "vcx100lightfreighter": {
+      "name": "VCX-100 Light Freighter",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Ghost.png"
+    },
+    "yt2400lightfreighter": {
+      "name": "YT-2400 Light Freighter",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_YT-2400.png"
+    },
+    "z95af4headhunter": {
+      "name": "Z-95-AF4 Headhunter",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Z-95.png"
+    },
+    "alphaclassstarwing": {
+      "name": "Alpha-class Star Wing",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_AlphaStarwing.png"
+    },
+    "gozanticlasscruiser": {
+      "name": "Gozanti-class Cruiser",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Gozanti.png"
+    },
+    "lambdaclasst4ashuttle": {
+      "name": "Lambda-class T-4a Shuttle",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Lambda.png"
+    },
+    "raiderclasscorvette": {
+      "name": "Raider-class Corvette",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Raider.png"
+    },
+    "tieadvancedv1": {
+      "name": "TIE Advanced v1",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_TIEAdvancedPrototype.png"
+    },
+    "tieadvancedx1": {
+      "name": "TIE Advanced x1",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_TIEAdvanced.png"
+    },
+    "tieininterceptor": {
+      "name": "TIE/in Interceptor",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_TIEInterceptor.png"
+    },
+    "tiereaper": {
+      "name": "TIE Reaper",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_TIEReaper.png"
+    },
+    "tieddefender": {
+      "name": "TIE/D Defender",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_TIEDefender.png"
+    },
+    "tieagaggressor": {
+      "name": "TIE/ag Aggressor",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_TIEAggressor.png"
+    },
+    "tiecapunisher": {
+      "name": "TIE/ca Punisher",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_TIEPunisher.png"
+    },
+    "tiephphantom": {
+      "name": "TIE/ph Phantom",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_TIEPhantom.png"
+    },
+    "tiesabomber": {
+      "name": "TIE/sa Bomber",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_TIEBomber.png"
+    },
+    "tieskstriker": {
+      "name": "TIE/sk Striker",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_TIEStriker.png"
+    },
+    "vt49decimator": {
+      "name": "VT-49 Decimator",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Decimator.png"
+    },
+    "tierbheavy": {
+      "name": "TIE/rb Heavy",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_TIE_Brute.png"
+    },
+    "aggressorassaultfighter": {
+      "name": "Aggressor Assault Fighter",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_IG-2000.png"
+    },
+    "croccruiser": {
+      "name": "C-ROC Cruiser",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_C-ROC.png"
+    },
+    "customizedyt1300lightfreighter": {
+      "name": "Customized YT-1300 Light Freighter",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_CustomizedYT-1300.png"
+    },
+    "escapecraft": {
+      "name": "Escape Craft",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_EscapeShuttle.png"
+    },
+    "firesprayclasspatrolcraft": {
+      "name": "Firespray-class Patrol Craft",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_FIrespray.png"
+    },
+    "g1astarfighter": {
+      "name": "G-1A Starfighter",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_MistHunter.png"
+    },
+    "jumpmaster5000": {
+      "name": "JumpMaster 5000",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Jumpmaster.png"
+    },
+    "kihraxzfighter": {
+      "name": "Kihraxz Fighter",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Kihraxz.png"
+    },
+    "lancerclasspursuitcraft": {
+      "name": "Lancer-class Pursuit Craft",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_ShadowCaster.png"
+    },
+    "m12lkimogilafighter": {
+      "name": "M12-L Kimogila Fighter",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Kimogila.png"
+    },
+    "m3ainterceptor": {
+      "name": "M3-A Interceptor",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Scyk.png"
+    },
+    "modifiedtielnfighter": {
+      "name": "Modified TIE/ln Fighter",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_MiningGuild_TIE.png"
+    },
+    "quadrijettransferspacetug": {
+      "name": "Quadrijet Transfer Spacetug",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Quadjumper.png"
+    },
+    "rogueclassstarfighter": {
+      "name": "Rogue-class Starfighter",
+      "icon": "???"
+    },
+    "scurrgh6bomber": {
+      "name": "Scurrg H-6 bomber",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Scurrg.png"
+    },
+    "st70assaultship": {
+      "name": "ST-70 Assault Ship",
+      "icon": "???"
+    },
+    "starviperclassattackplatform": {
+      "name": "StarViper-class Attack Platform",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_StarViper.png"
+    },
+    "tridentclassassaultship": {
+      "name": "Trident-Class Assault Ship",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Trident.png"
+    },
+    "yv666lightfreighter": {
+      "name": "YV-666 Light Freighter",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_YV-666.png"
+    },
+    "mg100starfortress": {
+      "name": "MG-100 StarFortress",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_StarFortress.png"
+    },
+    "scavengedyt1300": {
+      "name": "Scavenged YT-1300",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Falcon_Resistance.png"
+    },
+    "rz2awing": {
+      "name": "RZ-2 A-wing",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_RZ-2_A-wing.png"
+    },
+    "t70xwing": {
+      "name": "T-70 X-wing",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_X-wing-T70.png"
+    },
+    "resistancetransport": {
+      "name": "Resistance Transport",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Resistance_Transport.png"
+    },
+    "resistancetransportpod": {
+      "name": "Resistance Transport Pod",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Resistance_Transport_Cockpit_Pod.png"
+    },
+    "fireball": {
+      "name": "Fireball",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Fireball.png"
+    },
+    "btanr2ywing": {
+      "name": "BTA-NR2 Y-Wing",
+      "icon": "???"
+    },
+    "tiebainterceptor": {
+      "name": "TIE/ba Interceptor",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Vonregs-First-Order-TIE-Interceptor.png"
+    },
+    "tiefofighter": {
+      "name": "TIE/fo Fighter",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_TIEfo.png"
+    },
+    "tiesffighter": {
+      "name": "TIE/sf Fighter",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_TIEsf.png"
+    },
+    "tievnsilencer": {
+      "name": "TIE/vn Silencer",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_TIESilencer.png"
+    },
+    "upsilonclassshuttle": {
+      "name": "Upsilon-class command shuttle",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_UpsilonShuttle.png"
+    },
+    "xiclasslightshuttle": {
+      "name": "Xi-class Light Shuttle",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Xi-class_Shuttle.png"
+    },
+    "tiesebomber": {
+      "name": "TIE/se Bomber",
+      "icon": "???"
+    },
+    "tiewiwhispermodifiedinterceptor": {
+      "name": "TIE/wi Whisper Modified Interceptor",
+      "icon": "???"
+    },
+    "delta7aethersprite": {
+      "name": "Delta-7 Aethersprite",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Delta-7.png"
+    },
+    "delta7baethersprite": {
+      "name": "Delta-7B Aethersprite",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Delta-7.png"
+    },
+    "v19torrentstarfighter": {
+      "name": "V-19 Torrent Starfighter",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_V-19Torrent.png"
+    },
+    "nabooroyaln1starfighter": {
+      "name": "Naboo Royal N-1 Starfighter",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Royal_Naboo_N-1_Starfighter.png"
+    },
+    "btlbywing": {
+      "name": "BTL-B Y-wing",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_BTL-B_Ywing.png"
+    },
+    "eta2actis": {
+      "name": "Eta-2 Actis",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Eta-2_Actis.png"
+    },
+    "laatigunship": {
+      "name": "LAAT/i Gunship",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_LAAT_Republic_Gunship.png"
+    },
+    "nimbusclassvwing": {
+      "name": "Nimbus-class V-wing",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Nimbus-class_V-wing.png"
+    },
+    "syliureclasshyperspacering": {
+      "name": "Syliure-class Hyperspace Ring",
+      "icon": "https://infinitearenas.com/xw2/images/shipicons/galactic-republic/I_Syliure-class_Hyperspace_Ring.png"
+    },
+    "clonez95headhunter": {
+      "name": "Clone Z-95 Headhunter",
+      "icon": "???"
+    },
+    "vultureclassdroidfighter": {
+      "name": "Vulture-class Droid Fighter",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_VultureDroid.png"
+    },
+    "belbullab22starfighter": {
+      "name": "Belbullab-22 Starfighter",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Belbullab-22.png"
+    },
+    "sithinfiltrator": {
+      "name": "Sith Infiltrator",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_SithInfiltrator.png"
+    },
+    "hyenaclassdroidbomber": {
+      "name": "Hyena-class Droid Bomber",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Hyena.png"
+    },
+    "nantexclassstarfighter": {
+      "name": "Nantex-class Starfighter",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Nantex_Class_Starfighter.png"
+    },
+    "droidtrifighter": {
+      "name": "Droid Tri-Fighter",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Droid_Tri-Fighter.png"
+    },
+    "hmpdroidgunship": {
+      "name": "HMP Droid Gunship",
+      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_HMP_Droid_Gunship.png"
+    }
+  },
+  "pilot": {
+    "bladesquadronveteran": {
+      "name": "Blade Squadron Veteran"
+    },
+    "bluesquadronpilot": {
+      "name": "Blue Squadron Pilot"
+    },
+    "braylenstramm": {
+      "name": "Braylen Stramm"
+    },
+    "tennumb": {
+      "name": "Ten Numb"
+    },
+    "ginamoonsong": {
+      "name": "Gina Moonsong"
+    },
+    "herasyndulla-asf01bwing": {
+      "name": "Hera Syndulla"
+    },
+    "netrempollard": {
+      "name": "Netrem Pollard"
+    },
+    "garvendreis": {
+      "name": "Garven Dreis"
+    },
+    "ibtisam": {
+      "name": "Ibtisam"
+    },
+    "norrawexley": {
+      "name": "Norra Wexley"
+    },
+    "sharabey": {
+      "name": "Shara Bey"
+    },
+    "zeborrelios": {
+      "name": "“Zeb” Orrelios"
+    },
+    "ezrabridger": {
+      "name": "Ezra Bridger"
+    },
+    "herasyndulla": {
+      "name": "Hera Syndulla"
+    },
+    "sabinewren": {
+      "name": "Sabine Wren"
+    },
+    "kashyyykdefender": {
+      "name": "Kashyyyk Defender"
+    },
+    "lowhhrick": {
+      "name": "Lowhhrick"
+    },
+    "wullffwarro": {
+      "name": "Wullffwarro"
+    },
+    "dutchvander": {
+      "name": "“Dutch” Vander"
+    },
+    "evaanverlaine": {
+      "name": "Evaan Verlaine"
+    },
+    "goldsquadronveteran": {
+      "name": "Gold Squadron Veteran"
+    },
+    "graysquadronbomber": {
+      "name": "Gray Squadron Bomber"
+    },
+    "hortonsalm": {
+      "name": "Horton Salm"
+    },
+    "norrawexley-btla4ywing": {
+      "name": "Norra Wexley"
+    },
+    "dextiree-battleofyavin": {
+      "name": "Dex Tiree (BoY)"
+    },
+    "dutchvander-battleofyavin": {
+      "name": "“Dutch” Vander (BoY)"
+    },
+    "holokand-battleofyavin": {
+      "name": "Hol Okand (BoY)"
+    },
+    "popskrail-battleofyavin": {
+      "name": "“Pops” Krail (BoY)"
+    },
+    "popskrail": {
+      "name": "“Pops” Krail"
+    },
+    "esegetuketu": {
+      "name": "Esege Tuketu"
+    },
+    "mirandadoni": {
+      "name": "Miranda Doni"
+    },
+    "wardensquadronpilot": {
+      "name": "Warden Squadron Pilot"
+    },
+    "alderaanianguard": {
+      "name": "Alderaanian Guard"
+    },
+    "corranhorn": {
+      "name": "Corran Horn"
+    },
+    "gavindarklighter": {
+      "name": "Gavin Darklighter"
+    },
+    "knavesquadronescort": {
+      "name": "Knave Squadron Escort"
+    },
+    "roguesquadronescort": {
+      "name": "Rogue Squadron Escort"
+    },
+    "fennrau-rebel-fang": {
+      "name": "Fenn Rau"
+    },
+    "bodicavenj": {
+      "name": "Bodica Venj"
+    },
+    "dirkullodin": {
+      "name": "Dirk Ullodin"
+    },
+    "clanwrenvolunteer": {
+      "name": "Clan Wren Volunteer"
+    },
+    "chopper-gauntletfighter": {
+      "name": "“Chopper”"
+    },
+    "ezrabridger-gauntletfighter": {
+      "name": "Ezra Bridger"
+    },
+    "mandalorianresistancepilot": {
+      "name": "Mandalorian Resistance Pilot"
+    },
+    "echobaseevacuees": {
+      "name": "Echo Base Evacuees"
+    },
+    "janors": {
+      "name": "Jan Ors"
+    },
+    "kylekatarn": {
+      "name": "Kyle Katarn"
+    },
+    "rebelscout": {
+      "name": "Rebel Scout"
+    },
+    "roarkgarnet": {
+      "name": "Roark Garnet"
+    },
+    "chewbacca": {
+      "name": "Chewbacca"
+    },
+    "hansolo-modifiedyt1300lightfreighter": {
+      "name": "Han Solo"
+    },
+    "landocalrissian-modifiedyt1300lightfreighter": {
+      "name": "Lando Calrissian"
+    },
+    "outerrimsmuggler": {
+      "name": "Outer Rim Smuggler"
+    },
+    "leiaorgana": {
+      "name": "Leia Organa"
+    },
+    "hansolo-battleofyavin": {
+      "name": "Han Solo (BoY)"
+    },
+    "arvelcrynyd": {
+      "name": "Arvel Crynyd"
+    },
+    "greensquadronpilot": {
+      "name": "Green Squadron Pilot"
+    },
+    "jakefarrell": {
+      "name": "Jake Farrell"
+    },
+    "phoenixsquadronpilot": {
+      "name": "Phoenix Squadron Pilot"
+    },
+    "wedgeantilles-rz1awing": {
+      "name": "Wedge Antilles"
+    },
+    "sabinewren-rz1awing": {
+      "name": "Sabine Wren"
+    },
+    "herasyndulla-rz1awing": {
+      "name": "Hera Syndulla"
+    },
+    "ahsokatano-rz1awing": {
+      "name": "Ahsoka Tano"
+    },
+    "sharabey-rz1awing": {
+      "name": "Shara Bey"
+    },
+    "derekklivian": {
+      "name": "Derek Klivian"
+    },
+    "keovenzee": {
+      "name": "Keo Venzee"
+    },
+    "tychocelchu": {
+      "name": "Tycho Celchu"
+    },
+    "zeborrelios-sheathipedeclassshuttle": {
+      "name": "“Zeb” Orrelios"
+    },
+    "ap5": {
+      "name": "AP-5"
+    },
+    "ezrabridger-sheathipedeclassshuttle": {
+      "name": "Ezra Bridger"
+    },
+    "fennrau-sheathipedeclassshuttle": {
+      "name": "Fenn Rau"
+    },
+    "biggsdarklighter": {
+      "name": "Biggs Darklighter"
+    },
+    "bluesquadronescort": {
+      "name": "Blue Squadron Escort"
+    },
+    "cavernangelszealot": {
+      "name": "Cavern Angels Zealot"
+    },
+    "edriotwotubes": {
+      "name": "Edrio Two Tubes"
+    },
+    "garvendreis-t65xwing": {
+      "name": "Garven Dreis"
+    },
+    "jekporkins": {
+      "name": "Jek Porkins"
+    },
+    "kullbeesperado": {
+      "name": "Kullbee Sperado"
+    },
+    "leevantenza": {
+      "name": "Leevan Tenza"
+    },
+    "lukeskywalker": {
+      "name": "Luke Skywalker"
+    },
+    "redsquadronveteran": {
+      "name": "Red Squadron Veteran"
+    },
+    "thanekyrell": {
+      "name": "Thane Kyrell"
+    },
+    "wedgeantilles": {
+      "name": "Wedge Antilles"
+    },
+    "biggsdarklighter-battleofyavin": {
+      "name": "Biggs Darklighter (BoY)"
+    },
+    "garvendreis-battleofyavin": {
+      "name": "Garven Dreis (BoY)"
+    },
+    "jekporkins-battleofyavin": {
+      "name": "Jek Porkins (BoY)"
+    },
+    "lukeskywalker-battleofyavin": {
+      "name": "Luke Skywalker (BoY)"
+    },
+    "wedgeantilles-battleofyavin": {
+      "name": "Wedge Antilles (BoY)"
+    },
+    "corranhorn-t65xwing": {
+      "name": "Corran Horn"
+    },
+    "wesjanson": {
+      "name": "Wes Janson"
+    },
+    "zeborrelios-tielnfighter": {
+      "name": "“Zeb” Orrelios"
+    },
+    "captainrex": {
+      "name": "Captain Rex"
+    },
+    "ezrabridger-tielnfighter": {
+      "name": "Ezra Bridger"
+    },
+    "sabinewren-tielnfighter": {
+      "name": "Sabine Wren"
+    },
+    "benthictwotubes": {
+      "name": "Benthic Two Tubes"
+    },
+    "bluesquadronscout": {
+      "name": "Blue Squadron Scout"
+    },
+    "bodhirook": {
+      "name": "Bodhi Rook"
+    },
+    "cassianandor": {
+      "name": "Cassian Andor"
+    },
+    "hefftobber": {
+      "name": "Heff Tobber"
+    },
+    "magvayarro": {
+      "name": "Magva Yarro"
+    },
+    "partisanrenegade": {
+      "name": "Partisan Renegade"
+    },
+    "sawgerrera": {
+      "name": "Saw Gerrera"
+    },
+    "k2so": {
+      "name": "K-2SO"
+    },
+    "chopper": {
+      "name": "“Chopper”"
+    },
+    "herasyndulla-vcx100lightfreighter": {
+      "name": "Hera Syndulla"
+    },
+    "kananjarrus": {
+      "name": "Kanan Jarrus"
+    },
+    "lothalrebel": {
+      "name": "Lothal Rebel"
+    },
+    "alexsandrkallus": {
+      "name": "Alexsandr Kallus"
+    },
+    "leebo": {
+      "name": "“Leebo”"
+    },
+    "dashrendar": {
+      "name": "Dash Rendar"
+    },
+    "wildspacefringer": {
+      "name": "Wild Space Fringer"
+    },
+    "airencracken": {
+      "name": "Airen Cracken"
+    },
+    "banditsquadronpilot": {
+      "name": "Bandit Squadron Pilot"
+    },
+    "lieutenantblount": {
+      "name": "Lieutenant Blount"
+    },
+    "talasquadronpilot": {
+      "name": "Tala Squadron Pilot"
+    },
+    "lieutenantkarsabi": {
+      "name": "Lieutenant Karsabi"
+    },
+    "majorvynder": {
+      "name": "Major Vynder"
+    },
+    "nusquadronpilot": {
+      "name": "Nu Squadron Pilot"
+    },
+    "rhosquadronpilot": {
+      "name": "Rho Squadron Pilot"
+    },
+    "captainhark": {
+      "name": "Captain Hark"
+    },
+    "garsaxon": {
+      "name": "Gar Saxon"
+    },
+    "imperialsupercommando": {
+      "name": "Imperial Super Commando"
+    },
+    "outerrimgarrison": {
+      "name": "Outer Rim Garrison"
+    },
+    "captainkagi": {
+      "name": "Captain Kagi"
+    },
+    "coloneljendon": {
+      "name": "Colonel Jendon"
+    },
+    "lieutenantsai": {
+      "name": "Lieutenant Sai"
+    },
+    "omicrongrouppilot": {
+      "name": "Omicron Group Pilot"
+    },
+    "outerrimpatrol": {
+      "name": "Outer Rim Patrol"
+    },
+    "baronoftheempire": {
+      "name": "Baron of the Empire"
+    },
+    "grandinquisitor": {
+      "name": "Grand Inquisitor"
+    },
+    "inquisitor": {
+      "name": "Inquisitor"
+    },
+    "seventhsister": {
+      "name": "Seventh Sister"
+    },
+    "fifthbrother": {
+      "name": "Fifth Brother"
+    },
+    "darthvader": {
+      "name": "Darth Vader"
+    },
+    "maarekstele": {
+      "name": "Maarek Stele"
+    },
+    "stormsquadronace": {
+      "name": "Storm Squadron Ace"
+    },
+    "tempestsquadronpilot": {
+      "name": "Tempest Squadron Pilot"
+    },
+    "vedfoslo": {
+      "name": "Ved Foslo"
+    },
+    "zertikstrom": {
+      "name": "Zertik Strom"
+    },
+    "darthvader-battleofyavin": {
+      "name": "Darth Vader (BoY)"
+    },
+    "junoeclipse": {
+      "name": "Juno Eclipse"
+    },
+    "alphasquadronpilot": {
+      "name": "Alpha Squadron Pilot"
+    },
+    "sabersquadronace": {
+      "name": "Saber Squadron Ace"
+    },
+    "soontirfel": {
+      "name": "Soontir Fel"
+    },
+    "turrphennir": {
+      "name": "Turr Phennir"
+    },
+    "cienaree": {
+      "name": "Ciena Ree"
+    },
+    "gideonhask-tieininterceptor": {
+      "name": "Gideon Hask"
+    },
+    "vultskerris-tieininterceptor": {
+      "name": "Vult Skerris"
+    },
+    "commandantgoran": {
+      "name": "Commandant Goran"
+    },
+    "lieutenantlorrir": {
+      "name": "Lieutenant Lorrir"
+    },
+    "nashwindrider": {
+      "name": "Nash Windrider"
+    },
+    "idenversio-battleofyavin": {
+      "name": "Iden Versio (BoY)"
+    },
+    "sigma4-battleofyavin": {
+      "name": "Sigma 4 (BoY)"
+    },
+    "sigma5-battleofyavin": {
+      "name": "Sigma 5 (BoY)"
+    },
+    "sigma6-battleofyavin": {
+      "name": "Sigma 6 (BoY)"
+    },
+    "sigma7-battleofyavin": {
+      "name": "Sigma 7 (BoY)"
+    },
+    "secondsister": {
+      "name": "Second Sister"
+    },
+    "vizier": {
+      "name": "“Vizier”"
+    },
+    "captainferoph": {
+      "name": "Captain Feroph"
+    },
+    "majorvermeil": {
+      "name": "Major Vermeil"
+    },
+    "scarifbasepilot": {
+      "name": "Scarif Base Pilot"
+    },
+    "colonelvessery": {
+      "name": "Colonel Vessery"
+    },
+    "countessryad": {
+      "name": "Countess Ryad"
+    },
+    "deltasquadronpilot": {
+      "name": "Delta Squadron Pilot"
+    },
+    "onyxsquadronace": {
+      "name": "Onyx Squadron Ace"
+    },
+    "rexlerbrath": {
+      "name": "Rexler Brath"
+    },
+    "vultskerris": {
+      "name": "Vult Skerris"
+    },
+    "darthvader-tieddefender": {
+      "name": "Darth Vader"
+    },
+    "captaindobbs": {
+      "name": "Captain Dobbs"
+    },
+    "doubleedge": {
+      "name": "“Double Edge”"
+    },
+    "lieutenantkestal": {
+      "name": "Lieutenant Kestal"
+    },
+    "onyxsquadronscout": {
+      "name": "Onyx Squadron Scout"
+    },
+    "sienarspecialist": {
+      "name": "Sienar Specialist"
+    },
+    "deathrain": {
+      "name": "“Deathrain”"
+    },
+    "redline": {
+      "name": "“Redline”"
+    },
+    "cutlasssquadronpilot": {
+      "name": "Cutlass Squadron Pilot"
+    },
+    "howlrunner": {
+      "name": "“Howlrunner”"
+    },
+    "maulermithel": {
+      "name": "“Mauler” Mithel"
+    },
+    "nightbeast": {
+      "name": "“Night Beast”"
+    },
+    "scourgeskutu": {
+      "name": "“Scourge” Skutu"
+    },
+    "wampa": {
+      "name": "“Wampa”"
+    },
+    "academypilot": {
+      "name": "Academy Pilot"
+    },
+    "blacksquadronace": {
+      "name": "Black Squadron Ace"
+    },
+    "delmeeko": {
+      "name": "Del Meeko"
+    },
+    "gideonhask": {
+      "name": "Gideon Hask"
+    },
+    "idenversio": {
+      "name": "Iden Versio"
+    },
+    "obsidiansquadronpilot": {
+      "name": "Obsidian Squadron Pilot"
+    },
+    "seynmarana": {
+      "name": "Seyn Marana"
+    },
+    "valenrudor": {
+      "name": "Valen Rudor"
+    },
+    "isbjingoist": {
+      "name": "ISB Jingoist"
+    },
+    "moffgideon": {
+      "name": "Moff Gideon"
+    },
+    "backstabber-battleofyavin": {
+      "name": "“Backstabber” (BoY)"
+    },
+    "darkcurse-battleofyavin": {
+      "name": "“Dark Curse” (BoY)"
+    },
+    "maulermithel-battleofyavin": {
+      "name": "“Mauler” Mithel (BoY)"
+    },
+    "wampa-battleofyavin": {
+      "name": "“Wampa” (BoY)"
+    },
+    "magnatolvan": {
+      "name": "Magna Tolvan"
+    },
+    "yricaquell": {
+      "name": "Yrica Quell"
+    },
+    "echo": {
+      "name": "“Echo”"
+    },
+    "whisper": {
+      "name": "“Whisper”"
+    },
+    "imdaartestpilot": {
+      "name": "Imdaar Test Pilot"
+    },
+    "sigmasquadronace": {
+      "name": "Sigma Squadron Ace"
+    },
+    "deathfire": {
+      "name": "“Deathfire”"
+    },
+    "captainjonus": {
+      "name": "Captain Jonus"
+    },
+    "gammasquadronace": {
+      "name": "Gamma Squadron Ace"
+    },
+    "majorrhymer": {
+      "name": "Major Rhymer"
+    },
+    "scimitarsquadronpilot": {
+      "name": "Scimitar Squadron Pilot"
+    },
+    "tomaxbren": {
+      "name": "Tomax Bren"
+    },
+    "countdown": {
+      "name": "“Countdown”"
+    },
+    "duchess": {
+      "name": "“Duchess”"
+    },
+    "puresabacc": {
+      "name": "“Pure Sabacc”"
+    },
+    "blacksquadronscout": {
+      "name": "Black Squadron Scout"
+    },
+    "planetarysentinel": {
+      "name": "Planetary Sentinel"
+    },
+    "vagabond": {
+      "name": "“Vagabond”"
+    },
+    "captainoicunn": {
+      "name": "Captain Oicunn"
+    },
+    "patrolleader": {
+      "name": "Patrol Leader"
+    },
+    "rearadmiralchiraneau": {
+      "name": "Rear Admiral Chiraneau"
+    },
+    "mornakee": {
+      "name": "Morna Kee"
+    },
+    "caridaacademycadet": {
+      "name": "Carida Academy Cadet"
+    },
+    "onyxsquadronsentry": {
+      "name": "Onyx Squadron Sentry"
+    },
+    "rampage": {
+      "name": "“Rampage”"
+    },
+    "lyttandree": {
+      "name": "Lyttan Dree"
+    },
+    "flightleaderubbel": {
+      "name": "Flight Leader Ubbel"
+    },
+    "ig88a": {
+      "name": "IG-88A"
+    },
+    "ig88b": {
+      "name": "IG-88B"
+    },
+    "ig88c": {
+      "name": "IG-88C"
+    },
+    "ig88d": {
+      "name": "IG-88D"
+    },
+    "crymorahgoon": {
+      "name": "Crymorah Goon"
+    },
+    "drearenthal": {
+      "name": "Drea Renthal"
+    },
+    "hiredgun": {
+      "name": "Hired Gun"
+    },
+    "kavil": {
+      "name": "Kavil"
+    },
+    "leemakai": {
+      "name": "Leema Kai"
+    },
+    "arlizhadrassian": {
+      "name": "Arliz Hadrassian"
+    },
+    "amaxinewarrior": {
+      "name": "Amaxine Warrior"
+    },
+    "padric": {
+      "name": "Padric"
+    },
+    "jinatasecurityofficer": {
+      "name": "Jinata Security Officer"
+    },
+    "syndicatesmugglers": {
+      "name": "Syndicate Smugglers"
+    },
+    "freightercaptain": {
+      "name": "Freighter Captain"
+    },
+    "hansolo": {
+      "name": "Han Solo"
+    },
+    "l337": {
+      "name": "L3-37"
+    },
+    "landocalrissian": {
+      "name": "Lando Calrissian"
+    },
+    "autopilotdrone": {
+      "name": "Autopilot Drone"
+    },
+    "l337-escapecraft": {
+      "name": "L3-37"
+    },
+    "landocalrissian-escapecraft": {
+      "name": "Lando Calrissian"
+    },
+    "outerrimpioneer": {
+      "name": "Outer Rim Pioneer"
+    },
+    "fennrau": {
+      "name": "Fenn Rau"
+    },
+    "joyrekkoff": {
+      "name": "Joy Rekkoff"
+    },
+    "kadsolus": {
+      "name": "Kad Solus"
+    },
+    "oldteroch": {
+      "name": "Old Teroch"
+    },
+    "skullsquadronpilot": {
+      "name": "Skull Squadron Pilot"
+    },
+    "zealousrecruit": {
+      "name": "Zealous Recruit"
+    },
+    "mandalorianroyalguard": {
+      "name": "Mandalorian Royal Guard"
+    },
+    "torphun": {
+      "name": "Tor Phun"
+    },
+    "bobafett": {
+      "name": "Boba Fett"
+    },
+    "bountyhunter": {
+      "name": "Bounty Hunter"
+    },
+    "emonazzameen": {
+      "name": "Emon Azzameen"
+    },
+    "kathscarlet": {
+      "name": "Kath Scarlet"
+    },
+    "koshkafrost": {
+      "name": "Koshka Frost"
+    },
+    "krassistrelix": {
+      "name": "Krassis Trelix"
+    },
+    "hondoohnaka": {
+      "name": "Hondo Ohnaka"
+    },
+    "4lom": {
+      "name": "4-LOM"
+    },
+    "gandfindsman": {
+      "name": "Gand Findsman"
+    },
+    "zuckuss": {
+      "name": "Zuckuss"
+    },
+    "maul": {
+      "name": "Maul"
+    },
+    "rookkast": {
+      "name": "Rook Kast"
+    },
+    "shadowcollectiveoperator": {
+      "name": "Shadow Collective Operator"
+    },
+    "dacebonearm": {
+      "name": "Dace Bonearm"
+    },
+    "palobgodalhi": {
+      "name": "Palob Godalhi"
+    },
+    "spicerunner": {
+      "name": "Spice Runner"
+    },
+    "torkilmux": {
+      "name": "Torkil Mux"
+    },
+    "gamutkey": {
+      "name": "Gamut Key"
+    },
+    "kananjarrus-hwk290lightfreighter": {
+      "name": "Kanan Jarrus"
+    },
+    "tapusk": {
+      "name": "Tápusk"
+    },
+    "contractedscout": {
+      "name": "Contracted Scout"
+    },
+    "dengar": {
+      "name": "Dengar"
+    },
+    "manaroo": {
+      "name": "Manaroo"
+    },
+    "teltrevura": {
+      "name": "Tel Trevura"
+    },
+    "nomlumb": {
+      "name": "Nom Lumb"
+    },
+    "blacksunace": {
+      "name": "Black Sun Ace"
+    },
+    "captainjostero": {
+      "name": "Captain Jostero"
+    },
+    "cartelmarauder": {
+      "name": "Cartel Marauder"
+    },
+    "graz": {
+      "name": "Graz"
+    },
+    "talonbanecobra": {
+      "name": "Talonbane Cobra"
+    },
+    "viktorhel": {
+      "name": "Viktor Hel"
+    },
+    "asajjventress": {
+      "name": "Asajj Ventress"
+    },
+    "ketsuonyo": {
+      "name": "Ketsu Onyo"
+    },
+    "sabinewren-lancerclasspursuitcraft": {
+      "name": "Sabine Wren"
+    },
+    "shadowporthunter": {
+      "name": "Shadowport Hunter"
+    },
+    "cartelexecutioner": {
+      "name": "Cartel Executioner"
+    },
+    "dalanoberos": {
+      "name": "Dalan Oberos"
+    },
+    "toranikulda": {
+      "name": "Torani Kulda"
+    },
+    "cartelspacer": {
+      "name": "Cartel Spacer"
+    },
+    "genesisred": {
+      "name": "Genesis Red"
+    },
+    "inaldra": {
+      "name": "Inaldra"
+    },
+    "laetinashera": {
+      "name": "Laetin A’shera"
+    },
+    "quinnjast": {
+      "name": "Quinn Jast"
+    },
+    "serissu": {
+      "name": "Serissu"
+    },
+    "sunnybounder": {
+      "name": "Sunny Bounder"
+    },
+    "tansariipointveteran": {
+      "name": "Tansarii Point Veteran"
+    },
+    "g4rgorvm": {
+      "name": "G4R-G0R V/M"
+    },
+    "ahhav": {
+      "name": "Ahhav"
+    },
+    "captainseevor": {
+      "name": "Captain Seevor"
+    },
+    "foremanproach": {
+      "name": "Foreman Proach"
+    },
+    "miningguildsurveyor": {
+      "name": "Mining Guild Surveyor"
+    },
+    "overseeryushyn": {
+      "name": "Overseer Yushyn"
+    },
+    "miningguildsentry": {
+      "name": "Mining Guild Sentry"
+    },
+    "lapin": {
+      "name": "Lapin"
+    },
+    "constablezuvio": {
+      "name": "Constable Zuvio"
+    },
+    "jakkugunrunner": {
+      "name": "Jakku Gunrunner"
+    },
+    "sarcoplank": {
+      "name": "Sarco Plank"
+    },
+    "unkarplutt": {
+      "name": "Unkar Plutt"
+    },
+    "cadbane": {
+      "name": "Cad Bane"
+    },
+    "viktorhel-rogueclassstarfighter": {
+      "name": "Viktor Hel"
+    },
+    "nomlumb-rogueclassstarfighter": {
+      "name": "Nom Lumb"
+    },
+    "outerrimhunter": {
+      "name": "Outer Rim Hunter"
+    },
+    "durge": {
+      "name": "Durge"
+    },
+    "captainnym": {
+      "name": "Captain Nym"
+    },
+    "lokrevenant": {
+      "name": "Lok Revenant"
+    },
+    "solsixxa": {
+      "name": "Sol Sixxa"
+    },
+    "themandalorian": {
+      "name": "The Mandalorian"
+    },
+    "q90": {
+      "name": "Q9-0"
+    },
+    "guildbountyhunter": {
+      "name": "Guild Bounty Hunter"
+    },
+    "outerrimenforcer": {
+      "name": "Outer Rim Enforcer"
+    },
+    "blacksunassassin": {
+      "name": "Black Sun Assassin"
+    },
+    "blacksunenforcer": {
+      "name": "Black Sun Enforcer"
+    },
+    "dalanoberos-starviperclassattackplatform": {
+      "name": "Dalan Oberos"
+    },
+    "guri": {
+      "name": "Guri"
+    },
+    "princexizor": {
+      "name": "Prince Xizor"
+    },
+    "lawlesspirates": {
+      "name": "Lawless Pirates"
+    },
+    "bossk": {
+      "name": "Bossk"
+    },
+    "lattsrazzi": {
+      "name": "Latts Razzi"
+    },
+    "moraloeval": {
+      "name": "Moralo Eval"
+    },
+    "trandoshanslaver": {
+      "name": "Trandoshan Slaver"
+    },
+    "doctoraphra": {
+      "name": "Doctor Aphra"
+    },
+    "binayrepirate": {
+      "name": "Binayre Pirate"
+    },
+    "blacksunsoldier": {
+      "name": "Black Sun Soldier"
+    },
+    "kaatoleeachos": {
+      "name": "Kaa’to Leeachos"
+    },
+    "ndrusuhlak": {
+      "name": "N’dru Suhlak"
+    },
+    "nashtahpup": {
+      "name": "Nashtah Pup"
+    },
+    "bossk-z95af4headhunter": {
+      "name": "Bossk"
+    },
+    "newrepublicvolunteers": {
+      "name": "New Republic Volunteers"
+    },
+    "cobaltsquadronbomber": {
+      "name": "Cobalt Squadron Bomber"
+    },
+    "cat": {
+      "name": "Cat"
+    },
+    "vennie": {
+      "name": "Vennie"
+    },
+    "benteene": {
+      "name": "Ben Teene"
+    },
+    "edonkappehl": {
+      "name": "Edon Kappehl"
+    },
+    "finchdallow": {
+      "name": "Finch Dallow"
+    },
+    "paigetico": {
+      "name": "Paige Tico"
+    },
+    "resistancesympathizer": {
+      "name": "Resistance Sympathizer"
+    },
+    "chewbacca-scavengedyt1300": {
+      "name": "Chewbacca"
+    },
+    "hansolo-scavengedyt1300": {
+      "name": "Han Solo"
+    },
+    "rey": {
+      "name": "Rey"
+    },
+    "poedameron-scavengedyt1300": {
+      "name": "Poe Dameron"
+    },
+    "landocalrissian-scavengedyt1300": {
+      "name": "Lando Calrissian"
+    },
+    "lulolampar": {
+      "name": "L’ulo L’ampar"
+    },
+    "tallissanlintra": {
+      "name": "Tallissan Lintra"
+    },
+    "zaribangel": {
+      "name": "Zari Bangel"
+    },
+    "greersonnel": {
+      "name": "Greer Sonnel"
+    },
+    "greensquadronexpert": {
+      "name": "Green Squadron Expert"
+    },
+    "bluesquadronrecruit": {
+      "name": "Blue Squadron Recruit"
+    },
+    "zizitlo": {
+      "name": "Zizi Tlo"
+    },
+    "ronithblario": {
+      "name": "Ronith Blario"
+    },
+    "merlcobben": {
+      "name": "Merl Cobben"
+    },
+    "suralindajavos": {
+      "name": "Suralinda Javos"
+    },
+    "wrobietyce": {
+      "name": "Wrobie Tyce"
+    },
+    "seftinvanik": {
+      "name": "Seftin Vanik"
+    },
+    "poedameron": {
+      "name": "Poe Dameron"
+    },
+    "poedameron-swz68": {
+      "name": "Poe Dameron"
+    },
+    "bluesquadronrookie": {
+      "name": "Blue Squadron Rookie"
+    },
+    "redsquadronexpert": {
+      "name": "Red Squadron Expert"
+    },
+    "blacksquadronace-t70xwing": {
+      "name": "Black Squadron Ace"
+    },
+    "elloasty": {
+      "name": "Ello Asty"
+    },
+    "jophseastriker": {
+      "name": "Joph Seastriker"
+    },
+    "karekun": {
+      "name": "Karé Kun"
+    },
+    "lieutenantbastian": {
+      "name": "Lieutenant Bastian"
+    },
+    "niennunb": {
+      "name": "Nien Nunb"
+    },
+    "jaycristubbs": {
+      "name": "Jaycris Tubbs"
+    },
+    "jessikapava": {
+      "name": "Jessika Pava"
+    },
+    "temminwexley": {
+      "name": "Temmin Wexley"
+    },
+    "temminwexley-swz68": {
+      "name": "Temmin Wexley"
+    },
+    "caithrenalli": {
+      "name": "C’ai Threnalli"
+    },
+    "nimichireen": {
+      "name": "Nimi Chireen"
+    },
+    "venisadoza": {
+      "name": "Venisa Doza"
+    },
+    "zayversio": {
+      "name": "Zay Versio"
+    },
+    "covanell": {
+      "name": "Cova Nell"
+    },
+    "pammichnerrogoode": {
+      "name": "Pammich Nerro Goode"
+    },
+    "nodinchavdri": {
+      "name": "Nodin Chavdri"
+    },
+    "logisticsdivisionpilot": {
+      "name": "Logistics Division Pilot"
+    },
+    "takajamoreesa": {
+      "name": "Taka Jamoreesa"
+    },
+    "bb8": {
+      "name": "BB-8"
+    },
+    "rosetico": {
+      "name": "Rose Tico"
+    },
+    "vimoradi": {
+      "name": "Vi Moradi"
+    },
+    "finn": {
+      "name": "Finn"
+    },
+    "colossusstationmechanic": {
+      "name": "Colossus Station Mechanic"
+    },
+    "jarekyeager": {
+      "name": "Jarek Yeager"
+    },
+    "kazudaxiono": {
+      "name": "Kazuda Xiono"
+    },
+    "r1j5": {
+      "name": "R1-J5"
+    },
+    "zoriibliss": {
+      "name": "Zorii Bliss"
+    },
+    "tezanasz": {
+      "name": "Teza Nasz"
+    },
+    "wilsateshlo": {
+      "name": "Wilsa Teshlo"
+    },
+    "shasazaro": {
+      "name": "Shasa Zaro"
+    },
+    "legafossang": {
+      "name": "Lega Fossang"
+    },
+    "aftabackbar": {
+      "name": "Aftab Ackbar"
+    },
+    "coruskapellim": {
+      "name": "Corus Kapellim"
+    },
+    "caithrenalli-btanr2ywing": {
+      "name": "C’ai Threnalli"
+    },
+    "newrepublicpatrol": {
+      "name": "New Republic Patrol"
+    },
+    "kijimispicerunner": {
+      "name": "Kijimi Spice Runner"
+    },
+    "firstordersympathizers": {
+      "name": "First Order Sympathizers"
+    },
+    "firstordercollaborators": {
+      "name": "First Order Collaborators"
+    },
+    "majorvonreg": {
+      "name": "Major Vonreg"
+    },
+    "holo": {
+      "name": "“Holo”"
+    },
+    "ember": {
+      "name": "“Ember”"
+    },
+    "firstorderprovocateur": {
+      "name": "First Order Provocateur"
+    },
+    "midnight": {
+      "name": "“Midnight”"
+    },
+    "commandermalarus": {
+      "name": "Commander Malarus"
+    },
+    "scorch": {
+      "name": "“Scorch”"
+    },
+    "static": {
+      "name": "“Static”"
+    },
+    "longshot": {
+      "name": "“Longshot”"
+    },
+    "omegasquadronace": {
+      "name": "Omega Squadron Ace"
+    },
+    "muse": {
+      "name": "“Muse”"
+    },
+    "tn3465": {
+      "name": "TN-3465"
+    },
+    "zetasquadronpilot": {
+      "name": "Zeta Squadron Pilot"
+    },
+    "epsilonsquadroncadet": {
+      "name": "Epsilon Squadron Cadet"
+    },
+    "lieutenantrivas": {
+      "name": "Lieutenant Rivas"
+    },
+    "null": {
+      "name": "“Null”"
+    },
+    "lieutenantgalek": {
+      "name": "Lieutenant Galek"
+    },
+    "dt798": {
+      "name": "DT-798"
+    },
+    "lingaava": {
+      "name": "Lin Gaava"
+    },
+    "quickdraw": {
+      "name": "“Quickdraw”"
+    },
+    "backdraft": {
+      "name": "“Backdraft”"
+    },
+    "omegasquadronexpert": {
+      "name": "Omega Squadron Expert"
+    },
+    "zetasquadronsurvivor": {
+      "name": "Zeta Squadron Survivor"
+    },
+    "lieutenantlehuse": {
+      "name": "Lieutenant LeHuse"
+    },
+    "captainphasma": {
+      "name": "Captain Phasma"
+    },
+    "blackout": {
+      "name": "“Blackout”"
+    },
+    "kyloren": {
+      "name": "Kylo Ren"
+    },
+    "firstordertestpilot": {
+      "name": "First Order Test Pilot"
+    },
+    "recoil": {
+      "name": "“Recoil”"
+    },
+    "avenger": {
+      "name": "“Avenger”"
+    },
+    "sienarjaemusengineer": {
+      "name": "Sienar-Jaemus Engineer"
+    },
+    "rush": {
+      "name": "“Rush”"
+    },
+    "lieutenantdormitz": {
+      "name": "Lieutenant Dormitz"
+    },
+    "majorstridan": {
+      "name": "Major Stridan"
+    },
+    "pettyofficerthanisson": {
+      "name": "Petty Officer Thanisson"
+    },
+    "starkillerbasepilot": {
+      "name": "Starkiller Base Pilot"
+    },
+    "lieutenanttavson": {
+      "name": "Lieutenant Tavson"
+    },
+    "captaincardinal": {
+      "name": "Captain Cardinal"
+    },
+    "agentterex": {
+      "name": "Agent Terex"
+    },
+    "commandermalarus-xiclasslightshuttle": {
+      "name": "Commander Malarus"
+    },
+    "firstordercourier": {
+      "name": "First Order Courier"
+    },
+    "gideonhask-xiclasslightshuttle": {
+      "name": "Gideon Hask"
+    },
+    "agenttierny": {
+      "name": "Agent Tierny"
+    },
+    "breach": {
+      "name": "“Breach”"
+    },
+    "scorch-tiesebomber": {
+      "name": "“Scorch”"
+    },
+    "dread": {
+      "name": "“Dread”"
+    },
+    "grudge": {
+      "name": "“Grudge”"
+    },
+    "firstordercadet": {
+      "name": "First Order Cadet"
+    },
+    "sienarjaemustestpilot": {
+      "name": "Sienar-Jaemus Test Pilot"
+    },
+    "juljerjerrod": {
+      "name": "Jul Jerjerrod"
+    },
+    "kyloren-tiewiwhispermodifiedinterceptor": {
+      "name": "Kylo Ren"
+    },
+    "wrath": {
+      "name": "“Wrath”"
+    },
+    "nightfall": {
+      "name": "“Nightfall”"
+    },
+    "whirlwind": {
+      "name": "“Whirlwind”"
+    },
+    "709thlegionace": {
+      "name": "709th Legion Ace"
+    },
+    "redfuryzealot": {
+      "name": "Red Fury Zealot"
+    },
+    "sinker": {
+      "name": "“Sinker”"
+    },
+    "jag": {
+      "name": "“Jag”"
+    },
+    "oddball-arc170starfighter": {
+      "name": "“Odd Ball”"
+    },
+    "wolffe": {
+      "name": "“Wolffe”"
+    },
+    "104thbattalionpilot": {
+      "name": "104th Battalion Pilot"
+    },
+    "squadsevenveteran": {
+      "name": "Squad Seven Veteran"
+    },
+    "oddball-siegeofcoruscant": {
+      "name": "“Odd Ball” (SoC)"
+    },
+    "wolffe-siegeofcoruscant": {
+      "name": "“Wolffe” (SoC)"
+    },
+    "jag-siegeofcoruscant": {
+      "name": "“Jag” (SoC)"
+    },
+    "jediknight": {
+      "name": "Jedi Knight"
+    },
+    "obiwankenobi": {
+      "name": "Obi-Wan Kenobi"
+    },
+    "plokoon": {
+      "name": "Plo Koon"
+    },
+    "saeseetiin": {
+      "name": "Saesee Tiin"
+    },
+    "macewindu": {
+      "name": "Mace Windu"
+    },
+    "anakinskywalker": {
+      "name": "Anakin Skywalker"
+    },
+    "ahsokatano": {
+      "name": "Ahsoka Tano"
+    },
+    "barrissoffee": {
+      "name": "Barriss Offee"
+    },
+    "luminaraunduli": {
+      "name": "Luminara Unduli"
+    },
+    "adigallia": {
+      "name": "Adi Gallia"
+    },
+    "jediknight-delta7baethersprite": {
+      "name": "Jedi Knight"
+    },
+    "obiwankenobi-delta7baethersprite": {
+      "name": "Obi-Wan Kenobi"
+    },
+    "plokoon-delta7baethersprite": {
+      "name": "Plo Koon"
+    },
+    "saeseetiin-delta7baethersprite": {
+      "name": "Saesee Tiin"
+    },
+    "macewindu-delta7baethersprite": {
+      "name": "Mace Windu"
+    },
+    "anakinskywalker-delta7baethersprite": {
+      "name": "Anakin Skywalker"
+    },
+    "ahsokatano-delta7baethersprite": {
+      "name": "Ahsoka Tano"
+    },
+    "barrissoffee-delta7baethersprite": {
+      "name": "Barriss Offee"
+    },
+    "luminaraunduli-delta7baethersprite": {
+      "name": "Luminara Unduli"
+    },
+    "adigallia-delta7baethersprite": {
+      "name": "Adi Gallia"
+    },
+    "republicjudiciary": {
+      "name": "Republic Judiciary"
+    },
+    "kickback": {
+      "name": "“Kickback”"
+    },
+    "oddball": {
+      "name": "“Odd Ball”"
+    },
+    "swoop": {
+      "name": "“Swoop”"
+    },
+    "axe": {
+      "name": "“Axe”"
+    },
+    "tucker": {
+      "name": "“Tucker”"
+    },
+    "bluesquadronprotector": {
+      "name": "Blue Squadron Protector"
+    },
+    "goldsquadrontrooper": {
+      "name": "Gold Squadron Trooper"
+    },
+    "kickback-siegeofcoruscant": {
+      "name": "“Kickback” (SoC)"
+    },
+    "axe-siegeofcoruscant": {
+      "name": "“Axe” (SoC)"
+    },
+    "slammer": {
+      "name": "“Slammer”"
+    },
+    "anakinskywalker-nabooroyaln1starfighter": {
+      "name": "Anakin Skywalker"
+    },
+    "ricolie": {
+      "name": "Ric Olié"
+    },
+    "padmeamidala": {
+      "name": "Padmé Amidala"
+    },
+    "dineeellberger": {
+      "name": "Dineé Ellberger"
+    },
+    "bravoflightofficer": {
+      "name": "Bravo Flight Officer"
+    },
+    "naboohandmaiden": {
+      "name": "Naboo Handmaiden"
+    },
+    "gavynsykes": {
+      "name": "Gavyn Sykes"
+    },
+    "shadowsquadronveteran": {
+      "name": "Shadow Squadron Veteran"
+    },
+    "anakinskywalker-btlbywing": {
+      "name": "Anakin Skywalker"
+    },
+    "r2d2": {
+      "name": "R2-D2"
+    },
+    "oddball-btlbywing": {
+      "name": "“Odd Ball”"
+    },
+    "matchstick": {
+      "name": "“Matchstick”"
+    },
+    "broadside": {
+      "name": "“Broadside”"
+    },
+    "goji": {
+      "name": "“Goji”"
+    },
+    "redsquadronbomber": {
+      "name": "Red Squadron Bomber"
+    },
+    "anakinskywalker-eta2actis": {
+      "name": "Anakin Skywalker"
+    },
+    "obiwankenobi-eta2actis": {
+      "name": "Obi-Wan Kenobi"
+    },
+    "aaylasecura": {
+      "name": "Aayla Secura"
+    },
+    "shaakti": {
+      "name": "Shaak Ti"
+    },
+    "jedigeneral": {
+      "name": "Jedi General"
+    },
+    "yoda": {
+      "name": "Yoda"
+    },
+    "anakinskywalker-siegeofcoruscant": {
+      "name": "Anakin Skywalker (SoC)"
+    },
+    "obiwankenobi-siegeofcoruscant": {
+      "name": "Obi-Wan Kenobi (SoC)"
+    },
+    "shaakti-siegeofcoruscant": {
+      "name": "Shaak Ti (SoC)"
+    },
+    "kitfisto": {
+      "name": "Kit Fisto"
+    },
+    "bokatankryze": {
+      "name": "Bo-Katan Kryze"
+    },
+    "niteowlliberator": {
+      "name": "Nite Owl Liberator"
+    },
+    "hawk": {
+      "name": "“Hawk”"
+    },
+    "hound": {
+      "name": "“Hound”"
+    },
+    "warthog": {
+      "name": "“Warthog”"
+    },
+    "212thbattalionpilot": {
+      "name": "212th Battalion Pilot"
+    },
+    "sicko": {
+      "name": "“Sicko”"
+    },
+    "wilhufftarkin": {
+      "name": "Wilhuff Tarkin"
+    },
+    "oddball-nimbusclassvwing": {
+      "name": "“Odd Ball”"
+    },
+    "contrail": {
+      "name": "“Contrail”"
+    },
+    "klick": {
+      "name": "“Klick”"
+    },
+    "shadowsquadronescort": {
+      "name": "Shadow Squadron Escort"
+    },
+    "loyalistvolunteer": {
+      "name": "Loyalist Volunteer"
+    },
+    "klick-siegeofcoruscant": {
+      "name": "“Klick” (SoC)"
+    },
+    "contrail-siegeofcoruscant": {
+      "name": "“Contrail” (SoC)"
+    },
+    "transgalmegcontrollink": {
+      "name": "TransGalMeg Control Link"
+    },
+    "killer": {
+      "name": "“Killer”"
+    },
+    "drift": {
+      "name": "“Drift”"
+    },
+    "boost": {
+      "name": "“Boost”"
+    },
+    "stub": {
+      "name": "“Stub”"
+    },
+    "knack": {
+      "name": "“Knack”"
+    },
+    "hawk-clonez95headhunter": {
+      "name": "“Hawk”"
+    },
+    "7thskycorpspilot": {
+      "name": "7th Sky Corps Pilot"
+    },
+    "reapersquadronscout": {
+      "name": "Reaper Squadron Scout"
+    },
+    "slider": {
+      "name": "“Slider”"
+    },
+    "warthog-clonez95headhunter": {
+      "name": "“Warthog”"
+    },
+    "tradefederationdrone": {
+      "name": "Trade Federation Drone"
+    },
+    "precisehunter": {
+      "name": "Precise Hunter"
+    },
+    "haorchallprototype": {
+      "name": "Haor Chall Prototype"
+    },
+    "dfs081": {
+      "name": "DFS-081"
+    },
+    "separatistdrone": {
+      "name": "Separatist Drone"
+    },
+    "dfs311": {
+      "name": "DFS-311"
+    },
+    "dfs081-siegeofcoruscant": {
+      "name": "DFS-081 (SoC)"
+    },
+    "dfs311-siegeofcoruscant": {
+      "name": "DFS-311 (SoC)"
+    },
+    "haorchallprototype-siegeofcoruscant": {
+      "name": "Haor Chall Prototype (SoC)"
+    },
+    "theironassembler": {
+      "name": "The Iron Assembler"
+    },
+    "kelrodoaiholdout": {
+      "name": "Kelrodo-Ai Holdout"
+    },
+    "separatistprivateers": {
+      "name": "Separatist Privateers"
+    },
+    "generalgrievous": {
+      "name": "General Grievous"
+    },
+    "wattambor": {
+      "name": "Wat Tambor"
+    },
+    "feethanottrawautopilot": {
+      "name": "Feethan Ottraw Autopilot"
+    },
+    "captainsear": {
+      "name": "Captain Sear"
+    },
+    "skakoanace": {
+      "name": "Skakoan Ace"
+    },
+    "darthmaul": {
+      "name": "Darth Maul"
+    },
+    "countdooku": {
+      "name": "Count Dooku"
+    },
+    "darkcourier": {
+      "name": "Dark Courier"
+    },
+    "066": {
+      "name": "0-66"
+    },
+    "countdooku-siegeofcoruscant": {
+      "name": "Count Dooku (SoC)"
+    },
+    "technounionbomber": {
+      "name": "Techno Union Bomber"
+    },
+    "bombardmentdrone": {
+      "name": "Bombardment Drone"
+    },
+    "dbs404": {
+      "name": "DBS-404"
+    },
+    "baktoidprototype": {
+      "name": "Baktoid Prototype"
+    },
+    "separatistbomber": {
+      "name": "Separatist Bomber"
+    },
+    "dbs32c": {
+      "name": "DBS-32C"
+    },
+    "dbs32c-siegeofcoruscant": {
+      "name": "DBS-32C (SoC)"
+    },
+    "dbs404-siegeofcoruscant": {
+      "name": "DBS-404 (SoC)"
+    },
+    "baktoidprototype-siegeofcoruscant": {
+      "name": "Baktoid Prototype (SoC)"
+    },
+    "stalgasinhiveguard": {
+      "name": "Stalgasin Hive Guard"
+    },
+    "sunfac": {
+      "name": "Sun Fac"
+    },
+    "berwerkret": {
+      "name": "Berwer Kret"
+    },
+    "chertek": {
+      "name": "Chertek"
+    },
+    "gorgol": {
+      "name": "Gorgol"
+    },
+    "petranakiarenaace": {
+      "name": "Petranaki Arena Ace"
+    },
+    "dist81": {
+      "name": "DIS-T81"
+    },
+    "phlacarphoccprototype": {
+      "name": "Phlac-Arphocc Prototype"
+    },
+    "fearsomepredator": {
+      "name": "Fearsome Predator"
+    },
+    "dis347": {
+      "name": "DIS-347"
+    },
+    "separatistinterceptor": {
+      "name": "Separatist Interceptor"
+    },
+    "colicoidinterceptor": {
+      "name": "Colicoid Interceptor"
+    },
+    "dis347-siegeofcoruscant": {
+      "name": "DIS-347 (SoC)"
+    },
+    "dist81-siegeofcoruscant": {
+      "name": "DIS-T81 (SoC)"
+    },
+    "phlacarphoccprototype-siegeofcoruscant": {
+      "name": "Phlac-Arphocc Prototype (SoC)"
+    },
+    "volandas": {
+      "name": "Volan Das"
+    },
+    "dgs047": {
+      "name": "DGS-047"
+    },
+    "baktoiddrone": {
+      "name": "Baktoid Drone"
+    },
+    "geonosianprototype": {
+      "name": "Geonosian Prototype"
+    },
+    "dgs286": {
+      "name": "DGS-286"
+    },
+    "onderonoppressor": {
+      "name": "Onderon Oppressor"
+    },
+    "separatistpredator": {
+      "name": "Separatist Predator"
+    },
+    "colicoiddestroyer": {
+      "name": "Colicoid Destroyer"
+    },
+    "jangofett": {
+      "name": "Jango Fett"
+    },
+    "zamwesell": {
+      "name": "Zam Wesell"
+    },
+    "bobafett-separatistalliance": {
+      "name": "Boba Fett"
+    },
+    "separatistracketeer": {
+      "name": "Separatist Racketeer"
+    },
+    "aurrasing": {
+      "name": "Aurra Sing"
+    },
+    "cadbane-separatistalliance": {
+      "name": "Cad Bane"
+    },
+    "ig101": {
+      "name": "IG-101"
+    },
+    "magnaguardexecutioner": {
+      "name": "MagnaGuard Executioner"
+    },
+    "magnaguardprotector": {
+      "name": "MagnaGuard Protector"
+    },
+    "ig102": {
+      "name": "IG-102"
+    },
+    "ig111": {
+      "name": "IG-111"
+    },
+    "durge-separatistalliance": {
+      "name": "Durge"
+    },
+    "bokatankryze-separatistalliance": {
+      "name": "Bo-Katan Kryze"
+    },
+    "previzsla": {
+      "name": "Pre Vizsla"
+    },
+    "deathwatchwarrior": {
+      "name": "Death Watch Warrior"
+    }
+  },
+  "upgrades": {}
+}

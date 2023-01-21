@@ -92,10 +92,38 @@ const upgrades = manifest.upgrades.reduce((o, file) => {
   return o;
 }, {});
 
-// Output
+// Output to File
 // ---------------
 await fs.outputJson(
   `${TARGET}/xwing-data2.json`,
   { factions, upgrades },
   { spaces: 2 }
 );
+
+// Display Values
+// ---------------
+const display = {
+  faction: {},
+  ship: {},
+  pilot: {},
+  upgrades: {},
+};
+
+read(manifest.factions[0]).forEach(({ xws: factionId, name, icon }) => {
+  display.faction[factionId] = {
+    name,
+    icon,
+  };
+
+  Object.values(factions[factionId].ships).forEach(ship => {
+    display.ship[ship.id] = { name: ship.name, icon: ship.icon };
+
+    Object.values(ship.pilots).forEach(pilot => {
+      display.pilot[pilot.id] = {
+        name: pilot.name,
+      };
+    });
+  });
+});
+
+await fs.outputJson(`${TARGET}/display-values.json`, display, { spaces: 2 });
