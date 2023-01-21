@@ -94,11 +94,17 @@ const upgrades = manifest.upgrades.reduce((o, file) => {
 
 // Output to File
 // ---------------
-await fs.outputJson(
-  `${TARGET}/xwing-data2.json`,
-  { factions, upgrades },
-  { spaces: 2 }
-);
+
+/**
+ * ℹ️ We do not use most of the xwing data to reduce bundle size.
+ *   If we ever want to parse XWS data we might need it again.
+ */
+
+// await fs.outputJson(
+//   `${TARGET}/xwing-data2.json`,
+//   { factions, upgrades },
+//   { spaces: 2 }
+// );
 
 // Display Values
 // ---------------

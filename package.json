@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "update:data": "zx scripts/update-xwing-data.mjs",
+    "update:xwing": "zx scripts/update-xwing-data.mjs",
     "update:yasb": "zx scripts/update-yasb-data.mjs"
   },
   "dependencies": {
