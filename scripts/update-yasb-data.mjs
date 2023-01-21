@@ -37,3 +37,5 @@ await fs.outputJson(
   },
   { spaces: 2 }
 );
+
+await fs.remove(YASB_FILE_PATH);
