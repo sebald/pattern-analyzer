@@ -1,16 +1,22 @@
 import { xwingShips } from 'app/fonts';
-import map from 'lib/data/ship-font.json';
+import map from 'lib/data/ships-map.json';
 
 export interface ShipIconProps {
   ship: string;
 }
 
 export const ShipIcon = ({ ship }: ShipIconProps) => {
-  const children = (map as any)[ship];
-  console.log(ship, children);
+  let children = (map.ships as any)[ship];
+
+  if (children === 'delta7baethersprite') {
+    children = 'delta7aethersprite';
+  }
+
   if (!children) {
     return null;
   }
 
-  return <div className={`${xwingShips.className}`}>{children}</div>;
+  return (
+    <div className={`${xwingShips.className} inline-block`}>{children}</div>
+  );
 };

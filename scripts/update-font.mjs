@@ -6,20 +6,15 @@ import 'zx/globals';
  * they are the most up to date I can find ..
  */
 const PROJECT_ROOT = path.resolve(__dirname, '..');
-const TARGET = path.join(PROJECT_ROOT, 'lib/data');
 
 const SHIP_FONT_FILE = path.resolve(
   PROJECT_ROOT,
   'node_modules/xwing-font/dist/xwing-miniatures-ships.ttf'
 );
+$`cp ${SHIP_FONT_FILE} ${path.join(PROJECT_ROOT, 'app/fonts')}`;
 
-$`cp ${SHIP_FONT_FILE} ${path.resolve(PROJECT_ROOT, 'app/fonts')}`;
-
-const { ships } = await fs.readJSON(
-  `${PROJECT_ROOT}/node_modules/xwing-font/src/json/ships-map.json`
+const SHIP_FONT_MAPPING = path.resolve(
+  PROJECT_ROOT,
+  'node_modules/xwing-font/src/json/ships-map.json'
 );
-
-await fs.outputJson(`${TARGET}/ship-font.json`, ships, {
-  spaces: 2,
-  encoding: 'utf8',
-});
+$`cp ${SHIP_FONT_MAPPING} ${path.join(PROJECT_ROOT, 'lib/data')}`;
