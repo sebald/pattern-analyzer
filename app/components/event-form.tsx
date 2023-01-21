@@ -21,7 +21,7 @@ export const EventForm = () => {
       return;
     }
 
-    setError('Please enter a even ID first.');
+    setError('Please enter an event ID.');
   };
 
   const handleChange = useDebouncedCallback((val: string) => {
