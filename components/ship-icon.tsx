@@ -1,14 +1,13 @@
 import { xwingShips } from 'app/fonts';
-import map from 'lib/data/ship-icons.json';
+import icons from 'lib/data/ship-icons.json';
 
 export interface ShipIconProps {
   ship: string;
+  className?: string;
 }
 
-export const ShipIcon = ({ ship }: ShipIconProps) => {
-  return (
-    <div className={`${xwingShips.className} inline-block`}>
-      {map[ship] || ship}
-    </div>
-  );
-};
+export const ShipIcon = ({ ship, className }: ShipIconProps) => (
+  <span className={`${xwingShips.className} ${className}`}>
+    {(icons as any)[ship] || ship}
+  </span>
+);

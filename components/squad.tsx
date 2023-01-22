@@ -19,8 +19,8 @@ export const Squad = ({ xws }: SquadProps) => {
     <div>
       {pilots.map(({ id, ship, upgrades }, idx) => (
         <div key={`${id}-${idx}`} className="pb-4">
-          <div className="prose font-semibold text-secondary-900">
-            <ShipIcon ship={ship} />
+          <div className="flex items-center pb-1 font-semibold text-secondary-900">
+            <ShipIcon className="pr-1 text-lg leading-4" ship={ship} />
             {getPilotName(id) || id}
           </div>
           <div className="prose text-sm text-secondary-500">

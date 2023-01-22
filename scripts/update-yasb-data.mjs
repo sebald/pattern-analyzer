@@ -79,7 +79,9 @@ const matches = css.matchAll(
     .replace('\\\\', '\\');
 });
 
-// Add Delta7b
+// Delta7b
 shipIcons['delta7baethersprite'] = shipIcons['delta7aethersprite'];
+// TIE/ln Interceptor
+shipIcons['tieininterceptor'] = shipIcons['tieinterceptor'];
 
 await fs.outputJson(`${DATA_FOLDER}/ship-icons.json`, shipIcons, { spaces: 2 });
