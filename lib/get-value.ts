@@ -15,7 +15,7 @@ export const getFactionIcon = (faction: XWSFaction) =>
   data.faction[faction].icon;
 
 export const getShipName = (xws: string): string | null =>
-  (data.ship as any)[xws]?.name || null;
+  (data.ship as any)[xws] || null;
 
 export const getPilotName = (xws: string): string | null =>
   (data.pilot as any)[xws] || null;

@@ -30,361 +30,95 @@
     }
   },
   "ship": {
-    "asf01bwing": {
-      "name": "A/SF-01 B-wing",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_B-wing.png"
-    },
-    "arc170starfighter": {
-      "name": "ARC-170 Starfighter",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Arc-170.png"
-    },
-    "attackshuttle": {
-      "name": "Attack Shuttle",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_AttackShuttle.png"
-    },
-    "auzituckgunship": {
-      "name": "Auzituck Gunship",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Auzituck.png"
-    },
-    "btla4ywing": {
-      "name": "BTL-A4 Y-wing",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Y-wing.png"
-    },
-    "btls8kwing": {
-      "name": "BTL-S8 K-wing",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_K-wing.png"
-    },
-    "cr90corelliancorvette": {
-      "name": "CR90 Corellian Corvette",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_CR90.png"
-    },
-    "ewing": {
-      "name": "E-wing",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_E-wing.png"
-    },
-    "fangfighter": {
-      "name": "Fang Fighter",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_FangFighter.png"
-    },
-    "gauntletfighter": {
-      "name": "Gauntlet Fighter"
-    },
-    "gr75mediumtransport": {
-      "name": "GR-75 Medium Transport",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_GR-75.png"
-    },
-    "hwk290lightfreighter": {
-      "name": "HWK-290 Light Freighter",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_HWK-290.png"
-    },
-    "modifiedyt1300lightfreighter": {
-      "name": "Modified YT-1300 Light Freighter",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Falcon.png"
-    },
-    "rz1awing": {
-      "name": "RZ-1 A-wing",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_A-wing.png"
-    },
-    "sheathipedeclassshuttle": {
-      "name": "Sheathipede-class Shuttle",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Sheathipede.png"
-    },
-    "t65xwing": {
-      "name": "T-65 X-wing",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_X-wing-T65.png"
-    },
-    "tielnfighter": {
-      "name": "TIE/ln Fighter",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_TIEFighter.png"
-    },
-    "ut60duwing": {
-      "name": "UT-60D U-wing",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_U-wing.png"
-    },
-    "vcx100lightfreighter": {
-      "name": "VCX-100 Light Freighter",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Ghost.png"
-    },
-    "yt2400lightfreighter": {
-      "name": "YT-2400 Light Freighter",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_YT-2400.png"
-    },
-    "z95af4headhunter": {
-      "name": "Z-95-AF4 Headhunter",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Z-95.png"
-    },
-    "alphaclassstarwing": {
-      "name": "Alpha-class Star Wing",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_AlphaStarwing.png"
-    },
-    "gozanticlasscruiser": {
-      "name": "Gozanti-class Cruiser",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Gozanti.png"
-    },
-    "lambdaclasst4ashuttle": {
-      "name": "Lambda-class T-4a Shuttle",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Lambda.png"
-    },
-    "raiderclasscorvette": {
-      "name": "Raider-class Corvette",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Raider.png"
-    },
-    "tieadvancedv1": {
-      "name": "TIE Advanced v1",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_TIEAdvancedPrototype.png"
-    },
-    "tieadvancedx1": {
-      "name": "TIE Advanced x1",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_TIEAdvanced.png"
-    },
-    "tieininterceptor": {
-      "name": "TIE/in Interceptor",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_TIEInterceptor.png"
-    },
-    "tiereaper": {
-      "name": "TIE Reaper",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_TIEReaper.png"
-    },
-    "tieddefender": {
-      "name": "TIE/D Defender",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_TIEDefender.png"
-    },
-    "tieagaggressor": {
-      "name": "TIE/ag Aggressor",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_TIEAggressor.png"
-    },
-    "tiecapunisher": {
-      "name": "TIE/ca Punisher",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_TIEPunisher.png"
-    },
-    "tiephphantom": {
-      "name": "TIE/ph Phantom",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_TIEPhantom.png"
-    },
-    "tiesabomber": {
-      "name": "TIE/sa Bomber",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_TIEBomber.png"
-    },
-    "tieskstriker": {
-      "name": "TIE/sk Striker",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_TIEStriker.png"
-    },
-    "vt49decimator": {
-      "name": "VT-49 Decimator",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Decimator.png"
-    },
-    "tierbheavy": {
-      "name": "TIE/rb Heavy",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_TIE_Brute.png"
-    },
-    "aggressorassaultfighter": {
-      "name": "Aggressor Assault Fighter",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_IG-2000.png"
-    },
-    "croccruiser": {
-      "name": "C-ROC Cruiser",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_C-ROC.png"
-    },
-    "customizedyt1300lightfreighter": {
-      "name": "Customized YT-1300 Light Freighter",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_CustomizedYT-1300.png"
-    },
-    "escapecraft": {
-      "name": "Escape Craft",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_EscapeShuttle.png"
-    },
-    "firesprayclasspatrolcraft": {
-      "name": "Firespray-class Patrol Craft",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_FIrespray.png"
-    },
-    "g1astarfighter": {
-      "name": "G-1A Starfighter",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_MistHunter.png"
-    },
-    "jumpmaster5000": {
-      "name": "JumpMaster 5000",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Jumpmaster.png"
-    },
-    "kihraxzfighter": {
-      "name": "Kihraxz Fighter",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Kihraxz.png"
-    },
-    "lancerclasspursuitcraft": {
-      "name": "Lancer-class Pursuit Craft",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_ShadowCaster.png"
-    },
-    "m12lkimogilafighter": {
-      "name": "M12-L Kimogila Fighter",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Kimogila.png"
-    },
-    "m3ainterceptor": {
-      "name": "M3-A Interceptor",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Scyk.png"
-    },
-    "modifiedtielnfighter": {
-      "name": "Modified TIE/ln Fighter",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_MiningGuild_TIE.png"
-    },
-    "quadrijettransferspacetug": {
-      "name": "Quadrijet Transfer Spacetug",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Quadjumper.png"
-    },
-    "rogueclassstarfighter": {
-      "name": "Rogue-class Starfighter",
-      "icon": "???"
-    },
-    "scurrgh6bomber": {
-      "name": "Scurrg H-6 bomber",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Scurrg.png"
-    },
-    "st70assaultship": {
-      "name": "ST-70 Assault Ship",
-      "icon": "???"
-    },
-    "starviperclassattackplatform": {
-      "name": "StarViper-class Attack Platform",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_StarViper.png"
-    },
-    "tridentclassassaultship": {
-      "name": "Trident-Class Assault Ship",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Trident.png"
-    },
-    "yv666lightfreighter": {
-      "name": "YV-666 Light Freighter",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_YV-666.png"
-    },
-    "mg100starfortress": {
-      "name": "MG-100 StarFortress",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_StarFortress.png"
-    },
-    "scavengedyt1300": {
-      "name": "Scavenged YT-1300",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Falcon_Resistance.png"
-    },
-    "rz2awing": {
-      "name": "RZ-2 A-wing",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_RZ-2_A-wing.png"
-    },
-    "t70xwing": {
-      "name": "T-70 X-wing",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_X-wing-T70.png"
-    },
-    "resistancetransport": {
-      "name": "Resistance Transport",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Resistance_Transport.png"
-    },
-    "resistancetransportpod": {
-      "name": "Resistance Transport Pod",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Resistance_Transport_Cockpit_Pod.png"
-    },
-    "fireball": {
-      "name": "Fireball",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Fireball.png"
-    },
-    "btanr2ywing": {
-      "name": "BTA-NR2 Y-Wing",
-      "icon": "???"
-    },
-    "tiebainterceptor": {
-      "name": "TIE/ba Interceptor",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Vonregs-First-Order-TIE-Interceptor.png"
-    },
-    "tiefofighter": {
-      "name": "TIE/fo Fighter",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_TIEfo.png"
-    },
-    "tiesffighter": {
-      "name": "TIE/sf Fighter",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_TIEsf.png"
-    },
-    "tievnsilencer": {
-      "name": "TIE/vn Silencer",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_TIESilencer.png"
-    },
-    "upsilonclassshuttle": {
-      "name": "Upsilon-class command shuttle",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_UpsilonShuttle.png"
-    },
-    "xiclasslightshuttle": {
-      "name": "Xi-class Light Shuttle",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Xi-class_Shuttle.png"
-    },
-    "tiesebomber": {
-      "name": "TIE/se Bomber",
-      "icon": "???"
-    },
-    "tiewiwhispermodifiedinterceptor": {
-      "name": "TIE/wi Whisper Modified Interceptor",
-      "icon": "???"
-    },
-    "delta7aethersprite": {
-      "name": "Delta-7 Aethersprite",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Delta-7.png"
-    },
-    "delta7baethersprite": {
-      "name": "Delta-7B Aethersprite",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Delta-7.png"
-    },
-    "v19torrentstarfighter": {
-      "name": "V-19 Torrent Starfighter",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_V-19Torrent.png"
-    },
-    "nabooroyaln1starfighter": {
-      "name": "Naboo Royal N-1 Starfighter",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Royal_Naboo_N-1_Starfighter.png"
-    },
-    "btlbywing": {
-      "name": "BTL-B Y-wing",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_BTL-B_Ywing.png"
-    },
-    "eta2actis": {
-      "name": "Eta-2 Actis",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Eta-2_Actis.png"
-    },
-    "laatigunship": {
-      "name": "LAAT/i Gunship",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_LAAT_Republic_Gunship.png"
-    },
-    "nimbusclassvwing": {
-      "name": "Nimbus-class V-wing",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Nimbus-class_V-wing.png"
-    },
-    "syliureclasshyperspacering": {
-      "name": "Syliure-class Hyperspace Ring",
-      "icon": "https://infinitearenas.com/xw2/images/shipicons/galactic-republic/I_Syliure-class_Hyperspace_Ring.png"
-    },
-    "clonez95headhunter": {
-      "name": "Clone Z-95 Headhunter",
-      "icon": "???"
-    },
-    "vultureclassdroidfighter": {
-      "name": "Vulture-class Droid Fighter",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_VultureDroid.png"
-    },
-    "belbullab22starfighter": {
-      "name": "Belbullab-22 Starfighter",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Belbullab-22.png"
-    },
-    "sithinfiltrator": {
-      "name": "Sith Infiltrator",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_SithInfiltrator.png"
-    },
-    "hyenaclassdroidbomber": {
-      "name": "Hyena-class Droid Bomber",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Hyena.png"
-    },
-    "nantexclassstarfighter": {
-      "name": "Nantex-class Starfighter",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Nantex_Class_Starfighter.png"
-    },
-    "droidtrifighter": {
-      "name": "Droid Tri-Fighter",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Droid_Tri-Fighter.png"
-    },
-    "hmpdroidgunship": {
-      "name": "HMP Droid Gunship",
-      "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_HMP_Droid_Gunship.png"
-    }
+    "asf01bwing": "A/SF-01 B-wing",
+    "arc170starfighter": "ARC-170 Starfighter",
+    "attackshuttle": "Attack Shuttle",
+    "auzituckgunship": "Auzituck Gunship",
+    "btla4ywing": "BTL-A4 Y-wing",
+    "btls8kwing": "BTL-S8 K-wing",
+    "cr90corelliancorvette": "CR90 Corellian Corvette",
+    "ewing": "E-wing",
+    "fangfighter": "Fang Fighter",
+    "gauntletfighter": "Gauntlet Fighter",
+    "gr75mediumtransport": "GR-75 Medium Transport",
+    "hwk290lightfreighter": "HWK-290 Light Freighter",
+    "modifiedyt1300lightfreighter": "Modified YT-1300 Light Freighter",
+    "rz1awing": "RZ-1 A-wing",
+    "sheathipedeclassshuttle": "Sheathipede-class Shuttle",
+    "t65xwing": "T-65 X-wing",
+    "tielnfighter": "TIE/ln Fighter",
+    "ut60duwing": "UT-60D U-wing",
+    "vcx100lightfreighter": "VCX-100 Light Freighter",
+    "yt2400lightfreighter": "YT-2400 Light Freighter",
+    "z95af4headhunter": "Z-95-AF4 Headhunter",
+    "alphaclassstarwing": "Alpha-class Star Wing",
+    "gozanticlasscruiser": "Gozanti-class Cruiser",
+    "lambdaclasst4ashuttle": "Lambda-class T-4a Shuttle",
+    "raiderclasscorvette": "Raider-class Corvette",
+    "tieadvancedv1": "TIE Advanced v1",
+    "tieadvancedx1": "TIE Advanced x1",
+    "tieininterceptor": "TIE/in Interceptor",
+    "tiereaper": "TIE Reaper",
+    "tieddefender": "TIE/D Defender",
+    "tieagaggressor": "TIE/ag Aggressor",
+    "tiecapunisher": "TIE/ca Punisher",
+    "tiephphantom": "TIE/ph Phantom",
+    "tiesabomber": "TIE/sa Bomber",
+    "tieskstriker": "TIE/sk Striker",
+    "vt49decimator": "VT-49 Decimator",
+    "tierbheavy": "TIE/rb Heavy",
+    "aggressorassaultfighter": "Aggressor Assault Fighter",
+    "croccruiser": "C-ROC Cruiser",
+    "customizedyt1300lightfreighter": "Customized YT-1300 Light Freighter",
+    "escapecraft": "Escape Craft",
+    "firesprayclasspatrolcraft": "Firespray-class Patrol Craft",
+    "g1astarfighter": "G-1A Starfighter",
+    "jumpmaster5000": "JumpMaster 5000",
+    "kihraxzfighter": "Kihraxz Fighter",
+    "lancerclasspursuitcraft": "Lancer-class Pursuit Craft",
+    "m12lkimogilafighter": "M12-L Kimogila Fighter",
+    "m3ainterceptor": "M3-A Interceptor",
+    "modifiedtielnfighter": "Modified TIE/ln Fighter",
+    "quadrijettransferspacetug": "Quadrijet Transfer Spacetug",
+    "rogueclassstarfighter": "Rogue-class Starfighter",
+    "scurrgh6bomber": "Scurrg H-6 bomber",
+    "st70assaultship": "ST-70 Assault Ship",
+    "starviperclassattackplatform": "StarViper-class Attack Platform",
+    "tridentclassassaultship": "Trident-Class Assault Ship",
+    "yv666lightfreighter": "YV-666 Light Freighter",
+    "mg100starfortress": "MG-100 StarFortress",
+    "scavengedyt1300": "Scavenged YT-1300",
+    "rz2awing": "RZ-2 A-wing",
+    "t70xwing": "T-70 X-wing",
+    "resistancetransport": "Resistance Transport",
+    "resistancetransportpod": "Resistance Transport Pod",
+    "fireball": "Fireball",
+    "btanr2ywing": "BTA-NR2 Y-Wing",
+    "tiebainterceptor": "TIE/ba Interceptor",
+    "tiefofighter": "TIE/fo Fighter",
+    "tiesffighter": "TIE/sf Fighter",
+    "tievnsilencer": "TIE/vn Silencer",
+    "upsilonclassshuttle": "Upsilon-class command shuttle",
+    "xiclasslightshuttle": "Xi-class Light Shuttle",
+    "tiesebomber": "TIE/se Bomber",
+    "tiewiwhispermodifiedinterceptor": "TIE/wi Whisper Modified Interceptor",
+    "delta7aethersprite": "Delta-7 Aethersprite",
+    "delta7baethersprite": "Delta-7B Aethersprite",
+    "v19torrentstarfighter": "V-19 Torrent Starfighter",
+    "nabooroyaln1starfighter": "Naboo Royal N-1 Starfighter",
+    "btlbywing": "BTL-B Y-wing",
+    "eta2actis": "Eta-2 Actis",
+    "laatigunship": "LAAT/i Gunship",
+    "nimbusclassvwing": "Nimbus-class V-wing",
+    "syliureclasshyperspacering": "Syliure-class Hyperspace Ring",
+    "clonez95headhunter": "Clone Z-95 Headhunter",
+    "vultureclassdroidfighter": "Vulture-class Droid Fighter",
+    "belbullab22starfighter": "Belbullab-22 Starfighter",
+    "sithinfiltrator": "Sith Infiltrator",
+    "hyenaclassdroidbomber": "Hyena-class Droid Bomber",
+    "nantexclassstarfighter": "Nantex-class Starfighter",
+    "droidtrifighter": "Droid Tri-Fighter",
+    "hmpdroidgunship": "HMP Droid Gunship"
   },
   "pilot": {
     "bladesquadronveteran": "Blade Squadron Veteran",

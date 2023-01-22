@@ -1,4 +1,4 @@
-import { getPilotName, getUpgradeName } from 'lib/get-value';
+import { getPilotName, getShipName, getUpgradeName } from 'lib/get-value';
 import type { XWSSquad, XWSUpgrades } from 'lib/types';
 
 const upgradesToList = (upgrades: XWSUpgrades) =>
@@ -18,7 +18,10 @@ export const Squad = ({ xws }: SquadProps) => {
     <div>
       {pilots.map(({ id, ship, upgrades }, idx) => (
         <div key={`${id}-${idx}`} className="pb-4">
-          <div className="prose font-semibold text-secondary-900">
+          <div
+            className="flex items-center pb-1 font-semibold text-secondary-900"
+            title={`Ship: ${getShipName(ship) || ship}`}
+          >
             {getPilotName(id) || id}
           </div>
           <div className="prose text-sm text-secondary-500">
