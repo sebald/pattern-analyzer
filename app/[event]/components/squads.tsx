@@ -7,13 +7,18 @@ import { useFilter } from './filter-context';
 
 const match = (
   search: string,
-  { xws, player }: { xws: XWSSquad; player: string }
+  { xws, raw, player }: { xws: XWSSquad | null; raw: string; player: string }
 ) => {
   const needle = search.toLocaleLowerCase().replace(/\s\'/g, '');
 
   // Search matches player name
   if (player.toLocaleLowerCase().includes(needle)) {
     return true;
+  }
+
+  // No XWS, use raw value :-/
+  if (!xws) {
+    return raw.toLocaleLowerCase().includes(needle);
   }
 
   const result = xws.pilots.find(pilot => {
@@ -34,8 +39,8 @@ const match = (
 export interface SquadsProps {
   squads: {
     id: string;
-    url: string;
-    xws: XWSSquad;
+    url: string | null;
+    xws: XWSSquad | null;
     raw: string;
     player: string;
   }[];
@@ -43,11 +48,12 @@ export interface SquadsProps {
 
 export const Squads = ({ squads }: SquadsProps) => {
   const { faction, query } = useFilter();
-  const filtered = squads.filter(({ xws, player }) => {
-    const hasFaction = faction === 'all' ? true : xws.faction === faction;
+  const filtered = squads.filter(({ xws, player, raw }) => {
+    const hasFaction = faction === 'all' ? true : xws?.faction === faction;
 
     // Only filter if query has least two letters
-    const hasMatch = query.length < 2 ? true : match(query, { xws, player });
+    const hasMatch =
+      query.length < 2 ? true : match(query, { xws, player, raw });
 
     return hasFaction && hasMatch;
   });
@@ -71,14 +77,22 @@ export const Squads = ({ squads }: SquadsProps) => {
       {filtered.map(squad => (
         <Card key={squad.id}>
           <Card.Body>
-            <Squad xws={squad.xws} />
+            {squad.xws ? (
+              <Squad xws={squad.xws} />
+            ) : (
+              <div className="whitespace-pre-wrap break-words text-sm text-secondary-500">
+                {squad.raw}
+              </div>
+            )}
           </Card.Body>
           <Card.Footer>
             <div className="flex items-center justify-between gap-2 px-1 pt-1 text-xs text-secondary-300">
               <div>by {squad.player}</div>
-              <Link className="text-right" href={squad.url} target="_blank">
-                View in YASB
-              </Link>
+              {squad.url && (
+                <Link className="text-right" href={squad.url} target="_blank">
+                  View in YASB
+                </Link>
+              )}
             </div>
           </Card.Footer>
         </Card>

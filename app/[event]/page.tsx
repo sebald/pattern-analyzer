@@ -32,27 +32,7 @@ export interface PageProps {
 // ---------------
 const Page = async ({ params }: PageProps) => {
   const { title, url, squads } = await getEvent(params.event);
-  const squadsWithXWS = squads.filter(item => Boolean(item.xws)) as {
-    id: string;
-    url: string;
-    xws: XWSSquad;
-    raw: string;
-    player: string;
-  }[];
-
-  if (squadsWithXWS.length === 0) {
-    return (
-      <div className="pt-4">
-        <Center>
-          <Message>
-            <strong>No list founds.</strong>
-            <br />
-            Looks like the event has no squads including a links to YASB.
-          </Message>
-        </Center>
-      </div>
-    );
-  }
+  const squadsWithXWS = squads.filter(item => Boolean(item.xws)).length;
 
   return (
     <main className="p-4">
@@ -62,13 +42,13 @@ const Page = async ({ params }: PageProps) => {
           <Link href={url} target="_blank">
             Event #{params.event}
           </Link>{' '}
-          ({squadsWithXWS.length}/{squads.length} squads parsed)
+          ({squadsWithXWS}/{squads.length} squads parsed)
         </Caption>
       </div>
       <Container>
         <FilterProvider>
           <Filter />
-          <Squads squads={squadsWithXWS} />
+          <Squads squads={squads} />
         </FilterProvider>
       </Container>
     </main>
