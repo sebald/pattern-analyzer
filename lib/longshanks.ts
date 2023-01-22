@@ -33,7 +33,7 @@ export const parseSquads = ($: CheerioAPI) =>
       const player = $('.player_link', el).first().text();
 
       const list = $('[id^=list_]', el);
-      const id = list.attr('id');
+      const id = list.attr('id')!;
       const raw = list.attr('value') || '';
 
       /**
