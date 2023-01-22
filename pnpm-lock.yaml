@@ -22,8 +22,8 @@ specifiers:
   typescript: 4.9.4
   use-debounce: 9.0.3
   xwing-data2: github:guidokessels/xwing-data2#f1e22d9
-  yasb: github:raithos/xwing#52ce707
-  zx: ^7.1.1
+  yasb: github:raithos/xwing#eeb77d6
+  zx: 7.1.1
 
 dependencies:
   '@next/font': 13.1.2
@@ -49,7 +49,7 @@ devDependencies:
   tailwindcss: 3.2.4_postcss@8.4.21
   typescript: 4.9.4
   xwing-data2: github.com/guidokessels/xwing-data2/f1e22d9
-  yasb: github.com/raithos/xwing/52ce707
+  yasb: github.com/raithos/xwing/eeb77d6
   zx: 7.1.1
 
 packages:
@@ -2851,8 +2851,8 @@ packages:
       string-math: 1.2.2
     dev: true
 
-  github.com/raithos/xwing/52ce707:
-    resolution: {tarball: https://codeload.github.com/raithos/xwing/tar.gz/52ce707}
+  github.com/raithos/xwing/eeb77d6:
+    resolution: {tarball: https://codeload.github.com/raithos/xwing/tar.gz/eeb77d6}
     name: yasb
     version: 2.5.0
     dev: true
