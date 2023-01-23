@@ -18,6 +18,14 @@ export interface Upgrade {
   name: string;
 }
 
+export interface SquadsData {
+  id: string;
+  url: string | null;
+  xws: XWSSquad | null;
+  raw: string;
+  player: string;
+}
+
 // XWS
 // ---------------
 export type XWSFaction =

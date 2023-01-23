@@ -94,7 +94,7 @@ const Page = async ({ params }: PageProps) => {
             <Filter />
             <Squads squads={squads} />
           </FilterProvider>
-          <Stats />
+          <Stats squads={squads} />
         </Tabs>
       </Container>
     </main>
