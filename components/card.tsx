@@ -1,3 +1,13 @@
+// Card.Title
+// ---------------
+export interface CardTitleProps {
+  children: React.ReactNode;
+}
+
+const CardTitle = ({ children }: CardTitleProps) => (
+  <div className="prose text-center text-lg font-bold">{children}</div>
+);
+
 // Card.Body
 // ---------------
 export interface CardBodyProps {
@@ -30,5 +40,6 @@ export const Card = ({ children }: CardProps) => (
   </div>
 );
 
+Card.Title = CardTitle;
 Card.Body = CardBody;
 Card.Footer = CardFooter;
