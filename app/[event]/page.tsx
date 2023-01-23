@@ -39,7 +39,7 @@ const Page = async ({ params }: PageProps) => {
   return (
     <main className="p-4">
       <Container>
-        <header className="mb-8 border-b border-b-primary-100 pb-6 md:mb-24">
+        <header className="mb-8 md:mt-3 md:mb-10">
           <Title>{title || `Event #${params.event}`}</Title>
           <Caption>
             <Link href={url} target="_blank">
