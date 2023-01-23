@@ -1,4 +1,4 @@
-export interface LabelProps extends React.ComponentPropsWithRef<'label'> {
+export interface LabelProps extends React.ComponentPropsWithoutRef<'label'> {
   children: React.ReactNode;
 }
 

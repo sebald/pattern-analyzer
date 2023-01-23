@@ -6,7 +6,7 @@ export interface TitleProps {
 
 export const Title = ({ children }: TitleProps) => (
   <h1
-    className={`${montserrat.className} text-2xl font-extrabold uppercase text-primary-800 sm:text-3xl`}
+    className={`${montserrat.className} text-3xl font-extrabold uppercase text-primary-800 md:text-5xl md:tracking-wide`}
   >
     {children}
   </h1>

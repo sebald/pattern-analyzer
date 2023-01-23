@@ -35,6 +35,9 @@ module.exports = {
         },
       },
     },
+    data: {
+      active: 'state~="active"',
+    },
   },
   plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')],
 };
