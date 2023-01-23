@@ -44,7 +44,7 @@ export const Stats = ({ squads }: StatsProps) => {
 
   return (
     <div className="flex">
-      <div className="w-2/5 sm:w-full">
+      <div className="w-full md:w-2/5">
         <FactionDoughnut value={data.factionDistribution} />
       </div>
       <div>hello</div>
