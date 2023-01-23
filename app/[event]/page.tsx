@@ -1,7 +1,6 @@
 import { RECENT_EVENTS } from 'app/preload';
-import { Caption, Center, Container, Link, Message, Title } from 'components';
+import { Caption, Container, Link, Title } from 'components';
 import { getEvent } from 'lib/longshanks';
-import type { XWSSquad } from 'lib/types';
 
 import { Filter } from './components/filter';
 import { FilterProvider } from './components/filter-context';
