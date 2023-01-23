@@ -24,15 +24,15 @@ export const Tabs = ({ labels, children }: TabsProps) => {
   return (
     <Radix.Root defaultValue={tabs[0].id}>
       <Radix.List
-        className="-mb-px flex items-center gap-4 border-b border-b-primary-100 text-sm font-medium"
+        className="-mb-px flex items-center gap-4 border-b border-b-primary-200 text-sm font-medium"
         aria-label="Switch content"
       >
         {tabs.map(({ id, label }) => (
           <Radix.Trigger
             className={[
               montserrat.className,
-              'relative inline-flex cursor-pointer items-center gap-2 px-5 py-3 text-xl font-medium text-primary-600 hover:text-primary-700',
-              'data-active:text-primary-700 data-active:after:absolute data-active:after:left-0 data-active:after:-bottom-0.5 data-active:after:h-0.5 data-active:after:w-full data-active:after:bg-primary-700',
+              'relative inline-flex cursor-pointer items-center gap-2 px-5 py-3 text-xl font-medium text-primary-400 hover:text-primary-700',
+              'data-active:text-primary-700 data-active:after:absolute data-active:after:left-0 data-active:after:bottom-[-1px] data-active:after:h-0.5 data-active:after:w-full data-active:after:bg-primary-700',
             ].join(' ')}
             key={`${id}-tab`}
             value={id}
