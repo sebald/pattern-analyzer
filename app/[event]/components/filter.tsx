@@ -12,7 +12,7 @@ export const Filter = () => {
   const debounce = useDebouncedCallback(filter.setQuery, 150);
 
   return (
-    <div className="flex flex-col items-end justify-end gap-2 pb-8 sm:flex-row sm:items-center sm:gap-4">
+    <div className="flex flex-row items-end justify-end gap-2 pb-8 sm:gap-4">
       <SearchField
         size="small"
         aria-label="Search"

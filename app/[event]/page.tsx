@@ -38,16 +38,16 @@ const Page = async ({ params }: PageProps) => {
 
   return (
     <main className="p-4">
-      <div className="px-4 pb-10 md:pb-12 lg:px-0">
-        <Title>{title || `Event #${params.event}`}</Title>
-        <Caption>
-          <Link href={url} target="_blank">
-            Event #{params.event}
-          </Link>{' '}
-          ({squadsWithXWS}/{squads.length} squads parsed)
-        </Caption>
-      </div>
       <Container>
+        <header className="mb-8 border-b border-b-primary-100 pb-6 md:mb-24">
+          <Title>{title || `Event #${params.event}`}</Title>
+          <Caption>
+            <Link href={url} target="_blank">
+              Event #{params.event}
+            </Link>{' '}
+            ({squadsWithXWS}/{squads.length} squads parsed)
+          </Caption>
+        </header>
         <Tabs labels={['Squads', 'Stats']}>
           <FilterProvider>
             <Filter />

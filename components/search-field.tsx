@@ -69,7 +69,7 @@ export const SearchField = ({
   const id = useId();
 
   return (
-    <div>
+    <div className="flex-1 sm:flex-none">
       {label && <Label htmlFor={id}>{label}</Label>}
       <div className="relative">
         <SearchIcon />
