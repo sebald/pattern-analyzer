@@ -9,38 +9,35 @@ import * as Radix from '@radix-ui/react-tabs';
 import React from 'react';
 
 export interface TabsProps {
-  labels: string[];
+  labels: { content: React.ReactNode; id: string }[];
+  defaultTab?: string;
   children?: React.ReactNode;
 }
 
-export const Tabs = ({ labels, children }: TabsProps) => {
-  const tabs = labels.map(label => ({
-    id: label.toLocaleLowerCase().replace(/\s/g, '-'),
-    label,
-  }));
+export const Tabs = ({ labels, defaultTab, children }: TabsProps) => {
   const content = React.Children.toArray(children);
 
   return (
-    <Radix.Root defaultValue={tabs[0].id}>
+    <Radix.Root defaultValue={defaultTab}>
       <Radix.List
-        className="flex items-center gap-3 rounded-xl border border-secondary-100 bg-white/50 py-2 px-2 text-sm font-medium"
+        className="flex items-center gap-2 text-sm font-medium"
         aria-label="Switch between content"
       >
-        {tabs.map(({ id, label }) => (
+        {labels.map(({ id, content }) => (
           <Radix.Trigger
             className={[
-              'flex-1 cursor-pointer rounded-lg px-5 py-2 text-secondary-400 hover:bg-primary-50 hover:text-primary-700 hover:shadow-sm md:flex-initial',
-              'data-active:bg-primary-200 data-active:text-primary-900 data-active:shadow-sm',
+              'flex flex-1 cursor-pointer items-center gap-1 rounded-lg bg-primary-100 px-24 py-2 text-primary-500 hover:bg-primary-200 hover:text-primary-800 lg:flex-initial',
+              'data-active:bg-primary-300 data-active:text-primary-800',
             ].join(' ')}
             key={`${id}-tab`}
             value={id}
           >
-            {label}
+            {content}
           </Radix.Trigger>
         ))}
       </Radix.List>
       <div className="pt-20">
-        {tabs.map(({ id }, idx) => (
+        {labels.map(({ id }, idx) => (
           <Radix.Content key={`${id}-content`} value={id}>
             {content[idx]}
           </Radix.Content>
