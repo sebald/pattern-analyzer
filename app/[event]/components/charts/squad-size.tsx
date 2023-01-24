@@ -14,7 +14,7 @@ export interface SquadSizeProps {
   total: number;
 }
 
-export const SquadSize = ({ value }: SquadSizeProps) => {
+export const SquadSize = ({ value, total }: SquadSizeProps) => {
   const data = Object.entries(value)
     .map(([size, count]) => ({
       size,
@@ -23,6 +23,14 @@ export const SquadSize = ({ value }: SquadSizeProps) => {
     // Start with lowest ...
     .reverse();
 
+  // Calculate weighted mean
+  const weightedMean = (
+    Object.entries(value).reduce((mean, [size, count]) => {
+      mean = mean + Number(size) * count;
+      return mean;
+    }, 0) / total
+  ).toFixed(2);
+  console.log(data);
   return (
     <Card>
       <Card.Title>Squad Size*</Card.Title>
@@ -33,11 +41,13 @@ export const SquadSize = ({ value }: SquadSizeProps) => {
           keys={['3', '4', '5', '6', '7', '8']}
           markers={[
             {
-              axis: 'y',
-              value: 300,
-              lineStyle: { stroke: 'rgba(0, 0, 0, .35)', strokeWidth: 2 },
-              legend: 'y marker at 300',
-              legendOrientation: 'vertical',
+              axis: 'x',
+              value: weightedMean,
+              lineStyle: { stroke: '#475569', strokeWidth: 1 },
+              textStyle: { fontSize: 12 },
+              legend: `average ship count`,
+              legendOrientation: 'horizontal',
+              legendPosition: 'bottom-right',
             },
           ]}
           layout="horizontal"
