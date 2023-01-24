@@ -102,5 +102,6 @@ const Nivio = () => (
     ]}
     animate
     activeOuterRadiusOffset={8}
+    innerRadius={0.6}
   />
 );
