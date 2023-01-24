@@ -42,7 +42,7 @@ export const FactionDistribution = ({ value }: FactionDistributionProps) => {
   return (
     <Card>
       <Card.Title>Faction Distribution</Card.Title>
-      <div className="h-72">
+      <div className="h-60 md:h-72">
         <ResponsivePie
           data={data}
           valueFormat={value =>
@@ -63,7 +63,7 @@ export const FactionDistribution = ({ value }: FactionDistributionProps) => {
         />
       </div>
       <Card.Footer>
-        <div className="grid grid-cols-3 gap-1 px-2 pt-2">
+        <div className="grid grid-cols-2 gap-1 px-2 pt-2 sm:grid-cols-3">
           {data.map(({ id, value, color }) => (
             <div
               key={id}
