@@ -20,13 +20,13 @@ const FACTION_COLORS: { [key in XWSFaction | 'unknown']: string } = {
 
 // Props
 // ---------------
-export interface FactionDonutProps {
+export interface FactionDistributionProps {
   value: { [key in XWSFaction | 'unknown']: number };
 }
 
 // Component
 // ---------------
-export const FactionDonut = ({ value }: FactionDonutProps) => {
+export const FactionDistribution = ({ value }: FactionDistributionProps) => {
   const data = (
     Object.entries(value) as [XWSFaction | 'unknown', number][]
   ).map(([faction, count]) => {
@@ -78,23 +78,3 @@ export const FactionDonut = ({ value }: FactionDonutProps) => {
     </Card>
   );
 };
-
-// const data = Object.entries(value).reduce(
-//   (o, [faction, count]) => {
-//     o.labels!.push(
-//       faction === 'unknown' ? 'Unknown' : getFactionName(faction as any)
-//     );
-//     o.datasets[0].data.push(count);
-
-//     // @ts-expect-error
-//     o.datasets[0].backgroundColor.push(FACTION_COLORS[faction as any]);
-
-//     return o;
-//   },
-//   {
-//     labels: [],
-//     datasets: [{ data: [], backgroundColor: [] }],
-//   } as any
-// );
-// const total = Object.values(value).reduce((t, val) => t + val, 0);
-// console.log(value);

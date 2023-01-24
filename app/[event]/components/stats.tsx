@@ -1,7 +1,7 @@
 'use client';
 
 import { SquadsData } from 'lib/types';
-import { FactionDonut } from './charts';
+import { FactionDistribution } from './charts/faction-distribution';
 
 // Hook
 // ---------------
@@ -43,9 +43,7 @@ export const Stats = ({ squads }: StatsProps) => {
 
   return (
     <div className="grid auto-rows-fr grid-cols-[repeat(auto-fit,_minmax(min(350px,_100%),_1fr))] gap-4">
-      <div className="">
-        <FactionDonut value={data.factionDistribution} />
-      </div>
+      <FactionDistribution value={data.factionDistribution} />
       <div className="h-72 bg-green-300">asd</div>
     </div>
   );
