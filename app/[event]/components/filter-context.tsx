@@ -1,6 +1,5 @@
 'use client';
 
-import { Factions } from 'lib/get-value';
 import {
   createContext,
   Dispatch,
@@ -9,8 +8,7 @@ import {
   useContext,
   useState,
 } from 'react';
-
-export type FactionOptions = 'all' | Factions;
+import type { FactionOptions } from 'lib/types';
 
 const Context = createContext<{
   faction: FactionOptions;
