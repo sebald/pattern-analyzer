@@ -22,11 +22,15 @@ const FACTION_COLORS: { [key in XWSFaction | 'unknown']: string } = {
 // ---------------
 export interface FactionDistributionProps {
   value: { [key in XWSFaction | 'unknown']: number };
+  total: number;
 }
 
 // Component
 // ---------------
-export const FactionDistribution = ({ value }: FactionDistributionProps) => {
+export const FactionDistribution = ({
+  value,
+  total,
+}: FactionDistributionProps) => {
   const data = (
     Object.entries(value) as [XWSFaction | 'unknown', number][]
   ).map(([faction, count]) => {
@@ -37,7 +41,6 @@ export const FactionDistribution = ({ value }: FactionDistributionProps) => {
       color: FACTION_COLORS[faction],
     };
   });
-  const total = Object.values(value).reduce((t, val) => t + val, 0);
 
   return (
     <Card>
