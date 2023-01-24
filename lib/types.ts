@@ -1,5 +1,3 @@
-import type { Factions } from './get-value';
-
 // Data
 // ---------------
 export interface Ship {
@@ -27,8 +25,6 @@ export interface SquadsData {
   raw: string;
   player: string;
 }
-
-export type FactionOptions = 'all' | Factions;
 
 // XWS
 // ---------------

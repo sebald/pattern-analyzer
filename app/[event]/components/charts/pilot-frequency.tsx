@@ -14,7 +14,7 @@ export interface PilotFrequencyProps {
 }
 
 export const PilotFrequency = ({ value }: PilotFrequencyProps) => {
-  const [] = useState();
+  const [] = useState('re');
 
   return (
     <Card>
