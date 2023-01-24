@@ -38,7 +38,7 @@ export const FactionDonut = ({ value }: FactionDonutProps) => {
     };
   });
   const total = Object.values(value).reduce((t, val) => t + val, 0);
-  console.log(data);
+
   return (
     <Card>
       <Card.Title>Faction Distribution</Card.Title>
@@ -62,7 +62,19 @@ export const FactionDonut = ({ value }: FactionDonutProps) => {
           animate
         />
       </div>
-      <Card.Footer>write down numbers</Card.Footer>
+      <Card.Footer>
+        <div className="grid grid-cols-3 gap-1 px-2 pt-2">
+          {data.map(({ id, value, color }) => (
+            <div
+              key={id}
+              className="flex items-center gap-0.5 text-xs text-secondary-900"
+            >
+              <div className="h-2 w-2" style={{ background: color }} />
+              {id}: {value}
+            </div>
+          ))}
+        </div>
+      </Card.Footer>
     </Card>
   );
 };
