@@ -1,10 +1,7 @@
 'use client';
 
-import { ResponsivePie } from '@nivo/pie';
-
 import { SquadsData } from 'lib/types';
-
-import { FactionDoughnut } from './charts';
+import { FactionDonut } from './charts';
 
 // Hook
 // ---------------
@@ -47,7 +44,7 @@ export const Stats = ({ squads }: StatsProps) => {
   return (
     <div className="grid auto-rows-fr grid-cols-[repeat(auto-fit,_minmax(min(350px,_100%),_1fr))] gap-4">
       <div className="">
-        <FactionDoughnut />
+        <FactionDonut value={data.factionDistribution} />
       </div>
       <div className="h-72 bg-green-300">asd</div>
     </div>
