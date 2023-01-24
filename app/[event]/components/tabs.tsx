@@ -20,7 +20,7 @@ export const Tabs = ({ labels, defaultTab, children }: TabsProps) => {
   return (
     <Radix.Root defaultValue={defaultTab}>
       <Radix.List
-        className="flex items-center gap-2 text-sm font-medium"
+        className="flex flex-col items-stretch gap-2 text-sm font-medium md:flex-row md:items-center"
         aria-label="Switch between content"
       >
         {labels.map(({ id, content }) => (
