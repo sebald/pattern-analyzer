@@ -1,9 +1,11 @@
 'use client';
 
+import { ResponsivePie } from '@nivo/pie';
+
 import { getFactionName } from 'lib/get-value';
 import { XWSFaction } from 'lib/types';
 import { Card } from 'components';
-import { ResponsivePie } from '@nivo/pie';
+import { toPercentage } from './shared';
 
 // Helpers
 // ---------------
@@ -48,13 +50,7 @@ export const FactionDistribution = ({
       <div className="h-60 md:h-72">
         <ResponsivePie
           data={data}
-          valueFormat={value =>
-            new Intl.NumberFormat('default', {
-              style: 'percent',
-              minimumFractionDigits: 2,
-              maximumFractionDigits: 2,
-            }).format(value / total)
-          }
+          valueFormat={value => toPercentage(value / total)}
           isInteractive={false}
           margin={{ top: 20, right: 20, bottom: 40, left: 20 }}
           colors={{ datum: 'data.color' }}
@@ -66,7 +62,7 @@ export const FactionDistribution = ({
         />
       </div>
       <Card.Footer>
-        <div className="grid grid-cols-2 gap-1 px-2 pt-2 sm:grid-cols-3">
+        <div className="grid grid-cols-2 gap-1 px-2 pt-2 lg:grid-cols-3">
           {data.map(({ id, value, color }) => (
             <div
               key={id}

@@ -1,7 +1,10 @@
 import { ResponsiveBar } from '@nivo/bar';
 
 import { Card } from 'components';
+import { FooterHint, toPercentage } from './shared';
 
+// Props
+// ---------------
 export interface SquadSizeProps {
   value: {
     3: number;
@@ -14,8 +17,21 @@ export interface SquadSizeProps {
   total: number;
 }
 
+const COLOR_MAP = {
+  3: '#e5ecfa',
+  4: '#d0dcf5',
+  5: '#b4c5ed',
+  6: '#96a6e3',
+  7: '#8490db',
+  8: '#6167ca',
+};
+
+// Components
+// ---------------
 export const SquadSize = ({ value, total }: SquadSizeProps) => {
-  const data = Object.entries(value)
+  const data = (
+    Object.entries(value) as ['3' | '4' | '5' | '6' | '7' | '8', number][]
+  )
     .map(([size, count]) => ({
       size,
       [size]: count,
@@ -23,14 +39,13 @@ export const SquadSize = ({ value, total }: SquadSizeProps) => {
     // Start with lowest ...
     .reverse();
 
-  // Calculate weighted mean
-  const weightedMean = (
+  // Calculate weighted mean of ships
+  const shipAverage =
     Object.entries(value).reduce((mean, [size, count]) => {
       mean = mean + Number(size) * count;
       return mean;
-    }, 0) / total
-  ).toFixed(2);
-  console.log(data);
+    }, 0) / total;
+
   return (
     <Card>
       <Card.Title>Squad Size*</Card.Title>
@@ -39,23 +54,24 @@ export const SquadSize = ({ value, total }: SquadSizeProps) => {
           data={data}
           indexBy="size"
           keys={['3', '4', '5', '6', '7', '8']}
-          markers={[
-            {
-              axis: 'x',
-              value: weightedMean,
-              lineStyle: { stroke: '#475569', strokeWidth: 1 },
-              textStyle: { fontSize: 12 },
-              legend: `average ship count`,
-              legendOrientation: 'horizontal',
-              legendPosition: 'bottom-right',
-            },
-          ]}
+          valueFormat={value =>
+            value === 0 ? '' : `${value} (${toPercentage(value / total)})`
+          }
           layout="horizontal"
           enableGridY={false}
           enableGridX={true}
-          colors={{ scheme: 'blue_purple' }}
+          colors={({ data }) => COLOR_MAP[data.size]}
+          margin={{ top: 20, right: 30, bottom: 20, left: 30 }}
+          animate
+          isInteractive={false}
         />
       </div>
+      <div className="text-center text-sm font-semibold">
+        Average Ship Count: {shipAverage.toFixed(1)}
+      </div>
+      <Card.Footer>
+        <FooterHint />
+      </Card.Footer>
     </Card>
   );
 };

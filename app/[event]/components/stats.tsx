@@ -68,7 +68,7 @@ export const Stats = ({ squads }: StatsProps) => {
   const data = useSquadStats({ squads });
 
   return (
-    <div className="grid auto-rows-fr grid-cols-[repeat(auto-fit,_minmax(min(350px,_100%),_1fr))] gap-4">
+    <div className="grid auto-rows-fr grid-cols-[repeat(auto-fit,_minmax(min(400px,_100%),_1fr))] gap-4">
       <FactionDistribution
         value={data.factionDistribution}
         total={data.numberOfSquads.total}
