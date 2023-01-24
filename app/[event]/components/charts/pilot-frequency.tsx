@@ -1,5 +1,8 @@
 import { useState } from 'react';
-import { Card } from 'components';
+
+import { Card, Select } from 'components';
+import { getAllFactions } from 'lib/get-value';
+import { XWSFaction } from 'lib/types';
 
 export interface PilotFrequencyProps {
   value: {
@@ -14,12 +17,25 @@ export interface PilotFrequencyProps {
 }
 
 export const PilotFrequency = ({ value }: PilotFrequencyProps) => {
-  const [] = useState('re');
+  const [faction, setFaction] = useState('rebelalliance');
 
   return (
     <Card>
       <Card.Title>Pilot Frequency</Card.Title>
-      <div></div>
+      <div>
+        <Select
+          size="small"
+          aria-label="Faction"
+          value={faction}
+          onChange={e => setFaction(e.target.value as XWSFaction)}
+        >
+          {getAllFactions().map(({ id, name }) => (
+            <Select.Option key={id} value={id}>
+              {name}
+            </Select.Option>
+          ))}
+        </Select>
+      </div>
     </Card>
   );
 };
