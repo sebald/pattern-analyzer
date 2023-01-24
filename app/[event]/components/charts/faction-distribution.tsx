@@ -8,14 +8,14 @@ import { ResponsivePie } from '@nivo/pie';
 // Helpers
 // ---------------
 const FACTION_COLORS: { [key in XWSFaction | 'unknown']: string } = {
-  rebelalliance: '#f87171',
-  galacticempire: '#60a5fa',
-  scumandvillainy: '#fcd34d',
+  rebelalliance: '#fecaca',
+  galacticempire: '#93c5fd',
+  scumandvillainy: '#fde68a',
   resistance: '#fdba74',
-  firstorder: '#ef4444',
-  galacticrepublic: '#fecaca',
-  separatistalliance: '#93c5fd',
-  unknown: '#cbd5e1',
+  firstorder: '#f87171',
+  galacticrepublic: '#fda4af',
+  separatistalliance: '#a5b4fc',
+  unknown: '#e2e8f0',
 };
 
 // Props

@@ -27,6 +27,15 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     unknown: 0,
   };
 
+  const squadSizes = {
+    3: 0,
+    4: 0,
+    5: 0,
+    6: 0,
+    7: 0,
+    8: 0,
+  };
+
   squads.forEach(squad => {
     // Number of Squads with XWS
     if (squad.xws) {
@@ -38,9 +47,13 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     factionDistribution[faction] = factionDistribution[faction] + 1;
 
     // Squad Size
+    if (squad.xws) {
+      const numPilots = squad.xws.pilots.length as 3 | 4 | 5 | 6 | 7 | 8;
+      squadSizes[numPilots] = squadSizes[numPilots] + 1;
+    }
   });
 
-  return { numberOfSquads, factionDistribution };
+  return { numberOfSquads, factionDistribution, squadSizes };
 };
 
 // Props
@@ -60,7 +73,7 @@ export const Stats = ({ squads }: StatsProps) => {
         value={data.factionDistribution}
         total={data.numberOfSquads.total}
       />
-      <SquadSize />
+      <SquadSize value={data.squadSizes} total={data.numberOfSquads.xws} />
     </div>
   );
 };
