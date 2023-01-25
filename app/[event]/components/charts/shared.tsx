@@ -11,3 +11,12 @@ export const toPercentage = (value: number) =>
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   }).format(value);
+
+export const calcWeightedAverage = (
+  map: { [key: number]: number },
+  total: number
+) =>
+  Object.entries(map).reduce((mean, [size, count]) => {
+    mean = mean + Number(size) * count;
+    return mean;
+  }, 0) / total;

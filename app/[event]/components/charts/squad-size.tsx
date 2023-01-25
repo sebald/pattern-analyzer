@@ -1,7 +1,7 @@
 import { ResponsiveBar } from '@nivo/bar';
 
 import { Card } from 'components';
-import { FooterHint, toPercentage } from './shared';
+import { calcWeightedAverage, FooterHint, toPercentage } from './shared';
 
 // Props
 // ---------------
@@ -39,13 +39,6 @@ export const SquadSize = ({ value, total }: SquadSizeProps) => {
     // Start with lowest ...
     .reverse();
 
-  // Calculate weighted mean of ships
-  const shipAverage =
-    Object.entries(value).reduce((mean, [size, count]) => {
-      mean = mean + Number(size) * count;
-      return mean;
-    }, 0) / total;
-
   return (
     <Card>
       <Card.Title>Squad Size*</Card.Title>
@@ -67,7 +60,7 @@ export const SquadSize = ({ value, total }: SquadSizeProps) => {
         />
       </div>
       <div className="text-center text-sm font-semibold">
-        Average Ship Count: {shipAverage.toFixed(1)}
+        Average Ship Count: {calcWeightedAverage(value, total).toFixed(1)}
       </div>
       <Card.Footer>
         <FooterHint />

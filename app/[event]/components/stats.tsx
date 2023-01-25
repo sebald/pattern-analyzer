@@ -3,6 +3,7 @@
 import type { Ships } from 'lib/get-value';
 import type { SquadsData } from 'lib/types';
 import { FactionDistribution } from './charts/faction-distribution';
+import { PilotCostDistribution } from './charts/pilot-cost-distribution';
 import { PilotFrequency } from './charts/pilot-frequency';
 import { SquadSize } from './charts/squad-size';
 
@@ -18,6 +19,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     total: squads.length,
   };
 
+  // Number of squads per faction
   const factionDistribution = {
     rebelalliance: 0,
     galacticempire: 0,
@@ -29,6 +31,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     unknown: 0,
   };
 
+  // Number of ships per squads
   const squadSizes = {
     3: 0,
     4: 0,
@@ -38,6 +41,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     8: 0,
   };
 
+  // How often is a certain pilot included in a list (per faction)
   const pilotFrequency = {
     rebelalliance: new Map<string, { count: number; ship: Ships }>(),
     galacticempire: new Map<string, { count: number; ship: Ships }>(),
@@ -46,6 +50,19 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     firstorder: new Map<string, { count: number; ship: Ships }>(),
     galacticrepublic: new Map<string, { count: number; ship: Ships }>(),
     separatistalliance: new Map<string, { count: number; ship: Ships }>(),
+  };
+
+  // Number of pilots per cost
+  const pilotCostDistribution = {
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+    5: 0,
+    6: 0,
+    7: 0,
+    8: 0,
+    9: 0,
   };
 
   squads.forEach(squad => {
@@ -64,27 +81,37 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
       squadSizes[numPilots] = squadSizes[numPilots] + 1;
     }
 
-    // Frequency of included pilot (separated by faction)
     if (squad.xws && faction !== 'unknown') {
-      const current: string[] = [];
+      const unique: string[] = [];
       squad.xws.pilots.forEach(pilot => {
         // Pilot was already added for this list
-        if (current.includes(pilot.id)) {
+        if (unique.includes(pilot.id)) {
           return;
         }
-        current.push(pilot.id);
+        unique.push(pilot.id);
 
+        // Frequency of included pilot (separated by faction)
         const { count, ship } = pilotFrequency[faction].get(pilot.id) || {
           count: 0,
           ship: pilot.ship,
         };
         pilotFrequency[faction].set(pilot.id, { count: count + 1, ship });
+
+        // Pilot cost distribution
+        const points = pilot.points as 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
+        pilotCostDistribution[points] = pilotCostDistribution[points] + 1;
       });
       faction;
     }
   });
 
-  return { numberOfSquads, factionDistribution, squadSizes, pilotFrequency };
+  return {
+    numberOfSquads,
+    factionDistribution,
+    squadSizes,
+    pilotFrequency,
+    pilotCostDistribution,
+  };
 };
 
 // Props
@@ -114,6 +141,11 @@ export const Stats = ({ squads }: StatsProps) => {
           value={data.pilotFrequency}
           distribution={data.factionDistribution}
         />
+      </div>
+      <div className="md:col-span-6 lg:col-span-8">
+        <div>
+          <PilotCostDistribution value={data.pilotCostDistribution} />
+        </div>
       </div>
     </div>
   );
