@@ -1,6 +1,7 @@
 'use client';
 
-import { SquadsData, XWSFaction } from 'lib/types';
+import type { Ships } from 'lib/get-value';
+import type { SquadsData } from 'lib/types';
 import { FactionDistribution } from './charts/faction-distribution';
 import { PilotFrequency } from './charts/pilot-frequency';
 import { SquadSize } from './charts/squad-size';
@@ -38,13 +39,13 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
   };
 
   const pilotFrequency = {
-    rebelalliance: new Map<string, number>(),
-    galacticempire: new Map<string, number>(),
-    scumandvillainy: new Map<string, number>(),
-    resistance: new Map<string, number>(),
-    firstorder: new Map<string, number>(),
-    galacticrepublic: new Map<string, number>(),
-    separatistalliance: new Map<string, number>(),
+    rebelalliance: new Map<string, { count: number; ship: Ships }>(),
+    galacticempire: new Map<string, { count: number; ship: Ships }>(),
+    scumandvillainy: new Map<string, { count: number; ship: Ships }>(),
+    resistance: new Map<string, { count: number; ship: Ships }>(),
+    firstorder: new Map<string, { count: number; ship: Ships }>(),
+    galacticrepublic: new Map<string, { count: number; ship: Ships }>(),
+    separatistalliance: new Map<string, { count: number; ship: Ships }>(),
   };
 
   squads.forEach(squad => {
@@ -66,15 +67,18 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     // Frequency of included pilot (separated by faction)
     if (squad.xws && faction !== 'unknown') {
       const current: string[] = [];
-      squad.xws.pilots.forEach(({ id }) => {
+      squad.xws.pilots.forEach(pilot => {
         // Pilot was already added for this list
-        if (current.includes(id)) {
+        if (current.includes(pilot.id)) {
           return;
         }
-        current.push(id);
+        current.push(pilot.id);
 
-        const count = pilotFrequency[faction].get(id) || 0;
-        pilotFrequency[faction].set(id, count + 1);
+        const { count, ship } = pilotFrequency[faction].get(pilot.id) || {
+          count: 0,
+          ship: pilot.ship,
+        };
+        pilotFrequency[faction].set(pilot.id, { count: count + 1, ship });
       });
       faction;
     }
@@ -103,8 +107,11 @@ export const Stats = ({ squads }: StatsProps) => {
         />
         <SquadSize value={data.squadSizes} total={data.numberOfSquads.xws} />
       </div>
-      <div>
-        <PilotFrequency value={data.pilotFrequency} />
+      <div className="grid">
+        <PilotFrequency
+          value={data.pilotFrequency}
+          distribution={data.factionDistribution}
+        />
       </div>
     </div>
   );

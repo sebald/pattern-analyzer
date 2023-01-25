@@ -1,3 +1,5 @@
+import type { Ships } from './get-value';
+
 // Data
 // ---------------
 export interface Ship {
@@ -48,7 +50,7 @@ export interface XWSSquad {
 
 export interface XWSPilot {
   id: string;
-  ship: string;
+  ship: Ships;
   points: number;
   upgrades: XWSUpgrades;
 }
