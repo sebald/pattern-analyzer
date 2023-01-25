@@ -99,17 +99,17 @@ export const Stats = ({ squads }: StatsProps) => {
   const data = useSquadStats({ squads });
   console.log(data.pilotFrequency);
   return (
-    <div className="grid grid-cols-12 gap-4">
-      <div className="col-span-6">
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
+      <div className="md:col-span-6">
         <FactionDistribution
           value={data.factionDistribution}
           total={data.numberOfSquads.total}
         />
       </div>
-      <div className="col-span-6">
+      <div className="md:col-span-6">
         <SquadSize value={data.squadSizes} total={data.numberOfSquads.xws} />
       </div>
-      <div className="col-span-4">
+      <div className="md:col-span-6 lg:col-span-4">
         <PilotFrequency
           value={data.pilotFrequency}
           distribution={data.factionDistribution}
@@ -118,3 +118,5 @@ export const Stats = ({ squads }: StatsProps) => {
     </div>
   );
 };
+
+// grid-cols-12 6,6,4
