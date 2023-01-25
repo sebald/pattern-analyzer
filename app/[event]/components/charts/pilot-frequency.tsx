@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
-import { Card, FactionSelection, List } from 'components';
+import { Card, FactionSelection } from 'components';
+import { List } from 'components/list';
 import type { XWSFaction } from 'lib/types';
 import { getPilotName, type Ships } from 'lib/get-value';
 import { ShipIcon } from 'components/ship-icon';
@@ -27,7 +28,7 @@ export const PilotFrequency = ({
     <Card>
       <Card.Title>Pilot Frequency</Card.Title>
       <Card.Body>
-        <div className="flex items-end justify-end">
+        <div className="flex justify-end pb-4">
           <FactionSelection value={faction} onChange={setFaction} />
         </div>
         <List variant="compact">

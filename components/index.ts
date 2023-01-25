@@ -7,7 +7,6 @@ export * from './faction-selection';
 export * from './input';
 export * from './label';
 export * from './link';
-export * from './list';
 export * from './logo';
 export * from './message';
 export * from './search-field';
