@@ -35,7 +35,7 @@ export interface CardProps {
 }
 
 export const Card = ({ children }: CardProps) => (
-  <div className="flex w-full flex-col gap-4 rounded-lg bg-white px-4 pt-3 pb-2 shadow shadow-secondary-200">
+  <div className="flex w-full flex-col items-stretch gap-4 rounded-lg bg-white px-4 pt-3 pb-2 shadow shadow-secondary-200">
     {children}
   </div>
 );

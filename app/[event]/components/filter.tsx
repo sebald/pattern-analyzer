@@ -2,10 +2,8 @@
 
 import { useDebouncedCallback } from 'use-debounce';
 
-import { SearchField, Select } from 'components';
-import { getAllFactions } from 'lib/get-value';
-
-import { FactionOptions, useFilter } from './filter-context';
+import { FactionSelection, SearchField } from 'components';
+import { useFilter } from './filter-context';
 
 export const Filter = () => {
   const filter = useFilter();
@@ -20,19 +18,11 @@ export const Filter = () => {
         defaultValue={filter.query}
         onChange={e => debounce(e.target.value)}
       />
-      <Select
-        size="small"
-        aria-label="Faction"
+      <FactionSelection
         value={filter.faction}
-        onChange={e => filter.setFaction(e.target.value as FactionOptions)}
-      >
-        <Select.Option value="all">All Factions</Select.Option>
-        {getAllFactions().map(({ id, name }) => (
-          <Select.Option key={id} value={id}>
-            {name}
-          </Select.Option>
-        ))}
-      </Select>
+        onChange={filter.setFaction}
+        allowAll
+      />
     </div>
   );
 };
