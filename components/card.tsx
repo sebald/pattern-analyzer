@@ -1,3 +1,13 @@
+// Card.Title
+// ---------------
+export interface CardTitleProps {
+  children: React.ReactNode;
+}
+
+const CardTitle = ({ children }: CardTitleProps) => (
+  <div className="prose text-center text-lg font-bold">{children}</div>
+);
+
 // Card.Body
 // ---------------
 export interface CardBodyProps {
@@ -25,10 +35,11 @@ export interface CardProps {
 }
 
 export const Card = ({ children }: CardProps) => (
-  <div className="flex w-full flex-col gap-4 rounded-lg bg-white px-4 pt-3 pb-2 shadow shadow-secondary-200">
+  <div className="flex h-full w-full flex-col items-stretch gap-4 rounded-lg bg-white px-4 pt-3 pb-2 shadow shadow-secondary-200">
     {children}
   </div>
 );
 
+Card.Title = CardTitle;
 Card.Body = CardBody;
 Card.Footer = CardFooter;

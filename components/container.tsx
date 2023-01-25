@@ -3,5 +3,5 @@ export interface ContainerProps {
 }
 
 export const Container = ({ children }: ContainerProps) => (
-  <div className="mx-auto my-4 w-[min(100%_-_2rem,_75rem)]">{children}</div>
+  <div className="mx-auto w-[min(100%_-_2rem,_75rem)]">{children}</div>
 );

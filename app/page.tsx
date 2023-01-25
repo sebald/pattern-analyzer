@@ -1,4 +1,5 @@
-import { Card, Container, Link, List, Logo } from 'components';
+import { Card, Container, Link, Logo } from 'components';
+import { List } from 'components/list';
 import { getEventInfo } from 'lib/longshanks';
 
 import { montserrat } from './fonts';

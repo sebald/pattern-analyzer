@@ -1,4 +1,5 @@
 import yasb from './data/yasb.json';
+import type { Ships } from './get-value';
 import type { XWSFaction, XWSPilot, XWSSquad, XWSUpgrades } from './types';
 
 const SUFFIX_NORMALIZATION = {
@@ -97,7 +98,7 @@ export const yasb2xws = (link: string): XWSSquad => {
 
     pilots.push({
       id: pilot.xws || normalize(pilot.name || 'unknown-pilot'),
-      ship: normalize(pilot.ship || 'unknown-ship'),
+      ship: normalize(pilot.ship || 'unknown-ship') as Ships,
       points: pilot.points || 0,
       upgrades,
     });

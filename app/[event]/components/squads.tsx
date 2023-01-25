@@ -1,7 +1,7 @@
 'use client';
 
 import { Card, Center, Message, Link, Squad, Tiles } from 'components';
-import type { XWSSquad } from 'lib/types';
+import type { SquadsData, XWSSquad } from 'lib/types';
 
 import { useFilter } from './filter-context';
 
@@ -37,13 +37,7 @@ const match = (
 };
 
 export interface SquadsProps {
-  squads: {
-    id: string;
-    url: string | null;
-    xws: XWSSquad | null;
-    raw: string;
-    player: string;
-  }[];
+  squads: SquadsData[];
 }
 
 export const Squads = ({ squads }: SquadsProps) => {

@@ -14,6 +14,11 @@
   },
   "dependencies": {
     "@next/font": "13.1.2",
+    "@nivo/bar": "^0.80.0",
+    "@nivo/core": "^0.80.0",
+    "@nivo/line": "^0.80.0",
+    "@nivo/pie": "^0.80.0",
+    "@radix-ui/react-tabs": "^1.0.2",
     "cheerio": "1.0.0-rc.12",
     "class-variance-authority": "^0.4.0",
     "next": "13.1.2",
