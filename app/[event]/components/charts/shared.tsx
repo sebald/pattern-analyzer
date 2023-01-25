@@ -11,10 +11,11 @@ export const FACTION_COLORS: { [key in XWSFaction | 'unknown']: string } = {
   unknown: '#e2e8f0',
 };
 
-export const FooterHint = () => (
+export const FooterHint = ({ more = '' }: { more?: string }) => (
   <div className="px-1 pt-1 text-xs text-secondary-300">
     *This data does not include unknown squads. Only squads that could be parsed
     are included.
+    {` ${more}`}
   </div>
 );
 
