@@ -5,20 +5,7 @@ import { ResponsivePie } from '@nivo/pie';
 import { getFactionName } from 'lib/get-value';
 import { XWSFaction } from 'lib/types';
 import { Card } from 'components';
-import { toPercentage } from './shared';
-
-// Helpers
-// ---------------
-const FACTION_COLORS: { [key in XWSFaction | 'unknown']: string } = {
-  rebelalliance: '#fecaca',
-  galacticempire: '#93c5fd',
-  scumandvillainy: '#fde68a',
-  resistance: '#fdba74',
-  firstorder: '#f87171',
-  galacticrepublic: '#fda4af',
-  separatistalliance: '#a5b4fc',
-  unknown: '#e2e8f0',
-};
+import { FACTION_COLORS, toPercentage } from './shared';
 
 // Props
 // ---------------

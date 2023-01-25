@@ -1,10 +1,8 @@
 import { useState } from 'react';
 
-import { Card, FactionSelection } from 'components';
-import { List } from 'components/list';
+import { Card, FactionSelection, List, ShipIcon } from 'components';
 import type { XWSFaction } from 'lib/types';
 import { getPilotName, type Ships } from 'lib/get-value';
-import { ShipIcon } from 'components/ship-icon';
 import { FooterHint, toPercentage } from './shared';
 
 export interface PilotFrequencyProps {

@@ -5,6 +5,7 @@ import type { SquadsData } from 'lib/types';
 import { FactionDistribution } from './charts/faction-distribution';
 import { PilotCostDistribution } from './charts/pilot-cost-distribution';
 import { PilotFrequency } from './charts/pilot-frequency';
+import { SquadComposition } from './charts/squad-composition';
 import { SquadSize } from './charts/squad-size';
 
 // Hook
@@ -65,6 +66,9 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     9: 0,
   };
 
+  // Number of squads with the same ships (key = ship ids separated by "|")
+  const squadComposition = new Map<string, number>();
+
   squads.forEach(squad => {
     // Number of Squads with XWS
     if (squad.xws) {
@@ -82,8 +86,15 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     }
 
     if (squad.xws && faction !== 'unknown') {
+      // Use to store ships of the squad
+      const ships: Ships[] = [];
+      // Use to filter duplicated pilots (a.k.a. generics)
       const unique: string[] = [];
+
       squad.xws.pilots.forEach(pilot => {
+        // Add ship
+        ships.push(pilot.ship);
+
         // Pilot was already added for this list
         if (unique.includes(pilot.id)) {
           return;
@@ -101,7 +112,13 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
         const points = pilot.points as 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
         pilotCostDistribution[points] = pilotCostDistribution[points] + 1;
       });
-      faction;
+
+      // Sort so we can generate an ID
+      ships.sort();
+      const squadCompositionId = ships.join('|');
+      const squadCompositionCount =
+        squadComposition.get(squadCompositionId) || 0;
+      squadComposition.set(squadCompositionId, squadCompositionCount + 1);
     }
   });
 
@@ -111,6 +128,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     squadSizes,
     pilotFrequency,
     pilotCostDistribution,
+    squadComposition,
   };
 };
 
@@ -143,8 +161,9 @@ export const Stats = ({ squads }: StatsProps) => {
         />
       </div>
       <div className="md:col-span-6 lg:col-span-8">
-        <div>
+        <div className="flex flex-col gap-4">
           <PilotCostDistribution value={data.pilotCostDistribution} />
+          <SquadComposition value={data.squadComposition} />
         </div>
       </div>
     </div>
