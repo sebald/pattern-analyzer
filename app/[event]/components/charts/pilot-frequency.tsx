@@ -5,6 +5,7 @@ import { List } from 'components/list';
 import type { XWSFaction } from 'lib/types';
 import { getPilotName, type Ships } from 'lib/get-value';
 import { ShipIcon } from 'components/ship-icon';
+import { FooterHint, toPercentage } from './shared';
 
 export interface PilotFrequencyProps {
   value: {
@@ -21,12 +22,14 @@ export const PilotFrequency = ({
 }: PilotFrequencyProps) => {
   const [faction, setFaction] = useState<XWSFaction>('rebelalliance');
 
-  const data = Array.from(value[faction].entries());
+  const data = Array.from(value[faction].entries()).sort(
+    ([, a], [, b]) => b.count - a.count
+  );
   const total = distribution[faction];
 
   return (
     <Card>
-      <Card.Title>Pilot Frequency</Card.Title>
+      <Card.Title>Pilot Frequency*</Card.Title>
       <Card.Body>
         <div className="flex justify-end pb-4">
           <FactionSelection value={faction} onChange={setFaction} />
@@ -38,14 +41,22 @@ export const PilotFrequency = ({
               className="flex flex-row items-center justify-between px-1 text-xs font-medium"
             >
               <div className="flex flex-row items-center">
-                <ShipIcon ship={ship} className="w-5 text-xl text-gray-400" />
+                <ShipIcon
+                  ship={ship}
+                  className="w-5 text-xl text-secondary-700"
+                />
                 {getPilotName(pilot)}
               </div>
-              <div>{count}</div>
+              <div className="tabular-nums text-secondary-400">
+                {toPercentage(count / total)} ({count})
+              </div>
             </List.Item>
           ))}
         </List>
       </Card.Body>
+      <Card.Footer>
+        <FooterHint />
+      </Card.Footer>
     </Card>
   );
 };
