@@ -12,6 +12,7 @@ specifiers:
   '@types/node': 18.11.18
   '@types/react': 18.0.27
   '@types/react-dom': 18.0.10
+  '@vercel/analytics': ^0.1.8
   autoprefixer: 10.4.13
   cheerio: 1.0.0-rc.12
   class-variance-authority: ^0.4.0
@@ -37,6 +38,7 @@ dependencies:
   '@nivo/line': 0.80.0_wyuiu3ihipn7hpncy62nqhyrji
   '@nivo/pie': 0.80.0_wyuiu3ihipn7hpncy62nqhyrji
   '@radix-ui/react-tabs': 1.0.2_biqbaboplfbrettd7655fr4n2y
+  '@vercel/analytics': 0.1.8_react@18.2.0
   cheerio: 1.0.0-rc.12
   class-variance-authority: 0.4.0_typescript@4.9.4
   next: 13.1.5_biqbaboplfbrettd7655fr4n2y
@@ -827,6 +829,14 @@ packages:
       '@typescript-eslint/types': 5.48.2
       eslint-visitor-keys: 3.3.0
     dev: true
+
+  /@vercel/analytics/0.1.8_react@18.2.0:
+    resolution: {integrity: sha512-PQrOI8BJ9qUiVJuQfnKiJd15eDjDJH9TBKsNeMrtelT4NAk7d9mBVz1CoZkvoFnHQ0OW7Xnqmr1F2nScfAnznQ==}
+    peerDependencies:
+      react: ^16.8||^17||^18
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /acorn-jsx/5.3.2_acorn@8.8.1:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
