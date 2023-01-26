@@ -9,7 +9,7 @@ const match = (
   search: string,
   { xws, raw, player }: { xws: XWSSquad | null; raw: string; player: string }
 ) => {
-  const needle = search.toLocaleLowerCase().replace(/\s\'/g, '');
+  const needle = search.toLocaleLowerCase().replace(/[\s']/g, '');
 
   // Search matches player name
   if (player.toLocaleLowerCase().includes(needle)) {
