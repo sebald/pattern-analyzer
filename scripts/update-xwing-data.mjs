@@ -18,7 +18,15 @@ const manifest = read('data/manifest.json');
 // Faction Data
 // ---------------
 
-const SCENARIOS = {
+const SUFFIX = {
+  // Ships / Configs
+  delta7baethersprite: '7b',
+
+  // Ids (needed because Mauler and Temmin have the same caption ...)
+  'poedameron-swz68': 'HoH',
+  'temminwexley-swz68': 'HoH',
+
+  // Szenarios
   'Siege of Coruscant': 'SoC',
   'Battle of Yavin': 'BoY',
 };
@@ -27,12 +35,16 @@ const SCENARIOS = {
  * Only take certain properties from pilot and
  * append scenario abbreviation to name if applicable.
  */
-const parsePilots = pilots =>
+const parsePilots = (pilots, ship) =>
   pilots.reduce((o, pilot) => {
     const { xws: id, name, caption } = pilot;
+
     o[id] = {
       id,
-      name: SCENARIOS[caption] ? `${name} (${SCENARIOS[caption]})` : name,
+      name:
+        SUFFIX[id] || SUFFIX[ship] || SUFFIX[caption]
+          ? `${name} (${SUFFIX[id] || SUFFIX[ship] || SUFFIX[caption]})`
+          : name,
       caption,
     };
 
@@ -51,7 +63,7 @@ const getShipsByFaction = faction => {
       id,
       name,
       icon,
-      pilots: parsePilots(pilots),
+      pilots: parsePilots(pilots, id),
     };
     return o;
   }, {});
