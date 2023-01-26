@@ -42,7 +42,7 @@ export const PilotCostDistribution = ({
           pointSize={10}
           xScale={{
             type: 'linear',
-            min: 0,
+            min: 1,
             max: 'auto',
           }}
           defs={[

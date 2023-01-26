@@ -36,8 +36,6 @@ const sideLabel: BarCustomLayer<{
         return null;
       }
 
-      console.log(data);
-      // only show this custom outer label on bars that are too small
       return (
         <text
           key={data.id}
