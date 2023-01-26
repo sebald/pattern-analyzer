@@ -1,4 +1,4 @@
-import { ResponsiveBar } from '@nivo/bar';
+import { BarCustomLayer, ResponsiveBar } from '@nivo/bar';
 
 import { Card } from 'components';
 import { calcWeightedAverage, FooterHint, toPercentage } from './shared';
@@ -26,6 +26,38 @@ const COLOR_MAP = {
   8: '#6167ca',
 };
 
+const sideLabel: BarCustomLayer<{
+  size: '3' | '4' | '5' | '6' | '7' | '8';
+  count: number;
+}> = ({ bars, labelSkipWidth }) => (
+  <g>
+    {bars.map(({ width, height, y, data }) => {
+      if (width >= labelSkipWidth) {
+        return null;
+      }
+
+      console.log(data);
+      // only show this custom outer label on bars that are too small
+      return (
+        <text
+          key={data.id}
+          transform={`translate(${width + 10}, ${y + height / 2})`}
+          text-anchor="left"
+          dominant-baseline="central"
+          style={{
+            fontFamily: 'sans-serif',
+            fontSize: '11px',
+            fill: 'rgb(51, 51, 51)',
+            pointerEvents: 'none',
+          }}
+        >
+          {data.formattedValue}
+        </text>
+      );
+    })}
+  </g>
+);
+
 // Components
 // ---------------
 export const SquadSize = ({ value, total }: SquadSizeProps) => {
@@ -34,7 +66,7 @@ export const SquadSize = ({ value, total }: SquadSizeProps) => {
   )
     .map(([size, count]) => ({
       size,
-      [size]: count,
+      count,
     }))
     // Start with lowest ...
     .reverse();
@@ -46,10 +78,18 @@ export const SquadSize = ({ value, total }: SquadSizeProps) => {
         <ResponsiveBar
           data={data}
           indexBy="size"
-          keys={['3', '4', '5', '6', '7', '8']}
-          valueFormat={value =>
-            value === 0 ? '' : `${value} (${toPercentage(value / total)})`
-          }
+          keys={['count']}
+          valueFormat={value => `${value} (${toPercentage(value / total)})`}
+          labelSkipWidth={65}
+          layers={[
+            'grid',
+            'axes',
+            'bars',
+            'markers',
+            'legends',
+            'annotations',
+            sideLabel,
+          ]}
           layout="horizontal"
           enableGridY={false}
           enableGridX={true}
