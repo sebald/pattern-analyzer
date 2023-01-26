@@ -18,38 +18,38 @@ const Home = async () => {
   const data = await Promise.all(RECENT_EVENTS.map(getEventInfo));
 
   return (
-    <Container>
-      <div className="grid min-h-screen place-items-center">
-        <div className="flex flex-col items-center">
-          <div className="pb-14">
-            <Logo />
-          </div>
-          <EventForm />
-          {data.length > 0 && (
-            <div className="w-full pt-20 md:px-6">
-              <h2
-                className={`${montserrat.className} prose pb-2 font-bold uppercase text-primary-400`}
-              >
-                Recent Events
-              </h2>
-              <Card>
-                <List>
-                  {data.map(({ id, title, date }) => (
-                    <List.Item key={id}>
-                      <Link
-                        className="text-lg text-secondary-900"
-                        href={`/event/${id}`}
-                      >
-                        <h3 className="font-medium">{title}</h3>
-                        <div className="text-sm text-secondary-500">{date}</div>
-                      </Link>
-                    </List.Item>
-                  ))}
-                </List>
-              </Card>
-            </div>
-          )}
+    <Container className="grid flex-1 place-items-center">
+      <div>
+        <div className="pb-10">
+          <Logo />
         </div>
+        <div className="flex-1">
+          <EventForm />
+        </div>
+        {data.length > 0 && (
+          <div className="w-full pt-24 md:px-6">
+            <h2
+              className={`${montserrat.className} prose pb-2 font-bold uppercase text-primary-400`}
+            >
+              Recent Events
+            </h2>
+            <Card>
+              <List>
+                {data.map(({ id, title, date }) => (
+                  <List.Item key={id}>
+                    <Link
+                      className="text-lg text-secondary-900"
+                      href={`/event/${id}`}
+                    >
+                      <h3 className="font-medium">{title}</h3>
+                      <div className="text-sm text-secondary-500">{date}</div>
+                    </Link>
+                  </List.Item>
+                ))}
+              </List>
+            </Card>
+          </div>
+        )}
       </div>
     </Container>
   );

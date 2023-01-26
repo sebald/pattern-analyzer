@@ -9,12 +9,14 @@ export interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => (
   <html lang="en" className={inter.className}>
     <head />
-    <body className="bg-primary-50">
+    <body className="flex min-h-screen flex-col bg-primary-50">
       {children}
-      <div className="mx-4 flex items-center justify-center gap-4 border-t border-primary-200 px-2 py-1 text-sm text-primary-300">
-        <Link href="/about">About</Link>
-        <Link href="/about">About</Link>
-      </div>
+      <footer className="mx-auto mt-auto w-[min(100%_-_3rem,_75rem)] pt-8">
+        <div className="flex items-center justify-center gap-6 border-t border-primary-100 px-2 pt-2 pb-4 text-sm text-primary-200">
+          <Link href="/">Home</Link>
+          <Link href="/about">About</Link>
+        </div>
+      </footer>
     </body>
   </html>
 );

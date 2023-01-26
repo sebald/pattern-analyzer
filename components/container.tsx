@@ -18,10 +18,15 @@ const styles = cva(['mx-auto'], {
 // ---------------
 export interface ContainerProps extends VariantProps<typeof styles> {
   children: React.ReactNode;
+  className?: string;
 }
 
 // Component
 // ---------------
-export const Container = ({ children, size = 'regular' }: ContainerProps) => (
-  <div className={styles({ size })}>{children}</div>
+export const Container = ({
+  children,
+  className,
+  size = 'regular',
+}: ContainerProps) => (
+  <div className={styles({ size, className })}>{children}</div>
 );

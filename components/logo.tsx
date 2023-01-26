@@ -2,7 +2,7 @@ import { montserrat } from 'app/fonts';
 
 export const Logo = () => (
   <h1
-    className={`${montserrat.className} prose flex items-center text-2xl font-extrabold uppercase text-primary-900`}
+    className={`${montserrat.className} prose flex items-center justify-center text-2xl font-extrabold uppercase text-primary-900`}
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"

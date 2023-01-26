@@ -54,6 +54,15 @@ const About = () => (
         generate and display squads in a comprehensible form and also create
         some statistics.
       </p>
+
+      <p className="prose mb-8 text-lg text-secondary-900">
+        There is no database. Certain pages are generated during build time and
+        are{' '}
+        <Link href="https://vercel.com/docs/concepts/incremental-static-regeneration/overview">
+          incrementally regenerated
+        </Link>
+        .
+      </p>
     </Container>
   </main>
 );
