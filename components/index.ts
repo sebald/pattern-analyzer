@@ -4,6 +4,7 @@ export * from './card';
 export * from './center';
 export * from './container';
 export * from './faction-selection';
+export * from './head-tags';
 export * from './input';
 export * from './label';
 export * from './link';

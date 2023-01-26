@@ -2,7 +2,7 @@ import { HeadTags } from 'components';
 
 const Head = () => (
   <>
-    <title>Pattern Analyzer | Home</title>
+    <title>Pattern Analyzer | About</title>
     <HeadTags />
   </>
 );
