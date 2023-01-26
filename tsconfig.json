@@ -27,6 +27,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "scripts/update-xwing-data.mjs"
-  ],
+, "app/about"  ],
   "exclude": ["node_modules"]
 }
