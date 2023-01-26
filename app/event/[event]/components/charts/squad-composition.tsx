@@ -30,9 +30,9 @@ export const SquadComposition = ({ value }: SquadCompositionProps) => {
                   className="flex flex-row items-center justify-between px-1 text-xs font-medium"
                 >
                   <div className="flex flex-row items-center gap-2">
-                    {ships.split('|').map(ship => (
+                    {ships.split('|').map((ship, idx) => (
                       <ShipIcon
-                        key={ship}
+                        key={`${ship}-${idx}`}
                         ship={ship}
                         className="text-2xl text-secondary-700"
                         title={getShipName(ship) || ''}

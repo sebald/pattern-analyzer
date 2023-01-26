@@ -142,7 +142,7 @@ export interface StatsProps {
 // ---------------
 export const Stats = ({ squads }: StatsProps) => {
   const data = useSquadStats({ squads });
-  console.log(data.pilotFrequency);
+
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
       <div className="md:col-span-6">
