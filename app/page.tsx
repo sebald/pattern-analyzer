@@ -38,7 +38,7 @@ const Home = async () => {
                     <List.Item key={id}>
                       <Link
                         className="text-lg text-secondary-900"
-                        href={`/${id}`}
+                        href={`/event/${id}`}
                       >
                         <h3 className="font-medium">{title}</h3>
                         <div className="text-sm text-secondary-500">{date}</div>
