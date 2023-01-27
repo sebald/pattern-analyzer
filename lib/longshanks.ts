@@ -1,6 +1,6 @@
 import { CheerioAPI, load } from 'cheerio';
 import { SquadsData } from './types';
-import { yasb2xws } from './yasb2xws';
+import { yasb2xws, YASB_URL_REGEXP } from './yasb2xws';
 
 /**
  * Scrape event title from meta tag.
@@ -40,9 +40,7 @@ export const parseSquads = ($: CheerioAPI): SquadsData[] =>
       /**
        * Try to find a YASB link and convert it to XWS.
        */
-      const YASB_REGEXP =
-        /https:\/\/yasb\.app\/\?f(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=,]*)/;
-      const url = (raw.replace(/(\r\n|\n|\r)/gm, '').match(YASB_REGEXP) || [
+      const url = (raw.replace(/(\r\n|\n|\r)/gm, '').match(YASB_URL_REGEXP) || [
         null,
       ])[0];
       const xws = url ? yasb2xws(url) : null;
@@ -56,8 +54,8 @@ export const parseSquads = ($: CheerioAPI): SquadsData[] =>
       };
     });
 
-export const getEventHtml = async (event: string) => {
-  const url = `https://longshanks.org/events/detail/?event=${event}`;
+export const getEventHtml = async (id: string) => {
+  const url = `https://longshanks.org/events/detail/?event=${id}`;
   const res = await fetch(url);
 
   if (!res.ok) {
@@ -72,8 +70,8 @@ export const getEventHtml = async (event: string) => {
  * Fetch an event page from longhanks and scrape title and
  * event data.
  */
-export const getEvent = async (event: string) => {
-  const { url, html } = await getEventHtml(event);
+export const getEvent = async (id: string) => {
+  const { url, html } = await getEventHtml(id);
   const $ = load(html);
 
   const title = parseTitle($);
@@ -86,12 +84,12 @@ export const getEvent = async (event: string) => {
  * Fetch an event page from longhanks and scrape title,
  * .
  */
-export const getEventInfo = async (event: string) => {
-  const { url, html } = await getEventHtml(event);
+export const getEventInfo = async (id: string) => {
+  const { url, html } = await getEventHtml(id);
   const $ = load(html);
 
   const title = parseTitle($);
   const { date, description } = parseDescription($);
 
-  return { url, id: event, title, date, description };
+  return { url, id, vendor: 'longshanks', title, date, description };
 };

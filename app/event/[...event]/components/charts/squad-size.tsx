@@ -40,8 +40,8 @@ const sideLabel: BarCustomLayer<{
         <text
           key={`${data.id}-${data.indexValue}`}
           transform={`translate(${width + 10}, ${y + height / 2})`}
-          text-anchor="left"
-          dominant-baseline="central"
+          textAnchor="left"
+          dominantBaseline="central"
           style={{
             fontFamily: 'sans-serif',
             fontSize: '11px',

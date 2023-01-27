@@ -43,7 +43,10 @@ export interface XWSSquad {
   faction: XWSFaction;
   pilots: XWSPilot[];
   points: number;
-  vendor: XWSVendor;
+  vendor: {
+    yasb?: XWSVendor;
+    lbn?: XWSVendor;
+  };
   version: string;
   name: string;
 }
@@ -81,7 +84,8 @@ export interface XWSUpgrades {
 }
 
 export interface XWSVendor {
-  builder?: string;
-  builder_url?: string;
-  url?: string;
+  builder: string;
+  builder_url: string;
+  link: string;
+  version: string;
 }

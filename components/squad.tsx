@@ -24,9 +24,11 @@ export const Squad = ({ xws }: SquadProps) => {
           >
             {getPilotName(id) || id}
           </div>
-          <div className="prose text-sm text-secondary-500">
-            {upgradesToList(upgrades)}
-          </div>
+          {upgrades && (
+            <div className="prose text-sm text-secondary-500">
+              {upgradesToList(upgrades)}
+            </div>
+          )}
         </div>
       ))}
     </div>

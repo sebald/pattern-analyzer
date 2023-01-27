@@ -2,6 +2,9 @@ import yasb from './data/yasb.json';
 import type { Ships } from './get-value';
 import type { XWSFaction, XWSPilot, XWSSquad, XWSUpgrades } from './types';
 
+export const YASB_URL_REGEXP =
+  /https:\/\/yasb\.app\/\?f(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=,]*)/;
+
 const SUFFIX_NORMALIZATION = {
   SoC: '-siegeofcoruscant',
   Boy: '-battleofyavin',
@@ -111,9 +114,12 @@ export const yasb2xws = (link: string): XWSSquad => {
     points: 20,
     version: '2.5',
     vendor: {
-      builder: 'YASB - X-Wing 2.5',
-      builder_url: 'https://yasb.app/',
-      url: link,
+      yasb: {
+        builder: 'YASB - X-Wing 2.5',
+        builder_url: 'https://yasb.app/',
+        version: '',
+        link: link,
+      },
     },
   };
 };

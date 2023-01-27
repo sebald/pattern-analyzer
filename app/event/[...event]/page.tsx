@@ -1,6 +1,8 @@
+import { redirect } from 'next/navigation';
+
 import { RECENT_EVENTS } from 'app/preload';
 import { Caption, Container, Link, Title } from 'components';
-import { getEvent } from 'lib/longshanks';
+import { getEventByVendor } from 'lib/get-event';
 
 // Friendly reminder: Don't use a barrel file! next doesn't like it!
 import { Filter } from './components/filter';
@@ -19,21 +21,37 @@ export const fetchCache = 'force-cache';
  * Opt into background revalidation. (see: https://github.com/vercel/next.js/discussions/43085)
  */
 export async function generateStaticParams() {
-  return RECENT_EVENTS.map(event => ({ event }));
+  return Object.entries(RECENT_EVENTS)
+    .map(([vendor, ids]) => ids.map(id => ({ event: [vendor, id] })))
+    .flat();
 }
 
 // Props
 // ---------------
 export interface PageProps {
   params: {
-    event: string;
+    event: [id: string] | [vendor: string, id: string] | string[];
   };
 }
 
 // Page
 // ---------------
 const Page = async ({ params }: PageProps) => {
-  const { title, url, squads } = await getEvent(params.event);
+  /**
+   * Make URLs backwards compatible by defaulting to
+   * longshanks if vendor is missing
+   */
+  if (params.event.length === 1) {
+    redirect(`/event/longshanks/${params.event[0]}`);
+  }
+
+  // Nope out if there are more than two event params ...
+  if (params.event.length > 2 || params.event.length < 1) {
+    redirect(`/`);
+  }
+
+  const [vendor, id] = params.event as [vendor: string, id: string];
+  const { title, url, squads } = await getEventByVendor({ vendor, id });
   const squadsWithXWS = squads.filter(item => Boolean(item.xws)).length;
 
   return (
@@ -43,7 +61,7 @@ const Page = async ({ params }: PageProps) => {
           <Title>{title || `Event #${params.event}`}</Title>
           <Caption>
             <Link href={url} target="_blank">
-              Event #{params.event}
+              Event #{id}
             </Link>{' '}
             ({squadsWithXWS}/{squads.length} squads parsed)
           </Caption>
