@@ -1,1 +1,4 @@
-export const RECENT_EVENTS = ['5535', '6861'];
+export const RECENT_EVENTS = {
+  longshanks: ['5535', '6861'],
+  rollbetter: ['64'],
+};

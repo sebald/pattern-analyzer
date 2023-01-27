@@ -91,5 +91,5 @@ export const getEventInfo = async (id: string) => {
   const title = parseTitle($);
   const { date, description } = parseDescription($);
 
-  return { url, id, title, date, description };
+  return { url, id, vendor: 'longshanks', title, date, description };
 };

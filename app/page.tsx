@@ -1,6 +1,7 @@
 import { Card, Container, Link, Logo } from 'components';
 import { List } from 'components/list';
-import { getEventInfo } from 'lib/longshanks';
+import { getEventInfo as getLongshanksEventInfo } from 'lib/longshanks';
+import { getEventInfo as getRollbetterEventInfo } from 'lib/rollbetter';
 
 import { montserrat } from './fonts';
 import { RECENT_EVENTS } from './preload';
@@ -15,7 +16,10 @@ export const fetchCache = 'force-cache';
 // Page
 // ---------------
 const Home = async () => {
-  const data = await Promise.all(RECENT_EVENTS.map(getEventInfo));
+  const data = await Promise.all([
+    ...RECENT_EVENTS.longshanks.map(getLongshanksEventInfo),
+    ...RECENT_EVENTS.rollbetter.map(getRollbetterEventInfo),
+  ]);
 
   return (
     <Container className="grid flex-1 place-items-center">
@@ -35,11 +39,11 @@ const Home = async () => {
             </h2>
             <Card>
               <List>
-                {data.map(({ id, title, date }) => (
+                {data.map(({ id, vendor, title, date }) => (
                   <List.Item key={id}>
                     <Link
                       className="text-lg text-secondary-900"
-                      href={`/event/longshanks/${id}`}
+                      href={`/event/${vendor}/${id}`}
                     >
                       <h3 className="font-medium">{title}</h3>
                       <div className="text-sm text-secondary-500">{date}</div>

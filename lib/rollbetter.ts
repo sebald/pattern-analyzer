@@ -101,7 +101,7 @@ export const getSquads = async (id: string, count: number) => {
   return squads;
 };
 
-export const getEventTitle = async (id: string) => {
+export const getEventInfo = async (id: string) => {
   const url = `https://rollbetter-linux.azurewebsites.net/tournaments/${id}`;
   const res = await fetch(url);
 
@@ -117,11 +117,12 @@ export const getEventTitle = async (id: string) => {
     registrationCount,
   }: RollBetterTournamentResponse = await res.json();
 
-  const date = startDate + endDate ? ` ${endDate}` : '';
+  const date = startDate + (endDate ? ` ${endDate}` : '');
 
   return {
     url,
     id,
+    vendor: 'rollbetter',
     title,
     date,
     description,
@@ -130,7 +131,7 @@ export const getEventTitle = async (id: string) => {
 };
 
 export const getEvent = async (id: string) => {
-  const { url, title, players } = await getEventTitle(id);
+  const { url, title, players } = await getEventInfo(id);
   const squads = await getSquads(id, players);
 
   return { url, title, squads };
