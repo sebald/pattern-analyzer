@@ -28,6 +28,7 @@ const styles = cva(
         small: 'py-2 text-xs',
         regular: 'py-2',
         large: 'py-3 text-xl',
+        huge: 'py-5 pl-4 text-xl',
       },
     },
     defaultVariants: {
@@ -52,6 +53,7 @@ export const Select = ({
   label,
   size,
   htmlSize,
+  className,
   children,
   ...props
 }: SelectProps) => {
@@ -60,7 +62,12 @@ export const Select = ({
   return (
     <div>
       {label && <Label htmlFor={id}>{label}</Label>}
-      <select {...props} id={id} className={styles({ size })} size={htmlSize}>
+      <select
+        {...props}
+        id={id}
+        className={styles({ size, className })}
+        size={htmlSize}
+      >
         {children}
       </select>
     </div>

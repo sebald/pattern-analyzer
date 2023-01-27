@@ -4,7 +4,7 @@ import { FormEventHandler, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useDebouncedCallback } from 'use-debounce';
 
-import { Input, Button } from 'components';
+import { Input, Button, Select } from 'components';
 
 export const EventForm = () => {
   const [error, setError] = useState<string | null>(null);
@@ -14,10 +14,11 @@ export const EventForm = () => {
     e.preventDefault();
 
     const data = new FormData(e.target as HTMLFormElement);
+    const vendor = data.get('vendor');
     const event = data.get('event');
 
     if (event) {
-      router.push(`/event/longshanks/${event}`);
+      router.push(`/event/${vendor}/${event}`);
       return;
     }
 
@@ -34,17 +35,29 @@ export const EventForm = () => {
   }, 200);
 
   return (
-    <form className="flex items-start gap-3" onSubmit={handleSubmit}>
+    <form
+      className="flex flex-col items-stretch gap-3 md:flex-row"
+      onSubmit={handleSubmit}
+    >
       <Input
         placeholder="Event ID"
         name="event"
-        size="huge"
+        size="large"
         onChange={e => handleChange(e.target.value)}
         error={error}
         inputMode="numeric"
         autoFocus
       />
-      <Button variant="primary" size="huge" type="submit">
+      <Select
+        name="vendor"
+        size="large"
+        className="w-full"
+        defaultValue="longshanks"
+      >
+        <Select.Option value="longshanks">Longshanks</Select.Option>
+        <Select.Option value="rollbetter">Rollbetter</Select.Option>
+      </Select>
+      <Button variant="primary" size="large" type="submit">
         Submit
       </Button>
     </form>

@@ -24,7 +24,7 @@ const Home = async () => {
   return (
     <Container className="grid flex-1 place-items-center">
       <div>
-        <div className="pb-10">
+        <div className="pt-8 pb-20 md:pb-14">
           <Logo />
         </div>
         <div className="flex-1">

@@ -61,7 +61,7 @@ const Page = async ({ params }: PageProps) => {
           <Title>{title || `Event #${params.event}`}</Title>
           <Caption>
             <Link href={url} target="_blank">
-              Event #{params.event}
+              Event #{id}
             </Link>{' '}
             ({squadsWithXWS}/{squads.length} squads parsed)
           </Caption>
