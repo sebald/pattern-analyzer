@@ -111,9 +111,12 @@ export const yasb2xws = (link: string): XWSSquad => {
     points: 20,
     version: '2.5',
     vendor: {
-      builder: 'YASB - X-Wing 2.5',
-      builder_url: 'https://yasb.app/',
-      url: link,
+      yasb: {
+        builder: 'YASB - X-Wing 2.5',
+        builder_url: 'https://yasb.app/',
+        version: '',
+        link: link,
+      },
     },
   };
 };

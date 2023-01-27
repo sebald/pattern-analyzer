@@ -68,9 +68,12 @@ export const getSquads = async (id: string, count: number) => {
 
   data.forEach(({ id, withList, player }) => {
     let xws: XWSSquad | null = null;
+    let url: string | null = null;
+
     try {
       if (withList) {
         xws = JSON.parse(withList);
+        url = xws?.vendor?.yasb?.link || xws?.vendor?.lbn?.link || null;
       }
     } catch {
       console.log(id, player.username, withList);
@@ -78,7 +81,7 @@ export const getSquads = async (id: string, count: number) => {
 
     squads.push({
       id: `${id}`,
-      url: '',
+      url,
       xws,
       raw: withList || '',
       player: player.username,
