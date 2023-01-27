@@ -1,7 +1,9 @@
 import { getEvent as getLongShankEvent } from './longshanks';
+import { getEvent as getRollbetterEvent } from './rollbetter';
 
 const VENDOR = {
   longshanks: getLongShankEvent,
+  rollbetter: getRollbetterEvent,
 };
 
 export interface GetEventByVendorProps {
