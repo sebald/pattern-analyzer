@@ -2,7 +2,7 @@ import { redirect } from 'next/navigation';
 
 import { RECENT_EVENTS } from 'app/preload';
 import { Caption, Container, Link, Title } from 'components';
-import { getEvent } from 'lib/longshanks';
+import { getEventByVendor } from 'lib/get-event';
 
 // Friendly reminder: Don't use a barrel file! next doesn't like it!
 import { Filter } from './components/filter';
@@ -44,11 +44,12 @@ const Page = async ({ params }: PageProps) => {
   }
 
   // Nope out if there are more than two event params ...
-  if (params.event.length > 2) {
+  if (params.event.length > 2 || params.event.length < 1) {
     redirect(`/`);
   }
 
-  const { title, url, squads } = await getEvent(params.event[1]);
+  const [vendor, id] = params.event as [vendor: string, id: string];
+  const { title, url, squads } = await getEventByVendor({ vendor, id });
   const squadsWithXWS = squads.filter(item => Boolean(item.xws)).length;
 
   return (
