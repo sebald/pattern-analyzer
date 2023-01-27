@@ -1,3 +1,5 @@
+import { redirect } from 'next/navigation';
+
 import { RECENT_EVENTS } from 'app/preload';
 import { Caption, Container, Link, Title } from 'components';
 import { getEvent } from 'lib/longshanks';
@@ -19,21 +21,34 @@ export const fetchCache = 'force-cache';
  * Opt into background revalidation. (see: https://github.com/vercel/next.js/discussions/43085)
  */
 export async function generateStaticParams() {
-  return RECENT_EVENTS.map(event => ({ event }));
+  return RECENT_EVENTS.map(event => ({ event: [event] }));
 }
 
 // Props
 // ---------------
 export interface PageProps {
   params: {
-    event: string;
+    event: [id: string] | [vendor: string, id: string] | string[];
   };
 }
 
 // Page
 // ---------------
 const Page = async ({ params }: PageProps) => {
-  const { title, url, squads } = await getEvent(params.event);
+  /**
+   * Make URLs backwards compatible by defaulting to
+   * longshanks if vendor is missing
+   */
+  if (params.event.length === 1) {
+    redirect(`/event/longshanks/${params.event[0]}`);
+  }
+
+  // Nope out if there are more than two event params ...
+  if (params.event.length > 2) {
+    redirect(`/`);
+  }
+
+  const { title, url, squads } = await getEvent(params.event[1]);
   const squadsWithXWS = squads.filter(item => Boolean(item.xws)).length;
 
   return (
