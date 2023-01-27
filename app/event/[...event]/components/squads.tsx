@@ -7,7 +7,7 @@ import { useFilter } from './filter-context';
 
 const Empty = () => (
   <div className="grid h-full place-items-center">
-    <div className="flex flex-col items-center gap-1">
+    <div className="flex flex-col items-center gap-1 py-9">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
