@@ -1,4 +1,5 @@
 import { SquadsData, XWSSquad } from './types';
+import { yasb2xws } from './yasb2xws';
 
 export interface RollBetterTournamentResponse {
   id: number;
@@ -72,11 +73,20 @@ export const getSquads = async (id: string, count: number) => {
 
     try {
       if (withList) {
-        xws = JSON.parse(withList);
+        // Check if given as JSON
+        if (withList.startsWith('{')) {
+          xws = JSON.parse(withList);
+        }
+        // CHeck if given as YASB Url
+        if (withList.trim().startsWith('https://yasb.app')) {
+          xws = yasb2xws(withList);
+        }
         url = xws?.vendor?.yasb?.link || xws?.vendor?.lbn?.link || null;
       }
     } catch {
-      console.log(id, player.username, withList);
+      console.log(
+        `Failed to parse squad of "${player.username}" (${id}).\nOriginal value is: :${withList}`
+      );
     }
 
     squads.push({

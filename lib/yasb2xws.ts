@@ -2,6 +2,9 @@ import yasb from './data/yasb.json';
 import type { Ships } from './get-value';
 import type { XWSFaction, XWSPilot, XWSSquad, XWSUpgrades } from './types';
 
+export const YASB_URL_REGEXP =
+  /https:\/\/yasb\.app\/\?f(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=,]*)/;
+
 const SUFFIX_NORMALIZATION = {
   SoC: '-siegeofcoruscant',
   Boy: '-battleofyavin',
