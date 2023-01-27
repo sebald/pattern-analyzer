@@ -17,7 +17,7 @@ export const EventForm = () => {
     const event = data.get('event');
 
     if (event) {
-      router.push(`/event/${event}`);
+      router.push(`/event/longshanks/${event}`);
       return;
     }
 
