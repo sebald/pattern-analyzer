@@ -50,7 +50,9 @@ const getLists = async (id: string, count: number) => {
     )
   );
 
-  const data = await Promise.all<RollBetterListResponse>(
+  let data: RollBetterListResponse[] = [];
+
+  data = await Promise.all<RollBetterListResponse>(
     responses.map(res => {
       if (!res.ok) {
         throw new Error('Failed to fetch event data...');
@@ -58,7 +60,12 @@ const getLists = async (id: string, count: number) => {
 
       return res.json();
     })
-  );
+  ).catch(() => {
+    /**
+     * This handles a werid rollbetter API where hidden lists returns an empty 200.
+     */
+    return [];
+  });
 
   return data.map(({ registrations }) => registrations).flat();
 };
