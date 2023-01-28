@@ -102,7 +102,7 @@ export const yasb2xws = (link: string): XWSSquad => {
     pilots.push({
       id: pilot.xws || normalize(pilot.name || 'unknown-pilot'),
       ship: normalize(pilot.ship || 'unknown-ship') as Ships,
-      points: pilot.points || 0,
+      points: pilot.points || 1, // This actually never happens ... hopefully
       upgrades,
     });
   });
