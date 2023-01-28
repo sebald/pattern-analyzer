@@ -97,7 +97,7 @@ export const Squads = ({ squads }: SquadsProps) => {
               <Squad xws={squad.xws} />
             ) : squad.raw ? (
               <div className="whitespace-pre-wrap break-words text-sm text-secondary-500">
-                squad.raw
+                {squad.raw}
               </div>
             ) : (
               <Empty />
