@@ -109,8 +109,8 @@ export const getSquads = async (id: string, count: number) => {
 };
 
 export const getEventInfo = async (id: string) => {
-  const url = `https://rollbetter-linux.azurewebsites.net/tournaments/${id}`;
-  const res = await fetch(url);
+  const api_url = `https://rollbetter-linux.azurewebsites.net/tournaments/${id}`;
+  const res = await fetch(api_url);
 
   if (!res.ok) {
     throw new Error('Failed to fetch event data...');
@@ -127,7 +127,7 @@ export const getEventInfo = async (id: string) => {
   const date = startDate + (endDate ? ` ${endDate}` : '');
 
   return {
-    url,
+    url: `https://rollbetter.gg/tournaments/${id}`,
     id,
     vendor: 'rollbetter',
     title,
