@@ -1,4 +1,5 @@
 import { SquadData, XWSSquad } from './types';
+import { normalizeXWS } from './xws';
 import { yasb2xws } from './yasb2xws';
 
 export interface RollBetterTournamentResponse {
@@ -103,7 +104,7 @@ export const getSquads = async (id: string, count: number) => {
     squads.push({
       id: `${id}`,
       url,
-      xws,
+      xws: normalizeXWS(xws),
       raw: withList || '',
       player: player.username,
     });
