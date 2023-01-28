@@ -1,5 +1,5 @@
 import { CheerioAPI, load } from 'cheerio';
-import { SquadsData } from './types';
+import { SquadData } from './types';
 import { yasb2xws, YASB_URL_REGEXP } from './yasb2xws';
 
 /**
@@ -27,7 +27,7 @@ export const parseDescription = ($: CheerioAPI) => {
  * Iterate over all player related html and scrape their name
  * and squad.
  */
-export const parseSquads = ($: CheerioAPI): SquadsData[] =>
+export const parseSquads = ($: CheerioAPI): SquadData[] =>
   $('[class=pop][id^=details_]')
     .toArray()
     .map(el => {

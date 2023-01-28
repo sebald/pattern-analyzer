@@ -20,7 +20,7 @@ export interface Upgrade {
   name: string;
 }
 
-export interface SquadsData {
+export interface SquadData {
   id: string;
   url: string | null;
   xws: XWSSquad | null;

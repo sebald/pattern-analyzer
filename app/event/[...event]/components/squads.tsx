@@ -1,7 +1,7 @@
 'use client';
 
 import { Card, Center, Message, Link, Squad, Tiles } from 'components';
-import type { SquadsData, XWSSquad } from 'lib/types';
+import type { SquadData, XWSSquad } from 'lib/types';
 
 import { useFilter } from './filter-context';
 
@@ -26,6 +26,16 @@ const Empty = () => (
     </div>
   </div>
 );
+
+const getVendorName = (link: string) => {
+  if (link.includes('yasb.app')) {
+    return 'YASB';
+  }
+  if (link.includes('launchbaynext')) {
+    return 'LBN';
+  }
+  return 'Builder';
+};
 
 const match = (
   search: string,
@@ -59,7 +69,7 @@ const match = (
 };
 
 export interface SquadsProps {
-  squads: SquadsData[];
+  squads: SquadData[];
 }
 
 export const Squads = ({ squads }: SquadsProps) => {
@@ -108,7 +118,7 @@ export const Squads = ({ squads }: SquadsProps) => {
               <div>by {squad.player}</div>
               {squad.url && (
                 <Link className="text-right" href={squad.url} target="_blank">
-                  View in YASB
+                  View in {getVendorName(squad.url)}
                 </Link>
               )}
             </div>

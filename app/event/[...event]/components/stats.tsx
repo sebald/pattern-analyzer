@@ -1,7 +1,7 @@
 'use client';
 
 import type { Ships } from 'lib/get-value';
-import type { SquadsData } from 'lib/types';
+import type { SquadData } from 'lib/types';
 import { FactionDistribution } from './charts/faction-distribution';
 import { PilotCostDistribution } from './charts/pilot-cost-distribution';
 import { PilotFrequency } from './charts/pilot-frequency';
@@ -11,7 +11,7 @@ import { SquadSize } from './charts/squad-size';
 // Hook
 // ---------------
 export interface UseSquadStatsProps {
-  squads: SquadsData[];
+  squads: SquadData[];
 }
 
 const useSquadStats = ({ squads }: UseSquadStatsProps) => {
@@ -135,7 +135,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
 // Props
 // ---------------
 export interface StatsProps {
-  squads: SquadsData[];
+  squads: SquadData[];
 }
 
 // Component
