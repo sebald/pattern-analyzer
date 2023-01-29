@@ -1,0 +1,317 @@
+{
+  "dextiree-battleofyavin": {
+    "cost": 4,
+    "standardLoadout": [
+      "dorsalturret",
+      "advprotontorpedoes",
+      "r4astromech"
+    ]
+  },
+  "dutchvander-battleofyavin": {
+    "cost": 4,
+    "standardLoadout": [
+      "ioncannonturret",
+      "advprotontorpedoes",
+      "targetingastromech"
+    ]
+  },
+  "holokand-battleofyavin": {
+    "cost": 4,
+    "standardLoadout": [
+      "dorsalturret",
+      "advprotontorpedoes",
+      "preciseastromech"
+    ]
+  },
+  "popskrail-battleofyavin": {
+    "cost": 4,
+    "standardLoadout": [
+      "ioncannonturret",
+      "advprotontorpedoes",
+      "r4astromech"
+    ]
+  },
+  "hansolo-battleofyavin": {
+    "cost": 7,
+    "standardLoadout": [
+      "chewbacca-battleofyavin",
+      "riggedcargochute",
+      "millenniumfalcon",
+      "l337sprogramming-battleofyavin"
+    ]
+  },
+  "biggsdarklighter-battleofyavin": {
+    "cost": 5,
+    "standardLoadout": [
+      "attackspeed-battleofyavin",
+      "selfless",
+      "protontorpedoes",
+      "r2f2-battleofyavin"
+    ]
+  },
+  "garvendreis-battleofyavin": {
+    "cost": 4,
+    "standardLoadout": [
+      "advprotontorpedoes",
+      "r5k6-battleofyavin"
+    ]
+  },
+  "jekporkins-battleofyavin": {
+    "cost": 4,
+    "standardLoadout": [
+      "advprotontorpedoes",
+      "r5d8-battleofyavin",
+      "unstablesublightengines-battleofyavin"
+    ]
+  },
+  "lukeskywalker-battleofyavin": {
+    "cost": 6,
+    "standardLoadout": [
+      "attackspeed-battleofyavin",
+      "instictiveaim",
+      "protontorpedoes",
+      "r2d2-battleofyavin"
+    ]
+  },
+  "wedgeantilles-battleofyavin": {
+    "cost": 5,
+    "standardLoadout": [
+      "attackspeed-battleofyavin",
+      "marksmanship",
+      "protontorpedoes",
+      "r2a3-battleofyavin"
+    ]
+  },
+  "darthvader-battleofyavin": {
+    "cost": 6,
+    "standardLoadout": [
+      "marksmanship",
+      "hate",
+      "afterburners"
+    ]
+  },
+  "idenversio-battleofyavin": {
+    "cost": 6,
+    "standardLoadout": [
+      "predator",
+      "fanatic-battleofyavin"
+    ]
+  },
+  "sigma4-battleofyavin": {
+    "cost": 4,
+    "standardLoadout": [
+      "disciplined",
+      "primedthrusters"
+    ]
+  },
+  "sigma5-battleofyavin": {
+    "cost": 4,
+    "standardLoadout": [
+      "sensorjammer-battleofyavin",
+      "elusive"
+    ]
+  },
+  "sigma6-battleofyavin": {
+    "cost": 4,
+    "standardLoadout": [
+      "daredevil",
+      "afterburners"
+    ]
+  },
+  "sigma7-battleofyavin": {
+    "cost": 4,
+    "standardLoadout": [
+      "marksmanship",
+      "firecontrolsystem"
+    ]
+  },
+  "backstabber-battleofyavin": {
+    "cost": 4,
+    "standardLoadout": [
+      "crackshot",
+      "disciplined",
+      "afterburners"
+    ]
+  },
+  "darkcurse-battleofyavin": {
+    "cost": 4,
+    "standardLoadout": [
+      "ruthless",
+      "precisionionengines"
+    ]
+  },
+  "maulermithel-battleofyavin": {
+    "cost": 3,
+    "standardLoadout": [
+      "predator",
+      "afterburners"
+    ]
+  },
+  "wampa-battleofyavin": {
+    "cost": 3,
+    "standardLoadout": [
+      "elusive",
+      "vengeful-battleofyavin"
+    ]
+  },
+  "oddball-siegeofcoruscant": {
+    "cost": 5,
+    "standardLoadout": [
+      "selfless",
+      "veterantailgunner",
+      "r4pastromech"
+    ]
+  },
+  "wolffe-siegeofcoruscant": {
+    "cost": 4,
+    "standardLoadout": [
+      "wolfpack-siegeofcoruscant",
+      "veterantailgunner",
+      "q7astromech"
+    ]
+  },
+  "jag-siegeofcoruscant": {
+    "cost": 4,
+    "standardLoadout": [
+      "veterantailgunner",
+      "r4pastromech",
+      "synchronizedconsole"
+    ]
+  },
+  "kickback-siegeofcoruscant": {
+    "cost": 3,
+    "standardLoadout": [
+      "diamondboronmissiles",
+      "munitionsfailsafe"
+    ]
+  },
+  "axe-siegeofcoruscant": {
+    "cost": 4,
+    "standardLoadout": [
+      "deadeyeshot",
+      "barragerockets"
+    ]
+  },
+  "anakinskywalker-siegeofcoruscant": {
+    "cost": 5,
+    "standardLoadout": [
+      "malice",
+      "ancillaryionweapons-siegeofcoruscant",
+      "r2d2-republic"
+    ]
+  },
+  "obiwankenobi-siegeofcoruscant": {
+    "cost": 4,
+    "standardLoadout": [
+      "patience",
+      "ancillaryionweapons-siegeofcoruscant",
+      "r4p17-siegeofcoruscant"
+    ]
+  },
+  "shaakti-siegeofcoruscant": {
+    "cost": 4,
+    "standardLoadout": [
+      "marksmanship",
+      "brilliantevasion",
+      "ancillaryionweapons-siegeofcoruscant",
+      "r4pastromech"
+    ]
+  },
+  "klick-siegeofcoruscant": {
+    "cost": 3,
+    "standardLoadout": [
+      "r3astromech",
+      "precisionionengines",
+      "alpha3eesk"
+    ]
+  },
+  "contrail-siegeofcoruscant": {
+    "cost": 3,
+    "standardLoadout": [
+      "ionlimiteroverride",
+      "preciseastromech-battleofyavin",
+      "ionbombs",
+      "alpha3bbesh"
+    ]
+  },
+  "dfs081-siegeofcoruscant": {
+    "cost": 2,
+    "standardLoadout": [
+      "discordmissiles",
+      "contingencyprotocol-siegeofcoruscant",
+      "strutlockoverride-siegeofcoruscant"
+    ]
+  },
+  "dfs311-siegeofcoruscant": {
+    "cost": 3,
+    "standardLoadout": [
+      "discordmissiles",
+      "contingencyprotocol-siegeofcoruscant",
+      "strutlockoverride-siegeofcoruscant"
+    ]
+  },
+  "haorchallprototype-siegeofcoruscant": {
+    "cost": 2,
+    "standardLoadout": [
+      "ionmissiles",
+      "contingencyprotocol-siegeofcoruscant",
+      "strutlockoverride-siegeofcoruscant"
+    ]
+  },
+  "countdooku-siegeofcoruscant": {
+    "cost": 6,
+    "standardLoadout": [
+      "malice",
+      "roilinganger-siegeofcoruscant",
+      "scimitar"
+    ]
+  },
+  "dbs32c-siegeofcoruscant": {
+    "cost": 3,
+    "standardLoadout": [
+      "plasmatorpedoes",
+      "contingencyprotocol-siegeofcoruscant",
+      "strutlockoverride-siegeofcoruscant"
+    ]
+  },
+  "dbs404-siegeofcoruscant": {
+    "cost": 3,
+    "standardLoadout": [
+      "advprotontorpedoes",
+      "contingencyprotocol-siegeofcoruscant",
+      "strutlockoverride-siegeofcoruscant"
+    ]
+  },
+  "baktoidprototype-siegeofcoruscant": {
+    "cost": 3,
+    "standardLoadout": [
+      "homingmissiles",
+      "contingencyprotocol-siegeofcoruscant",
+      "strutlockoverride-siegeofcoruscant"
+    ]
+  },
+  "dis347-siegeofcoruscant": {
+    "cost": 4,
+    "standardLoadout": [
+      "marksmanship",
+      "afterburners",
+      "contingencyprotocol-siegeofcoruscant"
+    ]
+  },
+  "dist81-siegeofcoruscant": {
+    "cost": 5,
+    "standardLoadout": [
+      "outmaneuver",
+      "afterburners",
+      "contingencyprotocol-siegeofcoruscant"
+    ]
+  },
+  "phlacarphoccprototype-siegeofcoruscant": {
+    "cost": 4,
+    "standardLoadout": [
+      "afterburners",
+      "contingencyprotocol-siegeofcoruscant",
+      "evasionsequence7-siegeofcoruscant"
+    ]
+  }
+}

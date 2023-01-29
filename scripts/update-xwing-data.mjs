@@ -37,7 +37,7 @@ const SUFFIX = {
  */
 const parsePilots = (pilots, ship) =>
   pilots.reduce((o, pilot) => {
-    const { xws: id, name, caption } = pilot;
+    const { xws: id, name, caption, standardLoadout, cost } = pilot;
 
     o[id] = {
       id,
@@ -46,7 +46,12 @@ const parsePilots = (pilots, ship) =>
           ? `${name} (${SUFFIX[id] || SUFFIX[ship] || SUFFIX[caption]})`
           : name,
       caption,
+      cost,
     };
+
+    if (standardLoadout) {
+      o[id].standardLoadout = standardLoadout;
+    }
 
     return o;
   }, {});
@@ -127,6 +132,14 @@ const display = {
   upgrades: {},
 };
 
+// Normalization
+// ---------------
+/**
+ * Pilots from scenarios don't have upgrades in LBN and sometimes
+ * their cost is missing too...
+ */
+const normalization = {};
+
 read(manifest.factions[0]).forEach(({ xws: factionId, name, icon }) => {
   display.faction[factionId] = {
     name,
@@ -138,6 +151,13 @@ read(manifest.factions[0]).forEach(({ xws: factionId, name, icon }) => {
 
     Object.values(ship.pilots).forEach(pilot => {
       display.pilot[pilot.id] = pilot.name;
+
+      if (pilot.standardLoadout) {
+        normalization[pilot.id] = {
+          cost: pilot.cost,
+          standardLoadout: pilot.standardLoadout,
+        };
+      }
     });
   });
 
@@ -149,3 +169,6 @@ read(manifest.factions[0]).forEach(({ xws: factionId, name, icon }) => {
 });
 
 await fs.outputJson(`${TARGET}/display-values.json`, display, { spaces: 2 });
+await fs.outputJson(`${TARGET}/normalization-values.json`, normalization, {
+  spaces: 2,
+});
