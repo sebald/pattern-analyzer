@@ -39,6 +39,9 @@ export const normalize = (xws: XWSSquad | null) => {
       };
     }
 
+    // Rollbetter or LBN don't adhere XWS ...
+    pilot.upgrades = pilot.upgrades || {};
+
     return pilot;
   });
 
