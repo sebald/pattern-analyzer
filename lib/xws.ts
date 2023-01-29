@@ -4,6 +4,7 @@ import { getPointsByName } from './yasb';
 const PILOT_ID_NORMALIZATION = {
   'maulermither-battleofyavin': 'maulermithel-battleofyavin',
   'dt798-tiefofighter': 'dt798',
+  'obiwankenobi-eta2actis-siegeofcoruscant': 'obiwankenobi-siegeofcoruscant',
 };
 
 export const normalizeXWS = (xws: XWSSquad | null) => {
