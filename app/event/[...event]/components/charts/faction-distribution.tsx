@@ -20,16 +20,26 @@ export const FactionDistribution = ({
   value,
   total,
 }: FactionDistributionProps) => {
-  const data = (
-    Object.entries(value) as [XWSFaction | 'unknown', number][]
-  ).map(([faction, count]) => {
-    return {
-      id: faction === 'unknown' ? 'Unknown' : getFactionName(faction),
-      label: faction, // Unused? Shouldn't this be the other way around!?
-      value: count,
-      color: FACTION_COLORS[faction],
-    };
-  });
+  const data = (Object.entries(value) as [XWSFaction | 'unknown', number][])
+    .map(([faction, count]) => {
+      // Remove unknown if 0
+      if (faction === 'unknown' && count === 0) {
+        return null;
+      }
+
+      return {
+        id: faction === 'unknown' ? 'Unknown' : getFactionName(faction),
+        label: faction, // Unused? Shouldn't this be the other way around!?
+        value: count,
+        color: FACTION_COLORS[faction],
+      };
+    })
+    .filter(Boolean) as {
+    id: string;
+    label: XWSFaction | 'unknown';
+    value: number;
+    color: string;
+  }[];
 
   return (
     <Card>
