@@ -134,6 +134,15 @@ const display = {
 
 // Normalization
 // ---------------
+const getUpgradeType = id => {
+  for (const type in upgrades) {
+    if (upgrades[type][id]) {
+      return type;
+    }
+  }
+  return 'unknown';
+};
+
 /**
  * Pilots from scenarios don't have upgrades in LBN and sometimes
  * their cost is missing too...
@@ -155,7 +164,15 @@ read(manifest.factions[0]).forEach(({ xws: factionId, name, icon }) => {
       if (pilot.standardLoadout) {
         normalization[pilot.id] = {
           points: pilot.cost,
-          standardLoadout: pilot.standardLoadout,
+          upgrades: pilot.standardLoadout.reduce((o, up) => {
+            const type = getUpgradeType(up);
+            const list = o[type] || [];
+
+            list.push(up);
+            o[type] = list;
+
+            return o;
+          }, {}),
         };
       }
     });

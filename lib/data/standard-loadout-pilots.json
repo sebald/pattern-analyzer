@@ -1,317 +1,527 @@
 {
   "dextiree-battleofyavin": {
     "points": 4,
-    "standardLoadout": [
-      "dorsalturret",
-      "advprotontorpedoes",
-      "r4astromech"
-    ]
+    "upgrades": {
+      "turret": [
+        "dorsalturret"
+      ],
+      "torpedo": [
+        "advprotontorpedoes"
+      ],
+      "astromech": [
+        "r4astromech"
+      ]
+    }
   },
   "dutchvander-battleofyavin": {
     "points": 4,
-    "standardLoadout": [
-      "ioncannonturret",
-      "advprotontorpedoes",
-      "targetingastromech"
-    ]
+    "upgrades": {
+      "turret": [
+        "ioncannonturret"
+      ],
+      "torpedo": [
+        "advprotontorpedoes"
+      ],
+      "unknown": [
+        "targetingastromech"
+      ]
+    }
   },
   "holokand-battleofyavin": {
     "points": 4,
-    "standardLoadout": [
-      "dorsalturret",
-      "advprotontorpedoes",
-      "preciseastromech"
-    ]
+    "upgrades": {
+      "turret": [
+        "dorsalturret"
+      ],
+      "torpedo": [
+        "advprotontorpedoes"
+      ],
+      "unknown": [
+        "preciseastromech"
+      ]
+    }
   },
   "popskrail-battleofyavin": {
     "points": 4,
-    "standardLoadout": [
-      "ioncannonturret",
-      "advprotontorpedoes",
-      "r4astromech"
-    ]
+    "upgrades": {
+      "turret": [
+        "ioncannonturret"
+      ],
+      "torpedo": [
+        "advprotontorpedoes"
+      ],
+      "astromech": [
+        "r4astromech"
+      ]
+    }
   },
   "hansolo-battleofyavin": {
     "points": 7,
-    "standardLoadout": [
-      "chewbacca-battleofyavin",
-      "riggedcargochute",
-      "millenniumfalcon",
-      "l337sprogramming-battleofyavin"
-    ]
+    "upgrades": {
+      "crew": [
+        "chewbacca-battleofyavin"
+      ],
+      "illicit": [
+        "riggedcargochute"
+      ],
+      "title": [
+        "millenniumfalcon"
+      ],
+      "configuration": [
+        "l337sprogramming-battleofyavin"
+      ]
+    }
   },
   "biggsdarklighter-battleofyavin": {
     "points": 5,
-    "standardLoadout": [
-      "attackspeed-battleofyavin",
-      "selfless",
-      "protontorpedoes",
-      "r2f2-battleofyavin"
-    ]
+    "upgrades": {
+      "talent": [
+        "attackspeed-battleofyavin",
+        "selfless"
+      ],
+      "torpedo": [
+        "protontorpedoes"
+      ],
+      "astromech": [
+        "r2f2-battleofyavin"
+      ]
+    }
   },
   "garvendreis-battleofyavin": {
     "points": 4,
-    "standardLoadout": [
-      "advprotontorpedoes",
-      "r5k6-battleofyavin"
-    ]
+    "upgrades": {
+      "torpedo": [
+        "advprotontorpedoes"
+      ],
+      "astromech": [
+        "r5k6-battleofyavin"
+      ]
+    }
   },
   "jekporkins-battleofyavin": {
     "points": 4,
-    "standardLoadout": [
-      "advprotontorpedoes",
-      "r5d8-battleofyavin",
-      "unstablesublightengines-battleofyavin"
-    ]
+    "upgrades": {
+      "torpedo": [
+        "advprotontorpedoes"
+      ],
+      "astromech": [
+        "r5d8-battleofyavin"
+      ],
+      "modification": [
+        "unstablesublightengines-battleofyavin"
+      ]
+    }
   },
   "lukeskywalker-battleofyavin": {
     "points": 6,
-    "standardLoadout": [
-      "attackspeed-battleofyavin",
-      "instictiveaim",
-      "protontorpedoes",
-      "r2d2-battleofyavin"
-    ]
+    "upgrades": {
+      "talent": [
+        "attackspeed-battleofyavin"
+      ],
+      "unknown": [
+        "instictiveaim"
+      ],
+      "torpedo": [
+        "protontorpedoes"
+      ],
+      "astromech": [
+        "r2d2-battleofyavin"
+      ]
+    }
   },
   "wedgeantilles-battleofyavin": {
     "points": 5,
-    "standardLoadout": [
-      "attackspeed-battleofyavin",
-      "marksmanship",
-      "protontorpedoes",
-      "r2a3-battleofyavin"
-    ]
+    "upgrades": {
+      "talent": [
+        "attackspeed-battleofyavin",
+        "marksmanship"
+      ],
+      "torpedo": [
+        "protontorpedoes"
+      ],
+      "astromech": [
+        "r2a3-battleofyavin"
+      ]
+    }
   },
   "darthvader-battleofyavin": {
     "points": 6,
-    "standardLoadout": [
-      "marksmanship",
-      "hate",
-      "afterburners"
-    ]
+    "upgrades": {
+      "talent": [
+        "marksmanship"
+      ],
+      "force-power": [
+        "hate"
+      ],
+      "modification": [
+        "afterburners"
+      ]
+    }
   },
   "idenversio-battleofyavin": {
     "points": 6,
-    "standardLoadout": [
-      "predator",
-      "fanatic-battleofyavin"
-    ]
+    "upgrades": {
+      "talent": [
+        "predator",
+        "fanatic-battleofyavin"
+      ]
+    }
   },
   "sigma4-battleofyavin": {
     "points": 4,
-    "standardLoadout": [
-      "disciplined",
-      "primedthrusters"
-    ]
+    "upgrades": {
+      "talent": [
+        "disciplined"
+      ],
+      "tech": [
+        "primedthrusters"
+      ]
+    }
   },
   "sigma5-battleofyavin": {
     "points": 4,
-    "standardLoadout": [
-      "sensorjammer-battleofyavin",
-      "elusive"
-    ]
+    "upgrades": {
+      "modification": [
+        "sensorjammer-battleofyavin"
+      ],
+      "talent": [
+        "elusive"
+      ]
+    }
   },
   "sigma6-battleofyavin": {
     "points": 4,
-    "standardLoadout": [
-      "daredevil",
-      "afterburners"
-    ]
+    "upgrades": {
+      "talent": [
+        "daredevil"
+      ],
+      "modification": [
+        "afterburners"
+      ]
+    }
   },
   "sigma7-battleofyavin": {
     "points": 4,
-    "standardLoadout": [
-      "marksmanship",
-      "firecontrolsystem"
-    ]
+    "upgrades": {
+      "talent": [
+        "marksmanship"
+      ],
+      "sensor": [
+        "firecontrolsystem"
+      ]
+    }
   },
   "backstabber-battleofyavin": {
     "points": 4,
-    "standardLoadout": [
-      "crackshot",
-      "disciplined",
-      "afterburners"
-    ]
+    "upgrades": {
+      "talent": [
+        "crackshot",
+        "disciplined"
+      ],
+      "modification": [
+        "afterburners"
+      ]
+    }
   },
   "darkcurse-battleofyavin": {
     "points": 4,
-    "standardLoadout": [
-      "ruthless",
-      "precisionionengines"
-    ]
+    "upgrades": {
+      "talent": [
+        "ruthless"
+      ],
+      "modification": [
+        "precisionionengines"
+      ]
+    }
   },
   "maulermithel-battleofyavin": {
     "points": 3,
-    "standardLoadout": [
-      "predator",
-      "afterburners"
-    ]
+    "upgrades": {
+      "talent": [
+        "predator"
+      ],
+      "modification": [
+        "afterburners"
+      ]
+    }
   },
   "wampa-battleofyavin": {
     "points": 3,
-    "standardLoadout": [
-      "elusive",
-      "vengeful-battleofyavin"
-    ]
+    "upgrades": {
+      "talent": [
+        "elusive",
+        "vengeful-battleofyavin"
+      ]
+    }
   },
   "oddball-siegeofcoruscant": {
     "points": 5,
-    "standardLoadout": [
-      "selfless",
-      "veterantailgunner",
-      "r4pastromech"
-    ]
+    "upgrades": {
+      "talent": [
+        "selfless"
+      ],
+      "gunner": [
+        "veterantailgunner"
+      ],
+      "astromech": [
+        "r4pastromech"
+      ]
+    }
   },
   "wolffe-siegeofcoruscant": {
     "points": 4,
-    "standardLoadout": [
-      "wolfpack-siegeofcoruscant",
-      "veterantailgunner",
-      "q7astromech"
-    ]
+    "upgrades": {
+      "crew": [
+        "wolfpack-siegeofcoruscant"
+      ],
+      "gunner": [
+        "veterantailgunner"
+      ],
+      "astromech": [
+        "q7astromech"
+      ]
+    }
   },
   "jag-siegeofcoruscant": {
     "points": 4,
-    "standardLoadout": [
-      "veterantailgunner",
-      "r4pastromech",
-      "synchronizedconsole"
-    ]
+    "upgrades": {
+      "gunner": [
+        "veterantailgunner"
+      ],
+      "astromech": [
+        "r4pastromech"
+      ],
+      "modification": [
+        "synchronizedconsole"
+      ]
+    }
   },
   "kickback-siegeofcoruscant": {
     "points": 3,
-    "standardLoadout": [
-      "diamondboronmissiles",
-      "munitionsfailsafe"
-    ]
+    "upgrades": {
+      "missile": [
+        "diamondboronmissiles"
+      ],
+      "modification": [
+        "munitionsfailsafe"
+      ]
+    }
   },
   "axe-siegeofcoruscant": {
     "points": 4,
-    "standardLoadout": [
-      "deadeyeshot",
-      "barragerockets"
-    ]
+    "upgrades": {
+      "talent": [
+        "deadeyeshot"
+      ],
+      "missile": [
+        "barragerockets"
+      ]
+    }
   },
   "anakinskywalker-siegeofcoruscant": {
     "points": 5,
-    "standardLoadout": [
-      "malice",
-      "ancillaryionweapons-siegeofcoruscant",
-      "r2d2-republic"
-    ]
+    "upgrades": {
+      "force-power": [
+        "malice"
+      ],
+      "cannon": [
+        "ancillaryionweapons-siegeofcoruscant"
+      ],
+      "astromech": [
+        "r2d2-republic"
+      ]
+    }
   },
   "obiwankenobi-siegeofcoruscant": {
     "points": 4,
-    "standardLoadout": [
-      "patience",
-      "ancillaryionweapons-siegeofcoruscant",
-      "r4p17-siegeofcoruscant"
-    ]
+    "upgrades": {
+      "force-power": [
+        "patience"
+      ],
+      "cannon": [
+        "ancillaryionweapons-siegeofcoruscant"
+      ],
+      "astromech": [
+        "r4p17-siegeofcoruscant"
+      ]
+    }
   },
   "shaakti-siegeofcoruscant": {
     "points": 4,
-    "standardLoadout": [
-      "marksmanship",
-      "brilliantevasion",
-      "ancillaryionweapons-siegeofcoruscant",
-      "r4pastromech"
-    ]
+    "upgrades": {
+      "talent": [
+        "marksmanship"
+      ],
+      "force-power": [
+        "brilliantevasion"
+      ],
+      "cannon": [
+        "ancillaryionweapons-siegeofcoruscant"
+      ],
+      "astromech": [
+        "r4pastromech"
+      ]
+    }
   },
   "klick-siegeofcoruscant": {
     "points": 3,
-    "standardLoadout": [
-      "r3astromech",
-      "precisionionengines",
-      "alpha3eesk"
-    ]
+    "upgrades": {
+      "astromech": [
+        "r3astromech"
+      ],
+      "modification": [
+        "precisionionengines"
+      ],
+      "configuration": [
+        "alpha3eesk"
+      ]
+    }
   },
   "contrail-siegeofcoruscant": {
     "points": 3,
-    "standardLoadout": [
-      "ionlimiteroverride",
-      "preciseastromech-battleofyavin",
-      "ionbombs",
-      "alpha3bbesh"
-    ]
+    "upgrades": {
+      "talent": [
+        "ionlimiteroverride"
+      ],
+      "astromech": [
+        "preciseastromech-battleofyavin"
+      ],
+      "device": [
+        "ionbombs"
+      ],
+      "configuration": [
+        "alpha3bbesh"
+      ]
+    }
   },
   "dfs081-siegeofcoruscant": {
     "points": 2,
-    "standardLoadout": [
-      "discordmissiles",
-      "contingencyprotocol-siegeofcoruscant",
-      "strutlockoverride-siegeofcoruscant"
-    ]
+    "upgrades": {
+      "missile": [
+        "discordmissiles"
+      ],
+      "modification": [
+        "contingencyprotocol-siegeofcoruscant"
+      ],
+      "configuration": [
+        "strutlockoverride-siegeofcoruscant"
+      ]
+    }
   },
   "dfs311-siegeofcoruscant": {
     "points": 3,
-    "standardLoadout": [
-      "discordmissiles",
-      "contingencyprotocol-siegeofcoruscant",
-      "strutlockoverride-siegeofcoruscant"
-    ]
+    "upgrades": {
+      "missile": [
+        "discordmissiles"
+      ],
+      "modification": [
+        "contingencyprotocol-siegeofcoruscant"
+      ],
+      "configuration": [
+        "strutlockoverride-siegeofcoruscant"
+      ]
+    }
   },
   "haorchallprototype-siegeofcoruscant": {
     "points": 2,
-    "standardLoadout": [
-      "ionmissiles",
-      "contingencyprotocol-siegeofcoruscant",
-      "strutlockoverride-siegeofcoruscant"
-    ]
+    "upgrades": {
+      "missile": [
+        "ionmissiles"
+      ],
+      "modification": [
+        "contingencyprotocol-siegeofcoruscant"
+      ],
+      "configuration": [
+        "strutlockoverride-siegeofcoruscant"
+      ]
+    }
   },
   "countdooku-siegeofcoruscant": {
     "points": 6,
-    "standardLoadout": [
-      "malice",
-      "roilinganger-siegeofcoruscant",
-      "scimitar"
-    ]
+    "upgrades": {
+      "force-power": [
+        "malice",
+        "roilinganger-siegeofcoruscant"
+      ],
+      "title": [
+        "scimitar"
+      ]
+    }
   },
   "dbs32c-siegeofcoruscant": {
     "points": 3,
-    "standardLoadout": [
-      "plasmatorpedoes",
-      "contingencyprotocol-siegeofcoruscant",
-      "strutlockoverride-siegeofcoruscant"
-    ]
+    "upgrades": {
+      "torpedo": [
+        "plasmatorpedoes"
+      ],
+      "modification": [
+        "contingencyprotocol-siegeofcoruscant"
+      ],
+      "configuration": [
+        "strutlockoverride-siegeofcoruscant"
+      ]
+    }
   },
   "dbs404-siegeofcoruscant": {
     "points": 3,
-    "standardLoadout": [
-      "advprotontorpedoes",
-      "contingencyprotocol-siegeofcoruscant",
-      "strutlockoverride-siegeofcoruscant"
-    ]
+    "upgrades": {
+      "torpedo": [
+        "advprotontorpedoes"
+      ],
+      "modification": [
+        "contingencyprotocol-siegeofcoruscant"
+      ],
+      "configuration": [
+        "strutlockoverride-siegeofcoruscant"
+      ]
+    }
   },
   "baktoidprototype-siegeofcoruscant": {
     "points": 3,
-    "standardLoadout": [
-      "homingmissiles",
-      "contingencyprotocol-siegeofcoruscant",
-      "strutlockoverride-siegeofcoruscant"
-    ]
+    "upgrades": {
+      "missile": [
+        "homingmissiles"
+      ],
+      "modification": [
+        "contingencyprotocol-siegeofcoruscant"
+      ],
+      "configuration": [
+        "strutlockoverride-siegeofcoruscant"
+      ]
+    }
   },
   "dis347-siegeofcoruscant": {
     "points": 4,
-    "standardLoadout": [
-      "marksmanship",
-      "afterburners",
-      "contingencyprotocol-siegeofcoruscant"
-    ]
+    "upgrades": {
+      "talent": [
+        "marksmanship"
+      ],
+      "modification": [
+        "afterburners",
+        "contingencyprotocol-siegeofcoruscant"
+      ]
+    }
   },
   "dist81-siegeofcoruscant": {
     "points": 5,
-    "standardLoadout": [
-      "outmaneuver",
-      "afterburners",
-      "contingencyprotocol-siegeofcoruscant"
-    ]
+    "upgrades": {
+      "talent": [
+        "outmaneuver"
+      ],
+      "modification": [
+        "afterburners",
+        "contingencyprotocol-siegeofcoruscant"
+      ]
+    }
   },
   "phlacarphoccprototype-siegeofcoruscant": {
     "points": 4,
-    "standardLoadout": [
-      "afterburners",
-      "contingencyprotocol-siegeofcoruscant",
-      "evasionsequence7-siegeofcoruscant"
-    ]
+    "upgrades": {
+      "modification": [
+        "afterburners",
+        "contingencyprotocol-siegeofcoruscant",
+        "evasionsequence7-siegeofcoruscant"
+      ]
+    }
   }
 }

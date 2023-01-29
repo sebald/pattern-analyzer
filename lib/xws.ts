@@ -31,7 +31,7 @@ export const normalize = (xws: XWSSquad | null) => {
 
     // Add loadout and costs to pilots with standard loadouts
     //@ts-expect-error (ID accessing allowed to fail)
-    const props = SL_PILOTS[pilotId];
+    const props = SL_PILOTS[pilot.id];
     if (props) {
       pilot = {
         ...pilot,
