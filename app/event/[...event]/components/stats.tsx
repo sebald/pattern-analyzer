@@ -163,7 +163,10 @@ export const Stats = ({ squads }: StatsProps) => {
       <div className="md:col-span-6 lg:col-span-8">
         <div className="flex flex-col gap-4">
           <PilotCostDistribution value={data.pilotCostDistribution} />
-          <SquadComposition value={data.squadComposition} />
+          <SquadComposition
+            value={data.squadComposition}
+            total={data.numberOfSquads.xws}
+          />
         </div>
       </div>
     </div>
