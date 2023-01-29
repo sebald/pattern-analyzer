@@ -154,7 +154,7 @@ read(manifest.factions[0]).forEach(({ xws: factionId, name, icon }) => {
 
       if (pilot.standardLoadout) {
         normalization[pilot.id] = {
-          cost: pilot.cost,
+          points: pilot.cost,
           standardLoadout: pilot.standardLoadout,
         };
       }
@@ -169,6 +169,6 @@ read(manifest.factions[0]).forEach(({ xws: factionId, name, icon }) => {
 });
 
 await fs.outputJson(`${TARGET}/display-values.json`, display, { spaces: 2 });
-await fs.outputJson(`${TARGET}/normalization-values.json`, normalization, {
+await fs.outputJson(`${TARGET}/standard-loadout-pilots.json`, normalization, {
   spaces: 2,
 });

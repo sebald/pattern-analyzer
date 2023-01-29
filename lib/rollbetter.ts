@@ -1,5 +1,5 @@
 import { SquadData, XWSSquad } from './types';
-import { normalizeXWS } from './xws';
+import { normalize } from './xws';
 import { yasb2xws } from './yasb2xws';
 
 export interface RollBetterTournamentResponse {
@@ -83,7 +83,7 @@ export const getSquads = async (id: string, count: number) => {
       if (withList) {
         // Check if given as JSON
         if (withList.startsWith('{')) {
-          xws = JSON.parse(withList);
+          xws = normalize(JSON.parse(withList));
         }
         // Check if given as YASB Url
         if (withList.trim().startsWith('https://yasb.app')) {
@@ -104,7 +104,7 @@ export const getSquads = async (id: string, count: number) => {
     squads.push({
       id: `${id}`,
       url,
-      xws: normalizeXWS(xws),
+      xws,
       raw: withList || '',
       player: player.username,
     });

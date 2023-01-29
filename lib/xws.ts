@@ -1,21 +1,27 @@
 import type { XWSSquad } from './types';
-import { getPointsByName } from './yasb';
+import SL_PILOTS from './data/standard-loadout-pilots.json';
 
-const PILOT_ID_NORMALIZATION = {
+// LBN has some error and unnormalized in pilot ids.
+const PILOT_ID_MAP = {
   'maulermither-battleofyavin': 'maulermithel-battleofyavin',
   'dt798-tiefofighter': 'dt798',
+  'anakinskywalker-eta2actis-siegeofcoruscant':
+    'anakinskywalker-siegeofcoruscant',
   'obiwankenobi-eta2actis-siegeofcoruscant': 'obiwankenobi-siegeofcoruscant',
 };
 
-export const normalizeXWS = (xws: XWSSquad | null) => {
+/**
+ * Adjust some irregularities coming from LBN.
+ */
+export const normalize = (xws: XWSSquad | null) => {
   if (!xws) {
     return xws;
   }
 
   const pilots = xws.pilots.map(pilot => {
-    //@ts-expect-error (ID accessing ...)
     // Fix some weird IDs from LBN
-    const pilotId = PILOT_ID_NORMALIZATION[pilot.id];
+    //@ts-expect-error (ID accessing allowed to fail)
+    const pilotId = PILOT_ID_MAP[pilot.id];
     if (pilotId) {
       pilot = {
         ...pilot,
@@ -23,11 +29,13 @@ export const normalizeXWS = (xws: XWSSquad | null) => {
       };
     }
 
-    // Fix wrong pilots points from LBN
-    if (pilot.points === 0) {
+    // Add loadout and costs to pilots with standard loadouts
+    //@ts-expect-error (ID accessing allowed to fail)
+    const props = SL_PILOTS[pilotId];
+    if (props) {
       pilot = {
         ...pilot,
-        points: getPointsByName(pilot.id),
+        ...props,
       };
     }
 

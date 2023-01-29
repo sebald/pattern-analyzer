@@ -1,6 +1,6 @@
 {
   "dextiree-battleofyavin": {
-    "cost": 4,
+    "points": 4,
     "standardLoadout": [
       "dorsalturret",
       "advprotontorpedoes",
@@ -8,7 +8,7 @@
     ]
   },
   "dutchvander-battleofyavin": {
-    "cost": 4,
+    "points": 4,
     "standardLoadout": [
       "ioncannonturret",
       "advprotontorpedoes",
@@ -16,7 +16,7 @@
     ]
   },
   "holokand-battleofyavin": {
-    "cost": 4,
+    "points": 4,
     "standardLoadout": [
       "dorsalturret",
       "advprotontorpedoes",
@@ -24,7 +24,7 @@
     ]
   },
   "popskrail-battleofyavin": {
-    "cost": 4,
+    "points": 4,
     "standardLoadout": [
       "ioncannonturret",
       "advprotontorpedoes",
@@ -32,7 +32,7 @@
     ]
   },
   "hansolo-battleofyavin": {
-    "cost": 7,
+    "points": 7,
     "standardLoadout": [
       "chewbacca-battleofyavin",
       "riggedcargochute",
@@ -41,7 +41,7 @@
     ]
   },
   "biggsdarklighter-battleofyavin": {
-    "cost": 5,
+    "points": 5,
     "standardLoadout": [
       "attackspeed-battleofyavin",
       "selfless",
@@ -50,14 +50,14 @@
     ]
   },
   "garvendreis-battleofyavin": {
-    "cost": 4,
+    "points": 4,
     "standardLoadout": [
       "advprotontorpedoes",
       "r5k6-battleofyavin"
     ]
   },
   "jekporkins-battleofyavin": {
-    "cost": 4,
+    "points": 4,
     "standardLoadout": [
       "advprotontorpedoes",
       "r5d8-battleofyavin",
@@ -65,7 +65,7 @@
     ]
   },
   "lukeskywalker-battleofyavin": {
-    "cost": 6,
+    "points": 6,
     "standardLoadout": [
       "attackspeed-battleofyavin",
       "instictiveaim",
@@ -74,7 +74,7 @@
     ]
   },
   "wedgeantilles-battleofyavin": {
-    "cost": 5,
+    "points": 5,
     "standardLoadout": [
       "attackspeed-battleofyavin",
       "marksmanship",
@@ -83,7 +83,7 @@
     ]
   },
   "darthvader-battleofyavin": {
-    "cost": 6,
+    "points": 6,
     "standardLoadout": [
       "marksmanship",
       "hate",
@@ -91,42 +91,42 @@
     ]
   },
   "idenversio-battleofyavin": {
-    "cost": 6,
+    "points": 6,
     "standardLoadout": [
       "predator",
       "fanatic-battleofyavin"
     ]
   },
   "sigma4-battleofyavin": {
-    "cost": 4,
+    "points": 4,
     "standardLoadout": [
       "disciplined",
       "primedthrusters"
     ]
   },
   "sigma5-battleofyavin": {
-    "cost": 4,
+    "points": 4,
     "standardLoadout": [
       "sensorjammer-battleofyavin",
       "elusive"
     ]
   },
   "sigma6-battleofyavin": {
-    "cost": 4,
+    "points": 4,
     "standardLoadout": [
       "daredevil",
       "afterburners"
     ]
   },
   "sigma7-battleofyavin": {
-    "cost": 4,
+    "points": 4,
     "standardLoadout": [
       "marksmanship",
       "firecontrolsystem"
     ]
   },
   "backstabber-battleofyavin": {
-    "cost": 4,
+    "points": 4,
     "standardLoadout": [
       "crackshot",
       "disciplined",
@@ -134,28 +134,28 @@
     ]
   },
   "darkcurse-battleofyavin": {
-    "cost": 4,
+    "points": 4,
     "standardLoadout": [
       "ruthless",
       "precisionionengines"
     ]
   },
   "maulermithel-battleofyavin": {
-    "cost": 3,
+    "points": 3,
     "standardLoadout": [
       "predator",
       "afterburners"
     ]
   },
   "wampa-battleofyavin": {
-    "cost": 3,
+    "points": 3,
     "standardLoadout": [
       "elusive",
       "vengeful-battleofyavin"
     ]
   },
   "oddball-siegeofcoruscant": {
-    "cost": 5,
+    "points": 5,
     "standardLoadout": [
       "selfless",
       "veterantailgunner",
@@ -163,7 +163,7 @@
     ]
   },
   "wolffe-siegeofcoruscant": {
-    "cost": 4,
+    "points": 4,
     "standardLoadout": [
       "wolfpack-siegeofcoruscant",
       "veterantailgunner",
@@ -171,7 +171,7 @@
     ]
   },
   "jag-siegeofcoruscant": {
-    "cost": 4,
+    "points": 4,
     "standardLoadout": [
       "veterantailgunner",
       "r4pastromech",
@@ -179,21 +179,21 @@
     ]
   },
   "kickback-siegeofcoruscant": {
-    "cost": 3,
+    "points": 3,
     "standardLoadout": [
       "diamondboronmissiles",
       "munitionsfailsafe"
     ]
   },
   "axe-siegeofcoruscant": {
-    "cost": 4,
+    "points": 4,
     "standardLoadout": [
       "deadeyeshot",
       "barragerockets"
     ]
   },
   "anakinskywalker-siegeofcoruscant": {
-    "cost": 5,
+    "points": 5,
     "standardLoadout": [
       "malice",
       "ancillaryionweapons-siegeofcoruscant",
@@ -201,7 +201,7 @@
     ]
   },
   "obiwankenobi-siegeofcoruscant": {
-    "cost": 4,
+    "points": 4,
     "standardLoadout": [
       "patience",
       "ancillaryionweapons-siegeofcoruscant",
@@ -209,7 +209,7 @@
     ]
   },
   "shaakti-siegeofcoruscant": {
-    "cost": 4,
+    "points": 4,
     "standardLoadout": [
       "marksmanship",
       "brilliantevasion",
@@ -218,7 +218,7 @@
     ]
   },
   "klick-siegeofcoruscant": {
-    "cost": 3,
+    "points": 3,
     "standardLoadout": [
       "r3astromech",
       "precisionionengines",
@@ -226,7 +226,7 @@
     ]
   },
   "contrail-siegeofcoruscant": {
-    "cost": 3,
+    "points": 3,
     "standardLoadout": [
       "ionlimiteroverride",
       "preciseastromech-battleofyavin",
@@ -235,7 +235,7 @@
     ]
   },
   "dfs081-siegeofcoruscant": {
-    "cost": 2,
+    "points": 2,
     "standardLoadout": [
       "discordmissiles",
       "contingencyprotocol-siegeofcoruscant",
@@ -243,7 +243,7 @@
     ]
   },
   "dfs311-siegeofcoruscant": {
-    "cost": 3,
+    "points": 3,
     "standardLoadout": [
       "discordmissiles",
       "contingencyprotocol-siegeofcoruscant",
@@ -251,7 +251,7 @@
     ]
   },
   "haorchallprototype-siegeofcoruscant": {
-    "cost": 2,
+    "points": 2,
     "standardLoadout": [
       "ionmissiles",
       "contingencyprotocol-siegeofcoruscant",
@@ -259,7 +259,7 @@
     ]
   },
   "countdooku-siegeofcoruscant": {
-    "cost": 6,
+    "points": 6,
     "standardLoadout": [
       "malice",
       "roilinganger-siegeofcoruscant",
@@ -267,7 +267,7 @@
     ]
   },
   "dbs32c-siegeofcoruscant": {
-    "cost": 3,
+    "points": 3,
     "standardLoadout": [
       "plasmatorpedoes",
       "contingencyprotocol-siegeofcoruscant",
@@ -275,7 +275,7 @@
     ]
   },
   "dbs404-siegeofcoruscant": {
-    "cost": 3,
+    "points": 3,
     "standardLoadout": [
       "advprotontorpedoes",
       "contingencyprotocol-siegeofcoruscant",
@@ -283,7 +283,7 @@
     ]
   },
   "baktoidprototype-siegeofcoruscant": {
-    "cost": 3,
+    "points": 3,
     "standardLoadout": [
       "homingmissiles",
       "contingencyprotocol-siegeofcoruscant",
@@ -291,7 +291,7 @@
     ]
   },
   "dis347-siegeofcoruscant": {
-    "cost": 4,
+    "points": 4,
     "standardLoadout": [
       "marksmanship",
       "afterburners",
@@ -299,7 +299,7 @@
     ]
   },
   "dist81-siegeofcoruscant": {
-    "cost": 5,
+    "points": 5,
     "standardLoadout": [
       "outmaneuver",
       "afterburners",
@@ -307,7 +307,7 @@
     ]
   },
   "phlacarphoccprototype-siegeofcoruscant": {
-    "cost": 4,
+    "points": 4,
     "standardLoadout": [
       "afterburners",
       "contingencyprotocol-siegeofcoruscant",
