@@ -51,7 +51,7 @@ const Page = async ({ params }: PageProps) => {
   }
 
   const [vendor, id] = params.event as [vendor: string, id: string];
-  const { title, url, squads } = await getEventByVendor({ vendor, id });
+  const { title, urls, squads } = await getEventByVendor({ vendor, id });
   const squadsWithXWS = squads.filter(item => Boolean(item.xws)).length;
 
   return (
@@ -60,9 +60,11 @@ const Page = async ({ params }: PageProps) => {
         <header className="mb-4 border-b border-b-primary-100 pb-6 md:mt-3">
           <Title>{title || `Event #${params.event}`}</Title>
           <Caption>
-            <Link href={url} target="_blank">
-              Event #{id}
-            </Link>{' '}
+            {urls.map(({ href, text }) => (
+              <Link key={href} href={href} target="_blank">
+                {text}
+              </Link>
+            ))}
             ({squadsWithXWS}/{squads.length} squads parsed)
           </Caption>
         </header>

@@ -8,7 +8,7 @@ const VENDOR = {
 };
 
 export interface EvenData {
-  urls: string[];
+  urls: { href: string; text: string }[];
   title: string;
   squads: SquadData[];
 }
@@ -29,21 +29,22 @@ export const getEventByVendor = async ({
   const getEvent = VENDOR[vendor as keyof typeof VENDOR];
 
   // Allow to fetch multiple Ids and merge
+  // TODO: just call id ids in input?
   const events = id.split('%2B').map(getEvent);
   const data = await Promise.all(events);
 
   const result = data.reduce(
     (r, { url, title, squads }) => {
-      r.url.push(url);
+      r.urls.push({ href: url, text: `Event #${id}` });
       r.squads.push(...squads);
       return r;
     },
     {
-      url: [],
+      urls: [],
       title: 'test',
       squads: [],
     } as EvenData
   );
-  console.log(result.url);
+
   return result;
 };
