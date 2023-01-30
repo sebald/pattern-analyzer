@@ -2,7 +2,7 @@ import { redirect } from 'next/navigation';
 
 import { RECENT_EVENTS } from 'app/preload';
 import { Caption, Center, Container, Link, Message, Title } from 'components';
-import { getEventByVendor } from 'lib/get-event';
+import { getEventDataByVendor } from 'lib/get-event';
 
 // Friendly reminder: Don't use a barrel file! next doesn't like it!
 import { Filter } from './components/filter';
@@ -21,7 +21,10 @@ export const fetchCache = 'force-cache';
  * Opt into background revalidation. (see: https://github.com/vercel/next.js/discussions/43085)
  */
 export async function generateStaticParams() {
-  return Object.entries(RECENT_EVENTS)
+  const events = RECENT_EVENTS;
+  events.rollbetter.push('56+57');
+
+  return Object.entries(events)
     .map(([vendor, ids]) => ids.map(id => ({ event: [vendor, id] })))
     .flat();
 }
@@ -51,14 +54,19 @@ const Page = async ({ params }: PageProps) => {
   }
 
   const [vendor, id] = params.event as [vendor: string, id: string];
-  const { title, urls, squads } = await getEventByVendor({ vendor, id });
+  const { title, urls, squads } = await getEventDataByVendor({
+    vendor,
+    ids: id,
+  });
   const squadsWithXWS = squads.filter(item => Boolean(item.xws)).length;
 
   return (
     <main className="p-4">
       <Container>
         <header className="mb-4 border-b border-b-primary-100 pb-6 md:mt-3">
-          <Title>{title || `Event #${params.event}`}</Title>
+          <Title>
+            {title.filter(Boolean).join(' & ') || `Event #${params.event}`}
+          </Title>
           <Caption>
             {urls.map(({ href, text }) => (
               <Link key={href} href={href} target="_blank">

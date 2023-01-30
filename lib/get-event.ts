@@ -9,39 +9,41 @@ const VENDOR = {
 
 export interface EvenData {
   urls: { href: string; text: string }[];
-  title: string;
+  title: (string | null)[];
   squads: SquadData[];
 }
 
 export interface GetEventByVendorProps {
   vendor: string;
-  id: string;
+  ids: string;
 }
 
-export const getEventByVendor = async ({
+/**
+ * Get event data for one or mulitple events.
+ */
+export const getEventDataByVendor = async ({
   vendor,
-  id,
+  ids,
 }: GetEventByVendorProps) => {
   if (!(vendor in VENDOR)) {
     throw new Error(`Unsupported vendor "${vendor}..."`);
   }
 
   const getEvent = VENDOR[vendor as keyof typeof VENDOR];
-
-  // Allow to fetch multiple Ids and merge
-  // TODO: just call id ids in input?
-  const events = id.split('%2B').map(getEvent);
-  const data = await Promise.all(events);
+  const eventIds = ids.split('%2B'); // separated by "+"
+  const data = await Promise.all(eventIds.map(getEvent));
 
   const result = data.reduce(
     (r, { url, title, squads }) => {
-      r.urls.push({ href: url, text: `Event #${id}` });
+      r.urls.push({ href: url, text: `Event #${ids}` });
       r.squads.push(...squads);
+      r.title.push(title);
+
       return r;
     },
     {
       urls: [],
-      title: 'test',
+      title: [],
       squads: [],
     } as EvenData
   );
