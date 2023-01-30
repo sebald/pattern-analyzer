@@ -12,7 +12,7 @@ const PILOT_ID_MAP = {
 };
 
 /**
- * Adjust some irregularities coming from LBN.
+ * Adjust some irregularities coming from LBN and Rollbetter.
  */
 export const normalize = (xws: XWSSquad | null) => {
   if (!xws) {
