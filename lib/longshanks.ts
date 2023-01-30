@@ -77,7 +77,7 @@ export const getEvent = async (id: string) => {
   const title = parseTitle($);
   const squads = parseSquads($);
 
-  return { url, title, squads };
+  return { id, url, title, squads };
 };
 
 /**

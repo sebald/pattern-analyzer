@@ -2,7 +2,8 @@ import { redirect } from 'next/navigation';
 
 import { RECENT_EVENTS } from 'app/preload';
 import { Caption, Center, Container, Link, Message, Title } from 'components';
-import { getEventByVendor } from 'lib/get-event';
+import { getEventDataByVendor, mergeData } from 'lib/get-event';
+import type { SquadData } from 'lib/types';
 
 // Friendly reminder: Don't use a barrel file! next doesn't like it!
 import { Filter } from './components/filter';
@@ -20,14 +21,23 @@ export const fetchCache = 'force-cache';
 /**
  * Opt into background revalidation. (see: https://github.com/vercel/next.js/discussions/43085)
  */
-export async function generateStaticParams() {
-  return Object.entries(RECENT_EVENTS)
+export const generateStaticParams = () => {
+  const events = RECENT_EVENTS;
+  events.rollbetter.push('56+57');
+
+  return Object.entries(events)
     .map(([vendor, ids]) => ids.map(id => ({ event: [vendor, id] })))
     .flat();
-}
+};
 
 // Props
 // ---------------
+export interface EventData {
+  title: string;
+  urls: { href: string; text: string }[];
+  squads: SquadData[];
+}
+
 export interface PageProps {
   params: {
     event: [id: string] | [vendor: string, id: string] | string[];
@@ -50,23 +60,50 @@ const Page = async ({ params }: PageProps) => {
     redirect(`/`);
   }
 
-  const [vendor, id] = params.event as [vendor: string, id: string];
-  const { title, url, squads } = await getEventByVendor({ vendor, id });
-  const squadsWithXWS = squads.filter(item => Boolean(item.xws)).length;
+  const [vendor, id] = params.event as [
+    vendor: 'longshanks' | 'rollbetter',
+    id: string
+  ];
+  const events = await getEventDataByVendor({
+    vendor,
+    ids: id,
+  });
+
+  // Merge if multiple events
+  const event = events.reduce<EventData>(
+    (o, { title, id, url, squads }) => {
+      if (title) {
+        o.title = mergeData(o.title, title);
+      }
+      o.urls.push({ href: url, text: `Event #${id}` });
+      o.squads.push(...squads);
+
+      return o;
+    },
+    {
+      title: '',
+      urls: [],
+      squads: [],
+    }
+  );
+
+  const squadsWithXWS = event.squads.filter(item => Boolean(item.xws)).length;
 
   return (
     <main className="p-4">
       <Container>
         <header className="mb-4 border-b border-b-primary-100 pb-6 md:mt-3">
-          <Title>{title || `Event #${params.event}`}</Title>
-          <Caption>
-            <Link href={url} target="_blank">
-              Event #{id}
-            </Link>{' '}
-            ({squadsWithXWS}/{squads.length} squads parsed)
+          <Title>{event.title || 'Unknown Event'}</Title>
+          <Caption className="flex flex-row gap-2">
+            {event.urls.map(({ href, text }) => (
+              <Link key={href} href={href} target="_blank">
+                {text}
+              </Link>
+            ))}
+            ({squadsWithXWS}/{event.squads.length} squads parsed)
           </Caption>
         </header>
-        {squads.length > 1 ? (
+        {event.squads.length > 1 ? (
           <Tabs
             labels={[
               {
@@ -111,9 +148,9 @@ const Page = async ({ params }: PageProps) => {
           >
             <FilterProvider>
               <Filter />
-              <Squads squads={squads} />
+              <Squads squads={event.squads} />
             </FilterProvider>
-            <Stats squads={squads} />
+            <Stats squads={event.squads} />
           </Tabs>
         ) : (
           <div className="pt-4">
