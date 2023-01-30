@@ -110,6 +110,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
 
         // Pilot cost distribution
         const points = pilot.points as 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
+
         pilotCostDistribution[points] = pilotCostDistribution[points] + 1;
       });
 

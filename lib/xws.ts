@@ -1,5 +1,6 @@
 import type { XWSSquad } from './types';
 import SL_PILOTS from './data/standard-loadout-pilots.json';
+import { getPointsByName } from './yasb';
 
 // LBN has some error and unnormalized in pilot ids.
 const PILOT_ID_MAP = {
@@ -41,6 +42,11 @@ export const normalize = (xws: XWSSquad | null) => {
 
     // Rollbetter or LBN don't adhere XWS ...
     pilot.upgrades = pilot.upgrades || {};
+
+    // Rollbetter or LBN don't give the correct points costs
+    if (pilot.points === 0) {
+      pilot.points = getPointsByName(pilot.id);
+    }
 
     return pilot;
   });
