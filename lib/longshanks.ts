@@ -1,6 +1,6 @@
 import { CheerioAPI, load } from 'cheerio';
 import { SquadData } from './types';
-import { yasb2xws, YASB_URL_REGEXP } from './yasb2xws';
+import { yasb2xws, YASB_URL_REGEXP } from './yasb';
 
 /**
  * Scrape event title from meta tag.

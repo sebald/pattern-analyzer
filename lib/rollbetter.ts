@@ -1,6 +1,6 @@
 import { SquadData, XWSSquad } from './types';
 import { normalize } from './xws';
-import { yasb2xws } from './yasb2xws';
+import { yasb2xws } from './yasb';
 
 export interface RollBetterTournamentResponse {
   id: number;
