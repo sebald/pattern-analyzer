@@ -56,7 +56,7 @@ const getLists = async (id: string, count: number) => {
   data = await Promise.all<RollBetterListResponse>(
     responses.map(res => {
       if (!res.ok) {
-        throw new Error('Failed to fetch event data...');
+        throw new Error('Failed to fetch lists from rollbetter...');
       }
 
       return res.json();
@@ -118,7 +118,7 @@ export const getEventInfo = async (id: string) => {
   const res = await fetch(api_url);
 
   if (!res.ok) {
-    throw new Error('Failed to fetch event data...');
+    throw new Error(`Failed to fetch event data... (${id})`);
   }
 
   const {

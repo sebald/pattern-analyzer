@@ -59,7 +59,7 @@ export const getEventHtml = async (id: string) => {
   const res = await fetch(url);
 
   if (!res.ok) {
-    throw new Error('Failed to fetch event data...');
+    throw new Error(`Failed to fetch event data... (${id})`);
   }
 
   const html = await res.text();
