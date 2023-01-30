@@ -1,7 +1,6 @@
+import { getEventInfoByVendor } from 'lib/get-event';
 import { Card, Container, Link, Logo } from 'components';
 import { List } from 'components/list';
-import { getEventInfo as getLongshanksEventInfo } from 'lib/longshanks';
-import { getEventInfo as getRollbetterEventInfo } from 'lib/rollbetter';
 
 import { montserrat } from './fonts';
 import { RECENT_EVENTS } from './preload';
@@ -17,8 +16,12 @@ export const fetchCache = 'force-cache';
 // ---------------
 const Home = async () => {
   const data = await Promise.all([
-    ...RECENT_EVENTS.longshanks.map(getLongshanksEventInfo),
-    ...RECENT_EVENTS.rollbetter.map(getRollbetterEventInfo),
+    ...RECENT_EVENTS.longshanks.map(ids =>
+      getEventInfoByVendor({ vendor: 'longshanks', ids })
+    ),
+    ...RECENT_EVENTS.rollbetter.map(ids =>
+      getEventInfoByVendor({ vendor: 'rollbetter', ids })
+    ),
   ]);
 
   return (

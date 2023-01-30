@@ -2,7 +2,7 @@ import { redirect } from 'next/navigation';
 
 import { RECENT_EVENTS } from 'app/preload';
 import { Caption, Center, Container, Link, Message, Title } from 'components';
-import { getEventDataByVendor } from 'lib/get-event';
+import { getEventDataByVendor, mergeData } from 'lib/get-event';
 import type { SquadData } from 'lib/types';
 
 // Friendly reminder: Don't use a barrel file! next doesn't like it!
@@ -60,7 +60,10 @@ const Page = async ({ params }: PageProps) => {
     redirect(`/`);
   }
 
-  const [vendor, id] = params.event as [vendor: string, id: string];
+  const [vendor, id] = params.event as [
+    vendor: 'longshanks' | 'rollbetter',
+    id: string
+  ];
   const events = await getEventDataByVendor({
     vendor,
     ids: id,
@@ -70,7 +73,7 @@ const Page = async ({ params }: PageProps) => {
   const event = events.reduce<EventData>(
     (o, { title, id, url, squads }) => {
       if (title) {
-        o.title = o.title ? `${o.title} & ${title}` : title;
+        o.title = mergeData(o.title, title);
       }
       o.urls.push({ href: url, text: `Event #${id}` });
       o.squads.push(...squads);
