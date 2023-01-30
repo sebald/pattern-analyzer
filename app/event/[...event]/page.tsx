@@ -20,14 +20,14 @@ export const fetchCache = 'force-cache';
 /**
  * Opt into background revalidation. (see: https://github.com/vercel/next.js/discussions/43085)
  */
-export async function generateStaticParams() {
+export const generateStaticParams = () => {
   const events = RECENT_EVENTS;
   events.rollbetter.push('56+57');
 
   return Object.entries(events)
     .map(([vendor, ids]) => ids.map(id => ({ event: [vendor, id] })))
     .flat();
-}
+};
 
 // Props
 // ---------------
@@ -54,10 +54,14 @@ const Page = async ({ params }: PageProps) => {
   }
 
   const [vendor, id] = params.event as [vendor: string, id: string];
-  const { title, urls, squads } = await getEventDataByVendor({
+  const events = await getEventDataByVendor({
     vendor,
     ids: id,
   });
+
+  // Merge if multiple events
+  events.reduce((o, ()) => {}) ,{})
+
   const squadsWithXWS = squads.filter(item => Boolean(item.xws)).length;
 
   return (

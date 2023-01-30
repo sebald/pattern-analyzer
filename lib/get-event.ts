@@ -7,12 +7,6 @@ const VENDOR = {
   rollbetter: getRollbetterEvent,
 };
 
-export interface EvenData {
-  urls: { href: string; text: string }[];
-  title: (string | null)[];
-  squads: SquadData[];
-}
-
 export interface GetEventByVendorProps {
   vendor: string;
   ids: string;
@@ -33,20 +27,5 @@ export const getEventDataByVendor = async ({
   const eventIds = ids.split('%2B'); // separated by "+"
   const data = await Promise.all(eventIds.map(getEvent));
 
-  const result = data.reduce(
-    (r, { url, title, squads }) => {
-      r.urls.push({ href: url, text: `Event #${ids}` });
-      r.squads.push(...squads);
-      r.title.push(title);
-
-      return r;
-    },
-    {
-      urls: [],
-      title: [],
-      squads: [],
-    } as EvenData
-  );
-
-  return result;
+  return data;
 };

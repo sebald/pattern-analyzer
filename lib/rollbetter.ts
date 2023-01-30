@@ -146,5 +146,5 @@ export const getEvent = async (id: string) => {
   const { url, title, players } = await getEventInfo(id);
   const squads = await getSquads(id, players);
 
-  return { url, title, squads };
+  return { id, url, title, squads };
 };
