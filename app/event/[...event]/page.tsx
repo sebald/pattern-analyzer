@@ -3,6 +3,7 @@ import { redirect } from 'next/navigation';
 import { RECENT_EVENTS } from 'app/preload';
 import { Caption, Center, Container, Link, Message, Title } from 'components';
 import { getEventDataByVendor } from 'lib/get-event';
+import type { SquadData } from 'lib/types';
 
 // Friendly reminder: Don't use a barrel file! next doesn't like it!
 import { Filter } from './components/filter';
@@ -31,6 +32,12 @@ export const generateStaticParams = () => {
 
 // Props
 // ---------------
+export interface EventData {
+  title: string;
+  urls: { href: string; text: string }[];
+  squads: SquadData[];
+}
+
 export interface PageProps {
   params: {
     event: [id: string] | [vendor: string, id: string] | string[];
@@ -60,27 +67,40 @@ const Page = async ({ params }: PageProps) => {
   });
 
   // Merge if multiple events
-  events.reduce((o, ()) => {}) ,{})
+  const event = events.reduce<EventData>(
+    (o, { title, id, url, squads }) => {
+      if (title) {
+        o.title = o.title ? `${o.title} & ${title}` : title;
+      }
+      o.urls.push({ href: url, text: `Event #${id}` });
+      o.squads.push(...squads);
 
-  const squadsWithXWS = squads.filter(item => Boolean(item.xws)).length;
+      return o;
+    },
+    {
+      title: '',
+      urls: [],
+      squads: [],
+    }
+  );
+
+  const squadsWithXWS = event.squads.filter(item => Boolean(item.xws)).length;
 
   return (
     <main className="p-4">
       <Container>
         <header className="mb-4 border-b border-b-primary-100 pb-6 md:mt-3">
-          <Title>
-            {title.filter(Boolean).join(' & ') || `Event #${params.event}`}
-          </Title>
-          <Caption>
-            {urls.map(({ href, text }) => (
+          <Title>{event.title || 'Unknown Event'}</Title>
+          <Caption className="flex flex-row gap-2">
+            {event.urls.map(({ href, text }) => (
               <Link key={href} href={href} target="_blank">
                 {text}
               </Link>
             ))}
-            ({squadsWithXWS}/{squads.length} squads parsed)
+            ({squadsWithXWS}/{event.squads.length} squads parsed)
           </Caption>
         </header>
-        {squads.length > 1 ? (
+        {event.squads.length > 1 ? (
           <Tabs
             labels={[
               {
@@ -125,9 +145,9 @@ const Page = async ({ params }: PageProps) => {
           >
             <FilterProvider>
               <Filter />
-              <Squads squads={squads} />
+              <Squads squads={event.squads} />
             </FilterProvider>
-            <Stats squads={squads} />
+            <Stats squads={event.squads} />
           </Tabs>
         ) : (
           <div className="pt-4">
