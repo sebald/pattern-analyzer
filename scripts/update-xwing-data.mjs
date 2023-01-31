@@ -32,6 +32,16 @@ const SUFFIX = {
 };
 
 /**
+ * Additional upgrades that are not listed in x-wing-data2 because
+ * they are part of a standard loadout.
+ */
+const EXTRA_UPGRADES = {
+  attackspeed: 'Attack Speed',
+  r5k6: 'R5-K6',
+  vengeful: 'Vengeful',
+};
+
+/**
  * Only take certain properties from pilot and
  * append scenario abbreviation to name if applicable.
  */
@@ -182,6 +192,10 @@ read(manifest.factions[0]).forEach(({ xws: factionId, name, icon }) => {
     Object.values(type).forEach(item => {
       display.upgrades[item.id] = item.name;
     });
+  });
+
+  Object.entries(EXTRA_UPGRADES).forEach(([id, name]) => {
+    display.upgrades[id] = name;
   });
 });
 
