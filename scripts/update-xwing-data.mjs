@@ -18,7 +18,7 @@ const manifest = read('data/manifest.json');
 // Faction Data
 // ---------------
 
-const SUFFIX = {
+const PILOT_SUFFIX = {
   // Ships / Configs
   delta7baethersprite: '7b',
 
@@ -29,6 +29,34 @@ const SUFFIX = {
   // Szenarios
   'Siege of Coruscant': 'SoC',
   'Battle of Yavin': 'BoY',
+};
+
+const UPGRADE_SUFFIX = {
+  // Slot
+  gunner: '(Gunner)',
+  crew: '(Crew)',
+
+  // Faction
+  republic: '(Republic)',
+  resistance: '(Resistance)',
+  'crew-swz19': '(Resistance)',
+  scum: '(Scum)',
+  'rebel-scum': '(Rebel/Scum)',
+  swz82: '(Scum/CIS)',
+
+  // Scenario
+  siegeofcoruscant: '(SoC)',
+  battleofyavin: '(BoY)',
+};
+
+/**
+ * Additional upgrades that are not listed in x-wing-data2 because
+ * they are part of a standard loadout.
+ */
+const EXTRA_UPGRADES = {
+  attackspeed: 'Attack Speed',
+  r5k6: 'R5-K6',
+  vengeful: 'Vengeful',
 };
 
 /**
@@ -42,8 +70,10 @@ const parsePilots = (pilots, ship) =>
     o[id] = {
       id,
       name:
-        SUFFIX[id] || SUFFIX[ship] || SUFFIX[caption]
-          ? `${name} (${SUFFIX[id] || SUFFIX[ship] || SUFFIX[caption]})`
+        PILOT_SUFFIX[id] || PILOT_SUFFIX[ship] || PILOT_SUFFIX[caption]
+          ? `${name} (${
+              PILOT_SUFFIX[id] || PILOT_SUFFIX[ship] || PILOT_SUFFIX[caption]
+            })`
           : name,
       caption,
       cost,
@@ -180,8 +210,15 @@ read(manifest.factions[0]).forEach(({ xws: factionId, name, icon }) => {
 
   Object.values(upgrades).forEach(type => {
     Object.values(type).forEach(item => {
-      display.upgrades[item.id] = item.name;
+      const addon = item.id.split('-')[1];
+      const suffix = addon ? UPGRADE_SUFFIX[addon] : '';
+
+      display.upgrades[item.id] = suffix ? `${item.name} ${suffix}` : item.name;
     });
+  });
+
+  Object.entries(EXTRA_UPGRADES).forEach(([id, name]) => {
+    display.upgrades[id] = name;
   });
 });
 

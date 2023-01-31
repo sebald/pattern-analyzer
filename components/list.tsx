@@ -7,8 +7,9 @@ const styles = {
   item: cva([], {
     variants: {
       variant: {
-        default: 'py-6 first:pt-3 last:pb-3',
+        default: 'py-2',
         compact: 'py-1',
+        wide: 'py-6 first:pt-3 last:pb-3',
       },
     },
     defaultVariants: {

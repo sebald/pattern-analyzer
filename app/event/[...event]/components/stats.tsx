@@ -1,12 +1,13 @@
 'use client';
 
 import type { Ships } from 'lib/get-value';
-import type { SquadData } from 'lib/types';
+import type { SquadData, XWSFaction } from 'lib/types';
 import { FactionDistribution } from './charts/faction-distribution';
 import { PilotCostDistribution } from './charts/pilot-cost-distribution';
 import { PilotFrequency } from './charts/pilot-frequency';
 import { SquadComposition } from './charts/squad-composition';
 import { SquadSize } from './charts/squad-size';
+import { UpgradeSummary } from './charts/upgrade-summary';
 
 // Hook
 // ---------------
@@ -69,6 +70,18 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
   // Number of squads with the same ships (key = ship ids separated by "|")
   const squadComposition = new Map<string, number>();
 
+  // Upgrades summary
+  const upgradeSummary = {
+    all: new Map<string, number>(),
+    rebelalliance: new Map<string, number>(),
+    galacticempire: new Map<string, number>(),
+    scumandvillainy: new Map<string, number>(),
+    resistance: new Map<string, number>(),
+    firstorder: new Map<string, number>(),
+    galacticrepublic: new Map<string, number>(),
+    separatistalliance: new Map<string, number>(),
+  };
+
   squads.forEach(squad => {
     // Number of Squads with XWS
     if (squad.xws) {
@@ -110,8 +123,21 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
 
         // Pilot cost distribution
         const points = pilot.points as 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
-
         pilotCostDistribution[points] = pilotCostDistribution[points] + 1;
+
+        // Upgrades summary
+        Object.values(pilot.upgrades)
+          .flat()
+          .forEach((u: string) => {
+            upgradeSummary['all'].set(
+              u,
+              (upgradeSummary['all'].get(u) || 0) + 1
+            );
+            upgradeSummary[faction].set(
+              u,
+              (upgradeSummary[faction].get(u) || 0) + 1
+            );
+          });
       });
 
       // Sort so we can generate an ID
@@ -130,6 +156,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     pilotFrequency,
     pilotCostDistribution,
     squadComposition,
+    upgradeSummary,
   };
 };
 
@@ -169,6 +196,9 @@ export const Stats = ({ squads }: StatsProps) => {
             total={data.numberOfSquads.xws}
           />
         </div>
+      </div>
+      <div className="md:col-span-6 lg:col-span-4">
+        <UpgradeSummary value={data.upgradeSummary} />
       </div>
     </div>
   );

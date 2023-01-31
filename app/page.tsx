@@ -41,7 +41,7 @@ const Home = async () => {
               Recent Events
             </h2>
             <Card>
-              <List>
+              <List variant="wide">
                 {data.map(({ id, vendor, title, date }) => (
                   <List.Item key={id}>
                     <Link
