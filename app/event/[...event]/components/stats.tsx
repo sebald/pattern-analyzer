@@ -1,7 +1,7 @@
 'use client';
 
 import type { Ships } from 'lib/get-value';
-import type { SquadData, XWSFaction } from 'lib/types';
+import type { SquadData, XWSUpgradeSlots } from 'lib/types';
 import { FactionDistribution } from './charts/faction-distribution';
 import { PilotCostDistribution } from './charts/pilot-cost-distribution';
 import { PilotFrequency } from './charts/pilot-frequency';
@@ -13,6 +13,11 @@ import { UpgradeSummary } from './charts/upgrade-summary';
 // ---------------
 export interface UseSquadStatsProps {
   squads: SquadData[];
+}
+
+export interface UpgradeInfo {
+  slot: XWSUpgradeSlots;
+  count: number;
 }
 
 const useSquadStats = ({ squads }: UseSquadStatsProps) => {
@@ -72,14 +77,14 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
 
   // Upgrades summary
   const upgradeSummary = {
-    all: new Map<string, number>(),
-    rebelalliance: new Map<string, number>(),
-    galacticempire: new Map<string, number>(),
-    scumandvillainy: new Map<string, number>(),
-    resistance: new Map<string, number>(),
-    firstorder: new Map<string, number>(),
-    galacticrepublic: new Map<string, number>(),
-    separatistalliance: new Map<string, number>(),
+    all: new Map<string, UpgradeInfo>(),
+    rebelalliance: new Map<string, UpgradeInfo>(),
+    galacticempire: new Map<string, UpgradeInfo>(),
+    scumandvillainy: new Map<string, UpgradeInfo>(),
+    resistance: new Map<string, UpgradeInfo>(),
+    firstorder: new Map<string, UpgradeInfo>(),
+    galacticrepublic: new Map<string, UpgradeInfo>(),
+    separatistalliance: new Map<string, UpgradeInfo>(),
   };
 
   squads.forEach(squad => {
@@ -115,29 +120,39 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
         unique.push(pilot.id);
 
         // Frequency of included pilot (separated by faction)
-        const { count, ship } = pilotFrequency[faction].get(pilot.id) || {
+        const pilotInfo = pilotFrequency[faction].get(pilot.id) || {
           count: 0,
           ship: pilot.ship,
         };
-        pilotFrequency[faction].set(pilot.id, { count: count + 1, ship });
+        pilotFrequency[faction].set(pilot.id, {
+          count: pilotInfo.count + 1,
+          ship: pilotInfo.ship,
+        });
 
         // Pilot cost distribution
         const points = pilot.points as 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
         pilotCostDistribution[points] = pilotCostDistribution[points] + 1;
 
         // Upgrades summary
-        Object.values(pilot.upgrades)
-          .flat()
-          .forEach((u: string) => {
-            upgradeSummary['all'].set(
-              u,
-              (upgradeSummary['all'].get(u) || 0) + 1
-            );
-            upgradeSummary[faction].set(
-              u,
-              (upgradeSummary[faction].get(u) || 0) + 1
-            );
+        (
+          Object.entries(pilot.upgrades) as [XWSUpgradeSlots, string[]][]
+        ).forEach(([slot, us]) => {
+          us.forEach(u => {
+            let upgradeInfo = upgradeSummary['all'].get(u) || {
+              slot,
+              count: 0,
+            };
+            upgradeInfo.count = upgradeInfo.count + 1;
+            upgradeSummary['all'].set(u, upgradeInfo);
+
+            upgradeInfo = upgradeSummary[faction].get(u) || {
+              slot,
+              count: 0,
+            };
+            upgradeInfo.count = upgradeInfo.count + 1;
+            upgradeSummary[faction].set(u, upgradeInfo);
           });
+        });
       });
 
       // Sort so we can generate an ID
