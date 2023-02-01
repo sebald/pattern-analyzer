@@ -5,7 +5,7 @@ import type { SquadData, XWSUpgradeSlots } from 'lib/types';
 import { FactionDistribution } from './charts/faction-distribution';
 import { PilotCostDistribution } from './charts/pilot-cost-distribution';
 import { PilotFrequency } from './charts/pilot-frequency';
-import { SquadComposition } from './charts/squad-composition';
+import { ShipComposition } from './charts/ship-composition';
 import { SquadSize } from './charts/squad-size';
 import { UpgradeSummary } from './charts/upgrade-summary';
 
@@ -73,7 +73,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
   };
 
   // Number of squads with the same ships (key = ship ids separated by "|")
-  const squadComposition = new Map<string, number>();
+  const shipComposition = new Map<string, number>();
 
   // Upgrades summary
   const upgradeSummary = {
@@ -157,10 +157,9 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
 
       // Sort so we can generate an ID
       ships.sort();
-      const squadCompositionId = ships.join('|');
-      const squadCompositionCount =
-        squadComposition.get(squadCompositionId) || 0;
-      squadComposition.set(squadCompositionId, squadCompositionCount + 1);
+      const shipCompositionId = ships.join('|');
+      const shipCompositionCount = shipComposition.get(shipCompositionId) || 0;
+      shipComposition.set(shipCompositionId, shipCompositionCount + 1);
     }
   });
 
@@ -170,7 +169,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     squadSizes,
     pilotFrequency,
     pilotCostDistribution,
-    squadComposition,
+    shipComposition,
     upgradeSummary,
   };
 };
@@ -206,8 +205,8 @@ export const Stats = ({ squads }: StatsProps) => {
       <div className="md:col-span-6 lg:col-span-8">
         <div className="flex flex-col gap-4">
           <PilotCostDistribution value={data.pilotCostDistribution} />
-          <SquadComposition
-            value={data.squadComposition}
+          <ShipComposition
+            value={data.shipComposition}
             total={data.numberOfSquads.xws}
           />
         </div>

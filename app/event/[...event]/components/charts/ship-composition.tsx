@@ -2,12 +2,12 @@ import { Card, List, ShipIcon } from 'components';
 import { getShipName } from 'lib/get-value';
 import { FooterHint, toPercentage } from './shared';
 
-export interface SquadCompositionProps {
+export interface ShipCompositionProps {
   value: Map<string, number>;
   total: number;
 }
 
-export const SquadComposition = ({ value, total }: SquadCompositionProps) => {
+export const ShipComposition = ({ value, total }: ShipCompositionProps) => {
   let data = Array.from(value.entries()).sort(([, a], [, b]) => b - a);
   if (data.length > 10) {
     // Only take TOP 10 and remove squads that only appearing once
@@ -18,11 +18,11 @@ export const SquadComposition = ({ value, total }: SquadCompositionProps) => {
 
   return (
     <Card>
-      <Card.Title>TOP {data.length} Squad Composition*</Card.Title>
+      <Card.Title>TOP {data.length} Ship Composition*</Card.Title>
       <Card.Body>
         {data.length === 0 ? (
           <div className="py-6 text-center italic text-secondary-400">
-            No common squads found.
+            No common ship compositions found.
           </div>
         ) : (
           <List variant="compact">
@@ -49,11 +49,11 @@ export const SquadComposition = ({ value, total }: SquadCompositionProps) => {
           </List>
         )}
         <div className="text-center text-sm font-semibold">
-          Unique squads: {unique} ({toPercentage(unique / total)})
+          Unique compositions: {unique} ({toPercentage(unique / total)})
         </div>
       </Card.Body>
       <Card.Footer>
-        <FooterHint more="Squads that only appear once are ignored." />
+        <FooterHint more="Compositions that only appear once are ignored." />
       </Card.Footer>
     </Card>
   );
