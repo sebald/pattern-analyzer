@@ -1,7 +1,7 @@
 'use client';
 
 import type { Ships } from 'lib/get-value';
-import type { SquadData, XWSFaction, XWSUpgrades } from 'lib/types';
+import type { SquadData, XWSUpgradeSlots } from 'lib/types';
 import { FactionDistribution } from './charts/faction-distribution';
 import { PilotCostDistribution } from './charts/pilot-cost-distribution';
 import { PilotFrequency } from './charts/pilot-frequency';
@@ -16,7 +16,7 @@ export interface UseSquadStatsProps {
 }
 
 export interface UpgradeInfo {
-  slot: keyof XWSUpgrades;
+  slot: XWSUpgradeSlots;
   count: number;
 }
 
@@ -135,7 +135,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
 
         // Upgrades summary
         (
-          Object.entries(pilot.upgrades) as [keyof XWSUpgrades, string[]][]
+          Object.entries(pilot.upgrades) as [XWSUpgradeSlots, string[]][]
         ).forEach(([slot, us]) => {
           us.forEach(u => {
             let upgradeInfo = upgradeSummary['all'].get(u) || {

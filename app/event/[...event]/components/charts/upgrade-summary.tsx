@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Card, FactionSelection, List } from 'components';
-import type { XWSFaction, XWSUpgrades } from 'lib/types';
+import { Card, FactionSelection, List, UpgradeSlotSelection } from 'components';
+import type { XWSFaction, XWSUpgrades, XWSUpgradeSlots } from 'lib/types';
 
 import { FooterHint } from './shared';
 import { getUpgradeName } from 'lib/get-value';
@@ -19,17 +19,19 @@ export interface UpgradeSummaryProps {
 
 export const UpgradeSummary = ({ value }: UpgradeSummaryProps) => {
   const [faction, setFaction] = useState<XWSFaction | 'all'>('all');
+  const [slot, setSlot] = useState<XWSUpgradeSlots | 'all'>('all');
 
-  const data = Array.from(value[faction].entries()).sort(
-    ([, a], [, b]) => b.count - a.count
-  );
+  const data = Array.from(value[faction].entries())
+    .filter(([, info]) => (slot === 'all' ? true : info.slot === slot))
+    .sort(([, a], [, b]) => b.count - a.count);
 
   return (
     <Card>
       <Card.Title>Upgrade Summary*</Card.Title>
       <Card.Body>
-        <div className="flex justify-end pb-4">
+        <div className="flex justify-end gap-3 pb-4">
           <FactionSelection value={faction} onChange={setFaction} allowAll />
+          <UpgradeSlotSelection value={slot} onChange={setSlot} allowAll />
         </div>
         <List>
           {data.map(([upgrade, info]) => (
