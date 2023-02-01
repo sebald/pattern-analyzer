@@ -1,19 +1,27 @@
 import { useState } from 'react';
 import { Card, FactionSelection, List } from 'components';
-import type { XWSFaction } from 'lib/types';
+import type { XWSFaction, XWSUpgrades } from 'lib/types';
 
 import { FooterHint } from './shared';
 import { getUpgradeName } from 'lib/get-value';
 
 export interface UpgradeSummaryProps {
-  value: { [faction in XWSFaction | 'all']: Map<string, number> };
+  value: {
+    [faction in XWSFaction | 'all']: Map<
+      string,
+      {
+        slot: keyof XWSUpgrades;
+        count: number;
+      }
+    >;
+  };
 }
 
 export const UpgradeSummary = ({ value }: UpgradeSummaryProps) => {
   const [faction, setFaction] = useState<XWSFaction | 'all'>('all');
 
   const data = Array.from(value[faction].entries()).sort(
-    ([, a], [, b]) => b - a
+    ([, a], [, b]) => b.count - a.count
   );
 
   return (
@@ -24,7 +32,7 @@ export const UpgradeSummary = ({ value }: UpgradeSummaryProps) => {
           <FactionSelection value={faction} onChange={setFaction} allowAll />
         </div>
         <List>
-          {data.map(([upgrade, count]) => (
+          {data.map(([upgrade, info]) => (
             <List.Item
               key={upgrade}
               className="flex flex-row items-center justify-between px-1 text-xs font-medium"
@@ -32,7 +40,9 @@ export const UpgradeSummary = ({ value }: UpgradeSummaryProps) => {
               <div className="flex flex-row items-center">
                 {getUpgradeName(upgrade) || upgrade}
               </div>
-              <div className="tabular-nums text-secondary-400">{count}</div>
+              <div className="tabular-nums text-secondary-400">
+                {info.count}
+              </div>
             </List.Item>
           ))}
         </List>
