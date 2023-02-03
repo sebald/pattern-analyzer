@@ -2,8 +2,8 @@ import { redirect } from 'next/navigation';
 
 import { RECENT_EVENTS } from 'app/preload';
 import { Caption, Center, Container, Link, Message, Title } from 'components';
-import { getEventDataByVendor, mergeData } from 'lib/get-event';
-import type { SquadData } from 'lib/types';
+import { mergeData } from 'lib/get-event';
+import type { EventData, SquadData } from 'lib/types';
 
 // Friendly reminder: Don't use a barrel file! next doesn't like it!
 import { Filter } from './components/filter';
@@ -21,23 +21,35 @@ export const fetchCache = 'force-cache';
 /**
  * Opt into background revalidation. (see: https://github.com/vercel/next.js/discussions/43085)
  */
-export const generateStaticParams = () => {
-  const events = RECENT_EVENTS;
-  events.rollbetter.push('56+57');
-
-  return Object.entries(events)
+export const generateStaticParams = () =>
+  Object.entries(RECENT_EVENTS)
     .map(([vendor, ids]) => ids.map(id => ({ event: [vendor, id] })))
     .flat();
+
+const getEvent = async (vendor: 'longshanks' | 'rollbetter', id: string) => {
+  const ids = id
+    .split('%2B')
+    .map(val => `id=${val}`)
+    .join('&');
+
+  // FIXME: This will go away when API routes are released for the app dir.
+  const base = process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : 'http://localhost:3000';
+
+  const res = await fetch(`${base}/api/event?vendor=${vendor}&${ids}`);
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch data...');
+  }
+
+  const json: EventData = await res.json();
+
+  return json;
 };
 
 // Props
 // ---------------
-export interface EventData {
-  title: string;
-  urls: { href: string; text: string }[];
-  squads: SquadData[];
-}
-
 export interface PageProps {
   params: {
     event: [id: string] | [vendor: string, id: string] | string[];
@@ -64,29 +76,7 @@ const Page = async ({ params }: PageProps) => {
     vendor: 'longshanks' | 'rollbetter',
     id: string
   ];
-  const events = await getEventDataByVendor({
-    vendor,
-    ids: id,
-  });
-
-  // Merge if multiple events
-  const event = events.reduce<EventData>(
-    (o, { title, id, url, squads }) => {
-      if (title) {
-        o.title = mergeData(o.title, title);
-      }
-      o.urls.push({ href: url, text: `Event #${id}` });
-      o.squads.push(...squads);
-
-      return o;
-    },
-    {
-      title: '',
-      urls: [],
-      squads: [],
-    }
-  );
-
+  const event = await getEvent(vendor, id);
   const squadsWithXWS = event.squads.filter(item => Boolean(item.xws)).length;
 
   return (
