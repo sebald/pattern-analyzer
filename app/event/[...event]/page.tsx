@@ -2,8 +2,7 @@ import { redirect } from 'next/navigation';
 
 import { RECENT_EVENTS } from 'app/preload';
 import { Caption, Center, Container, Link, Message, Title } from 'components';
-import { getEventDataByVendor, mergeData } from 'lib/get-event';
-import type { SquadData } from 'lib/types';
+import { getEventDataByVendor } from 'lib/get-event';
 
 // Friendly reminder: Don't use a barrel file! next doesn't like it!
 import { Filter } from './components/filter';
@@ -32,12 +31,6 @@ export const generateStaticParams = () => {
 
 // Props
 // ---------------
-export interface EventData {
-  title: string;
-  urls: { href: string; text: string }[];
-  squads: SquadData[];
-}
-
 export interface PageProps {
   params: {
     event: [id: string] | [vendor: string, id: string] | string[];
@@ -64,29 +57,10 @@ const Page = async ({ params }: PageProps) => {
     vendor: 'longshanks' | 'rollbetter',
     id: string
   ];
-  const events = await getEventDataByVendor({
+  const event = await getEventDataByVendor({
     vendor,
     ids: id,
   });
-
-  // Merge if multiple events
-  const event = events.reduce<EventData>(
-    (o, { title, id, url, squads }) => {
-      if (title) {
-        o.title = mergeData(o.title, title);
-      }
-      o.urls.push({ href: url, text: `Event #${id}` });
-      o.squads.push(...squads);
-
-      return o;
-    },
-    {
-      title: '',
-      urls: [],
-      squads: [],
-    }
-  );
-
   const squadsWithXWS = event.squads.filter(item => Boolean(item.xws)).length;
 
   return (

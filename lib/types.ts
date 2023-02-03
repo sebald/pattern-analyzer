@@ -28,6 +28,12 @@ export interface SquadData {
   player: string;
 }
 
+export interface EventData {
+  title: string;
+  urls: { href: string; text: string }[];
+  squads: SquadData[];
+}
+
 // XWS
 // ---------------
 export type XWSFaction =

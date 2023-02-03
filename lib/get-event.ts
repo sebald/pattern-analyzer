@@ -6,6 +6,8 @@ import {
   getEvent as getRollbetterEvent,
   getEventInfo as getRollbetterEventInfo,
 } from './rollbetter';
+import { EventData } from './types';
+import { shortenTitles } from './utils';
 
 const VENDOR = {
   longshanks: {
@@ -16,14 +18,6 @@ const VENDOR = {
     getEvent: getRollbetterEvent,
     getEventInfo: getRollbetterEventInfo,
   },
-};
-
-export const mergeData = (title: string, add: string) => {
-  if (title && add) {
-    return `${title} & ${add}`;
-  }
-
-  return title ? title : add;
 };
 
 export interface GetByVendorProps {
@@ -44,7 +38,23 @@ export const getEventDataByVendor = async ({
 
   const { getEvent } = VENDOR[vendor as keyof typeof VENDOR];
   const eventIds = ids.split('%2B'); // separated by "+"
-  const data = await Promise.all(eventIds.map(getEvent));
+  const events = await Promise.all(eventIds.map(getEvent));
+
+  // Merge events into one
+  const data = events.reduce<EventData>(
+    (o, { title, id, url, squads }) => {
+      o.title = shortenTitles(o.title, title || '');
+      o.urls.push({ href: url, text: `Event #${id}` });
+      o.squads.push(...squads);
+
+      return o;
+    },
+    {
+      title: '',
+      urls: [],
+      squads: [],
+    }
+  );
 
   return data;
 };
@@ -66,8 +76,8 @@ export const getEventInfoByVendor = async ({
   let date = '';
 
   data.forEach(set => {
-    title = mergeData(title, set.title || '');
-    date = mergeData(date, set.date || '');
+    title = shortenTitles(title, set.title || '');
+    date = shortenTitles(date, set.date || '');
   });
 
   return {
