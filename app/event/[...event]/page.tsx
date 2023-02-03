@@ -2,8 +2,7 @@ import { redirect } from 'next/navigation';
 
 import { RECENT_EVENTS } from 'app/preload';
 import { Caption, Center, Container, Link, Message, Title } from 'components';
-import { mergeData } from 'lib/get-event';
-import type { EventData, SquadData } from 'lib/types';
+import type { EventData } from 'lib/types';
 
 // Friendly reminder: Don't use a barrel file! next doesn't like it!
 import { Filter } from './components/filter';
@@ -21,10 +20,10 @@ export const fetchCache = 'force-cache';
 /**
  * Opt into background revalidation. (see: https://github.com/vercel/next.js/discussions/43085)
  */
-// export const generateStaticParams = () =>
-//   Object.entries(RECENT_EVENTS)
-//     .map(([vendor, ids]) => ids.map(id => ({ event: [vendor, id] })))
-//     .flat();
+export const generateStaticParams = () =>
+  Object.entries(RECENT_EVENTS)
+    .map(([vendor, ids]) => ids.map(id => ({ event: [vendor, id] })))
+    .flat();
 
 const getEvent = async (vendor: 'longshanks' | 'rollbetter', id: string) => {
   const ids = id
