@@ -1,8 +1,9 @@
 'use client';
 
 import type { Ships } from 'lib/get-value';
-import type { SquadData, XWSUpgradeSlots } from 'lib/types';
+import type { SquadData, XWSFaction, XWSUpgradeSlots } from 'lib/types';
 import { FactionDistribution } from './charts/faction-distribution';
+import { Meta } from './charts/meta';
 import { PilotCostDistribution } from './charts/pilot-cost-distribution';
 import { PilotFrequency } from './charts/pilot-frequency';
 import { ShipComposition } from './charts/ship-composition';
@@ -87,6 +88,17 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     separatistalliance: new Map<string, UpgradeInfo>(),
   };
 
+  // List of all squads represented by a list of pilot ids, grouped by faction
+  const sduqadsByFaction: { [Faction in XWSFaction]: string[][] } = {
+    rebelalliance: [],
+    galacticempire: [],
+    scumandvillainy: [],
+    resistance: [],
+    firstorder: [],
+    galacticrepublic: [],
+    separatistalliance: [],
+  };
+
   squads.forEach(squad => {
     // Number of Squads with XWS
     if (squad.xws) {
@@ -104,14 +116,17 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     }
 
     if (squad.xws && faction !== 'unknown') {
-      // Use to store ships of the squad
+      // Used to store ships of the squad
       const ships: Ships[] = [];
-      // Use to filter duplicated pilots (a.k.a. generics)
+      // Used to store pilot ids of the squad
+      const pilots: string[] = [];
+      // Used to filter duplicated pilots (a.k.a. generics)
       const unique: string[] = [];
 
       squad.xws.pilots.forEach(pilot => {
-        // Add ship
+        // Add ship and pilot
         ships.push(pilot.ship);
+        pilots.push(pilot.id);
 
         // Pilot was already added for this list
         if (unique.includes(pilot.id)) {
@@ -155,6 +170,10 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
         });
       });
 
+      // Sort pilots, makes it more consistend and easier to use afterwards
+      pilots.sort();
+      sduqadsByFaction[faction].push(pilots);
+
       // Sort so we can generate an ID
       ships.sort();
       const shipCompositionId = ships.join('|');
@@ -165,6 +184,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
 
   return {
     numberOfSquads,
+    sduqadsByFaction,
     factionDistribution,
     squadSizes,
     pilotFrequency,
@@ -214,8 +234,11 @@ export const Stats = ({ squads }: StatsProps) => {
       <div className="md:col-span-6 lg:col-span-4">
         <UpgradeSummary value={data.upgradeSummary} />
       </div>
+      <div className="md:col-span-6 lg:col-span-8">
+        <div className="flex flex-col gap-4">
+          <Meta value={data.sduqadsByFaction['galacticempire']} />
+        </div>
+      </div>
     </div>
   );
 };
-
-// grid-cols-12 6,6,4
