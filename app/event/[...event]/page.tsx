@@ -43,9 +43,13 @@ const getEvent = async (vendor: 'longshanks' | 'rollbetter', id: string) => {
     throw new Error('Failed to fetch data...');
   }
 
-  const json: EventData = await res.json();
-
-  return json;
+  try {
+    const json: EventData = await res.json();
+    return json;
+  } catch (e) {
+    const err = e as Error;
+    throw new Error(err.message);
+  }
 };
 
 // Props
