@@ -77,7 +77,7 @@ export const getEventInfoByVendor = async ({
 
   data.forEach(set => {
     title = shortenTitles(title, set.title || '');
-    date = shortenTitles(date, set.date || '');
+    date = [date, set.date || ''].filter(Boolean).join(' & ');
   });
 
   return {
