@@ -28,6 +28,7 @@ const mapReduce = (tuples: [string, number[]][], squads: string[][]) => {
   const m = new Map<string, number[]>();
 
   // Map
+  // TODO: We only need this once?
   tuples.forEach(([pilot, ref]) => {
     const entry = m.get(pilot) || [];
     entry.push(...ref);
