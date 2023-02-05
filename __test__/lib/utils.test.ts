@@ -1,4 +1,4 @@
-import { prefix, subsets } from 'lib/utils';
+import { prefix, createSubsets } from 'lib/utils';
 
 test('return common prefix of string', () => {
   expect(prefix('abc', 'abc')).toEqual('abc');
@@ -9,12 +9,12 @@ test('return common prefix of string', () => {
 });
 
 test('create all subsets', () => {
-  expect(subsets([])).toMatchInlineSnapshot(`
+  expect(createSubsets([])).toMatchInlineSnapshot(`
     [
       [],
     ]
   `);
-  expect(subsets(['a'])).toMatchInlineSnapshot(`
+  expect(createSubsets(['a'])).toMatchInlineSnapshot(`
     [
       [],
       [
@@ -22,7 +22,7 @@ test('create all subsets', () => {
       ],
     ]
   `);
-  expect(subsets(['a', 'b'])).toMatchInlineSnapshot(`
+  expect(createSubsets(['a', 'b'])).toMatchInlineSnapshot(`
     [
       [],
       [
@@ -37,7 +37,7 @@ test('create all subsets', () => {
       ],
     ]
   `);
-  expect(subsets(['a', 'b', 'c'])).toMatchInlineSnapshot(`
+  expect(createSubsets(['a', 'b', 'c'])).toMatchInlineSnapshot(`
     [
       [],
       [
