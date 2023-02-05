@@ -20,3 +20,14 @@ export const shortenTitles = (...titles: string[]) => {
 
   return `${common}${suffixes.filter(Boolean).join(' & ')}`;
 };
+
+/**
+ * Create an array with every possible combinations
+ */
+export const combinations = (array: string[]) =>
+  array.flatMap((v, i) => array.slice(i + 1).map(w => [v, w]));
+
+export const subsets = <T>(array: T[]) =>
+  array.reduce((set, value) => set.concat(set.map(set => [...set, value])), [
+    [],
+  ] as T[][]);
