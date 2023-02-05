@@ -2,6 +2,14 @@ import { createSubsets } from './utils';
 
 const SEPARATOR = '|';
 
+export const isSubset = <T>(needle: T[], stack: T[]) =>
+  needle.every(
+    val =>
+      stack.includes(val) &&
+      needle.filter(el => el === val).length <=
+        stack.filter(el => el === val).length
+  );
+
 export const analyze = (squads: string[][]) => {
   let subsets = new Set<string>();
 
