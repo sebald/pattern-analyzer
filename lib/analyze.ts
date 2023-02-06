@@ -2,7 +2,14 @@ import { createSubsets, isSubset } from './utils';
 
 const SEPARATOR = '|';
 
-export const analyze = (squads: string[][]) => {
+export interface AnalyzeOotions {
+  threshold?: number;
+}
+
+export const analyze = (
+  squads: string[][],
+  { threshold = 2 }: AnalyzeOotions = {}
+) => {
   let subsets = new Set<string>();
 
   squads.forEach(squad => {
@@ -30,6 +37,21 @@ export const analyze = (squads: string[][]) => {
       }
     });
   });
+
+  map.forEach((value, key) => {
+    if (value.length < threshold) {
+      map.delete(key);
+    }
+  });
+
+  /**
+   * Next:
+   *
+   * threshold for # of lists
+   * threshold for size of combination/subset
+   *
+   * calculate ocrruance (appearance in lists / total squads)
+   */
 
   return map;
 };
