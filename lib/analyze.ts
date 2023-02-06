@@ -1,14 +1,6 @@
-import { createSubsets } from './utils';
+import { createSubsets, isSubset } from './utils';
 
 const SEPARATOR = '|';
-
-export const isSubset = <T>(needle: T[], stack: T[]) =>
-  needle.every(
-    val =>
-      stack.includes(val) &&
-      needle.filter(el => el === val).length <=
-        stack.filter(el => el === val).length
-  );
 
 export const analyze = (squads: string[][]) => {
   let subsets = new Set<string>();
@@ -22,7 +14,22 @@ export const analyze = (squads: string[][]) => {
     subsets = new Set([...subsets, ...sets]);
   });
 
-  console.log([...subsets].length);
+  /**
+   * Store subset -> ids of squad it is included,
+   * where id is the index in the squads array.
+   */
+  const map = new Map<string, number[]>();
 
-  return subsets;
+  subsets.forEach(key => {
+    const set = key.split(SEPARATOR);
+    squads.forEach((squad, idx) => {
+      if (isSubset(set, squad)) {
+        const occurance = map.get(key) || [];
+        occurance.push(idx);
+        map.set(key, occurance);
+      }
+    });
+  });
+
+  return map;
 };

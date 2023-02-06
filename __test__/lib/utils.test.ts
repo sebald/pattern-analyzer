@@ -1,5 +1,7 @@
-import { prefix, createSubsets } from 'lib/utils';
+import { prefix, createSubsets, isSubset } from 'lib/utils';
 
+// Prefix
+// ---------------
 test('return common prefix of string', () => {
   expect(prefix('abc', 'abc')).toEqual('abc');
   expect(prefix('this is just a test', 'this is just a experiment')).toEqual(
@@ -8,6 +10,8 @@ test('return common prefix of string', () => {
   expect(prefix('zbc', 'abc')).toEqual('');
 });
 
+// Create Subsets
+// ---------------
 test('create all subsets', () => {
   expect(createSubsets([])).toMatchInlineSnapshot(`
     [
@@ -68,4 +72,28 @@ test('create all subsets', () => {
       ],
     ]
   `);
+});
+
+// Is Subset?
+// ---------------
+test('is subset', () => {
+  expect(isSubset([], [])).toBeTruthy();
+  expect(isSubset(['a'], ['a'])).toBeTruthy();
+  expect(isSubset(['a'], ['a', 'b'])).toBeTruthy();
+
+  expect(isSubset(['a', 'b'], ['a'])).toBeFalsy();
+  expect(isSubset(['a', 'c'], ['a', 'b'])).toBeFalsy();
+});
+
+test('is subset (with duplicates)', () => {
+  expect(isSubset(['a'], ['a', 'a'])).toBeTruthy();
+  expect(isSubset(['a', 'a'], ['a', 'a'])).toBeTruthy();
+  expect(isSubset(['a', 'a'], ['a', 'a', 'a'])).toBeTruthy();
+  expect(isSubset(['a', 'a'], ['a', 'a', 'b'])).toBeTruthy();
+  expect(isSubset(['a', 'b'], ['a', 'a', 'b'])).toBeTruthy();
+  expect(isSubset(['a', 'a', 'b'], ['a', 'a', 'b'])).toBeTruthy();
+
+  expect(isSubset(['a', 'a'], ['a'])).toBeFalsy();
+  expect(isSubset(['a', 'a', 'b'], ['a', 'b'])).toBeFalsy();
+  expect(isSubset(['a', 'a', 'b'], ['a'])).toBeFalsy();
 });

@@ -31,3 +31,11 @@ export const createSubsets = <T>(array: T[]) =>
   array.reduce((set, value) => set.concat(set.map(set => [...set, value])), [
     [],
   ] as T[][]);
+
+export const isSubset = <T>(needle: T[], stack: T[]) =>
+  needle.every(
+    val =>
+      stack.includes(val) &&
+      needle.filter(el => el === val).length <=
+        stack.filter(el => el === val).length
+  );
