@@ -51,6 +51,7 @@ export const analyze = (
    * threshold for size of combination/subset
    *
    * calculate ocrruance (appearance in lists / total squads)
+   * weight: large combination = better
    */
 
   return map;
