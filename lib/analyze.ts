@@ -52,6 +52,8 @@ export const analyze = (
    *
    * calculate ocrruance (appearance in lists / total squads)
    * weight: large combination = better
+   *
+   * subset weight = subset size / average # of ships +/* occurance percentage
    */
 
   return map;
