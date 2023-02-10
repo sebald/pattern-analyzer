@@ -16,7 +16,7 @@ const DialogPortal = ({
   <Primitive.Portal {...props}>
     <div
       className={cn(
-        'fixed inset-0 z-50 flex items-start justify-center sm:items-center',
+        'fixed inset-0 z-50 flex items-center justify-center',
         className
       )}
     >
@@ -53,8 +53,8 @@ const DialogContent = forwardRef<
     <Primitive.Content
       ref={ref}
       className={cn(
-        'animate-in fade-in-90 slide-in-from-bottom-10 sm:zoom-in-90 sm:slide-in-from-bottom-0 fixed z-50 grid w-full scale-100 gap-4 bg-white p-6 opacity-100 sm:max-w-lg sm:rounded-lg',
-        'dark:bg-slate-900',
+        'bg-white px-4 pt-3 pb-2 shadow shadow-secondary-600 sm:max-w-lg sm:rounded-lg',
+        'animate-in fade-in-90 slide-in-from-bottom-10 sm:zoom-in-90 sm:slide-in-from-bottom-0 fixed z-50 grid w-full scale-100 gap-4 opacity-100',
         className
       )}
       {...props}
@@ -63,11 +63,11 @@ const DialogContent = forwardRef<
       <Primitive.Close
         className={cn(
           'absolute top-4 right-4 rounded-sm opacity-70 transition-opacity',
-          'hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 disabled:pointer-events-none',
-          'data-[state=open]:bg-slate-100 dark:focus:ring-slate-400 dark:focus:ring-offset-slate-900 dark:data-[state=open]:bg-slate-800'
+          'hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-primary-200 focus:ring-offset-2 disabled:pointer-events-none',
+          'data-[state=open]:bg-secondary-100'
         )}
       >
-        <Close className="h-4 w-4" />
+        <Close className="h-5 w-5" />
         <span className="sr-only">Close</span>
       </Primitive.Close>
     </Primitive.Content>
@@ -115,11 +115,7 @@ const DialogTitle = forwardRef<
 >(({ className, ...props }, ref) => (
   <Primitive.Title
     ref={ref}
-    className={cn(
-      'text-lg font-semibold text-slate-900',
-      'dark:text-slate-50',
-      className
-    )}
+    className={cn('text-lg font-bold text-primary-900', className)}
     {...props}
   />
 ));
@@ -133,7 +129,7 @@ const DialogDescription = forwardRef<
 >(({ className, ...props }, ref) => (
   <Primitive.Description
     ref={ref}
-    className={cn('text-sm text-slate-500', 'dark:text-slate-400', className)}
+    className={cn('text-sm text-secondary-500', className)}
     {...props}
   />
 ));

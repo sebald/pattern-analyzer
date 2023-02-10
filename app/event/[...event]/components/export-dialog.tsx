@@ -13,7 +13,7 @@ export const ExportDialog = ({ children }: ExportDialogProps) => {
         <Dialog.Header>
           <Dialog.Title>Export Data</Dialog.Title>
           <Dialog.Description>
-            Make changes to your profile here. Click save when you&apos;re done.
+            Export crawled data and use it for your own analysis.
           </Dialog.Description>
         </Dialog.Header>
         <div className="grid gap-4 py-4">
