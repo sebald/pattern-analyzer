@@ -3,10 +3,14 @@ import { createSubsets, isSubset } from './utils';
 const SEPARATOR = '|';
 
 const calcWeightedAverage = (squads: string[][]) => {
-  let total = 0;
+  let total = squads.length;
+  let mean = 0;
+
+  squads.forEach(squad => {});
 
   const mapping = squads
     .map(squad => squad.length)
+    // just add together the size?
     .reduce<{ [size: number]: number; total: number }>(
       (map, val) => {
         const count = map[val] ?? 0;
