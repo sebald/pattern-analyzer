@@ -23,10 +23,10 @@ const About = () => (
         Furthermore, with the sunsetting of TTO and the switch to Longshank, it
         has become harder to scan through an ongoing tournament. And, as far as
         I know, there is currently no way to export the tournament data from
-        Longshank. Don’t get me wrong the, I am very thankful that we have this
-        tool and it is great for organizing tournaments, but it can be
-        cumbersome to click through the participants or teams to get to the
-        lists, which are not always displayed in a readable form.
+        Longshank. Don’t get me wrong, I am very thankful that we have this tool
+        and it is great for organizing tournaments, but it can be cumbersome to
+        click through the participants or teams to get to the lists, which are
+        not always displayed in a readable form.
       </p>
 
       <p className="prose mb-8 text-lg text-secondary-900">

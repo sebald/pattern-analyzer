@@ -27,9 +27,12 @@ const Home = async () => {
   return (
     <Container className="grid flex-1 place-items-center">
       <div>
-        <div className="pt-8 pb-20 md:pb-14">
-          <Logo />
-        </div>
+        <h1
+          className={`${montserrat.className} prose flex items-center justify-center pt-8 pb-20 text-2xl font-extrabold uppercase text-primary-900 md:pb-14`}
+        >
+          <Logo className="h-10 w-10" />
+          Pattern Analyzer
+        </h1>
         <div className="flex-1">
           <EventForm />
         </div>
