@@ -2,7 +2,7 @@ import { redirect } from 'next/navigation';
 
 import { RECENT_EVENTS } from 'app/preload';
 import { Caption, Center, Container, Link, Message, Title } from 'components';
-import { Download, Trophy } from 'components/icons';
+import { Computed, Download, Trophy } from 'components/icons';
 import { getEventDataByVendor } from 'lib/get-event';
 
 // Friendly reminder: Don't use a barrel file! next doesn't like it!
@@ -69,13 +69,16 @@ const Page = async ({ params }: PageProps) => {
       <Container>
         <header className="mb-4 border-b border-b-primary-100 pb-6 md:mt-3">
           <Title>{event.title || 'Unknown Event'}</Title>
-          <Caption className="flex flex-row gap-2">
+          <Caption className="flex flex-row gap-4">
             {event.urls.map(({ href, text }) => (
               <Link key={href} href={href} target="_blank">
                 <Trophy className="h-3 w-3" /> {text}
               </Link>
             ))}
-            ({squadsWithXWS}/{event.squads.length} squads parsed)
+            <span className="flex items-center gap-1">
+              <Computed className="h-3 w-3" /> {squadsWithXWS}/
+              {event.squads.length} Squads parsed
+            </span>
             <Link
               href={`data:text/json;charset=utf-8,${encodeURIComponent(
                 JSON.stringify(event.squads)
