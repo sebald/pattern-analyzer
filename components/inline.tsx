@@ -6,5 +6,7 @@ export interface InlineProps {
 }
 
 export const Inline = ({ className, children }: InlineProps) => (
-  <div className={cn('flex items-center gap-1', className)}>{children}</div>
+  <div className={cn('flex flex-wrap items-center gap-1', className)}>
+    {children}
+  </div>
 );

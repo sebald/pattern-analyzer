@@ -17,17 +17,17 @@ export const PageHeader = ({ event }: HeaderProps) => {
         <Inline className="gap-4">
           {event.urls.map(({ href, text }) => (
             <Link key={href} href={href} target="_blank">
-              <Inline>
+              <Inline className="whitespace-nowrap">
                 <Trophy className="h-3 w-3" /> {text}
               </Inline>
             </Link>
           ))}
-          <Inline>
+          <Inline className="whitespace-nowrap">
             <Computed className="h-3 w-3" /> {squadsWithXWS}/
             {event.squads.length} Squads parsed
           </Inline>
           <ExportDialog eventTitle={event.title} squads={event.squads}>
-            <Button variant="link" size="inherit">
+            <Button className="whitespace-nowrap" variant="link" size="inherit">
               <Export className="h-3 w-3" /> Export
             </Button>
           </ExportDialog>

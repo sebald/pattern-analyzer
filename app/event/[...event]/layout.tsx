@@ -6,12 +6,12 @@ export interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => (
   <>
-    <nav className="border-b border-b-primary-100 py-1 px-2 xl:px-6 xl:py-2">
-      <Link className="opacity-50 hover:opacity-100" href="/">
-        <Logo className="h-7 w-7 lg:h-9 lg:w-9" />
+    <nav className="py-1 px-2 text-center leading-none xl:px-6 xl:py-2">
+      <Link className="inline-block" href="/">
+        <Logo className="h-7 w-7 text-primary-300 hover:text-primary-900 lg:h-9 lg:w-9" />
       </Link>
     </nav>
-    <main className="pt-5 lg:pt-7 xl:pt-10">{children}</main>
+    <main className="pt-5 lg:pt-5">{children}</main>
   </>
 );
 
