@@ -6,7 +6,7 @@ import NextLink from 'next/link';
 // ---------------
 const styles = cva(
   [
-    'rounded-lg transition-all focus:ring',
+    'transition-all focus:ring',
     'disabled:cursor-not-allowed disabled:border-primary-300 disabled:bg-primary-300',
   ],
   {
@@ -14,7 +14,7 @@ const styles = cva(
       variant: {
         default: 'cursor-pointer hover:text-primary-600',
         button: [
-          'font-medium border text-center shadow-sm',
+          'rounded-lg font-medium border text-center shadow-sm',
           'border-secondary-100 bg-white text-secondary-700',
           'hover:bg-secondary-50 focus:ring-primary-200',
         ],

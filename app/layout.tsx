@@ -9,7 +9,6 @@ export interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => (
   <html lang="en" className={inter.className}>
-    <head />
     <body className="flex min-h-screen flex-col bg-primary-50">
       {children}
       <footer className="mx-auto mt-auto w-[min(100%_-_3rem,_75rem)] pt-8">
