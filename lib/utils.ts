@@ -1,3 +1,7 @@
+import { twMerge } from 'tailwind-merge';
+
+export const cn = (...cns: Parameters<typeof twMerge>) => twMerge(...cns);
+
 // Stolen from https://stackoverflow.com/questions/68702774/longest-common-prefix-in-javascript
 export const prefix = (...words: string[]) => {
   // check border cases size 1 array and empty first word)
