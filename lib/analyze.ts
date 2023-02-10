@@ -1,46 +1,30 @@
-import { createSubsets, isSubset } from './utils';
+import { createSubsets, isSubset, round } from './utils';
 
 const SEPARATOR = '|';
 
-const calcWeightedAverage = (squads: string[][]) => {
-  let total = squads.length;
-  let mean = 0;
-
-  squads.forEach(squad => {});
-
-  const mapping = squads
-    .map(squad => squad.length)
-    // just add together the size?
-    .reduce<{ [size: number]: number; total: number }>(
-      (map, val) => {
-        const count = map[val] ?? 0;
-        map[val] = count + 1;
-        total++;
-
-        return map;
-      },
-      { total: 0 }
-    );
-
-  return (
-    Object.entries(mapping).reduce((mean, [size, count]) => {
-      mean = mean + Number(size) * count;
-      return mean;
-    }, 0) / total
-  );
-};
-
 export interface AnalyzeOotions {
   threshold?: number;
+}
+
+export interface AnalyzeResult {
+  refs: number[];
+  set: string[];
+  occurrence: number;
+  score: number;
 }
 
 export const analyze = (
   squads: string[][],
   { threshold = 2 }: AnalyzeOotions = {}
 ) => {
+  const total = squads.length;
+  let shipCount = 0; // used to calculate weighted average
+
   let subsets = new Set<string>();
 
   squads.forEach(squad => {
+    shipCount = shipCount + squad.length;
+
     const sets = createSubsets(squad).map(set => {
       set.sort();
       return set.join(SEPARATOR);
@@ -48,6 +32,9 @@ export const analyze = (
 
     subsets = new Set([...subsets, ...sets]);
   });
+
+  // Calculate weighted averge
+  const shipAverage = round(shipCount / total, 2);
 
   /**
    * Store subset -> ids of squad it is included,
@@ -59,17 +46,36 @@ export const analyze = (
     const set = key.split(SEPARATOR);
     squads.forEach((squad, idx) => {
       if (isSubset(set, squad)) {
-        const occurance = map.get(key) || [];
-        occurance.push(idx);
-        map.set(key, occurance);
+        const entry = map.get(key) || [];
+        entry.push(idx);
+        map.set(key, entry);
       }
     });
   });
 
-  map.forEach((value, key) => {
-    if (value.length < threshold) {
+  let result: AnalyzeResult[] = [];
+
+  map.forEach((entry, key) => {
+    // Skip and remove if below threshold
+    if (entry.length < threshold) {
       map.delete(key);
+      return;
     }
+
+    const set = key.split(SEPARATOR);
+    if (set.length < 2) {
+      return;
+    }
+
+    const occurrence = round(entry.length / total, 2);
+    const score = round((set.length / shipAverage) * occurrence * 100, 2);
+
+    result.push({
+      refs: entry,
+      set,
+      occurrence,
+      score,
+    });
   });
 
   /**
@@ -84,5 +90,7 @@ export const analyze = (
    * subset weight = subset size / average # of ships +/* occurance percentage
    */
 
-  return map;
+  // TODO: MAKE THRESHOLD FOR SET SIZE CONFIGURABLE
+
+  return result;
 };
