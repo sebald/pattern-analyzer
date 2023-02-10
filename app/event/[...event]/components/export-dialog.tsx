@@ -1,11 +1,20 @@
 'use client';
-import { Button, Dialog } from 'components';
+
+import { Dialog, Link } from 'components';
+import { squadsToCSV } from 'lib/utils';
+import type { SquadData } from 'lib/types';
 
 export interface ExportDialogProps {
   children: React.ReactNode;
+  eventTitle: string;
+  squads: SquadData[];
 }
 
-export const ExportDialog = ({ children }: ExportDialogProps) => {
+export const ExportDialog = ({
+  eventTitle,
+  squads,
+  children,
+}: ExportDialogProps) => {
   return (
     <Dialog>
       <Dialog.Trigger asChild>{children}</Dialog.Trigger>
@@ -17,19 +26,24 @@ export const ExportDialog = ({ children }: ExportDialogProps) => {
           </Dialog.Description>
         </Dialog.Header>
         <div className="grid gap-4 py-4">
-          hello!
-          {/* <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              Name
-            </Label>
-            <Input id="name" value="Pedro Duarte" className="col-span-3" />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              Username
-            </Label>
-            <Input id="username" value="@peduarte" className="col-span-3" />
-          </div> */}
+          <Link
+            variant="button"
+            size="regular"
+            href={`data:text/json;charset=utf-8,${encodeURIComponent(
+              JSON.stringify(squads)
+            )}`}
+            download={`${eventTitle.replace(/\s/g, '_')}.json`}
+          >
+            Export as JSON
+          </Link>
+          <Link
+            variant="button"
+            size="regular"
+            href={`data:text/plain;charset=utf-8,${squadsToCSV(squads)}`}
+            download={`${eventTitle.replace(/\s/g, '_')}.csv`}
+          >
+            Export as CSV
+          </Link>
         </div>
       </Dialog.Content>
     </Dialog>

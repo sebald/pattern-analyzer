@@ -26,14 +26,7 @@ export const PageHeader = ({ event }: HeaderProps) => {
             <Computed className="h-3 w-3" /> {squadsWithXWS}/
             {event.squads.length} Squads parsed
           </Inline>
-          {/* <Link
-            href={`data:text/json;charset=utf-8,${encodeURIComponent(
-              JSON.stringify(event.squads)
-            )}`}
-            download={`${event.title.replace(/\s/g, '_')}.json`}
-          >
-          </Link> */}
-          <ExportDialog>
+          <ExportDialog eventTitle={event.title} squads={event.squads}>
             <Button variant="link" size="inherit">
               <Export className="h-3 w-3" /> Export
             </Button>

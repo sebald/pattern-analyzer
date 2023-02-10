@@ -18,6 +18,7 @@ export * from './select';
 export * from './ship-icon';
 export * from './spinner';
 export * from './squad';
+export * from './textarea';
 export * from './tiles';
 export * from './title';
 export * from './upgrade-slot-selection';
