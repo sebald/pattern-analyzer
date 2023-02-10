@@ -1,7 +1,7 @@
 import { redirect } from 'next/navigation';
 
 import { RECENT_EVENTS } from 'app/preload';
-import { Caption, Center, Container, Link, Message, Title } from 'components';
+import { Center, Container, Message } from 'components';
 import { getEventDataByVendor } from 'lib/get-event';
 
 // Friendly reminder: Don't use a barrel file! next doesn't like it!
@@ -10,6 +10,7 @@ import { FilterProvider } from './components/filter-context';
 import { Squads } from './components/squads';
 import { Stats } from './components/stats';
 import { Tabs } from './components/tabs';
+import { PageHeader } from './components/page-header';
 
 /**
  * Segment Config (see: https://beta.nextjs.org/docs/api-reference/segment-config)
@@ -61,22 +62,11 @@ const Page = async ({ params }: PageProps) => {
     vendor,
     ids: id,
   });
-  const squadsWithXWS = event.squads.filter(item => Boolean(item.xws)).length;
 
   return (
     <main className="p-4">
       <Container>
-        <header className="mb-4 border-b border-b-primary-100 pb-6 md:mt-3">
-          <Title>{event.title || 'Unknown Event'}</Title>
-          <Caption className="flex flex-row gap-2">
-            {event.urls.map(({ href, text }) => (
-              <Link key={href} href={href} target="_blank">
-                {text}
-              </Link>
-            ))}
-            ({squadsWithXWS}/{event.squads.length} squads parsed)
-          </Caption>
-        </header>
+        <PageHeader event={event} />
         {event.squads.length > 1 ? (
           <Tabs
             labels={[
