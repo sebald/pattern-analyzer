@@ -2,6 +2,30 @@ import { createSubsets, isSubset } from './utils';
 
 const SEPARATOR = '|';
 
+const calcWeightedAverage = (squads: string[][]) => {
+  let total = 0;
+
+  const mapping = squads
+    .map(squad => squad.length)
+    .reduce<{ [size: number]: number; total: number }>(
+      (map, val) => {
+        const count = map[val] ?? 0;
+        map[val] = count + 1;
+        total++;
+
+        return map;
+      },
+      { total: 0 }
+    );
+
+  return (
+    Object.entries(mapping).reduce((mean, [size, count]) => {
+      mean = mean + Number(size) * count;
+      return mean;
+    }, 0) / total
+  );
+};
+
 export interface AnalyzeOotions {
   threshold?: number;
 }
