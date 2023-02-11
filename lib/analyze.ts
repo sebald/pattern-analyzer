@@ -68,7 +68,8 @@ export const analyze = (
     }
 
     const occurrence = round(entry.length / total, 2);
-    const score = round((set.length / shipAverage) * occurrence * 100, 2);
+    // const score = round((set.length / shipAverage) * occurrence * 100, 2);
+    const score = round((set.length / shipAverage) * 0.4 + occurrence * 0.6, 2);
 
     result.push({
       refs: entry,
@@ -81,16 +82,8 @@ export const analyze = (
   /**
    * Next:
    *
-   * threshold for # of lists
-   * threshold for size of combination/subset
-   *
-   * calculate ocrruance (appearance in lists / total squads)
-   * weight: large combination = better
-   *
-   * subset weight = subset size / average # of ships +/* occurance percentage
+   * group by subset size
    */
-
-  // TODO: MAKE THRESHOLD FOR SET SIZE CONFIGURABLE
 
   return result;
 };

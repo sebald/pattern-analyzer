@@ -15,11 +15,74 @@ exports[`analyze 1`] = `
       15,
       20,
     ],
-    "score": 27.1,
+    "score": 0.51,
     "set": [
       "backstabber-battleofyavin",
       "darthvader-battleofyavin",
       "maulermithel-battleofyavin",
+    ],
+  },
+  {
+    "occurrence": 0.14,
+    "refs": [
+      0,
+      5,
+      6,
+    ],
+    "score": 0.5,
+    "set": [
+      "backstabber-battleofyavin",
+      "blacksquadronace",
+      "darthvader-battleofyavin",
+      "flightleaderubbel",
+      "maulermithel-battleofyavin",
+    ],
+  },
+  {
+    "occurrence": 0.1,
+    "refs": [
+      2,
+      13,
+    ],
+    "score": 0.48,
+    "set": [
+      "blacksquadronace",
+      "blacksquadronace",
+      "darthvader-tieddefender",
+      "idenversio",
+      "vizier",
+    ],
+  },
+  {
+    "occurrence": 0.24,
+    "refs": [
+      9,
+      10,
+      14,
+      15,
+      20,
+    ],
+    "score": 0.48,
+    "set": [
+      "backstabber-battleofyavin",
+      "darthvader-battleofyavin",
+      "idenversio",
+      "maulermithel-battleofyavin",
+    ],
+  },
+  {
+    "occurrence": 0.1,
+    "refs": [
+      9,
+      10,
+    ],
+    "score": 0.48,
+    "set": [
+      "backstabber-battleofyavin",
+      "darthvader-battleofyavin",
+      "idenversio",
+      "maulermithel-battleofyavin",
+      "vizier",
     ],
   },
   {
@@ -36,64 +99,9 @@ exports[`analyze 1`] = `
       19,
       20,
     ],
-    "score": 20.17,
+    "score": 0.46,
     "set": [
       "darthvader-battleofyavin",
-      "maulermithel-battleofyavin",
-    ],
-  },
-  {
-    "occurrence": 0.24,
-    "refs": [
-      9,
-      10,
-      14,
-      15,
-      20,
-    ],
-    "score": 20.17,
-    "set": [
-      "backstabber-battleofyavin",
-      "darthvader-battleofyavin",
-      "idenversio",
-      "maulermithel-battleofyavin",
-    ],
-  },
-  {
-    "occurrence": 0.43,
-    "refs": [
-      0,
-      1,
-      5,
-      6,
-      9,
-      10,
-      14,
-      15,
-      20,
-    ],
-    "score": 18.07,
-    "set": [
-      "backstabber-battleofyavin",
-      "darthvader-battleofyavin",
-    ],
-  },
-  {
-    "occurrence": 0.43,
-    "refs": [
-      0,
-      1,
-      5,
-      6,
-      9,
-      10,
-      14,
-      15,
-      20,
-    ],
-    "score": 18.07,
-    "set": [
-      "backstabber-battleofyavin",
       "maulermithel-battleofyavin",
     ],
   },
@@ -105,7 +113,7 @@ exports[`analyze 1`] = `
       6,
       14,
     ],
-    "score": 15.97,
+    "score": 0.45,
     "set": [
       "backstabber-battleofyavin",
       "blacksquadronace",
@@ -121,7 +129,7 @@ exports[`analyze 1`] = `
       6,
       19,
     ],
-    "score": 15.97,
+    "score": 0.45,
     "set": [
       "blacksquadronace",
       "darthvader-battleofyavin",
@@ -130,66 +138,40 @@ exports[`analyze 1`] = `
     ],
   },
   {
-    "occurrence": 0.24,
+    "occurrence": 0.43,
     "refs": [
       0,
+      1,
       5,
       6,
-      14,
-      19,
-    ],
-    "score": 15.13,
-    "set": [
-      "blacksquadronace",
-      "darthvader-battleofyavin",
-      "maulermithel-battleofyavin",
-    ],
-  },
-  {
-    "occurrence": 0.24,
-    "refs": [
       9,
       10,
       14,
       15,
       20,
     ],
-    "score": 15.13,
+    "score": 0.43,
     "set": [
       "backstabber-battleofyavin",
       "darthvader-battleofyavin",
-      "idenversio",
     ],
   },
   {
-    "occurrence": 0.24,
+    "occurrence": 0.43,
     "refs": [
+      0,
+      1,
+      5,
+      6,
       9,
       10,
       14,
       15,
       20,
     ],
-    "score": 15.13,
+    "score": 0.43,
     "set": [
       "backstabber-battleofyavin",
-      "idenversio",
-      "maulermithel-battleofyavin",
-    ],
-  },
-  {
-    "occurrence": 0.24,
-    "refs": [
-      9,
-      10,
-      14,
-      15,
-      20,
-    ],
-    "score": 15.13,
-    "set": [
-      "darthvader-battleofyavin",
-      "idenversio",
       "maulermithel-battleofyavin",
     ],
   },
@@ -200,13 +182,351 @@ exports[`analyze 1`] = `
       5,
       6,
     ],
-    "score": 14.71,
+    "score": 0.42,
     "set": [
       "backstabber-battleofyavin",
       "blacksquadronace",
       "darthvader-battleofyavin",
       "flightleaderubbel",
+    ],
+  },
+  {
+    "occurrence": 0.14,
+    "refs": [
+      0,
+      5,
+      6,
+    ],
+    "score": 0.42,
+    "set": [
+      "backstabber-battleofyavin",
+      "blacksquadronace",
+      "flightleaderubbel",
       "maulermithel-battleofyavin",
+    ],
+  },
+  {
+    "occurrence": 0.14,
+    "refs": [
+      0,
+      5,
+      6,
+    ],
+    "score": 0.42,
+    "set": [
+      "backstabber-battleofyavin",
+      "darthvader-battleofyavin",
+      "flightleaderubbel",
+      "maulermithel-battleofyavin",
+    ],
+  },
+  {
+    "occurrence": 0.24,
+    "refs": [
+      0,
+      5,
+      6,
+      14,
+      19,
+    ],
+    "score": 0.4,
+    "set": [
+      "blacksquadronace",
+      "darthvader-battleofyavin",
+      "maulermithel-battleofyavin",
+    ],
+  },
+  {
+    "occurrence": 0.1,
+    "refs": [
+      2,
+      13,
+    ],
+    "score": 0.4,
+    "set": [
+      "blacksquadronace",
+      "blacksquadronace",
+      "darthvader-tieddefender",
+      "idenversio",
+    ],
+  },
+  {
+    "occurrence": 0.1,
+    "refs": [
+      2,
+      13,
+    ],
+    "score": 0.4,
+    "set": [
+      "blacksquadronace",
+      "blacksquadronace",
+      "darthvader-tieddefender",
+      "vizier",
+    ],
+  },
+  {
+    "occurrence": 0.1,
+    "refs": [
+      2,
+      13,
+    ],
+    "score": 0.4,
+    "set": [
+      "blacksquadronace",
+      "blacksquadronace",
+      "idenversio",
+      "vizier",
+    ],
+  },
+  {
+    "occurrence": 0.1,
+    "refs": [
+      2,
+      13,
+    ],
+    "score": 0.4,
+    "set": [
+      "blacksquadronace",
+      "darthvader-tieddefender",
+      "idenversio",
+      "vizier",
+    ],
+  },
+  {
+    "occurrence": 0.1,
+    "refs": [
+      7,
+      8,
+    ],
+    "score": 0.4,
+    "set": [
+      "captainferoph",
+      "darthvader-tieddefender",
+      "idenversio",
+      "vizier",
+    ],
+  },
+  {
+    "occurrence": 0.24,
+    "refs": [
+      9,
+      10,
+      14,
+      15,
+      20,
+    ],
+    "score": 0.4,
+    "set": [
+      "backstabber-battleofyavin",
+      "darthvader-battleofyavin",
+      "idenversio",
+    ],
+  },
+  {
+    "occurrence": 0.24,
+    "refs": [
+      9,
+      10,
+      14,
+      15,
+      20,
+    ],
+    "score": 0.4,
+    "set": [
+      "backstabber-battleofyavin",
+      "idenversio",
+      "maulermithel-battleofyavin",
+    ],
+  },
+  {
+    "occurrence": 0.24,
+    "refs": [
+      9,
+      10,
+      14,
+      15,
+      20,
+    ],
+    "score": 0.4,
+    "set": [
+      "darthvader-battleofyavin",
+      "idenversio",
+      "maulermithel-battleofyavin",
+    ],
+  },
+  {
+    "occurrence": 0.1,
+    "refs": [
+      9,
+      10,
+    ],
+    "score": 0.4,
+    "set": [
+      "backstabber-battleofyavin",
+      "darthvader-battleofyavin",
+      "idenversio",
+      "vizier",
+    ],
+  },
+  {
+    "occurrence": 0.1,
+    "refs": [
+      9,
+      10,
+    ],
+    "score": 0.4,
+    "set": [
+      "backstabber-battleofyavin",
+      "darthvader-battleofyavin",
+      "maulermithel-battleofyavin",
+      "vizier",
+    ],
+  },
+  {
+    "occurrence": 0.1,
+    "refs": [
+      9,
+      10,
+    ],
+    "score": 0.4,
+    "set": [
+      "backstabber-battleofyavin",
+      "idenversio",
+      "maulermithel-battleofyavin",
+      "vizier",
+    ],
+  },
+  {
+    "occurrence": 0.1,
+    "refs": [
+      9,
+      10,
+    ],
+    "score": 0.4,
+    "set": [
+      "darthvader-battleofyavin",
+      "idenversio",
+      "maulermithel-battleofyavin",
+      "vizier",
+    ],
+  },
+  {
+    "occurrence": 0.1,
+    "refs": [
+      12,
+      14,
+    ],
+    "score": 0.4,
+    "set": [
+      "blacksquadronace",
+      "blacksquadronace",
+      "darthvader-battleofyavin",
+      "idenversio",
+    ],
+  },
+  {
+    "occurrence": 0.19,
+    "refs": [
+      0,
+      5,
+      6,
+      14,
+    ],
+    "score": 0.37,
+    "set": [
+      "backstabber-battleofyavin",
+      "blacksquadronace",
+      "darthvader-battleofyavin",
+    ],
+  },
+  {
+    "occurrence": 0.19,
+    "refs": [
+      0,
+      5,
+      6,
+      19,
+    ],
+    "score": 0.37,
+    "set": [
+      "blacksquadronace",
+      "darthvader-battleofyavin",
+      "flightleaderubbel",
+    ],
+  },
+  {
+    "occurrence": 0.19,
+    "refs": [
+      0,
+      5,
+      6,
+      14,
+    ],
+    "score": 0.37,
+    "set": [
+      "backstabber-battleofyavin",
+      "blacksquadronace",
+      "maulermithel-battleofyavin",
+    ],
+  },
+  {
+    "occurrence": 0.19,
+    "refs": [
+      0,
+      5,
+      6,
+      19,
+    ],
+    "score": 0.37,
+    "set": [
+      "blacksquadronace",
+      "flightleaderubbel",
+      "maulermithel-battleofyavin",
+    ],
+  },
+  {
+    "occurrence": 0.19,
+    "refs": [
+      0,
+      5,
+      6,
+      19,
+    ],
+    "score": 0.37,
+    "set": [
+      "darthvader-battleofyavin",
+      "flightleaderubbel",
+      "maulermithel-battleofyavin",
+    ],
+  },
+  {
+    "occurrence": 0.19,
+    "refs": [
+      2,
+      12,
+      13,
+      14,
+    ],
+    "score": 0.37,
+    "set": [
+      "blacksquadronace",
+      "blacksquadronace",
+      "idenversio",
+    ],
+  },
+  {
+    "occurrence": 0.19,
+    "refs": [
+      2,
+      7,
+      8,
+      13,
+    ],
+    "score": 0.37,
+    "set": [
+      "darthvader-tieddefender",
+      "idenversio",
+      "vizier",
     ],
   },
   {
@@ -220,7 +540,7 @@ exports[`analyze 1`] = `
       15,
       20,
     ],
-    "score": 13.87,
+    "score": 0.37,
     "set": [
       "darthvader-battleofyavin",
       "idenversio",
@@ -236,10 +556,52 @@ exports[`analyze 1`] = `
       14,
       19,
     ],
-    "score": 12.18,
+    "score": 0.34,
     "set": [
       "blacksquadronace",
       "darthvader-battleofyavin",
+    ],
+  },
+  {
+    "occurrence": 0.14,
+    "refs": [
+      0,
+      5,
+      6,
+    ],
+    "score": 0.34,
+    "set": [
+      "backstabber-battleofyavin",
+      "blacksquadronace",
+      "flightleaderubbel",
+    ],
+  },
+  {
+    "occurrence": 0.14,
+    "refs": [
+      0,
+      5,
+      6,
+    ],
+    "score": 0.34,
+    "set": [
+      "backstabber-battleofyavin",
+      "darthvader-battleofyavin",
+      "flightleaderubbel",
+    ],
+  },
+  {
+    "occurrence": 0.14,
+    "refs": [
+      0,
+      5,
+      6,
+    ],
+    "score": 0.34,
+    "set": [
+      "backstabber-battleofyavin",
+      "flightleaderubbel",
+      "maulermithel-battleofyavin",
     ],
   },
   {
@@ -252,189 +614,9 @@ exports[`analyze 1`] = `
       10,
       13,
     ],
-    "score": 12.18,
+    "score": 0.34,
     "set": [
       "idenversio",
-      "vizier",
-    ],
-  },
-  {
-    "occurrence": 0.19,
-    "refs": [
-      0,
-      5,
-      6,
-      14,
-    ],
-    "score": 11.97,
-    "set": [
-      "backstabber-battleofyavin",
-      "blacksquadronace",
-      "darthvader-battleofyavin",
-    ],
-  },
-  {
-    "occurrence": 0.19,
-    "refs": [
-      0,
-      5,
-      6,
-      19,
-    ],
-    "score": 11.97,
-    "set": [
-      "blacksquadronace",
-      "darthvader-battleofyavin",
-      "flightleaderubbel",
-    ],
-  },
-  {
-    "occurrence": 0.19,
-    "refs": [
-      0,
-      5,
-      6,
-      14,
-    ],
-    "score": 11.97,
-    "set": [
-      "backstabber-battleofyavin",
-      "blacksquadronace",
-      "maulermithel-battleofyavin",
-    ],
-  },
-  {
-    "occurrence": 0.19,
-    "refs": [
-      0,
-      5,
-      6,
-      19,
-    ],
-    "score": 11.97,
-    "set": [
-      "blacksquadronace",
-      "flightleaderubbel",
-      "maulermithel-battleofyavin",
-    ],
-  },
-  {
-    "occurrence": 0.19,
-    "refs": [
-      0,
-      5,
-      6,
-      19,
-    ],
-    "score": 11.97,
-    "set": [
-      "darthvader-battleofyavin",
-      "flightleaderubbel",
-      "maulermithel-battleofyavin",
-    ],
-  },
-  {
-    "occurrence": 0.19,
-    "refs": [
-      2,
-      12,
-      13,
-      14,
-    ],
-    "score": 11.97,
-    "set": [
-      "blacksquadronace",
-      "blacksquadronace",
-      "idenversio",
-    ],
-  },
-  {
-    "occurrence": 0.19,
-    "refs": [
-      2,
-      7,
-      8,
-      13,
-    ],
-    "score": 11.97,
-    "set": [
-      "darthvader-tieddefender",
-      "idenversio",
-      "vizier",
-    ],
-  },
-  {
-    "occurrence": 0.14,
-    "refs": [
-      0,
-      5,
-      6,
-    ],
-    "score": 11.76,
-    "set": [
-      "backstabber-battleofyavin",
-      "blacksquadronace",
-      "darthvader-battleofyavin",
-      "flightleaderubbel",
-    ],
-  },
-  {
-    "occurrence": 0.14,
-    "refs": [
-      0,
-      5,
-      6,
-    ],
-    "score": 11.76,
-    "set": [
-      "backstabber-battleofyavin",
-      "blacksquadronace",
-      "flightleaderubbel",
-      "maulermithel-battleofyavin",
-    ],
-  },
-  {
-    "occurrence": 0.14,
-    "refs": [
-      0,
-      5,
-      6,
-    ],
-    "score": 11.76,
-    "set": [
-      "backstabber-battleofyavin",
-      "darthvader-battleofyavin",
-      "flightleaderubbel",
-      "maulermithel-battleofyavin",
-    ],
-  },
-  {
-    "occurrence": 0.1,
-    "refs": [
-      2,
-      13,
-    ],
-    "score": 10.5,
-    "set": [
-      "blacksquadronace",
-      "blacksquadronace",
-      "darthvader-tieddefender",
-      "idenversio",
-      "vizier",
-    ],
-  },
-  {
-    "occurrence": 0.1,
-    "refs": [
-      9,
-      10,
-    ],
-    "score": 10.5,
-    "set": [
-      "backstabber-battleofyavin",
-      "darthvader-battleofyavin",
-      "idenversio",
-      "maulermithel-battleofyavin",
       "vizier",
     ],
   },
@@ -447,10 +629,49 @@ exports[`analyze 1`] = `
       14,
       19,
     ],
-    "score": 10.08,
+    "score": 0.31,
     "set": [
       "blacksquadronace",
       "maulermithel-battleofyavin",
+    ],
+  },
+  {
+    "occurrence": 0.1,
+    "refs": [
+      2,
+      13,
+    ],
+    "score": 0.31,
+    "set": [
+      "blacksquadronace",
+      "blacksquadronace",
+      "darthvader-tieddefender",
+    ],
+  },
+  {
+    "occurrence": 0.1,
+    "refs": [
+      2,
+      13,
+    ],
+    "score": 0.31,
+    "set": [
+      "blacksquadronace",
+      "darthvader-tieddefender",
+      "idenversio",
+    ],
+  },
+  {
+    "occurrence": 0.1,
+    "refs": [
+      2,
+      13,
+    ],
+    "score": 0.31,
+    "set": [
+      "blacksquadronace",
+      "blacksquadronace",
+      "vizier",
     ],
   },
   {
@@ -462,9 +683,74 @@ exports[`analyze 1`] = `
       13,
       16,
     ],
-    "score": 10.08,
+    "score": 0.31,
     "set": [
       "darthvader-tieddefender",
+      "vizier",
+    ],
+  },
+  {
+    "occurrence": 0.1,
+    "refs": [
+      2,
+      13,
+    ],
+    "score": 0.31,
+    "set": [
+      "blacksquadronace",
+      "darthvader-tieddefender",
+      "vizier",
+    ],
+  },
+  {
+    "occurrence": 0.1,
+    "refs": [
+      2,
+      13,
+    ],
+    "score": 0.31,
+    "set": [
+      "blacksquadronace",
+      "idenversio",
+      "vizier",
+    ],
+  },
+  {
+    "occurrence": 0.1,
+    "refs": [
+      7,
+      8,
+    ],
+    "score": 0.31,
+    "set": [
+      "captainferoph",
+      "darthvader-tieddefender",
+      "idenversio",
+    ],
+  },
+  {
+    "occurrence": 0.1,
+    "refs": [
+      7,
+      8,
+    ],
+    "score": 0.31,
+    "set": [
+      "captainferoph",
+      "darthvader-tieddefender",
+      "vizier",
+    ],
+  },
+  {
+    "occurrence": 0.1,
+    "refs": [
+      7,
+      8,
+    ],
+    "score": 0.31,
+    "set": [
+      "captainferoph",
+      "idenversio",
       "vizier",
     ],
   },
@@ -477,7 +763,7 @@ exports[`analyze 1`] = `
       15,
       20,
     ],
-    "score": 10.08,
+    "score": 0.31,
     "set": [
       "backstabber-battleofyavin",
       "idenversio",
@@ -492,120 +778,34 @@ exports[`analyze 1`] = `
       15,
       20,
     ],
-    "score": 10.08,
+    "score": 0.31,
     "set": [
       "idenversio",
       "maulermithel-battleofyavin",
     ],
   },
   {
-    "occurrence": 0.14,
+    "occurrence": 0.1,
     "refs": [
-      0,
-      5,
-      6,
+      9,
+      10,
     ],
-    "score": 8.82,
-    "set": [
-      "backstabber-battleofyavin",
-      "blacksquadronace",
-      "flightleaderubbel",
-    ],
-  },
-  {
-    "occurrence": 0.14,
-    "refs": [
-      0,
-      5,
-      6,
-    ],
-    "score": 8.82,
+    "score": 0.31,
     "set": [
       "backstabber-battleofyavin",
       "darthvader-battleofyavin",
-      "flightleaderubbel",
+      "vizier",
     ],
   },
   {
-    "occurrence": 0.14,
+    "occurrence": 0.1,
     "refs": [
-      0,
-      5,
-      6,
+      9,
+      10,
     ],
-    "score": 8.82,
+    "score": 0.31,
     "set": [
       "backstabber-battleofyavin",
-      "flightleaderubbel",
-      "maulermithel-battleofyavin",
-    ],
-  },
-  {
-    "occurrence": 0.1,
-    "refs": [
-      2,
-      13,
-    ],
-    "score": 8.4,
-    "set": [
-      "blacksquadronace",
-      "blacksquadronace",
-      "darthvader-tieddefender",
-      "idenversio",
-    ],
-  },
-  {
-    "occurrence": 0.1,
-    "refs": [
-      2,
-      13,
-    ],
-    "score": 8.4,
-    "set": [
-      "blacksquadronace",
-      "blacksquadronace",
-      "darthvader-tieddefender",
-      "vizier",
-    ],
-  },
-  {
-    "occurrence": 0.1,
-    "refs": [
-      2,
-      13,
-    ],
-    "score": 8.4,
-    "set": [
-      "blacksquadronace",
-      "blacksquadronace",
-      "idenversio",
-      "vizier",
-    ],
-  },
-  {
-    "occurrence": 0.1,
-    "refs": [
-      2,
-      13,
-    ],
-    "score": 8.4,
-    "set": [
-      "blacksquadronace",
-      "darthvader-tieddefender",
-      "idenversio",
-      "vizier",
-    ],
-  },
-  {
-    "occurrence": 0.1,
-    "refs": [
-      7,
-      8,
-    ],
-    "score": 8.4,
-    "set": [
-      "captainferoph",
-      "darthvader-tieddefender",
       "idenversio",
       "vizier",
     ],
@@ -616,9 +816,8 @@ exports[`analyze 1`] = `
       9,
       10,
     ],
-    "score": 8.4,
+    "score": 0.31,
     "set": [
-      "backstabber-battleofyavin",
       "darthvader-battleofyavin",
       "idenversio",
       "vizier",
@@ -630,9 +829,21 @@ exports[`analyze 1`] = `
       9,
       10,
     ],
-    "score": 8.4,
+    "score": 0.31,
     "set": [
       "backstabber-battleofyavin",
+      "maulermithel-battleofyavin",
+      "vizier",
+    ],
+  },
+  {
+    "occurrence": 0.1,
+    "refs": [
+      9,
+      10,
+    ],
+    "score": 0.31,
+    "set": [
       "darthvader-battleofyavin",
       "maulermithel-battleofyavin",
       "vizier",
@@ -644,23 +855,8 @@ exports[`analyze 1`] = `
       9,
       10,
     ],
-    "score": 8.4,
+    "score": 0.31,
     "set": [
-      "backstabber-battleofyavin",
-      "idenversio",
-      "maulermithel-battleofyavin",
-      "vizier",
-    ],
-  },
-  {
-    "occurrence": 0.1,
-    "refs": [
-      9,
-      10,
-    ],
-    "score": 8.4,
-    "set": [
-      "darthvader-battleofyavin",
       "idenversio",
       "maulermithel-battleofyavin",
       "vizier",
@@ -672,9 +868,21 @@ exports[`analyze 1`] = `
       12,
       14,
     ],
-    "score": 8.4,
+    "score": 0.31,
     "set": [
       "blacksquadronace",
+      "blacksquadronace",
+      "darthvader-battleofyavin",
+    ],
+  },
+  {
+    "occurrence": 0.1,
+    "refs": [
+      12,
+      14,
+    ],
+    "score": 0.31,
+    "set": [
       "blacksquadronace",
       "darthvader-battleofyavin",
       "idenversio",
@@ -688,7 +896,7 @@ exports[`analyze 1`] = `
       6,
       14,
     ],
-    "score": 7.98,
+    "score": 0.28,
     "set": [
       "backstabber-battleofyavin",
       "blacksquadronace",
@@ -702,7 +910,7 @@ exports[`analyze 1`] = `
       6,
       19,
     ],
-    "score": 7.98,
+    "score": 0.28,
     "set": [
       "blacksquadronace",
       "flightleaderubbel",
@@ -716,7 +924,7 @@ exports[`analyze 1`] = `
       6,
       19,
     ],
-    "score": 7.98,
+    "score": 0.28,
     "set": [
       "darthvader-battleofyavin",
       "flightleaderubbel",
@@ -730,7 +938,7 @@ exports[`analyze 1`] = `
       6,
       19,
     ],
-    "score": 7.98,
+    "score": 0.28,
     "set": [
       "flightleaderubbel",
       "maulermithel-battleofyavin",
@@ -744,7 +952,7 @@ exports[`analyze 1`] = `
       13,
       14,
     ],
-    "score": 7.98,
+    "score": 0.28,
     "set": [
       "blacksquadronace",
       "blacksquadronace",
@@ -758,7 +966,7 @@ exports[`analyze 1`] = `
       13,
       14,
     ],
-    "score": 7.98,
+    "score": 0.28,
     "set": [
       "blacksquadronace",
       "idenversio",
@@ -772,217 +980,9 @@ exports[`analyze 1`] = `
       8,
       13,
     ],
-    "score": 7.98,
+    "score": 0.28,
     "set": [
       "darthvader-tieddefender",
-      "idenversio",
-    ],
-  },
-  {
-    "occurrence": 0.1,
-    "refs": [
-      2,
-      13,
-    ],
-    "score": 6.3,
-    "set": [
-      "blacksquadronace",
-      "blacksquadronace",
-      "darthvader-tieddefender",
-    ],
-  },
-  {
-    "occurrence": 0.1,
-    "refs": [
-      2,
-      13,
-    ],
-    "score": 6.3,
-    "set": [
-      "blacksquadronace",
-      "darthvader-tieddefender",
-      "idenversio",
-    ],
-  },
-  {
-    "occurrence": 0.1,
-    "refs": [
-      2,
-      13,
-    ],
-    "score": 6.3,
-    "set": [
-      "blacksquadronace",
-      "blacksquadronace",
-      "vizier",
-    ],
-  },
-  {
-    "occurrence": 0.1,
-    "refs": [
-      2,
-      13,
-    ],
-    "score": 6.3,
-    "set": [
-      "blacksquadronace",
-      "darthvader-tieddefender",
-      "vizier",
-    ],
-  },
-  {
-    "occurrence": 0.1,
-    "refs": [
-      2,
-      13,
-    ],
-    "score": 6.3,
-    "set": [
-      "blacksquadronace",
-      "idenversio",
-      "vizier",
-    ],
-  },
-  {
-    "occurrence": 0.1,
-    "refs": [
-      7,
-      8,
-    ],
-    "score": 6.3,
-    "set": [
-      "captainferoph",
-      "darthvader-tieddefender",
-      "idenversio",
-    ],
-  },
-  {
-    "occurrence": 0.1,
-    "refs": [
-      7,
-      8,
-    ],
-    "score": 6.3,
-    "set": [
-      "captainferoph",
-      "darthvader-tieddefender",
-      "vizier",
-    ],
-  },
-  {
-    "occurrence": 0.1,
-    "refs": [
-      7,
-      8,
-    ],
-    "score": 6.3,
-    "set": [
-      "captainferoph",
-      "idenversio",
-      "vizier",
-    ],
-  },
-  {
-    "occurrence": 0.1,
-    "refs": [
-      9,
-      10,
-    ],
-    "score": 6.3,
-    "set": [
-      "backstabber-battleofyavin",
-      "darthvader-battleofyavin",
-      "vizier",
-    ],
-  },
-  {
-    "occurrence": 0.1,
-    "refs": [
-      9,
-      10,
-    ],
-    "score": 6.3,
-    "set": [
-      "backstabber-battleofyavin",
-      "idenversio",
-      "vizier",
-    ],
-  },
-  {
-    "occurrence": 0.1,
-    "refs": [
-      9,
-      10,
-    ],
-    "score": 6.3,
-    "set": [
-      "darthvader-battleofyavin",
-      "idenversio",
-      "vizier",
-    ],
-  },
-  {
-    "occurrence": 0.1,
-    "refs": [
-      9,
-      10,
-    ],
-    "score": 6.3,
-    "set": [
-      "backstabber-battleofyavin",
-      "maulermithel-battleofyavin",
-      "vizier",
-    ],
-  },
-  {
-    "occurrence": 0.1,
-    "refs": [
-      9,
-      10,
-    ],
-    "score": 6.3,
-    "set": [
-      "darthvader-battleofyavin",
-      "maulermithel-battleofyavin",
-      "vizier",
-    ],
-  },
-  {
-    "occurrence": 0.1,
-    "refs": [
-      9,
-      10,
-    ],
-    "score": 6.3,
-    "set": [
-      "idenversio",
-      "maulermithel-battleofyavin",
-      "vizier",
-    ],
-  },
-  {
-    "occurrence": 0.1,
-    "refs": [
-      12,
-      14,
-    ],
-    "score": 6.3,
-    "set": [
-      "blacksquadronace",
-      "blacksquadronace",
-      "darthvader-battleofyavin",
-    ],
-  },
-  {
-    "occurrence": 0.1,
-    "refs": [
-      12,
-      14,
-    ],
-    "score": 6.3,
-    "set": [
-      "blacksquadronace",
-      "darthvader-battleofyavin",
       "idenversio",
     ],
   },
@@ -993,7 +993,7 @@ exports[`analyze 1`] = `
       5,
       6,
     ],
-    "score": 5.88,
+    "score": 0.25,
     "set": [
       "backstabber-battleofyavin",
       "flightleaderubbel",
@@ -1006,7 +1006,7 @@ exports[`analyze 1`] = `
       11,
       13,
     ],
-    "score": 5.88,
+    "score": 0.25,
     "set": [
       "blacksquadronace",
       "darthvader-tieddefender",
@@ -1019,7 +1019,7 @@ exports[`analyze 1`] = `
       8,
       18,
     ],
-    "score": 5.88,
+    "score": 0.25,
     "set": [
       "captainferoph",
       "darthvader-tieddefender",
@@ -1032,7 +1032,7 @@ exports[`analyze 1`] = `
       8,
       17,
     ],
-    "score": 5.88,
+    "score": 0.25,
     "set": [
       "captainferoph",
       "vizier",
@@ -1044,7 +1044,7 @@ exports[`analyze 1`] = `
       1,
       4,
     ],
-    "score": 4.2,
+    "score": 0.23,
     "set": [
       "darthvader-battleofyavin",
       "moffgideon",
@@ -1056,7 +1056,7 @@ exports[`analyze 1`] = `
       2,
       13,
     ],
-    "score": 4.2,
+    "score": 0.23,
     "set": [
       "blacksquadronace",
       "vizier",
@@ -1068,7 +1068,7 @@ exports[`analyze 1`] = `
       3,
       15,
     ],
-    "score": 4.2,
+    "score": 0.23,
     "set": [
       "darthvader-battleofyavin",
       "junoeclipse",
@@ -1080,7 +1080,7 @@ exports[`analyze 1`] = `
       7,
       8,
     ],
-    "score": 4.2,
+    "score": 0.23,
     "set": [
       "captainferoph",
       "idenversio",
@@ -1092,7 +1092,7 @@ exports[`analyze 1`] = `
       9,
       10,
     ],
-    "score": 4.2,
+    "score": 0.23,
     "set": [
       "backstabber-battleofyavin",
       "vizier",
@@ -1104,7 +1104,7 @@ exports[`analyze 1`] = `
       9,
       10,
     ],
-    "score": 4.2,
+    "score": 0.23,
     "set": [
       "darthvader-battleofyavin",
       "vizier",
@@ -1116,7 +1116,7 @@ exports[`analyze 1`] = `
       9,
       10,
     ],
-    "score": 4.2,
+    "score": 0.23,
     "set": [
       "maulermithel-battleofyavin",
       "vizier",
