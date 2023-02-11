@@ -133,7 +133,7 @@ export const getEvent = async (id: string) => {
   const title = parseTitle($);
   const players = parsePlayerInfo($);
   const squads = parseSquads($, players);
-  console.log(players);
+
   return { id, url, title, squads };
 };
 
