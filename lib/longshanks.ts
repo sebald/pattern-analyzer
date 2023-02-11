@@ -33,20 +33,25 @@ export const parsePlayerInfo = ($: CheerioAPI): PlayerData[] =>
       const id = $('.id_number', el).first().text().replace('#', '');
       const player = $('.player_link', el).first().text();
 
+      const rank = Number(
+        $('.rank', el.parent).first().text().replace('(drop)', '').trim()
+      );
+
       const points = Number($('.stat.mono.skinny.desktop', el).first().text());
       const record = {
-        wins: Number($('.wins', el).first().text()),
-        ties: Number($('.ties', el).first().text()),
-        loss: Number($('.loss', el).first().text()),
+        wins: Number($('.wins', el).first().text().trim()),
+        ties: Number($('.ties', el).first().text().trim()),
+        loss: Number($('.loss', el).first().text().trim()),
       };
 
-      const stats = $('.stat.mono table td');
-      const sos = Number(stats.first().text());
-      const mov = Number(stats.last().text());
+      const stats = $('.stat.mono table td', el);
+      const sos = Number(stats.first().text().trim());
+      const mov = Number(stats.last().text().trim());
 
       return {
         id,
         player,
+        rank,
         points,
         record,
         sos,
@@ -114,7 +119,7 @@ export const getEvent = async (id: string) => {
   const title = parseTitle($);
   const players = parsePlayerInfo($);
   const squads = parseSquads($, players);
-
+  console.log(players);
   return { id, url, title, squads };
 };
 

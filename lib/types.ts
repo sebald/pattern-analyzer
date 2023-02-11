@@ -23,6 +23,7 @@ export interface Upgrade {
 export interface PlayerData {
   id: string;
   player: string;
+  rank: number;
   points: number;
   record: { wins: number; ties: number; loss: number };
   sos: number;
