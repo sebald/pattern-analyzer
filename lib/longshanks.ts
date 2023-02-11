@@ -22,6 +22,37 @@ export const parseDescription = ($: CheerioAPI) => {
   const [date, description] = content.split(' • ');
   return { date, description };
 };
+/**
+ * Scrape player data. Note that longshanks handles teams the same
+ * way but we can later connect the "real" players via ids from lists.
+ */
+export const parsePlayerInfo = ($: CheerioAPI) =>
+  $('.player .data')
+    .toArray()
+    .map(el => {
+      const id = $('.id_number', el).first().text().replace('#', '');
+      const player = $('.player_link', el).first().text();
+
+      const points = Number($('.stat.mono.skinny.desktop', el).first().text());
+      const record = {
+        wins: Number($('.wins', el).first().text()),
+        ties: Number($('.ties', el).first().text()),
+        loss: Number($('.loss', el).first().text()),
+      };
+
+      const stats = $('.stat.mono table td');
+      const sos = Number(stats.first().text());
+      const mov = Number(stats.last().text());
+
+      return {
+        id,
+        player,
+        points,
+        record,
+        sos,
+        mov,
+      };
+    });
 
 /**
  * Iterate over all player related html and scrape their name
@@ -75,7 +106,9 @@ export const getEvent = async (id: string) => {
   const $ = load(html);
 
   const title = parseTitle($);
+  const performance = parsePlayerInfo($);
   const squads = parseSquads($);
+  console.log(performance);
 
   return { id, url, title, squads };
 };
