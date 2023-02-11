@@ -30,7 +30,7 @@ export interface PlayerData {
   mov: number;
 }
 
-export interface SquadData {
+export interface SquadData extends PlayerData {
   id: string;
   url: string | null;
   xws: XWSSquad | null;

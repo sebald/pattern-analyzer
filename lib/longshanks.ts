@@ -84,7 +84,13 @@ export const parseSquads = (
       ])[0];
       const xws = url ? yasb2xws(url) : null;
 
-      const performance = players.find(player => player.id === id) || {};
+      const performance = players.find(player => player.id === id) || {
+        rank: 0,
+        points: 0,
+        record: { wins: 0, ties: 0, loss: 0 },
+        sos: 0,
+        mov: 0,
+      };
 
       return {
         id,
@@ -94,7 +100,8 @@ export const parseSquads = (
         player,
         ...performance,
       };
-    });
+    })
+    .sort((a, b) => a.rank - b.rank);
 
 export const getEventHtml = async (id: string) => {
   const url = `https://longshanks.org/events/detail/?event=${id}`;
