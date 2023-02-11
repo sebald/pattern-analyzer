@@ -27,6 +27,7 @@ export interface PlayerData {
   points: number;
   record: { wins: number; ties: number; loss: number };
   sos: number;
+  missionPoints: number;
   mov: number;
 }
 

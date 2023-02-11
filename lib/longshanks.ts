@@ -34,7 +34,11 @@ export const parsePlayerInfo = ($: CheerioAPI): PlayerData[] =>
       const player = $('.player_link', el).first().text();
 
       const rank = Number(
-        $('.rank', el.parent).first().text().replace('(drop)', '').trim()
+        $('.rank', el.parent)
+          .first()
+          .text()
+          .trim()
+          .match(/^(?<rank>\d+)/)?.groups?.rank || 0
       );
 
       const points = Number($('.stat.mono.skinny.desktop', el).first().text());
@@ -46,7 +50,8 @@ export const parsePlayerInfo = ($: CheerioAPI): PlayerData[] =>
 
       const stats = $('.stat.mono table td', el);
       const sos = Number(stats.first().text().trim());
-      const mov = Number(stats.last().text().trim());
+      const missionPoints = Number(stats.eq(1).text().trim());
+      const mov = Number(stats.eq(2).text().trim());
 
       return {
         id,
@@ -55,6 +60,7 @@ export const parsePlayerInfo = ($: CheerioAPI): PlayerData[] =>
         points,
         record,
         sos,
+        missionPoints,
         mov,
       };
     });
@@ -89,6 +95,7 @@ export const parseSquads = (
         points: 0,
         record: { wins: 0, ties: 0, loss: 0 },
         sos: 0,
+        missionPoints: 0,
         mov: 0,
       };
 
