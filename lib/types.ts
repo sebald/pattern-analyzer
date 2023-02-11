@@ -20,6 +20,15 @@ export interface Upgrade {
   name: string;
 }
 
+export interface PlayerData {
+  id: string;
+  player: string;
+  points: number;
+  record: { wins: number; ties: number; loss: number };
+  sos: number;
+  mov: number;
+}
+
 export interface SquadData {
   id: string;
   url: string | null;

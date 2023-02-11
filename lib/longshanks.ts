@@ -1,5 +1,5 @@
 import { CheerioAPI, load } from 'cheerio';
-import { SquadData } from './types';
+import { PlayerData, SquadData } from './types';
 import { yasb2xws, YASB_URL_REGEXP } from './yasb';
 
 /**
@@ -26,7 +26,7 @@ export const parseDescription = ($: CheerioAPI) => {
  * Scrape player data. Note that longshanks handles teams the same
  * way but we can later connect the "real" players via ids from lists.
  */
-export const parsePlayerInfo = ($: CheerioAPI) =>
+export const parsePlayerInfo = ($: CheerioAPI): PlayerData[] =>
   $('.player .data')
     .toArray()
     .map(el => {
@@ -56,9 +56,12 @@ export const parsePlayerInfo = ($: CheerioAPI) =>
 
 /**
  * Iterate over all player related html and scrape their name
- * and squad.
+ * and squad. Also add player performance data if possible.
  */
-export const parseSquads = ($: CheerioAPI): SquadData[] =>
+export const parseSquads = (
+  $: CheerioAPI,
+  players: PlayerData[]
+): SquadData[] =>
   $('[class=pop][id^=details_]')
     .toArray()
     .map(el => {
@@ -76,12 +79,15 @@ export const parseSquads = ($: CheerioAPI): SquadData[] =>
       ])[0];
       const xws = url ? yasb2xws(url) : null;
 
+      const performance = players.find(player => player.id === id) || {};
+
       return {
         id,
         url,
         xws,
         raw,
         player,
+        ...performance,
       };
     });
 
@@ -106,9 +112,8 @@ export const getEvent = async (id: string) => {
   const $ = load(html);
 
   const title = parseTitle($);
-  const performance = parsePlayerInfo($);
-  const squads = parseSquads($);
-  console.log(performance);
+  const players = parsePlayerInfo($);
+  const squads = parseSquads($, players);
 
   return { id, url, title, squads };
 };
