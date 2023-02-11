@@ -32,9 +32,9 @@ export const parseSquads = ($: CheerioAPI): SquadData[] =>
     .toArray()
     .map(el => {
       const player = $('.player_link', el).first().text();
+      const id = el.attribs.id.replace('details_', '');
 
       const list = $('[id^=list_]', el);
-      const id = list.attr('id')!;
       const raw = list.attr('value') || '';
 
       /**
