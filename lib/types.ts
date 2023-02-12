@@ -20,7 +20,18 @@ export interface Upgrade {
   name: string;
 }
 
-export interface SquadData {
+export interface PlayerData {
+  id: string;
+  player: string;
+  rank: number;
+  points: number;
+  record: { wins: number; ties: number; losses: number };
+  sos: number;
+  missionPoints: number;
+  mov: number;
+}
+
+export interface SquadData extends PlayerData {
   id: string;
   url: string | null;
   xws: XWSSquad | null;

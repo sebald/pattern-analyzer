@@ -1,5 +1,5 @@
 import { CheerioAPI, load } from 'cheerio';
-import { SquadData } from './types';
+import { PlayerData, SquadData } from './types';
 import { yasb2xws, YASB_URL_REGEXP } from './yasb';
 
 /**
@@ -22,19 +22,64 @@ export const parseDescription = ($: CheerioAPI) => {
   const [date, description] = content.split(' • ');
   return { date, description };
 };
+/**
+ * Scrape player data. Note that longshanks handles teams the same
+ * way but we can later connect the "real" players via ids from lists.
+ */
+export const parsePlayerInfo = ($: CheerioAPI): PlayerData[] =>
+  $('.player .data')
+    .toArray()
+    .map(el => {
+      const id = $('.id_number', el).first().text().replace('#', '');
+      const player = $('.player_link', el).first().text();
+
+      const rank = Number(
+        $('.rank', el.parent)
+          .first()
+          .text()
+          .trim()
+          .match(/^(?<rank>\d+)/)?.groups?.rank || 0
+      );
+
+      const points = Number($('.stat.mono.skinny.desktop', el).first().text());
+      const record = {
+        wins: Number($('.wins', el).first().text().trim()),
+        ties: Number($('.ties', el).first().text().trim()),
+        losses: Number($('.loss', el).first().text().trim()),
+      };
+
+      const stats = $('.stat.mono table td', el);
+      const sos = Number(stats.first().text().trim());
+      const missionPoints = Number(stats.eq(1).text().trim());
+      const mov = Number(stats.eq(2).text().trim());
+
+      return {
+        id,
+        player,
+        rank,
+        points,
+        record,
+        sos,
+        missionPoints,
+        mov,
+      };
+    });
 
 /**
  * Iterate over all player related html and scrape their name
- * and squad.
+ * and squad. Also add player performance data if possible.
  */
-export const parseSquads = ($: CheerioAPI): SquadData[] =>
+export const parseSquads = (
+  $: CheerioAPI,
+  players: PlayerData[]
+): SquadData[] =>
   $('[class=pop][id^=details_]')
     .toArray()
     .map(el => {
       const player = $('.player_link', el).first().text();
+      const id = el.attribs.id.replace('details_', '');
 
       const list = $('[id^=list_]', el);
-      const id = list.attr('id')!;
       const raw = list.attr('value') || '';
 
       /**
@@ -45,14 +90,25 @@ export const parseSquads = ($: CheerioAPI): SquadData[] =>
       ])[0];
       const xws = url ? yasb2xws(url) : null;
 
+      const performance = players.find(player => player.id === id) || {
+        rank: 0,
+        points: 0,
+        record: { wins: 0, ties: 0, losses: 0 },
+        sos: 0,
+        missionPoints: 0,
+        mov: 0,
+      };
+
       return {
+        ...performance,
         id,
         url,
         xws,
         raw,
         player,
       };
-    });
+    })
+    .sort((a, b) => a.rank - b.rank);
 
 export const getEventHtml = async (id: string) => {
   const url = `https://longshanks.org/events/detail/?event=${id}`;
@@ -75,7 +131,8 @@ export const getEvent = async (id: string) => {
   const $ = load(html);
 
   const title = parseTitle($);
-  const squads = parseSquads($);
+  const players = parsePlayerInfo($);
+  const squads = parseSquads($, players);
 
   return { id, url, title, squads };
 };
