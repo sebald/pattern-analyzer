@@ -1,4 +1,5 @@
-import { PlayerData, SquadData, XWSSquad } from './types';
+import type { PlayerData, SquadData, XWSSquad } from './types';
+import { round } from './utils';
 import { normalize } from './xws';
 import { yasb2xws } from './yasb';
 
@@ -55,6 +56,16 @@ export interface Registration {
     units: string[];
   };
 }
+
+/**
+ * Check if players performance is absolutely the same.
+ * Their points and all their tie breakers are equal.
+ */
+const tied = (player1: PlayerData, player2: PlayerData) =>
+  player1.points === player2.points &&
+  player1.sos === player2.sos &&
+  player1.missionPoints === player2.missionPoints &&
+  player1.mov === player2.mov;
 
 const getLists = async (id: string, count: number) => {
   // rollbetter's max page count seems to be 25
@@ -119,15 +130,75 @@ export const getPlayers = async (id: string) => {
         ties: ranking.draws,
         losses: ranking.losses,
       },
-      sos: ranking.sos,
+      sos: round(ranking.sos, 2),
       missionPoints: ranking.points2,
       mov: ranking.points3,
     });
   });
 
-  // Do sorting by rank ourselves
+  // Do sorting and ranking is missing from the API :-(
+  players.sort((a, b) => {
+    /**
+     * If one of the players already has a rank (vis seed)
+     * that is different from our arbitrary value (1000) we
+     * can do the ranking.
+     */
+    if (a.rank < 1000 || b.rank < 1000) {
+      return a.rank - b.rank;
+    }
 
-  return players;
+    // Different points -> use this
+    if (a.points !== b.points) {
+      return b.points - a.points;
+    }
+
+    // 1. Tiebreaker: SOS
+    if (a.sos !== b.sos) {
+      return b.sos - a.sos;
+    }
+
+    // 2. Tiebreaker: Mission Points
+    if (a.missionPoints !== b.missionPoints) {
+      return b.missionPoints - a.missionPoints;
+    }
+
+    // 3. Tiebreaker: MOV
+    if (a.mov !== b.mov) {
+      return b.mov - a.mov;
+    }
+
+    // Let's hope we don't end up here :D
+    return 0;
+  });
+
+  let rank = 1;
+  return players.map((player, idx) => {
+    if (player.rank < 1000) {
+      rank = rank + 1;
+      return player;
+    }
+
+    /**
+     * Players are tied (same performance)
+     * -> rank is same as previous player.
+     */
+    // @ts-expect-error
+    const prevPlayer = player[idx - 1];
+    if (prevPlayer && tied(player, prevPlayer)) {
+      return {
+        ...player,
+        rank,
+      };
+    }
+
+    const p = {
+      ...player,
+      rank,
+    };
+    rank = rank + 1;
+
+    return p;
+  });
 };
 
 export const getSquads = async (id: string, players: PlayerData[]) => {
@@ -180,7 +251,7 @@ export const getSquads = async (id: string, players: PlayerData[]) => {
     });
   });
 
-  return squads;
+  return squads.sort((a, b) => a.rank - b.rank);
 };
 
 export const getEventInfo = async (id: string) => {
@@ -215,7 +286,6 @@ export const getEvent = async (id: string) => {
     getEventInfo(id),
     getPlayers(id),
   ]);
-  console.log(players);
   const squads = await getSquads(id, players);
 
   return { id, url, title, squads };
