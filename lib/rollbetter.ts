@@ -289,5 +289,10 @@ export const getEvent = async (id: string) => {
   ]);
   const squads = await getSquads(id, players);
 
-  return { id, url, title, squads };
+  /**
+   * Note that we are not supporting round infos rollbetter
+   * yet. Since we only use the data for listfortress exports
+   * for now, we don't gather it.
+   */
+  return { id, url, title, squads, rounds: [] };
 };

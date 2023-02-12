@@ -42,10 +42,18 @@ export const getEventDataByVendor = async ({
 
   // Merge events into one
   const data = events.reduce<EventData>(
-    (o, { title, id, url, squads }) => {
+    (o, { title, id, url, squads, rounds }) => {
       o.title = shortenTitles(o.title, title || '');
       o.urls.push({ href: url, text: `Event #${id}` });
       o.squads.push(...squads);
+
+      /**
+       * Rounds can not be merged, makes only sense if
+       * is a single event.
+       */
+      if (eventIds.length === 1) {
+        o.rounds.push(...rounds);
+      }
 
       return o;
     },
@@ -53,6 +61,7 @@ export const getEventDataByVendor = async ({
       title: '',
       urls: [],
       squads: [],
+      rounds: [],
     }
   );
 

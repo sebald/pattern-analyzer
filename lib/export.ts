@@ -45,43 +45,6 @@ export const squadsToCSV = (squads: SquadData[]) => {
   return csv.join('\r\n');
 };
 
-export type Scenarios =
-  | 'Assault at the Satellite Array'
-  | 'Chance Engagement'
-  | 'Scramble the Transmissions'
-  | 'Salvage Mission';
-
-// https://github.com/AlexRaubach/ListFortress/issues/63#issuecomment-1376711528
-export interface ListfortressExport {
-  players: {
-    name: string;
-    id: string;
-    mov: number;
-    score: number;
-    sos: number;
-    rank: {
-      swiss: number;
-      elimination?: number;
-    };
-    dropped: boolean;
-    list: string; // XWS as JSON or as string
-  }[];
-  rounds: {
-    'round-type': 'swiss' | 'elemination';
-    'round-number': number;
-    matches: {
-      player1: string;
-      'player1-id': string;
-      player2: string;
-      'player2-id': string;
-      player1Points: number;
-      player2Points: number;
-      'winner-id': string;
-    }[];
-    scenario: Scenarios;
-  }[];
-}
-
 export const squadToListfortress = (squads: SquadData[]) => {
   /**
    * It looks like list exports could take a while since we need to fetch additional data.
