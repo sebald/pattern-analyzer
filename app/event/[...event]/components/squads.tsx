@@ -114,7 +114,7 @@ export const Squads = ({ squads }: SquadsProps) => {
             )}
           </Card.Body>
           <Card.Footer>
-            <div className="flex items-center justify-between gap-2 px-1 pt-1 text-xs text-secondary-300">
+            <div className="flex items-center justify-between gap-2 pt-1 text-xs text-secondary-300">
               <div>
                 #{squad.rank}: {squad.player}
               </div>
