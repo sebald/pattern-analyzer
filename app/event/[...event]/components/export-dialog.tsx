@@ -1,7 +1,7 @@
 'use client';
 
 import { Dialog, Link } from 'components';
-import { squadsToCSV } from 'lib/utils';
+import { squadsToCSV } from 'lib/export';
 import type { SquadData } from 'lib/types';
 
 export interface ExportDialogProps {
