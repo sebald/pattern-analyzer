@@ -33,13 +33,16 @@ export const parsePlayerInfo = ($: CheerioAPI): PlayerData[] =>
       const id = $('.id_number', el).first().text().replace('#', '');
       const player = $('.player_link', el).first().text();
 
-      const rank = Number(
-        $('.rank', el.parent)
-          .first()
-          .text()
-          .trim()
-          .match(/^(?<rank>\d+)/)?.groups?.rank || 0
-      );
+      const groups = $('.rank', el.parent)
+        .first()
+        .text()
+        .trim()
+        .match(/^(?<rank>\d+)\s*\((?<info>[a-z]+)/)?.groups || {
+        rank: 0,
+        info: '',
+      };
+      const rank = Number(groups.rank);
+      const dropped = groups.info === 'drop';
 
       const points = Number($('.stat.mono.skinny.desktop', el).first().text());
       const record = {
@@ -62,6 +65,7 @@ export const parsePlayerInfo = ($: CheerioAPI): PlayerData[] =>
         sos,
         missionPoints,
         mov,
+        dropped,
       };
     });
 
@@ -90,6 +94,7 @@ export const parseSquads = (
       ])[0];
       const xws = url ? yasb2xws(url) : null;
 
+      // Map player to his performance
       const performance = players.find(player => player.id === id) || {
         rank: 0,
         points: 0,
@@ -98,6 +103,9 @@ export const parseSquads = (
         missionPoints: 0,
         mov: 0,
       };
+
+      // Gather matches info
+      // $('.game', el).toArray().
 
       return {
         ...performance,

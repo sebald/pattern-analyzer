@@ -119,7 +119,7 @@ export const getPlayers = async (id: string) => {
 
   const data: RollBetterPlayersResponse[] = await res.json();
 
-  data.forEach(({ id, player, ranking }) => {
+  data.forEach(({ id, player, ranking, hasDropped }) => {
     players.push({
       id: `${id}`,
       player: player.username,
@@ -133,6 +133,7 @@ export const getPlayers = async (id: string) => {
       sos: round(ranking.sos, 2),
       missionPoints: ranking.points2,
       mov: ranking.points3,
+      dropped: hasDropped,
     });
   });
 

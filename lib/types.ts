@@ -29,6 +29,7 @@ export interface PlayerData {
   sos: number;
   missionPoints: number;
   mov: number;
+  dropped?: boolean;
 }
 
 export interface SquadData extends PlayerData {
