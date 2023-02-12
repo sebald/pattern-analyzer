@@ -100,12 +100,12 @@ export const parseSquads = (
       };
 
       return {
+        ...performance,
         id,
         url,
         xws,
         raw,
         player,
-        ...performance,
       };
     })
     .sort((a, b) => a.rank - b.rank);
