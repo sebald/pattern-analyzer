@@ -1,4 +1,4 @@
-import { SquadData, XWSSquad } from './types';
+import { PlayerData, SquadData, XWSSquad } from './types';
 import { normalize } from './xws';
 import { yasb2xws } from './yasb';
 
@@ -12,6 +12,30 @@ export interface RollBetterTournamentResponse {
   registrationCount: number;
   // there is more but this is all we need for now
 }
+
+export interface RollBetterPlayersResponse {
+  id: number;
+  hasDropped: boolean;
+  player: {
+    id: number;
+    username: string;
+    affiliation?: string;
+  };
+  ranking: {
+    id: number;
+    points1: number; // Event Points
+    points2: number; // Mission Points
+    points3: number; // MOV
+    mov: number;
+    sos: number;
+    wins: number;
+    losses: number;
+    draws: number;
+    seed?: number;
+    isChampion: boolean;
+  };
+}
+
 export interface RollBetterListResponse {
   registrations: Registration[];
   count: number;
@@ -71,11 +95,47 @@ const getLists = async (id: string, count: number) => {
   return data.map(({ registrations }) => registrations).flat();
 };
 
-export const getSquads = async (id: string, count: number) => {
-  const data = await getLists(id, count);
+export const getPlayers = async (id: string) => {
+  const res = await fetch(
+    `https://rollbetter-linux.azurewebsites.net/tournaments/${id}/players`
+  );
+
+  if (!res.ok) {
+    throw new Error(`Failed to fetch player data... (${id})`);
+  }
+
+  let players: PlayerData[] = [];
+
+  const data: RollBetterPlayersResponse[] = await res.json();
+
+  data.forEach(({ id, player, ranking }) => {
+    players.push({
+      id: `${id}`,
+      player: player.username,
+      rank: ranking.seed || 1000, // not included in data :(
+      points: ranking.points1,
+      record: {
+        wins: ranking.wins,
+        ties: ranking.draws,
+        losses: ranking.losses,
+      },
+      sos: ranking.sos,
+      missionPoints: ranking.points2,
+      mov: ranking.points3,
+    });
+  });
+
+  // Do sorting by rank ourselves
+
+  return players;
+};
+
+export const getSquads = async (id: string, players: PlayerData[]) => {
+  const data = await getLists(id, players.length);
   const squads: SquadData[] = [];
 
-  data.forEach(({ id, withList, player }) => {
+  data.forEach(({ id: playerId, withList, player: { username } }) => {
+    const id = `${playerId}`;
     let xws: XWSSquad | null = null;
     let url: string | null = null;
 
@@ -97,16 +157,26 @@ export const getSquads = async (id: string, count: number) => {
       }
     } catch {
       console.log(
-        `Failed to parse squad of "${player.username}" (${id}).\nOriginal value is: :${withList}`
+        `Failed to parse squad of "${username}" (${id}).\nOriginal value is: :${withList}`
       );
     }
 
+    const performance = players.find(player => player.id === id) || {
+      rank: 0,
+      points: 0,
+      record: { wins: 0, ties: 0, losses: 0 },
+      sos: 0,
+      missionPoints: 0,
+      mov: 0,
+    };
+
     squads.push({
-      id: `${id}`,
+      id,
+      player: username,
       url,
       xws,
       raw: withList || '',
-      player: player.username,
+      ...performance,
     });
   });
 
@@ -126,7 +196,6 @@ export const getEventInfo = async (id: string) => {
     description,
     startDate,
     endDate,
-    registrationCount,
   }: RollBetterTournamentResponse = await res.json();
 
   const date = startDate + (endDate ? ` ${endDate}` : '');
@@ -138,12 +207,15 @@ export const getEventInfo = async (id: string) => {
     title,
     date,
     description,
-    players: registrationCount,
   };
 };
 
 export const getEvent = async (id: string) => {
-  const { url, title, players } = await getEventInfo(id);
+  const [{ url, title }, players] = await Promise.all([
+    getEventInfo(id),
+    getPlayers(id),
+  ]);
+  console.log(players);
   const squads = await getSquads(id, players);
 
   return { id, url, title, squads };

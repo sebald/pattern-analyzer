@@ -25,7 +25,7 @@ export interface PlayerData {
   player: string;
   rank: number;
   points: number;
-  record: { wins: number; ties: number; loss: number };
+  record: { wins: number; ties: number; losses: number };
   sos: number;
   missionPoints: number;
   mov: number;

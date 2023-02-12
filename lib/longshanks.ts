@@ -45,7 +45,7 @@ export const parsePlayerInfo = ($: CheerioAPI): PlayerData[] =>
       const record = {
         wins: Number($('.wins', el).first().text().trim()),
         ties: Number($('.ties', el).first().text().trim()),
-        loss: Number($('.loss', el).first().text().trim()),
+        losses: Number($('.loss', el).first().text().trim()),
       };
 
       const stats = $('.stat.mono table td', el);
@@ -93,7 +93,7 @@ export const parseSquads = (
       const performance = players.find(player => player.id === id) || {
         rank: 0,
         points: 0,
-        record: { wins: 0, ties: 0, loss: 0 },
+        record: { wins: 0, ties: 0, losses: 0 },
         sos: 0,
         missionPoints: 0,
         mov: 0,
