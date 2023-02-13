@@ -74,7 +74,7 @@ export const parsePlayerInfo = ($: CheerioAPI): PlayerData[] =>
  * Iterate over all the popups to find the games played by each player.
  */
 export const parseRounds = ($: CheerioAPI) => {
-  const matches = new Set<string>();
+  const games = new Set<string>();
   const rounds = new Map<number, ListFortressRound>();
 
   const toMatchId = (round: number, ids: string[]) => {
@@ -97,11 +97,11 @@ export const parseRounds = ($: CheerioAPI) => {
 
           // Check if we already added the game
           const matchId = toMatchId(roundNumber, ids);
-          if (matches.has(matchId)) {
+          if (games.has(matchId)) {
             return;
           }
           // Add macht so we don't add it twice
-          matches.add(matchId);
+          games.add(matchId);
 
           // Get or create round
           const round =
@@ -120,6 +120,7 @@ export const parseRounds = ($: CheerioAPI) => {
             .toArray()
             .map(pid => Number($(pid).text()));
 
+          // Add match to round.
           round.matches.push({
             player1: players[0],
             'player1-id': ids[0],
@@ -128,6 +129,8 @@ export const parseRounds = ($: CheerioAPI) => {
             'player2-id': players[1],
             player2Points: score[1],
           });
+
+          rounds.set(roundNumber, round);
         });
     });
 
