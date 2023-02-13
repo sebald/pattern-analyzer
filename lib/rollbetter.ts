@@ -251,7 +251,7 @@ export const getSquads = async (id: string, players: PlayerData[]) => {
     });
   });
 
-  return squads.sort((a, b) => a.rank - b.rank);
+  return squads;
 };
 
 export const getEventInfo = async (id: string) => {

@@ -1,12 +1,12 @@
 import { CheerioAPI, load } from 'cheerio';
-import { PlayerData, SquadData } from './types';
+import type { PlayerData, SquadData } from './types';
 import { yasb2xws, YASB_URL_REGEXP } from './yasb';
 
 /**
  * Scrape event title from meta tag.
  */
 export const parseTitle = ($: CheerioAPI) =>
-  $('head meta[property=og:title]').attr('content') || null;
+  $('head meta[property=og:title]').attr('content') || 'Unknown Event';
 
 /**
  * Scrape event date and description from meta tag.
@@ -22,24 +22,28 @@ export const parseDescription = ($: CheerioAPI) => {
   const [date, description] = content.split(' • ');
   return { date, description };
 };
+
 /**
  * Scrape player data. Note that longshanks handles teams the same
  * way but we can later connect the "real" players via ids from lists.
  */
 export const parsePlayerInfo = ($: CheerioAPI): PlayerData[] =>
-  $('.player .data')
+  $('#edit_player .player .data')
     .toArray()
     .map(el => {
       const id = $('.id_number', el).first().text().replace('#', '');
       const player = $('.player_link', el).first().text();
 
-      const rank = Number(
-        $('.rank', el.parent)
-          .first()
-          .text()
-          .trim()
-          .match(/^(?<rank>\d+)/)?.groups?.rank || 0
-      );
+      const groups = $('.rank', el.parent)
+        .first()
+        .text()
+        .trim()
+        .match(/^(?<rank>\d+)(\s*\((?<info>[a-z]+))?/)?.groups || {
+        rank: 0,
+        info: '',
+      };
+      const rank = Number(groups.rank);
+      const dropped = groups.info === 'drop';
 
       const points = Number($('.stat.mono.skinny.desktop', el).first().text());
       const record = {
@@ -62,6 +66,7 @@ export const parsePlayerInfo = ($: CheerioAPI): PlayerData[] =>
         sos,
         missionPoints,
         mov,
+        dropped,
       };
     });
 
@@ -90,6 +95,7 @@ export const parseSquads = (
       ])[0];
       const xws = url ? yasb2xws(url) : null;
 
+      // Map player to their performance
       const performance = players.find(player => player.id === id) || {
         rank: 0,
         points: 0,
@@ -107,8 +113,7 @@ export const parseSquads = (
         raw,
         player,
       };
-    })
-    .sort((a, b) => a.rank - b.rank);
+    });
 
 export const getEventHtml = async (id: string) => {
   const url = `https://longshanks.org/events/detail/?event=${id}`;

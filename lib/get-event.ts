@@ -56,6 +56,8 @@ export const getEventDataByVendor = async ({
     }
   );
 
+  data.squads.sort((a, b) => a.rank - b.rank);
+
   return data;
 };
 
