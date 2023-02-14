@@ -1,4 +1,4 @@
-import type { SquadData } from './types';
+import type { ListFortressPlayer, ListFortressRound, SquadData } from './types';
 
 type CleanedSquad = Omit<SquadData, 'raw'>;
 
@@ -45,25 +45,27 @@ export const squadsToCSV = (squads: SquadData[]) => {
   return csv.join('\r\n');
 };
 
-export const squadToListfortress = (squads: SquadData[]) => {
-  /**
-   * It looks like list exports could take a while since we need to fetch additional data.
-   * Make we make a new page for listfortress export?
-   *
-   * longshanks has the games in the same part as the lists in their "pop"
-   *
-   * Do we need to store this in a map with "player ids + round" as keys so we do not have duplicate games
-   * -> skip scraping if game is already in map
-   *
-   * .game (root for each game)
-   *
-   * > .results
-   *    > .player (2 elements)
-   *          >.id_number == ids as "#1234"
-   *          >.score == victory points
-   *
-   * > .details
-   *    > item:2:last-child == round
-   *    > item:3:last-child == scenario
-   */
+export const squadToListfortress = (
+  squads: SquadData[],
+  rounds: ListFortressRound[]
+) => {
+  const players: ListFortressPlayer[] = squads.map(
+    ({ id, player, points, sos, mov, rank, dropped, xws }) => ({
+      id,
+      name: player,
+      score: points,
+      sos,
+      mov,
+      rank: {
+        swiss: rank,
+      },
+      dropped,
+      list: xws ?? undefined,
+    })
+  );
+
+  return {
+    players,
+    rounds,
+  };
 };

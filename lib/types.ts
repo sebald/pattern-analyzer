@@ -125,17 +125,17 @@ export interface ListfortressExport {
 }
 
 export interface ListFortressPlayer {
-  name: string;
   id: string;
-  mov: number;
+  name: string;
   score: number;
   sos: number;
+  mov: number;
   rank: {
     swiss: number;
     elimination?: number;
   };
-  dropped: boolean;
-  list: string | XWSSquad;
+  dropped?: boolean;
+  list?: string | XWSSquad;
 }
 
 export interface ListFortressRound {
