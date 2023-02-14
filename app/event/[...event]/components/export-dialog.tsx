@@ -1,20 +1,24 @@
 'use client';
 
-import { Dialog, Link } from 'components';
-import { squadsToCSV } from 'lib/export';
-import type { SquadData } from 'lib/types';
+import useClipboard from 'react-use-clipboard';
+
+import { Button, Dialog, Divider, Link } from 'components';
+import { squadsToCSV, eventToListfortress } from 'lib/export';
+import type { EventData } from 'lib/types';
 
 export interface ExportDialogProps {
   children: React.ReactNode;
-  eventTitle: string;
-  squads: SquadData[];
+  event: EventData;
 }
 
-export const ExportDialog = ({
-  eventTitle,
-  squads,
-  children,
-}: ExportDialogProps) => {
+export const ExportDialog = ({ event, children }: ExportDialogProps) => {
+  const [isCopied, setCopied] = useClipboard(
+    JSON.stringify(eventToListfortress(event)),
+    {
+      successDuration: 1000,
+    }
+  );
+
   return (
     <Dialog>
       <Dialog.Trigger asChild>{children}</Dialog.Trigger>
@@ -26,21 +30,30 @@ export const ExportDialog = ({
           </Dialog.Description>
         </Dialog.Header>
         <div className="grid gap-4 py-4">
+          <Button variant="primary" onClick={setCopied}>
+            Export for Listfortress <sup>BETA</sup>
+          </Button>
+          {isCopied ? (
+            <div>Copied data to your clipboard!</div>
+          ) : (
+            <div>Data will be copied to your clipboard!</div>
+          )}
+          <Divider />
           <Link
             variant="button"
             size="regular"
             href={`data:text/json;charset=utf-8,${encodeURIComponent(
-              JSON.stringify(squads)
+              JSON.stringify(event.squads)
             )}`}
-            download={`${eventTitle.replace(/\s/g, '_')}.json`}
+            download={`${event.title.replace(/\s/g, '_')}.json`}
           >
             Export as JSON
           </Link>
           <Link
             variant="button"
             size="regular"
-            href={`data:text/plain;charset=utf-8,${squadsToCSV(squads)}`}
-            download={`${eventTitle.replace(/\s/g, '_')}.csv`}
+            href={`data:text/plain;charset=utf-8,${squadsToCSV(event.squads)}`}
+            download={`${event.title.replace(/\s/g, '_')}.csv`}
           >
             Export as CSV
           </Link>

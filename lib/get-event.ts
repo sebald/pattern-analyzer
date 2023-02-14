@@ -59,6 +59,7 @@ export const getEventDataByVendor = async ({
     },
     {
       title: '',
+      vendor,
       urls: [],
       squads: [],
       rounds: [],

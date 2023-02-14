@@ -26,7 +26,7 @@ export const PageHeader = ({ event }: HeaderProps) => {
             <Computed className="h-3 w-3" /> {squadsWithXWS}/
             {event.squads.length} Squads parsed
           </Inline>
-          <ExportDialog eventTitle={event.title} squads={event.squads}>
+          <ExportDialog event={event}>
             <Button className="whitespace-nowrap" variant="link" size="inherit">
               <Export className="h-3 w-3" /> Export
             </Button>

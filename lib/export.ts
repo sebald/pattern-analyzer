@@ -1,4 +1,9 @@
-import type { ListFortressPlayer, ListFortressRound, SquadData } from './types';
+import type {
+  EventData,
+  ListFortressPlayer,
+  ListFortressRound,
+  SquadData,
+} from './types';
 
 type CleanedSquad = Omit<SquadData, 'raw'>;
 
@@ -45,10 +50,7 @@ export const squadsToCSV = (squads: SquadData[]) => {
   return csv.join('\r\n');
 };
 
-export const squadToListfortress = (
-  squads: SquadData[],
-  rounds: ListFortressRound[]
-) => {
+export const eventToListfortress = ({ squads, rounds }: EventData) => {
   const players: ListFortressPlayer[] = squads.map(
     ({ id, player, points, sos, mov, rank, dropped, xws }) => ({
       id,

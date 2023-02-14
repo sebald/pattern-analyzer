@@ -27,6 +27,7 @@
     "next": "13.1.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-use-clipboard": "^1.0.9",
     "tailwind-merge": "^1.9.1",
     "use-debounce": "9.0.3"
   },

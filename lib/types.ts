@@ -42,6 +42,7 @@ export interface SquadData extends PlayerData {
 
 export interface EventData {
   title: string;
+  vendor: 'longshanks' | 'rollbetter';
   urls: { href: string; text: string }[];
   squads: SquadData[];
   rounds: ListFortressRound[];
