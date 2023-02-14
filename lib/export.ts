@@ -62,7 +62,7 @@ export const eventToListfortress = ({ squads, rounds }: EventData) => {
         swiss: rank,
       },
       dropped,
-      list: xws ?? undefined,
+      list: xws ? JSON.stringify(xws) : '',
     })
   );
 
