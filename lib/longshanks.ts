@@ -28,7 +28,7 @@ export const parseDescription = ($: CheerioAPI) => {
  * way but we can later connect the "real" players via ids from lists.
  */
 export const parsePlayerInfo = ($: CheerioAPI): PlayerData[] =>
-  $('.player .data')
+  $('#edit_player .player .data')
     .toArray()
     .map(el => {
       const id = $('.id_number', el).first().text().replace('#', '');
@@ -38,7 +38,7 @@ export const parsePlayerInfo = ($: CheerioAPI): PlayerData[] =>
         .first()
         .text()
         .trim()
-        .match(/^(?<rank>\d+)\s*\((?<info>[a-z]+)/)?.groups || {
+        .match(/^(?<rank>\d+)(\s*\((?<info>[a-z]+))?/)?.groups || {
         rank: 0,
         info: '',
       };
@@ -162,7 +162,7 @@ export const parseSquads = (
       ])[0];
       const xws = url ? yasb2xws(url) : null;
 
-      // Map player to his performance
+      // Map player to their performance
       const performance = players.find(player => player.id === id) || {
         rank: 0,
         points: 0,
@@ -180,8 +180,7 @@ export const parseSquads = (
         raw,
         player,
       };
-    })
-    .sort((a, b) => a.rank - b.rank);
+    });
 
 export const getEventHtml = async (id: string) => {
   const url = `https://longshanks.org/events/detail/?event=${id}`;
