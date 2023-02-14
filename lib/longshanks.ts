@@ -126,7 +126,7 @@ export const parseRounds = ($: CheerioAPI) => {
             'player1-id': ids[0],
             player1Points: score[0],
             player2: players[1] || 'BYE',
-            'player2-id': players[1],
+            'player2-id': ids[1],
             player2Points: score[1],
           });
 
