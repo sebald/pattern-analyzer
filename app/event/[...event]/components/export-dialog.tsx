@@ -15,7 +15,7 @@ export const ExportDialog = ({ event, children }: ExportDialogProps) => {
   const [isCopied, setCopied] = useClipboard(
     JSON.stringify(eventToListfortress(event)),
     {
-      successDuration: 1000,
+      successDuration: 2000,
     }
   );
 
@@ -26,18 +26,20 @@ export const ExportDialog = ({ event, children }: ExportDialogProps) => {
         <Dialog.Header>
           <Dialog.Title>Export Data</Dialog.Title>
           <Dialog.Description>
-            Export crawled data and use it for your own analysis.
+            Export data and use it for your own analysis and apps.
           </Dialog.Description>
         </Dialog.Header>
         <div className="grid gap-4 py-4">
-          <Button variant="primary" onClick={setCopied}>
-            Export for Listfortress <sup>BETA</sup>
-          </Button>
-          {isCopied ? (
-            <div>Copied data to your clipboard!</div>
-          ) : (
-            <div>Data will be copied to your clipboard!</div>
-          )}
+          <div className="flex flex-col gap-2">
+            <Button variant="primary" onClick={setCopied}>
+              Export for Listfortress <sup>BETA</sup>
+            </Button>
+            <div className="text-center text-xs text-secondary-300">
+              {isCopied
+                ? 'Copied data to your clipboard!'
+                : 'Data will be copied to your clipboard!'}
+            </div>
+          </div>
           <Divider />
           <Link
             variant="button"
@@ -47,7 +49,7 @@ export const ExportDialog = ({ event, children }: ExportDialogProps) => {
             )}`}
             download={`${event.title.replace(/\s/g, '_')}.json`}
           >
-            Export as JSON
+            Download as JSON
           </Link>
           <Link
             variant="button"
@@ -55,7 +57,7 @@ export const ExportDialog = ({ event, children }: ExportDialogProps) => {
             href={`data:text/plain;charset=utf-8,${squadsToCSV(event.squads)}`}
             download={`${event.title.replace(/\s/g, '_')}.csv`}
           >
-            Export as CSV
+            Download as CSV
           </Link>
         </div>
       </Dialog.Content>
