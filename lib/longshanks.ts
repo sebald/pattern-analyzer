@@ -1,5 +1,5 @@
 import { CheerioAPI, load } from 'cheerio';
-import type { PlayerData, SquadData } from './types';
+import type { ListFortressRound, PlayerData, SquadData } from './types';
 import { yasb2xws, YASB_URL_REGEXP } from './yasb';
 
 /**
@@ -71,6 +71,73 @@ export const parsePlayerInfo = ($: CheerioAPI): PlayerData[] =>
     });
 
 /**
+ * Iterate over all the popups to find the games played by each player.
+ */
+export const parseRounds = ($: CheerioAPI) => {
+  const games = new Set<string>();
+  const rounds = new Map<number, ListFortressRound>();
+
+  const toMatchId = (round: number, ids: string[]) => {
+    const copy = [...ids].sort();
+    return `${round}:${copy.join('-')}`;
+  };
+
+  $('[class=pop][id^=details_]')
+    .toArray()
+    .forEach(el => {
+      $('.game', el)
+        .toArray()
+        .forEach(game => {
+          const details = $('.details .item', game);
+          const roundNumber = Number(details.eq(1).children().eq(1).text());
+
+          const ids = $('.results .player .id_number', game)
+            .toArray()
+            .map(pid => $(pid).text().replace('#', ''));
+
+          // Check if we already added the game
+          const matchId = toMatchId(roundNumber, ids);
+          if (games.has(matchId)) {
+            return;
+          }
+          // Add macht so we don't add it twice
+          games.add(matchId);
+
+          // Get or create round
+          const round =
+            rounds.get(roundNumber) ||
+            ({
+              'round-type': 'swiss',
+              'round-number': roundNumber,
+              matches: [],
+              scenario: details.eq(2).children().eq(1).text().trim(),
+            } as ListFortressRound);
+
+          const players = $('.results .player .player_link', game)
+            .toArray()
+            .map(p => $(p).text().trim());
+          const score = $('.results .player .score', game)
+            .toArray()
+            .map(pid => Number($(pid).text()));
+
+          // Add match to round.
+          round.matches.push({
+            player1: players[0],
+            'player1-id': ids[0],
+            player1Points: score[0],
+            player2: players[1] || 'BYE',
+            'player2-id': ids[1],
+            player2Points: score[1],
+          });
+
+          rounds.set(roundNumber, round);
+        });
+    });
+
+  return [...rounds.values()];
+};
+
+/**
  * Iterate over all player related html and scrape their name
  * and squad. Also add player performance data if possible.
  */
@@ -138,8 +205,9 @@ export const getEvent = async (id: string) => {
   const title = parseTitle($);
   const players = parsePlayerInfo($);
   const squads = parseSquads($, players);
+  const rounds = parseRounds($);
 
-  return { id, url, title, squads };
+  return { id, url, title, squads, rounds };
 };
 
 /**
