@@ -43,6 +43,7 @@ export const getEventDataByVendor = async ({
   // Merge events into one
   const data = events.reduce<EventData>(
     (o, { title, id, url, squads, rounds }) => {
+      o.id.push(id);
       o.title = shortenTitles(o.title, title || '');
       o.urls.push({ href: url, text: `Event #${id}` });
       o.squads.push(...squads);
@@ -58,6 +59,7 @@ export const getEventDataByVendor = async ({
       return o;
     },
     {
+      id: [],
       title: '',
       vendor,
       urls: [],

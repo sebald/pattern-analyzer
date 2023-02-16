@@ -41,6 +41,7 @@ export interface SquadData extends PlayerData {
 }
 
 export interface EventData {
+  id: string[];
   title: string;
   vendor: 'longshanks' | 'rollbetter';
   urls: { href: string; text: string }[];
