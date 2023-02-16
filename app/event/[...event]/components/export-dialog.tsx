@@ -90,12 +90,16 @@ export const ExportDialog = ({ event, children }: ExportDialogProps) => {
           </Dialog.Description>
         </Dialog.Header>
         <div className="grid gap-3 py-4">
-          {event.vendor === 'longshanks' ? (
+          {event.id.length > 1 ? (
+            <Alert>
+              <Alert.Title>Where is the Listfortress Export!?</Alert.Title>
+              Export for Listfortress is not availble for multiple events.
+            </Alert>
+          ) : event.vendor === 'longshanks' ? (
             <ExportLongshanks event={event} />
           ) : (
             <ExportRollbetter event={event} />
           )}
-          <Divider className="my-3" />
           <Link
             variant="button"
             size="regular"

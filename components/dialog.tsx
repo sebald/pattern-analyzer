@@ -54,7 +54,7 @@ const DialogContent = forwardRef<
       ref={ref}
       className={cn(
         'border border-secondary-100 bg-white px-4 pt-3 pb-2 shadow shadow-secondary-600 sm:max-w-lg sm:rounded-lg',
-        'animate-in fade-in-90 slide-in-from-bottom-10 sm:zoom-in-90 sm:slide-in-from-bottom-0 fixed z-50 grid w-full scale-100 gap-4 opacity-100',
+        'animate-in fade-in-90 slide-in-from-bottom-10 sm:zoom-in-90 sm:slide-in-from-bottom-0 fixed z-50 grid w-full scale-100 gap-2 opacity-100',
         className
       )}
       {...props}
