@@ -1,6 +1,45 @@
 import { CheerioAPI, load } from 'cheerio';
+
+import { lbn2xws, LBN_URL_REGEXP } from './lbn';
 import type { ListFortressRound, PlayerData, SquadData } from './types';
+import { normalize } from './xws';
 import { yasb2xws, YASB_URL_REGEXP } from './yasb';
+
+export const getXWS = (raw: string) => {
+  // Remove new lines, makes it easier to regex on it
+  const val = raw.replace(/(\r\n|\n|\r)/gm, '');
+  let url: string | null;
+
+  // YASB
+  url = (val.match(YASB_URL_REGEXP) || [null])[0];
+  if (url) {
+    return { xws: yasb2xws(url), url };
+  }
+
+  // LBN
+  url = (val.match(LBN_URL_REGEXP) || [null])[0];
+  if (url) {
+    return { xws: lbn2xws(url), url };
+  }
+
+  // JSON
+  if (raw.startsWith('{')) {
+    try {
+      return {
+        xws: normalize(JSON.parse(raw)),
+        url,
+      };
+    } catch {
+      /**
+       * If there is an error parsing the JSON,
+       * we handle it as `raw`.
+       */
+    }
+  }
+
+  // Nothing :(
+  return { xws: null, url };
+};
 
 /**
  * Scrape event title from meta tag.
@@ -153,14 +192,7 @@ export const parseSquads = (
 
       const list = $('[id^=list_]', el);
       const raw = list.attr('value') || '';
-
-      /**
-       * Try to find a YASB link and convert it to XWS.
-       */
-      const url = (raw.replace(/(\r\n|\n|\r)/gm, '').match(YASB_URL_REGEXP) || [
-        null,
-      ])[0];
-      const xws = url ? yasb2xws(url) : null;
+      const { url, xws } = getXWS(raw);
 
       // Map player to their performance
       const performance = players.find(player => player.id === id) || {

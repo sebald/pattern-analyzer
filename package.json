@@ -24,6 +24,7 @@
     "@vercel/analytics": "^0.1.8",
     "cheerio": "1.0.0-rc.12",
     "class-variance-authority": "^0.4.0",
+    "lbn-core": "^1.0.207",
     "next": "13.1.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",

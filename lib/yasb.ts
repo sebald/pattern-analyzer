@@ -48,7 +48,6 @@ export const getPointsByName = (id: string) => {
 
 export const yasb2xws = (link: string): XWSSquad => {
   const url = new URL(link);
-
   const params = Object.fromEntries(url.searchParams.entries()) as Record<
     'f' | 'd' | 'sn' | 'obs',
     string
