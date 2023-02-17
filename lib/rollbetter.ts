@@ -81,7 +81,7 @@ const getLists = async (id: string, count: number) => {
   const responses = await Promise.all(
     pagination.map(skip =>
       fetch(
-        `https://rollbetter-linux.azurewebsites.net/tournaments/${id}/lists?skip=${skip}&take=25`
+        `https://rollbetter-linux.azurewebsites.net/tournaments/${id}/lists?skip=${skip}&take=25&query=`
       )
     )
   );
