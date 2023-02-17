@@ -101,8 +101,7 @@ const Page = async ({ params }: PageProps) => {
         <div className="pt-4">
           <Center>
             <Message>
-              <strong>No squads found.</strong>
-              <br />
+              <Message.Title>No squads found.</Message.Title>
               Looks like the event is not an X-Wing event or squads are still
               hidden.
             </Message>
