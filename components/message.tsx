@@ -1,4 +1,15 @@
 import { cva, VariantProps } from 'class-variance-authority';
+import { Info } from './icons';
+
+// Message.Title
+// ---------------
+export interface MessageTitleProps {
+  children: React.ReactNode;
+}
+
+const MessageTitle = ({ children }: MessageTitleProps) => (
+  <div className="font-semibold leading-6">{children}</div>
+);
 
 // Message.Action
 // ---------------
@@ -33,11 +44,14 @@ const MessageFooter = ({ children }: MessageFooterProps) => (
 
 // Styles
 // ---------------
-const styles = cva(['flex rounded-md p-4 text-sm'], {
+const styles = cva(['flex gap-1 rounded-md p-4 text-sm'], {
   variants: {
     variant: {
       info: 'bg-blue-200 text-blue-500',
       error: 'bg-red-200 text-red-500',
+    },
+    size: {
+      regular: '',
     },
   },
   defaultVariants: {
@@ -45,29 +59,21 @@ const styles = cva(['flex rounded-md p-4 text-sm'], {
   },
 });
 
+// Props
+// ---------------
 export interface InfoProps extends VariantProps<typeof styles> {
   children: React.ReactNode;
 }
 
-export const Message = ({ variant = 'info', children }: InfoProps) => (
-  <div className={styles({ variant })}>
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={1.5}
-      stroke="currentColor"
-      className="mr-3 h-5 w-5 flex-shrink-0"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
-      />
-    </svg>
+// COmponent
+// ---------------
+export const Message = ({ variant = 'info', size, children }: InfoProps) => (
+  <div className={styles({ variant, size })}>
+    <Info className="h-6 w-6 flex-shrink-0" />
     <div>{children}</div>
   </div>
 );
 
+Message.Title = MessageTitle;
 Message.Action = MessageAction;
 Message.Footer = MessageFooter;

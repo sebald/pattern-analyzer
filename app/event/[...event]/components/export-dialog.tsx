@@ -3,7 +3,7 @@
 import useClipboard from 'react-use-clipboard';
 import useSWR from 'swr';
 
-import { Alert, Button, Dialog, Divider, Link } from 'components';
+import { Button, Dialog, Link, Message } from 'components';
 import { squadsToCSV, eventToListfortress } from 'lib/export';
 import type { EventData } from 'lib/types';
 
@@ -91,10 +91,10 @@ export const ExportDialog = ({ event, children }: ExportDialogProps) => {
         </Dialog.Header>
         <div className="grid gap-3 py-4">
           {event.id.length > 1 ? (
-            <Alert>
-              <Alert.Title>Where is the Listfortress Export!?</Alert.Title>
+            <Message>
+              <Message.Title>Where is the Listfortress Export!?</Message.Title>
               Export for Listfortress is not availble for multiple events.
-            </Alert>
+            </Message>
           ) : event.vendor === 'longshanks' ? (
             <ExportLongshanks event={event} />
           ) : (
