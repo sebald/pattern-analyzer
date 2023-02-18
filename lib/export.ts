@@ -13,7 +13,7 @@ type CleanedSquad = Omit<SquadData, 'raw'>;
  */
 export const squadsToCSV = (squads: SquadData[]) => {
   const data: CleanedSquad[] = squads.map(({ raw, ...rest }) => ({ ...rest }));
-  const headers = Object.keys(data[0]) as (keyof CleanedSquad)[];
+  const headers = Object.keys(data[0] || {}) as (keyof CleanedSquad)[];
   const delimiter = ';';
 
   const createRow = (

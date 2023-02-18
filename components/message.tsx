@@ -44,18 +44,19 @@ const MessageFooter = ({ children }: MessageFooterProps) => (
 
 // Styles
 // ---------------
-const styles = cva(['flex gap-1 rounded-md p-4 text-sm'], {
+const styles = cva(['flex gap-1 rounded-md p-4'], {
   variants: {
     variant: {
       info: 'bg-blue-200 text-blue-500',
       error: 'bg-red-200 text-red-500',
     },
     size: {
-      regular: '',
+      regular: 'text-sm',
     },
   },
   defaultVariants: {
     variant: 'info',
+    size: 'regular',
   },
 });
 
@@ -67,7 +68,7 @@ export interface InfoProps extends VariantProps<typeof styles> {
 
 // COmponent
 // ---------------
-export const Message = ({ variant = 'info', size, children }: InfoProps) => (
+export const Message = ({ variant, size, children }: InfoProps) => (
   <div className={styles({ variant, size })}>
     <Info className="h-6 w-6 flex-shrink-0" />
     <div>{children}</div>
