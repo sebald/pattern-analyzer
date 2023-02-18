@@ -1,4 +1,4 @@
-import { prefix } from './utils';
+import { prefix } from 'lib/utils';
 
 test('return common prefix of string', () => {
   expect(prefix('abc', 'abc')).toEqual('abc');

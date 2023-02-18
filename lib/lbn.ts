@@ -1,59 +1,30 @@
-import { deserialize } from 'lbn-core/dist/helpers/serializer';
+import ffgXws from 'lbn-core/dist/assets/ffg-xws';
+import { slotKeys } from 'lbn-core/dist/helpers/enums';
+import { SlotKey } from 'lbn-core/dist/types';
+import { XWSPilot, XWSSquad } from './types';
 
 export const LBN_URL_REGEXP =
   /https:\/\/launchbaynext\.app\/\?lbx(?:[-a-zA-Z0-9()@:%_*'\\\+.~#?&\/=,]*)/;
 
-export const lbn2xws = (link: string) => {
-  const url = new URL(
-    // link
-    "https://launchbaynext.app/?lbx='*0%2C%20Emperors%20Sword%20*'.20.2.1.ll11.81.l1.233.237rr.l11.86.l14.299rr.l11.84.l6.267r.l14.619r.l1.233rr.l11.83.l3.256r.l1.233.915rr.l41.'secondsister'.l14.299r.l1.237rr.l11.90rr.l6.0.8r"
-  );
-  const params = Object.fromEntries(url.searchParams.entries()) as Record<
-    'lbx',
-    string
-  >;
+const deserialize = (link: string) => {
+  const rep = (c: string, t: string, d: string | number) => {
+    if (typeof d === 'number') {
+      return `${d}`;
+    }
 
-  console.log('S===========================================================');
-  // const r = params.lbx.replace('"', "'").replace('\\', '');
-  const r =
-    // '%27Two%20Peas%20in%20a%20Pod%27.20.4.1.ll57.%27poedameron-scavengedyt1300%27.l8.274r.l16.478r.l13.877r.l14.296r.l1.247.381r.l15.485rr.l54.435.l14.299r.l1.241.471rr.l69.621.l10.644r.l13.931r.l14.619r.l1.%27notorious%27r.l15.655rr.l65.573.l8.473rr.l65.575.l8.275r.l1.471.233rrr.lr';
-    "'Two%20Peas%20in%20a%20Pod'.20.4.1.ll57.'poedameron-scavengedyt1300'.l8.274r.l16.478r.l13.877r.l14.296r.l1.247.381r.l15.485rr.l54.435.l14.299r.l1.241.471rr.l69.621.l10.644r.l13.931r.l14.619r.l1.'notorious'r.l15.655rr.l65.573.l8.473rr.l65.575.l8.275r.l1.471.233rrr.lr";
-  // "'*0%2C%20Emperors%20Sword%20*'.20.2.1.ll11.81.l1.233.237rr.l11.86.l14.299rr.l11.84.l6.267r.l14.619r.l1.233rr.l11.83.l3.256r.l1.233.915rr.l41.'secondsister'.l14.299r.l1.237rr.l11.90rr.l6.0.8r";
-  // '%27*0%2C%20Emperors%20Sword%20*%27.20.2.1.ll11.81.l1.233.237rr.l11.86.l14.299rr.l11.84.l6.267r.l14.619r.l1.233rr.l11.83.l3.256r.l1.233.915rr.l41.%27secondsister%27.l14.299r.l1.237rr.l11.90rr.l6.0.8r';
-  // console.log(decodeURIComponent(r));
-  // console.log();
-  // console.log('core', lbnCore(decodeURIComponent(r)));
-  // console.log();
-  // console.log('web', lbnWeb(decodeURIComponent(r)));
+    while (d.indexOf(c) >= 0) {
+      d = d.replace(c, t);
+    }
+    return d;
+  };
 
-  // console.log(params.lbx);
-  // console.log(params.lbx.replace(/\\\'/g, "'"));
-  // console.log(deserialize(params.lbx.replace(/\\\'/g, "'")));
-  console.log(deserialize(r));
-  console.log('E===========================================================');
-
-  return null;
-};
-
-const rep = (c: string, t: string, d: string | number) => {
-  if (typeof d === 'number') {
-    return `${d}`;
-  }
-
-  while (d.indexOf(c) >= 0) {
-    d = d.replace(c, t);
-  }
-  return d;
-};
-
-const lbnWeb = (o: string) => {
+  let o = link;
   o = rep('%27%27', '%27%20%27', o);
   o = rep("''", "' '", o);
   o = o
     .split('.')
     .map((s, i) => {
       if (i > 2) {
-        console.log(s);
         return rep('l', '(', rep('r', ')', s));
       }
       return s;
@@ -70,29 +41,85 @@ const lbnWeb = (o: string) => {
     o = `[${o}]`;
   }
 
-  return o;
+  try {
+    const d = JSON.parse(o);
+    const [squadName, cost, faction, pilotIds, obstacles, ...rest] = d;
+
+    // TODO
+    //const faction = ffgXws.factions[faction];
+
+    const getPilots = () => {
+      if (Array.isArray(pilotIds[0]) || pilotIds.length === 0) {
+        return pilotIds;
+      } else {
+        return [pilotIds, obstacles, ...rest];
+      }
+    };
+
+    const pilots = getPilots().map((p: any): XWSPilot => {
+      console.log(p);
+      const [dShip, dId, ...upgrades] = p;
+      const ship = rep(']', 'r', rep('[', 'l', dShip));
+      const id = rep(']', 'r', rep('[', 'l', dId));
+
+      const parsedUpgrades: { [key in SlotKey]?: string[] } = {};
+      (upgrades || []).forEach((u: any) => {
+        const [key, ...list] = u;
+        parsedUpgrades[ffgXws.slots[key]] = list.map((l: string) => {
+          const xws = rep(']', 'r', rep('[', 'l', l));
+          return ffgXws.upgrades[xws] || xws;
+        });
+      });
+
+      const pp = {
+        id: ffgXws.pilots[`${id}`] || id,
+        ship: ffgXws.ships[`${ship}`] || ship,
+        points: 0,
+        upgrades: parsedUpgrades,
+      };
+      console.log(pp);
+
+      // const s = loadShip2(pp, fa, fo);
+      return {
+        // ...pp,
+        points: s.pilot?.cost || 0,
+      };
+    });
+
+    const xws: XWSSquad = {
+      name: decodeURIComponent(squadName),
+      points: parseInt(cost, 10),
+      faction,
+      pilots,
+      version: '2.5.0',
+      vendor: {
+        lbn: {
+          builder: 'Launch Bay Next',
+          builder_url: 'https://launchbaynext.app',
+          link,
+          // Using date when we updated parser the last time
+          version: '2023-02-18',
+        },
+      },
+    };
+    return xws;
+  } catch (e) {
+    console.log(e);
+    return null;
+  }
 };
 
-const lbnCore = (o: string) => {
-  o = o
-    .split('.')
-    .map((s, i) => {
-      if (i > 2) {
-        return rep('l', '(', rep('r', ')', s));
-      }
-      return s;
-    })
-    .join('.');
-  o = rep('.', ',', o);
+export const lbn2xws = (link: string) => {
+  // Handle broken links
+  try {
+    const url = new URL(link);
+    const params = Object.fromEntries(url.searchParams.entries()) as Record<
+      'lbx',
+      string
+    >;
 
-  o = rep('(', '[', o);
-  o = rep(')', ']', o);
-  o = rep("'", '"', o);
-  o = rep('""', '"', o);
-
-  if (o[0] !== '[') {
-    o = `[${o}]`;
+    return deserialize(params.lbx.replace(/\\'/g, "'"));
+  } catch {
+    return null;
   }
-
-  return o;
 };

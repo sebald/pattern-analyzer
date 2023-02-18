@@ -1,9 +1,4 @@
-import type {
-  EventData,
-  ListFortressPlayer,
-  ListFortressRound,
-  SquadData,
-} from './types';
+import type { EventData, ListFortressPlayer, SquadData } from './types';
 
 type CleanedSquad = Omit<SquadData, 'raw'>;
 
