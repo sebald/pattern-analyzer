@@ -55,7 +55,7 @@ const deserialize = (link: string) => {
         return [pilotIds, obstacles, ...rest];
       }
     };
-
+    console.log(getPilots());
     const pilots = getPilots().map((p: any): XWSPilot => {
       console.log(p);
       const [dShip, dId, ...upgrades] = p;
