@@ -56,3 +56,17 @@ export const normalize = (xws: XWSSquad | null) => {
     pilots,
   };
 };
+
+export const toXWS = (raw: string) => {
+  try {
+    return normalize(JSON.parse(raw.replace(/\\'/g, "'")));
+  } catch {
+    throw new Error('Could not parse raw value...');
+  }
+};
+
+export const getBuilderLink = (xws: XWSSquad | null) =>
+  xws?.vendor?.yasb?.link ||
+  // Remove `print` from lbn to show the builder instead
+  xws?.vendor?.lbn?.link.replace('print', '') ||
+  null;
