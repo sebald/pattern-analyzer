@@ -21,9 +21,9 @@ const manifest = read('data/manifest.json');
 const PILOT_SUFFIX = {
   // Ships / Configs
   delta7baethersprite: '7b',
-  'oddball-arc170starfighter': '(ARC-170)',
-  'oddball-btlbywing': '(Y-Wing)',
-  'oddball-nimbusclassvwing': '(V-Wing)',
+  'oddball-arc170starfighter': 'ARC-170',
+  'oddball-btlbywing': 'Y-Wing',
+  'oddball-nimbusclassvwing': 'V-Wing',
 
   // Ids (needed because Mauler and Temmin have the same caption ...)
   'poedameron-swz68': 'HoH',
@@ -60,6 +60,7 @@ const EXTRA_UPGRADES = {
   attackspeed: 'Attack Speed',
   r5k6: 'R5-K6',
   vengeful: 'Vengeful',
+  vectoredcannons: 'Vectored Cannons',
 };
 
 /**
