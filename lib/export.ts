@@ -1,9 +1,4 @@
-import type {
-  EventData,
-  ListFortressPlayer,
-  ListFortressRound,
-  SquadData,
-} from './types';
+import type { EventData, ListFortressPlayer, SquadData } from './types';
 
 type CleanedSquad = Omit<SquadData, 'raw'>;
 
@@ -58,9 +53,7 @@ export const eventToListfortress = ({ squads, rounds }: EventData) => {
       score: points,
       sos,
       mov,
-      rank: {
-        swiss: rank,
-      },
+      rank,
       dropped,
       list: xws ? JSON.stringify(xws) : '',
     })
