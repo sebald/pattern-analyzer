@@ -68,7 +68,21 @@ export const getEventDataByVendor = async ({
     }
   );
 
-  data.squads.sort((a, b) => a.rank - b.rank);
+  data.squads.sort((a, b) => {
+    if (a.rank.elimination && b.rank.elimination) {
+      return a.rank.elimination - b.rank.elimination;
+    }
+
+    if (a.rank.elimination && !b.rank.elimination) {
+      return -1;
+    }
+
+    if (!a.rank.elimination && b.rank.elimination) {
+      return 1;
+    }
+
+    return a.rank.swiss - b.rank.swiss;
+  });
 
   return data;
 };
