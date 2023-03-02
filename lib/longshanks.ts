@@ -1,4 +1,4 @@
-import { CheerioAPI, load } from 'cheerio';
+import { load, CheerioAPI, Element } from 'cheerio';
 
 import type { ListFortressRound, PlayerData, SquadData } from './types';
 import { getBuilderLink, toXWS } from './xws';
@@ -59,23 +59,45 @@ export const parseDescription = ($: CheerioAPI) => {
  * Scrape player data. Note that longshanks handles teams the same
  * way but we can later connect the "real" players via ids from lists.
  */
-export const parsePlayerInfo = ($: CheerioAPI): PlayerData[] =>
-  $('#edit_player .player .data')
+export const parsePlayerInfo = ($: CheerioAPI): PlayerData[] => {
+  // Helpers
+  const getPlayerId = (el: Element) =>
+    $('.id_number', el).first().text().replace('#', '');
+  const getRankingInfo = (el: Element) => {
+    const groups = $('.rank', el.parent)
+      .first()
+      .text()
+      .trim()
+      .match(/^(?<rank>\d+)(\s*\((?<info>[a-z]+))?/)?.groups || {
+      rank: 0,
+      info: '',
+    };
+    return {
+      rank: Number(groups.rank),
+      dropped: groups.info === 'drop',
+    };
+  };
+
+  // Cut data
+  const cut = new Map<string, number>();
+  $('#edit_player_cut .player .data')
     .toArray()
     .map(el => {
-      const id = $('.id_number', el).first().text().replace('#', '');
+      const id = getPlayerId(el);
+      const { rank } = getRankingInfo(el);
+
+      cut.set(id, rank);
+    });
+
+  // Swiss data
+  return $('#edit_player .player .data')
+    .toArray()
+    .map(el => {
+      const id = getPlayerId(el);
       const player = $('.player_link', el).first().text();
 
-      const groups = $('.rank', el.parent)
-        .first()
-        .text()
-        .trim()
-        .match(/^(?<rank>\d+)(\s*\((?<info>[a-z]+))?/)?.groups || {
-        rank: 0,
-        info: '',
-      };
-      const rank = Number(groups.rank);
-      const dropped = groups.info === 'drop';
+      const { rank: swiss, dropped } = getRankingInfo(el);
+      const elimination = cut.get(id);
 
       const points = Number($('.stat.mono.skinny.desktop', el).first().text());
       const record = {
@@ -92,7 +114,10 @@ export const parsePlayerInfo = ($: CheerioAPI): PlayerData[] =>
       return {
         id,
         player,
-        rank,
+        rank: {
+          swiss,
+          elimination,
+        },
         points,
         record,
         sos,
@@ -101,6 +126,7 @@ export const parsePlayerInfo = ($: CheerioAPI): PlayerData[] =>
         dropped,
       };
     });
+};
 
 /**
  * Iterate over all the popups to find the games played by each player.
@@ -189,7 +215,7 @@ export const parseSquads = (
 
       // Map player to their performance
       const performance = players.find(player => player.id === id) || {
-        rank: 0,
+        rank: { swiss: 0 },
         points: 0,
         record: { wins: 0, ties: 0, losses: 0 },
         sos: 0,

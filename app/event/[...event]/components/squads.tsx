@@ -113,7 +113,7 @@ export const Squads = ({ squads }: SquadsProps) => {
           <Card.Footer>
             <div className="flex items-center justify-between gap-2 pt-1 text-xs text-secondary-300">
               <div>
-                #{squad.rank}: {squad.player}
+                #{squad.rank.elimination || squad.rank.swiss}: {squad.player}
               </div>
               {squad.url && (
                 <Link className="text-right" href={squad.url} target="_blank">
