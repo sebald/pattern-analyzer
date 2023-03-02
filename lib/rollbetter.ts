@@ -69,7 +69,7 @@ const tied = (player1: PlayerData, player2: PlayerData) =>
 
 const getLists = async (id: string, count: number) => {
   // rollbetter's max page count seems to be 25
-  const pageSize = 25;
+  const pageSize = 20;
   const pagination = [];
 
   let current = 0;
@@ -81,7 +81,7 @@ const getLists = async (id: string, count: number) => {
   const responses = await Promise.all(
     pagination.map(skip =>
       fetch(
-        `https://rollbetter-linux.azurewebsites.net/tournaments/${id}/lists?skip=${skip}&take=25&query=`
+        `https://rollbetter-linux.azurewebsites.net/tournaments/${id}/lists?skip=${skip}&take=${pageSize}&query=`
       )
     )
   );
@@ -123,7 +123,10 @@ export const getPlayers = async (id: string) => {
     players.push({
       id: `${id}`,
       player: player.username,
-      rank: ranking.seed || 1000, // not included in data :(
+      rank: {
+        swiss: 1000, // not included in data :(
+        elimination: ranking.seed ?? undefined,
+      },
       points: ranking.points1,
       record: {
         wins: ranking.wins,
@@ -137,15 +140,11 @@ export const getPlayers = async (id: string) => {
     });
   });
 
-  // Do sorting and ranking is missing from the API :-(
+  // Do sorting, ranking is missing from the API :-(
   players.sort((a, b) => {
-    /**
-     * If one of the players already has a rank (vis seed)
-     * that is different from our arbitrary value (1000) we
-     * can do the ranking.
-     */
-    if (a.rank < 1000 || b.rank < 1000) {
-      return a.rank - b.rank;
+    // Using the elimniation if possible
+    if (a.rank.elimination || b.rank.elimination) {
+      return (a.rank.elimination ?? 1000) - (b.rank.elimination ?? 1000);
     }
 
     // Different points -> use this
@@ -172,31 +171,33 @@ export const getPlayers = async (id: string) => {
     return 0;
   });
 
-  let rank = 1;
+  // Calculate swiss ranking
+  let swiss = 1;
   return players.map((player, idx) => {
-    if (player.rank < 1000) {
-      rank = rank + 1;
-      return player;
-    }
-
     /**
      * Players are tied (same performance)
      * -> rank is same as previous player.
      */
-    // @ts-expect-error
+    // @ts-expect-error (TS doesn't get that we chack if there could be a prev player at all)
     const prevPlayer = player[idx - 1];
     if (prevPlayer && tied(player, prevPlayer)) {
       return {
         ...player,
-        rank,
+        rank: {
+          ...player.rank,
+          swiss,
+        },
       };
     }
 
     const p = {
       ...player,
-      rank,
+      rank: {
+        ...player.rank,
+        swiss,
+      },
     };
-    rank = rank + 1;
+    swiss = swiss + 1;
 
     return p;
   });
@@ -231,7 +232,7 @@ export const getSquads = async (id: string, players: PlayerData[]) => {
     }
 
     const performance = players.find(player => player.id === id) || {
-      rank: 0,
+      rank: { swiss: 0 },
       points: 0,
       record: { wins: 0, ties: 0, losses: 0 },
       sos: 0,
@@ -284,6 +285,7 @@ export const getEvent = async (id: string) => {
     getEventInfo(id),
     getPlayers(id),
   ]);
+
   const squads = await getSquads(id, players);
 
   /**

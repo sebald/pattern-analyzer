@@ -68,22 +68,14 @@ export const getEventDataByVendor = async ({
     }
   );
 
+  // We need to do the ranking again in case we merged multiple events.
   data.squads.sort((a, b) => {
-    if (a.rank.elimination && b.rank.elimination) {
-      return a.rank.elimination - b.rank.elimination;
-    }
-
-    if (a.rank.elimination && !b.rank.elimination) {
-      return -1;
-    }
-
-    if (!a.rank.elimination && b.rank.elimination) {
-      return 1;
+    if (a.rank.elimination || b.rank.elimination) {
+      return (a.rank.elimination ?? 1000) - (b.rank.elimination ?? 1000);
     }
 
     return a.rank.swiss - b.rank.swiss;
   });
-
   return data;
 };
 
