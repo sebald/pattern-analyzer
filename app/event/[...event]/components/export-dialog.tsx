@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import useClipboard from 'react-use-clipboard';
 import useSWR from 'swr';
 
@@ -11,18 +12,39 @@ import type { EventData } from 'lib/types';
 // ---------------
 interface ExportProps {
   event: EventData;
+  onCopy: () => void;
 }
 
-const ExportLongshanks = ({ event }: ExportProps) => {
+export const GoToListfortress = () => (
+  <Message>
+    <Message.Title>Hey there!</Message.Title>
+    Since you copied the data for Lisfortress, maybe you want to go there and
+    add the event!
+    <Message.Footer>
+      <Message.Link
+        href="http://listfortress.com/tournaments/new"
+        target="_blank"
+      >
+        Go to Listfortress
+      </Message.Link>
+    </Message.Footer>
+  </Message>
+);
+
+const ExportLongshanks = ({ event, onCopy }: ExportProps) => {
   const listfortressExport =
     event.rounds.length > 0 ? JSON.stringify(eventToListfortress(event)) : '';
   const [isCopied, setCopied] = useClipboard(listfortressExport, {
     successDuration: 2000,
   });
+  const handleCopy = () => {
+    setCopied();
+    onCopy();
+  };
 
   return (
     <div className="flex flex-col gap-1">
-      <Button variant="primary" onClick={setCopied}>
+      <Button variant="primary" onClick={handleCopy}>
         Export for Listfortress <sup>BETA</sup>
       </Button>
       <div className="text-center text-xs text-secondary-300">
@@ -34,7 +56,7 @@ const ExportLongshanks = ({ event }: ExportProps) => {
   );
 };
 
-const ExportRollbetter = ({ event }: ExportProps) => {
+const ExportRollbetter = ({ event, onCopy }: ExportProps) => {
   const { data, isLoading } = useSWR(
     ['/api/rollbetter/export', event.id[0]],
     async ([url, id]) => {
@@ -52,10 +74,14 @@ const ExportRollbetter = ({ event }: ExportProps) => {
   const [isCopied, setCopied] = useClipboard(JSON.stringify(data || {}), {
     successDuration: 2000,
   });
+  const handleCopy = () => {
+    setCopied();
+    onCopy();
+  };
 
   return (
     <div className="flex flex-col gap-1">
-      <Button variant="primary" disabled={isLoading} onClick={setCopied}>
+      <Button variant="primary" disabled={isLoading} onClick={handleCopy}>
         Export for Listfortress <sup>BETA</sup>
       </Button>
       <div className="text-center text-xs text-secondary-300">
@@ -79,6 +105,7 @@ export interface ExportDialogProps {
 // Component
 // ---------------
 export const ExportDialog = ({ event, children }: ExportDialogProps) => {
+  const [isCopied, setIsCopied] = useState(false);
   return (
     <Dialog>
       <Dialog.Trigger asChild>{children}</Dialog.Trigger>
@@ -96,10 +123,11 @@ export const ExportDialog = ({ event, children }: ExportDialogProps) => {
               Export for Listfortress is not availble for multiple events.
             </Message>
           ) : event.vendor === 'longshanks' ? (
-            <ExportLongshanks event={event} />
+            <ExportLongshanks event={event} onCopy={() => setIsCopied(true)} />
           ) : (
-            <ExportRollbetter event={event} />
+            <ExportRollbetter event={event} onCopy={() => setIsCopied(true)} />
           )}
+          {isCopied && <GoToListfortress />}
           <Link
             variant="button"
             size="regular"

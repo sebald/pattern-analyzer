@@ -13,7 +13,7 @@ const Error = ({ error, reset }: ErrorProps) => (
       <Message.Title>Whoopsie, something went wrong!</Message.Title>
       {error.message}
       <Message.Footer>
-        <Message.Action onClick={reset}>Retry</Message.Action>
+        <Message.Button onClick={reset}>Retry</Message.Button>
       </Message.Footer>
     </Message>
   </div>

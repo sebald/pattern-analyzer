@@ -1,5 +1,6 @@
 import { cva, VariantProps } from 'class-variance-authority';
 import { Info } from './icons';
+import { Link, LinksProps } from './link';
 
 // Message.Title
 // ---------------
@@ -11,18 +12,18 @@ const MessageTitle = ({ children }: MessageTitleProps) => (
   <div className="font-semibold leading-6">{children}</div>
 );
 
-// Message.Action
+// Message.Button
 // ---------------
-export interface MessageActionProps
-  extends React.ComponentPropsWithRef<'button'> {
+export interface MessageButtonProps
+  extends React.ComponentPropsWithoutRef<'button'> {
   children: React.ReactNode;
 }
 
-const MessageAction = ({
+const MessageButton = ({
   children,
   type = 'button',
   ...props
-}: MessageActionProps) => (
+}: MessageButtonProps) => (
   <button
     {...props}
     type={type}
@@ -30,6 +31,18 @@ const MessageAction = ({
   >
     {children}
   </button>
+);
+
+// Message.Link
+// ---------------
+export interface MessageLinkProps extends LinksProps {
+  children: React.ReactNode;
+}
+
+const MessageLink = ({ children, ...props }: MessageLinkProps) => (
+  <Link {...props} className="inline-block font-bold leading-loose">
+    {children}
+  </Link>
 );
 
 // Message.Footer
@@ -76,5 +89,6 @@ export const Message = ({ variant, size, children }: InfoProps) => (
 );
 
 Message.Title = MessageTitle;
-Message.Action = MessageAction;
+Message.Button = MessageButton;
+Message.Link = MessageLink;
 Message.Footer = MessageFooter;
