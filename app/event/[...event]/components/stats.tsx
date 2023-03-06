@@ -188,8 +188,8 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
 
       stat.frequency = round(stat.count / factionDistribution[faction], 4);
       stat.performance = performance(stat.records);
-      stat.percentile = average(pcs, 4);
-      stat.deviation = deviation(pcs);
+      stat.percentile = average(pcs, 2);
+      stat.deviation = deviation(pcs, 2);
 
       stats.set(id, stat);
     });

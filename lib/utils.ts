@@ -59,12 +59,12 @@ export const percentile = (rank: number, total: number) =>
  * Calculate standard deviation.
  * https://www.cuemath.com/data/standard-deviation/
  */
-export const deviation = (vals: number[]) => {
+export const deviation = (vals: number[], digits = 4) => {
   const avg = average(vals, 4);
 
   const sum = vals
     .map(val => (val - avg) ** 2)
     .reduce((acc, val) => acc + val, 0);
 
-  return round(Math.sqrt(sum / vals.length), 4);
+  return round(Math.sqrt(sum / vals.length), digits);
 };

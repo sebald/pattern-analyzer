@@ -38,11 +38,15 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
               </div>
               <Stat>
                 <Stat.Label>Percentile:</Stat.Label>
-                <Stat.Value>{round(stat.percentile, 2)}</Stat.Value>
+                <Stat.Value>{stat.percentile}</Stat.Value>
               </Stat>
               <Stat>
                 <Stat.Label>Performance:</Stat.Label>
                 <Stat.Value>{toPercentage(stat.performance)}</Stat.Value>
+              </Stat>
+              <Stat>
+                <Stat.Label>Std. Deviation:</Stat.Label>
+                <Stat.Value>{stat.deviation}</Stat.Value>
               </Stat>
               <Stat>
                 <Stat.Label>Frequency:</Stat.Label>
