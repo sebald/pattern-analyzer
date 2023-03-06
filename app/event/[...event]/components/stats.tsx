@@ -1,8 +1,8 @@
 'use client';
 
 import type { Ships } from 'lib/get-value';
-import type { Ship, SquadData, XWSUpgradeSlots } from 'lib/types';
-import { percentile } from 'lib/utils';
+import type { SquadData, XWSUpgradeSlots } from 'lib/types';
+import { average, percentile, performance } from 'lib/utils';
 import { FactionDistribution } from './charts/faction-distribution';
 import { PilotCostDistribution } from './charts/pilot-cost-distribution';
 import { PilotFrequency } from './charts/pilot-frequency';
@@ -19,8 +19,10 @@ export interface UseSquadStatsProps {
 export interface PilotStats {
   ship: Ships;
   count: number;
-  record: { wins: number; ties: number; losses: number }[];
-  percentile: number[];
+  records: { wins: number; ties: number; losses: number }[];
+  ranks: number[];
+  percentile: number;
+  performance: number;
 }
 
 export interface UpgradeInfo {
@@ -131,17 +133,17 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
         const pilotInfo = pilotStats[faction].get(pilot.id) || {
           count: 0,
           ship: pilot.ship,
-          record: [],
-          percentile: [],
+          records: [],
+          ranks: [],
+          // Will be calculated at the end
+          performance: 0,
+          percentile: 0,
         };
         pilotStats[faction].set(pilot.id, {
           ...pilotInfo,
           count: pilotInfo.count + 1,
-          record: [...pilotInfo.record, squad.record],
-          percentile: [
-            ...pilotInfo.percentile,
-            percentile(squad.rank.swiss, numberOfSquads.total),
-          ],
+          records: [...pilotInfo.records, squad.record],
+          ranks: [...pilotInfo.ranks, squad.rank.swiss],
         });
 
         // Pilot cost distribution
@@ -178,6 +180,21 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     }
   });
 
+  // Calculate performance and average percentile
+  Object.keys(pilotStats).forEach(key => {
+    const stats = pilotStats[key as keyof typeof pilotStats];
+
+    stats.forEach((stat, id) => {
+      stat.performance = performance(stat.records);
+      stat.percentile = average(
+        stat.ranks.map(rank => percentile(rank, numberOfSquads.total)),
+        4
+      );
+
+      stats.set(id, stat);
+    });
+  });
+  console.log(pilotStats);
   return {
     numberOfSquads,
     factionDistribution,

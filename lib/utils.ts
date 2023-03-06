@@ -2,9 +2,6 @@ import { twMerge } from 'tailwind-merge';
 
 export const cn = (...cns: Parameters<typeof twMerge>) => twMerge(...cns);
 
-export const round = (val: number, digits: number) =>
-  Number(val.toFixed(digits));
-
 // Stolen from https://stackoverflow.com/questions/68702774/longest-common-prefix-in-javascript
 export const prefix = (...words: string[]) => {
   // check border cases size 1 array and empty first word)
@@ -28,5 +25,32 @@ export const shortenTitles = (...titles: string[]) => {
   return `${common}${suffixes.filter(Boolean).join(' & ')}`;
 };
 
+export const round = (val: number, digits: number) =>
+  Number(val.toFixed(digits));
+
+export const average = (vals: number[], digits = 2) =>
+  round(vals.reduce((sum, n) => sum + n, 0) / vals.length, digits);
+
+/**
+ * Calculate performance (win %).
+ */
+export const performance = (
+  records: { wins: number; ties: number; losses: number }[]
+) => {
+  let wins = 0;
+  let total = 0;
+
+  records.forEach(record => {
+    wins = wins + record.wins;
+    total = Object.values(record).reduce((t, num) => t + num, total);
+  });
+
+  return round(wins / total, 4);
+};
+
+/**
+ * Calculate percentile based on a rank.
+ * https://www.cuemath.com/percentile-formula/
+ */
 export const percentile = (rank: number, total: number) =>
-  Number(((total - rank + 1) / total).toFixed(4));
+  round((total - rank) / total, 4);
