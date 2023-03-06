@@ -1,7 +1,8 @@
 'use client';
 
 import type { Ships } from 'lib/get-value';
-import type { SquadData, XWSUpgradeSlots } from 'lib/types';
+import type { Ship, SquadData, XWSUpgradeSlots } from 'lib/types';
+import { percentile } from 'lib/utils';
 import { FactionDistribution } from './charts/faction-distribution';
 import { PilotCostDistribution } from './charts/pilot-cost-distribution';
 import { PilotFrequency } from './charts/pilot-frequency';
@@ -13,6 +14,13 @@ import { UpgradeSummary } from './charts/upgrade-summary';
 // ---------------
 export interface UseSquadStatsProps {
   squads: SquadData[];
+}
+
+export interface PilotStats {
+  ship: Ships;
+  count: number;
+  record: { wins: number; ties: number; losses: number }[];
+  percentile: number[];
 }
 
 export interface UpgradeInfo {
@@ -48,15 +56,15 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     8: 0,
   };
 
-  // How often is a certain pilot included in a list (per faction)
-  const pilotFrequency = {
-    rebelalliance: new Map<string, { count: number; ship: Ships }>(),
-    galacticempire: new Map<string, { count: number; ship: Ships }>(),
-    scumandvillainy: new Map<string, { count: number; ship: Ships }>(),
-    resistance: new Map<string, { count: number; ship: Ships }>(),
-    firstorder: new Map<string, { count: number; ship: Ships }>(),
-    galacticrepublic: new Map<string, { count: number; ship: Ships }>(),
-    separatistalliance: new Map<string, { count: number; ship: Ships }>(),
+  // Stats about pilots (performance, percentile, number of occurances)
+  const pilotStats = {
+    rebelalliance: new Map<string, PilotStats>(),
+    galacticempire: new Map<string, PilotStats>(),
+    scumandvillainy: new Map<string, PilotStats>(),
+    resistance: new Map<string, PilotStats>(),
+    firstorder: new Map<string, PilotStats>(),
+    galacticrepublic: new Map<string, PilotStats>(),
+    separatistalliance: new Map<string, PilotStats>(),
   };
 
   // Number of pilots per cost
@@ -119,14 +127,21 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
         }
         unique.push(pilot.id);
 
-        // Frequency of included pilot (separated by faction)
-        const pilotInfo = pilotFrequency[faction].get(pilot.id) || {
+        // Pilot stats
+        const pilotInfo = pilotStats[faction].get(pilot.id) || {
           count: 0,
           ship: pilot.ship,
+          record: [],
+          percentile: [],
         };
-        pilotFrequency[faction].set(pilot.id, {
+        pilotStats[faction].set(pilot.id, {
+          ...pilotInfo,
           count: pilotInfo.count + 1,
-          ship: pilotInfo.ship,
+          record: [...pilotInfo.record, squad.record],
+          percentile: [
+            ...pilotInfo.percentile,
+            percentile(squad.rank.swiss, numberOfSquads.total),
+          ],
         });
 
         // Pilot cost distribution
@@ -167,7 +182,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     numberOfSquads,
     factionDistribution,
     squadSizes,
-    pilotFrequency,
+    pilotStats,
     pilotCostDistribution,
     shipComposition,
     upgradeSummary,
@@ -198,7 +213,7 @@ export const Stats = ({ squads }: StatsProps) => {
       </div>
       <div className="md:col-span-6 lg:col-span-4">
         <PilotFrequency
-          value={data.pilotFrequency}
+          value={data.pilotStats}
           distribution={data.factionDistribution}
         />
       </div>

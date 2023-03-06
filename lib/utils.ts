@@ -27,3 +27,6 @@ export const shortenTitles = (...titles: string[]) => {
 
   return `${common}${suffixes.filter(Boolean).join(' & ')}`;
 };
+
+export const percentile = (rank: number, total: number) =>
+  Number(((total - rank + 1) / total).toFixed(4));
