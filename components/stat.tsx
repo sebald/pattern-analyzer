@@ -32,7 +32,7 @@ interface StatProps {
 }
 
 export const Stat = ({ className, children }: StatProps) => (
-  <div className={cn('flex flex-row items-center gap-1', className)}>
+  <div className={cn('flex flex-row items-center gap-1 text-xs', className)}>
     {children}
   </div>
 );

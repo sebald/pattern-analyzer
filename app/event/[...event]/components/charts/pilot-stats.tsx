@@ -29,31 +29,35 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
         <List variant="compact">
           {data.map(([pilot, stat]) => (
             <List.Item key={pilot}>
-              <div className="flex flex-row items-center">
-                <ShipIcon
-                  ship={stat.ship}
-                  className="w-6 text-2xl text-secondary-700"
-                />
-                <div className="text-lg font-medium">{getPilotName(pilot)}</div>
+              <div className="grid grid-cols-2 gap-1.5 pb-6 pt-4">
+                <div className="col-span-full flex flex-row items-center">
+                  <ShipIcon
+                    ship={stat.ship}
+                    className="w-6 text-2xl text-secondary-700"
+                  />
+                  <div className="text-lg font-medium">
+                    {getPilotName(pilot)}
+                  </div>
+                </div>
+                <Stat className="col-span-1">
+                  <Stat.Label className="w-1/2">Percentile:</Stat.Label>
+                  <Stat.Value>{stat.percentile}</Stat.Value>
+                </Stat>
+                <Stat className="col-span-1">
+                  <Stat.Label className="w-1/2">Performance:</Stat.Label>
+                  <Stat.Value>{toPercentage(stat.performance)}</Stat.Value>
+                </Stat>
+                <Stat className="col-span-1">
+                  <Stat.Label className="w-1/2">Std. Deviation:</Stat.Label>
+                  <Stat.Value>{stat.deviation}</Stat.Value>
+                </Stat>
+                <Stat className="col-span-1">
+                  <Stat.Label className="w-1/2">Frequency:</Stat.Label>
+                  <Stat.Value>
+                    {toPercentage(stat.frequency)} ({stat.count})
+                  </Stat.Value>
+                </Stat>
               </div>
-              <Stat>
-                <Stat.Label>Percentile:</Stat.Label>
-                <Stat.Value>{stat.percentile}</Stat.Value>
-              </Stat>
-              <Stat>
-                <Stat.Label>Performance:</Stat.Label>
-                <Stat.Value>{toPercentage(stat.performance)}</Stat.Value>
-              </Stat>
-              <Stat>
-                <Stat.Label>Std. Deviation:</Stat.Label>
-                <Stat.Value>{stat.deviation}</Stat.Value>
-              </Stat>
-              <Stat>
-                <Stat.Label>Frequency:</Stat.Label>
-                <Stat.Value>
-                  {toPercentage(stat.frequency)} ({stat.count})
-                </Stat.Value>
-              </Stat>
             </List.Item>
           ))}
         </List>
