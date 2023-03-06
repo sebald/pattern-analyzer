@@ -53,4 +53,18 @@ export const performance = (
  * https://www.cuemath.com/percentile-formula/
  */
 export const percentile = (rank: number, total: number) =>
-  round((total - rank) / total, 4);
+  round((total - rank) / total, 4) * 100;
+
+/**
+ * Calculate standard deviation.
+ * https://www.cuemath.com/data/standard-deviation/
+ */
+export const deviation = (vals: number[]) => {
+  const avg = average(vals, 4);
+
+  const sum = vals
+    .map(val => (val - avg) ** 2)
+    .reduce((acc, val) => acc + val, 0);
+
+  return round(Math.sqrt(sum / vals.length), 4);
+};

@@ -1,4 +1,16 @@
-import { XWSFaction } from 'lib/types';
+import type { Ships } from 'lib/get-value';
+import type { XWSFaction } from 'lib/types';
+
+export interface PilotStatData {
+  ship: Ships;
+  count: number;
+  records: { wins: number; ties: number; losses: number }[];
+  ranks: number[];
+  frequency: number;
+  percentile: number;
+  performance: number;
+  deviation: number;
+}
 
 export const FACTION_COLORS: { [key in XWSFaction | 'unknown']: string } = {
   rebelalliance: '#fecaca',

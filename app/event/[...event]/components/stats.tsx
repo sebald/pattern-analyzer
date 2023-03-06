@@ -1,11 +1,14 @@
 'use client';
 
 import type { Ships } from 'lib/get-value';
-import type { SquadData, XWSUpgradeSlots } from 'lib/types';
-import { average, percentile, performance } from 'lib/utils';
+import type { SquadData, XWSFaction, XWSUpgradeSlots } from 'lib/types';
+import { average, deviation, percentile, performance, round } from 'lib/utils';
+
+import type { PilotStatData } from './charts/shared';
 import { FactionDistribution } from './charts/faction-distribution';
 import { PilotCostDistribution } from './charts/pilot-cost-distribution';
 import { PilotFrequency } from './charts/pilot-frequency';
+import { PilotStats } from './charts/pilot-stats';
 import { ShipComposition } from './charts/ship-composition';
 import { SquadSize } from './charts/squad-size';
 import { UpgradeSummary } from './charts/upgrade-summary';
@@ -14,15 +17,6 @@ import { UpgradeSummary } from './charts/upgrade-summary';
 // ---------------
 export interface UseSquadStatsProps {
   squads: SquadData[];
-}
-
-export interface PilotStats {
-  ship: Ships;
-  count: number;
-  records: { wins: number; ties: number; losses: number }[];
-  ranks: number[];
-  percentile: number;
-  performance: number;
 }
 
 export interface UpgradeInfo {
@@ -60,13 +54,13 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
 
   // Stats about pilots (performance, percentile, number of occurances)
   const pilotStats = {
-    rebelalliance: new Map<string, PilotStats>(),
-    galacticempire: new Map<string, PilotStats>(),
-    scumandvillainy: new Map<string, PilotStats>(),
-    resistance: new Map<string, PilotStats>(),
-    firstorder: new Map<string, PilotStats>(),
-    galacticrepublic: new Map<string, PilotStats>(),
-    separatistalliance: new Map<string, PilotStats>(),
+    rebelalliance: new Map<string, PilotStatData>(),
+    galacticempire: new Map<string, PilotStatData>(),
+    scumandvillainy: new Map<string, PilotStatData>(),
+    resistance: new Map<string, PilotStatData>(),
+    firstorder: new Map<string, PilotStatData>(),
+    galacticrepublic: new Map<string, PilotStatData>(),
+    separatistalliance: new Map<string, PilotStatData>(),
   };
 
   // Number of pilots per cost
@@ -136,8 +130,10 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
           records: [],
           ranks: [],
           // Will be calculated at the end
+          frequency: 0,
           performance: 0,
           percentile: 0,
+          deviation: 0,
         };
         pilotStats[faction].set(pilot.id, {
           ...pilotInfo,
@@ -182,19 +178,23 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
 
   // Calculate performance and average percentile
   Object.keys(pilotStats).forEach(key => {
-    const stats = pilotStats[key as keyof typeof pilotStats];
+    const faction = key as XWSFaction;
+    const stats = pilotStats[faction];
 
     stats.forEach((stat, id) => {
-      stat.performance = performance(stat.records);
-      stat.percentile = average(
-        stat.ranks.map(rank => percentile(rank, numberOfSquads.total)),
-        4
+      const pcs = stat.ranks.map(rank =>
+        percentile(rank, numberOfSquads.total)
       );
+
+      stat.frequency = round(stat.count / factionDistribution[faction], 4);
+      stat.performance = performance(stat.records);
+      stat.percentile = average(pcs, 4);
+      stat.deviation = deviation(pcs);
 
       stats.set(id, stat);
     });
   });
-  console.log(pilotStats);
+
   return {
     numberOfSquads,
     factionDistribution,
@@ -242,6 +242,9 @@ export const Stats = ({ squads }: StatsProps) => {
             total={data.numberOfSquads.xws}
           />
         </div>
+      </div>
+      <div className="col-span-full">
+        <PilotStats value={data.pilotStats} />
       </div>
       <div className="md:col-span-6 lg:col-span-4">
         <UpgradeSummary value={data.upgradeSummary} />
