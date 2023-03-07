@@ -12,6 +12,7 @@ import { PilotStats } from './charts/pilot-stats';
 import { ShipComposition } from './charts/ship-composition';
 import { SquadSize } from './charts/squad-size';
 import { UpgradeSummary } from './charts/upgrade-summary';
+import { PilotStatsOld } from './charts/pilot-stats-old';
 
 // Hook
 // ---------------
@@ -131,7 +132,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
           ranks: [],
           // Will be calculated at the end
           frequency: 0,
-          performance: 0,
+          winrate: 0,
           percentile: 0,
           deviation: 0,
         };
@@ -187,11 +188,9 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
       );
 
       stat.frequency = round(stat.count / factionDistribution[faction], 4);
-      stat.performance = performance(stat.records);
+      stat.winrate = performance(stat.records);
       stat.percentile = average(pcs, 2);
       stat.deviation = deviation(pcs, 2);
-
-      // TODO: score? log(number of squadrons who used this thing, total)
 
       stats.set(id, stat);
     });
@@ -247,6 +246,9 @@ export const Stats = ({ squads }: StatsProps) => {
       </div>
       <div className="col-span-full">
         <PilotStats value={data.pilotStats} />
+      </div>
+      <div className="col-span-full">
+        <PilotStatsOld value={data.pilotStats} />
       </div>
       <div className="md:col-span-6 lg:col-span-4">
         <UpgradeSummary value={data.upgradeSummary} />

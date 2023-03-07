@@ -5,7 +5,7 @@ export interface CardTitleProps {
 }
 
 const CardTitle = ({ children }: CardTitleProps) => (
-  <div className="prose text-center text-lg font-bold">{children}</div>
+  <div className="text-center text-lg font-bold">{children}</div>
 );
 
 // Card.Body

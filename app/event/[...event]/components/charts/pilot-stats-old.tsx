@@ -7,19 +7,18 @@ import {
   Select,
   ShipIcon,
   Stat,
-  Table,
 } from 'components';
 import type { XWSFaction } from 'lib/types';
 import { getPilotName } from 'lib/get-value';
 import { FooterHint, PilotStatData, toPercentage } from './shared';
 
-export interface PilotStatsProps {
+export interface PilotStatsOldProps {
   value: {
     [faction in XWSFaction]: Map<string, PilotStatData>;
   };
 }
 
-export const PilotStats = ({ value }: PilotStatsProps) => {
+export const PilotStatsOld = ({ value }: PilotStatsOldProps) => {
   const [faction, setFaction] = useState<XWSFaction>('rebelalliance');
   const [sort, setSort] = useState<'percentile' | 'winrate' | 'frequency'>(
     'percentile'
@@ -46,19 +45,13 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
             <Select.Option value="frequency">By Frequency</Select.Option>
           </Select>
         </div>
-        <Table
-          cols={['max-content', '1fr', '1fr', '1fr', '1fr']}
-          headers={[
-            'Pilot',
-            'Percentile',
-            'Winrate',
-            'Std. Deviation',
-            'Frequency',
-          ]}
+        <List
+          variant="compact"
+          className="grid gap-2 pb-6 pt-4 md:grid-cols-[max-content_1fr_1fr_1fr_1fr] md:gap-0 md:p-0"
         >
           {data.map(([pilot, stat]) => (
-            <>
-              <Table.Cell variant="header">
+            <List.Item key={pilot} className="contents">
+              <div className="col-span-full flex flex-row items-center py-2 md:col-auto md:border-t md:pl-2">
                 <ShipIcon
                   ship={stat.ship}
                   className="w-6 text-2xl opacity-70 md:w-5 md:text-xl"
@@ -66,18 +59,36 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
                 <div className="text-lg font-bold md:text-sm">
                   {getPilotName(pilot)}
                 </div>
-              </Table.Cell>
-              <Table.Cell variant="number">{stat.percentile}</Table.Cell>
-              <Table.Cell variant="number">
-                {toPercentage(stat.winrate)}
-              </Table.Cell>
-              <Table.Cell variant="number">{stat.deviation}</Table.Cell>
-              <Table.Cell variant="number">
-                {toPercentage(stat.frequency)} ({stat.count})
-              </Table.Cell>
-            </>
+              </div>
+              <Stat className="py-2 md:border-t">
+                <Stat.Label className="w-32 md:hidden">Percentile:</Stat.Label>
+                <Stat.Value className="w-full text-right">
+                  {stat.percentile}
+                </Stat.Value>
+              </Stat>
+              <Stat className="py-2 md:border-t">
+                <Stat.Label className="w-32 md:hidden">Performance:</Stat.Label>
+                <Stat.Value className="w-full text-right">
+                  {toPercentage(stat.winrate)}
+                </Stat.Value>
+              </Stat>
+              <Stat className="py-2 md:border-t">
+                <Stat.Label className="w-32 md:hidden">
+                  Std. Deviation:
+                </Stat.Label>
+                <Stat.Value className="w-full text-right">
+                  {stat.deviation}
+                </Stat.Value>
+              </Stat>
+              <Stat className="py-2 md:border-t md:pr-2">
+                <Stat.Label className="w-32 md:hidden">Frequency:</Stat.Label>
+                <Stat.Value className="w-full text-right">
+                  {toPercentage(stat.frequency)} ({stat.count})
+                </Stat.Value>
+              </Stat>
+            </List.Item>
           ))}
-        </Table>
+        </List>
       </Card.Body>
       <Card.Footer>
         <FooterHint />

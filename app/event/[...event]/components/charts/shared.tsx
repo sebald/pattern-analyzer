@@ -8,7 +8,7 @@ export interface PilotStatData {
   ranks: number[];
   frequency: number;
   percentile: number;
-  performance: number;
+  winrate: number;
   deviation: number;
 }
 

@@ -1,5 +1,6 @@
-import { cva, VariantProps } from 'class-variance-authority';
 import React from 'react';
+import { cva, VariantProps } from 'class-variance-authority';
+import { cn } from 'lib/utils';
 
 // Styles
 // ---------------
@@ -40,8 +41,12 @@ export interface ListProps
 
 // Component
 // ---------------
-export const List = ({ variant = 'default', children }: ListProps) => (
-  <ul className="divide-y divide-secondary-100">
+export const List = ({
+  variant = 'default',
+  className,
+  children,
+}: ListProps) => (
+  <ul className={cn('divide-y divide-secondary-100', className)}>
     {React.Children.map(children, child => {
       if (React.isValidElement(child)) {
         return React.cloneElement(child, { variant, ...child.props });
