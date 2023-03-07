@@ -21,7 +21,12 @@ interface StatValueProps {
 }
 
 const StatValue = ({ className, children }: StatValueProps) => (
-  <div className={cn('font-light tabular-nums text-secondary-400', className)}>
+  <div
+    className={cn(
+      'text-right font-light tabular-nums text-secondary-400',
+      className
+    )}
+  >
     {children}
   </div>
 );
@@ -34,7 +39,7 @@ interface StatProps {
 }
 
 export const Stat = ({ className, children }: StatProps) => (
-  <div className={cn('flex flex-row items-center gap-1 text-sm', className)}>
+  <div className={cn('flex items-center gap-1 text-sm', className)}>
     {children}
   </div>
 );

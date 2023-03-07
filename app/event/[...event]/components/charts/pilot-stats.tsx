@@ -47,7 +47,7 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
         <List variant="compact">
           {data.map(([pilot, stat]) => (
             <List.Item key={pilot}>
-              <div className="grid grid-cols-2 gap-1.5 pb-6 pt-4">
+              <div className="grid gap-2 pb-6 pt-4">
                 <div className="col-span-full flex flex-row items-center">
                   <ShipIcon
                     ship={stat.ship}
@@ -55,20 +55,20 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
                   />
                   <div className="text-lg font-bold">{getPilotName(pilot)}</div>
                 </div>
-                <Stat className="col-span-1">
-                  <Stat.Label className="w-1/2">Percentile:</Stat.Label>
+                <Stat className="">
+                  <Stat.Label className="w-32">Percentile:</Stat.Label>
                   <Stat.Value>{stat.percentile}</Stat.Value>
                 </Stat>
-                <Stat className="col-span-1">
-                  <Stat.Label className="w-1/2">Performance:</Stat.Label>
+                <Stat className="">
+                  <Stat.Label className="w-32">Performance:</Stat.Label>
                   <Stat.Value>{toPercentage(stat.performance)}</Stat.Value>
                 </Stat>
-                <Stat className="col-span-1">
-                  <Stat.Label className="w-1/2">Std. Deviation:</Stat.Label>
+                <Stat className="">
+                  <Stat.Label className="w-32">Std. Deviation:</Stat.Label>
                   <Stat.Value>{stat.deviation}</Stat.Value>
                 </Stat>
-                <Stat className="col-span-1">
-                  <Stat.Label className="w-1/2">Frequency:</Stat.Label>
+                <Stat className="">
+                  <Stat.Label className="w-32">Frequency:</Stat.Label>
                   <Stat.Value>
                     {toPercentage(stat.frequency)} ({stat.count})
                   </Stat.Value>
