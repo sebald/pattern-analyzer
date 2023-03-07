@@ -8,7 +8,9 @@ interface StatLabelProps {
 }
 
 const StatLabel = ({ className, children }: StatLabelProps) => (
-  <div className={cn(className)}>{children}</div>
+  <div className={cn('font-medium text-secondary-600', className)}>
+    {children}
+  </div>
 );
 
 // Stat.Label
@@ -19,7 +21,7 @@ interface StatValueProps {
 }
 
 const StatValue = ({ className, children }: StatValueProps) => (
-  <div className={cn('tabular-nums text-secondary-400', className)}>
+  <div className={cn('font-light tabular-nums text-secondary-400', className)}>
     {children}
   </div>
 );
@@ -32,7 +34,7 @@ interface StatProps {
 }
 
 export const Stat = ({ className, children }: StatProps) => (
-  <div className={cn('flex flex-row items-center gap-1 text-xs', className)}>
+  <div className={cn('flex flex-row items-center gap-1 text-sm', className)}>
     {children}
   </div>
 );

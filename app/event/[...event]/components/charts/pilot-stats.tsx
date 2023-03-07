@@ -1,10 +1,16 @@
 import { useState } from 'react';
 
-import { Card, FactionSelection, List, ShipIcon, Stat } from 'components';
+import {
+  Card,
+  FactionSelection,
+  List,
+  Select,
+  ShipIcon,
+  Stat,
+} from 'components';
 import type { XWSFaction } from 'lib/types';
 import { getPilotName } from 'lib/get-value';
 import { FooterHint, PilotStatData, toPercentage } from './shared';
-import { round } from 'lib/utils';
 
 export interface PilotStatsProps {
   value: {
@@ -14,17 +20,29 @@ export interface PilotStatsProps {
 
 export const PilotStats = ({ value }: PilotStatsProps) => {
   const [faction, setFaction] = useState<XWSFaction>('rebelalliance');
+  const [sort, setSort] = useState<'percentile' | 'performance' | 'frequency'>(
+    'percentile'
+  );
 
   const data = Array.from(value[faction].entries()).sort(
-    ([, a], [, b]) => b.count - a.count
+    ([, a], [, b]) => b[sort] - a[sort]
   );
 
   return (
     <Card>
       <Card.Title>Pilots*</Card.Title>
       <Card.Body>
-        <div className="flex justify-end pb-4">
+        <div className="flex justify-end gap-3 pb-4">
           <FactionSelection value={faction} onChange={setFaction} />
+          <Select
+            size="small"
+            value={sort}
+            onChange={e => setSort(e.target.value as any)}
+          >
+            <Select.Option value="percentile">By Percentile</Select.Option>
+            <Select.Option value="performance">By Performance</Select.Option>
+            <Select.Option value="frequency">By Frequency</Select.Option>
+          </Select>
         </div>
         <List variant="compact">
           {data.map(([pilot, stat]) => (
@@ -35,9 +53,7 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
                     ship={stat.ship}
                     className="w-6 text-2xl text-secondary-700"
                   />
-                  <div className="text-lg font-medium">
-                    {getPilotName(pilot)}
-                  </div>
+                  <div className="text-lg font-bold">{getPilotName(pilot)}</div>
                 </div>
                 <Stat className="col-span-1">
                   <Stat.Label className="w-1/2">Percentile:</Stat.Label>

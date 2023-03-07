@@ -191,6 +191,8 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
       stat.percentile = average(pcs, 2);
       stat.deviation = deviation(pcs, 2);
 
+      // TODO: score? log(number of squadrons who used this thing, total)
+
       stats.set(id, stat);
     });
   });
