@@ -1,5 +1,5 @@
 import { cva, VariantProps } from 'class-variance-authority';
-import { Info } from './icons';
+import { Failure, Info } from './icons';
 import { Link, LinksProps } from './link';
 
 // Message.Title
@@ -60,7 +60,7 @@ const MessageFooter = ({ children }: MessageFooterProps) => (
 const styles = cva(['flex gap-1 rounded-md p-4'], {
   variants: {
     variant: {
-      info: 'bg-blue-200 text-blue-500',
+      info: 'bg-primary-200 text-primary-600',
       error: 'bg-red-200 text-red-500',
     },
     size: {
@@ -73,20 +73,37 @@ const styles = cva(['flex gap-1 rounded-md p-4'], {
   },
 });
 
+// Icons
+// ---------------
+const ICON_MAP = {
+  info: Info,
+  error: Failure,
+  none: () => null,
+};
+
 // Props
 // ---------------
 export interface InfoProps extends VariantProps<typeof styles> {
+  icon?: 'info' | 'error' | 'none';
   children: React.ReactNode;
 }
 
-// COmponent
+// Component
 // ---------------
-export const Message = ({ variant, size, children }: InfoProps) => (
-  <div className={styles({ variant, size })}>
-    <Info className="h-6 w-6 flex-shrink-0" />
-    <div>{children}</div>
-  </div>
-);
+export const Message = ({
+  variant = 'info',
+  size,
+  icon,
+  children,
+}: InfoProps) => {
+  const Icon = ICON_MAP[icon || variant!];
+  return (
+    <div className={styles({ variant, size })}>
+      {<Icon className="h-6 w-6 flex-shrink-0" />}
+      <div>{children}</div>
+    </div>
+  );
+};
 
 Message.Title = MessageTitle;
 Message.Button = MessageButton;
