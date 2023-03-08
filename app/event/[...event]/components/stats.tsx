@@ -12,7 +12,6 @@ import { PilotStats } from './charts/pilot-stats';
 import { ShipComposition } from './charts/ship-composition';
 import { SquadSize } from './charts/squad-size';
 import { UpgradeSummary } from './charts/upgrade-summary';
-import { PilotStatsOld } from './charts/pilot-stats-old';
 
 // Hook
 // ---------------
@@ -246,9 +245,6 @@ export const Stats = ({ squads }: StatsProps) => {
       </div>
       <div className="col-span-full">
         <PilotStats value={data.pilotStats} />
-      </div>
-      <div className="col-span-full">
-        <PilotStatsOld value={data.pilotStats} />
       </div>
       <div className="md:col-span-6 lg:col-span-4">
         <UpgradeSummary value={data.upgradeSummary} />

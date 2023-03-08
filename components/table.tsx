@@ -2,12 +2,14 @@ import React from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
 import { cn } from 'lib/utils';
 
+import { flattenChildren } from './utils/flatten-children';
+
 // Styles
 // ---------------
 const styles = {
   cell: cva(
     [
-      'border-t border-secondary-100 font-light text-sm p-2 flex flex-row items-center',
+      'border-t border-secondary-100 font-light text-xs py-2 px-4 flex flex-row items-center',
     ],
     {
       variants: {
@@ -27,18 +29,23 @@ const styles = {
 // Header
 // ---------------
 export interface TableHeaderProps {
+  className?: string;
   children?: React.ReactNode;
 }
 
-export const TableHeader = ({ children }: TableHeaderProps) => (
-  <div className="p-2 text-sm font-bold">{children}</div>
+export const TableHeader = ({ className, children }: TableHeaderProps) => (
+  <div
+    className={cn('whitespace-nowrap px-4 pb-2 text-sm font-bold', className)}
+  >
+    {children}
+  </div>
 );
 
 // Cell
 // ---------------
 export interface TableCellProps extends VariantProps<typeof styles.cell> {
-  children?: React.ReactNode;
   className?: string;
+  children?: React.ReactNode;
 }
 
 export const TableCell = ({ variant, className, children }: TableCellProps) => (
@@ -48,10 +55,10 @@ export const TableCell = ({ variant, className, children }: TableCellProps) => (
 // Table
 // ---------------
 export interface TableProps {
-  children?: React.ReactNode;
-  className?: string;
   cols: string[];
   headers: React.ReactNode[];
+  className?: string;
+  children?: React.ReactNode;
 }
 
 export const Table = ({ cols, headers, className, children }: TableProps) => {
@@ -61,12 +68,54 @@ export const Table = ({ cols, headers, className, children }: TableProps) => {
     );
   }
 
+  const count = cols.length;
+  const isFirst = (idx: number) => idx % count === 0;
+  const isLast = (idx: number) => (idx + 1) / count === 0;
+
+  const styles = { '--table-cols': cols.join(' ') } as React.CSSProperties;
+
   return (
-    <div className={cn('grid', `md:grid-cols-[${cols.join('_')}]`, className)}>
-      {headers.map((header, idx) => (
-        <TableHeader key={idx}>{header}</TableHeader>
-      ))}
-      {children}
+    <div className="overflow-x-auto">
+      <div
+        style={styles}
+        className={cn(
+          'grid grid-cols-[var(--table-cols)]',
+          // `[&>*:nth-child(${headers.length}n+1)]:sticky`,
+          // `[&>*:nth-child(${headers.length}n+1)]:pl-2`,
+          // `[&>*:nth-child(${headers.length}n)]:pr-2`,
+          className
+        )}
+      >
+        {headers.map((header, idx) => (
+          <TableHeader
+            key={idx}
+            className={
+              idx === 0 ? 'pl-2' : idx + 1 === headers.length ? 'pr-2' : ''
+            }
+          >
+            {header}
+          </TableHeader>
+        ))}
+        {flattenChildren(children).map((child, idx) => {
+          if (!React.isValidElement<{ className?: string }>(child)) {
+            return child;
+          }
+
+          console.log(idx, isLast(idx));
+          /**
+           * Add different padding to cells that are first/last in a
+           * row.
+           */
+          return React.cloneElement(child, {
+            ...child.props,
+            className: cn(
+              child.props.className,
+              isFirst(idx) && 'pl-2',
+              isLast(idx) && 'pr-2'
+            ),
+          });
+        })}
+      </div>
     </div>
   );
 };

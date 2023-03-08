@@ -1,14 +1,6 @@
 import { useState } from 'react';
 
-import {
-  Card,
-  FactionSelection,
-  List,
-  Select,
-  ShipIcon,
-  Stat,
-  Table,
-} from 'components';
+import { Card, FactionSelection, Select, ShipIcon, Table } from 'components';
 import type { XWSFaction } from 'lib/types';
 import { getPilotName } from 'lib/get-value';
 import { FooterHint, PilotStatData, toPercentage } from './shared';
@@ -59,13 +51,8 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
           {data.map(([pilot, stat]) => (
             <>
               <Table.Cell variant="header">
-                <ShipIcon
-                  ship={stat.ship}
-                  className="w-6 text-2xl opacity-70 md:w-5 md:text-xl"
-                />
-                <div className="text-lg font-bold md:text-sm">
-                  {getPilotName(pilot)}
-                </div>
+                <ShipIcon ship={stat.ship} className="w-5 text-xl" />
+                <div className="text-sm font-bold">{getPilotName(pilot)}</div>
               </Table.Cell>
               <Table.Cell variant="number">{stat.percentile}</Table.Cell>
               <Table.Cell variant="number">

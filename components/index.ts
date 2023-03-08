@@ -20,7 +20,6 @@ export * from './select';
 export * from './ship-icon';
 export * from './spinner';
 export * from './squad';
-export * from './stat';
 export * from './table';
 export * from './textarea';
 export * from './tiles';
