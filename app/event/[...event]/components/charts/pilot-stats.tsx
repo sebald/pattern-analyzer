@@ -39,7 +39,7 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
           </Select>
         </div>
         <Table
-          cols={['max-content', '1fr', '1fr', '1fr', '1fr']}
+          cols={['max-content', '1fr', '1fr', '1fr', 'minmax(100px, 1fr)']}
           headers={[
             'Pilot',
             'Percentile',

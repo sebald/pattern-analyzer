@@ -7,7 +7,6 @@ import { average, deviation, percentile, performance, round } from 'lib/utils';
 import type { PilotStatData } from './charts/shared';
 import { FactionDistribution } from './charts/faction-distribution';
 import { PilotCostDistribution } from './charts/pilot-cost-distribution';
-import { PilotFrequency } from './charts/pilot-frequency';
 import { PilotStats } from './charts/pilot-stats';
 import { ShipComposition } from './charts/ship-composition';
 import { SquadSize } from './charts/squad-size';
@@ -227,12 +226,6 @@ export const Stats = ({ squads }: StatsProps) => {
       </div>
       <div className="md:col-span-6">
         <SquadSize value={data.squadSizes} total={data.numberOfSquads.xws} />
-      </div>
-      <div className="md:col-span-6 lg:col-span-4">
-        <PilotFrequency
-          value={data.pilotStats}
-          distribution={data.factionDistribution}
-        />
       </div>
       <div className="md:col-span-6 lg:col-span-8">
         <div className="flex flex-col gap-4">

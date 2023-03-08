@@ -14,8 +14,8 @@ const styles = {
     {
       variants: {
         variant: {
-          default: 'text-secondary-400',
-          number: 'tabular-nums text-secondary-400',
+          default: 'text-secondary-600',
+          number: 'tabular-nums text-secondary-600',
           header: 'text-secondary-800',
         },
       },
@@ -70,7 +70,7 @@ export const Table = ({ cols, headers, className, children }: TableProps) => {
 
   const count = cols.length;
   const isFirst = (idx: number) => idx % count === 0;
-  const isLast = (idx: number) => (idx + 1) / count === 0;
+  const isLast = (idx: number) => (idx + 1) % count === 0;
 
   const styles = { '--table-cols': cols.join(' ') } as React.CSSProperties;
 

@@ -34,7 +34,7 @@ export const FooterHint = ({ more = '' }: { more?: string }) => (
 export const toPercentage = (value: number) =>
   new Intl.NumberFormat('default', {
     style: 'percent',
-    minimumFractionDigits: 2,
+    minimumFractionDigits: 0,
     maximumFractionDigits: 2,
   }).format(value);
 
