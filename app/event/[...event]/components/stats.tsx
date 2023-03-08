@@ -217,7 +217,7 @@ export const Stats = ({ squads }: StatsProps) => {
   const data = useSquadStats({ squads });
 
   return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
+    <div className="grid grid-cols-1 items-start gap-4 md:grid-cols-12">
       <div className="md:col-span-6">
         <FactionDistribution
           value={data.factionDistribution}
@@ -228,19 +228,19 @@ export const Stats = ({ squads }: StatsProps) => {
         <SquadSize value={data.squadSizes} total={data.numberOfSquads.xws} />
       </div>
       <div className="md:col-span-6 lg:col-span-8">
-        <div className="flex flex-col gap-4">
-          <PilotCostDistribution value={data.pilotCostDistribution} />
-          <ShipComposition
-            value={data.shipComposition}
-            total={data.numberOfSquads.xws}
-          />
-        </div>
+        <PilotCostDistribution value={data.pilotCostDistribution} />
       </div>
       <div className="col-span-full">
         <PilotStats value={data.pilotStats} />
       </div>
       <div className="md:col-span-6 lg:col-span-4">
         <UpgradeSummary value={data.upgradeSummary} />
+      </div>
+      <div className="md:col-span-6 lg:col-span-8">
+        <ShipComposition
+          value={data.shipComposition}
+          total={data.numberOfSquads.xws}
+        />
       </div>
     </div>
   );

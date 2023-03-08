@@ -72,27 +72,25 @@ export const Table = ({ cols, headers, className, children }: TableProps) => {
   const isFirst = (idx: number) => idx % count === 0;
   const isLast = (idx: number) => (idx + 1) % count === 0;
 
+  // Add additional classes to first/last col
+  const addColClasses = (idx: number, otherClassName?: string) =>
+    cn(
+      otherClassName,
+      isFirst(idx) && 'pl-2 bg-white sticky left-0',
+      isLast(idx) && 'pr-2'
+    );
+
+  // Use CSS var to apply col layout
   const styles = { '--table-cols': cols.join(' ') } as React.CSSProperties;
 
   return (
     <div className="overflow-x-auto">
       <div
         style={styles}
-        className={cn(
-          'grid grid-cols-[var(--table-cols)]',
-          // `[&>*:nth-child(${headers.length}n+1)]:sticky`,
-          // `[&>*:nth-child(${headers.length}n+1)]:pl-2`,
-          // `[&>*:nth-child(${headers.length}n)]:pr-2`,
-          className
-        )}
+        className={cn('grid grid-cols-[var(--table-cols)]', className)}
       >
         {headers.map((header, idx) => (
-          <TableHeader
-            key={idx}
-            className={
-              idx === 0 ? 'pl-2' : idx + 1 === headers.length ? 'pr-2' : ''
-            }
-          >
+          <TableHeader key={idx} className={addColClasses(idx)}>
             {header}
           </TableHeader>
         ))}
@@ -101,18 +99,9 @@ export const Table = ({ cols, headers, className, children }: TableProps) => {
             return child;
           }
 
-          console.log(idx, isLast(idx));
-          /**
-           * Add different padding to cells that are first/last in a
-           * row.
-           */
           return React.cloneElement(child, {
             ...child.props,
-            className: cn(
-              child.props.className,
-              isFirst(idx) && 'pl-2',
-              isLast(idx) && 'pr-2'
-            ),
+            className: addColClasses(idx, child.props.className),
           });
         })}
       </div>

@@ -23,7 +23,7 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
 
   return (
     <Card>
-      <Card.Title>Pilots*</Card.Title>
+      <Card.Title>Pilots Stats*</Card.Title>
       <Card.Body>
         <div className="flex justify-end gap-3 pb-4">
           <FactionSelection value={faction} onChange={setFaction} />
