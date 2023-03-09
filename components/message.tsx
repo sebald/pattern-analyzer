@@ -75,6 +75,7 @@ const styles = cva(['flex gap-1 rounded-md p-4'], {
     },
     size: {
       regular: 'text-sm',
+      large: 'text-base',
     },
   },
   defaultVariants: {
