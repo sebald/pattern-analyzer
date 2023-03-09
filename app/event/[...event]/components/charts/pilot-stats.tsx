@@ -12,21 +12,25 @@ export interface PilotStatsProps {
 }
 
 export const PilotStats = ({ value }: PilotStatsProps) => {
-  const [faction, setFaction] = useState<XWSFaction>('rebelalliance');
+  const [faction, setFaction] = useState<XWSFaction | 'all'>('all');
   const [sort, setSort] = useState<
     'percentile' | 'deviation' | 'winrate' | 'frequency'
   >('percentile');
 
-  const data = Array.from(value[faction].entries()).sort(
-    ([, a], [, b]) => b[sort] - a[sort]
-  );
+  const data =
+    faction === 'all'
+      ? Object.values(value).reduce((acc: [string, PilotStatData][], map) => {
+          return [...acc, ...map.entries()];
+        }, [])
+      : [...value[faction].entries()];
+  data.sort(([, a], [, b]) => b[sort] - a[sort]);
 
   return (
     <Card>
       <Card.Title>Pilots</Card.Title>
       <Card.Body>
         <div className="flex justify-end gap-3 pb-4">
-          <FactionSelection value={faction} onChange={setFaction} />
+          <FactionSelection value={faction} onChange={setFaction} allowAll />
           <Select
             size="small"
             value={sort}
