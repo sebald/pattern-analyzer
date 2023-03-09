@@ -249,7 +249,10 @@ export const Stats = ({ squads }: StatsProps) => {
           <Message.Title>
             For information about some commonly used terms, see the &quot;About
             the Data&quot; secion on the{' '}
-            <Link href="/about">&quot;About&quot;</Link> page.
+            <Link className="underline underline-offset-2" href="/about">
+              About
+            </Link>{' '}
+            page.
           </Message.Title>
         </Message>
       </div>
