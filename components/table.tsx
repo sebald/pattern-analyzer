@@ -84,27 +84,28 @@ export const Table = ({ cols, headers, className, children }: TableProps) => {
   const styles = { '--table-cols': cols.join(' ') } as React.CSSProperties;
 
   return (
-    <div className="overflow-x-auto">
-      <div
-        style={styles}
-        className={cn('grid grid-cols-[var(--table-cols)]', className)}
-      >
-        {headers.map((header, idx) => (
-          <TableHeader key={idx} className={addColClasses(idx)}>
-            {header}
-          </TableHeader>
-        ))}
-        {flattenChildren(children).map((child, idx) => {
-          if (!React.isValidElement<{ className?: string }>(child)) {
-            return child;
-          }
+    <div
+      style={styles}
+      className={cn(
+        'grid grid-cols-[var(--table-cols)] overflow-x-auto',
+        className
+      )}
+    >
+      {headers.map((header, idx) => (
+        <TableHeader key={idx} className={addColClasses(idx)}>
+          {header}
+        </TableHeader>
+      ))}
+      {flattenChildren(children).map((child, idx) => {
+        if (!React.isValidElement<{ className?: string }>(child)) {
+          return child;
+        }
 
-          return React.cloneElement(child, {
-            ...child.props,
-            className: addColClasses(idx, child.props.className),
-          });
-        })}
-      </div>
+        return React.cloneElement(child, {
+          ...child.props,
+          className: addColClasses(idx, child.props.className),
+        });
+      })}
     </div>
   );
 };
