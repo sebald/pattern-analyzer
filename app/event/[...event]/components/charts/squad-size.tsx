@@ -71,7 +71,7 @@ export const SquadSize = ({ value, total }: SquadSizeProps) => {
 
   return (
     <Card>
-      <Card.Title>Squad Size*</Card.Title>
+      <Card.Title>Squad Size</Card.Title>
       <div className="h-72">
         <ResponsiveBar
           data={data}

@@ -27,7 +27,7 @@ export const PilotCostDistribution = ({
 
   return (
     <Card>
-      <Card.Title>Pilot Cost Distribution*</Card.Title>
+      <Card.Title>Pilot Cost Distribution</Card.Title>
       <div className="h-72">
         <ResponsiveLine
           data={[

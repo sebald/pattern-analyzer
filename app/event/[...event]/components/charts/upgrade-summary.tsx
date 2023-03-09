@@ -25,7 +25,7 @@ export const UpgradeSummary = ({ value }: UpgradeSummaryProps) => {
 
   return (
     <Card>
-      <Card.Title>Upgrade Summary*</Card.Title>
+      <Card.Title>Upgrade Summary</Card.Title>
       <Card.Body>
         <div className="flex justify-end gap-3 pb-4">
           <FactionSelection value={faction} onChange={setFaction} allowAll />

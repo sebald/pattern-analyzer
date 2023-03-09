@@ -18,7 +18,7 @@ export const ShipComposition = ({ value, total }: ShipCompositionProps) => {
 
   return (
     <Card>
-      <Card.Title>TOP {data.length} Ship Composition*</Card.Title>
+      <Card.Title>TOP {data.length} Ship Composition</Card.Title>
       <Card.Body>
         {data.length === 0 ? (
           <div className="py-6 text-center italic text-secondary-400">
