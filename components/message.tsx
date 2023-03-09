@@ -5,18 +5,28 @@ import { Link, LinksProps } from './link';
 // Message.Title
 // ---------------
 export interface MessageTitleProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const MessageTitle = ({ children }: MessageTitleProps) => (
   <div className="font-semibold leading-6">{children}</div>
 );
 
+// Message.Body
+// ---------------
+export interface MessageBodyProps {
+  children?: React.ReactNode;
+}
+
+const MessageBody = ({ children }: MessageBodyProps) => (
+  <div className="">{children}</div>
+);
+
 // Message.Button
 // ---------------
 export interface MessageButtonProps
   extends React.ComponentPropsWithoutRef<'button'> {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const MessageButton = ({
@@ -36,7 +46,7 @@ const MessageButton = ({
 // Message.Link
 // ---------------
 export interface MessageLinkProps extends LinksProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const MessageLink = ({ children, ...props }: MessageLinkProps) => (
@@ -48,7 +58,7 @@ const MessageLink = ({ children, ...props }: MessageLinkProps) => (
 // Message.Footer
 // ---------------
 export interface MessageFooterProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const MessageFooter = ({ children }: MessageFooterProps) => (
@@ -83,9 +93,9 @@ const ICON_MAP = {
 
 // Props
 // ---------------
-export interface InfoProps extends VariantProps<typeof styles> {
+export interface MessageProps extends VariantProps<typeof styles> {
   icon?: 'info' | 'error' | 'none';
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 // Component
@@ -95,7 +105,7 @@ export const Message = ({
   size,
   icon,
   children,
-}: InfoProps) => {
+}: MessageProps) => {
   const Icon = ICON_MAP[icon || variant!];
   return (
     <div className={styles({ variant, size })}>
@@ -106,6 +116,7 @@ export const Message = ({
 };
 
 Message.Title = MessageTitle;
+Message.Body = MessageBody;
 Message.Button = MessageButton;
 Message.Link = MessageLink;
 Message.Footer = MessageFooter;

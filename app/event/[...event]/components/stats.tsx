@@ -6,6 +6,7 @@ import type { SquadData, XWSFaction, XWSUpgradeSlots } from 'lib/types';
 import { average, deviation, percentile, performance, round } from 'lib/utils';
 
 import type { PilotStatData } from './charts/shared';
+import { AboutTheData } from './about-the-data';
 import { FactionDistribution } from './charts/faction-distribution';
 import { PilotCostDistribution } from './charts/pilot-cost-distribution';
 import { PilotStats } from './charts/pilot-stats';
@@ -225,7 +226,7 @@ export const Stats = ({ squads }: StatsProps) => {
           total={data.numberOfSquads.total}
         />
       </div>
-      <div className="md:col-span-6">//TODO: faction ranking</div>
+      <div className="md:col-span-6">TODO: faction ranking</div>
       <div className="md:col-span-5">
         <SquadSize value={data.squadSizes} total={data.numberOfSquads.xws} />
       </div>
@@ -245,10 +246,7 @@ export const Stats = ({ squads }: StatsProps) => {
         />
       </div>
       <div className="col-span-full">
-        <Message icon="none">
-          <Message.Title>About the Data</Message.Title>- reminder about parsing
-          and unknown
-        </Message>
+        <AboutTheData />
       </div>
     </div>
   );

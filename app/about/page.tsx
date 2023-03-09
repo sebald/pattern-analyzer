@@ -1,5 +1,9 @@
 import { Container, Link, Title } from 'components';
 
+export const metadata = {
+  title: 'Pattern Analyzer | About',
+};
+
 const About = () => (
   <main className="pt-10 pb-6 md:pt-16">
     <Container size="narrow">
