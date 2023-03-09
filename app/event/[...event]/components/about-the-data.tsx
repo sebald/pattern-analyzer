@@ -18,10 +18,10 @@ export const AboutTheData = () => (
       <List variant="compact" enumeration="enum">
         <List.Item>
           <Text space="half">
-            <strong>Percentile:</strong> Indicates how well an entity pilot,
-            upgrade,…) performs in comparison to other entities in the same set
-            (single or multiple tournaments). It is calculated by averaging the
-            results, and expressed as a percentage.
+            <strong>Percentile:</strong> The percentile indicates how well an
+            entity (pilot, upgrade, ...) performs in comparison to other
+            entities in the same set (single or multiple tournaments). It is
+            calculated by averaging the results, and expressed as a percentage.
           </Text>
           <Text>
             For example, if a pilot makes 1st and 3rd place in a tournament with
@@ -30,6 +30,24 @@ export const AboutTheData = () => (
             (1st place) and the occurrence (3rd place) is better then 70% of the
             field. Thus on average the pilot performed better than 80% of the
             field.
+          </Text>
+        </List.Item>
+        <List.Item>
+          <Text>
+            <strong>Std. Deviation:</strong> The standard deviation measures how
+            dispersed the performance (percentile) of an entity (pilot, upgrade,
+            ...) is in relation to its mean. Low standard deviation means the
+            results are clustered around the mean performance. On the other
+            hand, high standard deviation indicates that the results are more
+            spread out. Basically, a high standard deviation means a high
+            variance in results and vice versa.
+          </Text>
+        </List.Item>
+        <List.Item>
+          <Text>
+            <strong>Winrate:</strong> The winrate represents how much games an
+            entity (pilot, upgrade,…) has won in comparison to the total games
+            it appeared in.
           </Text>
         </List.Item>
       </List>
