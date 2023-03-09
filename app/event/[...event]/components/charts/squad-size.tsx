@@ -1,7 +1,7 @@
 import { BarCustomLayer, ResponsiveBar } from '@nivo/bar';
 
 import { Card } from 'components';
-import { calcWeightedAverage, FooterHint, toPercentage } from './shared';
+import { calcWeightedAverage, toPercentage } from './shared';
 
 // Props
 // ---------------
@@ -100,9 +100,6 @@ export const SquadSize = ({ value, total }: SquadSizeProps) => {
       <div className="text-center text-sm font-semibold">
         Average Ship Count: {calcWeightedAverage(value, total).toFixed(1)}
       </div>
-      <Card.Footer>
-        <FooterHint />
-      </Card.Footer>
     </Card>
   );
 };

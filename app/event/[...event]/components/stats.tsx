@@ -1,5 +1,6 @@
 'use client';
 
+import { Message } from 'components';
 import type { Ships } from 'lib/get-value';
 import type { SquadData, XWSFaction, XWSUpgradeSlots } from 'lib/types';
 import { average, deviation, percentile, performance, round } from 'lib/utils';
@@ -224,10 +225,11 @@ export const Stats = ({ squads }: StatsProps) => {
           total={data.numberOfSquads.total}
         />
       </div>
-      <div className="md:col-span-6">
+      <div className="md:col-span-6">//TODO: faction ranking</div>
+      <div className="md:col-span-5">
         <SquadSize value={data.squadSizes} total={data.numberOfSquads.xws} />
       </div>
-      <div className="md:col-span-6 lg:col-span-8">
+      <div className="md:col-span-7">
         <PilotCostDistribution value={data.pilotCostDistribution} />
       </div>
       <div className="col-span-full">
@@ -242,8 +244,12 @@ export const Stats = ({ squads }: StatsProps) => {
           total={data.numberOfSquads.xws}
         />
       </div>
+      <div className="col-span-full">
+        <Message icon="none">
+          <Message.Title>About the Data</Message.Title>- reminder about parsing
+          and unknown
+        </Message>
+      </div>
     </div>
   );
 };
-
-// grid-cols-12 6,6,4

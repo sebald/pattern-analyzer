@@ -19,14 +19,15 @@ export const AboutParsingDialog = () => (
       </Dialog.Header>
       <div className="py-2">
         <p className="prose pb-4">
-          Pattern Analyzer acquires all data from a certain vendor (e.g.
-          Longshanks) and tries to interpret it to the best of its ability.
+          <em>Pattern Analyzer</em> acquires all data from a certain vendor
+          (e.g. Longshanks) and tries to interpret it to the best of its
+          ability.
         </p>
         <p className="prose">
-          Parsing user generated data (like entering a squad) is hard though and
+          Parsing user generated data (like squad lists) is hard though and
           extracting information might not be possible all the time. When this
-          happens the raw user input will be displayed as squad and it won’t be
-          used for the statistics.
+          happens the raw user input will be displayed as squad. It also
+          won&apos;t be considered in the event stats.
         </p>
       </div>
     </Dialog.Content>

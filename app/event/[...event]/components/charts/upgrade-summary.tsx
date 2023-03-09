@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { Card, FactionSelection, List, UpgradeSlotSelection } from 'components';
 import type { XWSFaction, XWSUpgrades, XWSUpgradeSlots } from 'lib/types';
-
-import { FooterHint } from './shared';
 import { getUpgradeName } from 'lib/get-value';
 
 export interface UpgradeSummaryProps {
@@ -49,9 +47,6 @@ export const UpgradeSummary = ({ value }: UpgradeSummaryProps) => {
           ))}
         </List>
       </Card.Body>
-      <Card.Footer>
-        <FooterHint />
-      </Card.Footer>
     </Card>
   );
 };

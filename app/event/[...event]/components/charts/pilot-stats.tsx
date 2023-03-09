@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Card, FactionSelection, Select, ShipIcon, Table } from 'components';
 import type { XWSFaction } from 'lib/types';
 import { getPilotName } from 'lib/get-value';
-import { FooterHint, PilotStatData, toPercentage } from './shared';
+import { PilotStatData, toPercentage } from './shared';
 
 export interface PilotStatsProps {
   value: {
@@ -39,13 +39,21 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
           </Select>
         </div>
         <Table
-          cols={['max-content', '1fr', '1fr', '1fr', 'minmax(100px, 1fr)']}
+          cols={[
+            'max-content',
+            '1fr',
+            '1fr',
+            '1fr',
+            'minmax(90px, 1fr)',
+            '70px',
+          ]}
           headers={[
             'Pilot',
             'Percentile',
             'Winrate',
             'Std. Deviation',
             'Frequency',
+            'Count',
           ]}
         >
           {data.map(([pilot, stat]) => (
@@ -60,15 +68,13 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
               </Table.Cell>
               <Table.Cell variant="number">{stat.deviation}</Table.Cell>
               <Table.Cell variant="number">
-                {toPercentage(stat.frequency)} ({stat.count})
+                {toPercentage(stat.frequency)}
               </Table.Cell>
+              <Table.Cell variant="number">{stat.count}</Table.Cell>
             </>
           ))}
         </Table>
       </Card.Body>
-      <Card.Footer>
-        <FooterHint />
-      </Card.Footer>
     </Card>
   );
 };
