@@ -26,8 +26,8 @@ export const AboutParsingDialog = () => (
         <p className="prose">
           Parsing user generated data (like squad lists) is hard though and
           extracting information might not be possible all the time. When this
-          happens the raw user input will be displayed as squad. It also
-          won&apos;t be considered in the event stats.
+          happens the raw user input will be displayed and it won&apos;t be
+          considered in the event&apos;s stats.
         </p>
       </div>
     </Dialog.Content>
