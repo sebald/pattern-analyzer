@@ -2,7 +2,18 @@ import { cva, VariantProps } from 'class-variance-authority';
 
 // Styles
 // ---------------
-const styles = cva(['leading-6 [&:not(:last-child)]:pb-6']);
+const styles = cva(['leading-6]'], {
+  variants: {
+    space: {
+      default: '[&:not(:last-child)]:mb-6',
+      half: '[&:not(:last-child)]:mb-3',
+      none: '',
+    },
+  },
+  defaultVariants: {
+    space: 'default',
+  },
+});
 
 // Props
 // ---------------
@@ -13,7 +24,7 @@ export interface TextProps extends VariantProps<typeof styles> {
 
 // Component
 // ---------------
-export const Text = ({ as = 'p', children }: TextProps) => {
+export const Text = ({ as = 'p', space, children }: TextProps) => {
   const Element = as as keyof JSX.IntrinsicElements;
-  return <Element className={styles()}>{children}</Element>;
+  return <Element className={styles({ space })}>{children}</Element>;
 };

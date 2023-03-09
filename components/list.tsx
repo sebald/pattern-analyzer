@@ -1,10 +1,20 @@
 import React from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
-import { cn } from 'lib/utils';
 
 // Styles
 // ---------------
 const styles = {
+  list: cva([], {
+    variants: {
+      enumeration: {
+        default: 'divide-y divide-secondary-100',
+        enum: 'list-disc pl-4',
+      },
+    },
+    defaultVariants: {
+      enumeration: 'default',
+    },
+  }),
   item: cva([], {
     variants: {
       variant: {
@@ -34,7 +44,8 @@ export const ListItem = ({ children, variant, className }: ListItemProps) => (
 // Props
 // ---------------
 export interface ListProps
-  extends VariantProps<typeof styles.item>,
+  extends VariantProps<typeof styles.list>,
+    VariantProps<typeof styles.item>,
     React.ComponentPropsWithoutRef<'li'> {
   children: React.ReactNode;
 }
@@ -43,13 +54,17 @@ export interface ListProps
 // ---------------
 export const List = ({
   variant = 'default',
+  enumeration,
   className,
   children,
 }: ListProps) => (
-  <ul className={cn('divide-y divide-secondary-100', className)}>
+  <ul className={styles.list({ enumeration, className })}>
     {React.Children.map(children, child => {
       if (React.isValidElement(child)) {
-        return React.cloneElement(child, { variant, ...child.props });
+        return React.cloneElement(child, {
+          variant,
+          ...child.props,
+        });
       }
       return child;
     })}
