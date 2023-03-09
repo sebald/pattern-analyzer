@@ -139,7 +139,10 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
           ...pilotInfo,
           count: pilotInfo.count + 1,
           records: [...pilotInfo.records, squad.record],
-          ranks: [...pilotInfo.ranks, squad.rank.swiss],
+          ranks: [
+            ...pilotInfo.ranks,
+            squad.rank.elimination ?? squad.rank.swiss,
+          ],
         });
 
         // Pilot cost distribution
