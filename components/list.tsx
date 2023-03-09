@@ -20,6 +20,7 @@ const styles = {
       variant: {
         default: 'py-2',
         compact: 'py-1',
+        spread: 'py-4',
         wide: 'py-6 first:pt-3 last:pb-3',
       },
     },
