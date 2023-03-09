@@ -1,4 +1,3 @@
-export * from './about-the-data';
 export * from './alert';
 export * from './button';
 export * from './caption';

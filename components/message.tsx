@@ -77,10 +77,15 @@ const styles = cva(['flex gap-1 rounded-md p-4'], {
       regular: 'text-sm',
       large: 'text-base',
     },
+    align: {
+      left: '',
+      center: 'justify-center',
+    },
   },
   defaultVariants: {
     variant: 'info',
     size: 'regular',
+    align: 'left',
   },
 });
 
@@ -104,12 +109,13 @@ export interface MessageProps extends VariantProps<typeof styles> {
 export const Message = ({
   variant = 'info',
   size,
+  align,
   icon,
   children,
 }: MessageProps) => {
   const Icon = ICON_MAP[icon || variant!];
   return (
-    <div className={styles({ variant, size })}>
+    <div className={styles({ variant, size, align })}>
       {<Icon className="h-6 w-6 flex-shrink-0" />}
       <div>{children}</div>
     </div>

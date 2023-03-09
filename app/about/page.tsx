@@ -62,7 +62,9 @@ const About = () => (
         , others are created on request.
       </Text>
 
-      <Headline level="2">Interpret the Data</Headline>
+      <Headline level="2" id="about-the-data">
+        About the Data
+      </Headline>
 
       <Headline level="4">What is the “unknown” faction?</Headline>
       <Text className="prose text-lg">
