@@ -45,9 +45,23 @@ export const AboutTheData = () => (
         </List.Item>
         <List.Item>
           <Text>
-            <strong>Winrate:</strong> The winrate represents how much games an
-            entity (pilot, upgrade,…) has won in comparison to the total games
-            it appeared in.
+            <strong>Winrate:</strong> The winrate is expressed as a percentage
+            and represents how much games an entity (pilot, upgrade,…) has won
+            in comparison to the total games it appeared in.
+          </Text>
+        </List.Item>
+        <List.Item>
+          <Text>
+            <strong>Frequency:</strong> The frequency is expressed as a
+            percentage and represents how much games an entity (pilot,
+            upgrade,…) appeared in. This is usually in relation to the faction
+            (in case of pilots) or to the slot (in case of upgrades).
+          </Text>
+        </List.Item>
+        <List.Item>
+          <Text>
+            <strong>Count:</strong> Because frequency is a relative number, the
+            absolute amount of appearances is displayed in addition.
           </Text>
         </List.Item>
       </List>
