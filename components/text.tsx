@@ -2,7 +2,7 @@ import { cva, VariantProps } from 'class-variance-authority';
 
 // Styles
 // ---------------
-const styles = cva(['leading-6]'], {
+const styles = cva(['text-base leading-6]'], {
   variants: {
     space: {
       default: '[&:not(:last-child)]:mb-6',

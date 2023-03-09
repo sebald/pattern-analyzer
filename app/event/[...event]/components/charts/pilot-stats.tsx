@@ -13,9 +13,9 @@ export interface PilotStatsProps {
 
 export const PilotStats = ({ value }: PilotStatsProps) => {
   const [faction, setFaction] = useState<XWSFaction>('rebelalliance');
-  const [sort, setSort] = useState<'percentile' | 'winrate' | 'frequency'>(
-    'percentile'
-  );
+  const [sort, setSort] = useState<
+    'percentile' | 'deviation' | 'winrate' | 'frequency'
+  >('percentile');
 
   const data = Array.from(value[faction].entries()).sort(
     ([, a], [, b]) => b[sort] - a[sort]
@@ -32,8 +32,8 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
             value={sort}
             onChange={e => setSort(e.target.value as any)}
           >
-            <Select.Option value="score">By Score</Select.Option>
             <Select.Option value="percentile">By Percentile</Select.Option>
+            <Select.Option value="deviation">By Std. Deviation</Select.Option>
             <Select.Option value="winrate">By Winrate</Select.Option>
             <Select.Option value="frequency">By Frequency</Select.Option>
           </Select>
@@ -50,8 +50,8 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
           headers={[
             'Pilot',
             'Percentile',
-            'Winrate',
             'Std. Deviation',
+            'Winrate',
             'Frequency',
             'Count',
           ]}
@@ -62,11 +62,15 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
                 <ShipIcon ship={stat.ship} className="w-5 text-xl" />
                 <div className="text-sm font-bold">{getPilotName(pilot)}</div>
               </Table.Cell>
-              <Table.Cell variant="number">{stat.percentile}</Table.Cell>
+              <Table.Cell variant="number">
+                {toPercentage(stat.percentile)}
+              </Table.Cell>
+              <Table.Cell variant="number">
+                {toPercentage(stat.deviation)}
+              </Table.Cell>
               <Table.Cell variant="number">
                 {toPercentage(stat.winrate)}
               </Table.Cell>
-              <Table.Cell variant="number">{stat.deviation}</Table.Cell>
               <Table.Cell variant="number">
                 {toPercentage(stat.frequency)}
               </Table.Cell>

@@ -46,19 +46,19 @@ test('calculate performance', () => {
 });
 
 test('calculate percentile', () => {
-  expect(percentile(1, 7)).toMatchInlineSnapshot(`85.71`);
-  expect(percentile(2, 7)).toMatchInlineSnapshot(`71.43`);
-  expect(percentile(3, 7)).toMatchInlineSnapshot(`57.14`);
-  expect(percentile(6, 7)).toMatchInlineSnapshot(`14.29`);
+  expect(percentile(1, 7)).toMatchInlineSnapshot(`0.8571`);
+  expect(percentile(2, 7)).toMatchInlineSnapshot(`0.7143`);
+  expect(percentile(3, 7)).toMatchInlineSnapshot(`0.5714`);
+  expect(percentile(6, 7)).toMatchInlineSnapshot(`0.1429`);
   expect(percentile(7, 7)).toMatchInlineSnapshot(`0`);
 
-  expect(percentile(1, 16)).toMatchInlineSnapshot(`93.75`);
-  expect(percentile(7, 16)).toMatchInlineSnapshot(`56.25`);
-  expect(percentile(8, 16)).toMatchInlineSnapshot(`50`);
+  expect(percentile(1, 16)).toMatchInlineSnapshot(`0.9375`);
+  expect(percentile(7, 16)).toMatchInlineSnapshot(`0.5625`);
+  expect(percentile(8, 16)).toMatchInlineSnapshot(`0.5`);
   expect(percentile(16, 16)).toMatchInlineSnapshot(`0`);
 
-  expect(percentile(4, 20)).toMatchInlineSnapshot(`80`);
-  expect(percentile(3, 12)).toMatchInlineSnapshot(`75`);
+  expect(percentile(4, 20)).toMatchInlineSnapshot(`0.8`);
+  expect(percentile(3, 12)).toMatchInlineSnapshot(`0.75`);
 });
 
 test('calculate deviation', () => {

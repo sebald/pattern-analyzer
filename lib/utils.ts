@@ -53,7 +53,7 @@ export const performance = (
  * https://www.cuemath.com/percentile-formula/
  */
 export const percentile = (rank: number, total: number) =>
-  round((total - rank) / total, 4) * 100;
+  round((total - rank) / total, 4);
 
 /**
  * Calculate standard deviation.

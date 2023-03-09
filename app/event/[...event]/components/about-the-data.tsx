@@ -17,7 +17,20 @@ export const AboutTheData = () => (
       </Text>
       <List variant="compact" enumeration="enum">
         <List.Item>
-          <strong>Percentile:</strong> asd{' '}
+          <Text space="half">
+            <strong>Percentile:</strong> Indicates how well an entity pilot,
+            upgrade,…) performs in comparison to other entities in the same set
+            (single or multiple tournaments). It is calculated by averaging the
+            results, and expressed as a percentage.
+          </Text>
+          <Text>
+            For example, if a pilot makes 1st and 3rd place in a tournament with
+            10 participants, her percentile will be 80% since there is one
+            occurrence of the the pilot that is better than 90% of the field
+            (1st place) and the occurrence (3rd place) is better then 70% of the
+            field. Thus on average the pilot performed better than 80% of the
+            field.
+          </Text>
         </List.Item>
       </List>
     </Message.Body>
