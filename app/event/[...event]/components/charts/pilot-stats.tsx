@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 
 import { Card, FactionSelection, Select, ShipIcon, Table } from 'components';
 import type { XWSFaction } from 'lib/types';
@@ -61,7 +61,7 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
           ]}
         >
           {data.map(([pilot, stat]) => (
-            <>
+            <Fragment key={pilot}>
               <Table.Cell variant="header">
                 <ShipIcon ship={stat.ship} className="w-5 text-xl" />
                 <div className="text-sm font-bold">{getPilotName(pilot)}</div>
@@ -79,7 +79,7 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
                 {toPercentage(stat.frequency)}
               </Table.Cell>
               <Table.Cell variant="number">{stat.count}</Table.Cell>
-            </>
+            </Fragment>
           ))}
         </Table>
       </Card.Body>
