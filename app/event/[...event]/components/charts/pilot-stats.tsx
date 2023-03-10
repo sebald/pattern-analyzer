@@ -70,7 +70,7 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
                 {toPercentage(stat.percentile)}
               </Table.Cell>
               <Table.Cell variant="number">
-                {toPercentage(stat.deviation)}
+                {stat.deviation === 0 ? '-' : toPercentage(stat.deviation)}
               </Table.Cell>
               <Table.Cell variant="number">
                 {toPercentage(stat.winrate)}

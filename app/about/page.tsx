@@ -105,6 +105,11 @@ const About = () => (
             spread out. Basically, a high standard deviation means a high
             variance in results and vice versa.
           </Text>
+          <Text className="prose text-lg">
+            If there is only one occurance of an entity, a &quot;-&quot; is
+            displayed rather than the standard deviation of 0% to indicate that
+            there can not be any deviation.
+          </Text>
         </List.Item>
         <List.Item>
           <Text className="prose text-lg">
