@@ -7,6 +7,7 @@ import { average, deviation, percentile, performance, round } from 'lib/utils';
 
 import type { PilotStatData } from './charts/shared';
 import { FactionDistribution } from './charts/faction-distribution';
+import { FactionPercentiles } from './charts/faction-percentiles';
 import { PilotCostDistribution } from './charts/pilot-cost-distribution';
 import { PilotStats } from './charts/pilot-stats';
 import { ShipComposition } from './charts/ship-composition';
@@ -40,6 +41,28 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     galacticrepublic: 0,
     separatistalliance: 0,
     unknown: 0,
+  };
+
+  // Ranks per factions + percentiles
+  const factionRankings: { [Faction in XWSFaction | 'unknown']: number[] } = {
+    rebelalliance: [],
+    galacticempire: [],
+    scumandvillainy: [],
+    resistance: [],
+    firstorder: [],
+    galacticrepublic: [],
+    separatistalliance: [],
+    unknown: [],
+  };
+  const factionPercentiles = {
+    rebelalliance: { percentile: 0, deviation: 0 },
+    galacticempire: { percentile: 0, deviation: 0 },
+    scumandvillainy: { percentile: 0, deviation: 0 },
+    resistance: { percentile: 0, deviation: 0 },
+    firstorder: { percentile: 0, deviation: 0 },
+    galacticrepublic: { percentile: 0, deviation: 0 },
+    separatistalliance: { percentile: 0, deviation: 0 },
+    unknown: { percentile: 0, deviation: 0 },
   };
 
   // Number of ships per squads
@@ -100,6 +123,9 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     // Faction Distribution
     const faction = squad.xws ? squad.xws.faction : 'unknown';
     factionDistribution[faction] = factionDistribution[faction] + 1;
+
+    // Faction Rank
+    factionRankings[faction].push(squad.rank.elimination ?? squad.rank.swiss);
 
     // Squad Size
     if (squad.xws) {
@@ -179,28 +205,42 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     }
   });
 
-  // Calculate performance and average percentile
+  // Calculate percentile and deviation for factions
+  Object.keys(factionRankings).forEach(key => {
+    const faction = key as XWSFaction | 'unknown';
+    const ranks = factionRankings[faction];
+
+    const pcs = ranks.map(rank => percentile(rank, numberOfSquads.total));
+
+    factionPercentiles[faction] = {
+      percentile: average(pcs, 4),
+      deviation: deviation(pcs, 4),
+    };
+  });
+
+  // Calculate performance and average percentile for pilots
   Object.keys(pilotStats).forEach(key => {
     const faction = key as XWSFaction;
     const stats = pilotStats[faction];
 
-    stats.forEach((stat, id) => {
+    stats.forEach((stat, pilot) => {
       const pcs = stat.ranks.map(rank =>
         percentile(rank, numberOfSquads.total)
       );
 
       stat.frequency = round(stat.count / factionDistribution[faction], 4);
       stat.winrate = performance(stat.records);
-      stat.percentile = average(pcs, 2);
-      stat.deviation = deviation(pcs, 2);
+      stat.percentile = average(pcs, 4);
+      stat.deviation = deviation(pcs, 4);
 
-      stats.set(id, stat);
+      stats.set(pilot, stat);
     });
   });
 
   return {
     numberOfSquads,
     factionDistribution,
+    factionPercentiles,
     squadSizes,
     pilotStats,
     pilotCostDistribution,
@@ -221,14 +261,16 @@ export const Stats = ({ squads }: StatsProps) => {
   const data = useSquadStats({ squads });
 
   return (
-    <div className="grid grid-cols-1 items-start gap-4 md:grid-cols-12">
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
       <div className="md:col-span-6">
         <FactionDistribution
           value={data.factionDistribution}
           total={data.numberOfSquads.total}
         />
       </div>
-      <div className="md:col-span-6">TODO: faction ranking</div>
+      <div className="md:col-span-6">
+        <FactionPercentiles value={data.factionPercentiles} />
+      </div>
       <div className="md:col-span-5">
         <SquadSize value={data.squadSizes} total={data.numberOfSquads.xws} />
       </div>
@@ -241,7 +283,7 @@ export const Stats = ({ squads }: StatsProps) => {
       <div className="md:col-span-6 lg:col-span-4">
         <UpgradeSummary value={data.upgradeSummary} />
       </div>
-      <div className="md:col-span-6 lg:col-span-8">
+      <div className="self-start md:col-span-6 lg:col-span-8">
         <ShipComposition
           value={data.shipComposition}
           total={data.numberOfSquads.xws}
