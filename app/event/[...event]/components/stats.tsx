@@ -7,7 +7,7 @@ import { average, deviation, percentile, performance, round } from 'lib/utils';
 
 import type { PilotStatData } from './charts/shared';
 import { FactionDistribution } from './charts/faction-distribution';
-import { FactionPercentiles } from './charts/faction-percentiles';
+import { FactionPerformance } from './charts/faction-performance';
 import { PilotCostDistribution } from './charts/pilot-cost-distribution';
 import { PilotStats } from './charts/pilot-stats';
 import { ShipComposition } from './charts/ship-composition';
@@ -54,7 +54,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     separatistalliance: [],
     unknown: [],
   };
-  const factionPercentiles = {
+  const factionPerformance = {
     rebelalliance: { percentile: 0, deviation: 0 },
     galacticempire: { percentile: 0, deviation: 0 },
     scumandvillainy: { percentile: 0, deviation: 0 },
@@ -212,7 +212,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
 
     const pcs = ranks.map(rank => percentile(rank, numberOfSquads.total));
 
-    factionPercentiles[faction] = {
+    factionPerformance[faction] = {
       percentile: average(pcs, 4),
       deviation: deviation(pcs, 4),
     };
@@ -240,7 +240,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
   return {
     numberOfSquads,
     factionDistribution,
-    factionPercentiles,
+    factionPerformance,
     squadSizes,
     pilotStats,
     pilotCostDistribution,
@@ -269,7 +269,7 @@ export const Stats = ({ squads }: StatsProps) => {
         />
       </div>
       <div className="md:col-span-6">
-        <FactionPercentiles value={data.factionPercentiles} />
+        <FactionPerformance value={data.factionPerformance} />
       </div>
       <div className="md:col-span-5">
         <SquadSize value={data.squadSizes} total={data.numberOfSquads.xws} />

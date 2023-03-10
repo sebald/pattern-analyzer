@@ -5,7 +5,7 @@ import { ResponsivePie } from '@nivo/pie';
 import { getFactionName } from 'lib/get-value';
 import { XWSFaction } from 'lib/types';
 import { Card } from 'components';
-import { FACTION_COLORS_LIGHT, toPercentage } from './shared';
+import { FACTION_COLORS, toPercentage } from './shared';
 
 // Props
 // ---------------
@@ -31,7 +31,7 @@ export const FactionDistribution = ({
         id: faction === 'unknown' ? 'Unknown' : getFactionName(faction),
         label: faction, // Unused? Shouldn't this be the other way around!?
         value: count,
-        color: FACTION_COLORS_LIGHT[faction],
+        color: FACTION_COLORS[faction],
       };
     })
     .filter(Boolean) as {
@@ -59,14 +59,15 @@ export const FactionDistribution = ({
         />
       </div>
       <Card.Footer>
-        <div className="grid grid-cols-2 gap-1 px-2 pt-2 lg:grid-cols-3">
+        <div className="grid grid-cols-2 gap-2 px-2 pt-2 lg:grid-cols-3">
           {data.map(({ id, value, color }) => (
             <div
               key={id}
-              className="flex items-center gap-0.5 text-xs text-secondary-900"
+              className="flex items-center gap-1 text-xs text-secondary-900"
             >
               <div className="h-2 w-2" style={{ background: color }} />
-              {id}: {value}
+              <div className="font-medium">{id}:</div>
+              {value}
             </div>
           ))}
         </div>
