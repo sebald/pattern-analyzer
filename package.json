@@ -14,7 +14,7 @@
     "update:yasb": "zx scripts/update-yasb-data.mjs"
   },
   "dependencies": {
-    "@next/font": "13.2.3",
+    "@next/font": "13.2.4",
     "@nivo/bar": "^0.80.0",
     "@nivo/core": "^0.80.0",
     "@nivo/line": "^0.80.0",
@@ -24,7 +24,7 @@
     "@vercel/analytics": "^0.1.8",
     "cheerio": "1.0.0-rc.12",
     "class-variance-authority": "^0.4.0",
-    "next": "13.2.3",
+    "next": "13.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-use-clipboard": "^1.0.9",
@@ -44,7 +44,7 @@
     "@types/react-dom": "18.0.11",
     "autoprefixer": "10.4.13",
     "eslint": "8.35.0",
-    "eslint-config-next": "13.2.3",
+    "eslint-config-next": "13.2.4",
     "jest": "^29.4.1",
     "jest-environment-jsdom": "^29.4.1",
     "postcss": "8.4.21",
