@@ -13,14 +13,14 @@ export interface PilotStatData {
 }
 
 export const FACTION_COLORS: { [key in XWSFaction | 'unknown']: string } = {
-  rebelalliance: '#fecaca',
+  rebelalliance: '#fca5a5',
   galacticempire: '#93c5fd',
-  scumandvillainy: '#fde68a',
-  resistance: '#fdba74',
+  scumandvillainy: '#fcd34d',
+  resistance: '#fb923c',
   firstorder: '#f87171',
-  galacticrepublic: '#fda4af',
+  galacticrepublic: '#fbcfe8',
   separatistalliance: '#a5b4fc',
-  unknown: '#e2e8f0',
+  unknown: '#cbd5e1',
 };
 
 export const FACTION_ABBR: { [key in XWSFaction | 'unknown']: string } = {
