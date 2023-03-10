@@ -116,7 +116,7 @@ export const ExportDialog = ({ event, children }: ExportDialogProps) => {
             Export data and use it for your own analysis and apps.
           </Dialog.Description>
         </Dialog.Header>
-        <div className="grid gap-3 py-4">
+        <div className="grid gap-3 pt-4">
           {event.id.length > 1 ? (
             <Message>
               <Message.Title>Where is the Listfortress Export!?</Message.Title>

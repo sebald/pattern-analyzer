@@ -1,6 +1,6 @@
 import { Card, List, ShipIcon } from 'components';
 import { getShipName } from 'lib/get-value';
-import { FooterHint, toPercentage } from './shared';
+import { toPercentage } from './shared';
 
 export interface ShipCompositionProps {
   value: Map<string, number>;
@@ -18,7 +18,7 @@ export const ShipComposition = ({ value, total }: ShipCompositionProps) => {
 
   return (
     <Card>
-      <Card.Title>TOP {data.length} Ship Composition*</Card.Title>
+      <Card.Title>TOP {data.length} Ship Composition</Card.Title>
       <Card.Body>
         {data.length === 0 ? (
           <div className="py-6 text-center italic text-secondary-400">
@@ -52,9 +52,6 @@ export const ShipComposition = ({ value, total }: ShipCompositionProps) => {
           Unique compositions: {unique} ({toPercentage(unique / total)})
         </div>
       </Card.Body>
-      <Card.Footer>
-        <FooterHint more="Compositions that only appear once are ignored." />
-      </Card.Footer>
     </Card>
   );
 };

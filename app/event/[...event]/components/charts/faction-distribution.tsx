@@ -59,14 +59,15 @@ export const FactionDistribution = ({
         />
       </div>
       <Card.Footer>
-        <div className="grid grid-cols-2 gap-1 px-2 pt-2 lg:grid-cols-3">
+        <div className="grid grid-cols-2 gap-2 px-2 pt-2 lg:grid-cols-3">
           {data.map(({ id, value, color }) => (
             <div
               key={id}
-              className="flex items-center gap-0.5 text-xs text-secondary-900"
+              className="flex items-center gap-1 text-xs text-secondary-900"
             >
               <div className="h-2 w-2" style={{ background: color }} />
-              {id}: {value}
+              <div className="font-medium">{id}:</div>
+              {value}
             </div>
           ))}
         </div>

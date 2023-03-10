@@ -1,28 +1,43 @@
-import { XWSFaction } from 'lib/types';
+import type { Ships } from 'lib/get-value';
+import type { XWSFaction } from 'lib/types';
+
+export interface PilotStatData {
+  ship: Ships;
+  count: number;
+  records: { wins: number; ties: number; losses: number }[];
+  ranks: number[];
+  frequency: number;
+  percentile: number;
+  winrate: number;
+  deviation: number;
+}
 
 export const FACTION_COLORS: { [key in XWSFaction | 'unknown']: string } = {
-  rebelalliance: '#fecaca',
+  rebelalliance: '#fca5a5',
   galacticempire: '#93c5fd',
-  scumandvillainy: '#fde68a',
-  resistance: '#fdba74',
+  scumandvillainy: '#fcd34d',
+  resistance: '#fb923c',
   firstorder: '#f87171',
-  galacticrepublic: '#fda4af',
+  galacticrepublic: '#fbcfe8',
   separatistalliance: '#a5b4fc',
-  unknown: '#e2e8f0',
+  unknown: '#cbd5e1',
 };
 
-export const FooterHint = ({ more = '' }: { more?: string }) => (
-  <div className="px-1 pt-1 text-xs text-secondary-300">
-    *This data does not include unknown squads. Only squads that could be parsed
-    are included.
-    {` ${more}`}
-  </div>
-);
+export const FACTION_ABBR: { [key in XWSFaction | 'unknown']: string } = {
+  rebelalliance: 'REB',
+  galacticempire: 'IMO',
+  scumandvillainy: 'SCUM',
+  resistance: 'RES',
+  firstorder: 'FO',
+  galacticrepublic: 'GAR',
+  separatistalliance: 'CIS',
+  unknown: '???',
+};
 
 export const toPercentage = (value: number) =>
   new Intl.NumberFormat('default', {
     style: 'percent',
-    minimumFractionDigits: 2,
+    minimumFractionDigits: 0,
     maximumFractionDigits: 2,
   }).format(value);
 

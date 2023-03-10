@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { Card, FactionSelection, List, UpgradeSlotSelection } from 'components';
 import type { XWSFaction, XWSUpgrades, XWSUpgradeSlots } from 'lib/types';
-
-import { FooterHint } from './shared';
 import { getUpgradeName } from 'lib/get-value';
 
 export interface UpgradeSummaryProps {
@@ -27,7 +25,7 @@ export const UpgradeSummary = ({ value }: UpgradeSummaryProps) => {
 
   return (
     <Card>
-      <Card.Title>Upgrade Summary*</Card.Title>
+      <Card.Title>Upgrade Summary</Card.Title>
       <Card.Body>
         <div className="flex justify-end gap-3 pb-4">
           <FactionSelection value={faction} onChange={setFaction} allowAll />
@@ -49,9 +47,6 @@ export const UpgradeSummary = ({ value }: UpgradeSummaryProps) => {
           ))}
         </List>
       </Card.Body>
-      <Card.Footer>
-        <FooterHint />
-      </Card.Footer>
     </Card>
   );
 };

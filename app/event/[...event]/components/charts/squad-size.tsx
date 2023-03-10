@@ -1,7 +1,7 @@
 import { BarCustomLayer, ResponsiveBar } from '@nivo/bar';
 
 import { Card } from 'components';
-import { calcWeightedAverage, FooterHint, toPercentage } from './shared';
+import { calcWeightedAverage, toPercentage } from './shared';
 
 // Props
 // ---------------
@@ -71,7 +71,7 @@ export const SquadSize = ({ value, total }: SquadSizeProps) => {
 
   return (
     <Card>
-      <Card.Title>Squad Size*</Card.Title>
+      <Card.Title>Squad Size</Card.Title>
       <div className="h-72">
         <ResponsiveBar
           data={data}
@@ -92,6 +92,7 @@ export const SquadSize = ({ value, total }: SquadSizeProps) => {
           enableGridY={false}
           enableGridX={true}
           colors={({ data }) => COLOR_MAP[data.size]}
+          padding={0.2}
           margin={{ top: 20, right: 30, bottom: 20, left: 30 }}
           animate
           isInteractive={false}
@@ -100,9 +101,6 @@ export const SquadSize = ({ value, total }: SquadSizeProps) => {
       <div className="text-center text-sm font-semibold">
         Average Ship Count: {calcWeightedAverage(value, total).toFixed(1)}
       </div>
-      <Card.Footer>
-        <FooterHint />
-      </Card.Footer>
     </Card>
   );
 };
