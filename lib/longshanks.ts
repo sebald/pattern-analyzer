@@ -140,6 +140,21 @@ export const parseRounds = ($: CheerioAPI) => {
     return `${round}:${copy.join('-')}`;
   };
 
+  const getRoundInfo = (el: Element) => {
+    const id = el.attribs.id;
+    return {
+      type: id.includes('cut') ? 'elimination' : 'swiss',
+      number: Number((id.match(/\d+$/) || ['0'])[0]),
+    };
+  };
+
+  $('#edit_games [class="edit"][id^=edit_]')
+    .toArray()
+    .forEach(el => {
+      const round = getRoundInfo(el);
+      console.log(round);
+    });
+
   $('[class=pop][id^=details_]')
     .toArray()
     .forEach(el => {
