@@ -1,3 +1,27 @@
+import { cva, VariantProps } from 'class-variance-authority';
+
+// Styles
+// ---------------
+const styles = {
+  card: cva(
+    ['flex h-full w-full flex-col items-stretch gap-4 rounded-lg bg-white'],
+    {
+      variants: {
+        variant: {
+          default: ['shadow shadow-secondary-200'],
+        },
+        inset: {
+          default: ['px-3 pt-3 pb-2'],
+        },
+      },
+      defaultVariants: {
+        variant: 'default',
+        inset: 'default',
+      },
+    }
+  ),
+};
+
 // Card.Title
 // ---------------
 export interface CardTitleProps {
@@ -30,14 +54,13 @@ const CardFooter = ({ children }: CardFooterProps) => (
 
 // Card
 // ---------------
-export interface CardProps {
+export interface CardProps extends VariantProps<typeof styles.card> {
+  className?: string;
   children: React.ReactNode;
 }
 
-export const Card = ({ children }: CardProps) => (
-  <div className="flex h-full w-full flex-col items-stretch gap-4 rounded-lg bg-white px-3 pt-3 pb-2 shadow shadow-secondary-200">
-    {children}
-  </div>
+export const Card = ({ variant, inset, className, children }: CardProps) => (
+  <div className={styles.card({ variant, inset, className })}>{children}</div>
 );
 
 Card.Title = CardTitle;
