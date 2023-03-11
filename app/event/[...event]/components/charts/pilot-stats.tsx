@@ -14,7 +14,7 @@ export interface PilotStatsProps {
 export const PilotStats = ({ value }: PilotStatsProps) => {
   const [faction, setFaction] = useState<XWSFaction | 'all'>('all');
   const [sort, setSort] = useState<
-    'percentile' | 'deviation' | 'winrate' | 'frequency'
+    'percentile' | 'deviation' | 'winrate' | 'frequency' | 'count'
   >('percentile');
 
   const data =
@@ -40,6 +40,7 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
             <Select.Option value="deviation">By Std. Deviation</Select.Option>
             <Select.Option value="winrate">By Winrate</Select.Option>
             <Select.Option value="frequency">By Frequency</Select.Option>
+            <Select.Option value="count">By Count</Select.Option>
           </Select>
         </div>
         <Table
