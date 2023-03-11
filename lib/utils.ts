@@ -29,7 +29,10 @@ export const round = (val: number, digits: number) =>
   Number(val.toFixed(digits));
 
 export const average = (vals: number[], digits = 2) =>
-  round(vals.reduce((sum, n) => sum + n, 0) / vals.length, digits);
+  round(
+    vals.length ? vals.reduce((sum, n) => sum + n, 0) / vals.length : 0,
+    digits
+  );
 
 /**
  * Calculate performance (win %).

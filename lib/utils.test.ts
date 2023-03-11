@@ -1,4 +1,11 @@
-import { average, deviation, percentile, performance, prefix } from './utils';
+import {
+  average,
+  deviation,
+  percentile,
+  performance,
+  prefix,
+  round,
+} from './utils';
 
 test('return common prefix of string', () => {
   expect(prefix('abc', 'abc')).toEqual('abc');
@@ -8,11 +15,18 @@ test('return common prefix of string', () => {
   expect(prefix('zbc', 'abc')).toEqual('');
 });
 
+test('round number', () => {
+  expect(round(0, 2)).toMatchInlineSnapshot(`0`);
+  expect(round(0, 4)).toMatchInlineSnapshot(`0`);
+});
+
 test('calcualte average', () => {
   expect(average([1, 1, 1])).toMatchInlineSnapshot(`1`);
   expect(average([1, 3, 2])).toMatchInlineSnapshot(`2`);
   expect(average([3, 3, 3])).toMatchInlineSnapshot(`3`);
   expect(average([1, 10])).toMatchInlineSnapshot(`5.5`);
+
+  expect(average([])).toMatchInlineSnapshot(`0`);
 });
 
 test('calculate performance', () => {
