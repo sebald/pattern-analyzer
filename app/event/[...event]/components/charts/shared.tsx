@@ -25,7 +25,7 @@ export const FACTION_COLORS: { [key in XWSFaction | 'unknown']: string } = {
 
 export const FACTION_ABBR: { [key in XWSFaction | 'unknown']: string } = {
   rebelalliance: 'REB',
-  galacticempire: 'IMO',
+  galacticempire: 'IMP',
   scumandvillainy: 'SCUM',
   resistance: 'RES',
   firstorder: 'FO',

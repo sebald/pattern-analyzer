@@ -59,7 +59,7 @@ export const FactionDistribution = ({
         />
       </div>
       <Card.Footer>
-        <div className="grid grid-cols-2 gap-2 px-2 pt-2 lg:grid-cols-3">
+        <div className="grid grid-cols-2 gap-2 px-1 pt-2 lg:grid-cols-3">
           {data.map(({ id, value, color }) => (
             <div
               key={id}
