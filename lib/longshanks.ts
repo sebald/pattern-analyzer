@@ -1,6 +1,11 @@
 import { load, CheerioAPI, Element } from 'cheerio';
 
-import type { ListFortressRound, PlayerData, SquadData } from './types';
+import type {
+  ListFortressRound,
+  PlayerData,
+  Scenarios,
+  SquadData,
+} from './types';
 import { getBuilderLink, toXWS } from './xws';
 import { yasb2xws, YASB_URL_REGEXP } from './yasb';
 
@@ -132,60 +137,39 @@ export const parsePlayerInfo = ($: CheerioAPI): PlayerData[] => {
  * Iterate over all the popups to find the games played by each player.
  */
 export const parseRounds = ($: CheerioAPI) => {
-  const games = new Set<string>();
-  const rounds = new Map<number, ListFortressRound>();
-
-  const toMatchId = (round: number, ids: string[]) => {
-    const copy = [...ids].sort();
-    return `${round}:${copy.join('-')}`;
-  };
-
   const getRoundInfo = (el: Element) => {
     const id = el.attribs.id;
     return {
       type: id.includes('cut') ? 'elimination' : 'swiss',
       number: Number((id.match(/\d+$/) || ['0'])[0]),
-    };
+    } as const;
   };
 
-  $('#edit_games [class="edit"][id^=edit_]')
+  /**
+   * Get scenario from first game. We except the same
+   * scenario is played in each round
+   */
+  const getScenario = (el: Element) =>
+    $('.game .details .item', el)
+      .eq(2)
+      .children()
+      .eq(1)
+      .text()
+      .trim() as Scenarios;
+
+  return $('#edit_games [class="edit"][id^=edit_]')
     .toArray()
-    .forEach(el => {
+    .map(el => {
       const round = getRoundInfo(el);
-      console.log(round);
-    });
 
-  $('[class=pop][id^=details_]')
-    .toArray()
-    .forEach(el => {
-      $('.game', el)
+      const matches = $('.game', el)
         .toArray()
-        .forEach(game => {
-          const details = $('.details .item', game);
-          const roundNumber = Number(details.eq(1).children().eq(1).text());
-
+        .map(game => {
+          // Ids of the players playing against each other
           const ids = $('.results .player .id_number', game)
             .toArray()
             .map(pid => $(pid).text().replace('#', ''));
-
-          // Check if we already added the game
-          const matchId = toMatchId(roundNumber, ids);
-          if (games.has(matchId)) {
-            return;
-          }
-          // Add macht so we don't add it twice
-          games.add(matchId);
-
-          // Get or create round
-          const round =
-            rounds.get(roundNumber) ||
-            ({
-              'round-type': 'swiss',
-              'round-number': roundNumber,
-              matches: [],
-              scenario: details.eq(2).children().eq(1).text().trim(),
-            } as ListFortressRound);
-
+          // Player names
           const players = $('.results .player .player_link', game)
             .toArray()
             .map(p => $(p).text().trim());
@@ -193,21 +177,23 @@ export const parseRounds = ($: CheerioAPI) => {
             .toArray()
             .map(pid => Number($(pid).text()));
 
-          // Add match to round.
-          round.matches.push({
+          return {
             player1: players[0],
             'player1-id': ids[0],
             player1Points: score[0],
             player2: players[1] || 'BYE',
             'player2-id': ids[1],
             player2Points: score[1],
-          });
-
-          rounds.set(roundNumber, round);
+          };
         });
-    });
 
-  return [...rounds.values()];
+      return {
+        'round-type': round.type,
+        'round-number': round.number,
+        matches,
+        scenario: getScenario(el),
+      } satisfies ListFortressRound;
+    });
 };
 
 /**
