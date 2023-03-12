@@ -1,8 +1,8 @@
 import { redirect } from 'next/navigation';
 
 import { RECENT_EVENTS } from 'app/preload';
-import { Center, Container, Message } from 'components';
-import { getEventDataByVendor } from 'lib/get-event';
+import { Center, Container, Message } from '@/components';
+import { getEventDataByVendor } from '@/lib/get-event';
 
 // Friendly reminder: Don't use a barrel file! next doesn't like it!
 import { Filter } from './components/filter';
@@ -11,7 +11,7 @@ import { Squads } from './components/squads';
 import { Stats } from './components/stats';
 import { Tabs } from './components/tabs';
 import { PageHeader } from './components/page-header';
-import { PieChart, Squares } from 'components/icons';
+import { PieChart, Squares } from '@/components/icons';
 
 /**
  * Segment Config (see: https://beta.nextjs.org/docs/api-reference/segment-config)

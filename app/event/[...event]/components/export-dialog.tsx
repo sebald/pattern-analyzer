@@ -4,9 +4,9 @@ import { useState } from 'react';
 import useClipboard from 'react-use-clipboard';
 import useSWR from 'swr';
 
-import { Button, Dialog, Link, Message } from 'components';
-import { squadsToCSV, eventToListfortress } from 'lib/export';
-import type { EventData } from 'lib/types';
+import { Button, Dialog, Link, Message } from '@/components';
+import { squadsToCSV, eventToListfortress } from '@/lib/export';
+import type { EventData } from '@/lib/types';
 
 // Helper
 // ---------------

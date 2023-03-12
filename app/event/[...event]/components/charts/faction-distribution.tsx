@@ -2,9 +2,9 @@
 
 import { ResponsivePie } from '@nivo/pie';
 
-import { getFactionName } from 'lib/get-value';
-import { XWSFaction } from 'lib/types';
-import { Card } from 'components';
+import { getFactionName } from '@/lib/get-value';
+import { XWSFaction } from '@/lib/types';
+import { Card } from '@/components';
 import { FACTION_COLORS, toPercentage } from './shared';
 
 // Props

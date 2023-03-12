@@ -1,4 +1,4 @@
-import { Spinner } from 'components';
+import { Spinner } from '@/components';
 
 const Loading = () => (
   <div className="grid min-h-screen place-items-center">

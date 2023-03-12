@@ -1,6 +1,6 @@
-import { Caption, Link, Title, Inline, Button } from 'components';
-import { Trophy, Computed, Export } from 'components/icons';
-import type { EventData } from 'lib/types';
+import { Caption, Link, Title, Inline, Button } from '@/components';
+import { Trophy, Computed, Export } from '@/components/icons';
+import type { EventData } from '@/lib/types';
 
 import { AboutParsingDialog } from './about-parsing-dialog';
 import { ExportDialog } from './export-dialog';

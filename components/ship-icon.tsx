@@ -1,6 +1,6 @@
 import { xwingShips } from 'app/fonts';
-import icons from 'lib/data/ship-icons.json';
-import { cn } from 'lib/utils';
+import icons from '@/lib/data/ship-icons.json';
+import { cn } from '@/lib/utils';
 
 export interface ShipIconProps extends React.ComponentPropsWithoutRef<'span'> {
   ship: string;

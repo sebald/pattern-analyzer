@@ -1,8 +1,8 @@
 import { Fragment, useState } from 'react';
 
-import { Card, FactionSelection, Select, ShipIcon, Table } from 'components';
-import type { XWSFaction } from 'lib/types';
-import { getPilotName } from 'lib/get-value';
+import { Card, FactionSelection, Select, ShipIcon, Table } from '@/components';
+import type { XWSFaction } from '@/lib/types';
+import { getPilotName } from '@/lib/get-value';
 import { PilotStatData, toPercentage } from './shared';
 
 export interface PilotStatsProps {

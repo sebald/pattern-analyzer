@@ -1,5 +1,5 @@
-import { getPilotName, getShipName, getUpgradeName } from 'lib/get-value';
-import type { XWSSquad, XWSUpgrades } from 'lib/types';
+import { getPilotName, getShipName, getUpgradeName } from '@/lib/get-value';
+import type { XWSSquad, XWSUpgrades } from '@/lib/types';
 
 const upgradesToList = (upgrades: XWSUpgrades) =>
   (Object.entries(upgrades) as [keyof XWSUpgrades, string[]][])

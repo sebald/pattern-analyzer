@@ -1,6 +1,6 @@
 'use client';
 
-import { Message } from 'components';
+import { Message } from '@/components';
 
 export interface ErrorProps {
   error: Error;

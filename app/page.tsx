@@ -1,6 +1,6 @@
-import { getEventInfoByVendor } from 'lib/get-event';
-import { Card, Container, Link, Logo } from 'components';
-import { List } from 'components/list';
+import { getEventInfoByVendor } from '@/lib/get-event';
+import { Card, Container, Link, Logo } from '@/components';
+import { List } from '@/components/list';
 
 import { montserrat } from './fonts';
 import { RECENT_EVENTS } from './preload';

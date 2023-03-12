@@ -1,4 +1,4 @@
-import { Container, Headline, Link, List, Text, Title } from 'components';
+import { Container, Headline, Link, List, Text, Title } from '@/components';
 
 export const metadata = {
   title: 'Pattern Analyzer | About',

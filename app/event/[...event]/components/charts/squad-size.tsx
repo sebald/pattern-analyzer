@@ -1,6 +1,6 @@
 import { BarCustomLayer, ResponsiveBar } from '@nivo/bar';
 
-import { Card } from 'components';
+import { Card } from '@/components';
 import { calcWeightedAverage, toPercentage } from './shared';
 
 // Props

@@ -1,9 +1,9 @@
 'use client';
 
-import { Link, Message } from 'components';
-import type { Ships } from 'lib/get-value';
-import type { SquadData, XWSFaction, XWSUpgradeSlots } from 'lib/types';
-import { average, deviation, percentile, winrate, round } from 'lib/utils';
+import { Link, Message } from '@/components';
+import type { Ships } from '@/lib/get-value';
+import type { SquadData, XWSFaction, XWSUpgradeSlots } from '@/lib/types';
+import { average, deviation, percentile, winrate, round } from '@/lib/utils';
 
 import type { PilotStatData } from './charts/shared';
 import { FactionDistribution } from './charts/faction-distribution';

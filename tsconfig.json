@@ -19,7 +19,10 @@
         "name": "next"
       }
     ],
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    }
   },
   "include": [
     "next-env.d.ts",
@@ -27,6 +30,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "scripts/update-xwing-data.mjs"
-, "app/about"  ],
+  ],
   "exclude": ["node_modules"]
 }

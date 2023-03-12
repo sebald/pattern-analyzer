@@ -1,5 +1,5 @@
-import type { Ships } from 'lib/get-value';
-import type { XWSFaction } from 'lib/types';
+import type { Ships } from '@/lib/get-value';
+import type { XWSFaction } from '@/lib/types';
 
 export interface PilotStatData {
   ship: Ships;

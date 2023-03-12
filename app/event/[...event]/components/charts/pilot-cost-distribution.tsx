@@ -1,7 +1,7 @@
 import { linearGradientDef } from '@nivo/core';
 import { ResponsiveLine } from '@nivo/line';
 
-import { Card } from 'components';
+import { Card } from '@/components';
 import { calcWeightedAverage } from './shared';
 
 // Props

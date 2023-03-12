@@ -1,7 +1,12 @@
 import { useState } from 'react';
-import { Card, FactionSelection, List, UpgradeSlotSelection } from 'components';
-import type { XWSFaction, XWSUpgrades, XWSUpgradeSlots } from 'lib/types';
-import { getUpgradeName } from 'lib/get-value';
+import {
+  Card,
+  FactionSelection,
+  List,
+  UpgradeSlotSelection,
+} from '@/components';
+import type { XWSFaction, XWSUpgrades, XWSUpgradeSlots } from '@/lib/types';
+import { getUpgradeName } from '@/lib/get-value';
 
 export interface UpgradeSummaryProps {
   value: {

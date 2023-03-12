@@ -1,4 +1,4 @@
-import { XWSUpgradeSlots } from 'lib/types';
+import { XWSUpgradeSlots } from '@/lib/types';
 import { Select } from './select';
 
 const SLOTS = [

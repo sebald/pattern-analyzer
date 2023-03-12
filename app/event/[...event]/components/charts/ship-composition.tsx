@@ -1,5 +1,5 @@
-import { Card, List, ShipIcon } from 'components';
-import { getShipName } from 'lib/get-value';
+import { Card, List, ShipIcon } from '@/components';
+import { getShipName } from '@/lib/get-value';
 import { toPercentage } from './shared';
 
 export interface ShipCompositionProps {

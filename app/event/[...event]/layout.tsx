@@ -1,4 +1,4 @@
-import { Link, Logo } from 'components';
+import { Link, Logo } from '@/components';
 
 export interface LayoutProps {
   children: React.ReactNode;
