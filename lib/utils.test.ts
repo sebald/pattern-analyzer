@@ -1,4 +1,11 @@
-import { average, deviation, percentile, performance, prefix } from './utils';
+import {
+  average,
+  deviation,
+  percentile,
+  winrate,
+  prefix,
+  round,
+} from './utils';
 
 test('return common prefix of string', () => {
   expect(prefix('abc', 'abc')).toEqual('abc');
@@ -8,37 +15,40 @@ test('return common prefix of string', () => {
   expect(prefix('zbc', 'abc')).toEqual('');
 });
 
+test('round number', () => {
+  expect(round(0, 2)).toMatchInlineSnapshot(`0`);
+  expect(round(0, 4)).toMatchInlineSnapshot(`0`);
+});
+
 test('calcualte average', () => {
   expect(average([1, 1, 1])).toMatchInlineSnapshot(`1`);
   expect(average([1, 3, 2])).toMatchInlineSnapshot(`2`);
   expect(average([3, 3, 3])).toMatchInlineSnapshot(`3`);
   expect(average([1, 10])).toMatchInlineSnapshot(`5.5`);
+
+  expect(average([])).toMatchInlineSnapshot(`0`);
 });
 
 test('calculate performance', () => {
-  expect(performance([{ wins: 3, ties: 0, losses: 0 }])).toMatchInlineSnapshot(
-    `1`
-  );
-  expect(performance([{ wins: 0, ties: 2, losses: 1 }])).toMatchInlineSnapshot(
-    `0`
-  );
-  expect(performance([{ wins: 3, ties: 2, losses: 1 }])).toMatchInlineSnapshot(
+  expect(winrate([{ wins: 3, ties: 0, losses: 0 }])).toMatchInlineSnapshot(`1`);
+  expect(winrate([{ wins: 0, ties: 2, losses: 1 }])).toMatchInlineSnapshot(`0`);
+  expect(winrate([{ wins: 3, ties: 2, losses: 1 }])).toMatchInlineSnapshot(
     `0.5`
   );
   expect(
-    performance([
+    winrate([
       { wins: 3, ties: 0, losses: 0 },
       { wins: 3, ties: 0, losses: 0 },
     ])
   ).toMatchInlineSnapshot(`1`);
   expect(
-    performance([
+    winrate([
       { wins: 3, ties: 0, losses: 0 },
       { wins: 0, ties: 0, losses: 3 },
     ])
   ).toMatchInlineSnapshot(`0.5`);
   expect(
-    performance([
+    winrate([
       { wins: 1, ties: 2, losses: 0 },
       { wins: 2, ties: 1, losses: 1 },
     ])
