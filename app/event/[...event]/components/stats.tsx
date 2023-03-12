@@ -3,7 +3,7 @@
 import { Link, Message } from 'components';
 import type { Ships } from 'lib/get-value';
 import type { SquadData, XWSFaction, XWSUpgradeSlots } from 'lib/types';
-import { average, deviation, percentile, performance, round } from 'lib/utils';
+import { average, deviation, percentile, winrate, round } from 'lib/utils';
 
 import type { PilotStatData } from './charts/shared';
 import { FactionDistribution } from './charts/faction-distribution';
@@ -229,7 +229,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
       );
 
       stat.frequency = round(stat.count / factionDistribution[faction], 4);
-      stat.winrate = performance(stat.records);
+      stat.winrate = winrate(stat.records);
       stat.percentile = average(pcs, 4);
       stat.deviation = deviation(pcs, 4);
 

@@ -28,6 +28,9 @@ export const shortenTitles = (...titles: string[]) => {
 export const round = (val: number, digits: number) =>
   Number(val.toFixed(digits));
 
+/**
+ * Calculate average (not weighted).
+ */
 export const average = (vals: number[], digits = 2) =>
   round(
     vals.length ? vals.reduce((sum, n) => sum + n, 0) / vals.length : 0,
@@ -35,9 +38,9 @@ export const average = (vals: number[], digits = 2) =>
   );
 
 /**
- * Calculate performance (win %).
+ * Calculate winrate (in %).
  */
-export const performance = (
+export const winrate = (
   records: { wins: number; ties: number; losses: number }[]
 ) => {
   let wins = 0;

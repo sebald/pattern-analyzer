@@ -2,7 +2,7 @@ import {
   average,
   deviation,
   percentile,
-  performance,
+  winrate,
   prefix,
   round,
 } from './utils';
@@ -30,29 +30,25 @@ test('calcualte average', () => {
 });
 
 test('calculate performance', () => {
-  expect(performance([{ wins: 3, ties: 0, losses: 0 }])).toMatchInlineSnapshot(
-    `1`
-  );
-  expect(performance([{ wins: 0, ties: 2, losses: 1 }])).toMatchInlineSnapshot(
-    `0`
-  );
-  expect(performance([{ wins: 3, ties: 2, losses: 1 }])).toMatchInlineSnapshot(
+  expect(winrate([{ wins: 3, ties: 0, losses: 0 }])).toMatchInlineSnapshot(`1`);
+  expect(winrate([{ wins: 0, ties: 2, losses: 1 }])).toMatchInlineSnapshot(`0`);
+  expect(winrate([{ wins: 3, ties: 2, losses: 1 }])).toMatchInlineSnapshot(
     `0.5`
   );
   expect(
-    performance([
+    winrate([
       { wins: 3, ties: 0, losses: 0 },
       { wins: 3, ties: 0, losses: 0 },
     ])
   ).toMatchInlineSnapshot(`1`);
   expect(
-    performance([
+    winrate([
       { wins: 3, ties: 0, losses: 0 },
       { wins: 0, ties: 0, losses: 3 },
     ])
   ).toMatchInlineSnapshot(`0.5`);
   expect(
-    performance([
+    winrate([
       { wins: 1, ties: 2, losses: 0 },
       { wins: 2, ties: 1, losses: 1 },
     ])
