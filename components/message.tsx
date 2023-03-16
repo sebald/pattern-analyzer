@@ -1,5 +1,5 @@
 import { cva, VariantProps } from 'class-variance-authority';
-import { Failure, Info } from './icons';
+import { Failure, Info, Warning } from './icons';
 import { Link, LinksProps } from './link';
 
 // Message.Title
@@ -72,6 +72,7 @@ const styles = cva(['flex gap-1 rounded-md p-4'], {
     variant: {
       info: 'bg-primary-200 text-primary-600',
       error: 'bg-red-200 text-red-500',
+      warning: 'bg-amber-200 text-amber-800',
     },
     size: {
       regular: 'text-sm',
@@ -94,6 +95,7 @@ const styles = cva(['flex gap-1 rounded-md p-4'], {
 const ICON_MAP = {
   info: Info,
   error: Failure,
+  warning: Warning,
   none: () => null,
 };
 

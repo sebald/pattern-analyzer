@@ -1,5 +1,5 @@
 import { Caption, Link, Title, Inline, Button } from '@/components';
-import { Trophy, Computed, Export } from '@/components/icons';
+import { Trophy, Computed, Download } from '@/components/icons';
 import type { EventData } from '@/lib/types';
 
 import { AboutParsingDialog } from './about-parsing-dialog';
@@ -30,7 +30,7 @@ export const PageHeader = ({ event }: HeaderProps) => {
           </Inline>
           <ExportDialog event={event}>
             <Button className="whitespace-nowrap" variant="link" size="inherit">
-              <Export className="h-3 w-3" /> Export
+              <Download className="h-3 w-3" /> Export
             </Button>
           </ExportDialog>
         </Inline>
