@@ -40,7 +40,7 @@ specifiers:
   xwing-data2: github:guidokessels/xwing-data2#f1e22d9
   yasb: github:raithos/xwing#d7a5f2f
   zod: ^3.20.6
-  zx: 7.2.0
+  zx: 7.2.1
 
 dependencies:
   '@nivo/bar': 0.80.0_wyuiu3ihipn7hpncy62nqhyrji
@@ -84,7 +84,7 @@ devDependencies:
   typescript: 4.9.5
   xwing-data2: github.com/guidokessels/xwing-data2/f1e22d9
   yasb: github.com/raithos/xwing/d7a5f2f
-  zx: 7.2.0
+  zx: 7.2.1
 
 packages:
 
@@ -6002,8 +6002,8 @@ packages:
     resolution: {integrity: sha512-oyu0m54SGCtzh6EClBVqDDlAYRz4jrVtKwQ7ZnsEmMI9HnzuZFj8QFwAY1M5uniIYACdGvv0PBWPF2kO0aNofA==}
     dev: false
 
-  /zx/7.2.0:
-    resolution: {integrity: sha512-SMuOZ21zFnBxicw+WMtTv3z3eERh6KBtZExAJaL8EAV+Ev/3M1NIAOkrZ8kRfCzD9acv9heUH/WZctTR4vQxBQ==}
+  /zx/7.2.1:
+    resolution: {integrity: sha512-TgKwppaMLMNAXHhlhbBh7rMoOSx3/9qqnkv8frmhVlSomEuWkDijh/BCmYntkoS7ZQyemApAUyEi24jIrrS+hA==}
     engines: {node: '>= 16.0.0'}
     hasBin: true
     dependencies:
