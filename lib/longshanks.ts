@@ -9,6 +9,33 @@ import type {
 import { getBuilderLink, toXWS } from './xws';
 import { yasb2xws, YASB_URL_REGEXP } from './yasb';
 
+export const getEventHtml = async (id: string) => {
+  const url = `https://longshanks.org/events/detail/?event=${id}`;
+  const res = await fetch(url);
+
+  if (!res.ok) {
+    throw new Error(`Failed to fetch event data... (${id})`);
+  }
+
+  const html = await res.text();
+  return { url, html };
+};
+
+export const getEventSection = async (
+  id: string,
+  section: 'player' | 'player_cut'
+) => {
+  const res = await fetch(
+    `https://longshanks.org/events/detail/panel_standings.php?event=${id}&section=${section}`
+  );
+
+  if (!res.ok) {
+    throw new Error(`Failed to fetch section data... (${id}, ${section})`);
+  }
+
+  return await res.text();
+};
+
 export const getXWS = (raw: string) => {
   // Remove new lines, makes it easier to regex on it
   const val = raw.replace(/(\r\n|\n|\r)/gm, '');
@@ -64,7 +91,14 @@ export const parseDescription = ($: CheerioAPI) => {
  * Scrape player data. Note that longshanks handles teams the same
  * way but we can later connect the "real" players via ids from lists.
  */
-export const parsePlayerInfo = ($: CheerioAPI): PlayerData[] => {
+export const parsePlayerInfo = async (id: string): Promise<PlayerData[]> => {
+  // Fetch partial HTML
+  const [playerHtml, cutHtml] = await Promise.all([
+    getEventSection(id, 'player'),
+    getEventSection(id, 'player_cut'),
+  ]);
+  const $ = load(playerHtml);
+
   // Helpers
   const getPlayerId = (el: Element) =>
     $('.id_number', el).first().text().replace('#', '');
@@ -85,7 +119,7 @@ export const parsePlayerInfo = ($: CheerioAPI): PlayerData[] => {
 
   // Cut data
   const cut = new Map<string, number>();
-  $('#edit_player_cut .player .data')
+  load(cutHtml)('.player .data')
     .toArray()
     .map(el => {
       const id = getPlayerId(el);
@@ -95,7 +129,7 @@ export const parsePlayerInfo = ($: CheerioAPI): PlayerData[] => {
     });
 
   // Swiss data
-  return $('#edit_player .player .data')
+  return $('.player .data')
     .toArray()
     .map(el => {
       const id = getPlayerId(el);
@@ -234,18 +268,6 @@ export const parseSquads = (
       };
     });
 
-export const getEventHtml = async (id: string) => {
-  const url = `https://longshanks.org/events/detail/?event=${id}`;
-  const res = await fetch(url);
-
-  if (!res.ok) {
-    throw new Error(`Failed to fetch event data... (${id})`);
-  }
-
-  const html = await res.text();
-  return { url, html };
-};
-
 /**
  * Fetch an event page from longhanks and scrape title and
  * event data.
@@ -255,7 +277,7 @@ export const getEvent = async (id: string) => {
   const $ = load(html);
 
   const title = parseTitle($);
-  const players = parsePlayerInfo($);
+  const players = await parsePlayerInfo(id);
   const squads = parseSquads($, players);
   const rounds = parseRounds($);
 
