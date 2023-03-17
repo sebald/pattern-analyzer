@@ -9,9 +9,18 @@ const styles = cva(['leading-6]'], {
       half: '[&:not(:last-child)]:mb-3',
       none: '',
     },
+    size: {
+      regular: '',
+      large: 'text-lg',
+    },
+    prose: {
+      true: 'prose',
+    },
   },
   defaultVariants: {
     space: 'default',
+    size: 'regular',
+    prose: false,
   },
 });
 
@@ -25,7 +34,18 @@ export interface TextProps extends VariantProps<typeof styles> {
 
 // Component
 // ---------------
-export const Text = ({ as = 'p', space, className, children }: TextProps) => {
+export const Text = ({
+  as = 'p',
+  space,
+  size,
+  prose,
+  className,
+  children,
+}: TextProps) => {
   const Element = as as keyof JSX.IntrinsicElements;
-  return <Element className={styles({ space, className })}>{children}</Element>;
+  return (
+    <Element className={styles({ space, size, prose, className })}>
+      {children}
+    </Element>
+  );
 };
