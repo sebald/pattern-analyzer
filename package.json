@@ -55,6 +55,6 @@
     "typescript": "4.9.5",
     "xwing-data2": "github:guidokessels/xwing-data2#f1e22d9",
     "yasb": "github:raithos/xwing#d7a5f2f",
-    "zx": "7.2.0"
+    "zx": "7.2.1"
   }
 }
