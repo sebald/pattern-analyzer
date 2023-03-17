@@ -9,6 +9,7 @@ const styles = {
       enumeration: {
         default: 'divide-y divide-secondary-100',
         enum: 'list-disc pl-4',
+        decimal: 'list-decimal pl-4',
       },
     },
     defaultVariants: {
@@ -58,18 +59,22 @@ export const List = ({
   enumeration,
   className,
   children,
-}: ListProps) => (
-  <ul className={styles.list({ enumeration, className })}>
-    {React.Children.map(children, child => {
-      if (React.isValidElement(child)) {
-        return React.cloneElement(child, {
-          variant,
-          ...child.props,
-        });
-      }
-      return child;
-    })}
-  </ul>
-);
+}: ListProps) => {
+  const Element = enumeration === 'decimal' ? 'ol' : 'ul';
+
+  return (
+    <Element className={styles.list({ enumeration, className })}>
+      {React.Children.map(children, child => {
+        if (React.isValidElement(child)) {
+          return React.cloneElement(child, {
+            variant,
+            ...child.props,
+          });
+        }
+        return child;
+      })}
+    </Element>
+  );
+};
 
 List.Item = ListItem;

@@ -4,7 +4,7 @@ import { montserrat } from '@/app/fonts';
 
 // Styles
 // ---------------
-const styles = cva([`${montserrat.className} scroll-m-20`], {
+const styles = cva(['scroll-m-20'], {
   variants: {
     level: {
       '1': 'text-4xl font-extrabold lg:text-5xl tracking-tight',
@@ -13,9 +13,14 @@ const styles = cva([`${montserrat.className} scroll-m-20`], {
       '4': 'text-xl font-bold',
       '5': 'text-base font-bold',
     },
+    font: {
+      headline: `${montserrat.className}`,
+      inherit: '',
+    },
   },
   defaultVariants: {
     level: '1',
+    font: 'headline',
   },
 });
 
@@ -32,13 +37,14 @@ export interface HeadlineProps
 // ---------------
 export const Headline = ({
   level,
+  font,
   className,
   children,
   ...props
 }: HeadlineProps) => {
   const Element = `h${level}` as any;
   return (
-    <Element className={styles({ level, className })} {...props}>
+    <Element className={styles({ level, font, className })} {...props}>
       {children}
     </Element>
   );

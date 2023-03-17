@@ -67,7 +67,7 @@ const MessageFooter = ({ children }: MessageFooterProps) => (
 
 // Styles
 // ---------------
-const styles = cva(['flex gap-1 rounded-md p-4'], {
+const styles = cva(['flex gap-1 rounded-md'], {
   variants: {
     variant: {
       info: 'bg-primary-200 text-primary-600',
@@ -75,8 +75,8 @@ const styles = cva(['flex gap-1 rounded-md p-4'], {
       warning: 'bg-amber-200 text-amber-800',
     },
     size: {
-      regular: 'text-sm',
-      large: 'text-base',
+      regular: 'text-sm p-4',
+      large: 'text-base py-5 px-6',
     },
     align: {
       left: '',
