@@ -9,6 +9,8 @@ import type {
 import { getBuilderLink, toXWS } from './xws';
 import { yasb2xws, YASB_URL_REGEXP } from './yasb';
 
+// Fetch
+// ---------------
 export const getEventHtml = async (id: string) => {
   const url = `https://longshanks.org/events/detail/?event=${id}`;
   const res = await fetch(url);
@@ -34,6 +36,60 @@ export const getEventSection = async (
   }
 
   return await res.text();
+};
+
+export const getEventRounds = async (
+  id: string,
+  info: { swiss: number; cut: number }
+) => {
+  const allRounds = [
+    ...Array.from({ length: info.swiss }, (_, i) => i + 1),
+    ...Array.from({ length: info.cut }, (_, i) => (i + 1) * -1),
+  ];
+  const result = await Promise.all(
+    allRounds.map(async round => {
+      const res = await fetch(
+        `https://longshanks.org/events/detail/games/round.php?event=${id}&round=${round}&rounds=${info.swiss}&cut=${info.cut}`
+      );
+
+      if (!res.ok) {
+        throw new Error('Failed to fetch round from longshanks...');
+      }
+
+      return res.text();
+    })
+  );
+
+  return result.map(
+    (html, idx) =>
+      ({
+        type: allRounds[idx] > 0 ? 'swiss' : 'elimination',
+        number: Math.abs(allRounds[idx]),
+        html,
+      } as const)
+  );
+};
+
+// Helpers
+// ---------------
+export const getRoundsInfoFromHTML = (html: string) => {
+  try {
+    const { args } = html.match(
+      /load\("\/events\/detail\/games\/round\.php\?(?<args>.*)\)/
+    )!.groups!;
+
+    // Get round and cut number from args (cut is optional)
+    const { swiss, cut } = args.match(
+      /(?<swiss>\d+)(&cut=(?<cut>\d+))?\s#games/
+    )!.groups!;
+    return {
+      swiss: Number(swiss),
+      cut: Number(cut) || 0,
+    };
+  } catch {
+    console.log('Oh noes... the round info regex does not work anymore!');
+    return { swiss: 0, cut: 0 };
+  }
 };
 
 export const getXWS = (raw: string) => {
@@ -66,6 +122,8 @@ export const getXWS = (raw: string) => {
   return { xws: null, url };
 };
 
+// Parsers
+// ---------------
 /**
  * Scrape event title from meta tag.
  */
@@ -170,64 +228,59 @@ export const parsePlayerInfo = async (id: string): Promise<PlayerData[]> => {
 /**
  * Iterate over all the popups to find the games played by each player.
  */
-export const parseRounds = ($: CheerioAPI) => {
-  const getRoundInfo = (el: Element) => {
-    const id = el.attribs.id;
-    return {
-      type: id.includes('cut') ? 'elimination' : 'swiss',
-      number: Number((id.match(/\d+$/) || ['0'])[0]),
-    } as const;
-  };
+export const parseRounds = async (
+  id: string,
+  info: { swiss: number; cut: number }
+) => {
+  const rounds = await getEventRounds(id, info);
 
-  /**
-   * Get scenario from first game. We except the same
-   * scenario is played in each round
-   */
-  const getScenario = (el: Element) =>
-    $('.game .details .item', el)
-      .eq(2)
+  return rounds.map(({ type, number, html }) => {
+    const $ = load(html);
+    const games = $('.game');
+
+    /**
+     * Get scenario from first game. We except the same
+     * scenario is played in each game of the round.
+     */
+    const scenario = games
+      .first()
+      .find('.details:last-child')
+      .find('.item')
       .children()
-      .eq(1)
+      .last()
       .text()
       .trim() as Scenarios;
 
-  return $('#edit_games [class="edit"][id^=edit_]')
-    .toArray()
-    .map(el => {
-      const round = getRoundInfo(el);
-
-      const matches = $('.game', el)
+    const matches = games.toArray().map(game => {
+      // Ids of the players playing against each other
+      const ids = $('.results .player .id_number', game)
         .toArray()
-        .map(game => {
-          // Ids of the players playing against each other
-          const ids = $('.results .player .id_number', game)
-            .toArray()
-            .map(pid => $(pid).text().replace('#', ''));
-          // Player names
-          const players = $('.results .player .player_link', game)
-            .toArray()
-            .map(p => $(p).text().trim());
-          const score = $('.results .player .score', game)
-            .toArray()
-            .map(pid => Number($(pid).text()));
-
-          return {
-            player1: players[0],
-            'player1-id': ids[0],
-            player1Points: score[0],
-            player2: players[1] || 'BYE',
-            'player2-id': ids[1],
-            player2Points: score[1],
-          };
-        });
+        .map(pid => $(pid).text().replace('#', ''));
+      // Player names
+      const players = $('.results .player .player_link', game)
+        .toArray()
+        .map(p => $(p).text().trim());
+      const score = $('.results .player .score', game)
+        .toArray()
+        .map(pid => Number($(pid).text()));
 
       return {
-        'round-type': round.type,
-        'round-number': round.number,
-        matches,
-        scenario: getScenario(el),
-      } satisfies ListFortressRound;
+        player1: players[0],
+        'player1-id': ids[0],
+        player1Points: score[0],
+        player2: players[1] || 'BYE',
+        'player2-id': ids[1],
+        player2Points: score[1],
+      };
     });
+
+    return {
+      'round-type': type,
+      'round-number': number,
+      matches,
+      scenario,
+    } satisfies ListFortressRound;
+  });
 };
 
 /**
@@ -268,6 +321,8 @@ export const parseSquads = (
       };
     });
 
+// API
+// ---------------
 /**
  * Fetch an event page from longhanks and scrape title and
  * event data.
@@ -279,7 +334,7 @@ export const getEvent = async (id: string) => {
   const title = parseTitle($);
   const players = await parsePlayerInfo(id);
   const squads = parseSquads($, players);
-  const rounds = parseRounds($);
+  const rounds = await parseRounds(id, getRoundsInfoFromHTML(html));
 
   return { id, url, title, squads, rounds };
 };
