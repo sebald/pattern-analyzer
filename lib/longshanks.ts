@@ -3,6 +3,7 @@ import { load, CheerioAPI, Element } from 'cheerio';
 import type {
   ListFortressRound,
   PlayerData,
+  PlayerRecord,
   Scenarios,
   SquadData,
 } from './types';
@@ -174,16 +175,26 @@ export const parsePlayerInfo = async (id: string): Promise<PlayerData[]> => {
       dropped: groups.info === 'drop',
     };
   };
+  const combineRecords = (swiss: PlayerRecord, cut?: PlayerRecord) =>
+    ({
+      wins: swiss.wins + (cut?.wins || 0),
+      ties: swiss.ties + (cut?.ties || 0),
+      losses: swiss.losses + (cut?.losses || 0),
+    } satisfies PlayerRecord);
 
   // Cut data
-  const cut = new Map<string, number>();
+  const cut = new Map<string, { rank: number; record: PlayerRecord }>();
   load(cutHtml)('.player .data')
     .toArray()
     .map(el => {
       const id = getPlayerId(el);
       const { rank } = getRankingInfo(el);
-
-      cut.set(id, rank);
+      const record = {
+        wins: Number($('.wins', el).first().text().trim()),
+        ties: Number($('.ties', el).first().text().trim()),
+        losses: Number($('.loss', el).first().text().trim()),
+      };
+      cut.set(id, { rank, record });
     });
 
   // Swiss data
@@ -194,7 +205,7 @@ export const parsePlayerInfo = async (id: string): Promise<PlayerData[]> => {
       const player = $('.player_link', el).first().text();
 
       const { rank: swiss, dropped } = getRankingInfo(el);
-      const elimination = cut.get(id);
+      const cutInfo = cut.get(id);
 
       const points = Number($('.stat.mono.skinny.desktop', el).first().text());
       const record = {
@@ -213,10 +224,10 @@ export const parsePlayerInfo = async (id: string): Promise<PlayerData[]> => {
         player,
         rank: {
           swiss,
-          elimination,
+          elimination: cutInfo?.rank,
         },
         points,
-        record,
+        record: combineRecords(record, cutInfo?.record),
         sos,
         missionPoints,
         mov,
