@@ -2,7 +2,7 @@ import { redirect } from 'next/navigation';
 
 import { RECENT_EVENTS } from 'app/preload';
 import { Center, Container, Message } from '@/components';
-import { Download, PieChart, Squares } from '@/components/icons';
+import { BarChart, Download, Lines } from '@/components/icons';
 import { getEventDataByVendor } from '@/lib/get-event';
 
 // Friendly reminder: Don't use a barrel file! next doesn't like it!
@@ -75,7 +75,7 @@ const Page = async ({ params }: PageProps) => {
               id: 'squads',
               content: (
                 <>
-                  <Squares className="h-4 w-4" />
+                  <Lines className="hidden h-5 w-5 sm:block" />
                   Squads
                 </>
               ),
@@ -84,7 +84,7 @@ const Page = async ({ params }: PageProps) => {
               id: 'stats',
               content: (
                 <>
-                  <PieChart className="h-4 w-4" />
+                  <BarChart className="hidden h-5 w-5 sm:block" />
                   Stats
                 </>
               ),
@@ -93,7 +93,7 @@ const Page = async ({ params }: PageProps) => {
               id: 'export',
               content: (
                 <>
-                  <Download className="h-4 w-4" />
+                  <Download className="hidden h-5 w-5 sm:block" />
                   Export
                 </>
               ),

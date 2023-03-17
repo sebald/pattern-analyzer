@@ -20,13 +20,13 @@ export const Tabs = ({ labels, defaultTab, children }: TabsProps) => {
   return (
     <Radix.Root defaultValue={defaultTab}>
       <Radix.List
-        className="flex flex-col items-stretch gap-2 text-sm font-medium md:flex-row md:items-center"
+        className="grid auto-cols-fr grid-flow-col gap-2 text-sm font-medium lg:text-lg"
         aria-label="Switch between content"
       >
         {labels.map(({ id, content }) => (
           <Radix.Trigger
             className={[
-              'flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-lg bg-primary-100 px-24 py-2 text-primary-500 hover:bg-primary-200 hover:text-primary-800 lg:flex-initial lg:px-32 lg:text-lg',
+              'flex cursor-pointer items-center justify-center gap-2 rounded-lg bg-primary-100 px-6 py-2 text-primary-500 hover:bg-primary-200 hover:text-primary-800 lg:px-32',
               'data-active:bg-primary-300 data-active:text-primary-800',
             ].join(' ')}
             key={`${id}-tab`}
@@ -36,7 +36,7 @@ export const Tabs = ({ labels, defaultTab, children }: TabsProps) => {
           </Radix.Trigger>
         ))}
       </Radix.List>
-      <div className="pt-20">
+      <div className="pt-14">
         {labels.map(({ id }, idx) => (
           <Radix.Content key={`${id}-content`} value={id}>
             {content[idx]}
