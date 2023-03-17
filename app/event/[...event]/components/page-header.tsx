@@ -1,9 +1,8 @@
-import { Caption, Link, Title, Inline, Button } from '@/components';
-import { Trophy, Computed, Export } from '@/components/icons';
+import { Caption, Link, Title, Inline } from '@/components';
+import { Trophy, Computed } from '@/components/icons';
 import type { EventData } from '@/lib/types';
 
 import { AboutParsingDialog } from './about-parsing-dialog';
-import { ExportDialog } from './export-dialog';
 
 export interface HeaderProps {
   event: EventData;
@@ -28,11 +27,6 @@ export const PageHeader = ({ event }: HeaderProps) => {
             <Computed className="h-3 w-3" /> {squadsWithXWS}/
             {event.squads.length} Squads parsed <AboutParsingDialog />
           </Inline>
-          <ExportDialog event={event}>
-            <Button className="whitespace-nowrap" variant="link" size="inherit">
-              <Export className="h-3 w-3" /> Export
-            </Button>
-          </ExportDialog>
         </Inline>
       </Caption>
     </header>
