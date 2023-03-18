@@ -77,7 +77,9 @@ export const SquadSize = ({ value, total }: SquadSizeProps) => {
           data={data}
           indexBy="size"
           keys={['count']}
-          valueFormat={value => `${value} (${toPercentage(value / total)})`}
+          valueFormat={value =>
+            value > 0 ? `${value} (${toPercentage(value / total)})` : ''
+          }
           labelSkipWidth={65}
           layers={[
             'grid',

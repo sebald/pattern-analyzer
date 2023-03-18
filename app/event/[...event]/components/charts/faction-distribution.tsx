@@ -38,10 +38,11 @@ export const FactionDistribution = ({
       <Card.Title>Faction Distribution</Card.Title>
       <div className="h-60 md:h-72">
         <ResponsivePie
-          data={data}
+          data={data.filter(({ value }) => value > 0)}
           valueFormat={value => toPercentage(value / total)}
           arcLinkLabel={({ data }) => FACTION_ABBR[data.id]}
           colors={{ datum: 'data.color' }}
+          sortByValue
           innerRadius={0.5}
           padAngle={0.5}
           cornerRadius={3}
