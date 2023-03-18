@@ -1,12 +1,11 @@
 'use client';
 
-import { ResponsiveBar } from '@nivo/bar';
+import { ResponsivePie } from '@nivo/pie';
 
 import { getFactionName } from '@/lib/get-value';
 import { XWSFaction } from '@/lib/types';
 import { Card } from '@/components';
-
-import { FACTION_ABBR, FACTION_COLORS, toPercentage } from './shared';
+import { FACTION_COLORS, toPercentage } from './shared';
 
 // Props
 // ---------------
@@ -21,56 +20,54 @@ export const FactionDistribution = ({
   value,
   total,
 }: FactionDistributionProps) => {
-  const data = Object.entries(value)
-    .map(([key, count]) => {
-      const faction = key as XWSFaction | 'unknown';
+  const data = (Object.entries(value) as [XWSFaction | 'unknown', number][])
+    .map(([faction, count]) => {
+      // Remove unknown if 0
+      if (faction === 'unknown' && count === 0) {
+        return null;
+      }
+
       return {
-        faction,
-        frequency: count / total,
-        count,
+        id: faction === 'unknown' ? 'Unknown' : getFactionName(faction),
+        label: faction, // Unused? Shouldn't this be the other way around!?
+        value: count,
+        color: FACTION_COLORS[faction],
       };
     })
-    // Remove "uknown" if everything was parsed!
-    .filter(({ faction, count }) => (faction !== 'unknown' ? true : count > 0));
+    .filter(Boolean) as {
+    id: string;
+    label: XWSFaction | 'unknown';
+    value: number;
+    color: string;
+  }[];
 
   return (
     <Card>
       <Card.Title>Faction Distribution</Card.Title>
       <div className="h-60 md:h-72">
-        <ResponsiveBar
-          data={data.sort((a, b) => a.count - b.count)}
-          indexBy="faction"
-          keys={['frequency']}
-          minValue={0}
-          valueFormat={toPercentage}
-          axisLeft={{
-            format: toPercentage,
-          }}
-          axisBottom={{
-            format: (faction: XWSFaction | 'unknown') => FACTION_ABBR[faction],
-          }}
-          colors={({ data }) => FACTION_COLORS[data.faction]}
-          padding={0.2}
-          margin={{ top: 10, right: 20, bottom: 20, left: 50 }}
+        <ResponsivePie
+          data={data}
+          valueFormat={value => toPercentage(value / total)}
           isInteractive={false}
+          margin={{ top: 20, right: 20, bottom: 40, left: 20 }}
+          colors={{ datum: 'data.color' }}
+          activeOuterRadiusOffset={8}
+          innerRadius={0.6}
+          padAngle={0.5}
+          cornerRadius={5}
           animate
         />
       </div>
       <Card.Footer>
         <div className="grid grid-cols-2 gap-2 px-1 pt-2 lg:grid-cols-3">
-          {data.map(({ faction, count }) => (
+          {data.map(({ id, value, color }) => (
             <div
-              key={faction}
+              key={id}
               className="flex items-center gap-1 text-xs text-secondary-900"
             >
-              <div
-                className="h-2 w-2"
-                style={{ background: FACTION_COLORS[faction] }}
-              />
-              <div className="font-medium">
-                {faction === 'unknown' ? 'Unknown' : getFactionName(faction)}:
-              </div>
-              {count}
+              <div className="h-2 w-2" style={{ background: color }} />
+              <div className="font-medium">{id}:</div>
+              {value}
             </div>
           ))}
         </div>
