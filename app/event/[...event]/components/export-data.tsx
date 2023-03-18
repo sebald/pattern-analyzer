@@ -151,6 +151,7 @@ export const Export = ({ event }: ExportProps) => {
           <Link
             variant="button"
             size="large"
+            className="w-full md:w-auto"
             href={`data:text/json;charset=utf-8,${encodeURIComponent(
               JSON.stringify(event.squads)
             )}`}
@@ -161,6 +162,7 @@ export const Export = ({ event }: ExportProps) => {
           <Link
             variant="button"
             size="large"
+            className="w-full md:w-auto"
             href={`data:text/plain;charset=utf-8,${squadsToCSV(event.squads)}`}
             download={`${event.title.replace(/\s/g, '_')}.csv`}
           >
