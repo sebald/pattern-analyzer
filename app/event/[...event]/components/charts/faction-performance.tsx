@@ -19,14 +19,19 @@ export interface FactionPerformanceProps {
 // Component
 // ---------------
 export const FactionPerformance = ({ value }: FactionPerformanceProps) => {
-  const data = Object.entries(value).map(([key, { percentile, deviation }]) => {
-    const faction = key as XWSFaction | 'unknown';
-    return {
-      faction,
-      percentile,
-      deviation,
-    };
-  });
+  const data = Object.entries(value)
+    .map(([key, { percentile, deviation }]) => {
+      const faction = key as XWSFaction | 'unknown';
+      return {
+        faction,
+        percentile,
+        deviation,
+      };
+    })
+    // Remove "uknown" if everything was parsed!
+    .filter(({ faction, percentile }) =>
+      faction !== 'unknown' ? true : percentile > 0
+    );
 
   return (
     <Card>

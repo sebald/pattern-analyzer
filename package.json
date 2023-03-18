@@ -17,7 +17,6 @@
     "@nivo/bar": "^0.80.0",
     "@nivo/core": "^0.80.0",
     "@nivo/line": "^0.80.0",
-    "@nivo/pie": "^0.80.0",
     "@radix-ui/react-dialog": "^1.0.2",
     "@radix-ui/react-tabs": "^1.0.2",
     "@vercel/analytics": "^0.1.8",
