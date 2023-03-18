@@ -8,7 +8,7 @@ const styles = {
     {
       variants: {
         variant: {
-          default: ['shadow shadow-secondary-200'],
+          default: ['shadow-card'],
         },
         inset: {
           default: ['px-3 pt-3 pb-2'],
