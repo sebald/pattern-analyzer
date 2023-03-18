@@ -70,8 +70,9 @@ const About = () => (
       <Text size="large" prose>
         Some squad lists may have been entered in a format that can not be
         analyzed by Pattern Analyzer and will be not considered in most of the
-        statistics. In other cases they will show up as “unknown” to indicate
-        how much of the information could be used to generate the statistic.
+        statistics. In other cases they will show up as “unknown” or “???” to
+        indicate how much of the information could be used to generate the
+        statistic.
       </Text>
 
       <Headline level="4">Terminology</Headline>

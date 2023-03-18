@@ -5,7 +5,7 @@ import { ResponsivePie } from '@nivo/pie';
 import { getFactionName } from '@/lib/get-value';
 import { XWSFaction } from '@/lib/types';
 import { Card } from '@/components';
-import { FACTION_COLORS, toPercentage } from './shared';
+import { FACTION_ABBR, FACTION_COLORS, toPercentage } from './shared';
 
 // Props
 // ---------------
@@ -21,22 +21,14 @@ export const FactionDistribution = ({
   total,
 }: FactionDistributionProps) => {
   const data = (Object.entries(value) as [XWSFaction | 'unknown', number][])
-    .map(([faction, count]) => {
-      // Remove unknown if 0
-      if (faction === 'unknown' && count === 0) {
-        return null;
-      }
-
-      return {
-        id: faction === 'unknown' ? 'Unknown' : getFactionName(faction),
-        label: faction, // Unused? Shouldn't this be the other way around!?
-        value: count,
-        color: FACTION_COLORS[faction],
-      };
-    })
-    .filter(Boolean) as {
-    id: string;
-    label: XWSFaction | 'unknown';
+    .map(([faction, count]) => ({
+      id: faction,
+      value: count,
+      color: FACTION_COLORS[faction],
+    }))
+    // Remove "uknown" if everything was parsed!
+    .filter(({ id, value }) => (id !== 'unknown' ? true : value > 0)) as {
+    id: XWSFaction | 'unknown';
     value: number;
     color: string;
   }[];
@@ -46,15 +38,16 @@ export const FactionDistribution = ({
       <Card.Title>Faction Distribution</Card.Title>
       <div className="h-60 md:h-72">
         <ResponsivePie
-          data={data}
+          data={data.filter(({ value }) => value > 0)}
           valueFormat={value => toPercentage(value / total)}
-          isInteractive={false}
-          margin={{ top: 20, right: 20, bottom: 40, left: 20 }}
+          arcLinkLabel={({ data }) => FACTION_ABBR[data.id]}
           colors={{ datum: 'data.color' }}
-          activeOuterRadiusOffset={8}
-          innerRadius={0.6}
+          sortByValue
+          innerRadius={0.5}
           padAngle={0.5}
-          cornerRadius={5}
+          cornerRadius={3}
+          margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
+          isInteractive={false}
           animate
         />
       </div>
@@ -66,7 +59,9 @@ export const FactionDistribution = ({
               className="flex items-center gap-1 text-xs text-secondary-900"
             >
               <div className="h-2 w-2" style={{ background: color }} />
-              <div className="font-medium">{id}:</div>
+              <div className="font-medium">
+                {id === 'unknown' ? 'Unknown' : getFactionName(id)}:
+              </div>
               {value}
             </div>
           ))}
