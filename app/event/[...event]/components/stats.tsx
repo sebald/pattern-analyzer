@@ -13,6 +13,7 @@ import { PilotStats } from './charts/pilot-stats';
 import { ShipComposition } from './charts/ship-composition';
 import { SquadSize } from './charts/squad-size';
 import { UpgradeSummary } from './charts/upgrade-summary';
+import { UpgradeStats } from './charts/upgrade-stats';
 
 // Hook
 // ---------------
@@ -176,7 +177,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
         ).forEach(([slot, us]) => {
           us.forEach(u => {
             // Stats overall
-            let upgradeInfo = upgradeStats['all'].get(u) || {
+            const upgradeAllInfo = upgradeStats['all'].get(u) || {
               slot,
               count: 0,
               records: [],
@@ -188,17 +189,17 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
               deviation: 0,
             };
             upgradeStats['all'].set(u, {
-              ...upgradeInfo,
-              count: upgradeInfo.count + 1,
-              records: [...upgradeInfo.records, squad.record],
+              ...upgradeAllInfo,
+              count: upgradeAllInfo.count + 1,
+              records: [...upgradeAllInfo.records, squad.record],
               ranks: [
-                ...upgradeInfo.ranks,
+                ...upgradeAllInfo.ranks,
                 squad.rank.elimination ?? squad.rank.swiss,
               ],
             });
 
             // Stats per faction
-            upgradeInfo = upgradeStats[faction].get(u) || {
+            const upgradeFactionInfo = upgradeStats[faction].get(u) || {
               slot,
               count: 0,
               records: [],
@@ -210,11 +211,11 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
               deviation: 0,
             };
             upgradeStats[faction].set(u, {
-              ...upgradeInfo,
-              count: upgradeInfo.count + 1,
-              records: [...upgradeInfo.records, squad.record],
+              ...upgradeFactionInfo,
+              count: upgradeFactionInfo.count + 1,
+              records: [...upgradeFactionInfo.records, squad.record],
               ranks: [
-                ...upgradeInfo.ranks,
+                ...upgradeFactionInfo.ranks,
                 squad.rank.elimination ?? squad.rank.swiss,
               ],
             });
@@ -325,6 +326,9 @@ export const Stats = ({ squads }: StatsProps) => {
       </div>
       <div className="col-span-full">
         <PilotStats value={data.pilotStats} />
+      </div>
+      <div className="col-span-full">
+        <UpgradeStats value={data.upgradeStats} />
       </div>
       <div className="md:col-span-6 lg:col-span-4">
         <UpgradeSummary value={data.upgradeStats} />
