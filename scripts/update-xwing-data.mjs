@@ -62,6 +62,7 @@ const EXTRA_UPGRADES = {
   vengeful: 'Vengeful',
   vectoredcannons: 'Vectored Cannons',
   r2a3: 'R2-A3',
+  l337sprogramming: 'L3-37’s Programming',
 };
 
 /**
