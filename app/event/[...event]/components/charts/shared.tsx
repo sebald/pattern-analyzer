@@ -17,6 +17,7 @@ export interface PilotStatData {
 export interface UpgradeData {
   slot: XWSUpgradeSlots;
   count: number;
+  lists: number;
   records: { wins: number; ties: number; losses: number }[];
   ranks: number[];
   frequency: number;

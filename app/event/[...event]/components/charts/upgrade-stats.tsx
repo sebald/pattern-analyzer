@@ -74,7 +74,7 @@ export const UpgradeStats = ({ value }: UpgradeStatsProps) => {
             <Fragment key={upgrade}>
               <Table.Cell variant="header">
                 <div className="text-sm font-bold">
-                  {getUpgradeName(upgrade)}
+                  {getUpgradeName(upgrade) || upgrade}
                 </div>
               </Table.Cell>
               <Table.Cell variant="number">
