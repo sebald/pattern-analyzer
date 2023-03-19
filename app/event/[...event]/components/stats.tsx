@@ -12,7 +12,6 @@ import { PilotCostDistribution } from './charts/pilot-cost-distribution';
 import { PilotStats } from './charts/pilot-stats';
 import { ShipComposition } from './charts/ship-composition';
 import { SquadSize } from './charts/squad-size';
-import { UpgradeSummary } from './charts/upgrade-summary';
 import { UpgradeStats } from './charts/upgrade-stats';
 
 // Hook
