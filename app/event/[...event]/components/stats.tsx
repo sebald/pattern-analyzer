@@ -132,23 +132,16 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
       // Use to store ships of the squad
       const ships: Ships[] = [];
       // Use to filter duplicated pilots (a.k.a. generics) and upgrades
-      const unique: string[] = [];
+      const unique = new Set<string>();
 
       squad.xws.pilots.forEach(pilot => {
         // Add ship
         ships.push(pilot.ship);
 
-        // Pilot was already added for this list
-        if (unique.includes(pilot.id)) {
-          // FIXME: Does this mean we don't consider generics that have
-          //        different loadouts!?
-          return;
-        }
-        unique.push(pilot.id);
-
         // Pilot stats
         const pilotInfo = pilotStats[faction].get(pilot.id) || {
           count: 0,
+          lists: 0,
           ship: pilot.ship,
           records: [],
           ranks: [],
@@ -160,6 +153,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
         };
         pilotStats[faction].set(pilot.id, {
           ...pilotInfo,
+          lists: unique.has(pilot.id) ? pilotInfo.lists : pilotInfo.lists + 1,
           count: pilotInfo.count + 1,
           records: [...pilotInfo.records, squad.record],
           ranks: [
@@ -171,6 +165,8 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
         // Pilot cost distribution
         const points = pilot.points as 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
         pilotCostDistribution[points] = pilotCostDistribution[points] + 1;
+
+        unique.add(pilot.id);
 
         // Upgrades stats
         (
@@ -193,9 +189,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
             upgradeStats['all'].set(u, {
               ...upgradeInfo,
               count: upgradeInfo.count + 1,
-              lists: unique.includes(u)
-                ? upgradeInfo.lists
-                : upgradeInfo.lists + 1,
+              lists: unique.has(u) ? upgradeInfo.lists : upgradeInfo.lists + 1,
               records: [...upgradeInfo.records, squad.record],
               ranks: [
                 ...upgradeInfo.ranks,
@@ -219,9 +213,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
             upgradeStats[faction].set(u, {
               ...upgradeInfo,
               count: upgradeInfo.count + 1,
-              lists: unique.includes(u)
-                ? upgradeInfo.lists
-                : upgradeInfo.lists + 1,
+              lists: unique.has(u) ? upgradeInfo.lists : upgradeInfo.lists + 1,
               records: [...upgradeInfo.records, squad.record],
               ranks: [
                 ...upgradeInfo.ranks,
@@ -230,7 +222,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
             });
 
             // Add upgrade to unique list so we now we added it to the "lists" field
-            unique.push(u);
+            unique.add(u);
           });
         });
       });
@@ -266,7 +258,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
         percentile(rank, numberOfSquads.total)
       );
 
-      stat.frequency = round(stat.count / factionDistribution[faction], 4);
+      stat.frequency = round(stat.lists / factionDistribution[faction], 4);
       stat.winrate = winrate(stat.records);
       stat.percentile = average(pcs, 4);
       stat.deviation = deviation(pcs, 4);

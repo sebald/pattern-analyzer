@@ -6,6 +6,7 @@ import type { XWSFaction, XWSUpgradeSlots } from '@/lib/types';
 export interface PilotStatData {
   ship: Ships;
   count: number;
+  lists: number;
   records: { wins: number; ties: number; losses: number }[];
   ranks: number[];
   frequency: number;
