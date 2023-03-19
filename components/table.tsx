@@ -35,7 +35,10 @@ export interface TableHeaderProps {
 
 export const TableHeader = ({ className, children }: TableHeaderProps) => (
   <div
-    className={cn('whitespace-nowrap px-4 pb-2 text-sm font-bold', className)}
+    className={cn(
+      'whitespace-nowrap px-4 pb-2 text-sm font-bold text-primary-800',
+      className
+    )}
   >
     {children}
   </div>

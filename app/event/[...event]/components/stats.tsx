@@ -343,10 +343,7 @@ export const Stats = ({ squads }: StatsProps) => {
       <div className="col-span-full">
         <UpgradeStats value={data.upgradeStats} />
       </div>
-      <div className="md:col-span-6 lg:col-span-4">
-        <UpgradeSummary value={data.upgradeStats} />
-      </div>
-      <div className="self-start md:col-span-6 lg:col-span-8">
+      <div className="self-start md:col-span-4">
         <ShipComposition
           value={data.shipComposition}
           total={data.numberOfSquads.xws}

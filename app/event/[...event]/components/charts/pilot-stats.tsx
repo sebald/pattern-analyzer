@@ -69,7 +69,9 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
             <Fragment key={pilot}>
               <Table.Cell variant="header">
                 <ShipIcon ship={stat.ship} className="w-5 text-xl" />
-                <div className="text-sm font-bold">{getPilotName(pilot)}</div>
+                <div className="text-sm font-semibold">
+                  {getPilotName(pilot)}
+                </div>
               </Table.Cell>
               <Table.Cell variant="number">
                 {toPercentage(stat.percentile)}
