@@ -61,6 +61,7 @@ const EXTRA_UPGRADES = {
   r5k6: 'R5-K6',
   vengeful: 'Vengeful',
   vectoredcannons: 'Vectored Cannons',
+  r2a3: 'R2-A3',
 };
 
 /**

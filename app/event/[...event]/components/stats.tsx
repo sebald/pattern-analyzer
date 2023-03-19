@@ -5,24 +5,19 @@ import type { Ships } from '@/lib/get-value';
 import type { SquadData, XWSFaction, XWSUpgradeSlots } from '@/lib/types';
 import { average, deviation, percentile, winrate, round } from '@/lib/utils';
 
-import type { PilotStatData } from './charts/shared';
+import type { PilotStatData, UpgradeData } from './charts/shared';
 import { FactionDistribution } from './charts/faction-distribution';
 import { FactionPerformance } from './charts/faction-performance';
 import { PilotCostDistribution } from './charts/pilot-cost-distribution';
 import { PilotStats } from './charts/pilot-stats';
 import { ShipComposition } from './charts/ship-composition';
 import { SquadSize } from './charts/squad-size';
-import { UpgradeSummary } from './charts/upgrade-summary';
+import { UpgradeStats } from './charts/upgrade-stats';
 
 // Hook
 // ---------------
 export interface UseSquadStatsProps {
   squads: SquadData[];
-}
-
-export interface UpgradeInfo {
-  slot: XWSUpgradeSlots;
-  count: number;
 }
 
 const useSquadStats = ({ squads }: UseSquadStatsProps) => {
@@ -102,16 +97,16 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
   // Number of squads with the same ships (key = ship ids separated by "|")
   const shipComposition = new Map<string, number>();
 
-  // Upgrades summary
-  const upgradeSummary = {
-    all: new Map<string, UpgradeInfo>(),
-    rebelalliance: new Map<string, UpgradeInfo>(),
-    galacticempire: new Map<string, UpgradeInfo>(),
-    scumandvillainy: new Map<string, UpgradeInfo>(),
-    resistance: new Map<string, UpgradeInfo>(),
-    firstorder: new Map<string, UpgradeInfo>(),
-    galacticrepublic: new Map<string, UpgradeInfo>(),
-    separatistalliance: new Map<string, UpgradeInfo>(),
+  // Upgrades stats
+  const upgradeStats = {
+    all: new Map<string, UpgradeData>(),
+    rebelalliance: new Map<string, UpgradeData>(),
+    galacticempire: new Map<string, UpgradeData>(),
+    scumandvillainy: new Map<string, UpgradeData>(),
+    resistance: new Map<string, UpgradeData>(),
+    firstorder: new Map<string, UpgradeData>(),
+    galacticrepublic: new Map<string, UpgradeData>(),
+    separatistalliance: new Map<string, UpgradeData>(),
   };
 
   squads.forEach(squad => {
@@ -136,22 +131,17 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     if (squad.xws && faction !== 'unknown') {
       // Use to store ships of the squad
       const ships: Ships[] = [];
-      // Use to filter duplicated pilots (a.k.a. generics)
-      const unique: string[] = [];
+      // Use to filter duplicated pilots (a.k.a. generics) and upgrades
+      const unique = new Set<string>();
 
       squad.xws.pilots.forEach(pilot => {
         // Add ship
         ships.push(pilot.ship);
 
-        // Pilot was already added for this list
-        if (unique.includes(pilot.id)) {
-          return;
-        }
-        unique.push(pilot.id);
-
         // Pilot stats
         const pilotInfo = pilotStats[faction].get(pilot.id) || {
           count: 0,
+          lists: 0,
           ship: pilot.ship,
           records: [],
           ranks: [],
@@ -163,6 +153,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
         };
         pilotStats[faction].set(pilot.id, {
           ...pilotInfo,
+          lists: unique.has(pilot.id) ? pilotInfo.lists : pilotInfo.lists + 1,
           count: pilotInfo.count + 1,
           records: [...pilotInfo.records, squad.record],
           ranks: [
@@ -175,24 +166,63 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
         const points = pilot.points as 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
         pilotCostDistribution[points] = pilotCostDistribution[points] + 1;
 
-        // Upgrades summary
+        unique.add(pilot.id);
+
+        // Upgrades stats
         (
           Object.entries(pilot.upgrades) as [XWSUpgradeSlots, string[]][]
         ).forEach(([slot, us]) => {
           us.forEach(u => {
-            let upgradeInfo = upgradeSummary['all'].get(u) || {
+            // Stats overall
+            let upgradeInfo = upgradeStats['all'].get(u) || {
               slot,
               count: 0,
+              lists: 0,
+              records: [],
+              ranks: [],
+              // Will be calculated at the end
+              frequency: 0,
+              winrate: 0,
+              percentile: 0,
+              deviation: 0,
             };
-            upgradeInfo.count = upgradeInfo.count + 1;
-            upgradeSummary['all'].set(u, upgradeInfo);
+            upgradeStats['all'].set(u, {
+              ...upgradeInfo,
+              count: upgradeInfo.count + 1,
+              lists: unique.has(u) ? upgradeInfo.lists : upgradeInfo.lists + 1,
+              records: [...upgradeInfo.records, squad.record],
+              ranks: [
+                ...upgradeInfo.ranks,
+                squad.rank.elimination ?? squad.rank.swiss,
+              ],
+            });
 
-            upgradeInfo = upgradeSummary[faction].get(u) || {
+            // Stats per faction
+            upgradeInfo = upgradeStats[faction].get(u) || {
               slot,
               count: 0,
+              lists: 0,
+              records: [],
+              ranks: [],
+              // Will be calculated at the end
+              frequency: 0,
+              winrate: 0,
+              percentile: 0,
+              deviation: 0,
             };
-            upgradeInfo.count = upgradeInfo.count + 1;
-            upgradeSummary[faction].set(u, upgradeInfo);
+            upgradeStats[faction].set(u, {
+              ...upgradeInfo,
+              count: upgradeInfo.count + 1,
+              lists: unique.has(u) ? upgradeInfo.lists : upgradeInfo.lists + 1,
+              records: [...upgradeInfo.records, squad.record],
+              ranks: [
+                ...upgradeInfo.ranks,
+                squad.rank.elimination ?? squad.rank.swiss,
+              ],
+            });
+
+            // Add upgrade to unique list so we now we added it to the "lists" field
+            unique.add(u);
           });
         });
       });
@@ -228,12 +258,33 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
         percentile(rank, numberOfSquads.total)
       );
 
-      stat.frequency = round(stat.count / factionDistribution[faction], 4);
+      stat.frequency = round(stat.lists / factionDistribution[faction], 4);
       stat.winrate = winrate(stat.records);
       stat.percentile = average(pcs, 4);
       stat.deviation = deviation(pcs, 4);
 
       stats.set(pilot, stat);
+    });
+  });
+
+  // Calculate performance and average percentile for upgrades
+  Object.keys(upgradeStats).forEach(k => {
+    const key = k as keyof typeof upgradeStats;
+    const stats = upgradeStats[key];
+
+    stats.forEach((stat, upgrade) => {
+      const pcs = stat.ranks.map(rank =>
+        percentile(rank, numberOfSquads.total)
+      );
+      const total =
+        key === 'all' ? numberOfSquads.xws : factionDistribution[key];
+
+      stat.frequency = round(stat.lists / total, 4);
+      stat.winrate = winrate(stat.records);
+      stat.percentile = average(pcs, 4);
+      stat.deviation = deviation(pcs, 4);
+
+      stats.set(upgrade, stat);
     });
   });
 
@@ -245,7 +296,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     pilotStats,
     pilotCostDistribution,
     shipComposition,
-    upgradeSummary,
+    upgradeStats,
   };
 };
 
@@ -280,10 +331,10 @@ export const Stats = ({ squads }: StatsProps) => {
       <div className="col-span-full">
         <PilotStats value={data.pilotStats} />
       </div>
-      <div className="md:col-span-6 lg:col-span-4">
-        <UpgradeSummary value={data.upgradeSummary} />
+      <div className="col-span-full">
+        <UpgradeStats value={data.upgradeStats} />
       </div>
-      <div className="self-start md:col-span-6 lg:col-span-8">
+      <div className="self-start md:col-span-4">
         <ShipComposition
           value={data.shipComposition}
           total={data.numberOfSquads.xws}
