@@ -99,28 +99,6 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
       },
     };
 
-  // Ranks per factions + percentiles
-  const factionRankings: { [Faction in XWSFaction | 'unknown']: number[] } = {
-    rebelalliance: [],
-    galacticempire: [],
-    scumandvillainy: [],
-    resistance: [],
-    firstorder: [],
-    galacticrepublic: [],
-    separatistalliance: [],
-    unknown: [],
-  };
-  const factionPerformance = {
-    rebelalliance: { percentile: 0, deviation: 0 },
-    galacticempire: { percentile: 0, deviation: 0 },
-    scumandvillainy: { percentile: 0, deviation: 0 },
-    resistance: { percentile: 0, deviation: 0 },
-    firstorder: { percentile: 0, deviation: 0 },
-    galacticrepublic: { percentile: 0, deviation: 0 },
-    separatistalliance: { percentile: 0, deviation: 0 },
-    unknown: { percentile: 0, deviation: 0 },
-  };
-
   // Number of ships per squads
   const squadSizes = {
     3: 0,
@@ -178,11 +156,11 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
 
     const faction = squad.xws ? squad.xws.faction : 'unknown';
 
-    // Faction Distribution
+    // Faction Stats
     factionStats[faction].count = factionStats[faction].count + 1;
-
-    // Faction Rank
-    factionRankings[faction].push(squad.rank.elimination ?? squad.rank.swiss);
+    factionStats[faction].ranks.push(
+      squad.rank.elimination ?? squad.rank.swiss
+    );
 
     // Squad Size
     if (squad.xws) {
@@ -298,16 +276,14 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
   });
 
   // Calculate percentile and deviation for factions
-  Object.keys(factionRankings).forEach(key => {
+  Object.keys(factionStats).forEach(key => {
     const faction = key as XWSFaction | 'unknown';
-    const ranks = factionRankings[faction];
+    const ranks = factionStats[faction].ranks;
 
     const pcs = ranks.map(rank => percentile(rank, numberOfSquads.total));
 
-    factionPerformance[faction] = {
-      percentile: average(pcs, 4),
-      deviation: deviation(pcs, 4),
-    };
+    factionStats[faction].percentile = average(pcs, 4);
+    factionStats[faction].deviation = deviation(pcs, 4);
   });
 
   // Calculate performance and average percentile for pilots
@@ -353,7 +329,6 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
   return {
     numberOfSquads,
     factionStats,
-    factionPerformance,
     squadSizes,
     pilotStats,
     pilotCostDistribution,
@@ -382,7 +357,7 @@ export const Stats = ({ squads }: StatsProps) => {
         />
       </div>
       <div className="md:col-span-6">
-        <FactionPerformance value={data.factionPerformance} />
+        <FactionPerformance value={data.factionStats} />
       </div>
       <div className="md:col-span-5">
         <SquadSize value={data.squadSizes} total={data.numberOfSquads.xws} />
