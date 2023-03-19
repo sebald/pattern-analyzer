@@ -1,6 +1,8 @@
 import type { Ships } from '@/lib/get-value';
-import type { XWSFaction } from '@/lib/types';
+import type { XWSFaction, XWSUpgradeSlots } from '@/lib/types';
 
+// Types
+// ---------------
 export interface PilotStatData {
   ship: Ships;
   count: number;
@@ -12,6 +14,19 @@ export interface PilotStatData {
   deviation: number;
 }
 
+export interface UpgradeData {
+  slot: XWSUpgradeSlots;
+  count: number;
+  records: { wins: number; ties: number; losses: number }[];
+  ranks: number[];
+  frequency: number;
+  percentile: number;
+  winrate: number;
+  deviation: number;
+}
+
+// Faction Values
+// ---------------
 export const FACTION_COLORS: { [key in XWSFaction | 'unknown']: string } = {
   rebelalliance: '#fca5a5',
   galacticempire: '#93c5fd',
@@ -34,6 +49,8 @@ export const FACTION_ABBR: { [key in XWSFaction | 'unknown']: string } = {
   unknown: '???',
 };
 
+// Helpers
+// ---------------
 export const toPercentage = (value: number) =>
   new Intl.NumberFormat('default', {
     style: 'percent',
