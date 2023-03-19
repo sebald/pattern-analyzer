@@ -161,6 +161,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     factionStats[faction].ranks.push(
       squad.rank.elimination ?? squad.rank.swiss
     );
+    factionStats[faction].records.push(squad.record);
 
     // Squad Size
     if (squad.xws) {
@@ -282,6 +283,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
 
     const pcs = ranks.map(rank => percentile(rank, numberOfSquads.total));
 
+    factionStats[faction].winrate = winrate(factionStats[faction].records);
     factionStats[faction].percentile = average(pcs, 4);
     factionStats[faction].deviation = deviation(pcs, 4);
   });
