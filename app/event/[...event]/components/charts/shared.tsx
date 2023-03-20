@@ -3,6 +3,15 @@ import type { XWSFaction, XWSUpgradeSlots } from '@/lib/types';
 
 // Types
 // ---------------
+export interface FactionStatData {
+  count: number;
+  records: { wins: number; ties: number; losses: number }[];
+  ranks: number[];
+  winrate: number;
+  percentile: number;
+  deviation: number;
+}
+
 export interface PilotStatData {
   ship: Ships;
   count: number;
@@ -11,8 +20,8 @@ export interface PilotStatData {
   ranks: number[];
   frequency: number;
   percentile: number;
-  winrate: number;
   deviation: number;
+  winrate: number;
 }
 
 export interface UpgradeData {
@@ -23,8 +32,8 @@ export interface UpgradeData {
   ranks: number[];
   frequency: number;
   percentile: number;
-  winrate: number;
   deviation: number;
+  winrate: number;
 }
 
 // Faction Values
