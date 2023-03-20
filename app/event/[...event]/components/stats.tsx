@@ -12,7 +12,6 @@ import type {
 } from './charts/shared';
 import { FactionDistribution } from './charts/faction-distribution';
 import { FactionPerformance } from './charts/faction-performance';
-import { FactionRecord } from './charts/faction-record';
 import { PilotCostDistribution } from './charts/pilot-cost-distribution';
 import { PilotStats } from './charts/pilot-stats';
 import { ShipComposition } from './charts/ship-composition';
