@@ -12,6 +12,7 @@ import type {
 } from './charts/shared';
 import { FactionDistribution } from './charts/faction-distribution';
 import { FactionPerformance } from './charts/faction-performance';
+import { FactionRecord } from './charts/faction-record';
 import { PilotCostDistribution } from './charts/pilot-cost-distribution';
 import { PilotStats } from './charts/pilot-stats';
 import { ShipComposition } from './charts/ship-composition';
@@ -361,6 +362,9 @@ export const Stats = ({ squads }: StatsProps) => {
       <div className="md:col-span-6">
         <FactionPerformance value={data.factionStats} />
       </div>
+      {/* <div className="md:col-span-5">
+        <FactionRecord value={data.factionStats} />
+      </div> */}
       <div className="md:col-span-5">
         <SquadSize value={data.squadSizes} total={data.numberOfSquads.xws} />
       </div>
