@@ -8,7 +8,7 @@ import type {
   SquadData,
 } from './types';
 import { getBuilderLink, toXWS } from './xws';
-import { yasb2xws, YASB_URL_REGEXP } from './yasb';
+import { xwsFromText } from './yasb';
 
 // Fetch
 // ---------------
@@ -114,13 +114,7 @@ export const getXWS = (raw: string) => {
   }
 
   // YASB
-  const url = (val.match(YASB_URL_REGEXP) || [null])[0];
-  if (url) {
-    return { xws: yasb2xws(url), url };
-  }
-
-  // Nothing :(
-  return { xws: null, url };
+  return xwsFromText(val);
 };
 
 // Parsers

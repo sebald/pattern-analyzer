@@ -1,7 +1,7 @@
 import type { PlayerData, SquadData, XWSSquad } from './types';
 import { round } from './utils';
 import { getBuilderLink, toXWS } from './xws';
-import { yasb2xws } from './yasb';
+import { xwsFromText, yasb2xws } from './yasb';
 
 export interface RollBetterTournamentResponse {
   id: number;
@@ -221,6 +221,10 @@ export const getSquads = async (id: string, players: PlayerData[]) => {
         // Check if given as YASB Url
         if (withList.trim().startsWith('https://yasb.app')) {
           xws = yasb2xws(withList);
+        }
+        // Still nothin? Maybe there is a YASB link?
+        if (!xws) {
+          xws = xwsFromText(withList).xws;
         }
 
         url = getBuilderLink(xws);
