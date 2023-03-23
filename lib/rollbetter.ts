@@ -67,7 +67,7 @@ const tied = (player1: PlayerData, player2: PlayerData) =>
   player1.missionPoints === player2.missionPoints &&
   player1.mov === player2.mov;
 
-const getLists = async (id: string, count: number) => {
+const getRegistration = async (id: string, count: number) => {
   // rollbetter's max page count seems to be 25
   const pageSize = 20;
   const pagination = [];
@@ -203,14 +203,32 @@ export const getPlayers = async (id: string) => {
   });
 };
 
-export const getSquads = async (id: string, players: PlayerData[]) => {
-  const data = await getLists(id, players.length);
-  const squads: SquadData[] = [];
+export const getSquads = async (
+  id: string,
+  players: PlayerData[]
+): Promise<SquadData[]> => {
+  const registrations = await getRegistration(id, players.length);
 
-  data.forEach(({ id: playerId, withList, player: { username } }) => {
-    const id = `${playerId}`;
+  return players.map(player => {
+    const registraion = registrations.find(r => player.id === `${r.id}`);
+
     let xws: XWSSquad | null = null;
     let url: string | null = null;
+
+    if (!registraion) {
+      return {
+        ...player,
+        url,
+        xws,
+        raw: '',
+      };
+    }
+
+    const {
+      id,
+      withList,
+      player: { username },
+    } = registraion;
 
     try {
       if (withList) {
@@ -235,26 +253,13 @@ export const getSquads = async (id: string, players: PlayerData[]) => {
       );
     }
 
-    const performance = players.find(player => player.id === id) || {
-      rank: { swiss: 0 },
-      points: 0,
-      record: { wins: 0, ties: 0, losses: 0 },
-      sos: 0,
-      missionPoints: 0,
-      mov: 0,
-    };
-
-    squads.push({
-      id,
-      player: username,
+    return {
+      ...player,
       url,
       xws,
       raw: withList || '',
-      ...performance,
-    });
+    };
   });
-
-  return squads;
 };
 
 export const getEventInfo = async (id: string) => {
