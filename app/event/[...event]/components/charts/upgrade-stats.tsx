@@ -37,7 +37,7 @@ export const UpgradeStats = ({ value }: UpgradeStatsProps) => {
     <Card>
       <Card.Title>Upgrades</Card.Title>
       <Card.Body>
-        <div className="flex justify-end gap-3 pb-4">
+        <div className="flex flex-wrap justify-end gap-3 pb-4">
           <FactionSelection value={faction} onChange={setFaction} allowAll />
           <UpgradeSlotSelection value={slot} onChange={setSlot} allowAll />
           <Select
