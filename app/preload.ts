@@ -1,4 +1,25 @@
-export const RECENT_EVENTS = {
-  longshanks: ['7240', '5535', '6861'],
-  rollbetter: ['56+57'],
-};
+export const RECENT_EVENTS: {
+  ids: string;
+  vendor: 'longshanks' | 'rollbetter';
+}[] = [
+  {
+    ids: '258',
+    vendor: 'rollbetter',
+  },
+  {
+    ids: '259',
+    vendor: 'rollbetter',
+  },
+  {
+    ids: '7240',
+    vendor: 'longshanks',
+  },
+  {
+    ids: '5535',
+    vendor: 'longshanks',
+  },
+  {
+    ids: '56+57',
+    vendor: 'rollbetter',
+  },
+];

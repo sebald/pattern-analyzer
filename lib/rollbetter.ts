@@ -268,7 +268,7 @@ export const getEventInfo = async (id: string) => {
     endDate,
   }: RollBetterTournamentResponse = await res.json();
 
-  const date = startDate + (endDate ? ` ${endDate}` : '');
+  const date = startDate + (endDate ? ` to ${endDate}` : '');
 
   return {
     url: `https://rollbetter.gg/tournaments/${id}`,

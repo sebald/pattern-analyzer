@@ -15,14 +15,7 @@ export const fetchCache = 'force-cache';
 // Page
 // ---------------
 const Home = async () => {
-  const data = await Promise.all([
-    ...RECENT_EVENTS.longshanks.map(ids =>
-      getEventInfoByVendor({ vendor: 'longshanks', ids })
-    ),
-    ...RECENT_EVENTS.rollbetter.map(ids =>
-      getEventInfoByVendor({ vendor: 'rollbetter', ids })
-    ),
-  ]);
+  const data = await Promise.all(RECENT_EVENTS.map(getEventInfoByVendor));
 
   return (
     <Container className="grid flex-1 place-items-center">
