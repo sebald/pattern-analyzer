@@ -41,6 +41,8 @@ export const FactionRecord = ({ value }: FactionRecordProps) => {
     })
     .filter(({ games }) => games > 0);
 
+  data.sort((a, b) => b.winrate - a.winrate);
+
   return (
     <Card>
       <Card.Title>Faction Record</Card.Title>
