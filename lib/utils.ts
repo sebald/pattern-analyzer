@@ -51,7 +51,7 @@ export const winrate = (
     total = Object.values(record).reduce((t, num) => t + num, total);
   });
 
-  return round(wins / total, 4);
+  return total === 0 ? 0 : round(wins / total, 4);
 };
 
 /**
