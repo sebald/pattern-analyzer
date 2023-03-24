@@ -11,6 +11,17 @@ export interface RollBetterTournamentResponse {
   timezone: string;
   description: string;
   registrationCount: number;
+  rounds: {
+    id: number;
+    roundNumber: number;
+    cutSize: number | null;
+    startState: string;
+    startTime: any;
+    endTime: any;
+    startDate: any;
+    endDate: any;
+    type: 'Swiss' | 'Graduated Cut';
+  }[];
   // there is more but this is all we need for now
 }
 

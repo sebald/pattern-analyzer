@@ -4,7 +4,10 @@ import { cva, VariantProps } from 'class-variance-authority';
 // ---------------
 const styles = {
   card: cva(
-    ['flex h-full w-full flex-col items-stretch gap-4 rounded-lg bg-white'],
+    [
+      'flex h-full w-full flex-col items-stretch gap-4',
+      'rounded-lg bg-white relative',
+    ],
     {
       variants: {
         variant: {
@@ -52,6 +55,16 @@ const CardFooter = ({ children }: CardFooterProps) => (
   <div className="border-t border-secondary-100">{children}</div>
 );
 
+// Card.Action
+// ---------------
+export interface CardActionProps {
+  children: React.ReactNode;
+}
+
+const CardAction = ({ children }: CardActionProps) => (
+  <div className="absolute top-4 right-4">{children}</div>
+);
+
 // Card
 // ---------------
 export interface CardProps extends VariantProps<typeof styles.card> {
@@ -66,3 +79,4 @@ export const Card = ({ variant, inset, className, children }: CardProps) => (
 Card.Title = CardTitle;
 Card.Body = CardBody;
 Card.Footer = CardFooter;
+Card.Action = CardAction;

@@ -7,9 +7,9 @@ export interface FactionStatData {
   count: number;
   records: { wins: number; ties: number; losses: number }[];
   ranks: number[];
-  winrate: number;
   percentile: number;
   deviation: number;
+  winrate: number;
 }
 
 export interface PilotStatData {
