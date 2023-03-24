@@ -3,16 +3,16 @@
 import { useState } from 'react';
 import { ResponsiveBar } from '@nivo/bar';
 
-import { Card } from '@/components';
+import { Button, Card, Dialog, Input } from '@/components';
 import { getFactionName } from '@/lib/get-value';
 import { round } from '@/lib/utils';
 import type { XWSFaction } from '@/lib/types';
 
 import { FACTION_ABBR, FACTION_COLORS, toPercentage } from './shared';
+import { Cog } from '@/components/icons';
 
 // Helpers
 // ---------------
-
 /**
  * Based on FFGs tournament regulations. This is just to have
  * some sensible defaults.
@@ -35,6 +35,55 @@ const getCutBySize = (size: number) => {
   }
 
   return 32;
+};
+
+interface ConfigDialogProps {
+  cut: number;
+  updateCut: (cut: number) => void;
+}
+
+const ConfigDialog = ({ cut, updateCut }: ConfigDialogProps) => {
+  const [value, setValue] = useState(cut);
+  return (
+    <Dialog>
+      <Dialog.Trigger asChild>
+        <Button
+          className="text-secondary-200 hover:text-secondary-800"
+          variant="link"
+          size="inherit"
+        >
+          <Cog className="h-6 w-6" />
+        </Button>
+      </Dialog.Trigger>
+      <Dialog.Content>
+        <Dialog.Header>
+          <Dialog.Title>Set number of included squads</Dialog.Title>
+          <Dialog.Description>
+            Change the below number to configure how much of the top placed
+            squads should be included.
+          </Dialog.Description>
+        </Dialog.Header>
+        <div className="py-2">
+          <Input
+            label="Number of Squads to include"
+            type="number"
+            value={value}
+            onChange={e => setValue(e.target.valueAsNumber)}
+          />
+        </div>
+        <Dialog.Footer>
+          <Dialog.Close>
+            <Button>Cancel</Button>
+          </Dialog.Close>
+          <Dialog.Close>
+            <Button variant="primary" onClick={() => updateCut(value)}>
+              Update
+            </Button>
+          </Dialog.Close>
+        </Dialog.Footer>
+      </Dialog.Content>
+    </Dialog>
+  );
 };
 
 // Props
@@ -74,8 +123,13 @@ export const FactionCut = ({ tournament, value }: FactionCutProps) => {
   return (
     <Card>
       <Card.Title>
-        {tournament.cut ? 'Faction Cut Rate' : `Faction TOP${cut} Rate`}
+        {tournament.cut ? 'Faction Cut Rate' : `Faction Rate: TOP${cut}`}
       </Card.Title>
+      {tournament.cut ? null : (
+        <Card.Action>
+          <ConfigDialog cut={cut} updateCut={setCut} />
+        </Card.Action>
+      )}
       <div className="h-72">
         <ResponsiveBar
           data={[...data].sort((a, b) => a.cutrate - b.cutrate)}

@@ -148,3 +148,4 @@ Dialog.Header = DialogHeader;
 Dialog.Footer = DialogFooter;
 Dialog.Title = DialogTitle;
 Dialog.Description = DialogDescription;
+Dialog.Close = Primitive.Close;
