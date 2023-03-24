@@ -49,7 +49,7 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
         </div>
         <Table
           cols={[
-            'max-content',
+            'minmax(auto, max-content)',
             '1fr',
             '1fr',
             '1fr',

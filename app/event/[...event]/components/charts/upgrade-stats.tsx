@@ -54,7 +54,7 @@ export const UpgradeStats = ({ value }: UpgradeStatsProps) => {
         </div>
         <Table
           cols={[
-            'max-content',
+            'minmax(auto, max-content)',
             '1fr',
             '1fr',
             '1fr',
