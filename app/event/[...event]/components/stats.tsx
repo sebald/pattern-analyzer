@@ -29,8 +29,6 @@ const initFactionData = (): FactionStatData => ({
   percentile: 0,
   deviation: 0,
   winrate: 0,
-  cutsize: 0,
-  cutrate: 0,
 });
 
 // Hook
@@ -40,9 +38,10 @@ export interface UseSquadStatsProps {
 }
 
 const useSquadStats = ({ squads }: UseSquadStatsProps) => {
-  const numberOfSquads = {
+  const tournamentStats = {
     xws: 0,
-    total: squads.length,
+    squadCount: squads.length,
+    cut: 0,
   };
 
   // Stats about factions (ranks, number of squads, ...)
@@ -110,7 +109,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
   squads.forEach(squad => {
     // Number of Squads with XWS
     if (squad.xws) {
-      numberOfSquads.xws = +1;
+      tournamentStats.xws = +1;
     }
 
     const faction = squad.xws ? squad.xws.faction : 'unknown';
@@ -121,7 +120,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     factionStats[faction].ranks.push(rank.elimination ?? rank.swiss);
     factionStats[faction].records.push(squad.record);
     if (rank.elimination) {
-      factionStats[faction].cutsize += 1;
+      tournamentStats.cut += 1;
     }
 
     // Squad Size
@@ -242,12 +241,11 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     const faction = factionStats[key as XWSFaction | 'unknown'];
     const ranks = faction.ranks;
 
-    const pcs = ranks.map(rank => percentile(rank, numberOfSquads.total));
+    const pcs = ranks.map(rank => percentile(rank, tournamentStats.squadCount));
 
     faction.percentile = average(pcs, 4);
     faction.deviation = deviation(pcs, 4);
     faction.winrate = winrate(faction.records);
-    faction.cutrate = round(faction.cutsize / faction.count, 4);
   });
 
   // Calculate performance and average percentile for pilots
@@ -257,7 +255,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
 
     stats.forEach((stat, pilot) => {
       const pcs = stat.ranks.map(rank =>
-        percentile(rank, numberOfSquads.total)
+        percentile(rank, tournamentStats.squadCount)
       );
 
       stat.frequency = round(stat.lists / factionStats[faction].count, 4);
@@ -276,10 +274,10 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
 
     stats.forEach((stat, upgrade) => {
       const pcs = stat.ranks.map(rank =>
-        percentile(rank, numberOfSquads.total)
+        percentile(rank, tournamentStats.squadCount)
       );
       const total =
-        key === 'all' ? numberOfSquads.xws : factionStats[key].count;
+        key === 'all' ? tournamentStats.xws : factionStats[key].count;
 
       stat.frequency = round(stat.lists / total, 4);
       stat.winrate = winrate(stat.records);
@@ -291,7 +289,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
   });
 
   return {
-    numberOfSquads,
+    tournamentStats,
     factionStats,
     squadSizes,
     pilotStats,
@@ -317,7 +315,7 @@ export const Stats = ({ squads }: StatsProps) => {
       <div className="md:col-span-6">
         <FactionDistribution
           value={data.factionStats}
-          total={data.numberOfSquads.total}
+          total={data.tournamentStats.squadCount}
         />
       </div>
       <div className="md:col-span-6">
@@ -327,10 +325,10 @@ export const Stats = ({ squads }: StatsProps) => {
         <FactionRecord value={data.factionStats} />
       </div>
       <div className="md:col-span-7">
-        <FactionCut value={data.factionStats} />
+        <FactionCut cut={data.tournamentStats.cut} value={data.factionStats} />
       </div>
       <div className="md:col-span-6">
-        <SquadSize value={data.squadSizes} total={data.numberOfSquads.xws} />
+        <SquadSize value={data.squadSizes} total={data.tournamentStats.xws} />
       </div>
       <div className="md:col-span-6">
         <PilotCostDistribution value={data.pilotCostDistribution} />
@@ -344,7 +342,7 @@ export const Stats = ({ squads }: StatsProps) => {
       <div className="self-start md:col-span-4">
         <ShipComposition
           value={data.shipComposition}
-          total={data.numberOfSquads.xws}
+          total={data.tournamentStats.xws}
         />
       </div>
       <div className="col-span-full lg:col-start-2 lg:col-end-11">

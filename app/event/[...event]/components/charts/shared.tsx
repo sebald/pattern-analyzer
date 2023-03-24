@@ -10,8 +10,6 @@ export interface FactionStatData {
   percentile: number;
   deviation: number;
   winrate: number;
-  cutsize: number;
-  cutrate: number;
 }
 
 export interface PilotStatData {
