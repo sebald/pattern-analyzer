@@ -10,6 +10,7 @@ const PILOT_ID_MAP = {
     'anakinskywalker-siegeofcoruscant',
   'obiwankenobi-eta2actis-siegeofcoruscant': 'obiwankenobi-siegeofcoruscant',
   'kickback-sigeofcoruscant': 'kickback-siegeofcoruscant',
+  'hondoohnaka-firesprayclasspatrolcraft': 'hondoohnaka',
 };
 
 /**

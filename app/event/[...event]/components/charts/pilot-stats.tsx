@@ -70,7 +70,7 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
               <Table.Cell variant="header">
                 <ShipIcon ship={stat.ship} className="w-5 text-xl" />
                 <div className="text-sm font-semibold">
-                  {getPilotName(pilot)}
+                  {getPilotName(pilot) || pilot}
                 </div>
               </Table.Cell>
               <Table.Cell variant="number">
