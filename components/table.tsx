@@ -9,7 +9,7 @@ import { flattenChildren } from './utils/flatten-children';
 const styles = {
   cell: cva(
     [
-      'border-t border-secondary-100 font-light text-xs py-2 px-4 flex flex-row items-center',
+      'border-t border-secondary-100 font-light text-xs px-4 flex flex-row items-center',
     ],
     {
       variants: {
@@ -18,9 +18,14 @@ const styles = {
           number: 'tabular-nums text-secondary-600',
           header: 'text-secondary-800',
         },
+        size: {
+          collapsed: 'py-2',
+          relaxed: 'py-3',
+        },
       },
       defaultVariants: {
         variant: 'default',
+        size: 'collapsed',
       },
     }
   ),
@@ -51,8 +56,13 @@ export interface TableCellProps extends VariantProps<typeof styles.cell> {
   children?: React.ReactNode;
 }
 
-export const TableCell = ({ variant, className, children }: TableCellProps) => (
-  <div className={styles.cell({ variant, className })}>{children}</div>
+export const TableCell = ({
+  variant,
+  size,
+  className,
+  children,
+}: TableCellProps) => (
+  <div className={styles.cell({ variant, size, className })}>{children}</div>
 );
 
 // Table
@@ -61,10 +71,17 @@ export interface TableProps {
   cols: string[];
   headers: React.ReactNode[];
   className?: string;
+  size?: VariantProps<typeof styles.cell>['size'];
   children?: React.ReactNode;
 }
 
-export const Table = ({ cols, headers, className, children }: TableProps) => {
+export const Table = ({
+  cols,
+  headers,
+  className,
+  size,
+  children,
+}: TableProps) => {
   if (cols.length !== headers.length) {
     throw new Error(
       `[Table] Number of columns and headers must be equal, got ${cols.length} cols and ${headers.length} headers.`
@@ -100,13 +117,18 @@ export const Table = ({ cols, headers, className, children }: TableProps) => {
         </TableHeader>
       ))}
       {flattenChildren(children).map((child, idx) => {
-        if (!React.isValidElement<{ className?: string }>(child)) {
+        if (
+          !React.isValidElement<{ className?: string; size?: string | null }>(
+            child
+          )
+        ) {
           return child;
         }
 
         return React.cloneElement(child, {
           ...child.props,
           className: addColClasses(idx, child.props.className),
+          size,
         });
       })}
     </div>

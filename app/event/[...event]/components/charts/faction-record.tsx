@@ -50,10 +50,11 @@ export const FactionRecord = ({ value }: FactionRecordProps) => {
         <Table
           cols={['max-content', '1fr', '1fr', '1fr']}
           headers={['Faction', 'Games', 'Record', 'Winrate']}
+          size="relaxed"
         >
           {data.map(({ faction, games, record, winrate }) => (
             <Fragment key={faction}>
-              <Table.Cell variant="header" className="text-base font-semibold">
+              <Table.Cell variant="header" className="font-semibold">
                 <div
                   className="mr-1 h-2 w-2"
                   style={{ background: FACTION_COLORS[faction] }}

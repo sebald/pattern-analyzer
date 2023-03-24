@@ -17,6 +17,21 @@ import { PilotStats } from './charts/pilot-stats';
 import { ShipComposition } from './charts/ship-composition';
 import { SquadSize } from './charts/squad-size';
 import { UpgradeStats } from './charts/upgrade-stats';
+import { FactionRecord } from './charts/faction-record';
+import { FactionCut } from './charts/faction-cut';
+
+// Helper
+// ---------------
+const initFactionData = (): FactionStatData => ({
+  count: 0,
+  records: [],
+  ranks: [],
+  percentile: 0,
+  deviation: 0,
+  winrate: 0,
+  cutsize: 0,
+  cutrate: 0,
+});
 
 // Hook
 // ---------------
@@ -33,70 +48,14 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
   // Stats about factions (ranks, number of squads, ...)
   const factionStats: { [Faction in XWSFaction | 'unknown']: FactionStatData } =
     {
-      rebelalliance: {
-        count: 0,
-        records: [],
-        ranks: [],
-        winrate: 0,
-        percentile: 0,
-        deviation: 0,
-      },
-      galacticempire: {
-        count: 0,
-        records: [],
-        ranks: [],
-        winrate: 0,
-        percentile: 0,
-        deviation: 0,
-      },
-      scumandvillainy: {
-        count: 0,
-        records: [],
-        ranks: [],
-        winrate: 0,
-        percentile: 0,
-        deviation: 0,
-      },
-      resistance: {
-        count: 0,
-        records: [],
-        ranks: [],
-        winrate: 0,
-        percentile: 0,
-        deviation: 0,
-      },
-      firstorder: {
-        count: 0,
-        records: [],
-        ranks: [],
-        winrate: 0,
-        percentile: 0,
-        deviation: 0,
-      },
-      galacticrepublic: {
-        count: 0,
-        records: [],
-        ranks: [],
-        winrate: 0,
-        percentile: 0,
-        deviation: 0,
-      },
-      separatistalliance: {
-        count: 0,
-        records: [],
-        ranks: [],
-        winrate: 0,
-        percentile: 0,
-        deviation: 0,
-      },
-      unknown: {
-        count: 0,
-        records: [],
-        ranks: [],
-        winrate: 0,
-        percentile: 0,
-        deviation: 0,
-      },
+      rebelalliance: initFactionData(),
+      galacticempire: initFactionData(),
+      scumandvillainy: initFactionData(),
+      resistance: initFactionData(),
+      firstorder: initFactionData(),
+      galacticrepublic: initFactionData(),
+      separatistalliance: initFactionData(),
+      unknown: initFactionData(),
     };
 
   // Number of ships per squads
@@ -151,17 +110,19 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
   squads.forEach(squad => {
     // Number of Squads with XWS
     if (squad.xws) {
-      numberOfSquads.xws = numberOfSquads.xws + 1;
+      numberOfSquads.xws = +1;
     }
 
     const faction = squad.xws ? squad.xws.faction : 'unknown';
 
     // Faction Stats
-    factionStats[faction].count = factionStats[faction].count + 1;
-    factionStats[faction].ranks.push(
-      squad.rank.elimination ?? squad.rank.swiss
-    );
+    const rank = squad.rank;
+    factionStats[faction].count += 1;
+    factionStats[faction].ranks.push(rank.elimination ?? rank.swiss);
     factionStats[faction].records.push(squad.record);
+    if (rank.elimination) {
+      factionStats[faction].cutsize += 1;
+    }
 
     // Squad Size
     if (squad.xws) {
@@ -278,14 +239,15 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
 
   // Calculate percentile and deviation for factions
   Object.keys(factionStats).forEach(key => {
-    const faction = key as XWSFaction | 'unknown';
-    const ranks = factionStats[faction].ranks;
+    const faction = factionStats[key as XWSFaction | 'unknown'];
+    const ranks = faction.ranks;
 
     const pcs = ranks.map(rank => percentile(rank, numberOfSquads.total));
 
-    factionStats[faction].winrate = winrate(factionStats[faction].records);
-    factionStats[faction].percentile = average(pcs, 4);
-    factionStats[faction].deviation = deviation(pcs, 4);
+    faction.percentile = average(pcs, 4);
+    faction.deviation = deviation(pcs, 4);
+    faction.winrate = winrate(faction.records);
+    faction.cutrate = round(faction.cutsize / faction.count, 4);
   });
 
   // Calculate performance and average percentile for pilots
@@ -361,13 +323,16 @@ export const Stats = ({ squads }: StatsProps) => {
       <div className="md:col-span-6">
         <FactionPerformance value={data.factionStats} />
       </div>
-      {/* <div className="md:col-span-5">
-        <FactionRecord value={data.factionStats} />
-      </div> */}
       <div className="md:col-span-5">
-        <SquadSize value={data.squadSizes} total={data.numberOfSquads.xws} />
+        <FactionRecord value={data.factionStats} />
       </div>
       <div className="md:col-span-7">
+        <FactionCut value={data.factionStats} />
+      </div>
+      <div className="md:col-span-6">
+        <SquadSize value={data.squadSizes} total={data.numberOfSquads.xws} />
+      </div>
+      <div className="md:col-span-6">
         <PilotCostDistribution value={data.pilotCostDistribution} />
       </div>
       <div className="col-span-full">
