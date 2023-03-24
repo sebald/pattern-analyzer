@@ -40,7 +40,7 @@ export interface UseSquadStatsProps {
 const useSquadStats = ({ squads }: UseSquadStatsProps) => {
   const tournamentStats = {
     xws: 0,
-    squadCount: squads.length,
+    count: squads.length,
     cut: 0,
   };
 
@@ -241,7 +241,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     const faction = factionStats[key as XWSFaction | 'unknown'];
     const ranks = faction.ranks;
 
-    const pcs = ranks.map(rank => percentile(rank, tournamentStats.squadCount));
+    const pcs = ranks.map(rank => percentile(rank, tournamentStats.count));
 
     faction.percentile = average(pcs, 4);
     faction.deviation = deviation(pcs, 4);
@@ -255,7 +255,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
 
     stats.forEach((stat, pilot) => {
       const pcs = stat.ranks.map(rank =>
-        percentile(rank, tournamentStats.squadCount)
+        percentile(rank, tournamentStats.count)
       );
 
       stat.frequency = round(stat.lists / factionStats[faction].count, 4);
@@ -274,7 +274,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
 
     stats.forEach((stat, upgrade) => {
       const pcs = stat.ranks.map(rank =>
-        percentile(rank, tournamentStats.squadCount)
+        percentile(rank, tournamentStats.count)
       );
       const total =
         key === 'all' ? tournamentStats.xws : factionStats[key].count;
@@ -315,7 +315,7 @@ export const Stats = ({ squads }: StatsProps) => {
       <div className="md:col-span-6">
         <FactionDistribution
           value={data.factionStats}
-          total={data.tournamentStats.squadCount}
+          total={data.tournamentStats.count}
         />
       </div>
       <div className="md:col-span-6">
@@ -325,7 +325,10 @@ export const Stats = ({ squads }: StatsProps) => {
         <FactionRecord value={data.factionStats} />
       </div>
       <div className="md:col-span-7">
-        <FactionCut cut={data.tournamentStats.cut} value={data.factionStats} />
+        <FactionCut
+          tournament={data.tournamentStats}
+          value={data.factionStats}
+        />
       </div>
       <div className="md:col-span-6">
         <SquadSize value={data.squadSizes} total={data.tournamentStats.xws} />
