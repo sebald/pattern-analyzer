@@ -72,10 +72,10 @@ const ConfigDialog = ({ cut, updateCut }: ConfigDialogProps) => {
           />
         </div>
         <Dialog.Footer>
-          <Dialog.Close>
+          <Dialog.Close asChild>
             <Button>Cancel</Button>
           </Dialog.Close>
-          <Dialog.Close>
+          <Dialog.Close asChild>
             <Button variant="primary" onClick={() => updateCut(value)}>
               Update
             </Button>
@@ -145,7 +145,7 @@ export const FactionCut = ({ tournament, value }: FactionCutProps) => {
           }}
           colors={({ data }) => FACTION_COLORS[data.faction]}
           padding={0.3}
-          margin={{ top: 10, right: 20, bottom: 20, left: 50 }}
+          margin={{ top: 10, right: 10, bottom: 20, left: 45 }}
           isInteractive={false}
           animate
         />
