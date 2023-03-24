@@ -123,7 +123,9 @@ export const FactionCut = ({ tournament, value }: FactionCutProps) => {
   return (
     <Card>
       <Card.Title>
-        {tournament.cut ? 'Faction Cut Rate' : `Faction Rate: TOP${cut}`}
+        {tournament.cut
+          ? `Faction Cut Rate (TOP${tournament.cut})`
+          : `Faction Rate: TOP${cut}`}
       </Card.Title>
       {tournament.cut ? null : (
         <Card.Action>
