@@ -9,6 +9,7 @@ import { FACTION_COLORS, toPercentage } from './shared';
 export interface FactionRecordProps {
   value: {
     [Faction in XWSFaction | 'unknown']: {
+      ranks: number[];
       records: { wins: number; ties: number; losses: number }[];
       winrate: number;
     };
@@ -19,7 +20,7 @@ export interface FactionRecordProps {
 // ---------------
 export const FactionRecord = ({ value }: FactionRecordProps) => {
   const data = Object.entries(value)
-    .map(([key, { records, winrate }]) => {
+    .map(([key, { records, winrate, ranks }]) => {
       const faction = key as XWSFaction | 'unknown';
       const record = records.reduce(
         (acc, rec) => {
@@ -31,12 +32,14 @@ export const FactionRecord = ({ value }: FactionRecordProps) => {
         { wins: 0, ties: 0, losses: 0 }
       );
       const games = record.wins + record.ties + record.losses;
+      const top = ranks.length ? ranks[0] : 0;
 
       return {
         faction,
         games,
         record,
         winrate,
+        top,
       };
     })
     .filter(({ games }) => games > 0);
@@ -48,11 +51,11 @@ export const FactionRecord = ({ value }: FactionRecordProps) => {
       <Card.Title>Faction Record</Card.Title>
       <Card.Body>
         <Table
-          cols={['max-content', '1fr', '1fr', '1fr']}
-          headers={['Faction', 'Games', 'Record', 'Winrate']}
+          cols={['max-content', 'auto', 'max-content', 'auto', 'auto']}
+          headers={['Faction', 'Games', 'Record', 'Winrate', 'TOP']}
           size="relaxed"
         >
-          {data.map(({ faction, games, record, winrate }) => (
+          {data.map(({ faction, games, record, winrate, top }) => (
             <Fragment key={faction}>
               <Table.Cell variant="header" className="font-semibold">
                 <div
@@ -66,6 +69,7 @@ export const FactionRecord = ({ value }: FactionRecordProps) => {
                 {record.wins} / {record.ties} / {record.losses}
               </Table.Cell>
               <Table.Cell>{toPercentage(winrate)}</Table.Cell>
+              <Table.Cell>{top > 0 ? `#${top}` : '-'}</Table.Cell>
             </Fragment>
           ))}
         </Table>
