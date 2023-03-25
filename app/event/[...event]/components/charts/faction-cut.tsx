@@ -116,14 +116,13 @@ export const FactionCut = ({ tournament, value }: FactionCutProps) => {
 
       return {
         faction,
+        count,
         cutsize,
         cutrate,
       };
     })
     // Remove "uknown" if everything was parsed!
-    .filter(({ faction, cutsize }) =>
-      faction !== 'unknown' ? true : cutsize > 0
-    );
+    .filter(({ faction, count }) => (faction !== 'unknown' ? true : count > 0));
 
   return (
     <Card>
