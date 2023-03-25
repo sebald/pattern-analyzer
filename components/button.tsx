@@ -5,7 +5,7 @@ import { forwardRef } from 'react';
 // ---------------
 const styles = cva(
   [
-    'rounded-lg transition-all focus:ring',
+    'rounded-lg transition-all focus:outline-none focus-visible:ring',
     'disabled:cursor-not-allowed disabled:border-primary-300 disabled:bg-primary-300',
   ],
   {
@@ -14,12 +14,12 @@ const styles = cva(
         default: [
           'font-medium border text-center',
           'border-secondary-100 bg-white text-secondary-700',
-          'hover:bg-secondary-50 focus:ring-primary-200',
+          'hover:bg-secondary-50 focus-visible:ring-primary-200',
         ],
         primary: [
           'font-medium border text-center',
           'border-primary-500 bg-primary-500 text-white',
-          'hover:border-primary-700 hover:bg-primary-700 focus:ring-primary-200',
+          'hover:border-primary-700 hover:bg-primary-700 focus-visible:ring-primary-200',
         ],
         link: [
           'flex flex-row gap-1 items-center',
@@ -28,7 +28,7 @@ const styles = cva(
         error: [
           'font-medium border text-center',
           'border-red-500 bg-red-500 text-white',
-          'hover:border-red-700 hover:bg-red-700 focus:ring-red-200',
+          'hover:border-red-700 hover:bg-red-700 focus-visible:ring-red-200',
         ],
       },
       size: {

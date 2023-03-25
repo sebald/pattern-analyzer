@@ -4,6 +4,7 @@ export * from './caption';
 export * from './card';
 export * from './center';
 export * from './container';
+export * from './copy-button';
 export * from './dialog';
 export * from './divider';
 export * from './faction-selection';

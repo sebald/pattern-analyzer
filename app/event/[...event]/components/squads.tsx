@@ -1,6 +1,14 @@
 'use client';
 
-import { Card, Center, Message, Link, Squad, Tiles } from '@/components';
+import {
+  Card,
+  Center,
+  Message,
+  Link,
+  Squad,
+  Tiles,
+  CopyButton,
+} from '@/components';
 import { Archive } from '@/components/icons';
 import type { SquadData, XWSSquad } from '@/lib/types';
 
@@ -115,11 +123,19 @@ export const Squads = ({ squads }: SquadsProps) => {
               <div>
                 #{squad.rank.elimination || squad.rank.swiss}: {squad.player}
               </div>
-              {squad.url && (
+              {squad.url ? (
                 <Link className="text-right" href={squad.url} target="_blank">
                   View in {getVendorName(squad.url)}
                 </Link>
-              )}
+              ) : squad.xws ? (
+                <CopyButton
+                  variant="link"
+                  size="inherit"
+                  content={JSON.stringify(squad.xws)}
+                >
+                  Copy XWS
+                </CopyButton>
+              ) : null}
             </div>
           </Card.Footer>
         </Card>
