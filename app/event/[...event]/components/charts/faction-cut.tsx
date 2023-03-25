@@ -146,7 +146,7 @@ export const FactionCut = ({ tournament, value }: FactionCutProps) => {
             format: (faction: XWSFaction | 'unknown') => FACTION_ABBR[faction],
           }}
           colors={({ data }) => FACTION_COLORS[data.faction]}
-          padding={0.3}
+          padding={0.15}
           margin={{ top: 10, right: 10, bottom: 20, left: 45 }}
           isInteractive={false}
           animate
