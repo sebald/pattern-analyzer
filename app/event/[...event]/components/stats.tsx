@@ -109,7 +109,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
   squads.forEach(squad => {
     // Number of Squads with XWS
     if (squad.xws) {
-      tournamentStats.xws = +1;
+      tournamentStats.xws += 1;
     }
 
     const faction = squad.xws ? squad.xws.faction : 'unknown';
@@ -269,16 +269,19 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
 
   // Calculate performance and average percentile for upgrades
   Object.keys(upgradeStats).forEach(k => {
-    const key = k as keyof typeof upgradeStats;
-    const stats = upgradeStats[key];
+    const faction = k as keyof typeof upgradeStats;
+    const stats = upgradeStats[faction];
 
     stats.forEach((stat, upgrade) => {
       const pcs = stat.ranks.map(rank =>
         percentile(rank, tournamentStats.count)
       );
       const total =
-        key === 'all' ? tournamentStats.xws : factionStats[key].count;
-
+        faction === 'all' ? tournamentStats.xws : factionStats[faction].count;
+      if (faction === 'all') {
+        console.log('ts', tournamentStats.xws);
+        console.log(stat.lists, total, round(stat.lists / total, 4));
+      }
       stat.frequency = round(stat.lists / total, 4);
       stat.winrate = winrate(stat.records);
       stat.percentile = average(pcs, 4);
