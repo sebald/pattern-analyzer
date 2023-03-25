@@ -28,6 +28,7 @@ export interface RollBetterTournamentResponse {
 export interface RollBetterPlayersResponse {
   id: number;
   hasDropped: boolean;
+  isWaitlisted: boolean;
   player: {
     id: number;
     username: string;
@@ -130,7 +131,11 @@ export const getPlayers = async (id: string) => {
 
   const data: RollBetterPlayersResponse[] = await res.json();
 
-  data.forEach(({ id, player, ranking, hasDropped }) => {
+  data.forEach(({ id, player, ranking, hasDropped, isWaitlisted }, idx) => {
+    if (isWaitlisted) {
+      return;
+    }
+
     players.push({
       id: `${id}`,
       player: player.username,
