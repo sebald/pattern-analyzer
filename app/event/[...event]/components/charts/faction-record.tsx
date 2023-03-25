@@ -73,6 +73,10 @@ export const FactionRecord = ({ value }: FactionRecordProps) => {
             </Fragment>
           ))}
         </Table>
+        <div className="pt-2 text-center text-sm font-semibold">
+          Overall games played:{' '}
+          {data.reduce((acc, { games }) => acc + games, 0)}
+        </div>
       </Card.Body>
     </Card>
   );
