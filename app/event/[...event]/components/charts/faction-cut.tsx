@@ -108,17 +108,22 @@ export const FactionCut = ({ tournament, value }: FactionCutProps) => {
     tournament.cut > 0 ? tournament.cut : getCutBySize(tournament.count)
   );
 
-  const data = Object.entries(value).map(([key, { count, ranks }]) => {
-    const faction = key as XWSFaction | 'unknown';
-    const cutsize = ranks.filter(rank => rank <= cut).length;
-    const cutrate = round(cutsize / count, 4);
+  const data = Object.entries(value)
+    .map(([key, { count, ranks }]) => {
+      const faction = key as XWSFaction | 'unknown';
+      const cutsize = ranks.filter(rank => rank <= cut).length;
+      const cutrate = count > 0 ? round(cutsize / count, 4) : 0;
 
-    return {
-      faction,
-      cutsize,
-      cutrate,
-    };
-  });
+      return {
+        faction,
+        cutsize,
+        cutrate,
+      };
+    })
+    // Remove "uknown" if everything was parsed!
+    .filter(({ faction, cutsize }) =>
+      faction !== 'unknown' ? true : cutsize > 0
+    );
 
   return (
     <Card>
