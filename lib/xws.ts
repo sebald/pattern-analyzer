@@ -62,7 +62,7 @@ export const normalize = (xws: XWSSquad | null) => {
 export const toXWS = (raw: string) => {
   try {
     return normalize(
-      JSON.parse(raw.trim().replace(/\\'/g, "'").replace(/\\"/g, '"'))
+      JSON.parse(raw.trim().replace(/\\'/g, "'").replace(/\\"/g, "'"))
     );
   } catch {
     throw new Error('Could not parse raw value...');
