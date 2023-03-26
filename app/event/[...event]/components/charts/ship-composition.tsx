@@ -8,17 +8,14 @@ export interface ShipCompositionProps {
 }
 
 export const ShipComposition = ({ value, total }: ShipCompositionProps) => {
-  let data = Array.from(value.entries()).sort(([, a], [, b]) => b - a);
-  if (data.length > 10) {
-    // Only take TOP 10 and remove squads that only appearing once
-    data = data.slice(0, 10).filter(([, count]) => count > 1);
-  }
-
+  const data = Array.from(value.entries())
+    .filter(([, count]) => count > 1)
+    .sort(([, a], [, b]) => b - a);
   const unique = data.reduce((t, [, count]) => t - count, total);
 
   return (
     <Card>
-      <Card.Title>TOP {data.length} Ship Composition</Card.Title>
+      <Card.Title>Repeating Ship Composition</Card.Title>
       <Card.Body>
         {data.length === 0 ? (
           <div className="py-6 text-center italic text-secondary-400">
