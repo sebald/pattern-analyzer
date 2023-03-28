@@ -65,7 +65,7 @@ export interface ChassisDistributionProps {
 // ---------------
 export const ChassisDistribution = ({ value }: ChassisDistributionProps) => {
   const [faction, setFaction] = useState<XWSFaction>('rebelalliance');
-  const [sort, setSort] = useState<'ship' | 'frequency'>('ship');
+  const [sort, setSort] = useState<'ship' | 'frequency'>('frequency');
 
   const data = getStandardShips(faction).map(ship => {
     const stats = value[faction].get(ship) || {
