@@ -98,7 +98,7 @@ export const ChassisDistribution = ({ value }: ChassisDistributionProps) => {
           },
           axisBottom: {
             renderTick: (tick: AxisTickProps<string>) => (
-              <g transform={`translate(${tick.x},${tick.y + 18})`}>
+              <g transform={`translate(${tick.x},${tick.y + 14})`}>
                 <ShipIcon ship={tick.value} />
               </g>
             ),
