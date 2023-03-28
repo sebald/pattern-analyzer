@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import useMedia from 'react-use/lib/useMedia';
 import type { AxisTickProps } from '@nivo/axes';
-import { BarCustomLayer, ResponsiveBar } from '@nivo/bar';
+import { BarCustomLayer, BarSvgProps, ResponsiveBar } from '@nivo/bar';
 
 import { Card, FactionSelection, Select, ShipText } from '@/components';
 import { getStandardShips } from '@/lib/get-value';
@@ -67,6 +67,27 @@ export const ChassisDistribution = ({ value }: ChassisDistributionProps) => {
   const [faction, setFaction] = useState<XWSFaction>('rebelalliance');
   const [sort, setSort] = useState<'ship' | 'frequency'>('ship');
 
+  const data = getStandardShips(faction).map(ship => {
+    const stats = value[faction].get(ship) || {
+      count: 0,
+      lists: 0,
+      frequency: 0,
+    };
+
+    return {
+      ship,
+      ...stats,
+    };
+  });
+
+  data.sort((a, b) => {
+    if (sort === 'ship') {
+      return a.ship.localeCompare(b.ship);
+    }
+
+    return a.frequency - b.frequency;
+  });
+
   // Configure chart based on windows size
   const isWide = useMedia('(min-width: 1024px)');
   const chartConfig = (
@@ -108,28 +129,7 @@ export const ChassisDistribution = ({ value }: ChassisDistributionProps) => {
           enableGridY: false,
           enableGridX: true,
         }
-  ) as any;
-
-  const data = getStandardShips(faction).map(ship => {
-    const stats = value[faction].get(ship) || {
-      count: 0,
-      lists: 0,
-      frequency: 0,
-    };
-
-    return {
-      ship,
-      ...stats,
-    };
-  });
-
-  data.sort((a, b) => {
-    if (sort === 'ship') {
-      return a.ship.localeCompare(b.ship);
-    }
-
-    return a.frequency - b.frequency;
-  });
+  ) as Omit<BarSvgProps<(typeof data)[number]>, 'width' | 'height' | 'data'>;
 
   return (
     <Card>
