@@ -80,14 +80,6 @@ export const ChassisDistribution = ({ value }: ChassisDistributionProps) => {
     };
   });
 
-  data.sort((a, b) => {
-    if (sort === 'ship') {
-      return a.ship.localeCompare(b.ship);
-    }
-
-    return a.frequency - b.frequency;
-  });
-
   // Configure chart based on windows size
   const isWide = useMedia('(min-width: 1024px)');
   const chartConfig = (
@@ -130,6 +122,25 @@ export const ChassisDistribution = ({ value }: ChassisDistributionProps) => {
           enableGridX: true,
         }
   ) as Omit<BarSvgProps<(typeof data)[number]>, 'width' | 'height' | 'data'>;
+
+  data.sort((a, b) => {
+    // sort from top to bottom in vertical mode
+    const { first, second } = isWide
+      ? {
+          first: a,
+          second: b,
+        }
+      : {
+          first: b,
+          second: a,
+        };
+
+    if (sort === 'ship') {
+      return first.ship.localeCompare(second.ship);
+    }
+
+    return first.frequency - second.frequency;
+  });
 
   return (
     <Card>
