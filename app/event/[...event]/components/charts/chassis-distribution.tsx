@@ -1,17 +1,31 @@
 'use client';
 
-import { ComponentProps, useState } from 'react';
+import { useState } from 'react';
 import useMedia from 'react-use/lib/useMedia';
-import { Card, FactionSelection, Select } from '@/components';
+import type { AxisTickProps } from '@nivo/axes';
+import { BarCustomLayer, ResponsiveBar } from '@nivo/bar';
+
+import { Card, FactionSelection, Select, ShipText } from '@/components';
 import { getStandardShips } from '@/lib/get-value';
 import type { XWSFaction } from '@/lib/types';
 
 import { COLOR_MAP, toPercentage, type ShipStatData } from './shared';
-import { BarCustomLayer, ResponsiveBar } from '@nivo/bar';
 
 // Helpers
 // ---------------
-const sideLabel: BarCustomLayer<{ frequency: number }> = ({
+const ShipIcon = ({ ship }: { ship: string }) => (
+  <ShipText
+    ship={ship}
+    textAnchor="middle"
+    dominantBaseline="middle"
+    style={{
+      fill: 'rgb(51, 51, 51)',
+      fontSize: 20,
+    }}
+  />
+);
+
+const barLabel: BarCustomLayer<{ frequency: number }> = ({
   bars,
   labelSkipWidth,
 }) => (
@@ -61,9 +75,23 @@ export const ChassisDistribution = ({ value }: ChassisDistributionProps) => {
           axisLeft: {
             format: toPercentage,
           },
+          axisBottom: {
+            renderTick: (tick: AxisTickProps<string>) => (
+              <g transform={`translate(${tick.x},${tick.y + 18})`}>
+                <ShipIcon ship={tick.value} />
+              </g>
+            ),
+          },
         }
       : {
           layout: 'horizontal',
+          axisLeft: {
+            renderTick: (tick: AxisTickProps<string>) => (
+              <g transform={`translate(${tick.x - 16},${tick.y})`}>
+                <ShipIcon ship={tick.value} />
+              </g>
+            ),
+          },
           axisBottom: {
             format: toPercentage,
           },
@@ -75,7 +103,7 @@ export const ChassisDistribution = ({ value }: ChassisDistributionProps) => {
             'markers',
             'legends',
             'annotations',
-            sideLabel,
+            barLabel,
           ],
           enableGridY: false,
           enableGridX: true,
@@ -149,7 +177,7 @@ export const ChassisDistribution = ({ value }: ChassisDistributionProps) => {
 
             return COLOR_MAP[3];
           }}
-          padding={0.15}
+          padding={0.3}
           margin={{ top: 10, right: 10, bottom: 25, left: 45 }}
           isInteractive={false}
           animate

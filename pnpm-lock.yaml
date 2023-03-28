@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@nivo/axes': ^0.80.0
   '@nivo/bar': ^0.80.0
   '@nivo/core': ^0.80.0
   '@nivo/line': ^0.80.0
@@ -44,6 +45,7 @@ specifiers:
   zx: 7.2.1
 
 dependencies:
+  '@nivo/axes': 0.80.0_wyuiu3ihipn7hpncy62nqhyrji
   '@nivo/bar': 0.80.0_wyuiu3ihipn7hpncy62nqhyrji
   '@nivo/core': 0.80.0_biqbaboplfbrettd7655fr4n2y
   '@nivo/line': 0.80.0_wyuiu3ihipn7hpncy62nqhyrji

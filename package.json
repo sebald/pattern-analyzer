@@ -14,6 +14,7 @@
     "update:yasb": "zx scripts/update-yasb-data.mjs"
   },
   "dependencies": {
+    "@nivo/axes": "^0.80.0",
     "@nivo/bar": "^0.80.0",
     "@nivo/core": "^0.80.0",
     "@nivo/line": "^0.80.0",

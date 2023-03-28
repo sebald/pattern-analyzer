@@ -2,23 +2,33 @@ import { xwingShips } from 'app/fonts';
 import icons from '@/lib/data/ship-icons.json';
 import { cn } from '@/lib/utils';
 
-export interface ShipIconProps extends React.HTMLAttributes<any> {
-  as?: 'span' | 'text';
+// Props
+// ---------------
+export interface ShipComponentProps {
   ship: string;
   className?: string;
 }
 
-export const ShipIcon = ({
-  as = 'span',
-  ship,
-  className,
-  ...props
-}: ShipIconProps) => {
-  const Component = as;
+// Usage in HTML
+// ---------------
+export interface ShipIconProps
+  extends ShipComponentProps,
+    React.ComponentPropsWithoutRef<'span'> {}
 
-  return (
-    <Component {...props} className={cn(xwingShips.className, className)}>
-      {(icons as any)[ship] || ship}
-    </Component>
-  );
-};
+export const ShipIcon = ({ ship, className, ...props }: ShipIconProps) => (
+  <span {...props} className={cn(xwingShips.className, className)}>
+    {(icons as any)[ship] || ship}
+  </span>
+);
+
+// Usage in SVG
+// ---------------
+export interface ShipTextProps
+  extends ShipComponentProps,
+    React.ComponentPropsWithoutRef<'text'> {}
+
+export const ShipText = ({ ship, className, ...props }: ShipTextProps) => (
+  <text {...props} className={cn(xwingShips.className, className)}>
+    {(icons as any)[ship] || ship}
+  </text>
+);
