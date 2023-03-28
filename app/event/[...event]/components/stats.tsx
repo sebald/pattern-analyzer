@@ -8,6 +8,7 @@ import { average, deviation, percentile, winrate, round } from '@/lib/utils';
 import type {
   FactionStatData,
   PilotStatData,
+  ShipStatData,
   UpgradeData,
 } from './charts/shared';
 import { FactionDistribution } from './charts/faction-distribution';
@@ -19,6 +20,7 @@ import { SquadSize } from './charts/squad-size';
 import { UpgradeStats } from './charts/upgrade-stats';
 import { FactionRecord } from './charts/faction-record';
 import { FactionCut } from './charts/faction-cut';
+import { ChassisDistribution } from './charts/chassis-distribution';
 
 // Helper
 // ---------------
@@ -94,6 +96,17 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
   // Number of squads with the same ships (key = ship ids separated by "|")
   const shipComposition = new Map<string, number>();
 
+  // Ship stats
+  const shipStats = {
+    rebelalliance: new Map<string, ShipStatData>(),
+    galacticempire: new Map<string, ShipStatData>(),
+    scumandvillainy: new Map<string, ShipStatData>(),
+    resistance: new Map<string, ShipStatData>(),
+    firstorder: new Map<string, ShipStatData>(),
+    galacticrepublic: new Map<string, ShipStatData>(),
+    separatistalliance: new Map<string, ShipStatData>(),
+  };
+
   // Upgrades stats
   const upgradeStats = {
     all: new Map<string, UpgradeData>(),
@@ -168,6 +181,20 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
         pilotCostDistribution[points] = pilotCostDistribution[points] + 1;
 
         unique.add(pilot.id);
+
+        // Ship stats
+        const shipInfo = shipStats[faction].get(pilot.ship) || {
+          frequency: 0,
+          count: 0,
+          lists: 0,
+        };
+        shipStats[faction].set(pilot.ship, {
+          ...shipInfo,
+          count: shipInfo.count + 1,
+          lists: unique.has(pilot.ship) ? shipInfo.lists : shipInfo.lists + 1,
+        });
+
+        unique.add(pilot.ship);
 
         // Upgrades stats
         (
@@ -267,6 +294,17 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     });
   });
 
+  // Calculate frequemcy for ships
+  Object.keys(shipStats).forEach(key => {
+    const faction = key as XWSFaction;
+    const stats = shipStats[faction];
+
+    stats.forEach((stat, ship) => {
+      stat.frequency = round(stat.lists / factionStats[faction].count, 4);
+      stats.set(ship, stat);
+    });
+  });
+
   // Calculate performance and average percentile for upgrades
   Object.keys(upgradeStats).forEach(k => {
     const faction = k as keyof typeof upgradeStats;
@@ -278,10 +316,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
       );
       const total =
         faction === 'all' ? tournamentStats.xws : factionStats[faction].count;
-      if (faction === 'all') {
-        console.log('ts', tournamentStats.xws);
-        console.log(stat.lists, total, round(stat.lists / total, 4));
-      }
+
       stat.frequency = round(stat.lists / total, 4);
       stat.winrate = winrate(stat.records);
       stat.percentile = average(pcs, 4);
@@ -298,6 +333,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     pilotStats,
     pilotCostDistribution,
     shipComposition,
+    shipStats,
     upgradeStats,
   };
 };
@@ -340,6 +376,9 @@ export const Stats = ({ squads }: StatsProps) => {
         <PilotCostDistribution value={data.pilotCostDistribution} />
       </div>
       <div className="col-span-full">
+        <ChassisDistribution value={data.shipStats} />
+      </div>
+      <div className="col-span-full">
         <PilotStats value={data.pilotStats} />
       </div>
       <div className="col-span-full">
@@ -357,9 +396,9 @@ export const Stats = ({ squads }: StatsProps) => {
             For information about some commonly used terms, see the &quot;About
             the Data&quot; secion on the{' '}
             <Link className="underline underline-offset-2" href="/about">
-              About
-            </Link>{' '}
-            page.
+              About page
+            </Link>
+            .
           </Message.Title>
         </Message>
       </div>

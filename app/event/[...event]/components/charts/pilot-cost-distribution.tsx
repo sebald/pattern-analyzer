@@ -54,7 +54,6 @@ export const PilotCostDistribution = ({
           colors="#8490db"
           fill={[{ match: '*', id: 'gradient' }]}
           margin={{ top: 20, right: 30, bottom: 20, left: 30 }}
-          animate
         />
       </div>
       <div className="text-center text-sm font-semibold">

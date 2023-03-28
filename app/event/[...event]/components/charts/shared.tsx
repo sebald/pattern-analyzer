@@ -24,6 +24,12 @@ export interface PilotStatData {
   winrate: number;
 }
 
+export interface ShipStatData {
+  frequency: number;
+  count: number;
+  lists: number;
+}
+
 export interface UpgradeData {
   slot: XWSUpgradeSlots;
   count: number;
@@ -58,6 +64,15 @@ export const FACTION_ABBR: { [key in XWSFaction | 'unknown']: string } = {
   galacticrepublic: 'GAR',
   separatistalliance: 'CIS',
   unknown: '???',
+};
+
+export const COLOR_MAP = {
+  3: '#e5ecfa',
+  4: '#d0dcf5',
+  5: '#b4c5ed',
+  6: '#96a6e3',
+  7: '#8490db',
+  8: '#6167ca',
 };
 
 // Helpers

@@ -71,7 +71,7 @@ const EXTRA_UPGRADES = {
  */
 const parsePilots = (pilots, ship) =>
   pilots.reduce((o, pilot) => {
-    const { xws: id, name, caption, standardLoadout, cost } = pilot;
+    const { xws: id, name, caption, standardLoadout, cost, standard } = pilot;
 
     o[id] = {
       id,
@@ -83,6 +83,7 @@ const parsePilots = (pilots, ship) =>
           : name,
       caption,
       cost,
+      standard,
     };
 
     if (standardLoadout) {
@@ -181,14 +182,21 @@ const getUpgradeType = id => {
 
 /**
  * Pilots from scenarios don't have upgrades in LBN and sometimes
- * their cost is missing too...
+ * their cost is missing too. We store this information to normalize XWS.
  */
 const normalization = {};
+
+// Standard Legal
+// ---------------
+const standard = {};
 
 read(manifest.factions[0]).forEach(({ xws: factionId, name, icon }) => {
   display.faction[factionId] = {
     name,
     icon,
+  };
+  standard[factionId] = {
+    ships: [],
   };
 
   Object.values(factions[factionId].ships).forEach(ship => {
@@ -211,6 +219,10 @@ read(manifest.factions[0]).forEach(({ xws: factionId, name, icon }) => {
           }, {}),
         };
       }
+
+      if (pilot.standard && !standard[factionId].ships.includes(ship.id)) {
+        standard[factionId].ships.push(ship.id);
+      }
     });
   });
 
@@ -230,5 +242,8 @@ read(manifest.factions[0]).forEach(({ xws: factionId, name, icon }) => {
 
 await fs.outputJson(`${TARGET}/display-values.json`, display, { spaces: 2 });
 await fs.outputJson(`${TARGET}/standard-loadout-pilots.json`, normalization, {
+  spaces: 2,
+});
+await fs.outputJson(`${TARGET}/standard-legal.json`, standard, {
   spaces: 2,
 });
