@@ -30,7 +30,7 @@ const barLabel: BarCustomLayer<{ frequency: number }> = ({
   labelSkipWidth,
 }) => (
   <g>
-    {bars.map(({ width, height, y, data, color }) => {
+    {bars.map(({ width, height, y, data }) => {
       if (width >= labelSkipWidth) {
         return null;
       }
