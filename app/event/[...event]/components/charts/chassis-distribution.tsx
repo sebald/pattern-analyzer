@@ -44,7 +44,7 @@ const barLabel: BarCustomLayer<{ frequency: number }> = ({
           style={{
             fontFamily: 'sans-serif',
             fontSize: '11px',
-            fill: color,
+            fill: '#0f172a',
             pointerEvents: 'none',
           }}
         >
