@@ -95,6 +95,7 @@ export const ChassisDistribution = ({ value }: ChassisDistributionProps) => {
               </g>
             ),
           },
+          margin: { top: 10, right: 0, bottom: 30, left: 40 },
         }
       : {
           layout: 'horizontal',
@@ -120,6 +121,7 @@ export const ChassisDistribution = ({ value }: ChassisDistributionProps) => {
           ],
           enableGridY: false,
           enableGridX: true,
+          margin: { top: 0, right: 20, bottom: 30, left: 30 },
         }
   ) as Omit<BarSvgProps<(typeof data)[number]>, 'width' | 'height' | 'data'>;
 
@@ -192,7 +194,6 @@ export const ChassisDistribution = ({ value }: ChassisDistributionProps) => {
             return COLOR_MAP[3];
           }}
           padding={0.3}
-          margin={{ top: 10, right: 10, bottom: 25, left: 45 }}
           isInteractive={false}
           animate={false}
         />
