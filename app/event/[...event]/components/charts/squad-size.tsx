@@ -1,7 +1,7 @@
 import { BarCustomLayer, ResponsiveBar } from '@nivo/bar';
 
 import { Card } from '@/components';
-import { calcWeightedAverage, toPercentage } from './shared';
+import { calcWeightedAverage, COLOR_MAP, toPercentage } from './shared';
 
 // Props
 // ---------------
@@ -16,15 +16,6 @@ export interface SquadSizeProps {
   };
   total: number;
 }
-
-const COLOR_MAP = {
-  3: '#e5ecfa',
-  4: '#d0dcf5',
-  5: '#b4c5ed',
-  6: '#96a6e3',
-  7: '#8490db',
-  8: '#6167ca',
-};
 
 const sideLabel: BarCustomLayer<{
   size: '3' | '4' | '5' | '6' | '7' | '8';

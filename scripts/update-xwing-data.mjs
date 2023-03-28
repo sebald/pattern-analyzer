@@ -188,12 +188,15 @@ const normalization = {};
 
 // Standard Legal
 // ---------------
-const standardLegalShips = new Set();
+const standard = {};
 
 read(manifest.factions[0]).forEach(({ xws: factionId, name, icon }) => {
   display.faction[factionId] = {
     name,
     icon,
+  };
+  standard[factionId] = {
+    ships: [],
   };
 
   Object.values(factions[factionId].ships).forEach(ship => {
@@ -217,8 +220,8 @@ read(manifest.factions[0]).forEach(({ xws: factionId, name, icon }) => {
         };
       }
 
-      if (pilot.standard) {
-        standardLegalShips.add(ship.id);
+      if (pilot.standard && !standard[factionId].ships.includes(ship.id)) {
+        standard[factionId].ships.push(ship.id);
       }
     });
   });
@@ -241,10 +244,6 @@ await fs.outputJson(`${TARGET}/display-values.json`, display, { spaces: 2 });
 await fs.outputJson(`${TARGET}/standard-loadout-pilots.json`, normalization, {
   spaces: 2,
 });
-await fs.outputJson(
-  `${TARGET}/standard-legal-ships.json`,
-  [...standardLegalShips],
-  {
-    spaces: 2,
-  }
-);
+await fs.outputJson(`${TARGET}/standard-legal.json`, standard, {
+  spaces: 2,
+});
