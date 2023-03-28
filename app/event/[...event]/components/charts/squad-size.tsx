@@ -87,7 +87,6 @@ export const SquadSize = ({ value, total }: SquadSizeProps) => {
           colors={({ data }) => COLOR_MAP[data.size]}
           padding={0.2}
           margin={{ top: 20, right: 30, bottom: 20, left: 30 }}
-          animate
           isInteractive={false}
         />
       </div>

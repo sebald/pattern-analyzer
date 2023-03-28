@@ -180,7 +180,6 @@ export const ChassisDistribution = ({ value }: ChassisDistributionProps) => {
           padding={0.3}
           margin={{ top: 10, right: 10, bottom: 25, left: 45 }}
           isInteractive={false}
-          animate
         />
       </div>
     </Card>
