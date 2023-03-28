@@ -30,7 +30,7 @@ const barLabel: BarCustomLayer<{ frequency: number }> = ({
   labelSkipWidth,
 }) => (
   <g>
-    {bars.map(({ width, height, y, data }) => {
+    {bars.map(({ width, height, y, data, color }) => {
       if (width >= labelSkipWidth) {
         return null;
       }
@@ -44,7 +44,7 @@ const barLabel: BarCustomLayer<{ frequency: number }> = ({
           style={{
             fontFamily: 'sans-serif',
             fontSize: '11px',
-            fill: 'rgb(51, 51, 51)',
+            fill: color,
             pointerEvents: 'none',
           }}
         >
@@ -154,6 +154,9 @@ export const ChassisDistribution = ({ value }: ChassisDistributionProps) => {
           maxValue={1}
           valueFormat={value => (value > 0 ? toPercentage(value) : '')}
           {...chartConfig}
+          labelTextColor={({ data }) =>
+            data.data.frequency >= 0.8 ? '#f1f5fc' : '#0f172a'
+          }
           colors={({ data }) => {
             if (data.frequency >= 0.9) {
               return COLOR_MAP[8];
