@@ -153,6 +153,7 @@ export const FactionCut = ({ tournament, value }: FactionCutProps) => {
           padding={0.15}
           margin={{ top: 10, right: 10, bottom: 20, left: 45 }}
           isInteractive={false}
+          animate={false}
         />
       </div>
       <Card.Footer>
