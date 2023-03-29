@@ -31,6 +31,15 @@ export const Collapsible = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  /**
+   * If the content is smaller than the set maxHeight,
+   * just render the children and don't wrap anything
+   * in the collapsable container.
+   */
+  if (height.current > maxHeight) {
+    return <>{children}</>;
+  }
+
   const styles = {
     '--collapsible-height': `${maxHeight}px`,
   } as React.CSSProperties;
