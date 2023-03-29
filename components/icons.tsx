@@ -1,15 +1,17 @@
 // From: https://heroicons.com/
+import { cn } from '@/lib/utils';
 import { SVGProps } from 'react';
 
 export interface IconProps extends SVGProps<SVGSVGElement> {}
 
-export const Archive = (props: IconProps) => (
+export const Archive = ({ className, ...props }: IconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
+    className={cn('flex-none', className)}
     {...props}
   >
     <path
@@ -20,13 +22,14 @@ export const Archive = (props: IconProps) => (
   </svg>
 );
 
-export const BarChart = (props: IconProps) => (
+export const BarChart = ({ className, ...props }: IconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
+    className={cn('flex-none', className)}
     {...props}
   >
     <path
@@ -37,13 +40,14 @@ export const BarChart = (props: IconProps) => (
   </svg>
 );
 
-export const Close = (props: IconProps) => (
+export const Close = ({ className, ...props }: IconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
+    className={cn('flex-none', className)}
     {...props}
   >
     <path
@@ -54,13 +58,14 @@ export const Close = (props: IconProps) => (
   </svg>
 );
 
-export const Cog = (props: IconProps) => (
+export const Cog = ({ className, ...props }: IconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
+    className={cn('flex-none', className)}
     {...props}
   >
     <path
@@ -76,13 +81,14 @@ export const Cog = (props: IconProps) => (
   </svg>
 );
 
-export const Computed = (props: IconProps) => (
+export const Computed = ({ className, ...props }: IconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
+    className={cn('flex-none', className)}
     {...props}
   >
     <path
@@ -93,13 +99,14 @@ export const Computed = (props: IconProps) => (
   </svg>
 );
 
-export const Download = (props: IconProps) => (
+export const Download = ({ className, ...props }: IconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
+    className={cn('flex-none', className)}
     {...props}
   >
     <path
@@ -110,13 +117,14 @@ export const Download = (props: IconProps) => (
   </svg>
 );
 
-export const Failure = (props: IconProps) => (
+export const Failure = ({ className, ...props }: IconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
+    className={cn('flex-none', className)}
     {...props}
   >
     <path
@@ -127,13 +135,14 @@ export const Failure = (props: IconProps) => (
   </svg>
 );
 
-export const Info = (props: IconProps) => (
+export const Info = ({ className, ...props }: IconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
     strokeWidth={2}
     stroke="currentColor"
+    className={cn('flex-none', className)}
     {...props}
   >
     <path
@@ -144,13 +153,14 @@ export const Info = (props: IconProps) => (
   </svg>
 );
 
-export const Lines = (props: IconProps) => (
+export const Lines = ({ className, ...props }: IconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
+    className={cn('flex-none', className)}
     {...props}
   >
     <path
@@ -161,13 +171,14 @@ export const Lines = (props: IconProps) => (
   </svg>
 );
 
-export const Trophy = (props: IconProps) => (
+export const Trophy = ({ className, ...props }: IconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
+    className={cn('flex-none', className)}
     {...props}
   >
     <path
@@ -178,13 +189,14 @@ export const Trophy = (props: IconProps) => (
   </svg>
 );
 
-export const Warning = (props: IconProps) => (
+export const Warning = ({ className, ...props }: IconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
+    className={cn('flex-none', className)}
     {...props}
   >
     <path

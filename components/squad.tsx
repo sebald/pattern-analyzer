@@ -15,9 +15,9 @@ export const Squad = ({ xws }: SquadProps) => {
   const { pilots } = xws;
 
   return (
-    <div>
+    <div className="flex flex-col gap-4">
       {pilots.map(({ id, ship, upgrades }, idx) => (
-        <div key={`${id}-${idx}`} className="pb-4">
+        <div key={`${id}-${idx}`}>
           <div
             className="flex items-center pb-1 font-semibold text-secondary-900"
             title={`Ship: ${getShipName(ship) || ship}`}

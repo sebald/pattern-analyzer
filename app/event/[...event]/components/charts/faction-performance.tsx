@@ -85,6 +85,7 @@ export const FactionPerformance = ({ value }: FactionPerformanceProps) => {
           }}
           padding={0.3}
           margin={{ top: 10, right: 10, bottom: 20, left: 45 }}
+          animate={false}
         />
       </div>
       <Card.Footer>

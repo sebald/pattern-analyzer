@@ -88,6 +88,7 @@ export const SquadSize = ({ value, total }: SquadSizeProps) => {
           padding={0.2}
           margin={{ top: 20, right: 30, bottom: 20, left: 30 }}
           isInteractive={false}
+          animate={false}
         />
       </div>
       <div className="text-center text-sm font-semibold">

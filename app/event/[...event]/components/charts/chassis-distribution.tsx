@@ -44,7 +44,7 @@ const barLabel: BarCustomLayer<{ frequency: number }> = ({
           style={{
             fontFamily: 'sans-serif',
             fontSize: '11px',
-            fill: 'rgb(51, 51, 51)',
+            fill: '#0f172a',
             pointerEvents: 'none',
           }}
         >
@@ -65,7 +65,7 @@ export interface ChassisDistributionProps {
 // ---------------
 export const ChassisDistribution = ({ value }: ChassisDistributionProps) => {
   const [faction, setFaction] = useState<XWSFaction>('rebelalliance');
-  const [sort, setSort] = useState<'ship' | 'frequency'>('ship');
+  const [sort, setSort] = useState<'ship' | 'frequency'>('frequency');
 
   const data = getStandardShips(faction).map(ship => {
     const stats = value[faction].get(ship) || {
@@ -78,14 +78,6 @@ export const ChassisDistribution = ({ value }: ChassisDistributionProps) => {
       ship,
       ...stats,
     };
-  });
-
-  data.sort((a, b) => {
-    if (sort === 'ship') {
-      return a.ship.localeCompare(b.ship);
-    }
-
-    return a.frequency - b.frequency;
   });
 
   // Configure chart based on windows size
@@ -103,6 +95,7 @@ export const ChassisDistribution = ({ value }: ChassisDistributionProps) => {
               </g>
             ),
           },
+          margin: { top: 10, right: 0, bottom: 30, left: 40 },
         }
       : {
           layout: 'horizontal',
@@ -128,23 +121,45 @@ export const ChassisDistribution = ({ value }: ChassisDistributionProps) => {
           ],
           enableGridY: false,
           enableGridX: true,
+          margin: { top: 0, right: 20, bottom: 30, left: 30 },
         }
   ) as Omit<BarSvgProps<(typeof data)[number]>, 'width' | 'height' | 'data'>;
 
+  data.sort((a, b) => {
+    // sort from top to bottom in vertical mode
+    const { first, second } = isWide
+      ? {
+          first: a,
+          second: b,
+        }
+      : {
+          first: b,
+          second: a,
+        };
+
+    if (sort === 'ship') {
+      return first.ship.localeCompare(second.ship);
+    }
+
+    return first.frequency - second.frequency;
+  });
+
   return (
     <Card>
-      <Card.Title>Chassis Distribution</Card.Title>
-      <div className="flex justify-end gap-3 pb-4">
-        <FactionSelection value={faction} onChange={setFaction} />
-        <Select
-          size="small"
-          value={sort}
-          onChange={e => setSort(e.target.value as any)}
-        >
-          <Select.Option value="ship">By Name</Select.Option>
-          <Select.Option value="frequency">By Frequency</Select.Option>
-        </Select>
-      </div>
+      <Card.Header>
+        <Card.Title>Chassis Distribution</Card.Title>
+        <Card.Actions>
+          <FactionSelection value={faction} onChange={setFaction} />
+          <Select
+            size="small"
+            value={sort}
+            onChange={e => setSort(e.target.value as any)}
+          >
+            <Select.Option value="ship">By Name</Select.Option>
+            <Select.Option value="frequency">By Frequency</Select.Option>
+          </Select>
+        </Card.Actions>
+      </Card.Header>
       <div className="h-[600px] lg:h-72">
         <ResponsiveBar
           data={data}
@@ -154,6 +169,9 @@ export const ChassisDistribution = ({ value }: ChassisDistributionProps) => {
           maxValue={1}
           valueFormat={value => (value > 0 ? toPercentage(value) : '')}
           {...chartConfig}
+          labelTextColor={({ data }) =>
+            data.data.frequency >= 0.8 ? '#f1f5fc' : '#0f172a'
+          }
           colors={({ data }) => {
             if (data.frequency >= 0.9) {
               return COLOR_MAP[8];
@@ -178,8 +196,8 @@ export const ChassisDistribution = ({ value }: ChassisDistributionProps) => {
             return COLOR_MAP[3];
           }}
           padding={0.3}
-          margin={{ top: 10, right: 10, bottom: 25, left: 45 }}
           isInteractive={false}
+          animate={false}
         />
       </div>
     </Card>

@@ -1,6 +1,7 @@
 import { xwingShips } from 'app/fonts';
 import icons from '@/lib/data/ship-icons.json';
 import { cn } from '@/lib/utils';
+import { getShipName } from '@/lib/get-value';
 
 // Props
 // ---------------
@@ -16,7 +17,11 @@ export interface ShipIconProps
     React.ComponentPropsWithoutRef<'span'> {}
 
 export const ShipIcon = ({ ship, className, ...props }: ShipIconProps) => (
-  <span {...props} className={cn(xwingShips.className, className)}>
+  <span
+    {...props}
+    title={getShipName(ship) || ship}
+    className={cn('cursor-default', xwingShips.className, className)}
+  >
     {(icons as any)[ship] || ship}
   </span>
 );
@@ -28,7 +33,11 @@ export interface ShipTextProps
     React.ComponentPropsWithoutRef<'text'> {}
 
 export const ShipText = ({ ship, className, ...props }: ShipTextProps) => (
-  <text {...props} className={cn(xwingShips.className, className)}>
+  <text
+    {...props}
+    className={cn('cursor-default', xwingShips.className, className)}
+  >
     {(icons as any)[ship] || ship}
+    <title>{getShipName(ship) || ship}</title>
   </text>
 );

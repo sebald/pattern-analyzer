@@ -35,9 +35,9 @@ export const UpgradeStats = ({ value }: UpgradeStatsProps) => {
 
   return (
     <Card>
-      <Card.Title>Upgrades</Card.Title>
-      <Card.Body>
-        <div className="flex flex-wrap justify-end gap-3 pb-4">
+      <Card.Header>
+        <Card.Title>Upgrades</Card.Title>
+        <Card.Actions>
           <FactionSelection value={faction} onChange={setFaction} allowAll />
           <UpgradeSlotSelection value={slot} onChange={setSlot} allowAll />
           <Select
@@ -51,7 +51,9 @@ export const UpgradeStats = ({ value }: UpgradeStatsProps) => {
             <Select.Option value="frequency">By Frequency</Select.Option>
             <Select.Option value="count">By Count</Select.Option>
           </Select>
-        </div>
+        </Card.Actions>
+      </Card.Header>
+      <Card.Body>
         <Table
           cols={[
             'minmax(auto, max-content)',

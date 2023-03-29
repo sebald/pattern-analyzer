@@ -4,10 +4,7 @@ import { cva, VariantProps } from 'class-variance-authority';
 // ---------------
 const styles = {
   card: cva(
-    [
-      'flex h-full w-full flex-col items-stretch gap-4',
-      'rounded-lg bg-white relative',
-    ],
+    ['flex h-full w-full flex-col items-stretch gap-4', 'rounded-lg bg-white'],
     {
       variants: {
         variant: {
@@ -35,6 +32,16 @@ const CardTitle = ({ children }: CardTitleProps) => (
   <div className="text-center text-lg font-bold">{children}</div>
 );
 
+// Card.Header
+// ---------------
+export interface CardHeaderProps {
+  children: React.ReactNode;
+}
+
+const CardHeader = ({ children }: CardHeaderProps) => (
+  <div className="relative flex flex-col gap-3">{children}</div>
+);
+
 // Card.Body
 // ---------------
 export interface CardBodyProps {
@@ -55,14 +62,24 @@ const CardFooter = ({ children }: CardFooterProps) => (
   <div className="border-t border-secondary-100">{children}</div>
 );
 
-// Card.Action
+// Card.Menu
 // ---------------
-export interface CardActionProps {
+export interface CardMenuProps {
   children: React.ReactNode;
 }
 
-const CardAction = ({ children }: CardActionProps) => (
-  <div className="absolute top-4 right-4">{children}</div>
+const CardMenu = ({ children }: CardMenuProps) => (
+  <div className="absolute top-0 right-1">{children}</div>
+);
+
+// Card.Action
+// ---------------
+export interface CardActionsProps {
+  children: React.ReactNode;
+}
+
+const CardActions = ({ children }: CardActionsProps) => (
+  <div className="flex justify-end gap-3 pb-1">{children}</div>
 );
 
 // Card
@@ -76,7 +93,9 @@ export const Card = ({ variant, inset, className, children }: CardProps) => (
   <div className={styles.card({ variant, inset, className })}>{children}</div>
 );
 
-Card.Title = CardTitle;
+Card.Header = CardHeader;
 Card.Body = CardBody;
 Card.Footer = CardFooter;
-Card.Action = CardAction;
+Card.Title = CardTitle;
+Card.Menu = CardMenu;
+Card.Actions = CardActions;

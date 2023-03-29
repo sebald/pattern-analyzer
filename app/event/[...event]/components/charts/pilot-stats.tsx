@@ -31,9 +31,9 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
 
   return (
     <Card>
-      <Card.Title>Pilots</Card.Title>
-      <Card.Body>
-        <div className="flex justify-end gap-3 pb-4">
+      <Card.Header>
+        <Card.Title>Pilots</Card.Title>
+        <Card.Actions>
           <FactionSelection value={faction} onChange={setFaction} allowAll />
           <Select
             size="small"
@@ -46,7 +46,9 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
             <Select.Option value="frequency">By Frequency</Select.Option>
             <Select.Option value="count">By Count</Select.Option>
           </Select>
-        </div>
+        </Card.Actions>
+      </Card.Header>
+      <Card.Body>
         <Table
           cols={[
             'minmax(auto, max-content)',
