@@ -126,16 +126,18 @@ export const FactionCut = ({ tournament, value }: FactionCutProps) => {
 
   return (
     <Card>
-      <Card.Title>
-        {tournament.cut
-          ? `Faction Cut Rate (TOP${tournament.cut})`
-          : `Faction Rate: TOP${cut}`}
-      </Card.Title>
-      {tournament.cut ? null : (
-        <Card.Action>
-          <ConfigDialog cut={cut} updateCut={setCut} />
-        </Card.Action>
-      )}
+      <Card.Header>
+        <Card.Title>
+          {tournament.cut
+            ? `Faction Cut Rate (TOP${tournament.cut})`
+            : `Faction Rate: TOP${cut}`}
+        </Card.Title>
+        {tournament.cut ? null : (
+          <Card.Menu>
+            <ConfigDialog cut={cut} updateCut={setCut} />
+          </Card.Menu>
+        )}
+      </Card.Header>
       <div className="h-72">
         <ResponsiveBar
           data={[...data].sort((a, b) => a.cutrate - b.cutrate)}

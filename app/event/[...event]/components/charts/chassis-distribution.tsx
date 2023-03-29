@@ -146,18 +146,20 @@ export const ChassisDistribution = ({ value }: ChassisDistributionProps) => {
 
   return (
     <Card>
-      <Card.Title>Chassis Distribution</Card.Title>
-      <div className="flex justify-end gap-3 pb-4">
-        <FactionSelection value={faction} onChange={setFaction} />
-        <Select
-          size="small"
-          value={sort}
-          onChange={e => setSort(e.target.value as any)}
-        >
-          <Select.Option value="ship">By Name</Select.Option>
-          <Select.Option value="frequency">By Frequency</Select.Option>
-        </Select>
-      </div>
+      <Card.Header>
+        <Card.Title>Chassis Distribution</Card.Title>
+        <Card.Actions>
+          <FactionSelection value={faction} onChange={setFaction} />
+          <Select
+            size="small"
+            value={sort}
+            onChange={e => setSort(e.target.value as any)}
+          >
+            <Select.Option value="ship">By Name</Select.Option>
+            <Select.Option value="frequency">By Frequency</Select.Option>
+          </Select>
+        </Card.Actions>
+      </Card.Header>
       <div className="h-[600px] lg:h-72">
         <ResponsiveBar
           data={data}
