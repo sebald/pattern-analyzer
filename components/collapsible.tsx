@@ -1,12 +1,14 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
+import useMeasure from 'react-use/lib/useMeasure';
+
 import { Button } from './button';
 
 export interface CollapsibleProps {
   defaultCollapsed?: boolean;
   maxHeight: number;
-  children: React.ReactNode;
+  children: React.ReactElement;
 }
 
 export const Collapsible = ({
@@ -14,32 +16,17 @@ export const Collapsible = ({
   maxHeight,
   children,
 }: CollapsibleProps) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const height = useRef(-1);
-  const [collapsed, setCollapsed] = useState(false);
+  const [ref, { height: currentHeight }] = useMeasure<HTMLDivElement>();
+  const [collapsed, setCollapsed] = useState(defaultCollapsed);
+  const height = useRef(0);
 
-  /**
-   * Run the initial setup only once, this means that
-   * `maxHeight` and `defaultCollapsed` can not be updated
-   * dynamically.
-   */
-  useEffect(() => {
-    height.current = ref.current?.clientHeight || 0;
-    if (defaultCollapsed && height.current > maxHeight) {
-      setCollapsed(true);
+  useLayoutEffect(() => {
+    if (!height.current) {
+      height.current = currentHeight;
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [currentHeight]);
 
-  /**
-   * If the content is smaller than the set maxHeight,
-   * just render the children and don't wrap anything
-   * in the collapsable container.
-   */
-  if (height.current > maxHeight) {
-    return <>{children}</>;
-  }
-
+  console.log(height);
   const styles = {
     '--collapsible-height': `${maxHeight}px`,
   } as React.CSSProperties;
@@ -55,15 +42,17 @@ export const Collapsible = ({
       >
         {children}
       </div>
-      <div className="flex justify-center">
-        <Button
-          variant="link"
-          size="inherit"
-          onClick={() => setCollapsed(!collapsed)}
-        >
-          {collapsed ? 'Show more' : 'Show less'}
-        </Button>
-      </div>
+      {height.current > maxHeight ? (
+        <div className="flex justify-center">
+          <Button
+            variant="link"
+            size="inherit"
+            onClick={() => setCollapsed(!collapsed)}
+          >
+            {collapsed ? 'Show more' : 'Show less'}
+          </Button>
+        </div>
+      ) : null}
     </div>
   );
 };
