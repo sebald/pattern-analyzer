@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
@@ -75,64 +75,69 @@ export interface TableProps {
   children?: React.ReactNode;
 }
 
-export const Table = ({
-  cols,
-  headers,
-  className,
-  size,
-  children,
-}: TableProps) => {
-  if (cols.length !== headers.length) {
-    throw new Error(
-      `[Table] Number of columns and headers must be equal, got ${cols.length} cols and ${headers.length} headers.`
+export const Table = forwardRef<HTMLTableElement, TableProps>(
+  ({ cols, headers, className, size, children }, ref) => {
+    if (cols.length !== headers.length) {
+      throw new Error(
+        `[Table] Number of columns and headers must be equal, got ${cols.length} cols and ${headers.length} headers.`
+      );
+    }
+
+    const count = cols.length;
+    const isFirst = (idx: number) => idx % count === 0;
+    const isLast = (idx: number) => (idx + 1) % count === 0;
+
+    // Add additional classes to first/last col
+    const addColClasses = (idx: number, otherClassName?: string) =>
+      cn(
+        otherClassName,
+        isFirst(idx) && 'pl-2 bg-white sticky left-0',
+        isLast(idx) && 'pr-2'
+      );
+
+    // Use CSS var to apply col layout
+    const styles = { '--table-cols': cols.join(' ') } as React.CSSProperties;
+
+    return (
+      <div
+        ref={ref}
+        style={styles}
+        className={cn(
+          'grid grid-cols-[var(--table-cols)] overflow-x-auto',
+          className
+        )}
+      >
+        {headers.map((header, idx) => (
+          <TableHeader key={idx} className={addColClasses(idx)}>
+            {header}
+          </TableHeader>
+        ))}
+        {flattenChildren(children).map((child, idx) => {
+          if (
+            !React.isValidElement<{ className?: string; size?: string | null }>(
+              child
+            )
+          ) {
+            return child;
+          }
+
+          return React.cloneElement(child, {
+            ...child.props,
+            className: addColClasses(idx, child.props.className),
+            size,
+          });
+        })}
+      </div>
     );
   }
+) as Table;
 
-  const count = cols.length;
-  const isFirst = (idx: number) => idx % count === 0;
-  const isLast = (idx: number) => (idx + 1) % count === 0;
-
-  // Add additional classes to first/last col
-  const addColClasses = (idx: number, otherClassName?: string) =>
-    cn(
-      otherClassName,
-      isFirst(idx) && 'pl-2 bg-white sticky left-0',
-      isLast(idx) && 'pr-2'
-    );
-
-  // Use CSS var to apply col layout
-  const styles = { '--table-cols': cols.join(' ') } as React.CSSProperties;
-
-  return (
-    <div
-      style={styles}
-      className={cn(
-        'grid grid-cols-[var(--table-cols)] overflow-x-auto',
-        className
-      )}
-    >
-      {headers.map((header, idx) => (
-        <TableHeader key={idx} className={addColClasses(idx)}>
-          {header}
-        </TableHeader>
-      ))}
-      {flattenChildren(children).map((child, idx) => {
-        if (
-          !React.isValidElement<{ className?: string; size?: string | null }>(
-            child
-          )
-        ) {
-          return child;
-        }
-
-        return React.cloneElement(child, {
-          ...child.props,
-          className: addColClasses(idx, child.props.className),
-          size,
-        });
-      })}
-    </div>
-  );
-};
-
+Table.displayName = 'Table';
 Table.Cell = TableCell;
+
+export interface Table
+  extends React.ForwardRefExoticComponent<
+    TableProps & React.RefAttributes<HTMLTableElement>
+  > {
+  Cell: typeof TableCell;
+}

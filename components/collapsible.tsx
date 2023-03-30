@@ -1,58 +1,80 @@
 'use client';
 
-import { useLayoutEffect, useRef, useState } from 'react';
+import { cloneElement, useRef, useState } from 'react';
 import useMeasure from 'react-use/lib/useMeasure';
+import { cva } from 'class-variance-authority';
+import { Expand } from './icons';
 
-import { Button } from './button';
+// Styles
+// ---------------
+const styles = {
+  wrapper: cva(['relative'], {
+    variants: {
+      collapsed: {
+        true: 'max-h-[var(--collapsible-height)] overflow-hidden',
+      },
+    },
+  }),
+  gradient: cva([
+    'absolute bottom-0 left-0 right-0',
+    'h-14',
+    'bg-gradient-to-t from-white',
+  ]),
+  toggle: cva([
+    'flex gap-0.5 items-center',
+    'text-sm text-primary-700 font-semibold',
+    'py-1.5 px-6 rounded-lg',
+    'bg-primary-50 hover:bg-primary-100',
+  ]),
+};
 
+// Props
+// ---------------
 export interface CollapsibleProps {
   defaultCollapsed?: boolean;
   maxHeight: number;
   children: React.ReactElement;
 }
 
+// Component
+// ---------------
 export const Collapsible = ({
   defaultCollapsed = true,
   maxHeight,
   children,
 }: CollapsibleProps) => {
-  const [ref, { height: currentHeight }] = useMeasure<HTMLDivElement>();
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const [ref, { height }] = useMeasure<HTMLDivElement>();
   const [collapsed, setCollapsed] = useState(defaultCollapsed);
-  const height = useRef(0);
+  const child = cloneElement(children, { ...children.props, ref });
 
-  useLayoutEffect(() => {
-    if (!height.current) {
-      height.current = currentHeight;
-    }
-  }, [currentHeight]);
+  const toggle = () => {
+    setCollapsed(!collapsed);
+    wrapperRef?.current?.scrollIntoView();
+  };
 
-  console.log(height);
-  const styles = {
+  if (height <= maxHeight) {
+    return <>{child}</>;
+  }
+
+  const vars = {
     '--collapsible-height': `${maxHeight}px`,
   } as React.CSSProperties;
 
   return (
-    <div className="flex flex-col gap-4">
-      <div
-        ref={ref}
-        style={styles}
-        className={
-          collapsed ? 'max-h-[var(--collapsible-height)] overflow-hidden' : ''
-        }
-      >
-        {children}
+    <div className="flex flex-col" ref={wrapperRef}>
+      <div style={vars} className={styles.wrapper({ collapsed })}>
+        {child}
+        {collapsed && <div className={styles.gradient()} />}
       </div>
-      {height.current > maxHeight ? (
+      {
         <div className="flex justify-center">
-          <Button
-            variant="link"
-            size="inherit"
-            onClick={() => setCollapsed(!collapsed)}
-          >
+          <button className={styles.toggle()} onClick={toggle}>
+            <Expand className="h-4 w-4" strokeWidth={2.5} />
             {collapsed ? 'Show more' : 'Show less'}
-          </Button>
+          </button>
         </div>
-      ) : null}
+      }
     </div>
   );
 };

@@ -56,7 +56,7 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
         </Card.Actions>
       </Card.Header>
       <Card.Body>
-        <Collapsible maxHeight={500}>
+        <Collapsible maxHeight={375}>
           <Table
             cols={[
               'minmax(auto, max-content)',
