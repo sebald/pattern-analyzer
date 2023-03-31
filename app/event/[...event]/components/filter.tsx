@@ -13,6 +13,7 @@ export const Filter = () => {
     <div className="flex flex-row items-end justify-end gap-2 pb-8 sm:gap-4">
       <SearchField
         size="small"
+        className="lg:w-64"
         aria-label="Search"
         placeholder="Search..."
         defaultValue={filter.query}

@@ -64,6 +64,7 @@ export const SearchField = ({
   label,
   size,
   htmlSize,
+  className,
   ...props
 }: SearchFieldProps) => {
   const id = useId();
@@ -76,7 +77,7 @@ export const SearchField = ({
         <input
           {...props}
           id={id}
-          className={styles({ size })}
+          className={styles({ size, className })}
           type="search"
           autoComplete="off"
           size={htmlSize}
