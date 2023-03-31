@@ -20,7 +20,28 @@ export interface Upgrade {
   name: string;
 }
 
-export interface SquadData {
+export interface PlayerRecord {
+  wins: number;
+  ties: number;
+  losses: number;
+}
+
+export interface PlayerData {
+  id: string;
+  player: string;
+  rank: {
+    swiss: number;
+    elimination?: number;
+  };
+  points: number;
+  record: PlayerRecord;
+  sos: number;
+  missionPoints: number;
+  mov: number;
+  dropped?: boolean;
+}
+
+export interface SquadData extends PlayerData {
   id: string;
   url: string | null;
   xws: XWSSquad | null;
@@ -29,9 +50,12 @@ export interface SquadData {
 }
 
 export interface EventData {
+  id: string[];
   title: string;
+  vendor: 'longshanks' | 'rollbetter';
   urls: { href: string; text: string }[];
   squads: SquadData[];
+  rounds: ListFortressRound[];
 }
 
 // XWS
@@ -95,4 +119,47 @@ export interface XWSVendor {
   builder_url: string;
   link: string;
   version: string;
+}
+
+// List Fortress
+// ---------------
+export type Scenarios =
+  | 'Assault at the Satellite Array'
+  | 'Chance Engagement'
+  | 'Scramble the Transmissions'
+  | 'Salvage Mission';
+
+// https://github.com/AlexRaubach/ListFortress/issues/63#issuecomment-1376711528
+export interface ListfortressExport {
+  players: ListFortressPlayer[];
+  rounds: ListFortressRound[];
+}
+
+export interface ListFortressPlayer {
+  id: string;
+  name: string;
+  score: number;
+  sos: number;
+  mov: number;
+  rank: {
+    swiss: number;
+    elimination?: number;
+  };
+  dropped?: boolean;
+  list?: string | XWSSquad;
+}
+
+export interface ListFortressRound {
+  'round-type': 'swiss' | 'elimination';
+  'round-number': number;
+  matches: {
+    player1: string;
+    'player1-id': string;
+    player2: string;
+    'player2-id': string;
+    player1Points: number;
+    player2Points: number;
+    'winner-id'?: string;
+  }[];
+  scenario: Scenarios;
 }

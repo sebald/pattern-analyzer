@@ -1,8 +1,8 @@
 import { linearGradientDef } from '@nivo/core';
 import { ResponsiveLine } from '@nivo/line';
 
-import { Card } from 'components';
-import { calcWeightedAverage, FooterHint } from './shared';
+import { Card } from '@/components';
+import { calcWeightedAverage } from './shared';
 
 // Props
 // ---------------
@@ -27,7 +27,7 @@ export const PilotCostDistribution = ({
 
   return (
     <Card>
-      <Card.Title>Pilot Cost Distribution*</Card.Title>
+      <Card.Title>Pilot Cost Distribution</Card.Title>
       <div className="h-72">
         <ResponsiveLine
           data={[
@@ -54,15 +54,12 @@ export const PilotCostDistribution = ({
           colors="#8490db"
           fill={[{ match: '*', id: 'gradient' }]}
           margin={{ top: 20, right: 30, bottom: 20, left: 30 }}
-          animate
+          animate={false}
         />
       </div>
       <div className="text-center text-sm font-semibold">
         Average Pilot Cost: {calcWeightedAverage(value, total).toFixed(1)}
       </div>
-      <Card.Footer>
-        <FooterHint />
-      </Card.Footer>
     </Card>
   );
 };

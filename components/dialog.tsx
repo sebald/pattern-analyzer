@@ -3,7 +3,7 @@
 import { forwardRef } from 'react';
 import * as Primitive from '@radix-ui/react-dialog';
 
-import { cn } from 'lib/utils';
+import { cn } from '@/lib/utils';
 import { Close } from './icons';
 
 // Portal
@@ -53,8 +53,8 @@ const DialogContent = forwardRef<
     <Primitive.Content
       ref={ref}
       className={cn(
-        'bg-white px-4 pt-3 pb-2 shadow shadow-secondary-600 sm:max-w-lg sm:rounded-lg',
-        'animate-in fade-in-90 slide-in-from-bottom-10 sm:zoom-in-90 sm:slide-in-from-bottom-0 fixed z-50 grid w-full scale-100 gap-4 opacity-100',
+        'border border-secondary-100 bg-white px-4 py-3 shadow shadow-secondary-600 sm:max-w-lg sm:rounded-lg',
+        'animate-in fade-in-90 slide-in-from-bottom-10 sm:zoom-in-90 sm:slide-in-from-bottom-0 fixed z-50 grid w-full scale-100 gap-2 opacity-100',
         className
       )}
       {...props}
@@ -115,7 +115,7 @@ const DialogTitle = forwardRef<
 >(({ className, ...props }, ref) => (
   <Primitive.Title
     ref={ref}
-    className={cn('text-lg font-bold text-primary-900', className)}
+    className={cn('text-xl font-bold text-primary-900', className)}
     {...props}
   />
 ));
@@ -148,3 +148,4 @@ Dialog.Header = DialogHeader;
 Dialog.Footer = DialogFooter;
 Dialog.Title = DialogTitle;
 Dialog.Description = DialogDescription;
+Dialog.Close = Primitive.Close;

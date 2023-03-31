@@ -1,17 +1,39 @@
 import { cva, VariantProps } from 'class-variance-authority';
+import { Failure, Info, Warning } from './icons';
+import { Link, LinksProps } from './link';
 
-// Message.Action
+// Message.Title
 // ---------------
-export interface MessageActionProps
-  extends React.ComponentPropsWithRef<'button'> {
-  children: React.ReactNode;
+export interface MessageTitleProps {
+  children?: React.ReactNode;
 }
 
-const MessageAction = ({
+const MessageTitle = ({ children }: MessageTitleProps) => (
+  <div className="font-semibold leading-6">{children}</div>
+);
+
+// Message.Body
+// ---------------
+export interface MessageBodyProps {
+  children?: React.ReactNode;
+}
+
+const MessageBody = ({ children }: MessageBodyProps) => (
+  <div className="">{children}</div>
+);
+
+// Message.Button
+// ---------------
+export interface MessageButtonProps
+  extends React.ComponentPropsWithoutRef<'button'> {
+  children?: React.ReactNode;
+}
+
+const MessageButton = ({
   children,
   type = 'button',
   ...props
-}: MessageActionProps) => (
+}: MessageButtonProps) => (
   <button
     {...props}
     type={type}
@@ -21,10 +43,22 @@ const MessageAction = ({
   </button>
 );
 
+// Message.Link
+// ---------------
+export interface MessageLinkProps extends LinksProps {
+  children?: React.ReactNode;
+}
+
+const MessageLink = ({ children, ...props }: MessageLinkProps) => (
+  <Link {...props} className="inline-block font-bold leading-loose">
+    {children}
+  </Link>
+);
+
 // Message.Footer
 // ---------------
 export interface MessageFooterProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const MessageFooter = ({ children }: MessageFooterProps) => (
@@ -33,41 +67,65 @@ const MessageFooter = ({ children }: MessageFooterProps) => (
 
 // Styles
 // ---------------
-const styles = cva(['flex rounded-md p-4 text-sm'], {
+const styles = cva(['flex gap-1 rounded-md'], {
   variants: {
     variant: {
-      info: 'bg-blue-200 text-blue-500',
+      info: 'bg-primary-200 text-primary-600',
       error: 'bg-red-200 text-red-500',
+      warning: 'bg-amber-200 text-amber-800',
+    },
+    size: {
+      regular: 'text-sm p-4',
+      large: 'text-base py-5 px-6',
+    },
+    align: {
+      left: '',
+      center: 'justify-center',
     },
   },
   defaultVariants: {
     variant: 'info',
+    size: 'regular',
+    align: 'left',
   },
 });
 
-export interface InfoProps extends VariantProps<typeof styles> {
-  children: React.ReactNode;
+// Icons
+// ---------------
+const ICON_MAP = {
+  info: Info,
+  error: Failure,
+  warning: Warning,
+  none: () => null,
+};
+
+// Props
+// ---------------
+export interface MessageProps extends VariantProps<typeof styles> {
+  icon?: 'info' | 'error' | 'none';
+  children?: React.ReactNode;
 }
 
-export const Message = ({ variant = 'info', children }: InfoProps) => (
-  <div className={styles({ variant })}>
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={1.5}
-      stroke="currentColor"
-      className="mr-3 h-5 w-5 flex-shrink-0"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
-      />
-    </svg>
-    <div>{children}</div>
-  </div>
-);
+// Component
+// ---------------
+export const Message = ({
+  variant = 'info',
+  size,
+  align,
+  icon,
+  children,
+}: MessageProps) => {
+  const Icon = ICON_MAP[icon || variant!];
+  return (
+    <div className={styles({ variant, size, align })}>
+      {<Icon className="h-6 w-6 flex-shrink-0" />}
+      <div>{children}</div>
+    </div>
+  );
+};
 
-Message.Action = MessageAction;
+Message.Title = MessageTitle;
+Message.Body = MessageBody;
+Message.Button = MessageButton;
+Message.Link = MessageLink;
 Message.Footer = MessageFooter;

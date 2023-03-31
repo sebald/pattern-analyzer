@@ -46,6 +46,9 @@ export const getPointsByName = (id: string) => {
   return points || 1;
 };
 
+/**
+ * Converts as YASB URL to XWS
+ */
 export const yasb2xws = (link: string): XWSSquad => {
   const url = new URL(link);
 
@@ -136,5 +139,19 @@ export const yasb2xws = (link: string): XWSSquad => {
         link: link,
       },
     },
+  };
+};
+
+/**
+ * Tries to find a YASB URL in a text and converts it to XWS.
+ */
+export const xwsFromText = (text: string) => {
+  // Remove new lines, makes it easier to regex on it
+  const val = text.replace(/(\r\n|\n|\r)/gm, '');
+  const url = (val.match(YASB_URL_REGEXP) || [null])[0];
+
+  return {
+    xws: url ? yasb2xws(url) : null,
+    url,
   };
 };

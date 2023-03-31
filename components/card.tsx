@@ -1,3 +1,27 @@
+import { cva, VariantProps } from 'class-variance-authority';
+
+// Styles
+// ---------------
+const styles = {
+  card: cva(
+    ['flex h-full w-full flex-col items-stretch gap-4', 'rounded-lg bg-white'],
+    {
+      variants: {
+        variant: {
+          default: ['shadow-card'],
+        },
+        inset: {
+          default: ['px-3 pt-3 pb-2'],
+        },
+      },
+      defaultVariants: {
+        variant: 'default',
+        inset: 'default',
+      },
+    }
+  ),
+};
+
 // Card.Title
 // ---------------
 export interface CardTitleProps {
@@ -5,7 +29,17 @@ export interface CardTitleProps {
 }
 
 const CardTitle = ({ children }: CardTitleProps) => (
-  <div className="prose text-center text-lg font-bold">{children}</div>
+  <div className="text-center text-lg font-bold">{children}</div>
+);
+
+// Card.Header
+// ---------------
+export interface CardHeaderProps {
+  children: React.ReactNode;
+}
+
+const CardHeader = ({ children }: CardHeaderProps) => (
+  <div className="relative flex flex-col gap-3">{children}</div>
 );
 
 // Card.Body
@@ -28,18 +62,40 @@ const CardFooter = ({ children }: CardFooterProps) => (
   <div className="border-t border-secondary-100">{children}</div>
 );
 
-// Card
+// Card.Menu
 // ---------------
-export interface CardProps {
+export interface CardMenuProps {
   children: React.ReactNode;
 }
 
-export const Card = ({ children }: CardProps) => (
-  <div className="flex h-full w-full flex-col items-stretch gap-4 rounded-lg bg-white px-4 pt-3 pb-2 shadow shadow-secondary-200">
-    {children}
-  </div>
+const CardMenu = ({ children }: CardMenuProps) => (
+  <div className="absolute top-0 right-1">{children}</div>
 );
 
-Card.Title = CardTitle;
+// Card.Action
+// ---------------
+export interface CardActionsProps {
+  children: React.ReactNode;
+}
+
+const CardActions = ({ children }: CardActionsProps) => (
+  <div className="flex justify-end gap-3 pb-1">{children}</div>
+);
+
+// Card
+// ---------------
+export interface CardProps extends VariantProps<typeof styles.card> {
+  className?: string;
+  children: React.ReactNode;
+}
+
+export const Card = ({ variant, inset, className, children }: CardProps) => (
+  <div className={styles.card({ variant, inset, className })}>{children}</div>
+);
+
+Card.Header = CardHeader;
 Card.Body = CardBody;
 Card.Footer = CardFooter;
+Card.Title = CardTitle;
+Card.Menu = CardMenu;
+Card.Actions = CardActions;

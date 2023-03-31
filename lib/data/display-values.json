@@ -587,7 +587,7 @@
     "redfuryzealot": "Red Fury Zealot",
     "sinker": "“Sinker”",
     "jag": "“Jag”",
-    "oddball-arc170starfighter": "“Odd Ball” ((ARC-170))",
+    "oddball-arc170starfighter": "“Odd Ball” (ARC-170)",
     "wolffe": "“Wolffe”",
     "104thbattalionpilot": "104th Battalion Pilot",
     "squadsevenveteran": "Squad Seven Veteran",
@@ -635,7 +635,7 @@
     "shadowsquadronveteran": "Shadow Squadron Veteran",
     "anakinskywalker-btlbywing": "Anakin Skywalker",
     "r2d2": "R2-D2",
-    "oddball-btlbywing": "“Odd Ball” ((Y-Wing))",
+    "oddball-btlbywing": "“Odd Ball” (Y-Wing)",
     "matchstick": "“Matchstick”",
     "broadside": "“Broadside”",
     "goji": "“Goji”",
@@ -658,7 +658,7 @@
     "212thbattalionpilot": "212th Battalion Pilot",
     "sicko": "“Sicko”",
     "wilhufftarkin": "Wilhuff Tarkin",
-    "oddball-nimbusclassvwing": "“Odd Ball” ((V-Wing))",
+    "oddball-nimbusclassvwing": "“Odd Ball” (V-Wing)",
     "contrail": "“Contrail”",
     "klick": "“Klick”",
     "shadowsquadronescort": "Shadow Squadron Escort",
@@ -1233,6 +1233,9 @@
     "ioncannonturret": "Ion Cannon Turret",
     "attackspeed": "Attack Speed",
     "r5k6": "R5-K6",
-    "vengeful": "Vengeful"
+    "vengeful": "Vengeful",
+    "vectoredcannons": "Vectored Cannons",
+    "r2a3": "R2-A3",
+    "l337sprogramming": "L3-37’s Programming"
   }
 }

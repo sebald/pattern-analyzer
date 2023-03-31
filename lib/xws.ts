@@ -9,6 +9,8 @@ const PILOT_ID_MAP = {
   'anakinskywalker-eta2actis-siegeofcoruscant':
     'anakinskywalker-siegeofcoruscant',
   'obiwankenobi-eta2actis-siegeofcoruscant': 'obiwankenobi-siegeofcoruscant',
+  'kickback-sigeofcoruscant': 'kickback-siegeofcoruscant',
+  'hondoohnaka-firesprayclasspatrolcraft': 'hondoohnaka',
 };
 
 /**
@@ -56,3 +58,19 @@ export const normalize = (xws: XWSSquad | null) => {
     pilots,
   };
 };
+
+export const toXWS = (raw: string) => {
+  try {
+    return normalize(
+      JSON.parse(raw.trim().replace(/\\'/g, "'").replace(/\\"/g, "'"))
+    );
+  } catch {
+    throw new Error('Could not parse raw value...');
+  }
+};
+
+export const getBuilderLink = (xws: XWSSquad | null) =>
+  xws?.vendor?.yasb?.link ||
+  // Remove `print` from lbn to show the builder instead
+  xws?.vendor?.lbn?.link.replace('print', '') ||
+  null;

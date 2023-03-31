@@ -1,4 +1,5 @@
 import data from './data/display-values.json';
+import legal from './data/standard-legal.json';
 import { XWSFaction } from './types';
 
 export type Factions = keyof typeof data.faction;
@@ -23,3 +24,6 @@ export const getPilotName = (xws: string): string | null =>
 
 export const getUpgradeName = (xws: string): string | null =>
   (data.upgrades as any)[xws] || null;
+
+export const getStandardShips = (faction: Factions) =>
+  legal[faction].ships as Ships[];

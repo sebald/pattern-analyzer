@@ -1,8 +1,19 @@
-import { Link, Logo } from 'components';
+import { Link, Logo } from '@/components';
 
 export interface LayoutProps {
   children: React.ReactNode;
+  params: {
+    event: [id: string] | [vendor: string, id: string] | string[];
+  };
 }
+
+export const generateMetadata = async ({ params }: LayoutProps) => {
+  const id = params.event.length === 1 ? params.event[0] : params.event[1];
+
+  return {
+    title: `Pattern Analyzer | Event #${id}`,
+  };
+};
 
 const Layout = ({ children }: LayoutProps) => (
   <>

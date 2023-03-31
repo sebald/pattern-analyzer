@@ -4,7 +4,7 @@ import { FormEventHandler, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useDebouncedCallback } from 'use-debounce';
 
-import { Input, Button, Select } from 'components';
+import { Input, Button, Select } from '@/components';
 
 export const EventForm = () => {
   const [error, setError] = useState<string | null>(null);

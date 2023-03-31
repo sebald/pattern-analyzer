@@ -1,10 +1,6 @@
 import { twMerge } from 'tailwind-merge';
-import { SquadData } from './types';
 
 export const cn = (...cns: Parameters<typeof twMerge>) => twMerge(...cns);
-
-export const round = (val: number, digits: number) =>
-  Number(val.toFixed(digits));
 
 // Stolen from https://stackoverflow.com/questions/68702774/longest-common-prefix-in-javascript
 export const prefix = (...words: string[]) => {
@@ -29,6 +25,56 @@ export const shortenTitles = (...titles: string[]) => {
   return `${common}${suffixes.filter(Boolean).join(' & ')}`;
 };
 
+export const round = (val: number, digits: number) =>
+  Number(val.toFixed(digits));
+
+/**
+ * Calculate average (not weighted).
+ */
+export const average = (vals: number[], digits = 2) =>
+  round(
+    vals.length ? vals.reduce((sum, n) => sum + n, 0) / vals.length : 0,
+    digits
+  );
+
+/**
+ * Calculate winrate (in %).
+ */
+export const winrate = (
+  records: { wins: number; ties: number; losses: number }[]
+) => {
+  let wins = 0;
+  let total = 0;
+
+  records.forEach(record => {
+    wins = wins + record.wins;
+    total = Object.values(record).reduce((t, num) => t + num, total);
+  });
+
+  return total === 0 ? 0 : round(wins / total, 4);
+};
+
+/**
+ * Calculate percentile based on a rank.
+ * https://www.cuemath.com/percentile-formula/
+ */
+export const percentile = (rank: number, total: number) =>
+  round((total - rank) / total, 4);
+
+/**
+ * Calculate standard deviation.
+ * https://www.cuemath.com/data/standard-deviation/
+ */
+export const deviation = (vals: number[], digits = 4) => {
+  const avg = average(vals, 4);
+
+  const sum = vals
+    .map(val => (val - avg) ** 2)
+    .reduce((acc, val) => acc + val, 0);
+
+  return round(Math.sqrt(sum / vals.length), digits);
+};
+
 /**
  * Create an array with every possible combinations
  */
@@ -47,39 +93,3 @@ export const isSubset = <T>(needle: T[], stack: T[]) =>
       needle.filter(el => el === val).length <=
         stack.filter(el => el === val).length
   );
-type CleandSquad = Omit<SquadData, 'raw'>;
-
-/**
- * Exports squads data as CSV.
- * `raw` is omited since it can break the CSV format (no lines are bad).
- */
-export const squadsToCSV = (squads: SquadData[]) => {
-  const data: CleandSquad[] = squads.map(({ raw, ...rest }) => ({ ...rest }));
-  const headers = Object.keys(data[0]) as (keyof CleandSquad)[];
-  const delimiter = ';';
-
-  const createRow = (
-    row: CleandSquad,
-    headerKeys: (keyof CleandSquad)[],
-    delimiter: string
-  ) =>
-    headerKeys
-      .map(key => {
-        const entry = row[key];
-
-        switch (typeof entry) {
-          case 'number':
-            return entry;
-          case 'object':
-            return entry ? JSON.stringify(entry) : '';
-          default:
-            return `${entry}`.replace(/"/g, '""');
-        }
-      })
-      .join(delimiter);
-
-  let csv = data.map(squad => createRow(squad, headers, delimiter));
-  csv.unshift(headers.join(delimiter));
-
-  return csv.join('\r\n');
-};

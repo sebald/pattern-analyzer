@@ -1,0 +1,103 @@
+{
+  "rebelalliance": {
+    "ships": [
+      "asf01bwing",
+      "arc170starfighter",
+      "btla4ywing",
+      "fangfighter",
+      "gauntletfighter",
+      "hwk290lightfreighter",
+      "modifiedyt1300lightfreighter",
+      "rz1awing",
+      "sheathipedeclassshuttle",
+      "t65xwing",
+      "tielnfighter",
+      "ut60duwing",
+      "vcx100lightfreighter",
+      "z95af4headhunter"
+    ]
+  },
+  "galacticempire": {
+    "ships": [
+      "gauntletfighter",
+      "tieadvancedv1",
+      "tieadvancedx1",
+      "tieininterceptor",
+      "tiereaper",
+      "tieddefender",
+      "tielnfighter",
+      "tieskstriker",
+      "vt49decimator",
+      "tierbheavy"
+    ]
+  },
+  "scumandvillainy": {
+    "ships": [
+      "btla4ywing",
+      "customizedyt1300lightfreighter",
+      "escapecraft",
+      "fangfighter",
+      "firesprayclasspatrolcraft",
+      "gauntletfighter",
+      "hwk290lightfreighter",
+      "jumpmaster5000",
+      "m3ainterceptor",
+      "modifiedtielnfighter",
+      "rogueclassstarfighter",
+      "st70assaultship",
+      "yv666lightfreighter",
+      "z95af4headhunter"
+    ]
+  },
+  "resistance": {
+    "ships": [
+      "scavengedyt1300",
+      "rz2awing",
+      "t70xwing",
+      "resistancetransport",
+      "resistancetransportpod",
+      "fireball",
+      "btanr2ywing"
+    ]
+  },
+  "firstorder": {
+    "ships": [
+      "tiebainterceptor",
+      "tiefofighter",
+      "tiesffighter",
+      "tievnsilencer",
+      "xiclasslightshuttle",
+      "tiesebomber",
+      "tiewiwhispermodifiedinterceptor"
+    ]
+  },
+  "galacticrepublic": {
+    "ships": [
+      "arc170starfighter",
+      "delta7aethersprite",
+      "delta7baethersprite",
+      "v19torrentstarfighter",
+      "nabooroyaln1starfighter",
+      "btlbywing",
+      "eta2actis",
+      "gauntletfighter",
+      "laatigunship",
+      "nimbusclassvwing",
+      "clonez95headhunter"
+    ]
+  },
+  "separatistalliance": {
+    "ships": [
+      "vultureclassdroidfighter",
+      "belbullab22starfighter",
+      "sithinfiltrator",
+      "hyenaclassdroidbomber",
+      "nantexclassstarfighter",
+      "droidtrifighter",
+      "hmpdroidgunship",
+      "firesprayclasspatrolcraft",
+      "rogueclassstarfighter",
+      "gauntletfighter"
+    ]
+  }
+}

@@ -1,7 +1,7 @@
 import { BarCustomLayer, ResponsiveBar } from '@nivo/bar';
 
-import { Card } from 'components';
-import { calcWeightedAverage, FooterHint, toPercentage } from './shared';
+import { Card } from '@/components';
+import { calcWeightedAverage, COLOR_MAP, toPercentage } from './shared';
 
 // Props
 // ---------------
@@ -16,15 +16,6 @@ export interface SquadSizeProps {
   };
   total: number;
 }
-
-const COLOR_MAP = {
-  3: '#e5ecfa',
-  4: '#d0dcf5',
-  5: '#b4c5ed',
-  6: '#96a6e3',
-  7: '#8490db',
-  8: '#6167ca',
-};
 
 const sideLabel: BarCustomLayer<{
   size: '3' | '4' | '5' | '6' | '7' | '8';
@@ -71,13 +62,15 @@ export const SquadSize = ({ value, total }: SquadSizeProps) => {
 
   return (
     <Card>
-      <Card.Title>Squad Size*</Card.Title>
+      <Card.Title>Squad Size</Card.Title>
       <div className="h-72">
         <ResponsiveBar
           data={data}
           indexBy="size"
           keys={['count']}
-          valueFormat={value => `${value} (${toPercentage(value / total)})`}
+          valueFormat={value =>
+            value > 0 ? `${value} (${toPercentage(value / total)})` : ''
+          }
           labelSkipWidth={65}
           layers={[
             'grid',
@@ -92,17 +85,15 @@ export const SquadSize = ({ value, total }: SquadSizeProps) => {
           enableGridY={false}
           enableGridX={true}
           colors={({ data }) => COLOR_MAP[data.size]}
+          padding={0.2}
           margin={{ top: 20, right: 30, bottom: 20, left: 30 }}
-          animate
           isInteractive={false}
+          animate={false}
         />
       </div>
       <div className="text-center text-sm font-semibold">
         Average Ship Count: {calcWeightedAverage(value, total).toFixed(1)}
       </div>
-      <Card.Footer>
-        <FooterHint />
-      </Card.Footer>
     </Card>
   );
 };

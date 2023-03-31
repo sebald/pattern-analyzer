@@ -8,7 +8,7 @@ import {
   useContext,
   useState,
 } from 'react';
-import { Factions } from 'lib/get-value';
+import { Factions } from '@/lib/get-value';
 
 export type FactionOptions = 'all' | Factions;
 

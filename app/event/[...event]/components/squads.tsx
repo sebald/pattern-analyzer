@@ -1,32 +1,21 @@
 'use client';
 
-import { Card, Center, Message, Link, Squad, Tiles } from 'components';
-import type { SquadData, XWSSquad } from 'lib/types';
+import {
+  Card,
+  Center,
+  Message,
+  Link,
+  Squad,
+  Tiles,
+  CopyButton,
+} from '@/components';
+import { Archive } from '@/components/icons';
+import type { SquadData, XWSSquad } from '@/lib/types';
 
 import { useFilter } from './filter-context';
 
-const Empty = () => (
-  <div className="grid h-full place-items-center">
-    <div className="flex flex-col items-center gap-1 py-9">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={1.5}
-        stroke="currentColor"
-        className="h-8 w-8 text-secondary-100"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"
-        />
-      </svg>
-      <div className="text-xs text-secondary-200">No list submitted.</div>
-    </div>
-  </div>
-);
-
+// Helpers
+// ---------------
 const getVendorName = (link: string) => {
   if (link.includes('yasb.app')) {
     return 'YASB';
@@ -68,10 +57,36 @@ const match = (
   return Boolean(result);
 };
 
+// Helper Components
+// ---------------
+const NoSquadInfo = () => (
+  <div className="grid h-full place-items-center">
+    <div className="flex flex-col items-center gap-1 py-9">
+      <Archive className="h-8 w-8 text-secondary-100" />
+      <div className="text-xs text-secondary-200">No list submitted.</div>
+    </div>
+  </div>
+);
+
+const EmptySearch = () => (
+  <div className="pt-4">
+    <Center>
+      <Message>
+        <Message.Title>Nothing found.</Message.Title>
+        Looks like there is nothing matching your query.
+      </Message>
+    </Center>
+  </div>
+);
+
+// Props
+// ---------------
 export interface SquadsProps {
   squads: SquadData[];
 }
 
+// Component
+// ---------------
 export const Squads = ({ squads }: SquadsProps) => {
   const { faction, query } = useFilter();
   const filtered = squads.filter(({ xws, player, raw }) => {
@@ -85,17 +100,7 @@ export const Squads = ({ squads }: SquadsProps) => {
   });
 
   if (filtered.length === 0) {
-    return (
-      <div className="pt-4">
-        <Center>
-          <Message>
-            <strong>Nothing found.</strong>
-            <br />
-            Looks like there is no squad or player matching your query.
-          </Message>
-        </Center>
-      </div>
-    );
+    return <EmptySearch />;
   }
 
   return (
@@ -110,17 +115,27 @@ export const Squads = ({ squads }: SquadsProps) => {
                 {squad.raw}
               </div>
             ) : (
-              <Empty />
+              <NoSquadInfo />
             )}
           </Card.Body>
           <Card.Footer>
-            <div className="flex items-center justify-between gap-2 px-1 pt-1 text-xs text-secondary-300">
-              <div>by {squad.player}</div>
-              {squad.url && (
+            <div className="flex items-center justify-between gap-2 pt-1 text-xs text-secondary-300">
+              <div>
+                #{squad.rank.elimination || squad.rank.swiss}: {squad.player}
+              </div>
+              {squad.url ? (
                 <Link className="text-right" href={squad.url} target="_blank">
                   View in {getVendorName(squad.url)}
                 </Link>
-              )}
+              ) : squad.xws ? (
+                <CopyButton
+                  variant="link"
+                  size="inherit"
+                  content={JSON.stringify(squad.xws)}
+                >
+                  Copy XWS
+                </CopyButton>
+              ) : null}
             </div>
           </Card.Footer>
         </Card>

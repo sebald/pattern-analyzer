@@ -42,20 +42,40 @@ export const getEventDataByVendor = async ({
 
   // Merge events into one
   const data = events.reduce<EventData>(
-    (o, { title, id, url, squads }) => {
+    (o, { title, id, url, squads, rounds }) => {
+      o.id.push(id);
       o.title = shortenTitles(o.title, title || '');
       o.urls.push({ href: url, text: `Event #${id}` });
       o.squads.push(...squads);
 
+      /**
+       * Rounds can not be merged, makes only sense if
+       * is a single event.
+       */
+      if (eventIds.length === 1) {
+        o.rounds.push(...rounds);
+      }
+
       return o;
     },
     {
+      id: [],
       title: '',
+      vendor,
       urls: [],
       squads: [],
+      rounds: [],
     }
   );
 
+  // We need to do the ranking again in case we merged multiple events.
+  data.squads.sort((a, b) => {
+    if (a.rank.elimination || b.rank.elimination) {
+      return (a.rank.elimination ?? 1000) - (b.rank.elimination ?? 1000);
+    }
+
+    return a.rank.swiss - b.rank.swiss;
+  });
   return data;
 };
 
