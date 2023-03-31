@@ -32,6 +32,18 @@ export const average = (vals: number[], digits = 2) =>
   );
 
 /**
+ * Calculate weighted average.
+ */
+export const weightedAverage = (
+  map: { [key: number]: number },
+  total: number
+) =>
+  Object.entries(map).reduce((mean, [size, count]) => {
+    mean = mean + Number(size) * count;
+    return mean;
+  }, 0) / total;
+
+/**
  * Calculate winrate (in %).
  */
 export const winrate = (

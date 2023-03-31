@@ -74,15 +74,3 @@ export const COLOR_MAP = {
   7: '#8490db',
   8: '#6167ca',
 };
-
-// Helpers
-// ---------------
-
-export const calcWeightedAverage = (
-  map: { [key: number]: number },
-  total: number
-) =>
-  Object.entries(map).reduce((mean, [size, count]) => {
-    mean = mean + Number(size) * count;
-    return mean;
-  }, 0) / total;

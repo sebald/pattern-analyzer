@@ -2,7 +2,7 @@ import { linearGradientDef } from '@nivo/core';
 import { ResponsiveLine } from '@nivo/line';
 
 import { Card } from '@/ui';
-import { calcWeightedAverage } from './shared';
+import { weightedAverage } from '@/lib/utils';
 
 // Props
 // ---------------
@@ -58,7 +58,7 @@ export const PilotCostDistribution = ({
         />
       </div>
       <div className="text-center text-sm font-semibold">
-        Average Pilot Cost: {calcWeightedAverage(value, total).toFixed(1)}
+        Average Pilot Cost: {weightedAverage(value, total).toFixed(1)}
       </div>
     </Card>
   );
