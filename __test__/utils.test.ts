@@ -5,7 +5,7 @@ import {
   winrate,
   prefix,
   round,
-} from './utils';
+} from '@/lib/utils';
 
 test('return common prefix of string', () => {
   expect(prefix('abc', 'abc')).toEqual('abc');
