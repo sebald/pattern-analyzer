@@ -3,6 +3,7 @@ export * from './button';
 export * from './caption';
 export * from './card';
 export * from './center';
+export * from './collapsible';
 export * from './container';
 export * from './copy-button';
 export * from './dialog';
