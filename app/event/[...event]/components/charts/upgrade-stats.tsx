@@ -2,6 +2,7 @@ import { Fragment, useState } from 'react';
 
 import {
   Card,
+  Collapsible,
   FactionSelection,
   Select,
   Table,
@@ -54,47 +55,49 @@ export const UpgradeStats = ({ value }: UpgradeStatsProps) => {
         </Card.Actions>
       </Card.Header>
       <Card.Body>
-        <Table
-          cols={[
-            'minmax(auto, max-content)',
-            '1fr',
-            '1fr',
-            '1fr',
-            'minmax(90px, 1fr)',
-            '70px',
-          ]}
-          headers={[
-            'Upgrade',
-            'Percentile',
-            'Std. Deviation',
-            'Winrate',
-            'Frequency',
-            'Count',
-          ]}
-        >
-          {data.map(([upgrade, stat]) => (
-            <Fragment key={upgrade}>
-              <Table.Cell variant="header">
-                <div className="text-sm font-semibold">
-                  {getUpgradeName(upgrade) || upgrade}
-                </div>
-              </Table.Cell>
-              <Table.Cell variant="number">
-                {toPercentage(stat.percentile)}
-              </Table.Cell>
-              <Table.Cell variant="number">
-                {stat.deviation === 0 ? '-' : toPercentage(stat.deviation)}
-              </Table.Cell>
-              <Table.Cell variant="number">
-                {toPercentage(stat.winrate)}
-              </Table.Cell>
-              <Table.Cell variant="number">
-                {toPercentage(stat.frequency)}
-              </Table.Cell>
-              <Table.Cell variant="number">{stat.count}</Table.Cell>
-            </Fragment>
-          ))}
-        </Table>
+        <Collapsible maxHeight={375}>
+          <Table
+            cols={[
+              'minmax(auto, max-content)',
+              '1fr',
+              '1fr',
+              '1fr',
+              'minmax(90px, 1fr)',
+              '70px',
+            ]}
+            headers={[
+              'Upgrade',
+              'Percentile',
+              'Std. Deviation',
+              'Winrate',
+              'Frequency',
+              'Count',
+            ]}
+          >
+            {data.map(([upgrade, stat]) => (
+              <Fragment key={upgrade}>
+                <Table.Cell variant="header">
+                  <div className="text-sm font-semibold">
+                    {getUpgradeName(upgrade) || upgrade}
+                  </div>
+                </Table.Cell>
+                <Table.Cell variant="number">
+                  {toPercentage(stat.percentile)}
+                </Table.Cell>
+                <Table.Cell variant="number">
+                  {stat.deviation === 0 ? '-' : toPercentage(stat.deviation)}
+                </Table.Cell>
+                <Table.Cell variant="number">
+                  {toPercentage(stat.winrate)}
+                </Table.Cell>
+                <Table.Cell variant="number">
+                  {toPercentage(stat.frequency)}
+                </Table.Cell>
+                <Table.Cell variant="number">{stat.count}</Table.Cell>
+              </Fragment>
+            ))}
+          </Table>
+        </Collapsible>
       </Card.Body>
     </Card>
   );
