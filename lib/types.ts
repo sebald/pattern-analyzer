@@ -160,6 +160,7 @@ export interface ListFortressRound {
     player1points: number;
     player2points: number;
     'winner-id'?: string;
+    winner?: string;
   }[];
   scenario: Scenarios;
 }
