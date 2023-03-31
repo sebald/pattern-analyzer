@@ -3,13 +3,13 @@
 import { useState } from 'react';
 import { ResponsiveBar } from '@nivo/bar';
 
-import { Button, Card, Dialog, Input } from '@/components';
+import { Button, Card, Dialog, Input } from '@/ui';
 import { getFactionName } from '@/lib/get-value';
 import { round } from '@/lib/utils';
 import type { XWSFaction } from '@/lib/types';
 
 import { FACTION_ABBR, FACTION_COLORS, toPercentage } from './shared';
-import { Cog } from '@/components/icons';
+import { Cog } from '@/ui/icons';
 
 // Helpers
 // ---------------

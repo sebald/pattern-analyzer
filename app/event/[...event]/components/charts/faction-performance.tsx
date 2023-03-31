@@ -1,7 +1,7 @@
 import { ResponsiveBar } from '@nivo/bar';
 
 import { XWSFaction } from '@/lib/types';
-import { Card } from '@/components';
+import { Card } from '@/ui';
 import { FACTION_ABBR, FACTION_COLORS, toPercentage } from './shared';
 import { getFactionName } from '@/lib/get-value';
 

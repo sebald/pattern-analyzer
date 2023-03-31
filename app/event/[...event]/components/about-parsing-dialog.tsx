@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, Dialog } from '@/components';
+import { Button, Dialog } from '@/ui';
 
 export const AboutParsingDialog = () => (
   <Dialog>

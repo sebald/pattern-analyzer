@@ -1,4 +1,4 @@
-import { Card, Table } from '@/components';
+import { Card, Table } from '@/ui';
 import { getFactionName } from '@/lib/get-value';
 import { XWSFaction } from '@/lib/types';
 import { Fragment } from 'react';

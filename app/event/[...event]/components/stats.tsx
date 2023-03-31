@@ -1,6 +1,6 @@
 'use client';
 
-import { Link, Message } from '@/components';
+import { Link, Message } from '@/ui';
 import type { Ships } from '@/lib/get-value';
 import type { SquadData, XWSFaction, XWSUpgradeSlots } from '@/lib/types';
 import { average, deviation, percentile, winrate, round } from '@/lib/utils';
