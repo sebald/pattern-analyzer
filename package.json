@@ -9,6 +9,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "typecheck": "tsc --noEmit",
     "test": "jest",
     "update:xwing": "zx scripts/update-xwing-data.mjs",
     "update:yasb": "zx scripts/update-yasb-data.mjs"
