@@ -283,7 +283,7 @@ export const getEventInfo = async (id: string) => {
   const res = await fetch(api_url);
 
   if (!res.ok) {
-    throw new Error(`Failed to fetch event data... (${id})`);
+    throw new Error(`[rollbetter] Failed to fetch event data... (${id})`);
   }
 
   const {
