@@ -113,12 +113,15 @@ export const FactionCut = ({ tournament, value }: FactionCutProps) => {
       const faction = key as XWSFaction | 'unknown';
       const cutsize = ranks.filter(rank => rank <= cut).length;
       const cutrate = count > 0 ? round(cutsize / count, 4) : 0;
+      const diff =
+        tournament.count > 0 ? cutrate - round(count / tournament.count, 4) : 0;
 
       return {
         faction,
         count,
         cutsize,
         cutrate,
+        diff,
       };
     })
     // Remove "uknown" if everything was parsed!
@@ -160,7 +163,7 @@ export const FactionCut = ({ tournament, value }: FactionCutProps) => {
       </div>
       <Card.Footer>
         <div className="grid grid-cols-2 gap-2 px-1 pt-2 lg:grid-cols-3">
-          {data.map(({ faction, cutsize }) => (
+          {data.map(({ faction, cutsize, diff }) => (
             <div
               key={faction}
               className="flex items-center gap-1 text-xs text-secondary-900"
@@ -172,7 +175,8 @@ export const FactionCut = ({ tournament, value }: FactionCutProps) => {
               <div className="font-medium">
                 {faction === 'unknown' ? 'Unknown' : getFactionName(faction)}:
               </div>
-              {cutsize}
+              {toPercentage(diff, { sign: true })}{' '}
+              <span className="text-secondary-300">({cutsize})</span>
             </div>
           ))}
         </div>
