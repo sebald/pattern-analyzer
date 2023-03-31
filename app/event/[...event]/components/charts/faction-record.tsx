@@ -1,8 +1,11 @@
+import { Fragment } from 'react';
+
 import { Card, Table } from '@/ui';
 import { getFactionName } from '@/lib/get-value';
 import { XWSFaction } from '@/lib/types';
-import { Fragment } from 'react';
-import { FACTION_COLORS, toPercentage } from './shared';
+import { toPercentage } from '@/lib/utils';
+
+import { FACTION_COLORS } from './shared';
 
 // Props
 // ---------------

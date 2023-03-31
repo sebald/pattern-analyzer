@@ -4,6 +4,24 @@
 export const round = (val: number, digits: number) =>
   Number(val.toFixed(digits));
 
+export interface ToPercentageOptions {
+  sign?: boolean;
+}
+
+/**
+ * Format given number to percentage.
+ */
+export const toPercentage = (
+  value: number,
+  options: ToPercentageOptions = {}
+) =>
+  new Intl.NumberFormat('default', {
+    style: 'percent',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 2,
+    signDisplay: options.sign ? 'exceptZero' : 'auto',
+  }).format(value);
+
 /**
  * Calculate average (not weighted).
  */

@@ -1,6 +1,6 @@
 import { Card, List, ShipIcon } from '@/ui';
 import { getShipName } from '@/lib/get-value';
-import { toPercentage } from './shared';
+import { toPercentage } from '@/lib/utils';
 
 export interface ShipCompositionProps {
   value: Map<string, number>;
