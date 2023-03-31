@@ -44,13 +44,26 @@ export const Collapsible = ({
   children,
 }: CollapsibleProps) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const [ref, { height }] = useMeasure<HTMLDivElement>();
+  const [ref, { x, height }] = useMeasure<HTMLDivElement>();
   const [collapsed, setCollapsed] = useState(defaultCollapsed);
   const child = cloneElement(children, { ...children.props, ref });
 
   const toggle = () => {
     setCollapsed(!collapsed);
-    wrapperRef?.current?.scrollIntoView();
+    if (!collapsed && window) {
+      // window.scrollTo({ top: x, behavior: 'smooth' });
+      wrapperRef?.current?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+      });
+      window.scrollTo({
+        behavior: 'smooth',
+        top:
+          document.querySelector(selector).getBoundingClientRect().top -
+          document.body.getBoundingClientRect().top -
+          offset,
+      });
+    }
   };
 
   if (height <= maxHeight) {
