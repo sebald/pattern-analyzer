@@ -7,11 +7,12 @@ import {
   Select,
   Table,
   UpgradeSlotSelection,
-} from '@/components';
+} from '@/ui';
 import { getUpgradeName } from '@/lib/get-value';
 import type { XWSFaction, XWSUpgradeSlots } from '@/lib/types';
+import { toPercentage } from '@/lib/utils';
 
-import { toPercentage, type UpgradeData } from './shared';
+import { type UpgradeData } from './shared';
 
 // Props
 // ---------------

@@ -2,7 +2,7 @@
 
 import { useDebouncedCallback } from 'use-debounce';
 
-import { FactionSelection, SearchField } from '@/components';
+import { FactionSelection, SearchField } from '@/ui';
 import { useFilter } from './filter-context';
 
 export const Filter = () => {

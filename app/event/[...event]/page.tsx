@@ -1,8 +1,8 @@
 import { redirect } from 'next/navigation';
 
 import { RECENT_EVENTS } from 'app/preload';
-import { Center, Container, Message } from '@/components';
-import { BarChart, Download, Lines } from '@/components/icons';
+import { Center, Container, Message } from '@/ui';
+import { BarChart, Download, Lines } from '@/ui/icons';
 import { getEventDataByVendor } from '@/lib/get-event';
 
 // Friendly reminder: Don't use a barrel file! next doesn't like it!

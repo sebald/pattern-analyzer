@@ -5,11 +5,12 @@ import useMedia from 'react-use/lib/useMedia';
 import type { AxisTickProps } from '@nivo/axes';
 import { BarCustomLayer, BarSvgProps, ResponsiveBar } from '@nivo/bar';
 
-import { Card, FactionSelection, Select, ShipText } from '@/components';
+import { Card, FactionSelection, Select, ShipText } from '@/ui';
 import { getStandardShips } from '@/lib/get-value';
 import type { XWSFaction } from '@/lib/types';
+import { toPercentage } from '@/lib/utils';
 
-import { COLOR_MAP, toPercentage, type ShipStatData } from './shared';
+import { COLOR_MAP, type ShipStatData } from './shared';
 
 // Helpers
 // ---------------

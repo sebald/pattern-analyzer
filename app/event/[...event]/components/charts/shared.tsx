@@ -74,29 +74,3 @@ export const COLOR_MAP = {
   7: '#8490db',
   8: '#6167ca',
 };
-
-// Helpers
-// ---------------
-export interface ToPercentageOptions {
-  sign?: boolean;
-}
-
-export const toPercentage = (
-  value: number,
-  options: ToPercentageOptions = {}
-) =>
-  new Intl.NumberFormat('default', {
-    style: 'percent',
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 2,
-    signDisplay: options.sign ? 'exceptZero' : 'auto',
-  }).format(value);
-
-export const calcWeightedAverage = (
-  map: { [key: number]: number },
-  total: number
-) =>
-  Object.entries(map).reduce((mean, [size, count]) => {
-    mean = mean + Number(size) * count;
-    return mean;
-  }, 0) / total;

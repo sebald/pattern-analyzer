@@ -1,7 +1,7 @@
 'use client';
 
 import type { EventData } from '@/lib/types';
-import { Button, Divider, Headline, Link, List, Message } from '@/components';
+import { Button, Divider, Headline, Link, List, Message } from '@/ui';
 import { eventToListfortress, squadsToCSV } from '@/lib/export';
 import useClipboard from 'react-use-clipboard';
 import useSWR from 'swr';

@@ -2,15 +2,12 @@
 
 import { ResponsivePie } from '@nivo/pie';
 
+import { Card } from '@/ui';
 import { getFactionName } from '@/lib/get-value';
 import { XWSFaction } from '@/lib/types';
-import { Card } from '@/components';
-import {
-  type FactionStatData,
-  FACTION_ABBR,
-  FACTION_COLORS,
-  toPercentage,
-} from './shared';
+import { toPercentage } from '@/lib/utils';
+
+import { type FactionStatData, FACTION_ABBR, FACTION_COLORS } from './shared';
 
 // Props
 // ---------------

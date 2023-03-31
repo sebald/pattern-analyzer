@@ -7,10 +7,12 @@ import {
   Select,
   ShipIcon,
   Table,
-} from '@/components';
+} from '@/ui';
 import type { XWSFaction } from '@/lib/types';
 import { getPilotName } from '@/lib/get-value';
-import { PilotStatData, toPercentage } from './shared';
+import { toPercentage } from '@/lib/utils';
+
+import { PilotStatData } from './shared';
 
 // Props
 // ---------------

@@ -1,8 +1,6 @@
 import React, { forwardRef } from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
-import { cn } from '@/lib/utils';
-
-import { flattenChildren } from './utils/flatten-children';
+import { cn, flattenChildren } from '@/lib/utils';
 
 // Styles
 // ---------------

@@ -1,15 +1,7 @@
 'use client';
 
-import {
-  Card,
-  Center,
-  Message,
-  Link,
-  Squad,
-  Tiles,
-  CopyButton,
-} from '@/components';
-import { Archive } from '@/components/icons';
+import { Card, Center, Message, Link, Squad, Tiles, CopyButton } from '@/ui';
+import { Archive } from '@/ui/icons';
 import type { SquadData, XWSSquad } from '@/lib/types';
 
 import { useFilter } from './filter-context';

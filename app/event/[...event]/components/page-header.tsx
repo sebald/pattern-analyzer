@@ -1,5 +1,5 @@
-import { Caption, Link, Title, Inline } from '@/components';
-import { Trophy, Computed } from '@/components/icons';
+import { Caption, Link, Title, Inline } from '@/ui';
+import { Trophy, Computed } from '@/ui/icons';
 import type { EventData } from '@/lib/types';
 
 import { AboutParsingDialog } from './about-parsing-dialog';
