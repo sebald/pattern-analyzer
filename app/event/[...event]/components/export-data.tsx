@@ -1,15 +1,7 @@
 'use client';
 
 import type { EventData } from '@/lib/types';
-import {
-  Button,
-  Card,
-  Divider,
-  Headline,
-  Link,
-  List,
-  Message,
-} from '@/components';
+import { Button, Divider, Headline, Link, List, Message } from '@/components';
 import { eventToListfortress, squadsToCSV } from '@/lib/export';
 import useClipboard from 'react-use-clipboard';
 import useSWR from 'swr';
@@ -152,6 +144,7 @@ export const Export = ({ event }: ExportProps) => {
             variant="button"
             size="large"
             className="w-full md:w-auto"
+            target="_blank"
             href={`data:text/json;charset=utf-8,${encodeURIComponent(
               JSON.stringify(event.squads)
             )}`}
@@ -163,6 +156,7 @@ export const Export = ({ event }: ExportProps) => {
             variant="button"
             size="large"
             className="w-full md:w-auto"
+            target="_blank"
             href={`data:text/plain;charset=utf-8,${squadsToCSV(event.squads)}`}
             download={`${event.title.replace(/\s/g, '_')}.csv`}
           >
