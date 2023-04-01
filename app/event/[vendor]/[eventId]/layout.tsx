@@ -1,10 +1,11 @@
 import { Caption, Container, Inline, Link, Logo, Title } from '@/ui';
-import { Trophy, Computed } from '@/ui/icons';
+import { Trophy, Computed, Lines, Download, BarChart } from '@/ui/icons';
 
 import { getEventDataByVendor } from '@/lib/get-event';
 import { Vendor } from '@/lib/types';
 
 import { AboutParsingDialog } from './components/about-parsing-dialog';
+import { Navigation } from './components/navigation';
 
 // Props
 // ---------------
@@ -54,6 +55,37 @@ const Layout = async ({ params, children }: LayoutProps) => {
           </Inline>
         </Caption>
       </header>
+      <Navigation
+        className="pb-14"
+        items={[
+          {
+            label: (
+              <>
+                <Lines className="hidden h-5 w-5 sm:block" />
+                Squads
+              </>
+            ),
+          },
+          {
+            label: (
+              <>
+                <BarChart className="hidden h-5 w-5 sm:block" />
+                Stats
+              </>
+            ),
+            slug: 'stats',
+          },
+          {
+            label: (
+              <>
+                <Download className="hidden h-5 w-5 sm:block" />
+                Export
+              </>
+            ),
+            slug: 'export',
+          },
+        ]}
+      />
       {children}
     </Container>
   );
