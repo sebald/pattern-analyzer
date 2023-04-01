@@ -1,11 +1,11 @@
-import { Caption, Container, Inline, Link, Logo, Title } from '@/ui';
+import { Caption, Container, Inline, Link, Title } from '@/ui';
+import { Navigation } from '@/ui/navigation';
 import { Trophy, Computed, Lines, Download, BarChart } from '@/ui/icons';
 
 import { getEventDataByVendor } from '@/lib/get-event';
 import { Vendor } from '@/lib/types';
 
 import { AboutParsingDialog } from './components/about-parsing-dialog';
-import { Navigation } from './components/navigation';
 
 // Props
 // ---------------
