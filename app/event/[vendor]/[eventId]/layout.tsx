@@ -12,7 +12,7 @@ import { AboutParsingDialog } from './components/about-parsing-dialog';
 /**
  * Segment Config (see: https://beta.nextjs.org/docs/api-reference/segment-config)
  */
-// export const revalidate = 300;
+export const revalidate = 300;
 
 // Props
 // ---------------
