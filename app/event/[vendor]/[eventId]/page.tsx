@@ -18,8 +18,7 @@ export const fetchCache = 'force-cache';
 /**
  * Opt into background revalidation. (see: https://github.com/vercel/next.js/discussions/43085)
  */
-export const generateStaticParams = () =>
-  RECENT_EVENTS.map(({ vendor, ids }) => ({ event: [vendor, ids] }));
+export const generateStaticParams = () => RECENT_EVENTS;
 
 // Props
 // ---------------

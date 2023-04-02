@@ -15,7 +15,11 @@ export const fetchCache = 'force-cache';
 // Page
 // ---------------
 const Home = async () => {
-  const data = await Promise.all(RECENT_EVENTS.map(getEventInfoByVendor));
+  const data = await Promise.all(
+    RECENT_EVENTS.map(({ vendor, eventId }) =>
+      getEventInfoByVendor({ vendor, ids: eventId })
+    )
+  );
 
   return (
     <Container className="grid flex-1 place-items-center">
