@@ -3,6 +3,7 @@ import { getEventDataByVendor } from '@/lib/get-event';
 import { squadsToCSV } from '@/lib/export';
 import { Vendor } from '@/lib/types';
 
+import { RECENT_EVENTS } from '@/app/preload';
 import { ExportLongshanks } from './components/export-longshanks';
 import { ExportRollbetter } from './components/export-rollbetter';
 
