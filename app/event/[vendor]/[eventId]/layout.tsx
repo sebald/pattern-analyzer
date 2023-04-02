@@ -7,12 +7,13 @@ import { Vendor } from '@/lib/types';
 
 import { AboutParsingDialog } from './components/about-parsing-dialog';
 
-// Config
+// Metadata
 // ---------------
-/**
- * Segment Config (see: https://beta.nextjs.org/docs/api-reference/segment-config)
- */
-export const revalidate = 300;
+export const generateMetadata = async ({ params }: LayoutProps) => {
+  return {
+    title: `Pattern Analyzer | Event #${params.eventId}`,
+  };
+};
 
 // Props
 // ---------------
@@ -24,15 +25,7 @@ interface LayoutProps {
   };
 }
 
-// Metadata
-// ---------------
-export const generateMetadata = async ({ params }: LayoutProps) => {
-  return {
-    title: `Pattern Analyzer | Event #${params.eventId}`,
-  };
-};
-
-// Components
+// Component
 // ---------------
 const Layout = async ({ params, children }: LayoutProps) => {
   const event = await getEventDataByVendor({

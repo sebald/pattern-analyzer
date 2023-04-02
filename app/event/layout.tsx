@@ -1,5 +1,14 @@
 import { Link, Logo } from '@/ui';
 
+// Config
+// ---------------
+/**
+ * Segment Config (see: https://beta.nextjs.org/docs/api-reference/segment-config)
+ */
+export const revalidate = 300;
+
+// Component
+// ---------------
 export const Layout = ({ children }: { children: React.ReactNode }) => (
   <>
     <nav className="px-2 py-2 text-center leading-none xl:px-6">
