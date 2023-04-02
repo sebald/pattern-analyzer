@@ -58,14 +58,14 @@ export const useSquadStats = ({ squads }: UseSquadStatsProps) => {
   };
 
   // Stats about pilots (performance, percentile, number of occurances)
-  const pilotStats = {
-    rebelalliance: new Map<string, PilotStatData>(),
-    galacticempire: new Map<string, PilotStatData>(),
-    scumandvillainy: new Map<string, PilotStatData>(),
-    resistance: new Map<string, PilotStatData>(),
-    firstorder: new Map<string, PilotStatData>(),
-    galacticrepublic: new Map<string, PilotStatData>(),
-    separatistalliance: new Map<string, PilotStatData>(),
+  const pilotStats: FactionMap<string, PilotStatData> = {
+    rebelalliance: {},
+    galacticempire: {},
+    scumandvillainy: {},
+    resistance: {},
+    firstorder: {},
+    galacticrepublic: {},
+    separatistalliance: {},
   };
 
   // Number of pilots per cost
@@ -141,7 +141,7 @@ export const useSquadStats = ({ squads }: UseSquadStatsProps) => {
         ships.push(pilot.ship);
 
         // Pilot stats
-        const pilotInfo = pilotStats[faction].get(pilot.id) || {
+        const pilotInfo = pilotStats[faction][pilot.id] || {
           count: 0,
           lists: 0,
           ship: pilot.ship,
@@ -153,7 +153,7 @@ export const useSquadStats = ({ squads }: UseSquadStatsProps) => {
           percentile: 0,
           deviation: 0,
         };
-        pilotStats[faction].set(pilot.id, {
+        pilotStats[faction][pilot.id] = {
           ...pilotInfo,
           lists: unique.has(pilot.id) ? pilotInfo.lists : pilotInfo.lists + 1,
           count: pilotInfo.count + 1,
@@ -162,7 +162,7 @@ export const useSquadStats = ({ squads }: UseSquadStatsProps) => {
             ...pilotInfo.ranks,
             squad.rank.elimination ?? squad.rank.swiss,
           ],
-        });
+        };
 
         // Pilot cost distribution
         const points = pilot.points as 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
@@ -268,7 +268,8 @@ export const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     const faction = key as XWSFaction;
     const stats = pilotStats[faction];
 
-    stats.forEach((stat, pilot) => {
+    Object.entries(stats).forEach(([pilot, s]) => {
+      const stat = s as PilotStatData;
       const pcs = stat.ranks.map(rank =>
         percentile(rank, tournamentStats.count)
       );
@@ -278,7 +279,7 @@ export const useSquadStats = ({ squads }: UseSquadStatsProps) => {
       stat.percentile = average(pcs, 4);
       stat.deviation = deviation(pcs, 4);
 
-      stats.set(pilot, stat);
+      stats[pilot] = stat;
     });
   });
 

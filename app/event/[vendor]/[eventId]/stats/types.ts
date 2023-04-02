@@ -5,6 +5,10 @@ export type FactionMap<Key extends string, Value> = {
   [faction in XWSFaction]: { [key in Key]?: Value };
 };
 
+export type FactionMapWithUnknwon<Key extends string, Value> = {
+  [faction in XWSFaction | 'unknown']: { [key in Key]?: Value };
+};
+
 export type FactionMapWithAll<Key extends string, Value> = {
   [faction in XWSFaction | 'all']: { [key in Key]?: Value };
 };
