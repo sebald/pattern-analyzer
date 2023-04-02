@@ -3,6 +3,19 @@ import { cn } from '@/lib/utils';
 import { Card } from './card';
 import { Logo, LogoProps } from './logo';
 
+export const Skeleton = ({
+  className,
+  children,
+}: {
+  className?: string;
+  children: React.ReactNode;
+}) => (
+  <div className={cn('animate-pulse', className)}>
+    {children}
+    <span className="sr-only">Loading...</span>
+  </div>
+);
+
 // Loading: Headline
 // ---------------
 export const HeadlineSkeleton = ({ className }: { className?: string }) => (
@@ -14,9 +27,7 @@ export const HeadlineSkeleton = ({ className }: { className?: string }) => (
 // Loading: Line
 // ---------------
 export const LineSkeleton = ({ className }: { className?: string }) => (
-  <div
-    className={cn('h-2 rounded-xl bg-secondary-100 last:w-4/5', className)}
-  />
+  <div className={cn('h-2 rounded-xl bg-secondary-100', className)} />
 );
 
 // Loading: Content
@@ -27,7 +38,7 @@ export const ContentSkeleton = ({ lines = 3 }) => (
     {Array.from({ length: lines - 1 }, (_, i) => i + 1).map(line => (
       <LineSkeleton key={line} />
     ))}
-    <LineSkeleton />
+    <LineSkeleton className="last:w-4/5" />
   </div>
 );
 
@@ -88,7 +99,7 @@ export const CardChartSkeleton = () => (
         <LineSkeleton className="w-4/6" />
         <LineSkeleton className="w-9/12" />
         <LineSkeleton className="w-7/12" />
-        <LineSkeleton />
+        <LineSkeleton className="w-4/5" />
       </div>
     </Card.Footer>
   </Card>

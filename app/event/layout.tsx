@@ -1,4 +1,13 @@
-import { Link, Logo } from '@/ui';
+import {
+  CardSkeleton,
+  Container,
+  HeadlineSkeleton,
+  LineSkeleton,
+  Link,
+  Logo,
+  Skeleton,
+  Tiles,
+} from '@/ui';
 
 // Component
 // ---------------
@@ -9,7 +18,9 @@ export const Layout = ({ children }: { children: React.ReactNode }) => (
         <Logo className="h-7 w-7 text-primary-300 hover:text-primary-900 lg:h-9 lg:w-9" />
       </Link>
     </nav>
-    <main className="pt-5 lg:pt-5">{children}</main>
+    <main className="pt-5 lg:pt-5">
+      <Container>{children}</Container>
+    </main>
   </>
 );
 
