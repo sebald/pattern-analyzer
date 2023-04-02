@@ -7,6 +7,13 @@ import { Vendor } from '@/lib/types';
 
 import { AboutParsingDialog } from './components/about-parsing-dialog';
 
+// Config
+// ---------------
+/**
+ * Segment Config (see: https://beta.nextjs.org/docs/api-reference/segment-config)
+ */
+// export const revalidate = 300;
+
 // Props
 // ---------------
 interface LayoutProps {
