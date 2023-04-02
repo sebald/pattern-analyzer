@@ -32,7 +32,6 @@ const Home = async () => {
         <div className="flex-1">
           <EventForm />
         </div>
-        <Link href="/event/longshanks/6861">test</Link>
         {data.length > 0 && (
           <div className="w-full pt-24 md:px-6">
             <h2
