@@ -24,6 +24,11 @@ import { UpgradeStats } from './components/upgrade-stats';
 export const revalidate = 300;
 export const fetchCache = 'force-cache';
 
+/**
+ * Opt into background revalidation. (see: https://github.com/vercel/next.js/discussions/43085)
+ */
+export const generateStaticParams = () => RECENT_EVENTS;
+
 // Props
 // ---------------
 interface PageProps {
