@@ -18,4 +18,12 @@ export const RECENT_EVENTS: {
     eventId: '5535',
     vendor: 'longshanks',
   },
+  {
+    eventId: '57',
+    vendor: 'rollbetter',
+  },
+  {
+    eventId: '56',
+    vendor: 'rollbetter',
+  },
 ];
