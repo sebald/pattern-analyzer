@@ -1,3 +1,3 @@
-const Loading = () => <span>LOADING...</span>;
+const Loading = () => <span>LOADING EVENT...</span>;
 
 export default Loading;
