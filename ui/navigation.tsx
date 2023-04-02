@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname, useSelectedLayoutSegment } from 'next/navigation';
+import { useSelectedLayoutSegment } from 'next/navigation';
 import { cn } from '@/lib/utils';
 
 // NavigationItems
@@ -39,6 +39,7 @@ const NavigationItem = ({ path, slug, children }: NavigationItemProps) => {
 // ---------------
 export interface NavigationProps {
   className?: string;
+  path: string;
   items: {
     label: React.ReactNode;
     slug?: string;
@@ -47,9 +48,7 @@ export interface NavigationProps {
 
 // Component
 // ---------------
-export const Navigation = ({ className, items }: NavigationProps) => {
-  const path = usePathname();
-
+export const Navigation = ({ className, path, items }: NavigationProps) => {
   return (
     <div
       role="navigation"

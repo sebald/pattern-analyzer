@@ -1,7 +1,7 @@
 import { Spinner } from '@/ui';
 
 const Loading = () => (
-  <div className="grid min-h-screen place-items-center">
+  <div className="grid place-items-center pt-14">
     <Spinner text="Loading Event..." />
   </div>
 );

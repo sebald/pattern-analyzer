@@ -30,7 +30,7 @@ interface PageProps {
   };
 }
 
-// Components
+// Page
 // ---------------
 const Page = async ({ params }: PageProps) => {
   const event = await getEventDataByVendor({

@@ -1,89 +1,28 @@
-'use client';
+import { Message, Headline, Divider, Link, List } from '@/ui';
+import { getEventDataByVendor } from '@/lib/get-event';
+import { squadsToCSV } from '@/lib/export';
+import { Vendor } from '@/lib/types';
 
-import type { EventData } from '@/lib/types';
-import { Button, Divider, Headline, Link, List, Message } from '@/ui';
-import { eventToListfortress, squadsToCSV } from '@/lib/export';
-import useClipboard from 'react-use-clipboard';
-import useSWR from 'swr';
-
-export interface ExportProps {
-  event: EventData;
-}
-
-// Export: Longshanks
-// ---------------
-const ExportLongshanks = ({ event }: ExportProps) => {
-  const listfortressExport =
-    event.rounds.length > 0 ? JSON.stringify(eventToListfortress(event)) : '';
-  const [isCopied, setCopied] = useClipboard(listfortressExport, {
-    successDuration: 2000,
-  });
-
-  return (
-    <div className="flex flex-col gap-1">
-      <Button variant="primary" size="large" onClick={setCopied}>
-        Export for Listfortress
-      </Button>
-      <div className="text-center text-xs text-secondary-500">
-        {isCopied
-          ? 'Copied data to your clipboard!'
-          : 'Data will be copied to your clipboard!'}
-      </div>
-    </div>
-  );
-};
-
-// Export: Rollbetter
-// ---------------
-const ExportRollbetter = ({ event }: ExportProps) => {
-  const { data, isLoading } = useSWR(
-    ['/api/rollbetter/export', event.id[0]],
-    async ([url, id]) => {
-      const res = await fetch(`${url}/${id}`);
-
-      if (!res.ok) {
-        throw new Error('Could not fetch export from rollbetter...');
-      }
-
-      const json = await res.json();
-      return json;
-    }
-  );
-
-  const [isCopied, setCopied] = useClipboard(JSON.stringify(data || {}), {
-    successDuration: 2000,
-  });
-
-  return (
-    <div className="flex flex-col gap-1">
-      <Button
-        variant="primary"
-        size="large"
-        disabled={isLoading}
-        onClick={setCopied}
-      >
-        Export for Listfortress
-      </Button>
-      <div className="text-center text-xs text-secondary-500">
-        {isLoading
-          ? 'Fetching data from rollbetter...'
-          : isCopied
-          ? 'Copied data to your clipboard!'
-          : 'Data will be copied to your clipboard!'}
-      </div>
-    </div>
-  );
-};
+import { ExportLongshanks } from './components/export-longshanks';
+import { ExportRollbetter } from './components/export-rollbetter';
 
 // Props
 // ---------------
-export interface ExportProps {
-  event: EventData;
+interface PageProps {
+  params: {
+    vendor: Vendor;
+    eventId: string;
+  };
 }
 
-// Component
+// Page
 // ---------------
-export const Export = ({ event }: ExportProps) => {
+const Page = async ({ params }: PageProps) => {
+  const event = await getEventDataByVendor({
+    vendor: params.vendor,
+    ids: params.eventId,
+  });
+
   if (event.id.length > 1) {
     return (
       <Message variant="warning" size="large">
@@ -167,3 +106,5 @@ export const Export = ({ event }: ExportProps) => {
     </div>
   );
 };
+
+export default Page;

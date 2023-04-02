@@ -57,6 +57,7 @@ const Layout = async ({ params, children }: LayoutProps) => {
       </header>
       <Navigation
         className="pb-14"
+        path={`/event/${params.vendor}/${params.eventId}`}
         items={[
           {
             label: (
