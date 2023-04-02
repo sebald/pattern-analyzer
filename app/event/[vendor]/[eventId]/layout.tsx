@@ -7,6 +7,10 @@ import { Vendor } from '@/lib/types';
 
 import { AboutParsingDialog } from './components/about-parsing-dialog';
 
+// Config
+// ---------------
+export const revalidate = 300; // 5min
+
 // Metadata
 // ---------------
 export const generateMetadata = async ({ params }: LayoutProps) => {
