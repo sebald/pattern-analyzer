@@ -15,6 +15,7 @@ export * from './input';
 export * from './label';
 export * from './link';
 export * from './list';
+export * from './loading';
 export * from './logo';
 export * from './message';
 export * from './search-field';

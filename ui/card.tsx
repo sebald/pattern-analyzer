@@ -1,4 +1,5 @@
 import { cva, VariantProps } from 'class-variance-authority';
+import { ComponentPropsWithoutRef } from 'react';
 
 // Styles
 // ---------------
@@ -7,15 +8,16 @@ const styles = {
     ['flex h-full w-full flex-col items-stretch gap-4', 'rounded-lg bg-white'],
     {
       variants: {
-        variant: {
+        elevation: {
           default: ['shadow-card'],
+          light: ['shadow'],
         },
         inset: {
           default: ['px-3 pt-3 pb-2'],
         },
       },
       defaultVariants: {
-        variant: 'default',
+        elevation: 'default',
         inset: 'default',
       },
     }
@@ -69,7 +71,7 @@ export interface CardMenuProps {
 }
 
 const CardMenu = ({ children }: CardMenuProps) => (
-  <div className="absolute top-0 right-1">{children}</div>
+  <div className="absolute right-1 top-0">{children}</div>
 );
 
 // Card.Action
@@ -84,13 +86,26 @@ const CardActions = ({ children }: CardActionsProps) => (
 
 // Card
 // ---------------
-export interface CardProps extends VariantProps<typeof styles.card> {
+export interface CardProps
+  extends VariantProps<typeof styles.card>,
+    ComponentPropsWithoutRef<'div'> {
   className?: string;
   children: React.ReactNode;
 }
 
-export const Card = ({ variant, inset, className, children }: CardProps) => (
-  <div className={styles.card({ variant, inset, className })}>{children}</div>
+export const Card = ({
+  elevation: variant,
+  inset,
+  className,
+  children,
+  ...props
+}: CardProps) => (
+  <div
+    {...props}
+    className={styles.card({ elevation: variant, inset, className })}
+  >
+    {children}
+  </div>
 );
 
 Card.Header = CardHeader;
