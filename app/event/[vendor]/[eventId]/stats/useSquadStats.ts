@@ -1,13 +1,19 @@
 import type { Ships } from '@/lib/get-value';
-import type { SquadData, XWSFaction, XWSUpgradeSlots } from '@/lib/types';
+import type {
+  SquadData,
+  Upgrade,
+  XWSFaction,
+  XWSUpgradeSlots,
+} from '@/lib/types';
 import { percentile, average, deviation, winrate, round } from '@/lib/utils';
 
 import {
   FactionMap,
+  FactionMapWithAll,
   FactionStatData,
   PilotStatData,
   ShipStatData,
-  UpgradeData,
+  UpgradeStatData,
 } from './types';
 
 // Helper
@@ -96,15 +102,15 @@ export const useSquadStats = ({ squads }: UseSquadStatsProps) => {
   };
 
   // Upgrades stats
-  const upgradeStats = {
-    all: new Map<string, UpgradeData>(),
-    rebelalliance: new Map<string, UpgradeData>(),
-    galacticempire: new Map<string, UpgradeData>(),
-    scumandvillainy: new Map<string, UpgradeData>(),
-    resistance: new Map<string, UpgradeData>(),
-    firstorder: new Map<string, UpgradeData>(),
-    galacticrepublic: new Map<string, UpgradeData>(),
-    separatistalliance: new Map<string, UpgradeData>(),
+  const upgradeStats: FactionMapWithAll<string, UpgradeStatData> = {
+    all: {},
+    rebelalliance: {},
+    galacticempire: {},
+    scumandvillainy: {},
+    resistance: {},
+    firstorder: {},
+    galacticrepublic: {},
+    separatistalliance: {},
   };
 
   squads.forEach(squad => {
@@ -190,7 +196,7 @@ export const useSquadStats = ({ squads }: UseSquadStatsProps) => {
         ).forEach(([slot, us]) => {
           us.forEach(u => {
             // Stats overall
-            let upgradeInfo = upgradeStats['all'].get(u) || {
+            let upgradeInfo = upgradeStats['all'][u] || {
               slot,
               count: 0,
               lists: 0,
@@ -202,7 +208,7 @@ export const useSquadStats = ({ squads }: UseSquadStatsProps) => {
               percentile: 0,
               deviation: 0,
             };
-            upgradeStats['all'].set(u, {
+            upgradeStats['all'][u] = {
               ...upgradeInfo,
               count: upgradeInfo.count + 1,
               lists: unique.has(u) ? upgradeInfo.lists : upgradeInfo.lists + 1,
@@ -211,10 +217,10 @@ export const useSquadStats = ({ squads }: UseSquadStatsProps) => {
                 ...upgradeInfo.ranks,
                 squad.rank.elimination ?? squad.rank.swiss,
               ],
-            });
+            };
 
             // Stats per faction
-            upgradeInfo = upgradeStats[faction].get(u) || {
+            upgradeInfo = upgradeStats[faction][u] || {
               slot,
               count: 0,
               lists: 0,
@@ -226,7 +232,7 @@ export const useSquadStats = ({ squads }: UseSquadStatsProps) => {
               percentile: 0,
               deviation: 0,
             };
-            upgradeStats[faction].set(u, {
+            upgradeStats[faction][u] = {
               ...upgradeInfo,
               count: upgradeInfo.count + 1,
               lists: unique.has(u) ? upgradeInfo.lists : upgradeInfo.lists + 1,
@@ -235,7 +241,7 @@ export const useSquadStats = ({ squads }: UseSquadStatsProps) => {
                 ...upgradeInfo.ranks,
                 squad.rank.elimination ?? squad.rank.swiss,
               ],
-            });
+            };
 
             // Add upgrade to unique list so we now we added it to the "lists" field
             unique.add(u);
@@ -268,8 +274,8 @@ export const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     const faction = key as XWSFaction;
     const stats = pilotStats[faction];
 
-    Object.entries(stats).forEach(([pilot, s]) => {
-      const stat = s as PilotStatData;
+    Object.entries(stats).forEach(([pilot, value]) => {
+      const stat = value as PilotStatData;
       const pcs = stat.ranks.map(rank =>
         percentile(rank, tournamentStats.count)
       );
@@ -299,7 +305,9 @@ export const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     const faction = k as keyof typeof upgradeStats;
     const stats = upgradeStats[faction];
 
-    stats.forEach((stat, upgrade) => {
+    Object.entries(stats).forEach(([upgrade, value]) => {
+      const stat = value as UpgradeStatData;
+
       const pcs = stat.ranks.map(rank =>
         percentile(rank, tournamentStats.count)
       );
@@ -311,7 +319,7 @@ export const useSquadStats = ({ squads }: UseSquadStatsProps) => {
       stat.percentile = average(pcs, 4);
       stat.deviation = deviation(pcs, 4);
 
-      stats.set(upgrade, stat);
+      stats[upgrade] = stat;
     });
   });
 

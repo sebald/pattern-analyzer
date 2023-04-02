@@ -40,7 +40,7 @@ export interface ShipStatData {
   lists: number;
 }
 
-export interface UpgradeData {
+export interface UpgradeStatData {
   slot: XWSUpgradeSlots;
   count: number;
   lists: number;

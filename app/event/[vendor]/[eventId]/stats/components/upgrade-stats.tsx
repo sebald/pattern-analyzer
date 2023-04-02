@@ -14,14 +14,12 @@ import { getUpgradeName } from '@/lib/get-value';
 import type { XWSFaction, XWSUpgradeSlots } from '@/lib/types';
 import { toPercentage } from '@/lib/utils';
 
-import type { UpgradeData } from '../types';
+import type { FactionMapWithAll, UpgradeStatData } from '../types';
 
 // Props
 // ---------------
 export interface UpgradeStatsProps {
-  value: {
-    [faction in XWSFaction | 'all']: Map<string, UpgradeData>;
-  };
+  value: FactionMapWithAll<string, UpgradeStatData>;
 }
 
 // Component
@@ -33,7 +31,9 @@ export const UpgradeStats = ({ value }: UpgradeStatsProps) => {
     'percentile' | 'deviation' | 'winrate' | 'frequency' | 'count'
   >('percentile');
 
-  const data = [...value[faction].entries()]
+  const data = [
+    ...(Object.entries(value[faction]) as [string, UpgradeStatData][]),
+  ]
     .filter(([, info]) => (slot === 'all' ? true : info.slot === slot))
     .sort(([, a], [, b]) => b[sort] - a[sort]);
 
