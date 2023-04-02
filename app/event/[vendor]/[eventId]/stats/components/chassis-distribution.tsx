@@ -6,11 +6,11 @@ import type { AxisTickProps } from '@nivo/axes';
 import { BarCustomLayer, BarSvgProps, ResponsiveBar } from '@nivo/bar';
 
 import { Card, FactionSelection, Select, ShipText } from '@/ui';
-import { getStandardShips } from '@/lib/get-value';
+import { getStandardShips, Ships } from '@/lib/get-value';
 import type { XWSFaction } from '@/lib/types';
 import { toPercentage } from '@/lib/utils';
 
-import type { ShipStatData } from '../types';
+import type { FactionMap, ShipStatData } from '../types';
 import { COLOR_MAP } from './utils';
 
 // Helpers
@@ -60,19 +60,18 @@ const barLabel: BarCustomLayer<{ frequency: number }> = ({
 // Props
 // ---------------
 export interface ChassisDistributionProps {
-  value: { [key in XWSFaction]: Map<string, ShipStatData> };
+  value: FactionMap<Ships, ShipStatData>;
 }
 
 // Component
 // ---------------
 export const ChassisDistribution = ({ value }: ChassisDistributionProps) => {
+  console.log(value.rebelalliance);
   const [faction, setFaction] = useState<XWSFaction>('rebelalliance');
   const [sort, setSort] = useState<'ship' | 'frequency'>('frequency');
 
-  // console.log(value);
-
   const data = getStandardShips(faction).map(ship => {
-    const stats = value[faction].get(ship) || {
+    const stats = value[faction][ship] || {
       count: 0,
       lists: 0,
       frequency: 0,

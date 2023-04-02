@@ -1,5 +1,13 @@
 import type { Ships } from '@/lib/get-value';
-import type { XWSUpgradeSlots } from '@/lib/types';
+import type { XWSFaction, XWSUpgradeSlots } from '@/lib/types';
+
+export type FactionMap<Key extends string, Value> = {
+  [faction in XWSFaction]: { [key in Key]?: Value };
+};
+
+export type FactionMapWithAll<Key extends string, Value> = {
+  [faction in XWSFaction | 'all']: { [key in Key]?: Value };
+};
 
 export interface FactionStatData {
   count: number;

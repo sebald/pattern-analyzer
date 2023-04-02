@@ -3,6 +3,7 @@ import type { SquadData, XWSFaction, XWSUpgradeSlots } from '@/lib/types';
 import { percentile, average, deviation, winrate, round } from '@/lib/utils';
 
 import {
+  FactionMap,
   FactionStatData,
   PilotStatData,
   ShipStatData,
@@ -84,14 +85,14 @@ export const useSquadStats = ({ squads }: UseSquadStatsProps) => {
   const shipComposition = new Map<string, number>();
 
   // Ship stats
-  const shipStats = {
-    rebelalliance: new Map<string, ShipStatData>(),
-    galacticempire: new Map<string, ShipStatData>(),
-    scumandvillainy: new Map<string, ShipStatData>(),
-    resistance: new Map<string, ShipStatData>(),
-    firstorder: new Map<string, ShipStatData>(),
-    galacticrepublic: new Map<string, ShipStatData>(),
-    separatistalliance: new Map<string, ShipStatData>(),
+  const shipStats: FactionMap<Ships, ShipStatData> = {
+    rebelalliance: {},
+    galacticempire: {},
+    scumandvillainy: {},
+    resistance: {},
+    firstorder: {},
+    galacticrepublic: {},
+    separatistalliance: {},
   };
 
   // Upgrades stats
@@ -170,16 +171,16 @@ export const useSquadStats = ({ squads }: UseSquadStatsProps) => {
         unique.add(pilot.id);
 
         // Ship stats
-        const shipInfo = shipStats[faction].get(pilot.ship) || {
+        const shipInfo = shipStats[faction][pilot.ship] || {
           frequency: 0,
           count: 0,
           lists: 0,
         };
-        shipStats[faction].set(pilot.ship, {
+        shipStats[faction][pilot.ship] = {
           ...shipInfo,
           count: shipInfo.count + 1,
           lists: unique.has(pilot.ship) ? shipInfo.lists : shipInfo.lists + 1,
-        });
+        };
 
         unique.add(pilot.ship);
 
@@ -286,9 +287,9 @@ export const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     const faction = key as XWSFaction;
     const stats = shipStats[faction];
 
-    stats.forEach((stat, ship) => {
+    Object.entries(stats).forEach(([ship, stat]) => {
       stat.frequency = round(stat.lists / factionStats[faction].count, 4);
-      stats.set(ship, stat);
+      stats[ship as Ships] = stat;
     });
   });
 

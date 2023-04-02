@@ -2,10 +2,9 @@ import { getEventDataByVendor } from '@/lib/get-event';
 import { Vendor } from '@/lib/types';
 
 import { RECENT_EVENTS } from '@/app/preload';
-import { useSquadStats } from './useSquadStats';
-import { Message } from '@/ui';
-import Link from 'next/link';
+import { Link, Message } from '@/ui';
 
+import { useSquadStats } from './useSquadStats';
 import { ChassisDistribution } from './components/chassis-distribution';
 import { FactionCut } from './components/faction-cut';
 import { FactionDistribution } from './components/faction-distribution';
@@ -49,7 +48,7 @@ const Page = async ({ params }: PageProps) => {
   });
 
   const data = useSquadStats({ squads: event.squads });
-  console.log(data.shipStats);
+
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
       <div className="md:col-span-6">
