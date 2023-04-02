@@ -6,6 +6,14 @@ import { Vendor } from '@/lib/types';
 import { ExportLongshanks } from './components/export-longshanks';
 import { ExportRollbetter } from './components/export-rollbetter';
 
+// Config
+// ---------------
+/**
+ * Segment Config (see: https://beta.nextjs.org/docs/api-reference/segment-config)
+ */
+export const revalidate = 1000;
+export const fetchCache = 'force-cache';
+
 // Props
 // ---------------
 interface PageProps {
