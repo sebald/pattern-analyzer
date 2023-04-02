@@ -36,7 +36,7 @@ export const EventForm = () => {
 
   return (
     <form
-      className="flex flex-col items-stretch gap-3 md:flex-row"
+      className="flex flex-col justify-center gap-3 md:flex-row"
       onSubmit={handleSubmit}
     >
       <Input

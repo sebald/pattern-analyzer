@@ -1,5 +1,6 @@
+import { cn } from '@/lib/utils';
 import { Card } from './card';
-import { Tiles } from './tiles';
+import { Logo } from './logo';
 
 const Content = ({ lines = 3 }) => (
   <div className="flex flex-col gap-1.5">
@@ -15,23 +16,20 @@ export interface CardSkeletonProps {
   lines?: [number, number, number];
 }
 
+// Loading: Logo
+// ---------------
+export const LogoSkeleton = ({ className }: { className?: string }) => (
+  <Logo className={cn('h-20 w-20 animate-pulse', className)} />
+);
+
+// Loading: Card
+// ---------------
 export const CardSkeleton = ({ lines = [3, 2, 2] }: CardSkeletonProps) => (
   <Card role="status" className="animate-pulse" elevation="light">
     <Content lines={lines[0]} />
     <Content lines={lines[1]} />
     <Content lines={lines[2]} />
-    <span className="sr-only">Loading...</span>
   </Card>
-);
-
-export const CardTilesSkeleton = () => (
-  <Tiles>
-    <CardSkeleton lines={[2, 2, 3]} />
-    <CardSkeleton lines={[2, 2, 3]} />
-    <CardSkeleton lines={[2, 2, 3]} />
-    <CardSkeleton lines={[2, 2, 3]} />
-    <CardSkeleton lines={[2, 2, 3]} />
-  </Tiles>
 );
 
 export const CardStatSkeleton = () => (
