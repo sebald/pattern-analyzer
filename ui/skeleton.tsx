@@ -3,6 +3,8 @@ import { cn } from '@/lib/utils';
 import { Card } from './card';
 import { Logo, LogoProps } from './logo';
 
+// Internal
+// ---------------
 const Content = ({ lines = 3 }) => (
   <div className="flex flex-col gap-1.5">
     <div className="mb-2 h-3 w-3/5 rounded-xl bg-secondary-200" />
@@ -13,8 +15,8 @@ const Content = ({ lines = 3 }) => (
   </div>
 );
 
-const Stat = () => (
-  <div>
+const ChartSkeleton = () => (
+  <div className="flex h-48 items-center justify-center rounded bg-secondary-300">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -60,7 +62,7 @@ export const CardSkeleton = ({ lines = [3, 2, 2] }: CardSkeletonProps) => (
 // ---------------
 export const StatsSkeleton = () => (
   <Card role="status" className="animate-pulse" elevation="light">
-    asd
+    <ChartSkeleton />
   </Card>
 );
 

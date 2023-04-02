@@ -9,7 +9,7 @@ import { EventForm } from './components/event-form';
 /**
  * Segment Config (see: https://beta.nextjs.org/docs/api-reference/segment-config)
  */
-export const revalidate = 3600; // 1 day
+export const dynamic = 'force-static';
 
 // Page
 // ---------------
