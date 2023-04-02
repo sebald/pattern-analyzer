@@ -1,13 +1,4 @@
-import {
-  CardSkeleton,
-  Container,
-  HeadlineSkeleton,
-  LineSkeleton,
-  Link,
-  Logo,
-  Skeleton,
-  Tiles,
-} from '@/ui';
+import { Container, Link, Logo } from '@/ui';
 
 // Component
 // ---------------
