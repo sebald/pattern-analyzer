@@ -163,7 +163,7 @@ export const FactionCut = ({ tournament, value }: FactionCutProps) => {
       </div>
       <Card.Footer>
         <div className="grid grid-cols-2 gap-2 px-1 pt-2 lg:grid-cols-3">
-          {data.map(({ faction, cutsize, diff }) => (
+          {data.map(({ faction, diff }) => (
             <div
               key={faction}
               className="flex items-center gap-1 text-xs text-secondary-900"
@@ -175,8 +175,7 @@ export const FactionCut = ({ tournament, value }: FactionCutProps) => {
               <div className="font-medium">
                 {faction === 'unknown' ? 'Unknown' : getFactionName(faction)}:
               </div>
-              {toPercentage(diff, { sign: true })}{' '}
-              <span className="text-secondary-300">({cutsize})</span>
+              {toPercentage(diff, { sign: true })}
             </div>
           ))}
         </div>
