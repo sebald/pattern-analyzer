@@ -131,7 +131,7 @@ export const getPlayers = async (id: string) => {
 
   const data: RollBetterPlayersResponse[] = await res.json();
 
-  data.forEach(({ id, player, ranking, hasDropped, isWaitlisted }, idx) => {
+  data.forEach(({ id, player, ranking, hasDropped, isWaitlisted }) => {
     if (isWaitlisted) {
       return;
     }
@@ -226,7 +226,7 @@ export const getSquads = async (
   const registrations = await getRegistration(id, players.length);
 
   return players.map(player => {
-    const registraion = registrations.find(r => player.id === `${r.id}`);
+    const registraion = registrations.find(r => r && player.id === `${r.id}`);
 
     let xws: XWSSquad | null = null;
     let url: string | null = null;

@@ -1,4 +1,4 @@
-import { Link } from '@/components';
+import { Link } from '@/ui';
 import { AnalyticsWrapper } from './components/analytics';
 import { inter } from './fonts';
 import './globals.css';
