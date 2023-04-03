@@ -81,7 +81,7 @@ export const Collapsible = ({
         {collapsed && <div className={styles.gradient()} />}
       </div>
       {
-        <div className="flex justify-center">
+        <div className="flex justify-center pt-2">
           <button className={styles.toggle()} onClick={toggle}>
             <Expand className="h-4 w-4" strokeWidth={2.5} />
             {collapsed ? 'Show more' : 'Show less'}
