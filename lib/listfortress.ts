@@ -53,6 +53,8 @@ export interface ListfortressMatch {
   went_to_time: any;
 }
 
+// Fetch
+// ---------------
 const getTournament = async (id: string) => {
   const api_url = `https://listfortress.com/api/v1/tournaments/${id}`;
   const res = await fetch(api_url);
@@ -63,6 +65,33 @@ const getTournament = async (id: string) => {
 
   const tournament: ListfortressTournament = await res.json();
   return tournament;
+};
+
+// Helpers
+// ---------------
+const parseSquads = (
+  participants: ListfortressParticipant[],
+  rounds: ListfortressRound[]
+) => {
+  // return SquadData[]
+};
+
+// API
+// ---------------
+export const getEvent = async (id: string) => {
+  const { name, participants, rounds } = await getTournament(id);
+  const squads = parseSquads(participants, rounds);
+  /**
+   * Note that we are not including round infos since
+   * its only used in the listfortress export.
+   */
+  return {
+    id,
+    url: `https://listfortress.com/tournaments/${id}`,
+    title: name,
+    squads,
+    rounds: [],
+  };
 };
 
 export const getEventInfo = async (id: string) => {
@@ -77,5 +106,3 @@ export const getEventInfo = async (id: string) => {
     description: '',
   };
 };
-
-export const getEvent = async (id: string) => {};

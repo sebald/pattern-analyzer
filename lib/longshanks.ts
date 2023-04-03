@@ -328,10 +328,16 @@ export const parseSquads = (
 
 // API
 // ---------------
-/**
- * Fetch an event page from longhanks and scrape title and
- * event data.
- */
+export const getEventInfo = async (id: string) => {
+  const { url, html } = await getEventHtml(id);
+  const $ = load(html);
+
+  const title = parseTitle($);
+  const { date, description } = parseDescription($);
+
+  return { url, id, vendor: 'longshanks', title, date, description };
+};
+
 export const getEvent = async (id: string) => {
   const { url, html } = await getEventHtml(id);
   const $ = load(html);
@@ -342,18 +348,4 @@ export const getEvent = async (id: string) => {
   const rounds = await parseRounds(id, getRoundsInfoFromHTML(html));
 
   return { id, url, title, squads, rounds };
-};
-
-/**
- * Fetch an event page from longhanks and scrape title,
- * .
- */
-export const getEventInfo = async (id: string) => {
-  const { url, html } = await getEventHtml(id);
-  const $ = load(html);
-
-  const title = parseTitle($);
-  const { date, description } = parseDescription($);
-
-  return { url, id, vendor: 'longshanks', title, date, description };
 };

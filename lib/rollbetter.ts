@@ -280,6 +280,8 @@ export const getSquads = async (
   });
 };
 
+// API
+// ---------------
 export const getEventInfo = async (id: string) => {
   const api_url = `https://rollbetter-linux.azurewebsites.net/tournaments/${id}`;
   const res = await fetch(api_url);
@@ -316,9 +318,8 @@ export const getEvent = async (id: string) => {
   const squads = await getSquads(id, players);
 
   /**
-   * Note that we are not supporting round infos rollbetter
-   * yet. Since we only use the data for listfortress exports
-   * for now, we don't gather it.
+   * Note that we are not including round infos since
+   * its only used in the listfortress export.
    */
   return { id, url, title, squads, rounds: [] };
 };
