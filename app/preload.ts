@@ -1,7 +1,11 @@
 export const RECENT_EVENTS: {
-  vendor: 'longshanks' | 'rollbetter';
+  vendor: 'longshanks' | 'rollbetter' | 'listfortress';
   eventId: string;
 }[] = [
+  {
+    eventId: '3629',
+    vendor: 'listfortress',
+  },
   {
     eventId: '258',
     vendor: 'rollbetter',

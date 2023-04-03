@@ -1,3 +1,12 @@
+import { EventData } from './types';
+import { shortenTitles } from './utils';
+
+// Vendors
+// ---------------
+import {
+  getEvent as getListfortressEvent,
+  getEventInfo as getListfortressEventInfo,
+} from './listfortress';
 import {
   getEvent as getLongShankEvent,
   getEventInfo as getLongShankEventInfo,
@@ -6,10 +15,12 @@ import {
   getEvent as getRollbetterEvent,
   getEventInfo as getRollbetterEventInfo,
 } from './rollbetter';
-import { EventData } from './types';
-import { shortenTitles } from './utils';
 
 const VENDOR = {
+  listfortress: {
+    getEvent: getListfortressEvent,
+    getEventInfo: getListfortressEventInfo,
+  },
   longshanks: {
     getEvent: getLongShankEvent,
     getEventInfo: getLongShankEventInfo,

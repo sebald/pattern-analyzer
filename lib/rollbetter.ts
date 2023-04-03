@@ -3,6 +3,8 @@ import { round } from './utils';
 import { getBuilderLink, toXWS } from './xws';
 import { xwsFromText, yasb2xws } from './yasb';
 
+// Types
+// ---------------
 export interface RollBetterTournamentResponse {
   id: number;
   title: string;
