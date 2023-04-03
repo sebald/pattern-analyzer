@@ -6,7 +6,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        sans: ['var(--font-inter)', ...defaultTheme.fontFamily.sans],
+        headline: ['var(--font-montserrat)', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         primary: {

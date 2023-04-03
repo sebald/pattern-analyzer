@@ -24,7 +24,7 @@ const Home = async () => {
     <Container className="grid flex-1 place-items-center">
       <div>
         <h1
-          className={`${montserrat.className} prose flex items-center justify-center pb-20 pt-8 text-2xl font-extrabold uppercase text-primary-900 md:pb-14`}
+          className={`${montserrat.variable} prose flex items-center justify-center pb-20 pt-8 font-headline text-2xl font-extrabold uppercase text-primary-900 md:pb-14`}
         >
           <Logo className="h-10 w-10" />
           Pattern Analyzer
@@ -35,7 +35,7 @@ const Home = async () => {
         {data.length > 0 && (
           <div className="w-full pt-24 md:px-6">
             <h2
-              className={`${montserrat.className} prose pb-2 font-bold uppercase text-primary-400`}
+              className={`${montserrat.variable} prose pb-2 font-headline font-bold uppercase text-primary-400`}
             >
               Recent Events
             </h2>

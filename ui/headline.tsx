@@ -14,7 +14,7 @@ const styles = cva(['scroll-m-20'], {
       '5': 'text-base font-bold',
     },
     font: {
-      headline: `${montserrat.className}`,
+      headline: `${montserrat.variable} font-headline`,
       inherit: '',
     },
   },

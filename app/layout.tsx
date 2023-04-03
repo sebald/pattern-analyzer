@@ -1,7 +1,9 @@
 import { Link } from '@/ui';
-import { AnalyticsWrapper } from './components/analytics';
-import { inter } from './fonts';
+import { cn } from '@/lib/utils';
+
 import './globals.css';
+import { inter } from './fonts';
+import { AnalyticsWrapper } from './components/analytics';
 
 export const metadata = {
   title: 'Pattern Analyzer | Home',
@@ -12,7 +14,7 @@ export interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => (
-  <html lang="en" className={inter.className}>
+  <html lang="en" className={cn(inter.variable, 'font-sans')}>
     <head>
       <meta content="width=device-width, initial-scale=1" name="viewport" />
       <link rel="icon" href="/favicon.ico" />
@@ -20,7 +22,7 @@ const Layout = ({ children }: LayoutProps) => (
     <body className="flex min-h-screen flex-col bg-primary-50">
       {children}
       <footer className="mx-auto mt-auto w-[min(100%_-_3rem,_75rem)] pt-8">
-        <div className="flex items-center justify-center gap-6 border-t border-primary-100 px-2 pt-2 pb-4 text-sm text-primary-200">
+        <div className="flex items-center justify-center gap-6 border-t border-primary-100 px-2 pb-4 pt-2 text-sm text-primary-200">
           <Link href="/">Home</Link>
           <Link href="https://github.com/sebald/pattern-analyzer">Source</Link>
           <Link href="/about">About</Link>
