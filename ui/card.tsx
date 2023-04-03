@@ -10,6 +10,7 @@ const styles = {
       variants: {
         elevation: {
           default: ['shadow-card'],
+          lightest: ['shadow-sm'],
           light: ['shadow'],
         },
         inset: {
