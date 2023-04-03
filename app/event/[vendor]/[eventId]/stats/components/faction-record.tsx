@@ -5,7 +5,7 @@ import { getFactionName } from '@/lib/get-value';
 import { XWSFaction } from '@/lib/types';
 import { toPercentage } from '@/lib/utils';
 
-import { FACTION_COLORS } from './shared';
+import { FACTION_COLORS } from './utils';
 
 // Props
 // ---------------

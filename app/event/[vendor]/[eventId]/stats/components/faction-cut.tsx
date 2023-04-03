@@ -9,7 +9,7 @@ import { getFactionName } from '@/lib/get-value';
 import { round, toPercentage } from '@/lib/utils';
 import type { XWSFaction } from '@/lib/types';
 
-import { FACTION_ABBR, FACTION_COLORS } from './shared';
+import { FACTION_ABBR, FACTION_COLORS } from './utils';
 
 // Helpers
 // ---------------

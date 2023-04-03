@@ -1,10 +1,11 @@
+import { SVGProps } from 'react';
 import { cn } from '@/lib/utils';
 
-export interface LogoProps {
+export interface LogoProps extends SVGProps<SVGSVGElement> {
   className?: string;
 }
 
-export const Logo = ({ className }: LogoProps) => (
+export const Logo = ({ className, ...props }: LogoProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
@@ -12,6 +13,7 @@ export const Logo = ({ className }: LogoProps) => (
     strokeWidth={2}
     stroke="currentColor"
     className={cn('h-6 w-6 text-primary-900 transition-all', className)}
+    {...props}
   >
     <path
       strokeLinecap="round"

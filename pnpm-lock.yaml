@@ -7,7 +7,6 @@ specifiers:
   '@nivo/line': ^0.80.0
   '@nivo/pie': ^0.80.0
   '@radix-ui/react-dialog': ^1.0.2
-  '@radix-ui/react-tabs': ^1.0.2
   '@tailwindcss/forms': 0.5.3
   '@tailwindcss/typography': 0.5.9
   '@testing-library/jest-dom': ^5.16.5
@@ -52,7 +51,6 @@ dependencies:
   '@nivo/line': 0.80.0_wyuiu3ihipn7hpncy62nqhyrji
   '@nivo/pie': 0.80.0_wyuiu3ihipn7hpncy62nqhyrji
   '@radix-ui/react-dialog': 1.0.2_6ayuu6vm2uqggsikytom4xssc4
-  '@radix-ui/react-tabs': 1.0.2_biqbaboplfbrettd7655fr4n2y
   '@vercel/analytics': 0.1.8_react@18.2.0
   cheerio: 1.0.0-rc.12
   class-variance-authority: 0.4.0_typescript@5.0.2
@@ -1136,21 +1134,6 @@ packages:
       '@babel/runtime': 7.20.7
     dev: false
 
-  /@radix-ui/react-collection/1.0.1_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-uuiFbs+YCKjn3X1DTSx9G7BHApu4GHbi3kgiwsnFUbOKCrwejAJv4eE4Vc8C0Oaxt9T0aV4ox0WCOdx+39Xo+g==}
-    peerDependencies:
-      react: ^16.8 || ^17.0 || ^18.0
-      react-dom: ^16.8 || ^17.0 || ^18.0
-    dependencies:
-      '@babel/runtime': 7.20.7
-      '@radix-ui/react-compose-refs': 1.0.0_react@18.2.0
-      '@radix-ui/react-context': 1.0.0_react@18.2.0
-      '@radix-ui/react-primitive': 1.0.1_biqbaboplfbrettd7655fr4n2y
-      '@radix-ui/react-slot': 1.0.1_react@18.2.0
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-    dev: false
-
   /@radix-ui/react-compose-refs/1.0.0_react@18.2.0:
     resolution: {integrity: sha512-0KaSv6sx787/hK3eF53iOkiSLwAGlFMx5lotrqD2pTjB18KbybKoEIgkNZTKC60YECDQTKGTRcDBILwZVqVKvA==}
     peerDependencies:
@@ -1194,15 +1177,6 @@ packages:
       react-remove-scroll: 2.5.5_o2wclmlv6kymw75psj4clbbe6a
     transitivePeerDependencies:
       - '@types/react'
-    dev: false
-
-  /@radix-ui/react-direction/1.0.0_react@18.2.0:
-    resolution: {integrity: sha512-2HV05lGUgYcA6xgLQ4BKPDmtL+QbIZYH5fCOTAOOcJ5O0QbWS3i9lKaurLzliYUDhORI2Qr3pyjhJh44lKA3rQ==}
-    peerDependencies:
-      react: ^16.8 || ^17.0 || ^18.0
-    dependencies:
-      '@babel/runtime': 7.20.7
-      react: 18.2.0
     dev: false
 
   /@radix-ui/react-dismissable-layer/1.0.2_biqbaboplfbrettd7655fr4n2y:
@@ -1291,26 +1265,6 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /@radix-ui/react-roving-focus/1.0.2_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-HLK+CqD/8pN6GfJm3U+cqpqhSKYAWiOJDe+A+8MfxBnOue39QEeMa43csUn2CXCHQT0/mewh1LrrG4tfkM9DMA==}
-    peerDependencies:
-      react: ^16.8 || ^17.0 || ^18.0
-      react-dom: ^16.8 || ^17.0 || ^18.0
-    dependencies:
-      '@babel/runtime': 7.20.7
-      '@radix-ui/primitive': 1.0.0
-      '@radix-ui/react-collection': 1.0.1_biqbaboplfbrettd7655fr4n2y
-      '@radix-ui/react-compose-refs': 1.0.0_react@18.2.0
-      '@radix-ui/react-context': 1.0.0_react@18.2.0
-      '@radix-ui/react-direction': 1.0.0_react@18.2.0
-      '@radix-ui/react-id': 1.0.0_react@18.2.0
-      '@radix-ui/react-primitive': 1.0.1_biqbaboplfbrettd7655fr4n2y
-      '@radix-ui/react-use-callback-ref': 1.0.0_react@18.2.0
-      '@radix-ui/react-use-controllable-state': 1.0.0_react@18.2.0
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-    dev: false
-
   /@radix-ui/react-slot/1.0.1_react@18.2.0:
     resolution: {integrity: sha512-avutXAFL1ehGvAXtPquu0YK5oz6ctS474iM3vNGQIkswrVhdrS52e3uoMQBzZhNRAIE0jBnUyXWNmSjGHhCFcw==}
     peerDependencies:
@@ -1319,25 +1273,6 @@ packages:
       '@babel/runtime': 7.20.7
       '@radix-ui/react-compose-refs': 1.0.0_react@18.2.0
       react: 18.2.0
-    dev: false
-
-  /@radix-ui/react-tabs/1.0.2_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-gOUwh+HbjCuL0UCo8kZ+kdUEG8QtpdO4sMQduJ34ZEz0r4922g9REOBM+vIsfwtGxSug4Yb1msJMJYN2Bk8TpQ==}
-    peerDependencies:
-      react: ^16.8 || ^17.0 || ^18.0
-      react-dom: ^16.8 || ^17.0 || ^18.0
-    dependencies:
-      '@babel/runtime': 7.20.7
-      '@radix-ui/primitive': 1.0.0
-      '@radix-ui/react-context': 1.0.0_react@18.2.0
-      '@radix-ui/react-direction': 1.0.0_react@18.2.0
-      '@radix-ui/react-id': 1.0.0_react@18.2.0
-      '@radix-ui/react-presence': 1.0.0_biqbaboplfbrettd7655fr4n2y
-      '@radix-ui/react-primitive': 1.0.1_biqbaboplfbrettd7655fr4n2y
-      '@radix-ui/react-roving-focus': 1.0.2_biqbaboplfbrettd7655fr4n2y
-      '@radix-ui/react-use-controllable-state': 1.0.0_react@18.2.0
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /@radix-ui/react-use-callback-ref/1.0.0_react@18.2.0:

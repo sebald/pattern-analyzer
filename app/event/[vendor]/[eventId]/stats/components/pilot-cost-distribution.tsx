@@ -1,3 +1,5 @@
+'use client';
+
 import { linearGradientDef } from '@nivo/core';
 import { ResponsiveLine } from '@nivo/line';
 

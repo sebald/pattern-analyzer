@@ -9,19 +9,22 @@ import { EventForm } from './components/event-form';
 /**
  * Segment Config (see: https://beta.nextjs.org/docs/api-reference/segment-config)
  */
-export const revalidate = 3600; // 1 day
-export const fetchCache = 'force-cache';
+export const dynamic = 'force-static';
 
 // Page
 // ---------------
 const Home = async () => {
-  const data = await Promise.all(RECENT_EVENTS.map(getEventInfoByVendor));
+  const data = await Promise.all(
+    RECENT_EVENTS.map(({ vendor, eventId }) =>
+      getEventInfoByVendor({ vendor, ids: eventId })
+    )
+  );
 
   return (
     <Container className="grid flex-1 place-items-center">
       <div>
         <h1
-          className={`${montserrat.className} prose flex items-center justify-center pt-8 pb-20 text-2xl font-extrabold uppercase text-primary-900 md:pb-14`}
+          className={`${montserrat.className} prose flex items-center justify-center pb-20 pt-8 text-2xl font-extrabold uppercase text-primary-900 md:pb-14`}
         >
           <Logo className="h-10 w-10" />
           Pattern Analyzer

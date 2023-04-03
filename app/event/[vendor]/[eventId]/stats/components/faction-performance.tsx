@@ -1,3 +1,5 @@
+'use client';
+
 import { ResponsiveBar } from '@nivo/bar';
 
 import { Card } from '@/ui';
@@ -5,7 +7,7 @@ import { XWSFaction } from '@/lib/types';
 import { getFactionName } from '@/lib/get-value';
 import { toPercentage } from '@/lib/utils';
 
-import { FACTION_ABBR, FACTION_COLORS } from './shared';
+import { FACTION_ABBR, FACTION_COLORS } from './utils';
 
 // Props
 // ---------------

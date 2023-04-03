@@ -4,10 +4,11 @@ import { FormEventHandler, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useDebouncedCallback } from 'use-debounce';
 
-import { Input, Button, Select } from '@/ui';
+import { Input, Button, Select, Spinner } from '@/ui';
 
 export const EventForm = () => {
   const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = e => {
@@ -18,6 +19,7 @@ export const EventForm = () => {
     const event = data.get('event');
 
     if (event) {
+      setLoading(true);
       router.push(`/event/${vendor}/${event}`);
       return;
     }
@@ -36,7 +38,7 @@ export const EventForm = () => {
 
   return (
     <form
-      className="flex flex-col items-stretch gap-3 md:flex-row"
+      className="flex flex-col justify-center gap-3 md:flex-row"
       onSubmit={handleSubmit}
     >
       <Input
@@ -58,7 +60,7 @@ export const EventForm = () => {
         <Select.Option value="rollbetter">Rollbetter</Select.Option>
       </Select>
       <Button variant="primary" size="large" type="submit">
-        Submit
+        {loading ? <Spinner className="px-4" /> : 'Submit'}
       </Button>
     </form>
   );

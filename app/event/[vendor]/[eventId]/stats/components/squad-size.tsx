@@ -1,9 +1,11 @@
+'use client';
+
 import { BarCustomLayer, ResponsiveBar } from '@nivo/bar';
 
 import { Card } from '@/ui';
 import { toPercentage, weightedAverage } from '@/lib/utils';
 
-import { COLOR_MAP } from './shared';
+import { COLOR_MAP } from './utils';
 
 // Props
 // ---------------

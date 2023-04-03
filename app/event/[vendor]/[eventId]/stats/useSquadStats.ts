@@ -1,26 +1,20 @@
-'use client';
-
-import { Link, Message } from '@/ui';
 import type { Ships } from '@/lib/get-value';
-import type { SquadData, XWSFaction, XWSUpgradeSlots } from '@/lib/types';
-import { average, deviation, percentile, winrate, round } from '@/lib/utils';
-
 import type {
+  SquadData,
+  Upgrade,
+  XWSFaction,
+  XWSUpgradeSlots,
+} from '@/lib/types';
+import { percentile, average, deviation, winrate, round } from '@/lib/utils';
+
+import {
+  FactionMap,
+  FactionMapWithAll,
   FactionStatData,
   PilotStatData,
   ShipStatData,
-  UpgradeData,
-} from './charts/shared';
-import { FactionDistribution } from './charts/faction-distribution';
-import { FactionPerformance } from './charts/faction-performance';
-import { PilotCostDistribution } from './charts/pilot-cost-distribution';
-import { PilotStats } from './charts/pilot-stats';
-import { ShipComposition } from './charts/ship-composition';
-import { SquadSize } from './charts/squad-size';
-import { UpgradeStats } from './charts/upgrade-stats';
-import { FactionRecord } from './charts/faction-record';
-import { FactionCut } from './charts/faction-cut';
-import { ChassisDistribution } from './charts/chassis-distribution';
+  UpgradeStatData,
+} from './types';
 
 // Helper
 // ---------------
@@ -39,7 +33,7 @@ export interface UseSquadStatsProps {
   squads: SquadData[];
 }
 
-const useSquadStats = ({ squads }: UseSquadStatsProps) => {
+export const useSquadStats = ({ squads }: UseSquadStatsProps) => {
   const tournamentStats = {
     xws: 0,
     count: squads.length,
@@ -70,14 +64,14 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
   };
 
   // Stats about pilots (performance, percentile, number of occurances)
-  const pilotStats = {
-    rebelalliance: new Map<string, PilotStatData>(),
-    galacticempire: new Map<string, PilotStatData>(),
-    scumandvillainy: new Map<string, PilotStatData>(),
-    resistance: new Map<string, PilotStatData>(),
-    firstorder: new Map<string, PilotStatData>(),
-    galacticrepublic: new Map<string, PilotStatData>(),
-    separatistalliance: new Map<string, PilotStatData>(),
+  const pilotStats: FactionMap<string, PilotStatData> = {
+    rebelalliance: {},
+    galacticempire: {},
+    scumandvillainy: {},
+    resistance: {},
+    firstorder: {},
+    galacticrepublic: {},
+    separatistalliance: {},
   };
 
   // Number of pilots per cost
@@ -97,26 +91,26 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
   const shipComposition = new Map<string, number>();
 
   // Ship stats
-  const shipStats = {
-    rebelalliance: new Map<string, ShipStatData>(),
-    galacticempire: new Map<string, ShipStatData>(),
-    scumandvillainy: new Map<string, ShipStatData>(),
-    resistance: new Map<string, ShipStatData>(),
-    firstorder: new Map<string, ShipStatData>(),
-    galacticrepublic: new Map<string, ShipStatData>(),
-    separatistalliance: new Map<string, ShipStatData>(),
+  const shipStats: FactionMap<Ships, ShipStatData> = {
+    rebelalliance: {},
+    galacticempire: {},
+    scumandvillainy: {},
+    resistance: {},
+    firstorder: {},
+    galacticrepublic: {},
+    separatistalliance: {},
   };
 
   // Upgrades stats
-  const upgradeStats = {
-    all: new Map<string, UpgradeData>(),
-    rebelalliance: new Map<string, UpgradeData>(),
-    galacticempire: new Map<string, UpgradeData>(),
-    scumandvillainy: new Map<string, UpgradeData>(),
-    resistance: new Map<string, UpgradeData>(),
-    firstorder: new Map<string, UpgradeData>(),
-    galacticrepublic: new Map<string, UpgradeData>(),
-    separatistalliance: new Map<string, UpgradeData>(),
+  const upgradeStats: FactionMapWithAll<string, UpgradeStatData> = {
+    all: {},
+    rebelalliance: {},
+    galacticempire: {},
+    scumandvillainy: {},
+    resistance: {},
+    firstorder: {},
+    galacticrepublic: {},
+    separatistalliance: {},
   };
 
   squads.forEach(squad => {
@@ -153,7 +147,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
         ships.push(pilot.ship);
 
         // Pilot stats
-        const pilotInfo = pilotStats[faction].get(pilot.id) || {
+        const pilotInfo = pilotStats[faction][pilot.id] || {
           count: 0,
           lists: 0,
           ship: pilot.ship,
@@ -165,7 +159,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
           percentile: 0,
           deviation: 0,
         };
-        pilotStats[faction].set(pilot.id, {
+        pilotStats[faction][pilot.id] = {
           ...pilotInfo,
           lists: unique.has(pilot.id) ? pilotInfo.lists : pilotInfo.lists + 1,
           count: pilotInfo.count + 1,
@@ -174,7 +168,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
             ...pilotInfo.ranks,
             squad.rank.elimination ?? squad.rank.swiss,
           ],
-        });
+        };
 
         // Pilot cost distribution
         const points = pilot.points as 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
@@ -183,16 +177,16 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
         unique.add(pilot.id);
 
         // Ship stats
-        const shipInfo = shipStats[faction].get(pilot.ship) || {
+        const shipInfo = shipStats[faction][pilot.ship] || {
           frequency: 0,
           count: 0,
           lists: 0,
         };
-        shipStats[faction].set(pilot.ship, {
+        shipStats[faction][pilot.ship] = {
           ...shipInfo,
           count: shipInfo.count + 1,
           lists: unique.has(pilot.ship) ? shipInfo.lists : shipInfo.lists + 1,
-        });
+        };
 
         unique.add(pilot.ship);
 
@@ -202,7 +196,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
         ).forEach(([slot, us]) => {
           us.forEach(u => {
             // Stats overall
-            let upgradeInfo = upgradeStats['all'].get(u) || {
+            let upgradeInfo = upgradeStats['all'][u] || {
               slot,
               count: 0,
               lists: 0,
@@ -214,7 +208,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
               percentile: 0,
               deviation: 0,
             };
-            upgradeStats['all'].set(u, {
+            upgradeStats['all'][u] = {
               ...upgradeInfo,
               count: upgradeInfo.count + 1,
               lists: unique.has(u) ? upgradeInfo.lists : upgradeInfo.lists + 1,
@@ -223,10 +217,10 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
                 ...upgradeInfo.ranks,
                 squad.rank.elimination ?? squad.rank.swiss,
               ],
-            });
+            };
 
             // Stats per faction
-            upgradeInfo = upgradeStats[faction].get(u) || {
+            upgradeInfo = upgradeStats[faction][u] || {
               slot,
               count: 0,
               lists: 0,
@@ -238,7 +232,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
               percentile: 0,
               deviation: 0,
             };
-            upgradeStats[faction].set(u, {
+            upgradeStats[faction][u] = {
               ...upgradeInfo,
               count: upgradeInfo.count + 1,
               lists: unique.has(u) ? upgradeInfo.lists : upgradeInfo.lists + 1,
@@ -247,7 +241,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
                 ...upgradeInfo.ranks,
                 squad.rank.elimination ?? squad.rank.swiss,
               ],
-            });
+            };
 
             // Add upgrade to unique list so we now we added it to the "lists" field
             unique.add(u);
@@ -280,7 +274,8 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     const faction = key as XWSFaction;
     const stats = pilotStats[faction];
 
-    stats.forEach((stat, pilot) => {
+    Object.entries(stats).forEach(([pilot, value]) => {
+      const stat = value as PilotStatData;
       const pcs = stat.ranks.map(rank =>
         percentile(rank, tournamentStats.count)
       );
@@ -290,7 +285,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
       stat.percentile = average(pcs, 4);
       stat.deviation = deviation(pcs, 4);
 
-      stats.set(pilot, stat);
+      stats[pilot] = stat;
     });
   });
 
@@ -299,9 +294,9 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     const faction = key as XWSFaction;
     const stats = shipStats[faction];
 
-    stats.forEach((stat, ship) => {
+    Object.entries(stats).forEach(([ship, stat]) => {
       stat.frequency = round(stat.lists / factionStats[faction].count, 4);
-      stats.set(ship, stat);
+      stats[ship as Ships] = stat;
     });
   });
 
@@ -310,7 +305,9 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     const faction = k as keyof typeof upgradeStats;
     const stats = upgradeStats[faction];
 
-    stats.forEach((stat, upgrade) => {
+    Object.entries(stats).forEach(([upgrade, value]) => {
+      const stat = value as UpgradeStatData;
+
       const pcs = stat.ranks.map(rank =>
         percentile(rank, tournamentStats.count)
       );
@@ -322,7 +319,7 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
       stat.percentile = average(pcs, 4);
       stat.deviation = deviation(pcs, 4);
 
-      stats.set(upgrade, stat);
+      stats[upgrade] = stat;
     });
   });
 
@@ -336,72 +333,4 @@ const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     shipStats,
     upgradeStats,
   };
-};
-
-// Props
-// ---------------
-export interface StatsProps {
-  squads: SquadData[];
-}
-
-// Component
-// ---------------
-export const Stats = ({ squads }: StatsProps) => {
-  const data = useSquadStats({ squads });
-
-  return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
-      <div className="md:col-span-6">
-        <FactionDistribution
-          value={data.factionStats}
-          total={data.tournamentStats.count}
-        />
-      </div>
-      <div className="md:col-span-6">
-        <FactionPerformance value={data.factionStats} />
-      </div>
-      <div className="md:col-span-5">
-        <FactionRecord value={data.factionStats} />
-      </div>
-      <div className="md:col-span-7">
-        <FactionCut
-          tournament={data.tournamentStats}
-          value={data.factionStats}
-        />
-      </div>
-      <div className="md:col-span-6">
-        <SquadSize value={data.squadSizes} total={data.tournamentStats.xws} />
-      </div>
-      <div className="md:col-span-6">
-        <PilotCostDistribution value={data.pilotCostDistribution} />
-      </div>
-      <div className="col-span-full">
-        <ChassisDistribution value={data.shipStats} />
-      </div>
-      <div className="col-span-full">
-        <PilotStats value={data.pilotStats} />
-      </div>
-      <div className="col-span-full">
-        <UpgradeStats value={data.upgradeStats} />
-      </div>
-      <div className="self-start md:col-span-4">
-        <ShipComposition
-          value={data.shipComposition}
-          total={data.tournamentStats.xws}
-        />
-      </div>
-      <div className="col-span-full lg:col-start-2 lg:col-end-11">
-        <Message align="center">
-          <Message.Title>
-            For information about some commonly used terms, see the &quot;About
-            the Data&quot; secion on the{' '}
-            <Link className="underline underline-offset-2" href="/about">
-              About page
-            </Link>
-            .
-          </Message.Title>
-        </Message>
-      </div>
-    </div>
-  );
 };

@@ -1,5 +1,7 @@
 import type { Ships } from './get-value';
 
+export type Vendor = 'longshanks' | 'rollbetter';
+
 // Data
 // ---------------
 export interface Ship {

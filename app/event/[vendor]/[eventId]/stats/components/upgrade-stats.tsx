@@ -1,3 +1,5 @@
+'use client';
+
 import { Fragment, useState } from 'react';
 
 import {
@@ -5,45 +7,43 @@ import {
   Collapsible,
   FactionSelection,
   Select,
-  ShipIcon,
   Table,
+  UpgradeSlotSelection,
 } from '@/ui';
-import type { XWSFaction } from '@/lib/types';
-import { getPilotName } from '@/lib/get-value';
+import { getUpgradeName } from '@/lib/get-value';
+import type { XWSFaction, XWSUpgradeSlots } from '@/lib/types';
 import { toPercentage } from '@/lib/utils';
 
-import { PilotStatData } from './shared';
+import type { FactionMapWithAll, UpgradeStatData } from '../types';
 
 // Props
 // ---------------
-export interface PilotStatsProps {
-  value: {
-    [faction in XWSFaction]: Map<string, PilotStatData>;
-  };
+export interface UpgradeStatsProps {
+  value: FactionMapWithAll<string, UpgradeStatData>;
 }
 
 // Component
 // ---------------
-export const PilotStats = ({ value }: PilotStatsProps) => {
+export const UpgradeStats = ({ value }: UpgradeStatsProps) => {
   const [faction, setFaction] = useState<XWSFaction | 'all'>('all');
+  const [slot, setSlot] = useState<XWSUpgradeSlots | 'all'>('all');
   const [sort, setSort] = useState<
     'percentile' | 'deviation' | 'winrate' | 'frequency' | 'count'
   >('percentile');
 
-  const data =
-    faction === 'all'
-      ? Object.values(value).reduce((acc: [string, PilotStatData][], map) => {
-          return [...acc, ...map.entries()];
-        }, [])
-      : [...value[faction].entries()];
-  data.sort(([, a], [, b]) => b[sort] - a[sort]);
+  const data = [
+    ...(Object.entries(value[faction]) as [string, UpgradeStatData][]),
+  ]
+    .filter(([, info]) => (slot === 'all' ? true : info.slot === slot))
+    .sort(([, a], [, b]) => b[sort] - a[sort]);
 
   return (
     <Card>
       <Card.Header>
-        <Card.Title>Pilots</Card.Title>
+        <Card.Title>Upgrades</Card.Title>
         <Card.Actions>
           <FactionSelection value={faction} onChange={setFaction} allowAll />
+          <UpgradeSlotSelection value={slot} onChange={setSlot} allowAll />
           <Select
             size="small"
             value={sort}
@@ -69,7 +69,7 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
               '70px',
             ]}
             headers={[
-              'Pilot',
+              'Upgrade',
               'Percentile',
               'Std. Deviation',
               'Winrate',
@@ -77,12 +77,11 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
               'Count',
             ]}
           >
-            {data.map(([pilot, stat]) => (
-              <Fragment key={pilot}>
+            {data.map(([upgrade, stat]) => (
+              <Fragment key={upgrade}>
                 <Table.Cell variant="header">
-                  <ShipIcon ship={stat.ship} className="w-5 text-xl" />
                   <div className="text-sm font-semibold">
-                    {getPilotName(pilot) || pilot}
+                    {getUpgradeName(upgrade) || upgrade}
                   </div>
                 </Table.Cell>
                 <Table.Cell variant="number">

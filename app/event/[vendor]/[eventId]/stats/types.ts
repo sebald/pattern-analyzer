@@ -1,8 +1,18 @@
 import type { Ships } from '@/lib/get-value';
 import type { XWSFaction, XWSUpgradeSlots } from '@/lib/types';
 
-// Types
-// ---------------
+export type FactionMap<Key extends string, Value> = {
+  [faction in XWSFaction]: { [key in Key]?: Value };
+};
+
+export type FactionMapWithUnknwon<Key extends string, Value> = {
+  [faction in XWSFaction | 'unknown']: { [key in Key]?: Value };
+};
+
+export type FactionMapWithAll<Key extends string, Value> = {
+  [faction in XWSFaction | 'all']: { [key in Key]?: Value };
+};
+
 export interface FactionStatData {
   count: number;
   records: { wins: number; ties: number; losses: number }[];
@@ -30,7 +40,7 @@ export interface ShipStatData {
   lists: number;
 }
 
-export interface UpgradeData {
+export interface UpgradeStatData {
   slot: XWSUpgradeSlots;
   count: number;
   lists: number;
@@ -41,36 +51,3 @@ export interface UpgradeData {
   deviation: number;
   winrate: number;
 }
-
-// Faction Values
-// ---------------
-export const FACTION_COLORS: { [key in XWSFaction | 'unknown']: string } = {
-  rebelalliance: '#fca5a5',
-  galacticempire: '#93c5fd',
-  scumandvillainy: '#fcd34d',
-  resistance: '#fb923c',
-  firstorder: '#f87171',
-  galacticrepublic: '#fbcfe8',
-  separatistalliance: '#a5b4fc',
-  unknown: '#cbd5e1',
-};
-
-export const FACTION_ABBR: { [key in XWSFaction | 'unknown']: string } = {
-  rebelalliance: 'REB',
-  galacticempire: 'EMP',
-  scumandvillainy: 'SCUM',
-  resistance: 'RES',
-  firstorder: 'FO',
-  galacticrepublic: 'GAR',
-  separatistalliance: 'CIS',
-  unknown: '???',
-};
-
-export const COLOR_MAP = {
-  3: '#e5ecfa',
-  4: '#d0dcf5',
-  5: '#b4c5ed',
-  6: '#96a6e3',
-  7: '#8490db',
-  8: '#6167ca',
-};

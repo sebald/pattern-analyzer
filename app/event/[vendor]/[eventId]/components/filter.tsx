@@ -3,7 +3,7 @@
 import { useDebouncedCallback } from 'use-debounce';
 
 import { FactionSelection, SearchField } from '@/ui';
-import { useFilter } from './filter-context';
+import { useFilter } from './context';
 
 export const Filter = () => {
   const filter = useFilter();

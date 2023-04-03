@@ -20,6 +20,7 @@ export * from './message';
 export * from './search-field';
 export * from './select';
 export * from './ship-icon';
+export * from './skeleton';
 export * from './spinner';
 export * from './squad';
 export * from './table';

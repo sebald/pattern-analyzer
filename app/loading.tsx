@@ -1,8 +1,9 @@
-import { Spinner } from '@/ui';
+import { LogoSkeleton } from '@/ui';
 
 const Loading = () => (
   <div className="grid min-h-screen place-items-center">
-    <Spinner text="Loading Event..." />
+    <LogoSkeleton />
+    <span className="sr-only">Loading...</span>
   </div>
 );
 export default Loading;

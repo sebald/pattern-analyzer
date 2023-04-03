@@ -1,22 +1,15 @@
 'use client';
 
-import {
-  createContext,
-  Dispatch,
-  ReactNode,
-  SetStateAction,
-  useContext,
-  useState,
-} from 'react';
+import { createContext, ReactNode, useContext, useState } from 'react';
 import { Factions } from '@/lib/get-value';
 
 export type FactionOptions = 'all' | Factions;
 
 const Context = createContext<{
   faction: FactionOptions;
-  setFaction: Dispatch<SetStateAction<FactionOptions>>;
+  setFaction: (faction: FactionOptions) => void;
   query: string;
-  setQuery: Dispatch<SetStateAction<string>>;
+  setQuery: (query: string) => void;
 } | null>(null);
 
 export interface FilterProviderProps {

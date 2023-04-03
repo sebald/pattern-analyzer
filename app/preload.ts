@@ -1,25 +1,29 @@
 export const RECENT_EVENTS: {
-  ids: string;
   vendor: 'longshanks' | 'rollbetter';
+  eventId: string;
 }[] = [
   {
-    ids: '258',
+    eventId: '258',
     vendor: 'rollbetter',
   },
   {
-    ids: '259',
+    eventId: '259',
     vendor: 'rollbetter',
   },
   {
-    ids: '7240',
+    eventId: '7240',
     vendor: 'longshanks',
   },
   {
-    ids: '5535',
+    eventId: '5535',
     vendor: 'longshanks',
   },
   {
-    ids: '56+57',
+    eventId: '57',
+    vendor: 'rollbetter',
+  },
+  {
+    eventId: '56',
     vendor: 'rollbetter',
   },
 ];
