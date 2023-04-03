@@ -60,7 +60,7 @@ export const EventForm = () => {
         <Select.Option value="rollbetter">Rollbetter</Select.Option>
       </Select>
       <Button variant="primary" size="large" type="submit">
-        {!loading ? <Spinner className="px-4" /> : 'Submit'}
+        {loading ? <Spinner className="px-4" /> : 'Submit'}
       </Button>
     </form>
   );
