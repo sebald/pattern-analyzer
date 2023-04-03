@@ -54,8 +54,9 @@ export const EventForm = () => {
         name="vendor"
         size="large"
         className="w-full"
-        defaultValue="longshanks"
+        defaultValue="listfortress"
       >
+        <Select.Option value="listfortress">Listfortress</Select.Option>
         <Select.Option value="longshanks">Longshanks</Select.Option>
         <Select.Option value="rollbetter">Rollbetter</Select.Option>
       </Select>

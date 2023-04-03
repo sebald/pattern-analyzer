@@ -1,3 +1,7 @@
+import { SquadData } from './types';
+import { getBuilderLink } from './xws';
+import { toXWS } from './xws';
+
 // Types
 // ---------------
 export interface ListfortressTournament {
@@ -73,7 +77,42 @@ const parseSquads = (
   participants: ListfortressParticipant[],
   rounds: ListfortressRound[]
 ) => {
-  // return SquadData[]
+  const squads: SquadData[] = [];
+
+  participants.forEach(({ list_json, ...p }) => {
+    let xws = null;
+    try {
+      if (list_json) {
+        xws = toXWS(list_json || '');
+      }
+    } catch {
+      console.log(list_json);
+    }
+
+    squads.push({
+      id: `${p.id}`,
+      player: p.name,
+      xws,
+      raw: list_json || '',
+      url: getBuilderLink(xws),
+      rank: {
+        swiss: p.swiss_rank,
+        elimination: p.top_cut_rank,
+      },
+      points: p.score,
+      record: {
+        wins: 0,
+        losses: 0,
+        ties: 0,
+      },
+      sos: Number(p.sos),
+      missionPoints: p.mission_points,
+      mov: p.mov,
+      dropped: p.dropped,
+    });
+  });
+
+  return squads;
 };
 
 // API
