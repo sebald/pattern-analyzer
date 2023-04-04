@@ -44,7 +44,7 @@ module.exports = {
         // body: 'linear-gradient(170deg, #d0dcf5, #f1f5fc 200px)',
         body: [
           'linear-gradient(172deg, #b4c5ed, #d0dcf5 100px, #f1f5fc 200px, transparent)',
-          'linear-gradient(294deg, #b4c5ed, #f1f5fc 200px, transparent)',
+          'linear-gradient(294deg, #b4c5ed, #f1f5fc 150px, transparent)',
           'linear-gradient(15deg, #96a6e3, #d0dcf5 150px, transparent)',
         ].join(','),
         'body-light': [
