@@ -4,6 +4,7 @@ import { squadsToCSV } from '@/lib/export';
 import { Vendor } from '@/lib/types';
 
 import { RECENT_EVENTS } from '@/app/preload';
+import { ExportListfortress } from './components/export-listfortress';
 import { ExportLongshanks } from './components/export-longshanks';
 import { ExportRollbetter } from './components/export-rollbetter';
 
@@ -13,7 +14,7 @@ import { ExportRollbetter } from './components/export-rollbetter';
 export const generateStaticParams = () => RECENT_EVENTS;
 
 export const EXPORT_MAP = {
-  listfortress: () => null,
+  listfortress: ExportListfortress,
   longshanks: ExportLongshanks,
   rollbetter: ExportRollbetter,
 };
@@ -50,27 +51,24 @@ const Page = async ({ params }: PageProps) => {
 
   return (
     <div className="grid grid-cols-12 gap-y-14 md:gap-y-8">
-      {event.vendor === 'listfortress' ? (
-        <div className="col-start-2 col-end-11">
-          <Message variant="info" size="large">
-            <Message.Title>Where is the Listfortress Export!?</Message.Title>
-            <Message.Body>
-              <Text>
-                The data for this tournament is already obtained from
-                Listfortress.
-                <br />
-                No need to export it again.
-              </Text>
-              <Text>TODO!</Text>
-            </Message.Body>
-          </Message>
-        </div>
-      ) : (
-        <>
-          <div className="col-span-full md:col-span-4">
-            <Export event={event} />
-          </div>
-          <div className="col-span-full px-4 md:col-span-7 md:col-start-6 md:px-0">
+      <div className="col-span-full md:col-span-4">
+        <Export event={event} />
+      </div>
+      <div className="col-span-full px-4 md:col-span-7 md:col-start-6 md:px-0">
+        {event.vendor === 'listfortress' ? (
+          <>
+            <Headline level="3" font="inherit" className="font-medium">
+              Listfortress Export
+            </Headline>
+            <Text>
+              The data for this event is already obtained directly from
+              Listfortress.
+              <br />
+              No need to upload the event Listfortress again.
+            </Text>
+          </>
+        ) : (
+          <>
             <Headline level="3" font="inherit" className="font-medium">
               How to upload an event to Listfortress
             </Headline>
@@ -99,13 +97,13 @@ const Page = async ({ params }: PageProps) => {
                 tournament. And you are done!
               </List.Item>
             </List>
-          </div>
-        </>
-      )}
+          </>
+        )}
+      </div>
       <Divider className="col-span-full" />
       <div className="col-span-4 md:self-center">
         <Headline level="3" className="pb-0 text-right">
-          Download Options:
+          Other Options:
         </Headline>
       </div>
       <div className="col-span-7 col-start-6 flex flex-col items-center gap-6 md:flex-row">
