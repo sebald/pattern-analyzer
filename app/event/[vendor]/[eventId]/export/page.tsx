@@ -13,7 +13,7 @@ import { ExportRollbetter } from './components/export-rollbetter';
  */
 export const generateStaticParams = () => RECENT_EVENTS;
 
-export const EXPORT_MAP = {
+const EXPORT_MAP = {
   listfortress: ExportListfortress,
   longshanks: ExportLongshanks,
   rollbetter: ExportRollbetter,
