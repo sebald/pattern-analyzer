@@ -1,5 +1,7 @@
+import { Vendor } from '@/lib/types';
+
 export const RECENT_EVENTS: {
-  vendor: 'longshanks' | 'rollbetter' | 'listfortress';
+  vendor: Vendor;
   eventId: string;
 }[] = [
   {

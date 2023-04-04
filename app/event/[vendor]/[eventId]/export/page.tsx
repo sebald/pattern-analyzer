@@ -1,12 +1,4 @@
-import {
-  Message,
-  Headline,
-  Divider,
-  Link,
-  List,
-  ContentSkeleton,
-  HeadlineSkeleton,
-} from '@/ui';
+import { Message, Headline, Divider, Link, List, Text } from '@/ui';
 import { getEventDataByVendor } from '@/lib/get-event';
 import { squadsToCSV } from '@/lib/export';
 import { Vendor } from '@/lib/types';
@@ -19,6 +11,12 @@ import { ExportRollbetter } from './components/export-rollbetter';
  * Opt into background revalidation. (see: https://github.com/vercel/next.js/discussions/43085)
  */
 export const generateStaticParams = () => RECENT_EVENTS;
+
+export const EXPORT_MAP = {
+  listfortress: () => null,
+  longshanks: ExportLongshanks,
+  rollbetter: ExportRollbetter,
+};
 
 // Props
 // ---------------
@@ -41,54 +39,73 @@ const Page = async ({ params }: PageProps) => {
     return (
       <Message variant="warning" size="large">
         <Message.Title>Where is the Listfortress Export!?</Message.Title>
-        Export for Listfortress is not availble if displaying multiple events.
+        <Message.Body>
+          Export for Listfortress is not availble if displaying multiple events.
+        </Message.Body>
       </Message>
     );
   }
 
+  const Export = EXPORT_MAP[event.vendor];
+
   return (
     <div className="grid grid-cols-12 gap-y-14 md:gap-y-8">
-      <div className="col-span-full md:col-span-4">
-        {event.vendor === 'longshanks' ? (
-          <ExportLongshanks event={event} />
-        ) : (
-          <ExportRollbetter event={event} />
-        )}
-      </div>
-      <div className="col-span-full px-4 md:col-span-7 md:col-start-6 md:px-0">
-        <Headline level="3" font="inherit" className="font-medium">
-          How to upload an event to Listfortress
-        </Headline>
-        <List enumeration="decimal">
-          <List.Item className="prose">
-            Press on the &quot;Export for Listfortress&quot; button to copy the
-            data to your clipboard.
-          </List.Item>
-          <List.Item className="prose">
-            Go to{' '}
-            <Link
-              href="http://listfortress.com/tournaments/new"
-              target="_blank"
-            >
-              Listfortress
-            </Link>{' '}
-            and fill out the form with your tournament data.
-          </List.Item>
-          <List.Item className="prose">
-            Use the second option to add player and round data called
-            &quot;Paste an export from RollBetter.gg&quot;. Past the previously
-            copied data into the field.
-          </List.Item>
-          <List.Item className="prose">
-            Press the &quot;Create Tournament&quot; button to add your
-            tournament. And you are done!
-          </List.Item>
-        </List>
-      </div>
+      {event.vendor === 'listfortress' ? (
+        <div className="col-start-2 col-end-11">
+          <Message variant="info" size="large">
+            <Message.Title>Where is the Listfortress Export!?</Message.Title>
+            <Message.Body>
+              <Text>
+                The data for this tournament is already obtained from
+                Listfortress.
+                <br />
+                No need to export it again.
+              </Text>
+              <Text>TODO!</Text>
+            </Message.Body>
+          </Message>
+        </div>
+      ) : (
+        <>
+          <div className="col-span-full md:col-span-4">
+            <Export event={event} />
+          </div>
+          <div className="col-span-full px-4 md:col-span-7 md:col-start-6 md:px-0">
+            <Headline level="3" font="inherit" className="font-medium">
+              How to upload an event to Listfortress
+            </Headline>
+            <List enumeration="decimal">
+              <List.Item className="prose">
+                Press on the &quot;Export for Listfortress&quot; button to copy
+                the data to your clipboard.
+              </List.Item>
+              <List.Item className="prose">
+                Go to{' '}
+                <Link
+                  href="http://listfortress.com/tournaments/new"
+                  target="_blank"
+                >
+                  Listfortress
+                </Link>{' '}
+                and fill out the form with your tournament data.
+              </List.Item>
+              <List.Item className="prose">
+                Use the second option to add player and round data called
+                &quot;Paste an export from RollBetter.gg&quot;. Past the
+                previously copied data into the field.
+              </List.Item>
+              <List.Item className="prose">
+                Press the &quot;Create Tournament&quot; button to add your
+                tournament. And you are done!
+              </List.Item>
+            </List>
+          </div>
+        </>
+      )}
       <Divider className="col-span-full" />
       <div className="col-span-4 md:self-center">
         <Headline level="3" className="pb-0 text-right">
-          Other Options:
+          Download Options:
         </Headline>
       </div>
       <div className="col-span-7 col-start-6 flex flex-col items-center gap-6 md:flex-row">

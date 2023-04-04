@@ -1,6 +1,7 @@
 import { ComponentPropsWithoutRef } from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
 import { montserrat } from '@/app/fonts';
+import { cn } from '@/lib/utils';
 
 // Styles
 // ---------------
@@ -44,7 +45,7 @@ export const Headline = ({
 }: HeadlineProps) => {
   const Element = `h${level}` as any;
   return (
-    <Element className={styles({ level, font, className })} {...props}>
+    <Element className={cn(styles({ level, font, className }))} {...props}>
       {children}
     </Element>
   );
