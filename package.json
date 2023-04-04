@@ -22,7 +22,7 @@
     "@nivo/line": "0.80.0",
     "@nivo/pie": "0.80.0",
     "@radix-ui/react-dialog": "1.0.3",
-    "@vercel/analytics": "0.1.8",
+    "@vercel/analytics": "0.1.11",
     "cheerio": "1.0.0-rc.12",
     "class-variance-authority": "0.4.0",
     "clsx": "1.2.1",
