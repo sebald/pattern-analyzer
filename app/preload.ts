@@ -5,6 +5,7 @@ export const RECENT_EVENTS: {
   eventId: string;
 }[] = [
   {
+    // Worlds
     eventId: '3620',
     vendor: 'listfortress',
   },
