@@ -73,23 +73,62 @@ const getTournament = async (id: string) => {
 
 // Helpers
 // ---------------
+const updateRcord = (
+  record: SquadData['record'] = {
+    wins: 0,
+    ties: 0,
+    losses: 0,
+  },
+  player: number,
+  opponent: number
+) => {
+  const field: keyof SquadData['record'] =
+    player > opponent ? 'wins' : player < opponent ? 'losses' : 'ties';
+
+  return {
+    ...record,
+    [field]: record[field] + 1,
+  };
+};
+
 const parseSquads = (
   participants: ListfortressParticipant[],
   rounds: ListfortressRound[]
-) => {
-  const squads: SquadData[] = [];
+): SquadData[] => {
+  const records: { [playerId: string]: SquadData['record'] } = {};
 
-  participants.forEach(({ list_json, ...p }) => {
+  rounds.forEach(round => {
+    round.matches.forEach(
+      ({ player1_id, player1_points, player2_id, player2_points }) => {
+        records[player1_id] = updateRcord(
+          records[player1_id],
+          player1_points,
+          player2_points
+        );
+
+        // Buys don't have a second player
+        if (player2_id !== undefined) {
+          records[player2_id] = updateRcord(
+            records[player2_id],
+            player2_points,
+            player1_points
+          );
+        }
+      }
+    );
+  });
+
+  return participants.map(({ list_json, ...p }) => {
     let xws = null;
     try {
       if (list_json) {
         xws = toXWS(list_json || '');
       }
     } catch {
-      console.log(list_json);
+      console.log(`[listfortress] Failed to parse "list_json": ${list_json}`);
     }
 
-    squads.push({
+    return {
       id: `${p.id}`,
       player: p.name,
       xws,
@@ -100,7 +139,7 @@ const parseSquads = (
         elimination: p.top_cut_rank,
       },
       points: p.score,
-      record: {
+      record: records[p.id] || {
         wins: 0,
         losses: 0,
         ties: 0,
@@ -109,10 +148,8 @@ const parseSquads = (
       missionPoints: p.mission_points,
       mov: p.mov,
       dropped: p.dropped,
-    });
+    };
   });
-
-  return squads;
 };
 
 // API

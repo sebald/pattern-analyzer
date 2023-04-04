@@ -105,7 +105,7 @@ const getRegistration = async (id: string, count: number) => {
   data = await Promise.all<RollBetterListResponse>(
     responses.map(res => {
       if (!res.ok) {
-        throw new Error('Failed to fetch lists from rollbetter...');
+        throw new Error('[rollbetter] Failed to fetch lists...');
       }
 
       return res.json();
@@ -126,7 +126,7 @@ export const getPlayers = async (id: string) => {
   );
 
   if (!res.ok) {
-    throw new Error(`Failed to fetch player data... (${id})`);
+    throw new Error(`[rollbetter] Failed to fetch player data... (${id})`);
   }
 
   let players: PlayerData[] = [];
@@ -267,7 +267,7 @@ export const getSquads = async (
       }
     } catch {
       console.log(
-        `Failed to parse squad of "${username}" (${id}).\nOriginal value is: :${withList}`
+        `[rollbetter] Failed to parse squad of "${username}" (${id}).\nOriginal value is: :${withList}`
       );
     }
 
