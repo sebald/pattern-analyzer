@@ -1,6 +1,6 @@
 import type { Ships } from './get-value';
 
-export type Vendor = 'longshanks' | 'rollbetter';
+export type Vendor = 'longshanks' | 'rollbetter' | 'listfortress';
 
 // Data
 // ---------------
@@ -54,7 +54,7 @@ export interface SquadData extends PlayerData {
 export interface EventData {
   id: string[];
   title: string;
-  vendor: 'longshanks' | 'rollbetter';
+  vendor: Vendor;
   urls: { href: string; text: string }[];
   squads: SquadData[];
   rounds: ListFortressRound[];

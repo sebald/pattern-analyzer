@@ -1,28 +1,36 @@
+import { Vendor } from '@/lib/types';
+
 export const RECENT_EVENTS: {
-  vendor: 'longshanks' | 'rollbetter';
+  vendor: Vendor;
   eventId: string;
 }[] = [
   {
-    eventId: '258',
-    vendor: 'rollbetter',
+    // Worlds
+    eventId: '3620',
+    vendor: 'listfortress',
   },
   {
-    eventId: '259',
-    vendor: 'rollbetter',
+    // Worlds LCQ
+    eventId: '3619',
+    vendor: 'listfortress',
   },
   {
-    eventId: '7240',
-    vendor: 'longshanks',
+    // Sith Taker Open
+    eventId: '3629',
+    vendor: 'listfortress',
   },
   {
+    // Kyper Team Cup
     eventId: '5535',
     vendor: 'longshanks',
   },
   {
+    // LVO Day 2
     eventId: '57',
     vendor: 'rollbetter',
   },
   {
+    // LVO Day 1
     eventId: '56',
     vendor: 'rollbetter',
   },

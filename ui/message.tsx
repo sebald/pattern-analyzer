@@ -15,11 +15,12 @@ const MessageTitle = ({ children }: MessageTitleProps) => (
 // Message.Body
 // ---------------
 export interface MessageBodyProps {
+  className?: string;
   children?: React.ReactNode;
 }
 
-const MessageBody = ({ children }: MessageBodyProps) => (
-  <div className="">{children}</div>
+const MessageBody = ({ className, children }: MessageBodyProps) => (
+  <div className={className}>{children}</div>
 );
 
 // Message.Button

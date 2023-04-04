@@ -3,6 +3,8 @@ import { round } from './utils';
 import { getBuilderLink, toXWS } from './xws';
 import { xwsFromText, yasb2xws } from './yasb';
 
+// Types
+// ---------------
 export interface RollBetterTournamentResponse {
   id: number;
   title: string;
@@ -103,7 +105,7 @@ const getRegistration = async (id: string, count: number) => {
   data = await Promise.all<RollBetterListResponse>(
     responses.map(res => {
       if (!res.ok) {
-        throw new Error('Failed to fetch lists from rollbetter...');
+        throw new Error('[rollbetter] Failed to fetch lists...');
       }
 
       return res.json();
@@ -124,7 +126,7 @@ export const getPlayers = async (id: string) => {
   );
 
   if (!res.ok) {
-    throw new Error(`Failed to fetch player data... (${id})`);
+    throw new Error(`[rollbetter] Failed to fetch player data... (${id})`);
   }
 
   let players: PlayerData[] = [];
@@ -265,7 +267,7 @@ export const getSquads = async (
       }
     } catch {
       console.log(
-        `Failed to parse squad of "${username}" (${id}).\nOriginal value is: :${withList}`
+        `[rollbetter] Failed to parse squad of "${username}" (${id}).\nOriginal value is: :${withList}`
       );
     }
 
@@ -278,12 +280,14 @@ export const getSquads = async (
   });
 };
 
+// API
+// ---------------
 export const getEventInfo = async (id: string) => {
   const api_url = `https://rollbetter-linux.azurewebsites.net/tournaments/${id}`;
   const res = await fetch(api_url);
 
   if (!res.ok) {
-    throw new Error(`Failed to fetch event data... (${id})`);
+    throw new Error(`[rollbetter] Failed to fetch event data... (${id})`);
   }
 
   const {
@@ -314,9 +318,8 @@ export const getEvent = async (id: string) => {
   const squads = await getSquads(id, players);
 
   /**
-   * Note that we are not supporting round infos rollbetter
-   * yet. Since we only use the data for listfortress exports
-   * for now, we don't gather it.
+   * Note that we are not including round infos since
+   * its only used in the listfortress export.
    */
   return { id, url, title, squads, rounds: [] };
 };

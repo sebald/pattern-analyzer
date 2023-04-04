@@ -65,7 +65,7 @@ export const toXWS = (raw: string) => {
       JSON.parse(raw.trim().replace(/\\'/g, "'").replace(/\\"/g, "'"))
     );
   } catch {
-    throw new Error('Could not parse raw value...');
+    throw new Error('[xws] Could not parse raw value...');
   }
 };
 
