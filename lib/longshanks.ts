@@ -273,7 +273,7 @@ export const parseRounds = async (
         player1: players[0],
         'player1-id': ids[0],
         player1points: score[0],
-        player2: players[1] || 'BYE',
+        player2: players[1] || '-',
         'player2-id': ids[1],
         player2points: score[1],
       };
