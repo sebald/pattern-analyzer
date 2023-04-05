@@ -25,8 +25,10 @@ const NavigationItem = ({ path, slug, children }: NavigationItemProps) => {
     <Link
       data-state={isCurrent ? 'active' : 'inactive'}
       className={cn(
-        'flex cursor-pointer items-center justify-center gap-2 rounded-lg bg-primary-100 px-6 py-2 text-primary-500 hover:bg-primary-200 hover:text-primary-800 lg:px-32',
-        'data-active:bg-primary-300 data-active:text-primary-800'
+        'flex cursor-pointer items-center justify-center gap-2 rounded-lg px-6 py-2 lg:px-32',
+        'border border-primary-200/50 bg-primary-100 text-primary-500 shadow shadow-primary-200',
+        'hover:border-primary-300/50 hover:bg-primary-200 hover:text-primary-800',
+        'data-active:border-primary-400/50 data-active:bg-primary-300 data-active:text-primary-800'
       )}
       href={href}
     >
