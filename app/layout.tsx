@@ -19,7 +19,7 @@ const Layout = ({ children }: LayoutProps) => (
       <meta content="width=device-width, initial-scale=1" name="viewport" />
       <link rel="icon" href="/favicon.ico" />
     </head>
-    <body className="flex min-h-screen flex-col bg-body-light md:bg-body">
+    <body className="flex min-h-screen flex-col bg-primary-50">
       {children}
       <footer className="mx-auto mt-auto w-[min(100%_-_3rem,_75rem)] pt-16">
         <div className="flex items-center justify-center gap-6 border-t border-primary-200 px-2 pb-4 pt-2 text-sm text-primary-300">

@@ -40,18 +40,6 @@ module.exports = {
           '0px 1px 3px 0px rgba(0 0 0 / 0.02), 0px 0px 0px 1px rgba(27 31 35 / 0.15)',
         card: '0 1px 3px 0 #c9cfd8, 0 1px 2px -1px #c9cfd8, 0px 0px 0px 1px #e2e6eb',
       },
-      backgroundImage: {
-        // body: 'linear-gradient(170deg, #d0dcf5, #f1f5fc 200px)',
-        body: [
-          'linear-gradient(172deg, #b4c5ed, #d0dcf5 100px, #f1f5fc 200px, transparent)',
-          'linear-gradient(294deg, #b4c5ed, #f1f5fc 150px, transparent)',
-          'linear-gradient(15deg, #96a6e3, #d0dcf5 150px, transparent)',
-        ].join(','),
-        'body-light': [
-          'linear-gradient(172deg, #b4c5ed, #d0dcf5 50px, #f1f5fc 150px, transparent)',
-          'linear-gradient(342deg, #b4c5ed, #f1f5fc 90px, transparent)',
-        ].join(','),
-      },
     },
     data: {
       active: 'state~="active"',
