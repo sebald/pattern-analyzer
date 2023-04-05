@@ -82,7 +82,7 @@ export interface CardActionsProps {
 }
 
 const CardActions = ({ children }: CardActionsProps) => (
-  <div className="flex justify-end gap-3 pb-1">{children}</div>
+  <div className="flex flex-wrap justify-end gap-3 pb-1">{children}</div>
 );
 
 // Card
