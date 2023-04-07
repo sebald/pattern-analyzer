@@ -15,10 +15,6 @@ export interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => (
   <html lang="en" className={cn(inter.variable, 'font-sans')}>
-    <head>
-      <meta content="width=device-width, initial-scale=1" name="viewport" />
-      <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-    </head>
     <body className="flex min-h-screen flex-col bg-primary-50">
       {children}
       <footer className="mx-auto mt-auto w-[min(100%_-_3rem,_75rem)] pt-16">
