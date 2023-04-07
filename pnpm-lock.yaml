@@ -28,7 +28,7 @@ specifiers:
   next: 13.3.0
   postcss: 8.4.21
   prettier: 2.8.7
-  prettier-plugin-tailwindcss: 0.2.6
+  prettier-plugin-tailwindcss: 0.2.7
   react: 18.2.0
   react-dom: 18.2.0
   react-is: 18.2.0
@@ -83,7 +83,7 @@ devDependencies:
   jest-environment-jsdom: 29.5.0
   postcss: 8.4.21
   prettier: 2.8.7
-  prettier-plugin-tailwindcss: 0.2.6_prettier@2.8.7
+  prettier-plugin-tailwindcss: 0.2.7_prettier@2.8.7
   tailwindcss: 3.3.1_postcss@8.4.21
   typescript: 5.0.3
   xwing-data2: github.com/guidokessels/xwing-data2/f1e22d9
@@ -4989,8 +4989,8 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
-  /prettier-plugin-tailwindcss/0.2.6_prettier@2.8.7:
-    resolution: {integrity: sha512-F+7XCl9RLF/LPrGdUMHWpsT6TM31JraonAUyE6eBmpqymFvDwyl0ETHsKFHP1NG+sEfv8bmKqnTxEbWQbHPlBA==}
+  /prettier-plugin-tailwindcss/0.2.7_prettier@2.8.7:
+    resolution: {integrity: sha512-jQopIOgjLpX+y8HeD56XZw7onupRTC0cw7eKKUimI7vhjkPF5/1ltW5LyqaPtSyc8HvEpvNZsvvsGFa2qpa59w==}
     engines: {node: '>=12.17.0'}
     peerDependencies:
       '@ianvs/prettier-plugin-sort-imports': '*'
