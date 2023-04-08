@@ -7,6 +7,13 @@ import { AnalyticsWrapper } from './components/analytics';
 
 export const metadata = {
   title: 'Pattern Analyzer | Home',
+  // metadataBase: new URL('https://acme.com'),
+  alternates: {
+    canonical: '/',
+    languages: {
+      'en-US': '/en-US',
+    },
+  },
 };
 
 export interface LayoutProps {
