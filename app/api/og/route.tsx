@@ -2,12 +2,6 @@ import { type NextRequest, ImageResponse } from 'next/server';
 
 import { Logo, getGoogleFont } from './helpers';
 
-export const size = {
-  width: 1200,
-  height: 630,
-};
-export const contentType = 'image/png';
-
 // Handler
 // ---------------
 export const GET = async (req: NextRequest) => {
