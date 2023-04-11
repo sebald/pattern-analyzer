@@ -14,10 +14,33 @@ export const GET = async (req: NextRequest) => {
   ]).then(fonts => fonts.flat());
 
   const content = title ? (
-    'hello'
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        margin: '0 15%',
+      }}
+    >
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: 2,
+          color: '#3c4073',
+          fontFamily: 'Montserrat',
+          fontWeight: 900,
+          fontSize: 32,
+          textTransform: 'uppercase',
+          lineHeight: 1,
+        }}
+      >
+        <Logo size="40" /> <span>Pattern Analyzer</span>
+      </div>
+      <div style={{ fontSize: 90, fontWeight: 700 }}>{title}</div>
+    </div>
   ) : (
     <>
-      <Logo />
+      <Logo size="256" />
       <div
         style={{
           display: 'flex',

@@ -1,12 +1,12 @@
-export const Logo = () => (
+export const Logo = ({ size }: { size: string }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
     stroke="#3c4073"
     stroke-width="2"
-    width="256"
-    height="256"
+    width={size}
+    height={size}
   >
     <path
       strokeLinecap="round"
