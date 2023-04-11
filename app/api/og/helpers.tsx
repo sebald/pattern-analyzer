@@ -3,7 +3,7 @@ export const Logo = ({ size }: { size: string }) => (
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
-    stroke="#3c4073"
+    stroke="currentColor"
     stroke-width="2"
     width={size}
     height={size}

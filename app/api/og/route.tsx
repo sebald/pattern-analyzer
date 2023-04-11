@@ -10,7 +10,7 @@ export const GET = async (req: NextRequest) => {
 
   const fonts = await Promise.all([
     getGoogleFont('Montserrat', [900]),
-    getGoogleFont('Inter'),
+    getGoogleFont('Inter', [900]),
   ]).then(fonts => fonts.flat());
 
   const content = title ? (
@@ -18,7 +18,7 @@ export const GET = async (req: NextRequest) => {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        margin: '0 15%',
+        maxWidth: '80%',
       }}
     >
       <div
@@ -26,7 +26,7 @@ export const GET = async (req: NextRequest) => {
           display: 'flex',
           alignItems: 'center',
           gap: 2,
-          color: '#3c4073',
+          color: '#6167ca',
           fontFamily: 'Montserrat',
           fontWeight: 900,
           fontSize: 32,
@@ -36,7 +36,18 @@ export const GET = async (req: NextRequest) => {
       >
         <Logo size="40" /> <span>Pattern Analyzer</span>
       </div>
-      <div style={{ fontSize: 90, fontWeight: 700 }}>{title}</div>
+      <div
+        style={{
+          color: '#3c4073',
+          fontSize: title.length > 40 ? 90 : 110,
+          fontWeight: 900,
+          lineHeight: 1,
+          // @ts-ignore
+          textWrap: 'balance',
+        }}
+      >
+        {title}
+      </div>
     </div>
   ) : (
     <>
@@ -47,7 +58,6 @@ export const GET = async (req: NextRequest) => {
           flexDirection: 'column',
           justifyContent: 'center',
           gap: 0,
-          color: '#3c4073',
           fontFamily: 'Montserrat',
           fontWeight: 900,
           textTransform: 'uppercase',
@@ -70,6 +80,7 @@ export const GET = async (req: NextRequest) => {
           justifyContent: 'center',
           width: '100%',
           height: '100%',
+          color: '#3c4073',
           fontFamily: 'Inter',
           backgroundColor: '#f1f5fc',
           background: 'radial-gradient(circle, #b4c5ed 5%, transparent 6%)',
