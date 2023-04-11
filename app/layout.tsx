@@ -7,12 +7,12 @@ import { AnalyticsWrapper } from './components/analytics';
 
 export const metadata = {
   title: 'Pattern Analyzer | Home',
-  // metadataBase: new URL('https://acme.com'),
-  alternates: {
-    canonical: '/',
-    languages: {
-      'en-US': '/en-US',
-    },
+  openGraph: {
+    title: 'Pattern Analyzer',
+    description: 'Infos & stats for your X-Wing tournament',
+    images: ['https://pattern-analyzer-git-metadata-sebald.vercel.app/api/og'],
+    locale: 'en-US',
+    type: 'website',
   },
 };
 
