@@ -15,9 +15,7 @@ export const revalidate = 300; // 5min
 
 // Metadata
 // ---------------
-export const generateMetadata = async ({
-  params,
-}: LayoutProps): Promise<Metadata> => {
+export const generateMetadata = async ({ params }: LayoutProps) => {
   const event = await getEventDataByVendor({
     vendor: params.vendor,
     ids: params.eventId,
@@ -29,15 +27,13 @@ export const generateMetadata = async ({
       siteName: 'Pattern Analyzer',
       title: event.title,
       description: 'X-Wing Tournament data & statistics',
-      images: [
-        `https://pattern-analyzer-git-metadata-sebald.vercel.app/api/og?title=${encodeURIComponent(
-          event.title
-        )}`,
-      ],
+      images: `https://pattern-analyzer.app/api/og.png?title=${encodeURIComponent(
+        event.title
+      )}`,
       locale: 'en-US',
       type: 'website',
     },
-  };
+  } satisfies Metadata;
 };
 
 // Props

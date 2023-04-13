@@ -7,17 +7,17 @@ import './globals.css';
 import { inter } from './fonts';
 import { AnalyticsWrapper } from './components/analytics';
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'Pattern Analyzer | Home',
   openGraph: {
     siteName: 'Pattern Analyzer',
     title: 'Home',
     description: 'X-Wing Tournament data & statistics',
-    images: ['https://pattern-analyzer-git-metadata-sebald.vercel.app/api/og'],
+    images: 'https://www.pattern-analyzer.app/api/og.png',
     locale: 'en-US',
     type: 'website',
   },
-};
+} satisfies Metadata;
 
 export interface LayoutProps {
   children: React.ReactNode;
