@@ -1,3 +1,5 @@
+import type { Metadata } from 'next';
+
 import { Caption, Inline, Link, Title } from '@/ui';
 import { Navigation } from '@/ui/navigation';
 import { Trophy, Computed, Lines, Download, BarChart } from '@/ui/icons';
@@ -14,9 +16,24 @@ export const revalidate = 300; // 5min
 // Metadata
 // ---------------
 export const generateMetadata = async ({ params }: LayoutProps) => {
+  const event = await getEventDataByVendor({
+    vendor: params.vendor,
+    ids: params.eventId,
+  });
+
   return {
-    title: `Pattern Analyzer | Event #${params.eventId}`,
-  };
+    title: `Pattern Analyzer | ${event.title}`,
+    openGraph: {
+      siteName: 'Pattern Analyzer',
+      title: event.title,
+      description: 'X-Wing Tournament data & statistics',
+      images: `https://pattern-analyzer.app/api/og.png?title=${encodeURIComponent(
+        event.title
+      )}`,
+      locale: 'en-US',
+      type: 'website',
+    },
+  } satisfies Metadata;
 };
 
 // Props
