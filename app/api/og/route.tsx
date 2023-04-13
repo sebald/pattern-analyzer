@@ -1,6 +1,37 @@
 import { type NextRequest, ImageResponse } from 'next/server';
 
-import { Logo } from './helpers';
+// Config
+// ---------------
+export const runtime = 'edge';
+
+// Logo
+// ---------------
+const Logo = ({ size }: { size: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    stroke-width="2"
+    width={size}
+    height={size}
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z"
+    />
+  </svg>
+);
+
+// Fonts
+// ---------------
+const loadInter = fetch(
+  new URL('../../fonts/Inter-Black.ttf', import.meta.url)
+).then(async res => res.arrayBuffer());
+const loadMontserrat = fetch(
+  new URL('../../fonts/Montserrat-Black.ttf', import.meta.url)
+).then(async res => res.arrayBuffer());
 
 // Handler
 // ---------------
@@ -8,12 +39,7 @@ export const GET = async (req: NextRequest) => {
   const url = new URL(req.url);
   const title = url.searchParams.get('title');
 
-  const [inter, montserrat] = await Promise.all(
-    ['/Inter-Black.ttf', '/Montserrat-Black.ttf'].map(async path => {
-      const res = await fetch(new URL(path, import.meta.url));
-      return res.arrayBuffer();
-    })
-  );
+  const [inter, montserrat] = await Promise.all([loadInter, loadMontserrat]);
 
   const content = title ? (
     <div
