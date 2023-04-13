@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 
 import { Link } from '@/ui';
 import { cn } from '@/lib/utils';
