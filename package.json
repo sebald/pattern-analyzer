@@ -2,6 +2,7 @@
   "name": "pattern-analyzer",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "repository": "github:sebald/pattern-analyzer",
   "packageManager": "pnpm@8.1.1",
   "scripts": {

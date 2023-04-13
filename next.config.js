@@ -1,5 +1,7 @@
+import { fileURLToPath } from 'node:url';
+
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const config = {
   experimental: {
     appDir: true,
   },
@@ -21,4 +23,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+export default config;

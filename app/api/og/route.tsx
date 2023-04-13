@@ -1,6 +1,6 @@
 import { type NextRequest, ImageResponse } from 'next/server';
 
-import { Logo, getGoogleFont } from './helpers';
+import { Logo } from './helpers';
 
 // Handler
 // ---------------
@@ -8,10 +8,14 @@ export const GET = async (req: NextRequest) => {
   const url = new URL(req.url);
   const title = url.searchParams.get('title');
 
-  const fonts = await Promise.all([
-    getGoogleFont('Montserrat', [900]),
-    getGoogleFont('Inter', [900]),
-  ]).then(fonts => fonts.flat());
+  const [inter, montserrat] = await Promise.all([
+    fetch(new URL('/Inter-Black.ttf', import.meta.url)).then(res =>
+      res.arrayBuffer()
+    ),
+    fetch(new URL('/Montserrat-Black.ttf', import.meta.url)).then(res =>
+      res.arrayBuffer()
+    ),
+  ]);
 
   const content = title ? (
     <div
@@ -93,7 +97,20 @@ export const GET = async (req: NextRequest) => {
     {
       width: 1200,
       height: 630,
-      fonts,
+      fonts: [
+        {
+          name: 'Inter',
+          weight: 900,
+          style: 'normal',
+          data: inter,
+        },
+        {
+          name: 'Montserrat',
+          weight: 900,
+          style: 'normal',
+          data: montserrat,
+        },
+      ],
     }
   );
 };
