@@ -1,3 +1,5 @@
+import { Metadata } from 'next';
+
 import { Link } from '@/ui';
 import { cn } from '@/lib/utils';
 
@@ -5,11 +7,12 @@ import './globals.css';
 import { inter } from './fonts';
 import { AnalyticsWrapper } from './components/analytics';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Pattern Analyzer | Home',
   openGraph: {
-    title: 'Pattern Analyzer',
-    description: 'Infos & stats for your X-Wing tournament',
+    siteName: 'Pattern Analyzer',
+    title: 'Home',
+    description: 'X-Wing Tournament data & statistics',
     images: ['https://pattern-analyzer-git-metadata-sebald.vercel.app/api/og'],
     locale: 'en-US',
     type: 'website',
