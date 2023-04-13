@@ -8,14 +8,12 @@ export const GET = async (req: NextRequest) => {
   const url = new URL(req.url);
   const title = url.searchParams.get('title');
 
-  const [inter, montserrat] = await Promise.all([
-    fetch(new URL('/Inter-Black.ttf', import.meta.url)).then(res =>
-      res.arrayBuffer()
-    ),
-    fetch(new URL('/Montserrat-Black.ttf', import.meta.url)).then(res =>
-      res.arrayBuffer()
-    ),
-  ]);
+  const [inter, montserrat] = await Promise.all(
+    ['/Inter-Black.ttf', '/Montserrat-Black.ttf'].map(async path => {
+      const res = await fetch(new URL(path, import.meta.url));
+      return res.arrayBuffer();
+    })
+  );
 
   const content = title ? (
     <div
