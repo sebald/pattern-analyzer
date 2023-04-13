@@ -1,5 +1,3 @@
-import { fileURLToPath } from 'node:url';
-
 /** @type {import('next').NextConfig} */
 const config = {
   experimental: {
@@ -23,4 +21,4 @@ const config = {
   },
 };
 
-export default config;
+module.exports = config;
