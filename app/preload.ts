@@ -20,8 +20,8 @@ export const RECENT_EVENTS: {
     vendor: 'listfortress',
   },
   {
-    // Kyper Team Cup
-    eventId: '5535',
+    // German TTS Leagure
+    eventId: '6861',
     vendor: 'longshanks',
   },
   {
