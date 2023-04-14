@@ -292,39 +292,35 @@ export const parseRounds = async (
  * Iterate over all player related html and scrape their name
  * and squad. Also add player performance data if possible.
  */
-export const parseSquads = (
-  $: CheerioAPI,
-  players: PlayerData[]
-): SquadData[] =>
-  $('[class=pop][id^=details_]')
-    .toArray()
-    .map(el => {
-      const player = $('.player_link', el).first().text();
-      const id = el.attribs.id.replace('details_', '');
+export const parseSquads = async (eventId: string, players: PlayerData[]) => {
+  const squads = await Promise.all([
+    ...players.map(async ({ id, player, ...performance }) => {
+      const res = await fetch(
+        `https://longshanks.org/admin/events/player_info.php?event=${eventId}&player=${id}`
+      );
 
-      const list = $('[id^=list_]', el);
-      const raw = list.attr('value') || '';
+      if (!res.ok) {
+        throw new Error(`Failed to fetch player data... (${id}, ${eventId})`);
+      }
+
+      const html = await res.text();
+      const $ = load(html);
+
+      const raw = $('[id^=list_]').attr('value') || '';
       const { url, xws } = getXWS(raw);
-
-      // Map player to their performance
-      const performance = players.find(player => player.id === id) || {
-        rank: { swiss: 0 },
-        points: 0,
-        record: { wins: 0, ties: 0, losses: 0 },
-        sos: 0,
-        missionPoints: 0,
-        mov: 0,
-      };
 
       return {
         ...performance,
-        id,
+        id: eventId,
         url,
         xws,
         raw,
         player,
-      };
-    });
+      } satisfies SquadData;
+    }),
+  ]);
+  return squads satisfies SquadData[];
+};
 
 // API
 // ---------------
@@ -344,7 +340,7 @@ export const getEvent = async (id: string) => {
 
   const title = parseTitle($);
   const players = await parsePlayerInfo(id);
-  const squads = parseSquads($, players);
+  const squads = await parseSquads(id, players);
   const rounds = await parseRounds(id, getRoundsInfoFromHTML(html));
 
   return { id, url, title, squads, rounds };
