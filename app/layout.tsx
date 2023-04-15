@@ -9,13 +9,28 @@ import { AnalyticsWrapper } from './components/analytics';
 
 export const metadata = {
   title: 'Pattern Analyzer | Home',
+  description: 'X-Wing tournament data & statistics',
+  applicationName: 'Pattern Analyzer',
+  appleWebApp: {
+    title: 'Pattern Analyzer',
+  },
   openGraph: {
     siteName: 'Pattern Analyzer',
     title: 'Home',
     description: 'X-Wing Tournament data & statistics',
     images: 'https://www.pattern-analyzer.app/api/og.png',
-    locale: 'en-US',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    creator: '@sebastiansebald',
+  },
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#3c4073' },
+    { media: '(prefers-color-scheme: dark)', color: '#96a6e3' },
+  ],
+  other: {
+    'msapplication-TileColor': '#96a6e3',
   },
 } satisfies Metadata;
 

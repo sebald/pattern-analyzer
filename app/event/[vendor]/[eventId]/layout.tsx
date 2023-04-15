@@ -23,6 +23,7 @@ export const generateMetadata = async ({ params }: LayoutProps) => {
 
   return {
     title: `Pattern Analyzer | ${event.title}`,
+    description: 'View squads & stats',
     openGraph: {
       siteName: 'Pattern Analyzer',
       title: event.title,

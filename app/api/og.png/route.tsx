@@ -79,7 +79,7 @@ export const GET = async (req: NextRequest) => {
     </div>
   ) : (
     <>
-      <Logo size="256" />
+      <Logo size="340" />
       <div
         style={{
           display: 'flex',
@@ -90,7 +90,7 @@ export const GET = async (req: NextRequest) => {
           fontWeight: 900,
           textTransform: 'uppercase',
           lineHeight: 1,
-          fontSize: 80,
+          fontSize: 90,
         }}
       >
         <span>Pattern</span>
