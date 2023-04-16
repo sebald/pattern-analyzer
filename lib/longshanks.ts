@@ -293,35 +293,67 @@ export const parseRounds = async (
  * and squad. Also add player performance data if possible.
  */
 export const parseSquads = async (eventId: string, players: PlayerData[]) => {
-  const squads = await Promise.all([
-    ...players.map(async ({ id, player, ...performance }, idx) => {
-      const res = await fetch(
-        `https://longshanks.org/admin/events/player_info.php?event=${eventId}&player=${id}`
+  const squads: SquadData[] = [];
+
+  for (const idx in players) {
+    const { id, player, ...performance } = players[idx];
+    const res = await fetch(
+      `https://longshanks.org/admin/events/player_info.php?event=${eventId}&player=${id}`
+    );
+
+    if (!res.ok) {
+      throw new Error(
+        `Failed to fetch player ${id} for event ${eventId}, got a ${res.status} (Request #${idx}).`
       );
+    }
 
-      if (!res.ok) {
-        throw new Error(
-          `Failed to fetch player ${id} for event ${eventId}, got a ${res.status} (Request #${idx}).`
-        );
-      }
+    const html = await res.text();
+    const $ = load(html);
 
-      const html = await res.text();
-      const $ = load(html);
+    const raw = $('[id^=list_]').attr('value') || '';
+    const { url, xws } = getXWS(raw);
 
-      const raw = $('[id^=list_]').attr('value') || '';
-      const { url, xws } = getXWS(raw);
+    squads.push({
+      ...performance,
+      id: eventId,
+      url,
+      xws,
+      raw,
+      player,
+    } satisfies SquadData);
+  }
 
-      return {
-        ...performance,
-        id: eventId,
-        url,
-        xws,
-        raw,
-        player,
-      } satisfies SquadData;
-    }),
-  ]);
-  return squads satisfies SquadData[];
+  return squads;
+
+  // const squads = await Promise.all([
+  //   ...players.map(async ({ id, player, ...performance }, idx) => {
+  //     const res = await fetch(
+  //       `https://longshanks.org/admin/events/player_info.php?event=${eventId}&player=${id}`
+  //     );
+
+  //     if (!res.ok) {
+  //       throw new Error(
+  //         `Failed to fetch player ${id} for event ${eventId}, got a ${res.status} (Request #${idx}).`
+  //       );
+  //     }
+
+  //     const html = await res.text();
+  //     const $ = load(html);
+
+  //     const raw = $('[id^=list_]').attr('value') || '';
+  //     const { url, xws } = getXWS(raw);
+
+  //     return {
+  //       ...performance,
+  //       id: eventId,
+  //       url,
+  //       xws,
+  //       raw,
+  //       player,
+  //     } satisfies SquadData;
+  //   }),
+  // ]);
+  // return squads satisfies SquadData[];
 };
 
 // API
