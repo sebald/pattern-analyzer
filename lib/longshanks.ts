@@ -294,13 +294,15 @@ export const parseRounds = async (
  */
 export const parseSquads = async (eventId: string, players: PlayerData[]) => {
   const squads = await Promise.all([
-    ...players.map(async ({ id, player, ...performance }) => {
+    ...players.map(async ({ id, player, ...performance }, idx) => {
       const res = await fetch(
         `https://longshanks.org/admin/events/player_info.php?event=${eventId}&player=${id}`
       );
 
       if (!res.ok) {
-        throw new Error(`Failed to fetch player data... (${id}, ${eventId})`);
+        throw new Error(
+          `Failed to fetch player ${id} for event ${eventId}, got a ${res.status} (Request #${idx}).`
+        );
       }
 
       const html = await res.text();
