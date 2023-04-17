@@ -3,16 +3,24 @@ import { z } from 'zod';
 
 import { parsePlayerInfo, parseSquads } from '@/lib/longshanks';
 
+// Config
+// ---------------
+export const revalidate = 86_400; // 1 day
+
+const schema = z.object({
+  event: z.string().regex(/^[0-9]+$/),
+});
+
+// Props
+// ---------------
 interface RouteContext {
   params: {
     event?: string;
   };
 }
 
-const schema = z.object({
-  event: z.string().regex(/^[0-9]+$/),
-});
-
+// Handler
+// ---------------
 export const GET = async (_: NextRequest, { params }: RouteContext) => {
   const result = schema.safeParse(params);
 
