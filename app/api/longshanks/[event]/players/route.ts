@@ -21,7 +21,7 @@ const schema = {
       .string()
       .regex(/^[0-9]+$/)
       .nullable()
-      .transform(val => (val === null ? 50 : Number(val))),
+      .transform(val => (val === null ? 30 : Number(val))),
   }),
 };
 
