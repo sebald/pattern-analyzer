@@ -43,13 +43,14 @@ export interface PlayerData {
   dropped?: boolean;
 }
 
-export interface SquadData extends PlayerData {
+export interface XWSData {
   id: string;
   url: string | null;
   xws: XWSSquad | null;
   raw: string;
-  player: string;
 }
+
+export interface SquadData extends XWSData, PlayerData {}
 
 export interface EventData {
   id: string[];
