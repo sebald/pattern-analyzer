@@ -2,7 +2,7 @@ import { Container, Link, Logo } from '@/ui';
 
 // Component
 // ---------------
-export const Layout = ({ children }: { children: React.ReactNode }) => (
+const Layout = ({ children }: { children: React.ReactNode }) => (
   <>
     <nav className="px-2 py-2 text-center leading-none xl:px-6">
       <Link className="inline-block" href="/">
