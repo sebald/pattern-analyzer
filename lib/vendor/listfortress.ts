@@ -1,3 +1,5 @@
+import { PlayerData } from '../types';
+
 // Types
 // ---------------
 export interface ListfortressTournament {
@@ -78,4 +80,17 @@ export const getEventInfo = async (id: string) => {
     url: `https://listfortress.com/tournaments/${id}`,
     vendor: 'listfortress',
   };
+};
+
+/**
+ * Note: it is very redudant to call listforstress twice since there is only one
+ *       but this makes it easier to maintain since the flow and API calls are
+ *       the same for all vendors. Plus, next.js will dedupe the calls anyway.
+ */
+export const getPlayerData = async (id: string) => {
+  return [];
+};
+
+export const getSquadsData = async (id: string, players: PlayerData[]) => {
+  return [];
 };

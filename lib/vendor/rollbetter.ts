@@ -1,3 +1,5 @@
+import { PlayerData } from '../types';
+
 // Types
 // ---------------
 export interface RollBetterTournamentResponse {
@@ -92,4 +94,12 @@ export const getEventInfo = async (id: string) => {
     url: `https://listfortress.com/tournaments/${id}`,
     vendor: 'listfortress',
   };
+};
+
+export const getPlayerData = async (id: string) => {
+  return [];
+};
+
+export const getSquadsData = async (id: string, players: PlayerData[]) => {
+  return [];
 };
