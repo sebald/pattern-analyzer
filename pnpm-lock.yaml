@@ -88,8 +88,8 @@ devDependencies:
     specifier: 18.2.4
     version: 18.2.4
   '@types/react-is':
-    specifier: 17.0.3
-    version: 17.0.3
+    specifier: 17.0.4
+    version: 17.0.4
   autoprefixer:
     specifier: 10.4.14
     version: 10.4.14(postcss@8.4.23)
@@ -1565,10 +1565,18 @@ packages:
       '@types/react': 18.2.6
     dev: true
 
-  /@types/react-is@17.0.3:
-    resolution: {integrity: sha512-aBTIWg1emtu95bLTLx0cpkxwGW3ueZv71nE2YFBpL8k/z5czEW8yYpOo8Dp+UUAFAtKwNaOsh/ioSeQnWlZcfw==}
+  /@types/react-is@17.0.4:
+    resolution: {integrity: sha512-FLzd0K9pnaEvKz4D1vYxK9JmgQPiGk1lu23o1kqGsLeT0iPbRSF7b76+S5T9fD8aRa0B8bY7I/3DebEj+1ysBA==}
     dependencies:
-      '@types/react': 18.2.6
+      '@types/react': 17.0.59
+    dev: true
+
+  /@types/react@17.0.59:
+    resolution: {integrity: sha512-gSON5zWYIGyoBcycCE75E9+r6dCC2dHdsrVkOEiIYNU5+Q28HcBAuqvDuxHcCbMfHBHdeT5Tva/AFn3rnMKE4g==}
+    dependencies:
+      '@types/prop-types': 15.7.5
+      '@types/scheduler': 0.16.2
+      csstype: 3.1.1
     dev: true
 
   /@types/react@18.2.6:
