@@ -121,8 +121,8 @@ devDependencies:
     specifier: 5.0.4
     version: 5.0.4
   xwing-data2:
-    specifier: github:guidokessels/xwing-data2#f1e22d9
-    version: github.com/guidokessels/xwing-data2/f1e22d9
+    specifier: github:guidokessels/xwing-data2#6299a76
+    version: github.com/guidokessels/xwing-data2/6299a76
   yasb:
     specifier: github:raithos/xwing#55f63bb
     version: github.com/raithos/xwing/55f63bb
@@ -6125,10 +6125,10 @@ packages:
       yaml: 2.2.1
     dev: true
 
-  github.com/guidokessels/xwing-data2/f1e22d9:
-    resolution: {tarball: https://codeload.github.com/guidokessels/xwing-data2/tar.gz/f1e22d9}
+  github.com/guidokessels/xwing-data2/6299a76:
+    resolution: {tarball: https://codeload.github.com/guidokessels/xwing-data2/tar.gz/6299a76}
     name: xwing-data2
-    version: 3.6.3
+    version: 3.9.0
     dependencies:
       string-math: 1.2.2
     dev: true
