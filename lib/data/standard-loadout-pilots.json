@@ -28,7 +28,7 @@
     }
   },
   "holokand-battleofyavin": {
-    "points": 4,
+    "points": 3,
     "upgrades": {
       "turret": [
         "dorsalturret"
@@ -55,6 +55,28 @@
       ]
     }
   },
+  "dutchvander-swz106": {
+    "points": 4,
+    "upgrades": {
+      "turret": [
+        "ioncannonturret"
+      ],
+      "device": [
+        "protonbombs"
+      ]
+    }
+  },
+  "hortonsalm-swz106": {
+    "points": 4,
+    "upgrades": {
+      "turret": [
+        "ioncannonturret"
+      ],
+      "device": [
+        "proximitymines"
+      ]
+    }
+  },
   "hansolo-battleofyavin": {
     "points": 7,
     "upgrades": {
@@ -69,6 +91,40 @@
       ],
       "configuration": [
         "l337sprogramming-battleofyavin"
+      ]
+    }
+  },
+  "arvelcrynyd-swz106": {
+    "points": 4,
+    "upgrades": {
+      "talent": [
+        "predator"
+      ],
+      "modification": [
+        "afterburners"
+      ]
+    }
+  },
+  "jakefarrell-swz106": {
+    "points": 5,
+    "upgrades": {
+      "talent": [
+        "elusive",
+        "outmaneuver"
+      ],
+      "missile": [
+        "ionmissiles"
+      ]
+    }
+  },
+  "sharabey-swz106": {
+    "points": 4,
+    "upgrades": {
+      "talent": [
+        "hopeful"
+      ],
+      "missile": [
+        "concussionmissiles"
       ]
     }
   },
@@ -113,7 +169,7 @@
     }
   },
   "lukeskywalker-battleofyavin": {
-    "points": 6,
+    "points": 5,
     "upgrades": {
       "talent": [
         "attackspeed-battleofyavin"
@@ -144,6 +200,34 @@
       ]
     }
   },
+  "lukeskywalker-swz106": {
+    "points": 6,
+    "upgrades": {
+      "unknown": [
+        "instictiveaim"
+      ],
+      "torpedo": [
+        "protontorpedoes"
+      ],
+      "astromech": [
+        "r2d2"
+      ]
+    }
+  },
+  "jekporkins-swz106": {
+    "points": 5,
+    "upgrades": {
+      "unknown": [
+        "predate"
+      ],
+      "torpedo": [
+        "protontorpedoes"
+      ],
+      "astromech": [
+        "r5d8-battleofyavin"
+      ]
+    }
+  },
   "darthvader-battleofyavin": {
     "points": 6,
     "upgrades": {
@@ -158,8 +242,34 @@
       ]
     }
   },
-  "idenversio-battleofyavin": {
+  "darthvader-swz105": {
     "points": 6,
+    "upgrades": {
+      "force-power": [
+        "hate"
+      ],
+      "missile": [
+        "ionmissiles"
+      ],
+      "modification": [
+        "afterburners"
+      ]
+    }
+  },
+  "maarekstele-swz105": {
+    "points": 5,
+    "upgrades": {
+      "talent": [
+        "elusive",
+        "outmaneuver"
+      ],
+      "modification": [
+        "afterburners"
+      ]
+    }
+  },
+  "idenversio-battleofyavin": {
+    "points": 5,
     "upgrades": {
       "talent": [
         "predator",
@@ -254,8 +364,65 @@
       ]
     }
   },
-  "oddball-siegeofcoruscant": {
+  "idenversio-swz105": {
+    "points": 4,
+    "upgrades": {
+      "talent": [
+        "disciplined",
+        "elusive"
+      ]
+    }
+  },
+  "nightbeast-swz105": {
+    "points": 3,
+    "upgrades": {
+      "talent": [
+        "disciplined",
+        "predator"
+      ]
+    }
+  },
+  "valenrudor-swz105": {
+    "points": 3,
+    "upgrades": {
+      "talent": [
+        "disciplined"
+      ],
+      "modification": [
+        "precisionionengines"
+      ]
+    }
+  },
+  "captainjonus-swz105": {
+    "points": 4,
+    "upgrades": {
+      "talent": [
+        "feedbackping"
+      ],
+      "torpedo": [
+        "plasmatorpedoes"
+      ],
+      "device": [
+        "protonbombs"
+      ]
+    }
+  },
+  "tomaxbren-swz105": {
     "points": 5,
+    "upgrades": {
+      "talent": [
+        "elusive"
+      ],
+      "missile": [
+        "barragerockets"
+      ],
+      "device": [
+        "proximitymines"
+      ]
+    }
+  },
+  "oddball-siegeofcoruscant": {
+    "points": 4,
     "upgrades": {
       "talent": [
         "selfless"
@@ -308,7 +475,7 @@
     }
   },
   "axe-siegeofcoruscant": {
-    "points": 4,
+    "points": 3,
     "upgrades": {
       "talent": [
         "deadeyeshot"
@@ -319,7 +486,7 @@
     }
   },
   "anakinskywalker-siegeofcoruscant": {
-    "points": 5,
+    "points": 4,
     "upgrades": {
       "force-power": [
         "malice"
@@ -364,7 +531,7 @@
     }
   },
   "klick-siegeofcoruscant": {
-    "points": 3,
+    "points": 4,
     "upgrades": {
       "astromech": [
         "r3astromech"
@@ -378,7 +545,7 @@
     }
   },
   "contrail-siegeofcoruscant": {
-    "points": 3,
+    "points": 4,
     "upgrades": {
       "talent": [
         "ionlimiteroverride"
@@ -491,7 +658,7 @@
     }
   },
   "dis347-siegeofcoruscant": {
-    "points": 4,
+    "points": 3,
     "upgrades": {
       "talent": [
         "marksmanship"
@@ -503,7 +670,7 @@
     }
   },
   "dist81-siegeofcoruscant": {
-    "points": 5,
+    "points": 4,
     "upgrades": {
       "talent": [
         "outmaneuver"

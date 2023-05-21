@@ -2,31 +2,31 @@
   "faction": {
     "rebelalliance": {
       "name": "Rebel Alliance",
-      "icon": "https://squadbuilder.fantasyflightgames.com/factions/Rebel.png"
+      "icon": "https://infinitearenas.com/xw2/images/artwork/faction-icons/Rebel.png"
     },
     "galacticempire": {
       "name": "Galactic Empire",
-      "icon": "https://squadbuilder.fantasyflightgames.com/factions/Imperial.png"
+      "icon": "https://infinitearenas.com/xw2/images/artwork/faction-icons/Imperial.png"
     },
     "scumandvillainy": {
       "name": "Scum and Villainy",
-      "icon": "https://squadbuilder.fantasyflightgames.com/factions/Scum.png"
+      "icon": "https://infinitearenas.com/xw2/images/artwork/faction-icons/Scum.png"
     },
     "resistance": {
       "name": "Resistance",
-      "icon": "https://squadbuilder.fantasyflightgames.com/factions/ResistanceIcon.png"
+      "icon": "https://infinitearenas.com/xw2/images/artwork/faction-icons/ResistanceIcon.png"
     },
     "firstorder": {
       "name": "First Order",
-      "icon": "https://squadbuilder.fantasyflightgames.com/factions/FirstOrderIcon.png"
+      "icon": "https://infinitearenas.com/xw2/images/artwork/faction-icons/FirstOrderIcon.png"
     },
     "galacticrepublic": {
       "name": "Galactic Republic",
-      "icon": "https://squadbuilder.fantasyflightgames.com/factions/RepublicIcon.png"
+      "icon": "https://infinitearenas.com/xw2/images/artwork/faction-icons/RepublicIcon.png"
     },
     "separatistalliance": {
       "name": "Separatist Alliance",
-      "icon": "https://squadbuilder.fantasyflightgames.com/factions/SeparatistIcon.png"
+      "icon": "https://infinitearenas.com/xw2/images/artwork/faction-icons/SeparatistIcon.png"
     }
   },
   "ship": {
@@ -150,6 +150,8 @@
     "holokand-battleofyavin": "Hol Okand (BoY)",
     "popskrail-battleofyavin": "“Pops” Krail (BoY)",
     "popskrail": "“Pops” Krail",
+    "dutchvander-swz106": "“Dutch” Vander",
+    "hortonsalm-swz106": "Horton Salm",
     "esegetuketu": "Esege Tuketu",
     "mirandadoni": "Miranda Doni",
     "wardensquadronpilot": "Warden Squadron Pilot",
@@ -188,6 +190,9 @@
     "derekklivian": "Derek Klivian",
     "keovenzee": "Keo Venzee",
     "tychocelchu": "Tycho Celchu",
+    "arvelcrynyd-swz106": "Arvel Crynyd",
+    "jakefarrell-swz106": "Jake Farrell",
+    "sharabey-swz106": "Shara Bey",
     "zeborrelios-sheathipedeclassshuttle": "“Zeb” Orrelios",
     "ap5": "AP-5",
     "ezrabridger-sheathipedeclassshuttle": "Ezra Bridger",
@@ -211,6 +216,8 @@
     "wedgeantilles-battleofyavin": "Wedge Antilles (BoY)",
     "corranhorn-t65xwing": "Corran Horn",
     "wesjanson": "Wes Janson",
+    "lukeskywalker-swz106": "Luke Skywalker",
+    "jekporkins-swz106": "Jek Porkins",
     "zeborrelios-tielnfighter": "“Zeb” Orrelios",
     "captainrex": "Captain Rex",
     "ezrabridger-tielnfighter": "Ezra Bridger",
@@ -262,6 +269,8 @@
     "zertikstrom": "Zertik Strom",
     "darthvader-battleofyavin": "Darth Vader (BoY)",
     "junoeclipse": "Juno Eclipse",
+    "darthvader-swz105": "Darth Vader",
+    "maarekstele-swz105": "Maarek Stele",
     "alphasquadronpilot": "Alpha Squadron Pilot",
     "sabersquadronace": "Saber Squadron Ace",
     "soontirfel": "Soontir Fel",
@@ -318,6 +327,9 @@
     "wampa-battleofyavin": "“Wampa” (BoY)",
     "magnatolvan": "Magna Tolvan",
     "yricaquell": "Yrica Quell",
+    "idenversio-swz105": "Iden Versio",
+    "nightbeast-swz105": "“Night Beast”",
+    "valenrudor-swz105": "Valen Rudor",
     "echo": "“Echo”",
     "whisper": "“Whisper”",
     "imdaartestpilot": "Imdaar Test Pilot",
@@ -328,6 +340,8 @@
     "majorrhymer": "Major Rhymer",
     "scimitarsquadronpilot": "Scimitar Squadron Pilot",
     "tomaxbren": "Tomax Bren",
+    "captainjonus-swz105": "Captain Jonus",
+    "tomaxbren-swz105": "Tomax Bren",
     "countdown": "“Countdown”",
     "duchess": "“Duchess”",
     "puresabacc": "“Pure Sabacc”",
