@@ -132,7 +132,7 @@ const getRegistration = async (id: string, count: number) => {
 
 // API
 // ---------------
-const getTournament = async (id: string) => {
+export const getTournament = async (id: string) => {
   const api_url = `https://rollbetter-linux.azurewebsites.net/tournaments/${id}`;
   const res = await fetch(api_url);
 
