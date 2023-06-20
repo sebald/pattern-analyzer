@@ -7,7 +7,7 @@ import { getBuilderLink, toXWS } from '@/lib/xws';
 
 // Config
 // ---------------
-export const revalidate = 300; // 5 min
+// export const revalidate = 300; // 5 min
 
 // Helpers
 // ---------------
@@ -127,6 +127,13 @@ export const GET = async (_: NextRequest, { params }: RouteContext) => {
       const games = Object.values(p.record).reduce((acc, n) => n + acc, 0);
       return p.sos > 0 && games > 0;
     }) satisfies SquadData[];
+
+  squads.sort((a, b) => {
+    if (a.rank.elimination || b.rank.elimination) {
+      return (a.rank.elimination ?? 1000) - (b.rank.elimination ?? 1000);
+    }
+    return a.rank.swiss - b.rank.swiss;
+  });
 
   return NextResponse.json(squads);
 };
