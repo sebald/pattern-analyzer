@@ -1,9 +1,9 @@
 import { getSquadsData } from '@/lib/event';
 import { Vendor } from '@/lib/types';
 
-import { FilterProvider } from './components/context';
-import { Filter } from './components/filter';
-import { Squads } from './components/squads';
+import { FilterProvider } from './(views)/components/context';
+import { Filter } from './(views)/components/filter';
+import { Squads } from './(views)/components/squads';
 
 // Props
 // ---------------
@@ -18,12 +18,12 @@ interface PageParams {
 // ---------------
 const Page = async ({ params }: PageParams) => {
   const { vendor, id } = params;
-  const squads = await getSquadsData({ vendor, id });
 
   if (vendor === 'longshanks') {
     return '...meh';
   }
 
+  const squads = await getSquadsData({ vendor, id });
   return (
     <FilterProvider>
       <Filter />
