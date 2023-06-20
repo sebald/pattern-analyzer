@@ -11,8 +11,8 @@ import { xwsFromText } from '@/lib/yasb';
 export const revalidate = 86_400; // 1 day
 
 const schema = z.object({
-  event: z.string().regex(/^[0-9]+$/),
   id: z.string().regex(/^[0-9]+$/),
+  player: z.string().regex(/^[0-9]+$/),
 });
 
 const getXWS = (raw: string) => {
@@ -65,17 +65,17 @@ export const GET = async (_: NextRequest, { params }: RouteContext) => {
     );
   }
 
-  const { event, id } = result.data;
+  const { id, player } = result.data;
 
   const res = await fetch(
-    `https://longshanks.org/admin/events/player_info.php?event=${event}&player=${id}`
+    `https://longshanks.org/admin/events/player_info.php?event=${id}&player=${player}`
   );
 
   if (!res.ok) {
     return NextResponse.json(
       {
         name: 'Fetch Error',
-        message: `Failed to fetch player ${id} for event ${event}, got a ${res.status}.`,
+        message: `Failed to fetch player ${player} for event ${id}, got a ${res.status}.`,
       },
       {
         status: 500,
