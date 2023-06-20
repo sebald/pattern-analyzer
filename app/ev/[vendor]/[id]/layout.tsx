@@ -4,12 +4,30 @@ import { Caption, Inline, Link, Title } from '@/ui';
 import { Navigation } from '@/ui/navigation';
 import { Trophy, Lines, Download, BarChart } from '@/ui/icons';
 
-import { getEventInfo } from '@/lib/event';
-import type { Vendor } from '@/lib/types';
+import { baseUrl } from '@/lib/env';
+import type { EventInfo, Vendor } from '@/lib/types';
 
 // Config
 // ---------------
 export const revalidate = 300; // 5min
+
+// Data
+// ---------------
+interface GetEventInfoProps {
+  vendor: Vendor;
+  id: string;
+}
+
+const getEventInfo = async ({ vendor, id }: GetEventInfoProps) => {
+  const res = await fetch(`${baseUrl}/api/${vendor}/${id}`);
+
+  if (!res.ok) {
+    throw new Error(`Failed to fetch event info... (${vendor}/${id})`);
+  }
+
+  const info = await res.json();
+  return info as EventInfo;
+};
 
 // Props
 // ---------------

@@ -1,4 +1,3 @@
-import { getSquadsData } from '@/lib/event';
 import { Vendor } from '@/lib/types';
 
 import { FilterProvider } from './(views)/components/context';
@@ -19,17 +18,17 @@ interface PageParams {
 const Page = async ({ params }: PageParams) => {
   const { vendor, id } = params;
 
-  if (vendor === 'longshanks') {
-    return '...meh';
-  }
+  // if (vendor === 'longshanks') {
+  return '...meh';
+  // }
 
-  const squads = await getSquadsData({ vendor, id });
-  return (
-    <FilterProvider>
-      <Filter />
-      <Squads squads={squads} />
-    </FilterProvider>
-  );
+  // const squads = await getSquadsData({ vendor, id });
+  // return (
+  //   <FilterProvider>
+  //     <Filter />
+  //     <Squads squads={squads} />
+  //   </FilterProvider>
+  // );
 };
 
 export default Page;
