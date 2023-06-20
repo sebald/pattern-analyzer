@@ -1,4 +1,5 @@
-import { PlayerData } from '../types';
+import { SquadData } from '@/lib/types';
+import { getBuilderLink, toXWS } from '@/lib/xws';
 
 // Types
 // ---------------
@@ -69,6 +70,26 @@ const getTournament = async (id: string) => {
   return tournament;
 };
 
+// Helpers
+// ---------------
+const updateRcord = (
+  record: SquadData['record'] = {
+    wins: 0,
+    ties: 0,
+    losses: 0,
+  },
+  player: number,
+  opponent: number
+) => {
+  const field: keyof SquadData['record'] =
+    player > opponent ? 'wins' : player < opponent ? 'losses' : 'ties';
+
+  return {
+    ...record,
+    [field]: record[field] + 1,
+  };
+};
+
 // API
 // ---------------
 export const getEventInfo = async (id: string) => {
@@ -82,15 +103,75 @@ export const getEventInfo = async (id: string) => {
   };
 };
 
-/**
- * Note: it is very redudant to call listforstress twice since there is only one
- *       but this makes it easier to maintain since the flow and API calls are
- *       the same for all vendors. Plus, next.js will dedupe the calls anyway.
- */
-export const getPlayerData = async (id: string) => {
-  return [];
-};
+export const getSquadsData = async (id: string) => {
+  const { participants, rounds } = await getTournament(id);
+  const records: { [playerId: string]: SquadData['record'] } = {};
 
-export const getSquadsData = async (id: string, players: PlayerData[]) => {
-  return [];
+  rounds.forEach(round => {
+    round.matches.forEach(
+      ({ player1_id, player1_points, player2_id, player2_points }) => {
+        records[player1_id] = updateRcord(
+          records[player1_id],
+          player1_points,
+          player2_points
+        );
+
+        // Buys don't have a second player
+        if (player2_id !== undefined) {
+          records[player2_id] = updateRcord(
+            records[player2_id],
+            player2_points,
+            player1_points
+          );
+        }
+      }
+    );
+  });
+
+  return (
+    participants
+      .map(({ list_json, ...p }) => {
+        let xws = null;
+        try {
+          if (list_json) {
+            xws = toXWS(list_json || '');
+          }
+        } catch {
+          console.log(
+            `[listfortress] Failed to parse "list_json": ${list_json}`
+          );
+        }
+
+        return {
+          id: `${p.id}`,
+          player: p.name,
+          xws,
+          raw: list_json || '',
+          url: getBuilderLink(xws),
+          rank: {
+            swiss: p.swiss_rank,
+            elimination: p.top_cut_rank,
+          },
+          points: p.score,
+          record: records[p.id] || {
+            wins: 0,
+            losses: 0,
+            ties: 0,
+          },
+          sos: Number(p.sos),
+          missionPoints: p.mission_points,
+          mov: p.mov,
+          dropped: p.dropped,
+        };
+      })
+      /**
+       * Rollbetter reports people from the waitlist as
+       * participants. We remove them by checking some of
+       * their stats.
+       */
+      .filter(p => {
+        const games = Object.values(p.record).reduce((acc, n) => n + acc, 0);
+        return p.sos > 0 && games > 0;
+      }) satisfies SquadData[]
+  );
 };
