@@ -58,7 +58,7 @@ export interface ListfortressMatch {
 
 // Fetch
 // ---------------
-const getTournament = async (id: string) => {
+export const getTournament = async (id: string) => {
   const api_url = `https://listfortress.com/api/v1/tournaments/${id}`;
   const res = await fetch(api_url);
 
