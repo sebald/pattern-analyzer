@@ -25,7 +25,7 @@ interface RouteContext {
 
 // Handler
 // ---------------
-export const GET = async (request: NextRequest, { params }: RouteContext) => {
+export const GET = async (_: NextRequest, { params }: RouteContext) => {
   const event = schema.params.safeParse(params);
   if (!event.success) {
     return NextResponse.json(
