@@ -3,26 +3,13 @@
 import useClipboard from 'react-use-clipboard';
 import useSWR from 'swr';
 
+import { getJson } from '@/lib/utils';
 import { Button } from '@/ui';
-
-import { ExportProps } from './types';
 
 // Component
 // ---------------
-export const ExportRollbetter = ({ event }: ExportProps) => {
-  const { data, isLoading } = useSWR(
-    ['/api/rollbetter/export', event.id[0]],
-    async ([url, id]) => {
-      const res = await fetch(`${url}/${id}`);
-
-      if (!res.ok) {
-        throw new Error('Could not fetch export from rollbetter...');
-      }
-
-      const json = await res.json();
-      return json;
-    }
-  );
+export const ExportRollbetter = ({ id }: { id: string }) => {
+  const { data, isLoading } = useSWR(`/api/rollbetter/${id}}/export`, getJson);
 
   const [isCopied, setCopied] = useClipboard(JSON.stringify(data || {}), {
     successDuration: 2000,

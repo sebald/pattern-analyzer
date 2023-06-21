@@ -2,9 +2,9 @@ import { squadsToCSV } from '@/lib/export';
 import type { ListfortressRound, SquadData, Vendor } from '@/lib/types';
 import { Headline, List, Link, Divider, Text } from '@/ui';
 
-import { ExportListfortress } from './components/export-listfortress';
-import { ExportLongshanks } from './components/export-longshanks';
-import { ExportRollbetter } from './components/export-rollbetter';
+import { ExportListfortress } from '../components/export-listfortress';
+import { ExportLongshanks } from '../components/export-longshanks';
+import { ExportRollbetter } from '../components/export-rollbetter';
 
 const EXPORT_COMPONENT = {
   listfortress: ExportListfortress,

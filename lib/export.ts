@@ -1,9 +1,4 @@
-import type {
-  EventData,
-  ListfortressPlayer,
-  ListfortressRound,
-  SquadData,
-} from './types';
+import type { ListfortressPlayer, ListfortressRound, SquadData } from './types';
 
 type CleanedSquad = Omit<SquadData, 'raw'>;
 
@@ -55,7 +50,7 @@ export interface EventToListfortressProps {
   rounds: ListfortressRound[];
 }
 
-export const eventToListfortress = ({
+export const toListfortress = ({
   squads,
   rounds,
 }: EventToListfortressProps) => {

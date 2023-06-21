@@ -8,7 +8,11 @@ export const useLongshanksSquads = ({ id }: { id: string }) => {
     getJson
   );
 
-  const { data: squads, error: xwsError } = useSWR(
+  const {
+    data: squads,
+    error: xwsError,
+    isLoading,
+  } = useSWR(
     () => (players ? players.map(player => player.id) : null),
     async playerIds => {
       const result: XWSData[] = await Promise.all(
@@ -31,5 +35,5 @@ export const useLongshanksSquads = ({ id }: { id: string }) => {
     }
   );
 
-  return { squads, error: playerError || xwsError };
+  return { squads, error: playerError || xwsError, isLoading };
 };

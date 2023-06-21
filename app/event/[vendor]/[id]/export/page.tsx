@@ -1,7 +1,10 @@
-import { BASE_URL, RECENT_EVENTS } from '@/lib/env';
-import { squadsToCSV } from '@/lib/export';
-import type { EventInfo, SquadData, Vendor } from '@/lib/types';
-import { Headline, List, Link, Divider, Text } from '@/ui';
+import { RECENT_EVENTS } from '@/lib/env';
+import type { Vendor } from '@/lib/types';
+import { Headline, List, Link, Text } from '@/ui';
+
+import { ExportListfortress } from './components/export-listfortress';
+import { ExportLongshanks } from './components/export-longshanks';
+import { ExportRollbetter } from './components/export-rollbetter';
 
 // Config
 // ---------------
@@ -9,6 +12,14 @@ import { Headline, List, Link, Divider, Text } from '@/ui';
  * Opt into background revalidation. (see: https://github.com/vercel/next.js/discussions/43085)
  */
 export const generateStaticParams = () => RECENT_EVENTS;
+
+// Helpers
+// ---------------
+const EXPORT_COMPONENT = {
+  listfortress: ExportListfortress,
+  longshanks: ExportLongshanks,
+  rollbetter: ExportRollbetter,
+};
 
 // Props
 // ---------------
@@ -19,44 +30,15 @@ interface PageProps {
   };
 }
 
-// Data
-// ---------------
-const getEventInfo = async ({ vendor, id }: PageProps['params']) => {
-  const res = await fetch(`${BASE_URL}/api/${vendor}/${id}`);
-
-  if (!res.ok) {
-    throw new Error(`Failed to fetch event info... (${vendor}/${id})`);
-  }
-
-  const info = await res.json();
-  return info as EventInfo;
-};
-
-const getSquads = async ({ vendor, id }: PageProps['params']) => {
-  const res = await fetch(`${BASE_URL}/api/${vendor}/${id}/squads`);
-
-  if (!res.ok) {
-    throw new Error(`Failed to fetch squdas... (${vendor}/${id})`);
-  }
-
-  const squads = await res.json();
-  return squads as SquadData[];
-};
-
 // Page
 // ---------------
 const Page = async ({ params }: PageProps) => {
-  const { name } = await getEventInfo(params);
+  const Export = EXPORT_COMPONENT[params.vendor];
 
-  if (params.vendor === 'longshanks') {
-    return 'TODO...';
-  }
-
-  const squads = await getSquads(params);
   return (
     <div className="grid grid-cols-12 gap-y-14 md:gap-y-8">
       <div className="col-span-full md:col-span-4">
-        BUT THE EXPORT BUTTON HERE!
+        <Export id={params.id} />
       </div>
       <div className="col-span-full px-4 md:col-span-7 md:col-start-6 md:px-0">
         {params.vendor === 'listfortress' ? (
@@ -68,7 +50,7 @@ const Page = async ({ params }: PageProps) => {
               The data for this event is already obtained directly from
               Listfortress.
               <br />
-              No need to upload the event Listfortress again.
+              No need to upload the event to Listfortress again.
             </Text>
           </>
         ) : (
@@ -103,36 +85,6 @@ const Page = async ({ params }: PageProps) => {
             </List>
           </>
         )}
-      </div>
-      <Divider className="col-span-full" />
-      <div className="col-span-4 md:self-center">
-        <Headline level="3" className="pb-0 text-right">
-          Other Options:
-        </Headline>
-      </div>
-      <div className="col-span-7 col-start-6 flex flex-col items-center gap-6 md:flex-row">
-        <Link
-          variant="button"
-          size="large"
-          className="w-full md:w-auto"
-          target="_blank"
-          href={`data:text/json;charset=utf-8,${encodeURIComponent(
-            JSON.stringify(squads)
-          )}`}
-          download={`${name.replace(/\s/g, '_')}.json`}
-        >
-          Download as JSON
-        </Link>
-        <Link
-          variant="button"
-          size="large"
-          className="w-full md:w-auto"
-          target="_blank"
-          href={`data:text/plain;charset=utf-8,${squadsToCSV(squads)}`}
-          download={`${name.replace(/\s/g, '_')}.csv`}
-        >
-          Download as CSV
-        </Link>
       </div>
     </div>
   );

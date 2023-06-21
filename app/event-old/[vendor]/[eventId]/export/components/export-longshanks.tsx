@@ -3,7 +3,7 @@
 import useClipboard from 'react-use-clipboard';
 
 import { Button } from '@/ui';
-import { eventToListfortress } from '@/lib/export';
+import { toListfortress } from '@/lib/export';
 
 import { ExportProps } from './types';
 
@@ -11,7 +11,7 @@ import { ExportProps } from './types';
 // ---------------
 export const ExportLongshanks = ({ event }: ExportProps) => {
   const listfortressExport =
-    event.rounds.length > 0 ? JSON.stringify(eventToListfortress(event)) : '';
+    event.rounds.length > 0 ? JSON.stringify(toListfortress(event)) : '';
   const [isCopied, setCopied] = useClipboard(listfortressExport, {
     successDuration: 2000,
   });

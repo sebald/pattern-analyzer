@@ -165,9 +165,9 @@ export interface ListfortressRound {
   matches: {
     player1: string;
     'player1-id': string;
+    player1points: number;
     player2: string;
     'player2-id': string;
-    player1points: number;
     player2points: number;
     'winner-id'?: string;
     winner?: string;
