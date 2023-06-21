@@ -1,7 +1,7 @@
 import { type NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 
-import * as listfortress from '@/lib/vendor/listfortress';
+import { ListfortressTournament } from '@/lib/types';
 
 // Helpers
 // ---------------
@@ -11,6 +11,17 @@ const schema = {
   }),
 };
 
+export const getTournament = async (id: string) => {
+  const api_url = `https://listfortress.com/api/v1/tournaments/${id}`;
+  const res = await fetch(api_url);
+
+  if (!res.ok) {
+    throw new Error(`[listfortress] Failed to fetch event data... (${id})`);
+  }
+
+  const tournament: ListfortressTournament = await res.json();
+  return tournament;
+};
 // Props
 // ---------------
 interface RouteContext {
@@ -37,7 +48,7 @@ export const GET = async (_: NextRequest, { params }: RouteContext) => {
   }
 
   const { id } = result.data;
-  const { name, date } = await listfortress.getTournament(id);
+  const { name, date } = await getTournament(id);
   const event = {
     name,
     date,

@@ -1,8 +1,7 @@
 import { type NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 
-import * as listfortress from '@/lib/vendor/listfortress';
-import type { SquadData } from '@/lib/types';
+import type { ListfortressTournament, SquadData } from '@/lib/types';
 import { getBuilderLink, toXWS } from '@/lib/xws';
 
 // Helpers
@@ -11,6 +10,18 @@ const schema = {
   params: z.object({
     id: z.string().regex(/^[0-9]+$/),
   }),
+};
+
+export const getTournament = async (id: string) => {
+  const api_url = `https://listfortress.com/api/v1/tournaments/${id}`;
+  const res = await fetch(api_url);
+
+  if (!res.ok) {
+    throw new Error(`[listfortress] Failed to fetch event data... (${id})`);
+  }
+
+  const tournament: ListfortressTournament = await res.json();
+  return tournament;
 };
 
 const updateRcord = (
@@ -57,7 +68,7 @@ export const GET = async (_: NextRequest, { params }: RouteContext) => {
   }
 
   const { id } = result.data;
-  const { participants, rounds } = await listfortress.getTournament(id);
+  const { participants, rounds } = await getTournament(id);
   const records: { [playerId: string]: SquadData['record'] } = {};
 
   rounds.forEach(round => {
