@@ -4,6 +4,7 @@ import { SquadData, Vendor } from '@/lib/types';
 import { FilterProvider } from './(views)/components/context';
 import { Filter } from './(views)/components/filter';
 import { Squads } from './(views)/components/squads';
+import { LongshanksSquadView } from './(views)/longshanks-squad.view';
 
 // Data
 // ---------------
@@ -35,13 +36,11 @@ interface PageParams {
 // Page
 // ---------------
 const Page = async ({ params }: PageParams) => {
-  const { vendor, id } = params;
-
-  if (vendor === 'longshanks') {
-    return '...meh';
+  if (params.vendor === 'longshanks') {
+    return <LongshanksSquadView {...params} />;
   }
 
-  const squads = await getSquads({ vendor, id });
+  const squads = await getSquads(params);
   return (
     <FilterProvider>
       <Filter />

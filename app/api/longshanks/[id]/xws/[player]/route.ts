@@ -89,7 +89,7 @@ export const GET = async (_: NextRequest, { params }: RouteContext) => {
   const { url, xws } = getXWS(raw);
 
   return NextResponse.json({
-    id,
+    id: player,
     url,
     xws,
     raw,
