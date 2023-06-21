@@ -1,7 +1,9 @@
+import { load, Element } from 'cheerio';
 import { type NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 
-import { parsePlayerInfo, parseSquads } from '@/lib/longshanks';
+import * as longshanks from '@/lib/longshanks';
+import type { PlayerRecord } from '@/lib/types';
 
 // Config
 // ---------------
@@ -9,32 +11,15 @@ export const revalidate = 86_400; // 1 day
 
 const schema = {
   params: z.object({
-    event: z.string().regex(/^[0-9]+$/),
-  }),
-  searchParams: z.object({
-    page: z
-      .string()
-      .regex(/^[0-9]+$/)
-      .nullable()
-      .transform(val => (val === null ? 1 : Number(val))),
-    size: z
-      .string()
-      .regex(/^[0-9]+$/)
-      .nullable()
-      .transform(val => (val === null ? 30 : Number(val))),
+    id: z.string().regex(/^[0-9]+$/),
   }),
 };
-
-const paginate = <T extends any[]>(
-  items: T,
-  { page, size }: { page: number; size: number }
-) => items.slice(size * (page - 1), size * page);
 
 // Props
 // ---------------
 interface RouteContext {
   params: {
-    event?: string;
+    id?: string;
   };
 }
 
@@ -54,29 +39,91 @@ export const GET = async (request: NextRequest, { params }: RouteContext) => {
     );
   }
 
-  // Pagination
-  const { searchParams } = new URL(request.url);
-  const pagination = schema.searchParams.safeParse({
-    page: searchParams.get('page'),
-    size: searchParams.get('size'),
-  });
+  const { id } = event.data;
 
-  if (!pagination.success) {
-    return NextResponse.json(
-      {
-        name: 'Error parsing input.',
-        message: pagination.error.issues,
-      },
-      {
-        status: 400,
-      }
-    );
-  }
+  // Fetch partial HTML
+  const [playerHtml, cutHtml] = await Promise.all([
+    longshanks.getEventSection(id, 'player'),
+    longshanks.getEventSection(id, 'player_cut'),
+  ]);
+  const $ = load(playerHtml);
 
-  const id = event.data.event;
+  // Helpers
+  const getPlayerId = (el: Element) =>
+    $('.id_number', el).first().text().replace('#', '');
+  const getRankingInfo = (el: Element) => {
+    const groups = $('.rank', el.parent)
+      .first()
+      .text()
+      .trim()
+      .match(/^(?<rank>\d+)(\s*\((?<info>[a-z]+))?/)?.groups || {
+      rank: 0,
+      info: '',
+    };
+    return {
+      rank: Number(groups.rank),
+      dropped: groups.info === 'drop',
+    };
+  };
+  const combineRecords = (swiss: PlayerRecord, cut?: PlayerRecord) =>
+    ({
+      wins: swiss.wins + (cut?.wins || 0),
+      ties: swiss.ties + (cut?.ties || 0),
+      losses: swiss.losses + (cut?.losses || 0),
+    } satisfies PlayerRecord);
 
-  const players = await parsePlayerInfo(id);
-  const squads = await parseSquads(id, paginate(players, pagination.data));
+  // Cut data
+  const cut = new Map<string, { rank: number; record: PlayerRecord }>();
+  load(cutHtml)('.player .data')
+    .toArray()
+    .map(el => {
+      const id = getPlayerId(el);
+      const { rank } = getRankingInfo(el);
+      const record = {
+        wins: Number($('.wins', el).first().text().trim()),
+        ties: Number($('.ties', el).first().text().trim()),
+        losses: Number($('.loss', el).first().text().trim()),
+      };
+      cut.set(id, { rank, record });
+    });
 
-  return NextResponse.json(squads);
+  // Swiss data and merge with cut data
+  const players = $('.player .data')
+    .toArray()
+    .map(el => {
+      const id = getPlayerId(el);
+      const player = $('.player_link', el).first().text();
+
+      const { rank: swiss, dropped } = getRankingInfo(el);
+      const cutInfo = cut.get(id);
+
+      const points = Number($('.stat.mono.skinny.desktop', el).first().text());
+      const record = {
+        wins: Number($('.wins', el).first().text().trim()),
+        ties: Number($('.ties', el).first().text().trim()),
+        losses: Number($('.loss', el).first().text().trim()),
+      };
+
+      const stats = $('.stat.mono table td', el);
+      const sos = Number(stats.first().text().trim());
+      const missionPoints = Number(stats.eq(1).text().trim());
+      const mov = Number(stats.eq(2).text().trim());
+
+      return {
+        id,
+        player,
+        rank: {
+          swiss,
+          elimination: cutInfo?.rank,
+        },
+        points,
+        record: combineRecords(record, cutInfo?.record),
+        sos,
+        missionPoints,
+        mov,
+        dropped,
+      };
+    });
+
+  return NextResponse.json(players);
 };
