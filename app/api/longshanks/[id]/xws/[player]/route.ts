@@ -8,8 +8,10 @@ import { xwsFromText } from '@/lib/yasb';
 
 // Config
 // ---------------
-export const revalidate = 86_400; // 1 day
+export const revalidate = 3600; // 1 hour
 
+// Helpers
+// ---------------
 const schema = z.object({
   id: z.string().regex(/^[0-9]+$/),
   player: z.string().regex(/^[0-9]+$/),

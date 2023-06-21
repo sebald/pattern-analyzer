@@ -5,8 +5,10 @@ import * as rollbetter from '@/lib/vendor/rollbetter';
 
 // Config
 // ---------------
-export const revalidate = 300; // 5 min
+export const revalidate = 86_400; // 1 day
 
+// Helpers
+// ---------------
 const schema = {
   params: z.object({
     id: z.string().regex(/^[0-9]+$/),

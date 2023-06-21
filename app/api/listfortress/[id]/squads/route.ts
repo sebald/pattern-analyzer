@@ -5,10 +5,6 @@ import * as listfortress from '@/lib/vendor/listfortress';
 import type { SquadData } from '@/lib/types';
 import { getBuilderLink, toXWS } from '@/lib/xws';
 
-// Config
-// ---------------
-// export const revalidate = 300; // 5 min
-
 // Helpers
 // ---------------
 const schema = {

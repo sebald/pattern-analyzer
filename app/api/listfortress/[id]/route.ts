@@ -3,10 +3,8 @@ import { z } from 'zod';
 
 import * as listfortress from '@/lib/vendor/listfortress';
 
-// Config
+// Helpers
 // ---------------
-export const revalidate = 300; // 5 min
-
 const schema = {
   params: z.object({
     id: z.string().regex(/^[0-9]+$/),

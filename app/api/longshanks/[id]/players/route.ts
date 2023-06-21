@@ -2,17 +2,35 @@ import { load, Element } from 'cheerio';
 import { type NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 
-import * as longshanks from '@/lib/longshanks';
 import type { PlayerRecord } from '@/lib/types';
 
 // Config
 // ---------------
-export const revalidate = 86_400; // 1 day
+export const revalidate = 300; // 5 min
 
+// Helpers
+// ---------------
 const schema = {
   params: z.object({
     id: z.string().regex(/^[0-9]+$/),
   }),
+};
+
+// Helper
+// ---------------
+const getEventSection = async (
+  id: string,
+  section: 'player' | 'player_cut'
+) => {
+  const res = await fetch(
+    `https://longshanks.org/events/detail/panel_standings.php?event=${id}&section=${section}`
+  );
+
+  if (!res.ok) {
+    throw new Error(`Failed to fetch section data... (${id}, ${section})`);
+  }
+
+  return await res.text();
 };
 
 // Props
@@ -43,8 +61,8 @@ export const GET = async (_: NextRequest, { params }: RouteContext) => {
 
   // Fetch partial HTML
   const [playerHtml, cutHtml] = await Promise.all([
-    longshanks.getEventSection(id, 'player'),
-    longshanks.getEventSection(id, 'player_cut'),
+    getEventSection(id, 'player'),
+    getEventSection(id, 'player_cut'),
   ]);
   const $ = load(playerHtml);
 
