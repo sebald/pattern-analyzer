@@ -79,7 +79,7 @@ const getEventRounds = async (
 /**
  * Iterate over all the popups to find the games played by each player.
  */
-export const parseRounds = async (
+const parseRounds = async (
   id: string,
   info: { swiss: number; cut: number }
 ) => {

@@ -188,7 +188,24 @@ export interface ListfortressTournament {
   created_at: string;
   updated_at: string;
   participants: ListfortressParticipant[];
-  rounds: ListfortressRound[];
+  rounds: {
+    id: number;
+    tournament_id: number;
+    roundtype_id: number;
+    round_number: number;
+    scenario: string;
+    matches: {
+      id: number;
+      player1_id: number;
+      player1_points: number;
+      player2_id?: number;
+      player2_points: number;
+      result: string;
+      winner_id?: number;
+      rounds_played: any;
+      went_to_time: any;
+    }[];
+  }[];
 }
 
 export interface ListfortressParticipant {
