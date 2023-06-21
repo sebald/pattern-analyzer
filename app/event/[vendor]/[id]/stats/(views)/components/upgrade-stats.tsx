@@ -14,7 +14,7 @@ import { getUpgradeName } from '@/lib/get-value';
 import type { XWSFaction, XWSUpgradeSlots } from '@/lib/types';
 import { toPercentage } from '@/lib/utils';
 
-import type { FactionMapWithAll, UpgradeStatData } from '../../types';
+import type { FactionMapWithAll, UpgradeStatData } from '../types';
 
 // Props
 // ---------------

@@ -14,7 +14,7 @@ import type { XWSFaction } from '@/lib/types';
 import { getPilotName } from '@/lib/get-value';
 import { toPercentage } from '@/lib/utils';
 
-import type { FactionMap, PilotStatData } from '../../types';
+import type { FactionMap, PilotStatData } from '../types';
 
 // Props
 // ---------------

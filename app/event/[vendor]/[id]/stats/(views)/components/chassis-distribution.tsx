@@ -10,7 +10,7 @@ import { getStandardShips, Ships } from '@/lib/get-value';
 import type { XWSFaction } from '@/lib/types';
 import { COLOR_MAP, toPercentage } from '@/lib/utils';
 
-import type { FactionMap, ShipStatData } from '../../types';
+import type { FactionMap, ShipStatData } from '../types';
 
 // Helpers
 // ---------------
