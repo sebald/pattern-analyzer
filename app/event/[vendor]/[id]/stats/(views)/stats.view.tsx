@@ -1,6 +1,5 @@
 import { SquadData } from '@/lib/types';
-import { Message } from '@/ui';
-import Link from 'next/link';
+import { Link, Message } from '@/ui';
 
 import { useSquadStats } from './useSquadStats';
 
