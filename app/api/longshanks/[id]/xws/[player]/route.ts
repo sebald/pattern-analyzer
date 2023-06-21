@@ -45,8 +45,8 @@ const getXWS = (raw: string) => {
 // ---------------
 export interface RouteContext {
   params: {
-    event?: string;
     id?: string;
+    player?: string;
   };
 }
 
