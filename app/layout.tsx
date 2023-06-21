@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 
 import { Link } from '@/ui';
+import { BASE_URL } from '@/lib/env';
 import { cn } from '@/lib/utils';
 
 import './globals.css';
@@ -18,7 +19,7 @@ export const metadata = {
     siteName: 'Pattern Analyzer',
     title: 'Home',
     description: 'X-Wing Tournament data & statistics',
-    images: 'https://www.pattern-analyzer.app/api/og.png',
+    images: `${BASE_URL}/api/og.png`,
     type: 'website',
   },
   twitter: {

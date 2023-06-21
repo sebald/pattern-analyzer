@@ -6,7 +6,7 @@ import { forwardRef } from 'react';
 const styles = cva(
   [
     'rounded-lg transition-all focus:outline-none focus-visible:ring',
-    'disabled:cursor-not-allowed disabled:border-primary-300 disabled:bg-primary-300',
+    'disabled:cursor-not-allowed disabled:border-primary-300/25 disabled:bg-primary-300/50',
   ],
   {
     variants: {

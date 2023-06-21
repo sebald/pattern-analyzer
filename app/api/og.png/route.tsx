@@ -119,7 +119,7 @@ export const GET = async (req: NextRequest) => {
       </div>
     ),
     {
-      width: 1200,
+      width: 1_200,
       height: 630,
       fonts: [
         {
