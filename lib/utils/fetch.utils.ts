@@ -1,7 +1,7 @@
 /**
  * Fetchter for usage with `swr`.
  */
-export const fetcher = async (url: string) => {
+export const getJson = async <T = any>(url: string) => {
   const res = await fetch(url);
 
   if (!res.ok) {
@@ -14,5 +14,5 @@ export const fetcher = async (url: string) => {
     throw error;
   }
 
-  return res.json();
+  return res.json() as T;
 };

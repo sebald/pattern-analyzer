@@ -1,18 +1,18 @@
 import useSWR from 'swr/immutable';
 import { PlayerData, SquadData, XWSData } from '@/lib/types';
-import { fetcher } from '@/lib/utils/fetch.utils';
+import { getJson } from '@/lib/utils/fetch.utils';
 
 export const useLongshanksSquads = ({ id }: { id: string }) => {
   const { data: players, error: playerError } = useSWR<PlayerData[]>(
     `/api/longshanks/${id}/players`,
-    fetcher
+    getJson
   );
 
   const { data: squads, error: xwsError } = useSWR(
     () => (players ? players.map(player => player.id) : null),
     async playerIds => {
       const result: XWSData[] = await Promise.all(
-        playerIds.map(pid => fetcher(`/api/longshanks/${id}/xws/${pid}`))
+        playerIds.map(pid => getJson(`/api/longshanks/${id}/xws/${pid}`))
       );
 
       return players?.map(player => {
