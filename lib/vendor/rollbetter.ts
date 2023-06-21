@@ -198,8 +198,6 @@ export const getPlayerData = async (id: string) => {
     }
   );
 
-  console.log(players);
-
   return players;
 };
 
