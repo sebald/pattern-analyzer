@@ -1,10 +1,8 @@
 import { baseUrl } from '@/lib/env';
 import { SquadData, Vendor } from '@/lib/types';
 
-import { FilterProvider } from './(views)/components/context';
-import { Filter } from './(views)/components/filter';
-import { Squads } from './(views)/components/squads';
 import { LongshanksSquadView } from './(views)/longshanks-squad.view';
+import { SquadsView } from './(views)/squad.view';
 
 // Data
 // ---------------
@@ -41,12 +39,7 @@ const Page = async ({ params }: PageParams) => {
   }
 
   const squads = await getSquads(params);
-  return (
-    <FilterProvider>
-      <Filter />
-      <Squads squads={squads} />
-    </FilterProvider>
-  );
+  return <SquadsView squads={squads} />;
 };
 
 export default Page;

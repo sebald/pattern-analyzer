@@ -1,11 +1,9 @@
 'use client';
 
-import { FilterProvider } from './components/context';
-import { Filter } from './components/filter';
-import { Squads } from './components/squads';
-
 import { useLongshanksSquads } from '@/lib/useLongshanksSquads';
 import { Skeleton, Tiles, CardSkeleton } from '@/ui';
+
+import { SquadsView } from './squad.view';
 
 // Props
 // ---------------
@@ -31,10 +29,5 @@ export const LongshanksSquadView = ({ id }: LongshanksSquadViewProps) => {
     );
   }
 
-  return (
-    <FilterProvider>
-      <Filter />
-      <Squads squads={squads} />
-    </FilterProvider>
-  );
+  return <SquadsView squads={squads} />;
 };

@@ -1,4 +1,4 @@
-import useSWR from 'swr';
+import useSWR from 'swr/immutable';
 import { PlayerData, SquadData, XWSData } from '@/lib/types';
 import { fetcher } from '@/lib/utils/fetch.utils';
 
