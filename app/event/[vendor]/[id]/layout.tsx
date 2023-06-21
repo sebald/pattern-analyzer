@@ -4,7 +4,7 @@ import { Caption, Inline, Link, Title } from '@/ui';
 import { Navigation } from '@/ui/navigation';
 import { Trophy, Lines, Download, BarChart } from '@/ui/icons';
 
-import { baseUrl } from '@/lib/env';
+import { BASE_URL } from '@/lib/env';
 import type { EventInfo, Vendor } from '@/lib/types';
 
 // Config
@@ -19,7 +19,7 @@ interface GetEventInfoProps {
 }
 
 const getEventInfo = async ({ vendor, id }: GetEventInfoProps) => {
-  const res = await fetch(`${baseUrl}/api/${vendor}/${id}`);
+  const res = await fetch(`${BASE_URL}/api/${vendor}/${id}`);
 
   if (!res.ok) {
     throw new Error(`Failed to fetch event info... (${vendor}/${id})`);
@@ -54,7 +54,7 @@ export const generateMetadata = async ({ params }: LayoutProps) => {
       siteName: 'Pattern Analyzer',
       title: event.name,
       description: 'X-Wing Tournament data & statistics',
-      images: `${baseUrl}/api/og.png?title=${encodeURIComponent(event.name)}`,
+      images: `${BASE_URL}/api/og.png?title=${encodeURIComponent(event.name)}`,
       locale: 'en-US',
       type: 'website',
     },

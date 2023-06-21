@@ -1,8 +1,13 @@
-import { baseUrl } from '@/lib/env';
+import { BASE_URL, RECENT_EVENTS } from '@/lib/env';
 import { SquadData, Vendor } from '@/lib/types';
 
 import { LongshanksSquadView } from './(views)/longshanks-squad.view';
 import { SquadsView } from './(views)/squad.view';
+
+/**
+ * Opt into background revalidation. (see: https://github.com/vercel/next.js/discussions/43085)
+ */
+export const generateStaticParams = () => RECENT_EVENTS;
 
 // Data
 // ---------------
@@ -12,7 +17,7 @@ interface GetSquadsProps {
 }
 
 const getSquads = async ({ vendor, id }: GetSquadsProps) => {
-  const res = await fetch(`${baseUrl}/api/${vendor}/${id}/squads`);
+  const res = await fetch(`${BASE_URL}/api/${vendor}/${id}/squads`);
 
   if (!res.ok) {
     throw new Error(`Failed to fetch squdas... (${vendor}/${id})`);
