@@ -6,13 +6,12 @@ export const BASE_URL =
 export const RECENT_EVENTS: {
   vendor: Vendor;
   id: string;
-}[] = [
-  {
-    vendor: 'listfortress',
-    id: '3711',
-  },
-  {
-    vendor: 'listfortress',
-    id: '3696',
-  },
-];
+}[] = [];
+
+// [
+//   {
+//     // UKGE
+//     vendor: 'listfortress',
+//     id: '3696',
+//   },
+// ];
