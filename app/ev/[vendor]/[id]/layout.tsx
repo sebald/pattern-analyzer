@@ -54,9 +54,7 @@ export const generateMetadata = async ({ params }: LayoutProps) => {
       siteName: 'Pattern Analyzer',
       title: event.name,
       description: 'X-Wing Tournament data & statistics',
-      images: `https://pattern-analyzer.app/api/og.png?title=${encodeURIComponent(
-        event.name
-      )}`,
+      images: `${baseUrl}/api/og.png?title=${encodeURIComponent(event.name)}`,
       locale: 'en-US',
       type: 'website',
     },
