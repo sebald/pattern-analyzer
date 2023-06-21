@@ -1,5 +1,6 @@
-import { EventData } from '@/lib/types';
+import { ListfortressRound, SquadData } from '@/lib/types';
 
 export interface ExportProps {
-  event: EventData;
+  squads: SquadData[];
+  rounds: ListfortressRound[];
 }

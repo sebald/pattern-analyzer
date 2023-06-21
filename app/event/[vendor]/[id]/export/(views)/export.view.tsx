@@ -1,5 +1,5 @@
 import { squadsToCSV } from '@/lib/export';
-import type { EventData } from '@/lib/types';
+import type { ListfortressRound, SquadData, Vendor } from '@/lib/types';
 import { Headline, List, Link, Divider, Text } from '@/ui';
 
 import { ExportListfortress } from './components/export-listfortress';
@@ -13,19 +13,27 @@ const EXPORT_COMPONENT = {
 };
 
 export interface ExportViewProps {
-  event: EventData;
+  name: string;
+  vendor: Vendor;
+  squads: SquadData[];
+  rounds: ListfortressRound[];
 }
 
-export const ExportView = ({ event }: ExportViewProps) => {
-  const Export = EXPORT_COMPONENT[event.vendor];
+export const ExportView = ({
+  name,
+  vendor,
+  squads,
+  rounds,
+}: ExportViewProps) => {
+  const Export = EXPORT_COMPONENT[vendor];
 
   return (
     <div className="grid grid-cols-12 gap-y-14 md:gap-y-8">
       <div className="col-span-full md:col-span-4">
-        <Export event={event} />
+        <Export squads={squads} rounds={rounds} />
       </div>
       <div className="col-span-full px-4 md:col-span-7 md:col-start-6 md:px-0">
-        {event.vendor === 'listfortress' ? (
+        {vendor === 'listfortress' ? (
           <>
             <Headline level="3" font="inherit" className="font-medium">
               Listfortress Export
@@ -83,9 +91,9 @@ export const ExportView = ({ event }: ExportViewProps) => {
           className="w-full md:w-auto"
           target="_blank"
           href={`data:text/json;charset=utf-8,${encodeURIComponent(
-            JSON.stringify(event.squads)
+            JSON.stringify(squads)
           )}`}
-          download={`${event.title.replace(/\s/g, '_')}.json`}
+          download={`${name.replace(/\s/g, '_')}.json`}
         >
           Download as JSON
         </Link>
@@ -94,8 +102,8 @@ export const ExportView = ({ event }: ExportViewProps) => {
           size="large"
           className="w-full md:w-auto"
           target="_blank"
-          href={`data:text/plain;charset=utf-8,${squadsToCSV(event.squads)}`}
-          download={`${event.title.replace(/\s/g, '_')}.csv`}
+          href={`data:text/plain;charset=utf-8,${squadsToCSV(squads)}`}
+          download={`${name.replace(/\s/g, '_')}.csv`}
         >
           Download as CSV
         </Link>

@@ -1,7 +1,7 @@
 import type {
   EventData,
-  ListFortressPlayer,
-  ListFortressRound,
+  ListfortressPlayer,
+  ListfortressRound,
   SquadData,
 } from './types';
 
@@ -52,14 +52,14 @@ export const squadsToCSV = (squads: SquadData[]) => {
 
 export interface EventToListfortressProps {
   squads: SquadData[];
-  rounds: ListFortressRound[];
+  rounds: ListfortressRound[];
 }
 
 export const eventToListfortress = ({
   squads,
   rounds,
 }: EventToListfortressProps) => {
-  const players: ListFortressPlayer[] = squads.map(
+  const players: ListfortressPlayer[] = squads.map(
     ({ id, player, points, sos, mov, rank, dropped, xws }) => ({
       id,
       name: player,

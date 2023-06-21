@@ -1,4 +1,4 @@
-import { ListFortressRound, Scenarios } from '@/lib/types';
+import { ListfortressRound, Scenarios } from '@/lib/types';
 import { load } from 'cheerio';
 import { type NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
@@ -130,7 +130,7 @@ export const parseRounds = async (
       'round-number': number,
       matches,
       scenario,
-    } satisfies ListFortressRound;
+    } satisfies ListfortressRound;
   });
 };
 

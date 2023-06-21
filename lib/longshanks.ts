@@ -2,7 +2,7 @@ import { load, CheerioAPI, Element } from 'cheerio';
 import pLimit from 'p-limit';
 
 import type {
-  ListFortressRound,
+  ListfortressRound,
   PlayerData,
   PlayerRecord,
   Scenarios,
@@ -285,7 +285,7 @@ export const parseRounds = async (
       'round-number': number,
       matches,
       scenario,
-    } satisfies ListFortressRound;
+    } satisfies ListfortressRound;
   });
 };
 

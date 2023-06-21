@@ -65,7 +65,7 @@ export interface EventData {
   vendor: Vendor;
   urls: { href: string; text: string }[];
   squads: SquadData[];
-  rounds: ListFortressRound[];
+  rounds: ListfortressRound[];
 }
 
 // XWS
@@ -141,11 +141,11 @@ export type Scenarios =
 
 // https://github.com/AlexRaubach/ListFortress/issues/63#issuecomment-1376711528
 export interface ListfortressExport {
-  players: ListFortressPlayer[];
-  rounds: ListFortressRound[];
+  players: ListfortressPlayer[];
+  rounds: ListfortressRound[];
 }
 
-export interface ListFortressPlayer {
+export interface ListfortressPlayer {
   id: string;
   name: string;
   score: number;
@@ -159,7 +159,7 @@ export interface ListFortressPlayer {
   list?: string | XWSSquad;
 }
 
-export interface ListFortressRound {
+export interface ListfortressRound {
   'round-type': 'swiss' | 'elimination';
   'round-number': number;
   matches: {
@@ -205,25 +205,4 @@ export interface ListfortressParticipant {
   list_json?: string;
   event_points: any;
   mission_points: any;
-}
-
-export interface ListfortressRound {
-  id: number;
-  tournament_id: number;
-  roundtype_id: number;
-  round_number: number;
-  scenario: string;
-  matches: ListfortressMatch[];
-}
-
-export interface ListfortressMatch {
-  id: number;
-  player1_id: number;
-  player1_points: number;
-  player2_id?: number;
-  player2_points: number;
-  result: any;
-  winner_id?: number;
-  rounds_played: any;
-  went_to_time: any;
 }

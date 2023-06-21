@@ -9,9 +9,11 @@ import { ExportProps } from './types';
 
 // Component
 // ---------------
-export const ExportListfortress = ({ event }: ExportProps) => {
+export const ExportListfortress = ({ squads, rounds }: ExportProps) => {
   const listfortressExport =
-    event.rounds.length > 0 ? JSON.stringify(eventToListfortress(event)) : '';
+    rounds.length > 0
+      ? JSON.stringify(eventToListfortress({ squads, rounds }))
+      : '';
   const [isCopied, setCopied] = useClipboard(listfortressExport, {
     successDuration: 2000,
   });
