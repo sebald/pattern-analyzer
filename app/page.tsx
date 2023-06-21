@@ -1,24 +1,32 @@
-import { getEventInfoByVendor } from '@/lib/get-event';
-import { Card, Container, Link, Logo } from '@/ui';
-import { List } from '@/ui/list';
+import { Card, Container, Link, List, Logo } from '@/ui';
+import { BASE_URL, RECENT_EVENTS } from '@/lib/env';
+import { getJson } from '@/lib/utils';
 
 import { montserrat } from './fonts';
-import { RECENT_EVENTS } from './preload';
 import { EventForm } from './components/event-form';
 
+// Config
+// ---------------
 /**
  * Segment Config (see: https://beta.nextjs.org/docs/api-reference/segment-config)
  */
 export const dynamic = 'force-static';
 
+// Data
+// ---------------
+const getReventEvents = async () => {
+  const events = await Promise.all(
+    RECENT_EVENTS.map(({ vendor, id }) =>
+      getJson(`${BASE_URL}/api/${vendor}/${id}`)
+    )
+  );
+  return events;
+};
+
 // Page
 // ---------------
 const Home = async () => {
-  const data = await Promise.all(
-    RECENT_EVENTS.map(({ vendor, eventId }) =>
-      getEventInfoByVendor({ vendor, ids: eventId })
-    )
-  );
+  const events = await getReventEvents();
 
   return (
     <Container className="grid flex-1 place-items-center">
@@ -32,7 +40,7 @@ const Home = async () => {
         <div className="flex-1">
           <EventForm />
         </div>
-        {data.length > 0 && (
+        {events.length > 0 && (
           <div className="w-full pt-24 md:px-6">
             <h2
               className={`${montserrat.variable} prose pb-2 font-headline font-bold uppercase text-primary-400`}
@@ -41,13 +49,13 @@ const Home = async () => {
             </h2>
             <Card>
               <List variant="wide">
-                {data.map(({ id, vendor, title, date }) => (
+                {events.map(({ id, vendor, name, date }) => (
                   <List.Item key={id}>
                     <Link
                       className="text-lg text-secondary-900"
                       href={`/event/${vendor}/${id}`}
                     >
-                      <h3 className="font-medium">{title}</h3>
+                      <h3 className="font-medium">{name}</h3>
                       <div className="text-sm text-secondary-500">{date}</div>
                     </Link>
                   </List.Item>

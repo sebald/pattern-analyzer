@@ -57,6 +57,7 @@ export const GET = async (_: NextRequest, { params }: RouteContext) => {
   const [date] = description.split('•');
 
   const event = {
+    id,
     name,
     date: date.trim(),
     url: `https://longshanks.org/events/detail/?event=${id}`,

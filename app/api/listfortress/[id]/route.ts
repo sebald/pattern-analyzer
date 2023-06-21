@@ -50,6 +50,7 @@ export const GET = async (_: NextRequest, { params }: RouteContext) => {
   const { id } = result.data;
   const { name, date } = await getTournament(id);
   const event = {
+    id,
     name,
     date,
     url: `https://listfortress.com/tournaments/${id}`,

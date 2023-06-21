@@ -77,6 +77,7 @@ export const GET = async (_: NextRequest, { params }: RouteContext) => {
   const { name, date } = await getTournament(id);
 
   const event = {
+    id,
     name,
     date,
     url: `https://rollbetter.gg/tournaments/${id}`,
