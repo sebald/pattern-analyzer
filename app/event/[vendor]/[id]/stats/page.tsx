@@ -2,6 +2,7 @@ import { BASE_URL, RECENT_EVENTS } from '@/lib/env';
 import type { SquadData, Vendor } from '@/lib/types';
 
 import { StatsView } from './(views)/stats.view';
+import { LongshanksStatsView } from './(views)/longshanks-stats.view';
 
 // Config
 // ---------------
@@ -41,7 +42,7 @@ interface PageProps {
 // ---------------
 const Page = async ({ params }: PageProps) => {
   if (params.vendor === 'longshanks') {
-    return 'TODO...';
+    return <LongshanksStatsView {...params} />;
   }
 
   const squads = await getSquads(params);
