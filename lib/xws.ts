@@ -11,6 +11,7 @@ const PILOT_ID_MAP = {
   'obiwankenobi-eta2actis-siegeofcoruscant': 'obiwankenobi-siegeofcoruscant',
   'kickback-sigeofcoruscant': 'kickback-siegeofcoruscant',
   'hondoohnaka-firesprayclasspatrolcraft': 'hondoohnaka',
+  'bossk-z95': 'bossk-z95af4headhunter',
 };
 
 /**
@@ -42,11 +43,11 @@ export const normalize = (xws: XWSSquad | null) => {
       };
     }
 
-    // Rollbetter or LBN don't adhere XWS ...
+    // LBN doesn't adhere XWS ...
     pilot.upgrades = pilot.upgrades || {};
 
-    // Rollbetter or LBN don't give the correct points costs
-    if (pilot.points === 0) {
+    // LBN doesn't give the correct points costs
+    if (!pilot.points) {
       pilot.points = getPointsByName(pilot.id);
     }
 

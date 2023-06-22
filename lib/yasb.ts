@@ -38,11 +38,14 @@ export const getPointsByName = (id: string) => {
   // Normalize names that contain weird quotes and use regular instead
   const name = getPilotName(id)?.replace(/[“”]/g, '"');
 
-  const { points } = yasb.pilots.find(
-    pilot => pilot.xws === id || pilot.name === name
-  ) || {
-    points: 1,
-  };
+  /**
+   * Search by id first, but some pilots don't have a xws property in the
+   * YASB data, so we need to search by name too.
+   */
+  const { points } = yasb.pilots.find(pilot => pilot.xws === id) ||
+    yasb.pilots.find(pilot => pilot.name === name) || {
+      points: 1,
+    };
   return points || 1;
 };
 
