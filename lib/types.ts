@@ -53,6 +53,7 @@ export interface XWSData {
 export interface SquadData extends XWSData, PlayerData {}
 
 export interface EventInfo {
+  id: string;
   name: string;
   date: string;
   url: string;
