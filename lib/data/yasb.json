@@ -1241,13 +1241,13 @@
       "id": 204,
       "name": "Major Rhymer",
       "ship": "TIE/sa Bomber",
-      "points": 5
+      "points": 3
     },
     {
       "id": 205,
       "name": "Tomax Bren",
       "ship": "TIE/sa Bomber",
-      "points": 4
+      "points": 3
     },
     {
       "id": 206,
@@ -3888,98 +3888,98 @@
       "name": "Darth Vader (SSP)",
       "ship": "TIE Advanced x1",
       "points": 6,
-      "xws": "darthvader-SWZ105"
+      "xws": "darthvader-swz105"
     },
     {
       "id": 631,
       "name": "Maarek Stele (SSP)",
       "ship": "TIE Advanced x1",
-      "points": 6,
-      "xws": "maarekstele-SWZ105"
+      "points": 5,
+      "xws": "maarekstele-swz105"
     },
     {
       "id": 632,
       "name": "Captain Jonus (SSP)",
       "ship": "TIE/sa Bomber",
       "points": 4,
-      "xws": "captainjonus-SWZ105"
+      "xws": "captainjonus-swz105"
     },
     {
       "id": 633,
       "name": "Tomax Bren (SSP)",
       "ship": "TIE/sa Bomber",
       "points": 5,
-      "xws": "tomaxbren-SWZ105"
+      "xws": "tomaxbren-swz105"
     },
     {
       "id": 634,
       "name": "Iden Versio (SSP)",
       "ship": "TIE/ln Fighter",
       "points": 4,
-      "xws": "idenversio-SWZ105"
+      "xws": "idenversio-swz105"
     },
     {
       "id": 635,
       "name": "\"Night Beast\" (SSP)",
       "ship": "TIE/ln Fighter",
       "points": 3,
-      "xws": "nightbeast-SWZ105"
+      "xws": "nightbeast-swz105"
     },
     {
       "id": 636,
       "name": "Valen Rudor (SSP)",
       "ship": "TIE/ln Fighter",
       "points": 3,
-      "xws": "valenrudor-SWZ105"
+      "xws": "valenrudor-swz105"
     },
     {
       "id": 637,
       "name": "\"Dutch\" Vander (SSP)",
       "ship": "BTL-A4 Y-wing",
       "points": 4,
-      "xws": "dutchvander-SWZ106"
+      "xws": "dutchvander-swz106"
     },
     {
       "id": 638,
       "name": "Horton Salm (SSP)",
       "ship": "BTL-A4 Y-wing",
       "points": 4,
-      "xws": "hortonsalm-SWZ106"
+      "xws": "hortonsalm-swz106"
     },
     {
       "id": 639,
       "name": "Arvel Crynyd (SSP)",
       "ship": "RZ-1 A-wing",
       "points": 4,
-      "xws": "arvelcrynyd-SWZ106"
+      "xws": "arvelcrynyd-swz106"
     },
     {
       "id": 640,
-      "name": "Jake Farrel (SSP)",
+      "name": "Jake Farrell (SSP)",
       "ship": "RZ-1 A-wing",
       "points": 5,
-      "xws": "jakefarrel-SWZ106"
+      "xws": "jakefarrell-swz106"
     },
     {
       "id": 641,
       "name": "Jek Porkins (SSP)",
       "ship": "T-65 X-wing",
       "points": 5,
-      "xws": "jekporkins-SWZ106"
+      "xws": "jekporkins-swz106"
     },
     {
       "id": 642,
       "name": "Luke Skywalker (SSP)",
       "ship": "T-65 X-wing",
       "points": 6,
-      "xws": "lukeskywalker-SWZ106"
+      "xws": "lukeskywalker-swz106"
     },
     {
       "id": 643,
-      "name": "Wedge Antilles (SSP)",
-      "ship": "T-65 X-wing",
-      "points": 5,
-      "xws": "wedgeantilles-SWZ106"
+      "name": "Shara Bey (SSP)",
+      "ship": "RZ-1 A-wing",
+      "points": 4,
+      "xws": "sharabey-swz106"
     }
   ],
   "upgrades": [
