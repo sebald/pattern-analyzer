@@ -1,9 +1,10 @@
 import { Card, Container, Link, List, Logo } from '@/ui';
 import { BASE_URL, RECENT_EVENTS } from '@/lib/env';
-import { getJson } from '@/lib/utils';
+import { cn, getJson } from '@/lib/utils';
 
 import { montserrat } from './fonts';
 import { EventForm } from './components/event-form';
+import { EventInfo } from '@/lib/types';
 
 // Config
 // ---------------
@@ -20,7 +21,7 @@ const getReventEvents = async () => {
       getJson(`${BASE_URL}/api/${vendor}/${id}`)
     )
   );
-  return events;
+  return events as EventInfo[];
 };
 
 // Page
@@ -32,7 +33,11 @@ const Home = async () => {
     <Container className="grid flex-1 place-items-center">
       <div>
         <h1
-          className={`${montserrat.variable} prose flex items-center justify-center pb-20 pt-8 font-headline text-2xl font-extrabold uppercase text-primary-900 md:pb-14`}
+          className={cn(
+            montserrat.variable,
+            'prose flex items-center justify-center pt-8 font-headline text-2xl font-extrabold uppercase text-primary-900 md:pb-14',
+            events.length > 0 ? 'pb-20' : 'pb-6'
+          )}
         >
           <Logo className="h-10 w-10" />
           Pattern Analyzer
