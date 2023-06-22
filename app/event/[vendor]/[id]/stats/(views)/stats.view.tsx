@@ -9,6 +9,7 @@ import { FactionDistribution } from './components/faction-distribution';
 import { FactionPerformance } from './components/faction-performance';
 import { FactionRecord } from './components/faction-record';
 import { PilotCostDistribution } from './components/pilot-cost-distribution';
+import { PilotSkillDistribution } from './components/pilot-skill-distribution';
 import { PilotStats } from './components/pilot-stats';
 import { ShipComposition } from './components/ship-composition';
 import { SquadSize } from './components/squad-size';
@@ -46,6 +47,9 @@ export const StatsView = ({ squads }: StatsViewProps) => {
       </div>
       <div className="md:col-span-6">
         <PilotCostDistribution value={data.pilotCostDistribution} />
+      </div>
+      <div className="md:col-span-6">
+        <PilotSkillDistribution value={data.pilotSkillDistribution} />
       </div>
       <div className="col-span-full">
         <ChassisDistribution value={data.shipStats} />

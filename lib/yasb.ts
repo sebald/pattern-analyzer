@@ -2,6 +2,15 @@ import yasb from './data/yasb.json';
 import { getPilotName, type Ships } from './get-value';
 import type { XWSSquad, XWSFaction, XWSPilot, XWSUpgrades } from './types';
 
+export interface YASBPilot {
+  id: number;
+  name: string;
+  ship: string;
+  points: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
+  skill: 0 | 1 | 2 | 3 | 4 | 5 | 6;
+  xws?: string;
+}
+
 export const YASB_URL_REGEXP =
   /https:\/\/yasb\.app\/\?f(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=,]*)/;
 
@@ -34,19 +43,36 @@ export const toXWSIdentifier = (input: string) => {
   return `${id}${SUFFIX_NORMALIZATION[suffix] || ''}`;
 };
 
-export const getPointsByName = (id: string) => {
+/**
+ * Search by id first, but some pilots don't have a xws property in the
+ * YASB data, so we need to search by name too.
+ */
+export const getPilotByName = (id: string) => {
+  const pilot = yasb.pilots.find(pilot => pilot.xws === id) as
+    | YASBPilot
+    | undefined;
+
+  if (pilot) {
+    return pilot;
+  }
+
   // Normalize names that contain weird quotes and use regular instead
   const name = getPilotName(id)?.replace(/[“”]/g, '"');
+  return yasb.pilots.find(pilot => pilot.name === name) as
+    | YASBPilot
+    | undefined;
+};
 
-  /**
-   * Search by id first, but some pilots don't have a xws property in the
-   * YASB data, so we need to search by name too.
-   */
-  const { points } = yasb.pilots.find(pilot => pilot.xws === id) ||
-    yasb.pilots.find(pilot => pilot.name === name) || {
-      points: 1,
-    };
+export const getPointsByName = (id: string) => {
+  const { points } = getPilotByName(id) || {
+    points: 1,
+  };
   return points || 1;
+};
+
+export const getPilotSkill = (id: string) => {
+  const { skill } = getPilotByName(id) || { skill: 1 };
+  return skill;
 };
 
 /**
