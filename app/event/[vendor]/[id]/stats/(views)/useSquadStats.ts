@@ -1,6 +1,7 @@
 import type { Ships } from '@/lib/get-value';
 import type { SquadData, XWSFaction, XWSUpgradeSlots } from '@/lib/types';
 import { percentile, average, deviation, winrate, round } from '@/lib/utils';
+import { getPilotSkill } from '@/lib/yasb';
 
 import type {
   FactionMap,
@@ -56,6 +57,17 @@ export const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     6: 0,
     7: 0,
     8: 0,
+  };
+
+  // Initiative distribution
+  const pilotSkillDistribution = {
+    0: 0,
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+    5: 0,
+    6: 0,
   };
 
   // Stats about pilots (performance, percentile, number of occurances)
@@ -168,6 +180,10 @@ export const useSquadStats = ({ squads }: UseSquadStatsProps) => {
         // Pilot cost distribution
         const points = pilot.points as 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
         pilotCostDistribution[points] = pilotCostDistribution[points] + 1;
+
+        // Pilot initiative distribution
+        const skill = getPilotSkill(pilot.id);
+        pilotSkillDistribution[skill] = pilotSkillDistribution[skill] + 1;
 
         unique.add(pilot.id);
 
@@ -324,6 +340,7 @@ export const useSquadStats = ({ squads }: UseSquadStatsProps) => {
     squadSizes,
     pilotStats,
     pilotCostDistribution,
+    pilotSkillDistribution,
     shipComposition,
     shipStats,
     upgradeStats,
