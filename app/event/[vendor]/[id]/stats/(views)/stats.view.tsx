@@ -45,14 +45,14 @@ export const StatsView = ({ squads }: StatsViewProps) => {
       <div className="md:col-span-6">
         <SquadSize value={data.squadSizes} total={data.tournamentStats.xws} />
       </div>
+      <div className="col-span-full">
+        <ChassisDistribution value={data.shipStats} />
+      </div>
       <div className="md:col-span-6">
         <PilotCostDistribution value={data.pilotCostDistribution} />
       </div>
       <div className="md:col-span-6">
         <PilotSkillDistribution value={data.pilotSkillDistribution} />
-      </div>
-      <div className="col-span-full">
-        <ChassisDistribution value={data.shipStats} />
       </div>
       <div className="col-span-full">
         <PilotStats value={data.pilotStats} />
