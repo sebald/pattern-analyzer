@@ -26,7 +26,7 @@ export const PilotSkillDistribution = ({
     t = t + val;
     return t;
   }, 0);
-
+  console.log(data);
   return (
     <Card>
       <Card.Title>Pilot Initiative Distribution</Card.Title>
@@ -42,14 +42,6 @@ export const PilotSkillDistribution = ({
           enablePointLabel
           enableArea
           pointSize={10}
-          axisBottom={{
-            tickValues: [0, 1, 2, 3, 4, 5, 6],
-          }}
-          xScale={{
-            type: 'linear',
-            min: 0,
-            max: 'auto',
-          }}
           defs={[
             linearGradientDef('gradient', [
               { offset: 0, color: '#8490db' },
@@ -59,6 +51,7 @@ export const PilotSkillDistribution = ({
           colors="#8490db"
           fill={[{ match: '*', id: 'gradient' }]}
           margin={{ top: 20, right: 30, bottom: 20, left: 30 }}
+          isInteractive={false}
           animate={false}
         />
       </div>
