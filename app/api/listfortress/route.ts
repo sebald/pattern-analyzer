@@ -11,15 +11,19 @@ export const revalidate = 86_400; // 1 day
 // ---------------
 const schema = z.object({
   from: z
-    .date()
+    .string()
+    .datetime()
     .nullable()
-    .transform(
-      val => val ?? new Date(new Date().setDate(new Date().getDate() - 30))
+    .transform(val =>
+      val
+        ? new Date(val)
+        : new Date(new Date().setDate(new Date().getDate() - 30))
     ),
   to: z
-    .date()
+    .string()
+    .datetime()
     .nullable()
-    .transform(val => val ?? new Date()),
+    .transform(val => (val ? new Date(val) : new Date())),
 });
 
 const getAllTournaments = async () => {
@@ -58,6 +62,8 @@ export const GET = async (request: NextRequest) => {
 
   const filter = result.data;
   const tournaments = await getAllTournaments();
+
+  console.log(filter);
 
   const data = tournaments.filter(t => {
     const created = new Date(t.created_at);
