@@ -7,9 +7,4 @@ export const BASE_URL =
 export const RECENT_EVENTS: {
   vendor: Vendor;
   id: string;
-}[] = [
-  {
-    vendor: 'listfortress',
-    id: '3696',
-  },
-];
+}[] = [];
