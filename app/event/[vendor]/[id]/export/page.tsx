@@ -1,17 +1,9 @@
-import { RECENT_EVENTS } from '@/lib/env';
 import type { Vendor } from '@/lib/types';
 import { Headline, List, Link, Text } from '@/ui';
 
 import { ExportListfortress } from './components/export-listfortress';
 import { ExportLongshanks } from './components/export-longshanks';
 import { ExportRollbetter } from './components/export-rollbetter';
-
-// Config
-// ---------------
-/**
- * Opt into background revalidation. (see: https://github.com/vercel/next.js/discussions/43085)
- */
-export const generateStaticParams = () => RECENT_EVENTS;
 
 // Helpers
 // ---------------

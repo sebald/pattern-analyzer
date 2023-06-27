@@ -1,13 +1,8 @@
-import { BASE_URL, RECENT_EVENTS } from '@/lib/env';
+import { BASE_URL } from '@/lib/env';
 import { SquadData, Vendor } from '@/lib/types';
 
 import { LongshanksSquadView } from './(views)/longshanks-squad.view';
 import { SquadsView } from './(views)/squad.view';
-
-/**
- * Opt into background revalidation. (see: https://github.com/vercel/next.js/discussions/43085)
- */
-export const generateStaticParams = () => RECENT_EVENTS;
 
 // Data
 // ---------------
