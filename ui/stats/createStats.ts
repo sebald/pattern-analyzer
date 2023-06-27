@@ -23,13 +23,88 @@ const initFactionData = (): FactionStatData => ({
   winrate: 0,
 });
 
+export const setupStats = () => ({
+  tournamentStats: {
+    xws: 0,
+    count: 0,
+    cut: 0,
+  },
+  factionStats: {
+    rebelalliance: initFactionData(),
+    galacticempire: initFactionData(),
+    scumandvillainy: initFactionData(),
+    resistance: initFactionData(),
+    firstorder: initFactionData(),
+    galacticrepublic: initFactionData(),
+    separatistalliance: initFactionData(),
+    unknown: initFactionData(),
+  },
+  squadSizes: {
+    3: 0,
+    4: 0,
+    5: 0,
+    6: 0,
+    7: 0,
+    8: 0,
+  },
+  pilotSkillDistribution: {
+    0: 0,
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+    5: 0,
+    6: 0,
+  },
+  pilotStats: {
+    rebelalliance: {},
+    galacticempire: {},
+    scumandvillainy: {},
+    resistance: {},
+    firstorder: {},
+    galacticrepublic: {},
+    separatistalliance: {},
+  },
+  pilotCostDistribution: {
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+    5: 0,
+    6: 0,
+    7: 0,
+    8: 0,
+    9: 0,
+  },
+  shipComposition: new Map<string, number>(),
+  shipStats: {
+    rebelalliance: {},
+    galacticempire: {},
+    scumandvillainy: {},
+    resistance: {},
+    firstorder: {},
+    galacticrepublic: {},
+    separatistalliance: {},
+  },
+  upgradeStats: {
+    all: {},
+    rebelalliance: {},
+    galacticempire: {},
+    scumandvillainy: {},
+    resistance: {},
+    firstorder: {},
+    galacticrepublic: {},
+    separatistalliance: {},
+  },
+});
+
 // Hook
 // ---------------
 export interface UseSquadStatsProps {
   squads: SquadData[];
 }
 
-export const useSquadStats = ({ squads }: UseSquadStatsProps) => {
+export const createStats = ({ squads }: UseSquadStatsProps) => {
   const tournamentStats = {
     xws: 0,
     count: squads.length,

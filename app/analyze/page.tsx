@@ -1,6 +1,8 @@
 import { BASE_URL } from '@/lib/env';
 import { ListfortressTournamentInfo, SquadData } from '@/lib/types';
+
 import { Title } from '@/ui';
+import { createStats, setupStats } from '@/ui/stats/createStats';
 
 // Config
 // ---------------
@@ -11,7 +13,7 @@ export const revalidate = 10800; // 3 hours
 
 // Data
 // ---------------
-const getRecentTournaments = async () => {
+const getStats = async () => {
   const res = await fetch(`${BASE_URL}/api/listfortress`);
 
   if (!res.ok) {
@@ -20,7 +22,7 @@ const getRecentTournaments = async () => {
 
   const infos = (await res.json()) as ListfortressTournamentInfo[];
 
-  const squads = await Promise.all(
+  const events = await Promise.all(
     infos.map(async ({ id }) => {
       const r = await fetch(`${BASE_URL}/api/listfortress/${id}/squads`);
 
@@ -28,20 +30,36 @@ const getRecentTournaments = async () => {
         throw new Error('Failed to fetch squads...');
       }
 
-      const squads = (await r.json()) as SquadData[];
-      return squads;
+      const event = (await r.json()) as SquadData[];
+      return event;
     })
   );
 
-  return squads;
+  return events.reduce((stats, squads) => {
+    const st = createStats({ squads });
+
+    const next = {
+      tournamentStats: {
+        xws: stats.tournamentStats.xws + st.tournamentStats.xws,
+        count: stats.tournamentStats.count + st.tournamentStats.count,
+        cut: stats.tournamentStats.cut + st.tournamentStats.cut,
+      },
+    };
+
+    return stats;
+  }, setupStats());
 };
 
 // Page
 // ---------------
 const AnalyzePage = async () => {
+  const squads = await getStats();
   return (
     <header className="mb-4 border-b border-b-primary-100 pb-6 md:mt-3">
       <Title>Analyze</Title>
+      <pre>
+        <code>{JSON.stringify(squads, null, 2)}</code>
+      </pre>
     </header>
   );
 };
