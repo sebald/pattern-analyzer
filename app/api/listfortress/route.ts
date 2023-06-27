@@ -10,6 +10,7 @@ export const revalidate = 86_400; // 1 day
 // Helpers
 // ---------------
 const schema = z.object({
+  q: z.string().optional().nullable(),
   from: z
     .string()
     .datetime()
@@ -43,10 +44,12 @@ const getAllTournaments = async () => {
 export const GET = async (request: NextRequest) => {
   const { searchParams } = new URL(request.url);
 
-  const result = schema.safeParse({
-    from: searchParams.get('from'),
-    to: searchParams.get('to'),
-  });
+  const result = schema.safeParse(
+    Object.keys(schema.shape).reduce((o, key) => {
+      o[key] = searchParams.get(key);
+      return o;
+    }, {} as any)
+  );
 
   if (!result.success) {
     return NextResponse.json(
@@ -66,9 +69,17 @@ export const GET = async (request: NextRequest) => {
   console.log(filter);
 
   const data = tournaments.filter(t => {
-    const created = new Date(t.created_at);
+    // Includes given name
+    if (
+      filter.q &&
+      !t.name.toLocaleLowerCase().includes(filter.q.toLocaleLowerCase())
+    ) {
+      return false;
+    }
 
-    return created >= filter.from && created <= filter.to;
+    // Was held in given time frame
+    const date = new Date(t.date);
+    return date >= filter.from && date <= filter.to;
   });
 
   return NextResponse.json(data);
