@@ -44,14 +44,17 @@ export const RecentEvents = () => {
       {events && events.length ? (
         <Card>
           <List variant="wide">
-            {events.map(({ id, name, date }) => (
+            {events.map(({ id, name, date, country }) => (
               <List.Item key={id}>
                 <Link
                   className="text-lg text-secondary-900"
                   href={`/event/listfortress/${id}`}
                 >
                   <h3 className="font-medium">{name}</h3>
-                  <div className="text-sm text-secondary-500">{date}</div>
+                  <div className="text-sm text-secondary-500">
+                    {date}
+                    {country ? `, ${country}` : ''}
+                  </div>
                 </Link>
               </List.Item>
             ))}
