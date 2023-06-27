@@ -1,5 +1,5 @@
 import { BASE_URL } from '@/lib/env';
-import { ListfortressTournamentInfo } from '@/lib/types';
+import { ListfortressTournamentInfo, SquadData } from '@/lib/types';
 import { Title } from '@/ui';
 
 // Config
@@ -15,11 +15,25 @@ const getRecentTournaments = async () => {
   const res = await fetch(`${BASE_URL}/api/listfortress`);
 
   if (!res.ok) {
-    throw new Error('Failed to fetch recent events...');
+    throw new Error('Failed to fetch listfortress data...');
   }
 
-  const events = await res.json();
-  return events as ListfortressTournamentInfo[];
+  const infos = (await res.json()) as ListfortressTournamentInfo[];
+
+  const squads = await Promise.all(
+    infos.map(async ({ id }) => {
+      const r = await fetch(`${BASE_URL}/api/listfortress/${id}/squads`);
+
+      if (!r.ok) {
+        throw new Error('Failed to fetch squads...');
+      }
+
+      const squads = (await r.json()) as SquadData[];
+      return squads;
+    })
+  );
+
+  return squads;
 };
 
 // Page
