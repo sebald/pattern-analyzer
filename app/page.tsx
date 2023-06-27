@@ -1,5 +1,4 @@
 import { Card, Collapsible, Container, Headline, Link, List, Logo } from '@/ui';
-import { BASE_URL } from '@/lib/env';
 import type { ListfortressTournamentInfo } from '@/lib/types';
 import { cn } from '@/lib/utils';
 
@@ -16,7 +15,8 @@ export const revalidate = 10800; // 3 hours
 // Data
 // ---------------
 const getRecentTournaments = async () => {
-  const res = await fetch(`${BASE_URL}/api/listfortress`);
+  // const res = await fetch(`${BASE_URL}/api/listfortress`);
+  const res = await fetch(`https://pattern-analyzer.app/api/listfortress`);
 
   if (!res.ok) {
     throw new Error('Failed to fetch recent events...');
