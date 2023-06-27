@@ -176,6 +176,20 @@ export interface ListfortressRound {
   scenario: Scenarios;
 }
 
+export interface ListfortressTournamentInfo {
+  id: number;
+  name: string;
+  location: string;
+  state: string;
+  country: string;
+  date: string;
+  format_id: number;
+  version_id: any;
+  tournament_type_id: number;
+  created_at: string;
+  updated_at: string;
+}
+
 export interface ListfortressTournament {
   id: number;
   name: string;
