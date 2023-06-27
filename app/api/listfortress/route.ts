@@ -10,7 +10,8 @@ export const revalidate = 86_400; // 1 day
 // Helpers
 // ---------------
 const schema = z.object({
-  q: z.string().optional().nullable(),
+  q: z.string().nullable(),
+  format: z.union([z.literal('standard'), z.literal('legacy')]).nullable(),
   from: z
     .string()
     .datetime()
@@ -26,6 +27,11 @@ const schema = z.object({
     .nullable()
     .transform(val => (val ? new Date(val) : new Date())),
 });
+
+const FORMAT_MAP = {
+  standard: 36, // 2.5 Standard actually
+  legacy: 37,
+};
 
 const getAllTournaments = async () => {
   const api_url = 'https://listfortress.com/api/v1/tournaments/';
@@ -72,6 +78,11 @@ export const GET = async (request: NextRequest) => {
       filter.q &&
       !t.name.toLocaleLowerCase().includes(filter.q.toLocaleLowerCase())
     ) {
+      return false;
+    }
+
+    // Include only certain format
+    if (filter.format && FORMAT_MAP[filter.format] !== t.format_id) {
       return false;
     }
 

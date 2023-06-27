@@ -16,7 +16,7 @@ export const revalidate = 10800; // 3 hours
 // Data
 // ---------------
 const getRecentTournaments = async () => {
-  const res = await fetch(`${BASE_URL}/api/listfortress`);
+  const res = await fetch(`${BASE_URL}/api/listfortress?format=standard`);
 
   if (!res.ok) {
     throw new Error('Failed to fetch recent events...');
