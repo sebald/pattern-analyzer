@@ -66,8 +66,6 @@ export const GET = async (request: NextRequest) => {
   const filter = result.data;
   const tournaments = await getAllTournaments();
 
-  console.log(filter);
-
   const data = tournaments.filter(t => {
     // Includes given name
     if (
