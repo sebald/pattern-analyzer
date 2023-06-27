@@ -8,11 +8,3 @@ export const RECENT_EVENTS: {
   vendor: Vendor;
   id: string;
 }[] = [];
-
-// [
-//   {
-//     // UKGE
-//     vendor: 'listfortress',
-//     id: '3696',
-//   },
-// ];

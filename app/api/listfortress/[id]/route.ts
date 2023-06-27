@@ -1,7 +1,11 @@
 import { type NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 
-import { ListfortressTournament } from '@/lib/types';
+import type { ListfortressTournament } from '@/lib/types';
+
+// Config
+// ---------------
+export const revalidate = 86_400; // 1 day
 
 // Helpers
 // ---------------
