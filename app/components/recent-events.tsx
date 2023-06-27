@@ -51,7 +51,7 @@ export const RecentEvents = () => {
                   href={`/event/listfortress/${id}`}
                 >
                   <h3 className="font-medium">{name}</h3>
-                  <div className="text-sm text-secondary-500">
+                  <div className="text-sm text-secondary-400">
                     {date}
                     {country ? `, ${country}` : ''}
                   </div>
