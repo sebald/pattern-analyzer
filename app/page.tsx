@@ -1,5 +1,4 @@
 import { Card, Collapsible, Container, Headline, Link, List, Logo } from '@/ui';
-import { BASE_URL } from '@/lib/env';
 import type { ListfortressTournamentInfo } from '@/lib/types';
 import { cn } from '@/lib/utils';
 
@@ -15,21 +14,27 @@ export const revalidate = 10800; // 3 hours
 
 // Data
 // ---------------
-const getRecentTournaments = async () => {
-  const res = await fetch(`${BASE_URL}/api/listfortress?format=standard`);
+const getReventEvents = async () => {
+  const res = await fetch('https://listfortress.com/api/v1/tournaments/');
 
   if (!res.ok) {
-    throw new Error('Failed to fetch recent events...');
+    throw new Error('[listfortress] Failed to fetch events...');
   }
 
-  const events = await res.json();
-  return events as ListfortressTournamentInfo[];
+  const events: ListfortressTournamentInfo[] = await res.json();
+  const thirtyDaysAgo = new Date(new Date().setDate(new Date().getDate() - 30));
+
+  return events.filter(e => {
+    const date = new Date(e.date);
+    // 2.5 Standard events that happened in the last 30 days
+    return e.format_id === 36 && date >= thirtyDaysAgo;
+  });
 };
 
 // Page
 // ---------------
 const Home = async () => {
-  const events = await getRecentTournaments();
+  const events = await getReventEvents();
 
   return (
     <Container className="grid flex-1 place-items-center">
