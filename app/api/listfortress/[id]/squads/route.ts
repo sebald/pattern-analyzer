@@ -92,48 +92,51 @@ export const GET = async (_: NextRequest, { params }: RouteContext) => {
     );
   });
 
-  const squads = participants
-    .map(({ list_json, ...p }) => {
-      let xws = null;
-      try {
-        if (list_json) {
-          xws = toXWS(list_json || '');
-        }
-      } catch {
-        console.log(`[listfortress] Failed to parse "list_json": ${list_json}`);
+  let squads = participants.map(({ list_json, ...p }) => {
+    let xws = null;
+    try {
+      if (list_json) {
+        xws = toXWS(list_json || '');
       }
+    } catch {
+      console.log(`[listfortress] Failed to parse "list_json": ${list_json}`);
+    }
 
-      return {
-        id: `${p.id}`,
-        player: p.name,
-        xws,
-        raw: list_json || '',
-        url: getBuilderLink(xws),
-        rank: {
-          swiss: p.swiss_rank,
-          elimination: p.top_cut_rank,
-        },
-        points: p.score,
-        record: records[p.id] || {
-          wins: 0,
-          losses: 0,
-          ties: 0,
-        },
-        sos: Number(p.sos),
-        missionPoints: p.mission_points,
-        mov: p.mov,
-        dropped: p.dropped,
-      };
-    })
+    return {
+      id: `${p.id}`,
+      player: p.name,
+      xws,
+      raw: list_json || '',
+      url: getBuilderLink(xws),
+      rank: {
+        swiss: p.swiss_rank,
+        elimination: p.top_cut_rank,
+      },
+      points: p.score,
+      record: records[p.id] || {
+        wins: 0,
+        losses: 0,
+        ties: 0,
+      },
+      sos: Number(p.sos),
+      missionPoints: p.mission_points,
+      mov: p.mov,
+      dropped: p.dropped,
+    };
+  }) satisfies SquadData[];
+
+  // Only filter if records were reported
+  if (Object.keys(records).length) {
     /**
      * Rollbetter reports people from the waitlist as
      * participants. We remove them by checking some of
      * their stats.
      */
-    .filter(p => {
+    squads = squads.filter(p => {
       const games = Object.values(p.record).reduce((acc, n) => n + acc, 0);
       return p.sos > 0 && games > 0;
     }) satisfies SquadData[];
+  }
 
   squads.sort((a, b) => {
     if (a.rank.elimination || b.rank.elimination) {

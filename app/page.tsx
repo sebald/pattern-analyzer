@@ -21,14 +21,20 @@ const getReventEvents = async () => {
     throw new Error('[listfortress] Failed to fetch events...');
   }
 
-  const events: ListfortressTournamentInfo[] = await res.json();
-  const thirtyDaysAgo = new Date(new Date().setDate(new Date().getDate() - 30));
+  let events: ListfortressTournamentInfo[] = await res.json();
 
-  return events.filter(e => {
+  const daysAgo = new Date(new Date().setDate(new Date().getDate() - 20));
+  events = events.filter(e => {
     const date = new Date(e.date);
-    // 2.5 Standard events that happened in the last 30 days
-    return e.format_id === 36 && date >= thirtyDaysAgo;
+    // 2.5 Standard events that happened in the last 20 days
+    return e.format_id === 36 && date >= daysAgo;
   });
+
+  events.sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
+
+  return events;
 };
 
 // Page
