@@ -54,6 +54,12 @@ export const initPilotStats = (ship: Ships): PilotStats => ({
   ...initFrequency(),
 });
 
+export const initShipSats = (): ShipStats => ({
+  count: 0,
+  lists: 0,
+  frequency: 0,
+});
+
 /**
  * Initialiaze object that holds data collected from an event.
  */

@@ -32,3 +32,8 @@ test('create stats (pilotSkillDistribution)', () => {
   const stats = create([squads]);
   expect(stats.pilotSkillDistribution).toEqual(result.pilotSkillDistribution);
 });
+
+test('create stats (ship)', () => {
+  const stats = create([squads]);
+  expect(stats.ship).toEqual(result.ship);
+});

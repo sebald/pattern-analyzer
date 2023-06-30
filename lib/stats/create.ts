@@ -1,3 +1,4 @@
+import { Ships } from '@/lib/get-value';
 import type { SquadData, XWSFaction } from '@/lib/types';
 import {
   average,
@@ -8,7 +9,7 @@ import {
 } from '@/lib/utils/math.utils';
 
 import { collect } from './collect';
-import { initPilotStats, initStats } from './init';
+import { initPilotStats, initShipSats, initStats } from './init';
 
 export const create = (list: SquadData[][]) => {
   const result = initStats();
@@ -52,6 +53,7 @@ export const create = (list: SquadData[][]) => {
     // Pilot
     Object.keys(current.pilot).forEach(key => {
       const fid = key as XWSFaction;
+
       Object.entries(current.pilot[fid]).forEach(([pid, stats]) => {
         if (!stats) return;
 
@@ -83,6 +85,21 @@ export const create = (list: SquadData[][]) => {
       // @ts-ignore
       result.pilotSkillDistribution[key] += current.pilotSkillDistribution[key];
     });
+
+    // Ship
+    Object.keys(current.ship).forEach(key => {
+      const fid = key as XWSFaction;
+
+      Object.entries(current.ship[fid]).forEach(([sid, stats]) => {
+        if (!stats) return;
+
+        const ship = result.ship[fid][sid as Ships] || initShipSats();
+        ship.count += stats.count;
+        ship.lists += stats.lists;
+
+        result.ship[fid][sid as Ships] = ship;
+      });
+    });
   });
 
   // Calculate percentile, deviation and winrate for factions
@@ -109,6 +126,17 @@ export const create = (list: SquadData[][]) => {
       stats.winrate = winrate(stats.records);
       stats.percentile = average(pcs, 4);
       stats.deviation = deviation(pcs, 4);
+    });
+  });
+
+  // Calculate frequemcy for ships
+  Object.keys(result.ship).forEach(key => {
+    const fid = key as XWSFaction;
+
+    Object.entries(result.ship[fid]).forEach(([_, stats]) => {
+      if (!stats) return;
+
+      stats.frequency = round(stats.lists / result.faction[fid].count, 4);
     });
   });
 
