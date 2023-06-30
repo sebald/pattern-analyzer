@@ -1,54 +1,31 @@
 import { Ships } from '../get-value';
-import { PlayerRecord, XWSFaction, XWSUpgradeSlots } from '../types';
-
-// Types
-// ---------------
-export type FactionMap<Key extends string, Value> = {
-  [faction in XWSFaction]: { [key in Key]?: Value };
-};
-
-export type FactionMapWithAll<Key extends string, Value> = {
-  [faction in XWSFaction | 'all']: { [key in Key]?: Value };
-};
-
-export interface FactionDataCollection {
-  count: number;
-  records: PlayerRecord[];
-  ranks: number[];
-}
-
-export interface FactionDataCollection {
-  count: number;
-  records: { wins: number; ties: number; losses: number }[];
-  ranks: number[];
-}
-
-export interface PilotDataCollection {
-  ship: Ships;
-  count: number;
-  lists: number;
-  records: { wins: number; ties: number; losses: number }[];
-  ranks: number[];
-}
-
-export interface ShipDataCollection {
-  count: number;
-  lists: number;
-}
-
-export interface UpgradeDataCollection {
-  slot: XWSUpgradeSlots;
-  count: number;
-  lists: number;
-  records: { wins: number; ties: number; losses: number }[];
-  ranks: number[];
-}
-
-export type SuqadDataCollection = ReturnType<typeof init>;
+import { XWSFaction } from '../types';
+import {
+  FactionMap,
+  FactionDataCollection,
+  PilotDataCollection,
+  ShipDataCollection,
+  FactionMapWithAll,
+  UpgradeDataCollection,
+  SuqadDataCollection,
+} from './types';
 
 // Utils
 // ---------------
-const initFactionData = (): FactionDataCollection => ({
+export const initFactionMap = <Key extends string, Value>(): FactionMap<
+  Key,
+  Value
+> => ({
+  rebelalliance: {},
+  galacticempire: {},
+  scumandvillainy: {},
+  resistance: {},
+  firstorder: {},
+  galacticrepublic: {},
+  separatistalliance: {},
+});
+
+export const initFactionData = (): FactionDataCollection => ({
   count: 0,
   records: [],
   ranks: [],
@@ -57,7 +34,7 @@ const initFactionData = (): FactionDataCollection => ({
 /**
  * Initialiaze object that holds data collected from an event.
  */
-export const init = () => {
+export const init = (): SuqadDataCollection => {
   // Basic tournament data
   const tournament = {
     xws: 0,
@@ -90,15 +67,7 @@ export const init = () => {
   };
 
   // Stats about pilots (performance, percentile, number of occurances)
-  const pilot: FactionMap<string, PilotDataCollection> = {
-    rebelalliance: {},
-    galacticempire: {},
-    scumandvillainy: {},
-    resistance: {},
-    firstorder: {},
-    galacticrepublic: {},
-    separatistalliance: {},
-  };
+  const pilot = initFactionMap<string, PilotDataCollection>();
 
   // Number of pilots per cost
   const pilotCostDistribution = {
@@ -125,15 +94,7 @@ export const init = () => {
   };
 
   // Ship stats
-  const ship: FactionMap<Ships, ShipDataCollection> = {
-    rebelalliance: {},
-    galacticempire: {},
-    scumandvillainy: {},
-    resistance: {},
-    firstorder: {},
-    galacticrepublic: {},
-    separatistalliance: {},
-  };
+  const ship = initFactionMap<Ships, ShipDataCollection>();
 
   // Number of squads with the same ships (key = ship ids separated by "|")
   const shipComposition = new Map<string, number>();
@@ -141,13 +102,7 @@ export const init = () => {
   // Upgrades stats
   const upgrade: FactionMapWithAll<string, UpgradeDataCollection> = {
     all: {},
-    rebelalliance: {},
-    galacticempire: {},
-    scumandvillainy: {},
-    resistance: {},
-    firstorder: {},
-    galacticrepublic: {},
-    separatistalliance: {},
+    ...initFactionMap<string, UpgradeDataCollection>(),
   };
 
   return {

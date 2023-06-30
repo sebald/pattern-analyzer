@@ -1,5 +1,5 @@
 import { Ships } from '@/lib/get-value';
-import { SquadData, XWSUpgradeSlots } from '@/lib/types';
+import type { SquadData, XWSUpgradeSlots } from '@/lib/types';
 import { getPilotSkill } from '@/lib/yasb';
 
 import { init } from './init';
@@ -8,6 +8,7 @@ import { init } from './init';
 // ---------------
 export const collect = (squads: SquadData[]) => {
   const data = init();
+  data.tournament.count = squads.length;
 
   squads.forEach(squad => {
     // Number of Squads with XWS
@@ -148,6 +149,13 @@ export const collect = (squads: SquadData[]) => {
           });
         });
       });
+
+      // Sort so we can generate an ID
+      ships.sort();
+      const shipCompositionId = ships.join('|');
+      const shipCompositionCount =
+        data.shipComposition.get(shipCompositionId) || 0;
+      data.shipComposition.set(shipCompositionId, shipCompositionCount + 1);
     }
   });
 

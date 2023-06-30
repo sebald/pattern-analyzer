@@ -1,6 +1,6 @@
 export const result = {
-  tournamentStats: { xws: 45, count: 50, cut: 16 },
-  factionStats: {
+  tournament: { xws: 45, count: 50, cut: 16 },
+  faction: {
     rebelalliance: {
       count: 15,
       records: [
@@ -123,7 +123,7 @@ export const result = {
     },
   },
   squadSizes: { '3': 0, '4': 14, '5': 26, '6': 3, '7': 1, '8': 1 },
-  pilotStats: {
+  pilot: {
     rebelalliance: {
       'hansolo-modifiedyt1300lightfreighter': {
         count: 9,
@@ -1531,7 +1531,7 @@ export const result = {
     '6': 37,
   },
   shipComposition: {},
-  shipStats: {
+  ship: {
     rebelalliance: {
       modifiedyt1300lightfreighter: { frequency: 0.6, count: 11, lists: 9 },
       t65xwing: { frequency: 0.8667, count: 19, lists: 13 },
@@ -1594,7 +1594,7 @@ export const result = {
       hmpdroidgunship: { frequency: 0.25, count: 2, lists: 1 },
     },
   },
-  upgradeStats: {
+  upgrade: {
     all: {
       saturationsalvo: {
         slot: 'talent',
