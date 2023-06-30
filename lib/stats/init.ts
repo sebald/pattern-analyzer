@@ -1,13 +1,12 @@
 import { Ships } from '../get-value';
-import { XWSFaction } from '../types';
 import {
   FactionMap,
-  FactionDataCollection,
+  FactionDataCollection as CommonDataCollection,
   PilotDataCollection,
   ShipDataCollection,
   FactionMapWithAll,
   UpgradeDataCollection,
-  SuqadDataCollection,
+  SquadDataCollection,
   SquadStats,
   PerformanceStats,
   FrequencyStats,
@@ -31,7 +30,7 @@ const initFactionMap = <Key extends string, Value>(): FactionMap<
   separatistalliance: {},
 });
 
-const initFactionData = (): FactionDataCollection => ({
+const initCommonData = (): CommonDataCollection => ({
   count: 0,
   records: [],
   ranks: [],
@@ -43,10 +42,22 @@ const initPerformance = (): PerformanceStats => ({
   winrate: 0,
 });
 
+const initFrequency = (): FrequencyStats => ({
+  frequency: 0,
+});
+
+export const initPilotStats = (ship: Ships): PilotStats => ({
+  ship,
+  lists: 0,
+  ...initCommonData(),
+  ...initPerformance(),
+  ...initFrequency(),
+});
+
 /**
  * Initialiaze object that holds data collected from an event.
  */
-export const initCollection = (): SuqadDataCollection => {
+export const initCollection = (): SquadDataCollection => {
   // Basic tournament data
   const tournament = {
     xws: 0,
@@ -56,15 +67,15 @@ export const initCollection = (): SuqadDataCollection => {
 
   // Stats about factions (ranks, number of squads, ...)
   const faction = {
-    rebelalliance: initFactionData(),
-    galacticempire: initFactionData(),
-    scumandvillainy: initFactionData(),
-    resistance: initFactionData(),
-    firstorder: initFactionData(),
-    galacticrepublic: initFactionData(),
-    separatistalliance: initFactionData(),
-    unknown: initFactionData(),
-  } satisfies SuqadDataCollection['faction'];
+    rebelalliance: initCommonData(),
+    galacticempire: initCommonData(),
+    scumandvillainy: initCommonData(),
+    resistance: initCommonData(),
+    firstorder: initCommonData(),
+    galacticrepublic: initCommonData(),
+    separatistalliance: initCommonData(),
+    unknown: initCommonData(),
+  } satisfies SquadDataCollection['faction'];
 
   // Number of ships per squads
   const squadSizes = {
@@ -128,6 +139,8 @@ export const initCollection = (): SuqadDataCollection => {
   };
 };
 
+// Stats
+// ---------------
 export const initStats = (): SquadStats => {
   // Basic tournament data
   const tournament = {
@@ -138,14 +151,14 @@ export const initStats = (): SquadStats => {
 
   // Stats about factions (ranks, number of squads, ...)
   const faction = {
-    rebelalliance: { ...initFactionData(), ...initPerformance() },
-    galacticempire: { ...initFactionData(), ...initPerformance() },
-    scumandvillainy: { ...initFactionData(), ...initPerformance() },
-    resistance: { ...initFactionData(), ...initPerformance() },
-    firstorder: { ...initFactionData(), ...initPerformance() },
-    galacticrepublic: { ...initFactionData(), ...initPerformance() },
-    separatistalliance: { ...initFactionData(), ...initPerformance() },
-    unknown: { ...initFactionData(), ...initPerformance() },
+    rebelalliance: { ...initCommonData(), ...initPerformance() },
+    galacticempire: { ...initCommonData(), ...initPerformance() },
+    scumandvillainy: { ...initCommonData(), ...initPerformance() },
+    resistance: { ...initCommonData(), ...initPerformance() },
+    firstorder: { ...initCommonData(), ...initPerformance() },
+    galacticrepublic: { ...initCommonData(), ...initPerformance() },
+    separatistalliance: { ...initCommonData(), ...initPerformance() },
+    unknown: { ...initCommonData(), ...initPerformance() },
   } satisfies SquadStats['faction'];
 
   // Number of ships per squads

@@ -40,7 +40,7 @@ export interface UpgradeDataCollection {
   ranks: number[];
 }
 
-export interface SuqadDataCollection {
+export interface SquadDataCollection {
   tournament: {
     xws: number;
     count: number;

@@ -8,7 +8,12 @@ test('create stats (tournament)', () => {
   expect(stats.tournament).toEqual(result.tournament);
 });
 
-test('create stats (tournament)', () => {
+test('create stats (faction)', () => {
   const stats = create([squads]);
   expect(stats.faction).toEqual(result.faction);
+});
+
+test('create stats (pilot)', () => {
+  const stats = create([squads]);
+  expect(stats.pilot).toEqual(result.pilot);
 });

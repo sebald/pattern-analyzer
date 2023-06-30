@@ -122,7 +122,7 @@ export const result = {
       winrate: 0.3333,
     },
   },
-  squadSizes: { '3': 0, '4': 14, '5': 26, '6': 3, '7': 1, '8': 1 },
+  squadSizes: { 3: 0, 4: 14, 5: 26, 6: 3, 7: 1, 8: 1 },
   pilot: {
     rebelalliance: {
       'hansolo-modifiedyt1300lightfreighter': {
