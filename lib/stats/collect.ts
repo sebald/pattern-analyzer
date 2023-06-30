@@ -2,12 +2,12 @@ import { Ships } from '@/lib/get-value';
 import type { SquadData, XWSUpgradeSlots } from '@/lib/types';
 import { getPilotSkill } from '@/lib/yasb';
 
-import { init } from './init';
+import { initCollection } from './init';
 
 // Collect data
 // ---------------
 export const collect = (squads: SquadData[]) => {
-  const data = init();
+  const data = initCollection();
   data.tournament.count = squads.length;
 
   squads.forEach(squad => {

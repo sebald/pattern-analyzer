@@ -11,7 +11,7 @@ export type FactionMapWithAll<Key extends string, Value> = {
   [faction in XWSFaction | 'all']: { [key in Key]?: Value };
 };
 
-// Collections
+// Collection
 // ---------------
 export interface FactionDataCollection {
   count: number;
