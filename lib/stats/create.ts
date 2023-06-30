@@ -1,36 +1,50 @@
 import type { SquadData, XWSFaction } from '@/lib/types';
+import {
+  average,
+  deviation,
+  percentile,
+  winrate,
+} from '@/lib/utils/math.utils';
 
 import { collect } from './collect';
+import { initStats } from './init';
 
 export const create = (list: SquadData[][]) => {
-  // Internal data storage
-  const data = {
-    xws: 0,
-    count: 0,
-    cut: 0,
-  };
+  const result = initStats();
+
+  /**
+   * Temporariy store values that need to be
+   * calculated over all tournaments
+   */
+  const percentiles = new Map<string, number[]>();
 
   list.forEach(squads => {
-    const stats = collect(squads);
+    const current = collect(squads);
 
-    tournament.xws += stats.tournament.xws;
-    tournament.count += stats.tournament.count;
-    tournament.cut += stats.tournament.cut;
+    result.tournament.xws += current.tournament.xws;
+    result.tournament.count += current.tournament.count;
+    result.tournament.cut += current.tournament.cut;
 
-    Object.keys(faction).forEach(key => {
+    Object.keys(result.faction).forEach(key => {
       const fid = key as XWSFaction | 'unknown';
-      faction[fid].count += stats.faction[fid].count;
-      faction[fid].records.push(...stats.faction[fid].records);
-      faction[fid].ranks.push(...stats.faction[fid].ranks);
+      const ranks = current.faction[fid].ranks;
+
+      result.faction[fid].count += current.faction[fid].count;
+      result.faction[fid].records.push(...current.faction[fid].records);
+      result.faction[fid].ranks.push(...ranks);
+
+      percentiles.set(fid, [
+        ...(percentiles.get(fid) || []),
+        ...ranks.map(rank => percentile(rank, current.tournament.count)),
+      ]);
     });
   });
 
   // Calculate percentile and deviation for factions
   Object.keys(result.faction).forEach(key => {
-    const faction = result.faction[key as XWSFaction | 'unknown'];
-    const ranks = faction.ranks;
-
-    const pcs = ranks.map(rank => percentile(rank, tournamentStats.count));
+    const fid = key as XWSFaction | 'unknown';
+    const faction = result.faction[fid];
+    const pcs = percentiles.get(fid) || [];
 
     faction.percentile = average(pcs, 4);
     faction.deviation = deviation(pcs, 4);
