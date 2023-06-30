@@ -28,9 +28,10 @@ export const create = (list: SquadData[][]) => {
     result.tournament.count += current.tournament.count;
     result.tournament.cut += current.tournament.cut;
 
+    // Squad Sizes
     Object.keys(current.squadSizes).forEach(key => {
       // @ts-ignore
-      result.squadSizes[key] += current.squadSizes;
+      result.squadSizes[key] += current.squadSizes[key];
     });
 
     // Faction
@@ -69,6 +70,18 @@ export const create = (list: SquadData[][]) => {
           ),
         ]);
       });
+    });
+
+    // Pilot Cost
+    Object.keys(current.pilotCostDistribution).forEach(key => {
+      // @ts-ignore
+      result.pilotCostDistribution[key] += current.pilotCostDistribution[key];
+    });
+
+    // Pilot Skill
+    Object.keys(current.pilotSkillDistribution).forEach(key => {
+      // @ts-ignore
+      result.pilotSkillDistribution[key] += current.pilotSkillDistribution[key];
     });
   });
 
