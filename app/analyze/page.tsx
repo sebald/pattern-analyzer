@@ -1,8 +1,8 @@
 import { BASE_URL } from '@/lib/env';
 import { ListfortressTournamentInfo, SquadData } from '@/lib/types';
+import { getAllTournaments } from '@/lib/vendor/listfortress';
 
 import { Title } from '@/ui';
-import { createStats, setupStats } from '@/ui/stats/createStats';
 
 // Config
 // ---------------
@@ -14,6 +14,11 @@ export const revalidate = 10800; // 3 hours
 // Data
 // ---------------
 const getStats = async () => {
+  const events = await getAllTournaments({
+    from: new Date(new Date().setDate(new Date().getDate() - 30)),
+    format: 'standard',
+  });
+
   const res = await fetch(`${BASE_URL}/api/listfortress`);
 
   if (!res.ok) {
