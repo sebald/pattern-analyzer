@@ -38,6 +38,12 @@ test('create stats (ship)', () => {
   expect(stats.ship).toEqual(result.ship);
 });
 
+// Can not tests maps and JONS ... whoopsie
+// test('create stats (shipComposition)', () => {
+//   const stats = create([squads]);
+//   expect(stats.shipComposition).toEqual(result.shipComposition);
+// });
+
 test('create stats (upgrade)', () => {
   const stats = create([squads]);
 
