@@ -7,10 +7,9 @@ import { BarCustomLayer, BarSvgProps, ResponsiveBar } from '@nivo/bar';
 
 import { Card, FactionSelection, Select, ShipText } from '@/ui';
 import { getStandardShips, Ships } from '@/lib/get-value';
+import type { FactionMap, ShipStats } from '@/lib/stats/types';
 import type { XWSFaction } from '@/lib/types';
 import { COLOR_MAP, toPercentage } from '@/lib/utils';
-
-import type { FactionMap, ShipStatData } from './types';
 
 // Helpers
 // ---------------
@@ -59,7 +58,7 @@ const barLabel: BarCustomLayer<{ frequency: number }> = ({
 // Props
 // ---------------
 export interface ChassisDistributionProps {
-  value: FactionMap<Ships, ShipStatData>;
+  value: FactionMap<Ships, ShipStats>;
 }
 
 // Component

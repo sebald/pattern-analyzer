@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 
 import { Card, Table } from '@/ui';
 import { getFactionName } from '@/lib/get-value';
-import { XWSFaction } from '@/lib/types';
+import type { XWSFaction } from '@/lib/types';
 import { FACTION_COLORS, toPercentage } from '@/lib/utils';
 
 // Props
