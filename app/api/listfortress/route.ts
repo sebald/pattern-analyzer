@@ -2,6 +2,7 @@ import { type NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 
 import type { ListfortressTournamentInfo } from '@/lib/types';
+import { getAllTournaments } from '@/lib/vendor/listfortress';
 
 // Config
 // ---------------
@@ -28,23 +29,6 @@ const schema = z.object({
     .transform(val => (val ? new Date(val) : new Date())),
 });
 
-const FORMAT_MAP = {
-  standard: 36, // 2.5 Standard actually
-  legacy: 37,
-};
-
-const getAllTournaments = async () => {
-  const api_url = 'https://listfortress.com/api/v1/tournaments/';
-  const res = await fetch(api_url);
-
-  if (!res.ok) {
-    throw new Error('[listfortress] Failed to fetch events...');
-  }
-
-  const tournament: ListfortressTournamentInfo[] = await res.json();
-  return tournament;
-};
-
 // Handler
 // ---------------
 export const GET = async (request: NextRequest) => {
@@ -69,27 +53,7 @@ export const GET = async (request: NextRequest) => {
     );
   }
 
-  const filter = result.data;
-  const tournaments = await getAllTournaments();
+  const tournaments = await getAllTournaments(result.data);
 
-  const data = tournaments.filter(t => {
-    // Includes given name
-    if (
-      filter.q &&
-      !t.name.toLocaleLowerCase().includes(filter.q.toLocaleLowerCase())
-    ) {
-      return false;
-    }
-
-    // Include only certain format
-    if (filter.format && FORMAT_MAP[filter.format] !== t.format_id) {
-      return false;
-    }
-
-    // Was held in given time frame
-    const date = new Date(t.date);
-    return date >= filter.from && date <= filter.to;
-  });
-
-  return NextResponse.json(data);
+  return NextResponse.json(tournaments);
 };
