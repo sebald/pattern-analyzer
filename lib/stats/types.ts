@@ -86,7 +86,7 @@ export interface PilotStats
 export interface ShipStats extends ShipDataCollection, FrequencyStats {}
 
 export interface UpgradeStats
-  extends PilotDataCollection,
+  extends UpgradeDataCollection,
     PerformanceStats,
     FrequencyStats {}
 

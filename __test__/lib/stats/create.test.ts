@@ -37,3 +37,9 @@ test('create stats (ship)', () => {
   const stats = create([squads]);
   expect(stats.ship).toEqual(result.ship);
 });
+
+test('create stats (upgrade)', () => {
+  const stats = create([squads]);
+
+  expect(stats.upgrade).toEqual(result.upgrade);
+});

@@ -9,7 +9,12 @@ import {
 } from '@/lib/utils/math.utils';
 
 import { collect } from './collect';
-import { initPilotStats, initShipSats, initStats } from './init';
+import {
+  initPilotStats,
+  initShipSats,
+  initStats,
+  initUpgradeStats,
+} from './init';
 
 export const create = (list: SquadData[][]) => {
   const result = initStats();
@@ -20,6 +25,7 @@ export const create = (list: SquadData[][]) => {
    */
   const factionPercentiles = new Map<string, number[]>();
   const pilotPercentiles = new Map<string, number[]>();
+  const upgradePercentiles = new Map<string, number[]>(); // use faction/"all" prefix
 
   list.forEach(squads => {
     const current = collect(squads);
@@ -100,9 +106,35 @@ export const create = (list: SquadData[][]) => {
         result.ship[fid][sid as Ships] = ship;
       });
     });
+
+    // Upgrade
+    Object.keys(current.upgrade).forEach(key => {
+      const fid = key as XWSFaction;
+
+      Object.entries(current.upgrade[fid]).forEach(([uid, stats]) => {
+        if (!stats) return;
+
+        const upgrade =
+          result.upgrade[fid][uid] || initUpgradeStats(stats.slot);
+        upgrade.count += stats.count;
+        upgrade.lists += stats.lists;
+        upgrade.records.push(...stats.records);
+        upgrade.ranks.push(...stats.ranks);
+
+        result.upgrade[fid][uid] = upgrade;
+
+        const id = `${fid}.${uid}`;
+        upgradePercentiles.set(id, [
+          ...(upgradePercentiles.get(id) || []),
+          ...stats.ranks.map(rank =>
+            percentile(rank, current.tournament.count)
+          ),
+        ]);
+      });
+    });
   });
 
-  // Calculate percentile, deviation and winrate for factions
+  // Faction: percentile, deviation and winrate
   Object.keys(result.faction).forEach(key => {
     const fid = key as XWSFaction | 'unknown';
     const faction = result.faction[fid];
@@ -113,7 +145,7 @@ export const create = (list: SquadData[][]) => {
     faction.winrate = winrate(faction.records);
   });
 
-  // Calculate percentile, deviation, winrate and frequency for pilots
+  // Pilot: percentile, deviation, winrate and frequency
   Object.keys(result.pilot).forEach(key => {
     const fid = key as XWSFaction;
 
@@ -129,7 +161,7 @@ export const create = (list: SquadData[][]) => {
     });
   });
 
-  // Calculate frequemcy for ships
+  // Ships: frequency
   Object.keys(result.ship).forEach(key => {
     const fid = key as XWSFaction;
 
@@ -137,6 +169,24 @@ export const create = (list: SquadData[][]) => {
       if (!stats) return;
 
       stats.frequency = round(stats.lists / result.faction[fid].count, 4);
+    });
+  });
+
+  // Upgrade: percentile, deviation, winrate and frequency
+  Object.keys(result.upgrade).forEach(key => {
+    const fid = key as XWSFaction | 'all';
+
+    Object.entries(result.upgrade[fid]).forEach(([uid, stats]) => {
+      if (!stats) return;
+
+      const pcs = upgradePercentiles.get(`${fid}.${uid}`)!;
+      const total =
+        fid === 'all' ? result.tournament.xws : result.faction[fid].count;
+
+      stats.frequency = round(stats.lists / total, 4);
+      stats.winrate = winrate(stats.records);
+      stats.percentile = average(pcs, 4);
+      stats.deviation = deviation(pcs, 4);
     });
   });
 

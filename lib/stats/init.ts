@@ -1,5 +1,6 @@
-import { Ships } from '../get-value';
-import {
+import type { Ships } from '../get-value';
+import type { XWSUpgradeSlots } from '../types';
+import type {
   FactionMap,
   FactionDataCollection as CommonDataCollection,
   PilotDataCollection,
@@ -58,6 +59,14 @@ export const initShipSats = (): ShipStats => ({
   count: 0,
   lists: 0,
   frequency: 0,
+});
+
+export const initUpgradeStats = (slot: XWSUpgradeSlots): UpgradeStats => ({
+  slot,
+  lists: 0,
+  ...initCommonData(),
+  ...initPerformance(),
+  ...initFrequency(),
 });
 
 /**
