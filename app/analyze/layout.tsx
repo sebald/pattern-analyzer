@@ -1,5 +1,16 @@
 import { Container, Link, Logo } from '@/ui';
 
+// Metadata
+// ---------------
+export const metadata = {
+  title: 'Pattern Analyzer | Analyze',
+  description: 'Analyze the current X-Wing meta!',
+  openGraph: {
+    title: 'Analyze',
+    description: 'Analyze the current X-Wing meta!',
+  },
+};
+
 // Component
 // ---------------
 const Layout = ({ children }: { children: React.ReactNode }) => (
