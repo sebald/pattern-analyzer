@@ -1,7 +1,6 @@
 import { type NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 
-import type { ListfortressTournamentInfo } from '@/lib/types';
 import { getAllTournaments } from '@/lib/vendor/listfortress';
 
 // Config

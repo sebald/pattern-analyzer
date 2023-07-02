@@ -1,8 +1,19 @@
-import { BASE_URL } from '@/lib/env';
-import { ListfortressTournamentInfo, SquadData } from '@/lib/types';
-import { getAllTournaments } from '@/lib/vendor/listfortress';
+import { create } from '@/lib/stats/create';
+import { daysAgo, today } from '@/lib/utils/date.utils';
+import { getAllTournaments, getSquads } from '@/lib/vendor/listfortress';
 
-import { Title } from '@/ui';
+import { Link, Message, Title } from '@/ui';
+import { ChassisDistribution } from '@/ui/stats/chassis-distribution';
+import { FactionCut } from '@/ui/stats/faction-cut';
+import { FactionDistribution } from '@/ui/stats/faction-distribution';
+import { FactionPerformance } from '@/ui/stats/faction-performance';
+import { FactionRecord } from '@/ui/stats/faction-record';
+import { PilotCostDistribution } from '@/ui/stats/pilot-cost-distribution';
+import { PilotSkillDistribution } from '@/ui/stats/pilot-skill-distribution';
+import { PilotStats } from '@/ui/stats/pilot-stats';
+import { ShipComposition } from '@/ui/stats/ship-composition';
+import { SquadSize } from '@/ui/stats/squad-size';
+import { UpgradeStats } from '@/ui/stats/upgrade-stats';
 
 // Config
 // ---------------
@@ -13,58 +24,83 @@ export const revalidate = 10800; // 3 hours
 
 // Data
 // ---------------
-const getStats = async () => {
-  const events = await getAllTournaments({
-    from: new Date(new Date().setDate(new Date().getDate() - 30)),
+interface GetStatsProps {
+  from: Date;
+  to: Date;
+}
+
+const getStats = async ({ from, to }: GetStatsProps) => {
+  const tournaments = await getAllTournaments({
+    from,
+    to,
     format: 'standard',
   });
 
-  const res = await fetch(`${BASE_URL}/api/listfortress`);
-
-  if (!res.ok) {
-    throw new Error('Failed to fetch listfortress data...');
-  }
-
-  const infos = (await res.json()) as ListfortressTournamentInfo[];
-
-  const events = await Promise.all(
-    infos.map(async ({ id }) => {
-      const r = await fetch(`${BASE_URL}/api/listfortress/${id}/squads`);
-
-      if (!r.ok) {
-        throw new Error('Failed to fetch squads...');
-      }
-
-      const event = (await r.json()) as SquadData[];
-      return event;
-    })
+  const squads = await Promise.all(
+    tournaments.map(({ id }) => getSquads({ id: `${id}` }))
   );
+  const stats = create(squads);
 
-  return events.reduce((stats, squads) => {
-    const st = createStats({ squads });
-
-    const next = {
-      tournamentStats: {
-        xws: stats.tournamentStats.xws + st.tournamentStats.xws,
-        count: stats.tournamentStats.count + st.tournamentStats.count,
-        cut: stats.tournamentStats.cut + st.tournamentStats.cut,
-      },
-    };
-
-    return stats;
-  }, setupStats());
+  return stats;
 };
 
 // Page
 // ---------------
 const AnalyzePage = async () => {
-  const squads = await getStats();
+  const from = daysAgo(30);
+  const to = today();
+
+  const stats = await getStats({ from, to });
   return (
     <header className="mb-4 border-b border-b-primary-100 pb-6 md:mt-3">
-      <Title>Analyze</Title>
-      <pre>
-        <code>{JSON.stringify(squads, null, 2)}</code>
-      </pre>
+      <Title className="pb-12">Analyze</Title>
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
+        <div className="md:col-span-6">
+          <FactionDistribution
+            value={stats.faction}
+            total={stats.tournament.count}
+          />
+        </div>
+        <div className="md:col-span-6">
+          <FactionPerformance value={stats.faction} />
+        </div>
+        <div className="md:col-span-6">
+          <SquadSize value={stats.squadSizes} total={stats.tournament.xws} />
+        </div>
+        <div className="col-span-full">
+          <ChassisDistribution value={stats.ship} />
+        </div>
+        <div className="md:col-span-6">
+          <PilotCostDistribution value={stats.pilotCostDistribution} />
+        </div>
+        <div className="md:col-span-6">
+          <PilotSkillDistribution value={stats.pilotSkillDistribution} />
+        </div>
+        <div className="col-span-full">
+          <PilotStats value={stats.pilot} />
+        </div>
+        <div className="col-span-full">
+          <UpgradeStats value={stats.upgrade} />
+        </div>
+        <div className="self-start md:col-span-4">
+          <ShipComposition
+            value={stats.shipComposition}
+            total={stats.tournament.xws}
+          />
+        </div>
+        <div className="col-span-full lg:col-start-2 lg:col-end-11">
+          <Message align="center">
+            <Message.Title>
+              For information about some commonly used terms, see the
+              &quot;About the Data&quot; secion on the{' '}
+              <Link className="underline underline-offset-2" href="/about">
+                About page
+              </Link>
+              .
+            </Message.Title>
+          </Message>
+        </div>
+      </div>
     </header>
   );
 };

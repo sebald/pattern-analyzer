@@ -12,6 +12,11 @@ const PILOT_ID_MAP = {
   'kickback-sigeofcoruscant': 'kickback-siegeofcoruscant',
   'hondoohnaka-firesprayclasspatrolcraft': 'hondoohnaka',
   'bossk-z95': 'bossk-z95af4headhunter',
+  'r2d2-ywing': 'r2d2',
+  'anakinskywalker-ywing': 'anakinskywalker-btlbywing',
+  'poedameron-2': 'poedameron-swz68',
+  'tomaxbren-SWZ105': 'tomaxbren-swz105',
+  'herasyndulla-bwing': 'herasyndulla-asf01bwing',
 };
 
 /**

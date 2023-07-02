@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils';
 
 import { montserrat } from './fonts';
 import { EventForm } from './components/event-form';
+import { daysAgo } from '@/lib/utils/date.utils';
 
 // Config
 // ---------------
@@ -16,7 +17,7 @@ export const revalidate = 10800; // 3 hours
 // ---------------
 const getReventEvents = async () => {
   const events = await getAllTournaments({
-    from: new Date(new Date().setDate(new Date().getDate() - 20)),
+    from: daysAgo(20),
     format: 'standard',
   });
 
