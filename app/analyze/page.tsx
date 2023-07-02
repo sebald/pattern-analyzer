@@ -1,13 +1,13 @@
 import { create } from '@/lib/stats/create';
-import { daysAgo, today } from '@/lib/utils/date.utils';
+import { daysAgo, formatDate, today } from '@/lib/utils/date.utils';
 import { getAllTournaments, getSquads } from '@/lib/vendor/listfortress';
 
-import { Link, Message, Title } from '@/ui';
+import { Caption, Inline, Link, Message, Title } from '@/ui';
+import { Calendar } from '@/ui/icons';
+
 import { ChassisDistribution } from '@/ui/stats/chassis-distribution';
-import { FactionCut } from '@/ui/stats/faction-cut';
 import { FactionDistribution } from '@/ui/stats/faction-distribution';
 import { FactionPerformance } from '@/ui/stats/faction-performance';
-import { FactionRecord } from '@/ui/stats/faction-record';
 import { PilotCostDistribution } from '@/ui/stats/pilot-cost-distribution';
 import { PilotSkillDistribution } from '@/ui/stats/pilot-skill-distribution';
 import { PilotStats } from '@/ui/stats/pilot-stats';
@@ -52,8 +52,18 @@ const AnalyzePage = async () => {
 
   const stats = await getStats({ from, to });
   return (
-    <header className="mb-4 border-b border-b-primary-100 pb-6 md:mt-3">
-      <Title className="pb-12">Analyze</Title>
+    <>
+      <header className="mb-4 border-b border-b-primary-100 pb-6 md:mt-3">
+        <Title>Analyze</Title>
+        <Caption>
+          <Inline className="gap-4">
+            <Inline className="whitespace-nowrap">
+              <Calendar className="h-3 w-3" /> {formatDate(from)} -{' '}
+              {formatDate(to)}
+            </Inline>
+          </Inline>
+        </Caption>
+      </header>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
         <div className="md:col-span-6">
           <FactionDistribution
@@ -101,7 +111,7 @@ const AnalyzePage = async () => {
           </Message>
         </div>
       </div>
-    </header>
+    </>
   );
 };
 

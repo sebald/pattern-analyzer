@@ -10,3 +10,14 @@ export const daysAgo = (val: number) =>
  * Returns a today's date, with time set to midnight.
  */
 export const today = () => dayjs().startOf('day').toDate();
+
+export const formatDate = (date: Date) => {
+  const locale =
+    typeof window === 'undefined' ? 'en' : window.navigator?.language;
+
+  return date.toLocaleDateString(locale, {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
+};
