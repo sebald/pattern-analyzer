@@ -2,10 +2,11 @@ import type { Metadata } from 'next';
 
 import { Caption, Inline, Link, Title } from '@/ui';
 import { Navigation } from '@/ui/navigation';
-import { Trophy, Lines, Download, BarChart } from '@/ui/icons';
+import { Trophy, Lines, Download, BarChart, Calendar } from '@/ui/icons';
 
 import { BASE_URL } from '@/lib/env';
 import type { EventInfo, Vendor } from '@/lib/types';
+import { formatDate, fromDate } from '@/lib/utils/date.utils';
 
 // Config
 // ---------------
@@ -75,6 +76,10 @@ const Layout = async ({ params, children }: LayoutProps) => {
         <Title>{event.name || 'Unknown Event'}</Title>
         <Caption>
           <Inline className="gap-4">
+            <Inline className="whitespace-nowrap">
+              <Calendar className="h-3 w-3" />
+              {formatDate(fromDate(event.date))}
+            </Inline>
             <Link href={event.url} target="_blank">
               <Inline className="whitespace-nowrap">
                 <Trophy className="h-3 w-3" /> Event #{params.id}
