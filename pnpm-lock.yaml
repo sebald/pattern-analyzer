@@ -30,8 +30,8 @@ dependencies:
     specifier: 1.0.0-rc.12
     version: 1.0.0-rc.12
   class-variance-authority:
-    specifier: 0.6.0
-    version: 0.6.0(typescript@5.1.3)
+    specifier: 0.6.1
+    version: 0.6.1
   clsx:
     specifier: 1.2.1
     version: 1.2.1
@@ -131,8 +131,8 @@ devDependencies:
     specifier: github:guidokessels/xwing-data2#6299a76
     version: github.com/guidokessels/xwing-data2/6299a76
   yasb:
-    specifier: github:raithos/xwing#27471fa
-    version: github.com/raithos/xwing/27471fa
+    specifier: github:raithos/xwing#8de646f
+    version: github.com/raithos/xwing/8de646f
   zx:
     specifier: 7.2.2
     version: 7.2.2
@@ -2231,16 +2231,10 @@ packages:
     resolution: {integrity: sha512-cOU9usZw8/dXIXKtwa8pM0OTJQuJkxMN6w30csNRUerHfeQ5R6U3kkU/FtJeIf3M202OHfY2U8ccInBG7/xogA==}
     dev: true
 
-  /class-variance-authority@0.6.0(typescript@5.1.3):
-    resolution: {integrity: sha512-qdRDgfjx3GRb9fpwpSvn+YaidnT7IUJNe4wt5/SWwM+PmUwJUhQRk/8zAyNro0PmVfmen2635UboTjIBXXxy5A==}
-    peerDependencies:
-      typescript: '>= 4.5.5 < 6'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
+  /class-variance-authority@0.6.1:
+    resolution: {integrity: sha512-eurOEGc7YVx3majOrOb099PNKgO3KnKSApOprXI4BTq6bcfbqbQXPN2u+rPPmIJ2di23bMwhk0SxCCthBmszEQ==}
     dependencies:
       clsx: 1.2.1
-      typescript: 5.1.3
     dev: false
 
   /client-only@0.0.1:
@@ -5917,6 +5911,7 @@ packages:
     resolution: {integrity: sha512-XH627E9vkeqhlZFQuL+UsyAXEnibT0kWR2FWONlr4sTjvxyJYnyefgrkyECLzM5NenmKzRAy2rR/OlYLA1HkZw==}
     engines: {node: '>=14.17'}
     hasBin: true
+    dev: true
 
   /unbox-primitive@1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}
@@ -6251,8 +6246,8 @@ packages:
       string-math: 1.2.2
     dev: true
 
-  github.com/raithos/xwing/27471fa:
-    resolution: {tarball: https://codeload.github.com/raithos/xwing/tar.gz/27471fa}
+  github.com/raithos/xwing/8de646f:
+    resolution: {tarball: https://codeload.github.com/raithos/xwing/tar.gz/8de646f}
     name: yasb
     version: 2.5.0
     dev: true
