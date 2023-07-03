@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 
 import { Card, Table } from '@/ui';
 import { getFactionName } from '@/lib/get-value';
-import type { XWSFaction } from '@/lib/types';
+import type { GameRecord, XWSFaction } from '@/lib/types';
 import { FACTION_COLORS, toPercentage } from '@/lib/utils';
 
 // Props
@@ -11,7 +11,7 @@ export interface FactionRecordProps {
   value: {
     [Faction in XWSFaction | 'unknown']: {
       ranks: number[];
-      records: { wins: number; ties: number; losses: number }[];
+      records: GameRecord[];
       winrate: number;
     };
   };

@@ -17,6 +17,7 @@ import { Calendar } from '@/ui/icons';
 import { ChassisDistribution } from '@/ui/stats/chassis-distribution';
 import { FactionDistribution } from '@/ui/stats/faction-distribution';
 import { FactionPerformance } from '@/ui/stats/faction-performance';
+import { FactionVictories } from '@/ui/stats/faction-victories';
 import { PilotCostDistribution } from '@/ui/stats/pilot-cost-distribution';
 import { PilotSkillDistribution } from '@/ui/stats/pilot-skill-distribution';
 import { PilotStats } from '@/ui/stats/pilot-stats';
@@ -113,6 +114,9 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
         </div>
         <div className="md:col-span-6">
           <FactionPerformance value={stats.faction} />
+        </div>
+        <div className="md:col-span-6">
+          <FactionVictories value={stats.faction} />
         </div>
         <div className="md:col-span-6">
           <SquadSize value={stats.squadSizes} total={stats.tournament.xws} />
