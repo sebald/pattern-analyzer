@@ -5,7 +5,7 @@ export const metadata = {
 };
 
 const About = () => (
-  <main className="pt-10 pb-6 text-secondary-900 md:pt-16">
+  <main className="pb-6 pt-10 text-secondary-900 md:pt-16">
     <Container size="narrow">
       <Title>About</Title>
 
@@ -35,7 +35,7 @@ const About = () => (
         Longshanks (and other vendors) and allowing people to discover what
         squads are played and gain some additional insights into an X-Wing
         tournament while it is still in progress. And since Pattern Analyzer
-        acquires this all data anyway, it can also provide an export for
+        acquires all this data anyway, it can also provide an export for
         Listforstress, so that it stays up to date and other tools like MetaWing
         and PBM have information to consume.
       </Text>
@@ -49,9 +49,9 @@ const About = () => (
         extracts information. If this information contains{' '}
         <Link href="https://github.com/elistevens/xws-spec">XWS</Link> it can
         directly be used. A link to <Link href="https://yasb.app/">YASB</Link>{' '}
-        work too. Pattern Analyzer can be converted to XWS. This standard,
+        works too. Pattern Analyzer can be converted to XWS. This standard,
         established by the X-Wing community, is then used to generate and
-        display squads in a comprehensible form and also create additional
+        display squads in a comprehensible form and to create additional
         statistics.
       </Text>
       <Text size="large" prose>
