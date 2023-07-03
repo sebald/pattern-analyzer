@@ -1,8 +1,16 @@
+import { z } from 'zod';
+
 import { create } from '@/lib/stats/create';
-import { daysAgo, formatDate, today } from '@/lib/utils/date.utils';
+import {
+  formatDate,
+  fromDate,
+  isSameDate,
+  monthsAgo,
+  today,
+} from '@/lib/utils/date.utils';
 import { getAllTournaments, getSquads } from '@/lib/vendor/listfortress';
 
-import { Caption, Inline, Link, Message, Title } from '@/ui';
+import { Caption, Inline, Link, Message, Select, Title } from '@/ui';
 import { Calendar } from '@/ui/icons';
 
 import { ChassisDistribution } from '@/ui/stats/chassis-distribution';
@@ -14,6 +22,7 @@ import { PilotStats } from '@/ui/stats/pilot-stats';
 import { ShipComposition } from '@/ui/stats/ship-composition';
 import { SquadSize } from '@/ui/stats/squad-size';
 import { UpgradeStats } from '@/ui/stats/upgrade-stats';
+import { DateSelection } from './components/DateSelection';
 
 // Config
 // ---------------
@@ -22,11 +31,21 @@ import { UpgradeStats } from '@/ui/stats/upgrade-stats';
  */
 export const revalidate = 10800; // 3 hours
 
+// Helpers
+// ---------------
+// Note: only checks the format, can still produce invalid dates (like 2022-02-31)
+const DATE_REGEX = /(\d{4})-(\d{2})-(\d{2})/;
+
+const schema = z.object({
+  from: z.string().regex(DATE_REGEX).optional(),
+  to: z.string().regex(DATE_REGEX).optional(),
+});
+
 // Data
 // ---------------
 interface GetStatsProps {
   from: Date;
-  to: Date;
+  to?: Date;
 }
 
 const getStats = async ({ from, to }: GetStatsProps) => {
@@ -44,11 +63,30 @@ const getStats = async ({ from, to }: GetStatsProps) => {
   return stats;
 };
 
+// Props
+// ---------------
+interface AnalyzePageProps {
+  searchParams: {
+    from: string;
+    to: string;
+  };
+}
+
 // Page
 // ---------------
-const AnalyzePage = async () => {
-  const from = daysAgo(30);
-  const to = today();
+const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
+  const params = schema.safeParse(searchParams);
+
+  if (!params.success) {
+    return 'nope';
+  }
+
+  const from =
+    params.data && params.data.from ? fromDate(params.data.from) : monthsAgo(1);
+  const to =
+    params.data && params.data.to ? fromDate(params.data.to) : undefined;
+
+  const selectedTimeframe = '';
 
   const stats = await getStats({ from, to });
   return (
@@ -59,11 +97,14 @@ const AnalyzePage = async () => {
           <Inline className="gap-4">
             <Inline className="whitespace-nowrap">
               <Calendar className="h-3 w-3" /> {formatDate(from)} -{' '}
-              {formatDate(to)}
+              {formatDate(to || today())}
             </Inline>
           </Inline>
         </Caption>
       </header>
+      <div className="flex flex-row items-end justify-end gap-2 pb-8 sm:gap-4">
+        <DateSelection />
+      </div>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
         <div className="md:col-span-6">
           <FactionDistribution

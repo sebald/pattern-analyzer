@@ -2,6 +2,7 @@ import { type NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 
 import { getAllTournaments } from '@/lib/vendor/listfortress';
+import { monthsAgo, today } from '@/lib/utils/date.utils';
 
 // Config
 // ---------------
@@ -16,16 +17,12 @@ const schema = z.object({
     .string()
     .datetime()
     .nullable()
-    .transform(val =>
-      val
-        ? new Date(val)
-        : new Date(new Date().setDate(new Date().getDate() - 30))
-    ),
+    .transform(val => (val ? new Date(val) : monthsAgo(1))),
   to: z
     .string()
     .datetime()
     .nullable()
-    .transform(val => (val ? new Date(val) : new Date())),
+    .transform(val => (val ? new Date(val) : today())),
 });
 
 // Handler

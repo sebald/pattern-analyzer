@@ -13,7 +13,7 @@ export const Spinner = ({
   <div role="status" className={cn('grid place-items-center', className)}>
     <svg
       aria-hidden="true"
-      className="h-6 w-6 animate-spin fill-primary-600 text-white/50"
+      className="h-full w-full animate-spin fill-primary-600 text-white/50"
       viewBox="0 0 100 101"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

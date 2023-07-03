@@ -1,12 +1,33 @@
-export interface LabelProps extends React.ComponentPropsWithoutRef<'label'> {
+import { type VariantProps, cva } from 'class-variance-authority';
+
+// Styles
+// ---------------
+const styles = cva(['mb-1 block font-medium text-secondary-700'], {
+  variants: {
+    size: {
+      small: 'text-xs',
+      regular: 'text-sm',
+      large: 'text-base',
+      huge: 'text-lg',
+    },
+  },
+  defaultVariants: {
+    size: 'regular',
+  },
+});
+
+// Props
+// ---------------
+export interface LabelProps
+  extends VariantProps<typeof styles>,
+    React.ComponentPropsWithoutRef<'label'> {
   children: React.ReactNode;
 }
 
-export const Label = ({ children, ...props }: LabelProps) => (
-  <label
-    {...props}
-    className="mb-1 block text-sm font-medium text-secondary-700"
-  >
+// Component
+// ---------------
+export const Label = ({ children, size, className, ...props }: LabelProps) => (
+  <label {...props} className={styles({ size, className })}>
     {children}
   </label>
 );
