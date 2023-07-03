@@ -2,7 +2,7 @@ import { load, Element } from 'cheerio';
 import { type NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 
-import type { PlayerRecord } from '@/lib/types';
+import type { GameRecord } from '@/lib/types';
 
 // Config
 // ---------------
@@ -83,15 +83,15 @@ export const GET = async (_: NextRequest, { params }: RouteContext) => {
       dropped: groups.info === 'drop',
     };
   };
-  const combineRecords = (swiss: PlayerRecord, cut?: PlayerRecord) =>
+  const combineRecords = (swiss: GameRecord, cut?: GameRecord) =>
     ({
       wins: swiss.wins + (cut?.wins || 0),
       ties: swiss.ties + (cut?.ties || 0),
       losses: swiss.losses + (cut?.losses || 0),
-    } satisfies PlayerRecord);
+    } satisfies GameRecord);
 
   // Cut data
-  const cut = new Map<string, { rank: number; record: PlayerRecord }>();
+  const cut = new Map<string, { rank: number; record: GameRecord }>();
   load(cutHtml)('.player .data')
     .toArray()
     .map(el => {

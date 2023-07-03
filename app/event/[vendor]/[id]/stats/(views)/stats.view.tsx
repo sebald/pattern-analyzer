@@ -1,69 +1,65 @@
+import { useSquadStats } from '@/lib/stats/useSquadStats';
 import { SquadData } from '@/lib/types';
 import { Link, Message } from '@/ui';
 
-import { useSquadStats } from './useSquadStats';
-
-import { ChassisDistribution } from './components/chassis-distribution';
-import { FactionCut } from './components/faction-cut';
-import { FactionDistribution } from './components/faction-distribution';
-import { FactionPerformance } from './components/faction-performance';
-import { FactionRecord } from './components/faction-record';
-import { PilotCostDistribution } from './components/pilot-cost-distribution';
-import { PilotSkillDistribution } from './components/pilot-skill-distribution';
-import { PilotStats } from './components/pilot-stats';
-import { ShipComposition } from './components/ship-composition';
-import { SquadSize } from './components/squad-size';
-import { UpgradeStats } from './components/upgrade-stats';
+import { ChassisDistribution } from '@/ui/stats/chassis-distribution';
+import { FactionCut } from '@/ui/stats/faction-cut';
+import { FactionDistribution } from '@/ui/stats/faction-distribution';
+import { FactionPerformance } from '@/ui/stats/faction-performance';
+import { FactionRecord } from '@/ui/stats/faction-record';
+import { PilotCostDistribution } from '@/ui/stats/pilot-cost-distribution';
+import { PilotSkillDistribution } from '@/ui/stats/pilot-skill-distribution';
+import { PilotStats } from '@/ui/stats/pilot-stats';
+import { ShipComposition } from '@/ui/stats/ship-composition';
+import { SquadSize } from '@/ui/stats/squad-size';
+import { UpgradeStats } from '@/ui/stats/upgrade-stats';
 
 export interface StatsViewProps {
   squads: SquadData[];
 }
 
 export const StatsView = ({ squads }: StatsViewProps) => {
-  const data = useSquadStats({ squads });
+  const stats = useSquadStats({ squads: [squads] });
 
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
       <div className="md:col-span-6">
         <FactionDistribution
-          value={data.factionStats}
-          total={data.tournamentStats.count}
+          value={stats.faction}
+          total={stats.tournament.count}
         />
       </div>
       <div className="md:col-span-6">
-        <FactionPerformance value={data.factionStats} />
+        <FactionPerformance value={stats.faction} />
       </div>
       <div className="md:col-span-5">
-        <FactionRecord value={data.factionStats} />
+        <FactionRecord value={stats.faction} />
       </div>
       <div className="md:col-span-7">
-        <FactionCut
-          tournament={data.tournamentStats}
-          value={data.factionStats}
-        />
+        <FactionCut tournament={stats.tournament} value={stats.faction} />
       </div>
       <div className="md:col-span-6">
-        <SquadSize value={data.squadSizes} total={data.tournamentStats.xws} />
+        <SquadSize value={stats.squadSizes} total={stats.tournament.xws} />
       </div>
       <div className="col-span-full">
-        <ChassisDistribution value={data.shipStats} />
+        <ChassisDistribution value={stats.ship} />
       </div>
       <div className="md:col-span-6">
-        <PilotCostDistribution value={data.pilotCostDistribution} />
+        <PilotCostDistribution value={stats.pilotCostDistribution} />
       </div>
       <div className="md:col-span-6">
-        <PilotSkillDistribution value={data.pilotSkillDistribution} />
+        <PilotSkillDistribution value={stats.pilotSkillDistribution} />
       </div>
       <div className="col-span-full">
-        <PilotStats value={data.pilotStats} />
+        <PilotStats value={stats.pilot} />
       </div>
       <div className="col-span-full">
-        <UpgradeStats value={data.upgradeStats} />
+        <UpgradeStats value={stats.upgrade} />
       </div>
       <div className="self-start md:col-span-4">
         <ShipComposition
-          value={data.shipComposition}
-          total={data.tournamentStats.xws}
+          value={stats.shipComposition}
+          total={stats.tournament.xws}
         />
       </div>
       <div className="col-span-full lg:col-start-2 lg:col-end-11">

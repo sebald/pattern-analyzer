@@ -1,6 +1,6 @@
 'use client';
 
-import { FormEventHandler, useState } from 'react';
+import { FormEventHandler, useState, useTransition } from 'react';
 import { useRouter } from 'next/navigation';
 import { useDebouncedCallback } from 'use-debounce';
 
@@ -8,8 +8,8 @@ import { Input, Button, Select, Spinner } from '@/ui';
 
 export const EventForm = () => {
   const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
-  const router = useRouter();
+  const { push } = useRouter();
+  const [pending, startTransition] = useTransition();
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = e => {
     e.preventDefault();
@@ -18,13 +18,14 @@ export const EventForm = () => {
     const vendor = data.get('vendor');
     const event = data.get('event');
 
-    if (event) {
-      setLoading(true);
-      router.push(`/event/${vendor}/${event}`);
+    if (!event) {
+      setError('Please enter an event ID.');
       return;
     }
 
-    setError('Please enter an event ID.');
+    startTransition(() => {
+      push(`/event/${vendor}/${event}`);
+    });
   };
 
   const handleChange = useDebouncedCallback((val: string) => {
@@ -61,7 +62,7 @@ export const EventForm = () => {
         <Select.Option value="rollbetter">Rollbetter</Select.Option>
       </Select>
       <Button variant="primary" size="large" type="submit">
-        {loading ? <Spinner className="px-4" /> : 'Submit'}
+        {pending ? <Spinner className="h-6 w-6" /> : 'Submit'}
       </Button>
     </form>
   );

@@ -22,7 +22,7 @@ export interface Upgrade {
   name: string;
 }
 
-export interface PlayerRecord {
+export interface GameRecord {
   wins: number;
   ties: number;
   losses: number;
@@ -36,7 +36,7 @@ export interface PlayerData {
     elimination?: number;
   };
   points: number;
-  record: PlayerRecord;
+  record: GameRecord;
   sos: number;
   missionPoints: number;
   mov: number;

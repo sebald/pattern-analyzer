@@ -26,7 +26,7 @@ export const PilotSkillDistribution = ({
     t = t + val;
     return t;
   }, 0);
-  console.log(data);
+
   return (
     <Card>
       <Card.Title>Pilot Initiative Distribution</Card.Title>

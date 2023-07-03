@@ -3,7 +3,7 @@
 import { ResponsiveBar } from '@nivo/bar';
 
 import { Card } from '@/ui';
-import { XWSFaction } from '@/lib/types';
+import type { XWSFaction } from '@/lib/types';
 import { getFactionName } from '@/lib/get-value';
 import { FACTION_ABBR, FACTION_COLORS, toPercentage } from '@/lib/utils';
 

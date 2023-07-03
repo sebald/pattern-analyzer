@@ -61,7 +61,11 @@ export const Select = ({
 
   return (
     <div>
-      {label && <Label htmlFor={id}>{label}</Label>}
+      {label && (
+        <Label htmlFor={id} size={size}>
+          {label}
+        </Label>
+      )}
       <select
         {...props}
         id={id}

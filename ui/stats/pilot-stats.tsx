@@ -10,16 +10,18 @@ import {
   ShipIcon,
   Table,
 } from '@/ui';
+import type {
+  FactionMap,
+  PilotStats as PilotStatsType,
+} from '@/lib/stats/types';
 import type { XWSFaction } from '@/lib/types';
 import { getPilotName } from '@/lib/get-value';
 import { toPercentage } from '@/lib/utils';
 
-import type { FactionMap, PilotStatData } from '../types';
-
 // Props
 // ---------------
 export interface PilotStatsProps {
-  value: FactionMap<string, PilotStatData>;
+  value: FactionMap<string, PilotStatsType>;
 }
 
 // Component
@@ -32,13 +34,13 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
 
   const data =
     faction === 'all'
-      ? Object.values(value).reduce((acc: [string, PilotStatData][], map) => {
+      ? Object.values(value).reduce((acc: [string, PilotStatsType][], map) => {
           return [
             ...acc,
-            ...(Object.entries(map) as [string, PilotStatData][]),
+            ...(Object.entries(map) as [string, PilotStatsType][]),
           ];
         }, [])
-      : [...(Object.entries(value[faction]) as [string, PilotStatData][])];
+      : [...(Object.entries(value[faction]) as [string, PilotStatsType][])];
   data.sort(([, a], [, b]) => b[sort] - a[sort]);
 
   return (

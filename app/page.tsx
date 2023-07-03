@@ -1,9 +1,10 @@
 import { Card, Collapsible, Container, Headline, Link, List, Logo } from '@/ui';
-import type { ListfortressTournamentInfo } from '@/lib/types';
+import { getAllTournaments } from '@/lib/vendor/listfortress';
 import { cn } from '@/lib/utils';
 
 import { montserrat } from './fonts';
 import { EventForm } from './components/event-form';
+import { daysAgo } from '@/lib/utils/date.utils';
 
 // Config
 // ---------------
@@ -15,19 +16,9 @@ export const revalidate = 10800; // 3 hours
 // Data
 // ---------------
 const getReventEvents = async () => {
-  const res = await fetch('https://listfortress.com/api/v1/tournaments/');
-
-  if (!res.ok) {
-    throw new Error('[listfortress] Failed to fetch events...');
-  }
-
-  let events: ListfortressTournamentInfo[] = await res.json();
-
-  const daysAgo = new Date(new Date().setDate(new Date().getDate() - 20));
-  events = events.filter(e => {
-    const date = new Date(e.date);
-    // 2.5 Standard events that happened in the last 20 days
-    return e.format_id === 36 && date >= daysAgo;
+  const events = await getAllTournaments({
+    from: daysAgo(20),
+    format: 'standard',
   });
 
   events.sort(
