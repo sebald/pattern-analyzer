@@ -6,7 +6,6 @@ import { usePathname, useRouter } from 'next/navigation';
 import { POINTS_UPDATE_DATE } from '@/lib/env';
 import { Select, Spinner, type SelectProps } from '@/ui';
 import { monthsAgo, toDate } from '@/lib/utils/date.utils';
-import { cn } from '@/lib/utils/classname.utils';
 
 // Props
 // ---------------
@@ -29,12 +28,7 @@ export const DateSelection = (props: DateSelectionProps) => {
 
   return (
     <div className="flex items-center gap-2">
-      <Spinner
-        className={cn(
-          'h-4 w-4 transition-opacity duration-150',
-          pending ? 'opacity-100' : 'opacity-0'
-        )}
-      />
+      <Spinner className="h-4 w-4" />
       <Select
         {...props}
         size="small"
