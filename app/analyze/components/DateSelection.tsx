@@ -36,8 +36,8 @@ export const DateSelection = (props: DateSelectionProps) => {
         )}
       />
       <Select
-        size="small"
         {...props}
+        size="small"
         disabled={pending}
         onChange={e => handleChange(e.target.value)}
       >

@@ -6,6 +6,7 @@ import {
   fromDate,
   isSameDate,
   monthsAgo,
+  toDate,
   today,
 } from '@/lib/utils/date.utils';
 import { getAllTournaments, getSquads } from '@/lib/vendor/listfortress';
@@ -86,8 +87,6 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
   const to =
     params.data && params.data.to ? fromDate(params.data.to) : undefined;
 
-  const selectedTimeframe = '';
-
   const stats = await getStats({ from, to });
   return (
     <>
@@ -103,7 +102,7 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
         </Caption>
       </header>
       <div className="flex flex-row items-end justify-end gap-2 pb-8 sm:gap-4">
-        <DateSelection />
+        <DateSelection defaultValue={toDate(from)} />
       </div>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
         <div className="md:col-span-6">
