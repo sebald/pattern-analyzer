@@ -1,3 +1,4 @@
+import { BASE_URL } from '@/lib/env';
 import { Container, Link, Logo } from '@/ui';
 
 // Metadata
@@ -6,8 +7,12 @@ export const metadata = {
   title: 'Pattern Analyzer | Analyze',
   description: 'Analyze the current X-Wing meta!',
   openGraph: {
+    siteName: 'Pattern Analyzer',
     title: 'Analyze',
     description: 'Analyze the current X-Wing meta!',
+    images: `${BASE_URL}/api/og.png?title`,
+    locale: 'en-US',
+    type: 'website',
   },
 };
 
