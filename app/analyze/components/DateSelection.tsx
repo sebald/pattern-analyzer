@@ -28,7 +28,7 @@ export const DateSelection = (props: DateSelectionProps) => {
 
   return (
     <div className="flex items-center gap-2">
-      <Spinner className="h-4 w-4" />
+      {pending ? <Spinner className="h-4 w-4" /> : null}
       <Select
         {...props}
         size="small"

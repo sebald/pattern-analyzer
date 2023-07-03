@@ -10,10 +10,13 @@ export const Spinner = ({
   className,
   ...props
 }: SpinnerProps) => (
-  <div role="status" className={cn('grid place-items-center', className)}>
+  <div role="status" className={cn('grid place-items-center')}>
     <svg
       aria-hidden="true"
-      className="h-full w-full animate-spin fill-primary-600 text-white/50"
+      className={cn(
+        'h-5 w-5 animate-spin fill-primary-600 text-white/50',
+        className
+      )}
       viewBox="0 0 100 101"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
