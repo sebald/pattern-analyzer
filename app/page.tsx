@@ -2,7 +2,7 @@ import { Card, Collapsible, Container, Headline, Link, List, Logo } from '@/ui';
 import { getAllTournaments } from '@/lib/vendor/listfortress';
 import { cn } from '@/lib/utils';
 
-import { montserrat } from './fonts';
+import { headline } from './fonts';
 import { EventForm } from './components/event-form';
 import { daysAgo } from '@/lib/utils/date.utils';
 
@@ -38,7 +38,7 @@ const Home = async () => {
       <div>
         <h1
           className={cn(
-            montserrat.variable,
+            headline.variable,
             'prose flex items-center justify-center pb-20 pt-8 font-headline text-2xl font-extrabold uppercase text-primary-900 md:pb-14'
           )}
         >

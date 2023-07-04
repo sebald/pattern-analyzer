@@ -19,6 +19,7 @@ export * from './logo';
 export * from './message';
 export * from './search-field';
 export * from './select';
+export * from './sheet';
 export * from './ship-icon';
 export * from './skeleton';
 export * from './spinner';

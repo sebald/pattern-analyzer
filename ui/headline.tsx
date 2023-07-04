@@ -1,6 +1,6 @@
 import { ComponentPropsWithoutRef } from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
-import { montserrat } from '@/app/fonts';
+import { headline } from '@/app/fonts';
 import { cn } from '@/lib/utils';
 
 // Styles
@@ -15,7 +15,7 @@ const styles = cva(['scroll-m-20'], {
       '5': 'text-base font-bold',
     },
     font: {
-      headline: `${montserrat.variable} font-headline`,
+      headline: `${headline.variable} font-headline`,
       inherit: '',
     },
   },

@@ -4,10 +4,17 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 module.exports = {
   content: ['./app/**/*.{js,ts,jsx,tsx}', './ui/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: '1rem',
+        sm: '2rem',
+      },
+    },
     extend: {
       fontFamily: {
-        sans: ['var(--font-inter)', ...defaultTheme.fontFamily.sans],
-        headline: ['var(--font-montserrat)', ...defaultTheme.fontFamily.sans],
+        sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
+        headline: ['var(--font-headline)', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         primary: {
@@ -45,5 +52,9 @@ module.exports = {
       active: 'state~="active"',
     },
   },
-  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+    require('tailwindcss-animate'),
+  ],
 };

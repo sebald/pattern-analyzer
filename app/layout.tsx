@@ -5,9 +5,12 @@ import { BASE_URL } from '@/lib/env';
 import { cn } from '@/lib/utils';
 
 import './globals.css';
-import { inter } from './fonts';
+import { sans } from './fonts';
 import { AnalyticsWrapper } from './components/analytics';
+import { SiteHeader } from './components/header';
 
+// Metadata
+// ---------------
 export const metadata = {
   title: 'Pattern Analyzer | Home',
   description: 'X-Wing tournament data & statistics',
@@ -35,14 +38,24 @@ export const metadata = {
   },
 } satisfies Metadata;
 
+// Props
+// ---------------
 export interface LayoutProps {
   children: React.ReactNode;
 }
 
+// Layout
+// ---------------
 const Layout = ({ children }: LayoutProps) => (
-  <html lang="en" className={cn(inter.variable, 'font-sans')}>
-    <body className="flex min-h-screen flex-col bg-primary-50">
-      {children}
+  <html lang="en">
+    <body
+      className={cn(
+        sans.variable,
+        'flex min-h-screen flex-col bg-primary-50 font-sans'
+      )}
+    >
+      <SiteHeader />
+      <main className="container flex-1">{children}</main>
       <footer className="mx-auto mt-auto w-[min(100%_-_3rem,_75rem)] pt-16">
         <div className="flex items-center justify-center gap-6 border-t border-primary-200 px-2 pb-4 pt-2 text-sm text-primary-300">
           <Link href="/">Home</Link>
