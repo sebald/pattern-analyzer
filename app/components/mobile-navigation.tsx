@@ -85,8 +85,9 @@ export const MobileNavigation = () => {
             <NavLink
               key={href}
               href={href}
-              close={close}
               className="text-secondary-500 hover:text-primary-500"
+              target="_blank"
+              rel="noreferrer"
             >
               {name}
             </NavLink>

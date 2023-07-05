@@ -7,7 +7,8 @@ import { cn } from '@/lib/utils';
 import './globals.css';
 import { sans } from './fonts';
 import { AnalyticsWrapper } from './components/analytics';
-import { SiteHeader } from './components/header';
+import { SiteHeader } from './components/site-header';
+import { SiteFooter } from './components/site-footer';
 
 // Metadata
 // ---------------
@@ -56,13 +57,7 @@ const Layout = ({ children }: LayoutProps) => (
     >
       <SiteHeader />
       <main className="container flex-1">{children}</main>
-      <footer className="mx-auto mt-auto w-[min(100%_-_3rem,_75rem)] pt-16">
-        <div className="flex items-center justify-center gap-6 border-t border-primary-200 px-2 pb-4 pt-2 text-sm text-primary-300">
-          <Link href="/">Home</Link>
-          <Link href="https://github.com/sebald/pattern-analyzer">Source</Link>
-          <Link href="/about">About</Link>
-        </div>
-      </footer>
+      <SiteFooter />
       <AnalyticsWrapper />
     </body>
   </html>
