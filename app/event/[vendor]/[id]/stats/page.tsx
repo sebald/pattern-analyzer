@@ -1,4 +1,4 @@
-import { BASE_URL } from '@/lib/env';
+import { baseUrl } from '@/lib/config';
 import type { SquadData, Vendor } from '@/lib/types';
 
 import { StatsView } from './(views)/stats.view';
@@ -12,7 +12,7 @@ interface GetSquadsProps {
 }
 
 const getSquads = async ({ vendor, id }: GetSquadsProps) => {
-  const res = await fetch(`${BASE_URL}/api/${vendor}/${id}/squads`);
+  const res = await fetch(`${baseUrl}/api/${vendor}/${id}/squads`);
 
   if (!res.ok) {
     throw new Error(`Failed to fetch squdas... (${vendor}/${id})`);

@@ -1,4 +1,4 @@
-import { BASE_URL } from '@/lib/env';
+import { baseUrl } from '@/lib/config';
 import { Container, Link, Logo } from '@/ui';
 
 // Metadata
@@ -10,7 +10,7 @@ export const metadata = {
     siteName: 'Pattern Analyzer',
     title: 'Analyze',
     description: 'Analyze the current X-Wing meta!',
-    images: `${BASE_URL}/api/og.png?title`,
+    images: `${baseUrl}/api/og.png?title`,
     locale: 'en-US',
     type: 'website',
   },
