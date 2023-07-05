@@ -4,7 +4,11 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 import { Button, Link, Logo, Sheet, type LinkProps } from '@/ui';
-import { siteNavigation, xWingResources } from '@/lib/config';
+import {
+  secondaryNavigation,
+  siteNavigation,
+  xWingResources,
+} from '@/lib/config';
 import { cn } from '@/lib/utils';
 
 import { headline } from '../fonts';
@@ -42,7 +46,11 @@ export const MobileNavigation = () => {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <Sheet.Trigger asChild>
-        <Button variant="link" size="inherit" className="text-primary-900 hover:text-primary-700">
+        <Button
+          variant="link"
+          size="inherit"
+          className="text-primary-900 hover:text-primary-700 md:hidden"
+        >
           <Lines className="h-7 w-7" />
           <span className="sr-only">Toggle Menu</span>
         </Button>
@@ -60,7 +68,7 @@ export const MobileNavigation = () => {
           Pattern Analyzer
         </NavLink>
         <div className="flex flex-col gap-7 pl-2">
-          {siteNavigation.map(({ name, href }) => (
+          {[...siteNavigation, ...secondaryNavigation].map(({ name, href }) => (
             <NavLink
               key={href}
               href={href}

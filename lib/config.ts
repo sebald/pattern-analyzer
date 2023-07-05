@@ -13,6 +13,9 @@ export const siteNavigation = [
     name: 'Analyze',
     href: '/analyze',
   },
+];
+
+export const secondaryNavigation = [
   {
     name: 'About',
     href: '/about',
