@@ -5,7 +5,7 @@ import { Button } from '@/ui';
 export const ExportListfortress = () => {
   return (
     <div className="flex flex-col gap-1">
-      <Button variant="primary" size="large" disabled>
+      <Button size="large" disabled>
         Listfortress Export
       </Button>
     </div>

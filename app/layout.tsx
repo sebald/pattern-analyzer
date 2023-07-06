@@ -1,13 +1,17 @@
 import type { Metadata } from 'next';
 
-import { Link } from '@/ui';
-import { BASE_URL } from '@/lib/env';
+import { Container } from '@/ui';
+import { baseUrl } from '@/lib/config';
 import { cn } from '@/lib/utils';
 
 import './globals.css';
-import { inter } from './fonts';
-import { AnalyticsWrapper } from './components/analytics';
+import { sans } from './fonts';
+import { AnalyticsWrapper } from './_components/analytics';
+import { SiteHeader } from './_components/site-header';
+import { SiteFooter } from './_components/site-footer';
 
+// Metadata
+// ---------------
 export const metadata = {
   title: 'Pattern Analyzer | Home',
   description: 'X-Wing tournament data & statistics',
@@ -19,7 +23,7 @@ export const metadata = {
     siteName: 'Pattern Analyzer',
     title: 'Home',
     description: 'X-Wing Tournament data & statistics',
-    images: `${BASE_URL}/api/og.png`,
+    images: `${baseUrl}/api/og.png`,
     type: 'website',
   },
   twitter: {
@@ -35,21 +39,27 @@ export const metadata = {
   },
 } satisfies Metadata;
 
+// Props
+// ---------------
 export interface LayoutProps {
   children: React.ReactNode;
 }
 
+// Layout
+// ---------------
 const Layout = ({ children }: LayoutProps) => (
-  <html lang="en" className={cn(inter.variable, 'font-sans')}>
-    <body className="flex min-h-screen flex-col bg-primary-50">
-      {children}
-      <footer className="mx-auto mt-auto w-[min(100%_-_3rem,_75rem)] pt-16">
-        <div className="flex items-center justify-center gap-6 border-t border-primary-200 px-2 pb-4 pt-2 text-sm text-primary-300">
-          <Link href="/">Home</Link>
-          <Link href="https://github.com/sebald/pattern-analyzer">Source</Link>
-          <Link href="/about">About</Link>
-        </div>
-      </footer>
+  <html lang="en">
+    <body
+      className={cn(
+        sans.variable,
+        'flex min-h-screen flex-col bg-primary-50 font-sans'
+      )}
+    >
+      <SiteHeader />
+      <Container className="flex flex-1 flex-col pb-10 pt-12 md:pt-20">
+        {children}
+      </Container>
+      <SiteFooter />
       <AnalyticsWrapper />
     </body>
   </html>

@@ -1,22 +1,9 @@
-import { cva, VariantProps } from 'class-variance-authority';
-
-// Styles
-// ---------------
-const styles = cva(['mx-auto'], {
-  variants: {
-    size: {
-      regular: 'w-[min(100%_-_1.5rem,_75rem)]',
-      narrow: 'w-[min(100%_-_1.5rem,_50rem)]',
-    },
-  },
-  defaultVariants: {
-    size: 'regular',
-  },
-});
+import { cn } from '@/lib/utils/classname.utils';
 
 // Props
 // ---------------
-export interface ContainerProps extends VariantProps<typeof styles> {
+export interface ContainerProps {
+  as?: keyof JSX.IntrinsicElements;
   children: React.ReactNode;
   className?: string;
 }
@@ -24,9 +11,11 @@ export interface ContainerProps extends VariantProps<typeof styles> {
 // Component
 // ---------------
 export const Container = ({
+  as: Component = 'div',
   children,
   className,
-  size = 'regular',
 }: ContainerProps) => (
-  <div className={styles({ size, className })}>{children}</div>
+  <Component className={cn('container md:px-8', className)}>
+    {children}
+  </Component>
 );

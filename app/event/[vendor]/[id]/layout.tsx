@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 import { Caption, Inline, Link, Title } from '@/ui';
 import { Navigation } from '@/ui/navigation';
-import { Trophy, Lines, Download, BarChart, Calendar } from '@/ui/icons';
+import { Trophy, Download, BarChart, Calendar, Columns } from '@/ui/icons';
 
-import { BASE_URL } from '@/lib/env';
+import { baseUrl, vendors } from '@/lib/config';
 import type { EventInfo, Vendor } from '@/lib/types';
 import { formatDate, fromDate } from '@/lib/utils/date.utils';
 
@@ -20,7 +21,11 @@ interface GetEventInfoProps {
 }
 
 const getEventInfo = async ({ vendor, id }: GetEventInfoProps) => {
-  const res = await fetch(`${BASE_URL}/api/${vendor}/${id}`);
+  if (!vendors.find(v => v.id === vendor)) {
+    notFound();
+  }
+
+  const res = await fetch(`${baseUrl}/api/${vendor}/${id}`);
 
   if (!res.ok) {
     throw new Error(`Failed to fetch event info... (${vendor}/${id})`);
@@ -55,7 +60,7 @@ export const generateMetadata = async ({ params }: LayoutProps) => {
       siteName: 'Pattern Analyzer',
       title: event.name,
       description: 'X-Wing Tournament data & statistics',
-      images: `${BASE_URL}/api/og.png?title=${encodeURIComponent(event.name)}`,
+      images: `${baseUrl}/api/og.png?title=${encodeURIComponent(event.name)}`,
       locale: 'en-US',
       type: 'website',
     },
@@ -72,7 +77,7 @@ const Layout = async ({ params, children }: LayoutProps) => {
 
   return (
     <>
-      <header className="mb-4 border-b border-b-primary-100 pb-6 md:mt-3">
+      <div className="mb-4 border-b border-b-primary-100 pb-6 md:mt-3">
         <Title>{event.name || 'Unknown Event'}</Title>
         <Caption>
           <Inline className="gap-4">
@@ -87,7 +92,7 @@ const Layout = async ({ params, children }: LayoutProps) => {
             </Link>
           </Inline>
         </Caption>
-      </header>
+      </div>
       <Navigation
         className="pb-14"
         path={`/event/${params.vendor}/${params.id}`}
@@ -95,7 +100,7 @@ const Layout = async ({ params, children }: LayoutProps) => {
           {
             label: (
               <>
-                <Lines className="hidden h-5 w-5 sm:block" />
+                <Columns className="hidden h-5 w-5 sm:block" />
                 Squads
               </>
             ),

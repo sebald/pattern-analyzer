@@ -34,7 +34,7 @@ const styles = cva(
 
 // Props
 // ---------------
-export interface LinksProps
+export interface LinkProps
   extends ComponentProps<typeof NextLink>,
     VariantProps<typeof styles> {}
 
@@ -46,7 +46,7 @@ export const Link = ({
   variant,
   size,
   ...props
-}: LinksProps) => (
+}: LinkProps) => (
   <NextLink {...props} className={styles({ variant, size, className })}>
     {children}
   </NextLink>

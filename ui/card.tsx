@@ -1,5 +1,7 @@
-import { cva, VariantProps } from 'class-variance-authority';
 import { ComponentPropsWithoutRef } from 'react';
+import { cva, VariantProps } from 'class-variance-authority';
+
+import { cn } from '@/lib/utils/classname.utils';
 
 // Styles
 // ---------------
@@ -103,7 +105,7 @@ export const Card = ({
 }: CardProps) => (
   <div
     {...props}
-    className={styles.card({ elevation: variant, inset, className })}
+    className={cn(styles.card({ elevation: variant, inset, className }))}
   >
     {children}
   </div>

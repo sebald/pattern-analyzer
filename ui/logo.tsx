@@ -12,7 +12,7 @@ export const Logo = ({ className, ...props }: LogoProps) => (
     viewBox="0 0 24 24"
     strokeWidth={2}
     stroke="currentColor"
-    className={cn('h-6 w-6 text-primary-900 transition-all', className)}
+    className={cn('h-6 w-6', className)}
     {...props}
   >
     <path

@@ -1,6 +1,6 @@
 import { cva, VariantProps } from 'class-variance-authority';
 import { Failure, Info, Warning } from './icons';
-import { Link, LinksProps } from './link';
+import { Link, LinkProps } from './link';
 
 // Message.Title
 // ---------------
@@ -46,7 +46,7 @@ const MessageButton = ({
 
 // Message.Link
 // ---------------
-export interface MessageLinkProps extends LinksProps {
+export interface MessageLinkProps extends LinkProps {
   children?: React.ReactNode;
 }
 

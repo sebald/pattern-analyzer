@@ -1,19 +1,18 @@
 import { z } from 'zod';
 
+import { baseUrl } from '@/lib/config';
 import { create } from '@/lib/stats/create';
 import {
   formatDate,
   fromDate,
-  isSameDate,
   monthsAgo,
   toDate,
   today,
 } from '@/lib/utils/date.utils';
 import { getAllTournaments, getSquads } from '@/lib/vendor/listfortress';
 
-import { Caption, Inline, Link, Message, Select, Title } from '@/ui';
+import { Caption, Inline, Title } from '@/ui';
 import { Calendar } from '@/ui/icons';
-
 import { ChassisDistribution } from '@/ui/stats/chassis-distribution';
 import { FactionDistribution } from '@/ui/stats/faction-distribution';
 import { FactionPerformance } from '@/ui/stats/faction-performance';
@@ -24,7 +23,9 @@ import { PilotStats } from '@/ui/stats/pilot-stats';
 import { ShipComposition } from '@/ui/stats/ship-composition';
 import { SquadSize } from '@/ui/stats/squad-size';
 import { UpgradeStats } from '@/ui/stats/upgrade-stats';
-import { DateSelection } from './components/DateSelection';
+import { StatsHint } from '@/ui/stats/stats-hint';
+
+import { DateSelection } from './_components/DateSelection';
 
 // Config
 // ---------------
@@ -32,6 +33,21 @@ import { DateSelection } from './components/DateSelection';
  * Segment Config (see: https://beta.nextjs.org/docs/api-reference/segment-config)
  */
 export const revalidate = 10800; // 3 hours
+
+// Metadata
+// ---------------
+export const metadata = {
+  title: 'Pattern Analyzer | Analyze',
+  description: 'Analyze the current X-Wing meta!',
+  openGraph: {
+    siteName: 'Pattern Analyzer',
+    title: 'Analyze',
+    description: 'Analyze the current X-Wing meta!',
+    images: `${baseUrl}/api/og.png`,
+    locale: 'en-US',
+    type: 'website',
+  },
+};
 
 // Helpers
 // ---------------
@@ -91,7 +107,7 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
   const stats = await getStats({ from, to });
   return (
     <>
-      <header className="mb-4 border-b border-b-primary-100 pb-6 md:mt-3">
+      <div className="pb-6">
         <Title>Analyze</Title>
         <Caption>
           <Inline className="gap-4">
@@ -101,7 +117,7 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
             </Inline>
           </Inline>
         </Caption>
-      </header>
+      </div>
       <div className="flex flex-row items-end justify-end gap-2 pb-8 sm:gap-4">
         <DateSelection defaultValue={toDate(from)} />
       </div>
@@ -142,17 +158,8 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
             total={stats.tournament.xws}
           />
         </div>
-        <div className="col-span-full lg:col-start-2 lg:col-end-11">
-          <Message align="center">
-            <Message.Title>
-              For information about some commonly used terms, see the
-              &quot;About the Data&quot; secion on the{' '}
-              <Link className="underline underline-offset-2" href="/about">
-                About page
-              </Link>
-              .
-            </Message.Title>
-          </Message>
+        <div className="col-span-full pt-8 lg:col-start-2 lg:col-end-11">
+          <StatsHint />
         </div>
       </div>
     </>

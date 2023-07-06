@@ -8,7 +8,7 @@ export interface ErrorProps {
 }
 
 const Error = ({ error, reset }: ErrorProps) => (
-  <div className="grid min-h-screen place-items-center">
+  <div className="grid flex-1 place-items-center">
     <Message variant="error">
       <Message.Title>Whoopsie, something went wrong!</Message.Title>
       {error.message}

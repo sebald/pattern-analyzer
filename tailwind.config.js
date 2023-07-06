@@ -4,10 +4,17 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 module.exports = {
   content: ['./app/**/*.{js,ts,jsx,tsx}', './ui/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    container: {
+      center: true,
+      padding: '0.75rem', // Responsive padding is not working? :(
+      screens: {
+        '2xl': '1400px',
+      },
+    },
     extend: {
       fontFamily: {
-        sans: ['var(--font-inter)', ...defaultTheme.fontFamily.sans],
-        headline: ['var(--font-montserrat)', ...defaultTheme.fontFamily.sans],
+        sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
+        headline: ['var(--font-headline)', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         primary: {
@@ -45,5 +52,9 @@ module.exports = {
       active: 'state~="active"',
     },
   },
-  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+    require('tailwindcss-animate'),
+  ],
 };

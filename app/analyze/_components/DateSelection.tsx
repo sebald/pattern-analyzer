@@ -3,7 +3,7 @@
 import { useTransition } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 
-import { POINTS_UPDATE_DATE } from '@/lib/env';
+import { pointsUpdateDate } from '@/lib/config';
 import { Select, Spinner, type SelectProps } from '@/ui';
 import { monthsAgo, toDate } from '@/lib/utils/date.utils';
 
@@ -39,7 +39,7 @@ export const DateSelection = (props: DateSelectionProps) => {
         <Select.Option value={toDate(monthsAgo(3))}>
           Last 3 Months
         </Select.Option>
-        <Select.Option value={POINTS_UPDATE_DATE}>
+        <Select.Option value={pointsUpdateDate}>
           Last Points Update
         </Select.Option>
       </Select>

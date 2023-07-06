@@ -12,6 +12,7 @@ import { PilotSkillDistribution } from '@/ui/stats/pilot-skill-distribution';
 import { PilotStats } from '@/ui/stats/pilot-stats';
 import { ShipComposition } from '@/ui/stats/ship-composition';
 import { SquadSize } from '@/ui/stats/squad-size';
+import { StatsHint } from '@/ui/stats/stats-hint';
 import { UpgradeStats } from '@/ui/stats/upgrade-stats';
 
 export interface StatsViewProps {
@@ -62,17 +63,8 @@ export const StatsView = ({ squads }: StatsViewProps) => {
           total={stats.tournament.xws}
         />
       </div>
-      <div className="col-span-full lg:col-start-2 lg:col-end-11">
-        <Message align="center">
-          <Message.Title>
-            For information about some commonly used terms, see the &quot;About
-            the Data&quot; secion on the{' '}
-            <Link className="underline underline-offset-2" href="/about">
-              About page
-            </Link>
-            .
-          </Message.Title>
-        </Message>
+      <div className="col-span-full pt-8 lg:col-start-2 lg:col-end-11">
+        <StatsHint />
       </div>
     </div>
   );
