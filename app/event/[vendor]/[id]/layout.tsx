@@ -76,7 +76,7 @@ const Layout = async ({ params, children }: LayoutProps) => {
   });
 
   return (
-    <div className="container">
+    <>
       <div className="mb-4 border-b border-b-primary-100 pb-6 md:mt-3">
         <Title>{event.name || 'Unknown Event'}</Title>
         <Caption>
@@ -126,7 +126,7 @@ const Layout = async ({ params, children }: LayoutProps) => {
         ]}
       />
       {children}
-    </div>
+    </>
   );
 };
 

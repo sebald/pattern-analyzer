@@ -106,7 +106,7 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
 
   const stats = await getStats({ from, to });
   return (
-    <div className="container">
+    <>
       <div className="pb-6">
         <Title>Analyze</Title>
         <Caption>
@@ -162,7 +162,7 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
           <StatsHint />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

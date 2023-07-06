@@ -1,8 +1,9 @@
 import Image from 'next/image';
+import { Container } from '@/ui';
 
 export const SiteFooter = () => (
   <footer className="border border-b border-primary-200 px-4 py-6">
-    <div className="container flex flex-col items-center justify-between gap-8 md:flex-row">
+    <Container className="flex flex-col items-center justify-between gap-8 md:flex-row">
       <p className="text-sm text-secondary-600">
         The source code is available on{' '}
         <a
@@ -27,6 +28,6 @@ export const SiteFooter = () => (
           height={33}
         />
       </a>
-    </div>
+    </Container>
   </footer>
 );

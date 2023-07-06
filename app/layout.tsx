@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 
+import { Container } from '@/ui';
 import { baseUrl } from '@/lib/config';
 import { cn } from '@/lib/utils';
 
@@ -55,9 +56,9 @@ const Layout = ({ children }: LayoutProps) => (
       )}
     >
       <SiteHeader />
-      <main className="container flex flex-1 pb-10 pt-12 md:pt-20">
+      <Container className="flex flex-1 flex-col pb-10 pt-12 md:pt-20">
         {children}
-      </main>
+      </Container>
       <SiteFooter />
       <AnalyticsWrapper />
     </body>

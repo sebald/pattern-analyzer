@@ -1,4 +1,4 @@
-import { Card, Collapsible, Headline, Link, List } from '@/ui';
+import { Card, Collapsible, Container, Headline, Link, List } from '@/ui';
 import { getAllTournaments } from '@/lib/vendor/listfortress';
 
 import { EventForm } from './_components/event-form';
@@ -13,7 +13,7 @@ export const revalidate = 10800; // 3 hours
 
 // Data
 // ---------------
-const getReventEvents = async () => {
+const getRecentEvents = async () => {
   const events = await getAllTournaments({
     from: daysAgo(20),
     format: 'standard',
@@ -29,10 +29,10 @@ const getReventEvents = async () => {
 // Page
 // ---------------
 const Home = async () => {
-  const events = await getReventEvents();
+  const events = await getRecentEvents();
 
   return (
-    <div className="container flex flex-col items-center gap-32">
+    <Container className="flex flex-col items-center gap-32">
       <div className="pt-6 md:pt-10">
         <Headline level="3" className="text-center text-primary-800">
           Find an Event
@@ -64,7 +64,7 @@ const Home = async () => {
           </Collapsible>
         </Card>
       </div>
-    </div>
+    </Container>
   );
 };
 
