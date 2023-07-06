@@ -4,6 +4,24 @@ import { cn } from '@/lib/utils';
 
 import { headline } from '../fonts';
 
+// Helper
+// ---------------
+interface NavLinkProps {
+  name: string;
+  href: string;
+}
+
+const NavLink = ({ name, href }: NavLinkProps) => (
+  <Link
+    href={href}
+    className="p-2 text-sm font-normal text-primary-900/75 first:pl-0 last:pr-0 hover:text-primary-900"
+  >
+    {name}
+  </Link>
+);
+
+// Component
+// ---------------
 export const SiteNavigation = () => {
   return (
     <div className="hidden w-full md:flex">
@@ -19,23 +37,11 @@ export const SiteNavigation = () => {
       </Link>
       <nav className="flex flex-1 items-center space-x-6 text-sm font-medium">
         {siteNavigation.map(({ name, href }) => (
-          <Link
-            key={href}
-            href={href}
-            className="text-sm font-normal text-primary-900/75 hover:text-primary-900"
-          >
-            {name}
-          </Link>
+          <NavLink key={href} href={href} name={name} />
         ))}
         <span className="grow" role="separator" aria-hidden="true" />
         {secondaryNavigation.map(({ name, href }) => (
-          <Link
-            key={href}
-            href={href}
-            className="text-sm font-normal text-primary-900/75 hover:text-primary-900"
-          >
-            {name}
-          </Link>
+          <NavLink key={href} href={href} name={name} />
         ))}
       </nav>
     </div>
