@@ -70,6 +70,14 @@ export const initUpgradeStats = (slot: XWSUpgradeSlots): UpgradeStats => ({
   ...initFrequency(),
 });
 
+export const initCompositionStats = (ships: Ships[]): CompositionStats => ({
+  ships,
+  xws: [],
+  record: { wins: 0, ties: 0, losses: 0 },
+  ranks: [],
+  ...initPerformance(),
+});
+
 /**
  * Initialiaze object that holds data collected from an event.
  */

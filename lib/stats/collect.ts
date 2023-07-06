@@ -160,22 +160,23 @@ export const collect = (squads: SquadData[]) => {
       data.shipComposition.set(shipCompositionId, shipCompositionCount + 1);
 
       // Ship composition
-      const cid = ships.join('|');
+      const cid = ships.join('.');
       const composition: CompositionDataCollection = data.composition[cid] || {
         ships: [...ships],
         xws: [],
-        records: [],
-        percentiles: [],
+        record: { wins: 0, ties: 0, losses: 0 },
+        ranks: [],
       };
 
       data.composition[cid] = {
         ...composition,
         xws: [...composition.xws, squad.xws],
-        records: [...composition.records, squad.record],
-        percentiles: [
-          ...composition.percentiles,
-          percentile(rank.elimination ?? rank.swiss, squads.length),
-        ],
+        record: {
+          wins: composition.record.wins + squad.record.wins,
+          ties: composition.record.ties + squad.record.ties,
+          losses: composition.record.losses + squad.record.losses,
+        },
+        ranks: [...composition.ranks, rank.elimination ?? rank.swiss],
       };
     }
   });

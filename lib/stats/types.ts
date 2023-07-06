@@ -48,8 +48,8 @@ export interface UpgradeDataCollection {
 export interface CompositionDataCollection {
   ships: Ships[];
   xws: XWSSquad[];
-  records: GameRecord[];
-  percentiles: number[];
+  record: GameRecord;
+  ranks: number[];
 }
 
 export interface SquadDataCollection {
@@ -103,10 +103,9 @@ export interface UpgradeStats
     PerformanceStats,
     FrequencyStats {}
 
-export interface CompositionStats extends PerformanceStats {
-  ships: Ships[];
-  xws: XWSSquad[];
-}
+export interface CompositionStats
+  extends CompositionDataCollection,
+    PerformanceStats {}
 
 export interface SquadStats {
   tournament: {

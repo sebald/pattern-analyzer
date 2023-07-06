@@ -10,6 +10,7 @@ import {
 
 import { collect } from './collect';
 import {
+  initCompositionStats,
   initPilotStats,
   initShipSats,
   initStats,
@@ -27,6 +28,7 @@ export const create = (list: SquadData[][]) => {
   const factionPercentiles = new Map<string, number[]>();
   const pilotPercentiles = new Map<string, number[]>();
   const upgradePercentiles = new Map<string, number[]>(); // use faction/"all" prefix
+  const compositionPercentiles = new Map<string, number[]>();
 
   list.forEach(squads => {
     const current = collect(squads);
@@ -138,6 +140,25 @@ export const create = (list: SquadData[][]) => {
           ),
         ]);
       });
+    });
+
+    // Composition
+    Object.entries(current.composition).forEach(([id, stats]) => {
+      const composition =
+        result.composition[id] || initCompositionStats(stats.ships);
+
+      composition.xws.push(...stats.xws);
+      composition.record.wins += stats.record.wins;
+      composition.record.ties += stats.record.ties;
+      composition.record.losses += stats.record.losses;
+      composition.ranks.push(...stats.ranks);
+
+      compositionPercentiles.set(id, [
+        ...(compositionPercentiles.get(id) || []),
+        ...stats.ranks.map(rank => percentile(rank, current.tournament.count)),
+      ]);
+
+      result.composition[id] = composition;
     });
   });
 
