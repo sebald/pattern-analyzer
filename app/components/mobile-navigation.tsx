@@ -51,7 +51,12 @@ export const MobileNavigation = () => {
           size="inherit"
           className="text-primary-900 hover:text-primary-700 md:hidden"
         >
-          <Lines className="h-7 w-7" />
+          <Lines className="h-5 w-5" strokeWidth={2} />{' '}
+          <span
+            className={`${headline.variable} font-headline text-sm font-bold uppercase`}
+          >
+            Menu
+          </span>
           <span className="sr-only">Toggle Menu</span>
         </Button>
       </Sheet.Trigger>
