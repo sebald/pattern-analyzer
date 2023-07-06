@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useDebouncedCallback } from 'use-debounce';
 
 import { Input, Button, Select, Spinner } from '@/ui';
+import { vendors } from '@/lib/config';
 
 export const EventForm = () => {
   const [error, setError] = useState<string | null>(null);
@@ -48,9 +49,11 @@ export const EventForm = () => {
         className="w-full"
         defaultValue="listfortress"
       >
-        <Select.Option value="listfortress">Listfortress</Select.Option>
-        <Select.Option value="longshanks">Longshanks</Select.Option>
-        <Select.Option value="rollbetter">Rollbetter</Select.Option>
+        {vendors.map(({ id, name }) => (
+          <Select.Option key={id} value={id}>
+            {name}
+          </Select.Option>
+        ))}
       </Select>
       <Input
         placeholder="Event ID"

@@ -4,6 +4,12 @@ export const baseUrl =
 
 export const pointsUpdateDate = '2023-06-01';
 
+export const vendors = [
+  { id: 'listfortress', name: 'Listfortress' },
+  { id: 'longshanks', name: 'Longshanks' },
+  { id: 'rollbetter', name: 'Rollbetter' },
+];
+
 export const siteNavigation = [
   {
     name: 'Home',
