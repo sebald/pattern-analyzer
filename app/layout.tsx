@@ -19,6 +19,7 @@ export const metadata = {
   appleWebApp: {
     title: 'Pattern Analyzer',
   },
+  metadataBase: new URL('https://www.pattern-analyzer.app/'),
   openGraph: {
     siteName: 'Pattern Analyzer',
     title: 'Home',
