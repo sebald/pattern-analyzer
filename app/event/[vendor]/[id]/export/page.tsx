@@ -1,9 +1,9 @@
 import type { Vendor } from '@/lib/types';
 import { Headline, List, Link, Text } from '@/ui';
 
-import { ExportListfortress } from './components/export-listfortress';
-import { ExportLongshanks } from './components/export-longshanks';
-import { ExportRollbetter } from './components/export-rollbetter';
+import { ExportListfortress } from './_components/export-listfortress';
+import { ExportLongshanks } from './_components/export-longshanks';
+import { ExportRollbetter } from './_components/export-rollbetter';
 
 // Helpers
 // ---------------

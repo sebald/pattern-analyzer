@@ -1,9 +1,7 @@
-import { Card, Collapsible, Container, Headline, Link, List, Logo } from '@/ui';
+import { Card, Collapsible, Headline, Link, List } from '@/ui';
 import { getAllTournaments } from '@/lib/vendor/listfortress';
-import { cn } from '@/lib/utils';
 
-import { headline } from './fonts';
-import { EventForm } from './components/event-form';
+import { EventForm } from './_components/event-form';
 import { daysAgo } from '@/lib/utils/date.utils';
 
 // Config

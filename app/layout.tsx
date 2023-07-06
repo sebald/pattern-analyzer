@@ -1,14 +1,13 @@
 import type { Metadata } from 'next';
 
-import { Link } from '@/ui';
 import { baseUrl } from '@/lib/config';
 import { cn } from '@/lib/utils';
 
 import './globals.css';
 import { sans } from './fonts';
-import { AnalyticsWrapper } from './components/analytics';
-import { SiteHeader } from './components/site-header';
-import { SiteFooter } from './components/site-footer';
+import { AnalyticsWrapper } from './_components/analytics';
+import { SiteHeader } from './_components/site-header';
+import { SiteFooter } from './_components/site-footer';
 
 // Metadata
 // ---------------

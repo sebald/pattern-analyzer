@@ -11,9 +11,8 @@ import {
 } from '@/lib/utils/date.utils';
 import { getAllTournaments, getSquads } from '@/lib/vendor/listfortress';
 
-import { Caption, Inline, Link, Message, Title } from '@/ui';
+import { Caption, Inline, Title } from '@/ui';
 import { Calendar } from '@/ui/icons';
-
 import { ChassisDistribution } from '@/ui/stats/chassis-distribution';
 import { FactionDistribution } from '@/ui/stats/faction-distribution';
 import { FactionPerformance } from '@/ui/stats/faction-performance';
@@ -24,8 +23,9 @@ import { PilotStats } from '@/ui/stats/pilot-stats';
 import { ShipComposition } from '@/ui/stats/ship-composition';
 import { SquadSize } from '@/ui/stats/squad-size';
 import { UpgradeStats } from '@/ui/stats/upgrade-stats';
-import { DateSelection } from './components/DateSelection';
 import { StatsHint } from '@/ui/stats/stats-hint';
+
+import { DateSelection } from './_components/DateSelection';
 
 // Config
 // ---------------

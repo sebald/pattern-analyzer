@@ -1,8 +1,8 @@
 import { SquadData } from '@/lib/types';
 
-import { FilterProvider } from './components/context';
-import { Filter } from './components/filter';
-import { Squads } from './components/squads';
+import { FilterProvider } from './context';
+import { Filter } from './filter';
+import { Squads } from './squads';
 
 // Props
 // ---------------

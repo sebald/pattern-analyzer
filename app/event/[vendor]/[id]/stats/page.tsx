@@ -1,8 +1,8 @@
 import { baseUrl } from '@/lib/config';
 import type { SquadData, Vendor } from '@/lib/types';
 
-import { StatsView } from './(views)/stats.view';
-import { LongshanksStatsView } from './(views)/longshanks-stats.view';
+import { StatsView } from './_components/stats.view';
+import { LongshanksStatsView } from './_components/longshanks-stats.view';
 
 // Data
 // ---------------
