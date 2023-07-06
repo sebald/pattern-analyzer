@@ -1,17 +1,17 @@
 import { z } from 'zod';
 
+import { baseUrl } from '@/lib/config';
 import { create } from '@/lib/stats/create';
 import {
   formatDate,
   fromDate,
-  isSameDate,
   monthsAgo,
   toDate,
   today,
 } from '@/lib/utils/date.utils';
 import { getAllTournaments, getSquads } from '@/lib/vendor/listfortress';
 
-import { Caption, Inline, Link, Message, Select, Title } from '@/ui';
+import { Caption, Inline, Link, Message, Title } from '@/ui';
 import { Calendar } from '@/ui/icons';
 
 import { ChassisDistribution } from '@/ui/stats/chassis-distribution';
@@ -32,6 +32,21 @@ import { DateSelection } from './components/DateSelection';
  * Segment Config (see: https://beta.nextjs.org/docs/api-reference/segment-config)
  */
 export const revalidate = 10800; // 3 hours
+
+// Metadata
+// ---------------
+export const metadata = {
+  title: 'Pattern Analyzer | Analyze',
+  description: 'Analyze the current X-Wing meta!',
+  openGraph: {
+    siteName: 'Pattern Analyzer',
+    title: 'Analyze',
+    description: 'Analyze the current X-Wing meta!',
+    images: `${baseUrl}/api/og.png`,
+    locale: 'en-US',
+    type: 'website',
+  },
+};
 
 // Helpers
 // ---------------
@@ -90,8 +105,8 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
 
   const stats = await getStats({ from, to });
   return (
-    <>
-      <header className="mb-4 border-b border-b-primary-100 pb-6 md:mt-3">
+    <div className="container">
+      <div className="pb-6">
         <Title>Analyze</Title>
         <Caption>
           <Inline className="gap-4">
@@ -101,7 +116,7 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
             </Inline>
           </Inline>
         </Caption>
-      </header>
+      </div>
       <div className="flex flex-row items-end justify-end gap-2 pb-8 sm:gap-4">
         <DateSelection defaultValue={toDate(from)} />
       </div>
@@ -155,7 +170,7 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
           </Message>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
