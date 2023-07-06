@@ -76,7 +76,7 @@ export const initCollection = (): SquadDataCollection => {
   // Basic tournament data
   const tournament = {
     xws: 0,
-    count: 0,
+    count: 0, // number of total squads
     cut: 0,
   };
 
@@ -159,6 +159,7 @@ export const initCollection = (): SquadDataCollection => {
 export const initStats = (): SquadStats => {
   // Basic tournament data
   const tournament = {
+    total: 0,
     xws: 0,
     count: 0,
     cut: 0,

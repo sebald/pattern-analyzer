@@ -14,11 +14,12 @@ export interface FactionWinrateProps {
       ranks: number[];
     };
   };
+  total: number;
 }
 
 // Component
 // ---------------
-export const FactionVictories = ({ value }: FactionWinrateProps) => {
+export const FactionVictories = ({ value, total }: FactionWinrateProps) => {
   const data = Object.entries(value)
     // Remove "uknown"
     .filter(([key]) => key !== 'unknown')
@@ -28,10 +29,9 @@ export const FactionVictories = ({ value }: FactionWinrateProps) => {
       return {
         faction,
         wins,
+        percentage: wins / total,
       };
     });
-
-  const total = data.reduce((acc, { wins }) => acc + wins, 0);
 
   return (
     <Card>
@@ -42,9 +42,9 @@ export const FactionVictories = ({ value }: FactionWinrateProps) => {
         <ResponsiveBar
           data={[...data].sort((a, b) => a.wins - b.wins)}
           indexBy="faction"
-          keys={['wins']}
+          keys={['percentage']}
           minValue={0}
-          valueFormat={value => toPercentage(value / total)}
+          valueFormat={toPercentage}
           axisLeft={{
             format: toPercentage,
           }}

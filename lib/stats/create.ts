@@ -18,6 +18,7 @@ import {
 
 export const create = (list: SquadData[][]) => {
   const result = initStats();
+  result.tournament.total = list.length;
 
   /**
    * Temporariy store values that need to be

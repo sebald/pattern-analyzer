@@ -132,7 +132,10 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
           <FactionPerformance value={stats.faction} />
         </div>
         <div className="md:col-span-6">
-          <FactionVictories value={stats.faction} />
+          <FactionVictories
+            value={stats.faction}
+            total={stats.tournament.total}
+          />
         </div>
         <div className="md:col-span-6">
           <SquadSize value={stats.squadSizes} total={stats.tournament.xws} />

@@ -92,7 +92,14 @@ export interface UpgradeStats
 
 export interface SquadStats {
   tournament: {
+    /**
+     * Number of tournaments
+     */
+    total: number;
     xws: number;
+    /**
+     * Number of squads
+     */
     count: number;
     cut: number;
   };
