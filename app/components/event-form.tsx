@@ -42,15 +42,6 @@ export const EventForm = () => {
       className="flex flex-col justify-center gap-3 md:flex-row"
       onSubmit={handleSubmit}
     >
-      <Input
-        placeholder="Event ID"
-        name="event"
-        size="large"
-        onChange={e => handleChange(e.target.value)}
-        error={error}
-        inputMode="numeric"
-        autoFocus
-      />
       <Select
         name="vendor"
         size="large"
@@ -61,6 +52,15 @@ export const EventForm = () => {
         <Select.Option value="longshanks">Longshanks</Select.Option>
         <Select.Option value="rollbetter">Rollbetter</Select.Option>
       </Select>
+      <Input
+        placeholder="Event ID"
+        name="event"
+        size="large"
+        onChange={e => handleChange(e.target.value)}
+        error={error}
+        inputMode="numeric"
+        autoFocus
+      />
       <Button variant="primary" size="large" type="submit">
         {pending ? <Spinner className="h-6 w-6" /> : 'Submit'}
       </Button>

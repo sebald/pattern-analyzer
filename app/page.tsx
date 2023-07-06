@@ -34,18 +34,18 @@ const Home = async () => {
   const events = await getReventEvents();
 
   return (
-    <div className="container grid flex-1 place-items-center">
-      <div className="flex-1 pb-24">
-        <Headline level="3" className="text-primary-800">
-          Find an Event:
+    <div className="container flex flex-col items-center gap-32">
+      <div className="pt-6 md:pt-10">
+        <Headline level="3" className="text-center text-primary-800">
+          Find an Event
         </Headline>
         <EventForm />
       </div>
-      <div className="w-full md:px-6">
-        <Headline level="3" className="text-primary-800">
+      <div className="max-w-xl md:px-6">
+        <Headline level="3" className="text-center text-primary-800">
           Recent Events
         </Headline>
-        <Card>
+        <Card className="h-fit">
           <Collapsible maxHeight={350}>
             <List variant="wide">
               {events.map(({ id, name, date, country }) => (
