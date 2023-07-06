@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 
 import { headline } from '../fonts';
 
-export const Navigation = () => {
+export const SiteNavigation = () => {
   return (
     <div className="hidden w-full md:flex">
       <Link
@@ -22,7 +22,7 @@ export const Navigation = () => {
           <Link
             key={href}
             href={href}
-            className="text-base font-normal text-primary-900/60 hover:text-primary-900"
+            className="text-sm font-normal text-primary-900/75 hover:text-primary-900"
           >
             {name}
           </Link>
@@ -32,7 +32,7 @@ export const Navigation = () => {
           <Link
             key={href}
             href={href}
-            className="text-base font-normal text-primary-900/60 hover:text-primary-900"
+            className="text-sm font-normal text-primary-900/75 hover:text-primary-900"
           >
             {name}
           </Link>
