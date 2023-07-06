@@ -57,7 +57,7 @@ const Layout = ({ children }: LayoutProps) => (
       )}
     >
       <SiteHeader />
-      <Container className="flex flex-1 flex-col pb-10 pt-12 md:pt-20">
+      <Container className="flex flex-1 flex-col pb-10 pt-8 md:pt-20">
         {children}
       </Container>
       <SiteFooter />
