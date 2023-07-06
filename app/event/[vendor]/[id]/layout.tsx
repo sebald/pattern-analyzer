@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 import { Caption, Inline, Link, Title } from '@/ui';
 import { Navigation } from '@/ui/navigation';
 import { Trophy, Download, BarChart, Calendar, Columns } from '@/ui/icons';
 
-import { baseUrl } from '@/lib/config';
+import { baseUrl, vendors } from '@/lib/config';
 import type { EventInfo, Vendor } from '@/lib/types';
 import { formatDate, fromDate } from '@/lib/utils/date.utils';
 
@@ -20,6 +21,10 @@ interface GetEventInfoProps {
 }
 
 const getEventInfo = async ({ vendor, id }: GetEventInfoProps) => {
+  if (!vendors.find(v => v.id === vendor)) {
+    notFound();
+  }
+
   const res = await fetch(`${baseUrl}/api/${vendor}/${id}`);
 
   if (!res.ok) {
