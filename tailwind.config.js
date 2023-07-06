@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: '0.75rem',
+      padding: '0.75rem', // Responsive padding is not working? :(
       screens: {
         '2xl': '1400px',
       },

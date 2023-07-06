@@ -27,11 +27,17 @@ const securityHeaders = [
 
 /** @type {import('next').NextConfig} */
 const config = {
-  experimental: {
-    appDir: true,
-  },
   headers() {
     return [{ source: '/(.*)', headers: securityHeaders }];
+  },
+  redirects() {
+    return [
+      {
+        source: '/event',
+        destination: '/',
+        permanent: true,
+      },
+    ];
   },
   images: {
     remotePatterns: [
