@@ -19,12 +19,7 @@ export const ExportLongshanks = ({ id }: { id: string }) => {
 
   return (
     <div className="flex flex-col gap-1">
-      <Button
-        variant="primary"
-        size="large"
-        disabled={isLoading}
-        onClick={setCopied}
-      >
+      <Button size="large" disabled={isLoading} onClick={setCopied}>
         Export for Listfortress
       </Button>
       <div className="text-center text-xs text-secondary-500">

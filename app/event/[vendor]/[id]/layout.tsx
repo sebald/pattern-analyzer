@@ -71,8 +71,8 @@ const Layout = async ({ params, children }: LayoutProps) => {
   });
 
   return (
-    <>
-      <header className="mb-4 border-b border-b-primary-100 pb-6 md:mt-3">
+    <div className="container">
+      <div className="mb-4 border-b border-b-primary-100 pb-6 md:mt-3">
         <Title>{event.name || 'Unknown Event'}</Title>
         <Caption>
           <Inline className="gap-4">
@@ -87,7 +87,7 @@ const Layout = async ({ params, children }: LayoutProps) => {
             </Link>
           </Inline>
         </Caption>
-      </header>
+      </div>
       <Navigation
         className="pb-14"
         path={`/event/${params.vendor}/${params.id}`}
@@ -121,7 +121,7 @@ const Layout = async ({ params, children }: LayoutProps) => {
         ]}
       />
       {children}
-    </>
+    </div>
   );
 };
 
