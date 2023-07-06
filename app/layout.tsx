@@ -56,7 +56,9 @@ const Layout = ({ children }: LayoutProps) => (
       )}
     >
       <SiteHeader />
-      <main className="container flex flex-1 pb-10 pt-12">{children}</main>
+      <main className="container flex flex-1 pb-10 pt-12 md:pt-20">
+        {children}
+      </main>
       <SiteFooter />
       <AnalyticsWrapper />
     </body>
