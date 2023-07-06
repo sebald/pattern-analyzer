@@ -1,8 +1,8 @@
 import { LogoSkeleton } from '@/ui';
 
 const Loading = () => (
-  <div className="grid min-h-screen place-items-center">
-    <LogoSkeleton />
+  <div className="grid flex-1 place-items-center">
+    <LogoSkeleton className="text-primary-900" />
     <span className="sr-only">Loading...</span>
   </div>
 );
