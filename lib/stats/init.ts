@@ -1,18 +1,19 @@
 import type { Ships } from '../get-value';
 import type { XWSUpgradeSlots } from '../types';
 import type {
+  CommonDataCollection,
+  CompositionStats,
   FactionMap,
-  FactionDataCollection as CommonDataCollection,
-  PilotDataCollection,
-  ShipDataCollection,
   FactionMapWithAll,
-  UpgradeDataCollection,
+  FrequencyStats,
+  PerformanceStats,
+  PilotDataCollection,
+  PilotStats,
+  ShipDataCollection,
+  ShipStats,
   SquadDataCollection,
   SquadStats,
-  PerformanceStats,
-  FrequencyStats,
-  PilotStats,
-  ShipStats,
+  UpgradeDataCollection,
   UpgradeStats,
 } from './types';
 
@@ -135,6 +136,8 @@ export const initCollection = (): SquadDataCollection => {
   // Number of squads with the same ships (key = ship ids separated by "|")
   const shipComposition = new Map<string, number>();
 
+  const composition = {};
+
   // Upgrades stats
   const upgrade = {
     all: {},
@@ -151,6 +154,7 @@ export const initCollection = (): SquadDataCollection => {
     ship,
     shipComposition,
     upgrade,
+    composition,
   };
 };
 
@@ -220,6 +224,8 @@ export const initStats = (): SquadStats => {
   // Number of squads with the same ships (key = ship ids separated by "|")
   const shipComposition = new Map<string, number>();
 
+  const composition: SquadStats['composition'] = {};
+
   // Upgrades stats
   const upgrade = {
     all: {},
@@ -236,5 +242,6 @@ export const initStats = (): SquadStats => {
     ship,
     shipComposition,
     upgrade,
+    composition,
   };
 };

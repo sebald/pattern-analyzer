@@ -3,6 +3,8 @@ import type { SquadData, XWSUpgradeSlots } from '@/lib/types';
 import { getPilotSkill } from '@/lib/yasb';
 
 import { initCollection } from './init';
+import { CompositionDataCollection } from './types';
+import { percentile } from '../utils';
 
 // Collect data
 // ---------------
@@ -156,6 +158,25 @@ export const collect = (squads: SquadData[]) => {
       const shipCompositionCount =
         data.shipComposition.get(shipCompositionId) || 0;
       data.shipComposition.set(shipCompositionId, shipCompositionCount + 1);
+
+      // Ship composition
+      const cid = ships.join('|');
+      const composition: CompositionDataCollection = data.composition[cid] || {
+        ships: [...ships],
+        xws: [],
+        records: [],
+        percentiles: [],
+      };
+
+      data.composition[cid] = {
+        ...composition,
+        xws: [...composition.xws, squad.xws],
+        records: [...composition.records, squad.record],
+        percentiles: [
+          ...composition.percentiles,
+          percentile(rank.elimination ?? rank.swiss, squads.length),
+        ],
+      };
     }
   });
 

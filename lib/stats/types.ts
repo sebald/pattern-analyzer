@@ -1,5 +1,10 @@
 import type { Ships } from '@/lib/get-value';
-import type { XWSFaction, GameRecord, XWSUpgradeSlots } from '@/lib/types';
+import type {
+  XWSFaction,
+  GameRecord,
+  XWSUpgradeSlots,
+  XWSSquad,
+} from '@/lib/types';
 
 // Maps
 // ---------------
@@ -13,7 +18,7 @@ export type FactionMapWithAll<Key extends string, Value> = {
 
 // Collection
 // ---------------
-export interface FactionDataCollection {
+export interface CommonDataCollection {
   count: number;
   records: GameRecord[];
   ranks: number[];
@@ -40,6 +45,13 @@ export interface UpgradeDataCollection {
   ranks: number[];
 }
 
+export interface CompositionDataCollection {
+  ships: Ships[];
+  xws: XWSSquad[];
+  records: GameRecord[];
+  percentiles: number[];
+}
+
 export interface SquadDataCollection {
   tournament: {
     xws: number;
@@ -47,7 +59,7 @@ export interface SquadDataCollection {
     cut: number;
   };
   faction: {
-    [Faction in XWSFaction | 'unknown']: FactionDataCollection;
+    [Faction in XWSFaction | 'unknown']: CommonDataCollection;
   };
   squadSizes: {
     [Size in 3 | 4 | 5 | 6 | 7 | 8]: number;
@@ -62,6 +74,7 @@ export interface SquadDataCollection {
   ship: FactionMap<Ships, ShipDataCollection>;
   shipComposition: Map<string, number>;
   upgrade: FactionMapWithAll<string, UpgradeDataCollection>;
+  composition: { [id: string]: CompositionDataCollection };
 }
 
 // Stats
@@ -76,7 +89,7 @@ export interface FrequencyStats {
   frequency: number;
 }
 
-export interface FactionStats extends FactionDataCollection, PerformanceStats {}
+export interface FactionStats extends CommonDataCollection, PerformanceStats {}
 
 export interface PilotStats
   extends PilotDataCollection,
@@ -89,6 +102,11 @@ export interface UpgradeStats
   extends UpgradeDataCollection,
     PerformanceStats,
     FrequencyStats {}
+
+export interface CompositionStats extends PerformanceStats {
+  ships: Ships[];
+  xws: XWSSquad[];
+}
 
 export interface SquadStats {
   tournament: {
@@ -119,4 +137,5 @@ export interface SquadStats {
   ship: FactionMap<Ships, ShipStats>;
   shipComposition: Map<string, number>;
   upgrade: FactionMapWithAll<string, UpgradeStats>;
+  composition: { [id: string]: CompositionStats };
 }
