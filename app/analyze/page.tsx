@@ -26,6 +26,7 @@ import { UpgradeStats } from '@/ui/stats/upgrade-stats';
 import { StatsHint } from '@/ui/stats/stats-hint';
 
 import { DateSelection } from './_components/DateSelection';
+import { CompositionStats } from '@/ui/stats/composition-stats';
 
 // Config
 // ---------------
@@ -154,6 +155,9 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
         </div>
         <div className="col-span-full">
           <UpgradeStats value={stats.upgrade} />
+        </div>
+        <div className="col-span-full">
+          <CompositionStats value={stats.composition} />
         </div>
         <div className="self-start md:col-span-4">
           <ShipComposition

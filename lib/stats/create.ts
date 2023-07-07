@@ -218,5 +218,14 @@ export const create = (list: SquadData[][]) => {
     });
   });
 
+  // Composition: percentilce, deviation, winrate
+  Object.entries(result.composition).forEach(([cid, stats]) => {
+    const pcs = compositionPercentiles.get(cid)!;
+
+    stats.winrate = winrate([stats.record]);
+    stats.percentile = average(pcs, 4);
+    stats.deviation = deviation(pcs, 4);
+  });
+
   return result;
 };
