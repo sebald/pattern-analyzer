@@ -12,34 +12,47 @@ import {
   Table,
 } from '@/ui';
 import type { CompositionStats as CompositionStatsType } from '@/lib/stats/types';
-import { toPercentage } from '@/lib/utils/math.utils';
+import { round, toPercentage } from '@/lib/utils/math.utils';
 import { XWSFaction } from '@/lib/types';
 
 // Helpers
 // ---------------
-const calcMagicNumber = (stat: CompositionStatsType) => {};
+const calcMagicNumber = (stat: CompositionStatsType) =>
+  round(stat.percentile * stat.frequency * stat.xws.length * 100, 2);
+
+interface CompositionStatsTypeWithMagic extends CompositionStatsType {
+  magic: number;
+}
 
 // Props
 // ---------------
-export interface PilotStatsProps {
+export interface CompositionStatsProps {
   value: { [id: string]: CompositionStatsType };
 }
 
 // Component
 // ---------------
-export const CompositionStats = ({ value }: PilotStatsProps) => {
+export const CompositionStats = ({ value }: CompositionStatsProps) => {
   const [faction, setFaction] = useState<XWSFaction | 'all'>('all');
   const [sort, setSort] = useState<
-    'percentile' | 'deviation' | 'winrate' | 'frequency' | 'count'
+    'percentile' | 'deviation' | 'winrate' | 'frequency' | 'count' | 'magic'
   >('percentile');
 
-  const data =
-    faction === 'all'
-      ? (Object.entries(value) as [string, CompositionStatsType][])
-      : Object.entries(value).filter(
-          ([_, stat]: [string, CompositionStatsType]) =>
-            stat.faction === faction
-        );
+  let data = (Object.entries(value) as [string, CompositionStatsType][]).map(
+    ([id, stat]) => {
+      return [id, { ...stat, magic: calcMagicNumber(stat) }] as [
+        string,
+        CompositionStatsTypeWithMagic
+      ];
+    }
+  );
+
+  if (faction !== 'all') {
+    data = data.filter(
+      ([_, stat]: [string, CompositionStatsType]) => stat.faction === faction
+    );
+  }
+
   data.sort(([, a], [, b]) =>
     sort === 'count'
       ? b.xws.length - a.xws.length
@@ -62,6 +75,7 @@ export const CompositionStats = ({ value }: PilotStatsProps) => {
             <Select.Option value="winrate">By Winrate</Select.Option>
             <Select.Option value="frequency">By Frequency</Select.Option>
             <Select.Option value="count">By Count</Select.Option>
+            <Select.Option value="magic">By Magic</Select.Option>
           </Select>
         </Card.Actions>
       </Card.Header>
@@ -76,6 +90,7 @@ export const CompositionStats = ({ value }: PilotStatsProps) => {
               '1fr',
               'minmax(90px, 1fr)',
               '70px',
+              '70px',
             ]}
             headers={[
               'Ships',
@@ -85,6 +100,7 @@ export const CompositionStats = ({ value }: PilotStatsProps) => {
               'Winrate',
               'Frequency',
               'Count',
+              'Score',
             ]}
           >
             {data.map(([id, stat]) => (
@@ -120,6 +136,7 @@ export const CompositionStats = ({ value }: PilotStatsProps) => {
                   {toPercentage(stat.frequency)}
                 </Table.Cell>
                 <Table.Cell variant="number">{stat.xws.length}</Table.Cell>
+                <Table.Cell variant="number">{stat.magic}</Table.Cell>
               </Fragment>
             ))}
           </Table>
