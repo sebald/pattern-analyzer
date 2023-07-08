@@ -15,6 +15,10 @@ import type { CompositionStats as CompositionStatsType } from '@/lib/stats/types
 import { toPercentage } from '@/lib/utils/math.utils';
 import { XWSFaction } from '@/lib/types';
 
+// Helpers
+// ---------------
+const calcMagicNumber = (stat: CompositionStatsType) => {};
+
 // Props
 // ---------------
 export interface PilotStatsProps {
@@ -26,7 +30,7 @@ export interface PilotStatsProps {
 export const CompositionStats = ({ value }: PilotStatsProps) => {
   const [faction, setFaction] = useState<XWSFaction | 'all'>('all');
   const [sort, setSort] = useState<
-    'percentile' | 'deviation' | 'winrate' | 'count'
+    'percentile' | 'deviation' | 'winrate' | 'frequency' | 'count'
   >('percentile');
 
   const data =
@@ -56,6 +60,7 @@ export const CompositionStats = ({ value }: PilotStatsProps) => {
             <Select.Option value="percentile">By Percentile</Select.Option>
             <Select.Option value="deviation">By Std. Deviation</Select.Option>
             <Select.Option value="winrate">By Winrate</Select.Option>
+            <Select.Option value="frequency">By Frequency</Select.Option>
             <Select.Option value="count">By Count</Select.Option>
           </Select>
         </Card.Actions>
@@ -69,6 +74,7 @@ export const CompositionStats = ({ value }: PilotStatsProps) => {
               '1fr',
               '1fr',
               '1fr',
+              'minmax(90px, 1fr)',
               '70px',
             ]}
             headers={[
@@ -77,6 +83,7 @@ export const CompositionStats = ({ value }: PilotStatsProps) => {
               'Percentile',
               'Std. Deviation',
               'Winrate',
+              'Frequency',
               'Count',
             ]}
           >
@@ -108,6 +115,9 @@ export const CompositionStats = ({ value }: PilotStatsProps) => {
                 </Table.Cell>
                 <Table.Cell variant="number">
                   {stat.winrate !== null ? toPercentage(stat.winrate) : '-'}
+                </Table.Cell>
+                <Table.Cell variant="number">
+                  {toPercentage(stat.frequency)}
                 </Table.Cell>
                 <Table.Cell variant="number">{stat.xws.length}</Table.Cell>
               </Fragment>

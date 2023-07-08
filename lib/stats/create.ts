@@ -217,6 +217,10 @@ export const create = (list: SquadData[][]) => {
   Object.entries(result.composition).forEach(([cid, stats]) => {
     const pcs = compositionPercentiles.get(cid)!;
 
+    stats.frequency = round(
+      stats.xws.length / result.faction[stats.faction].count,
+      4
+    );
     stats.winrate = winrate([stats.record]);
     stats.percentile = average(pcs, 4);
     stats.deviation = deviation(pcs, 4);

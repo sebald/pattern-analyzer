@@ -80,6 +80,7 @@ export const initCompositionStats = (
   record: { wins: 0, ties: 0, losses: 0 },
   ranks: [],
   ...initPerformance(),
+  ...initFrequency(),
 });
 
 /**
