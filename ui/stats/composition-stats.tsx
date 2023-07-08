@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 
-import { Card, ShipIcon, Table } from '@/ui';
+import { Card, FactionIcon, ShipIcon, Table } from '@/ui';
 import type { CompositionStats as CompositionStatsType } from '@/lib/stats/types';
 import { toPercentage } from '@/lib/utils/math.utils';
 
@@ -20,9 +20,17 @@ export const CompositionStats = ({ value }: PilotStatsProps) => {
       </Card.Header>
       <Card.Body>
         <Table
-          cols={['minmax(auto, max-content)', '1fr', '1fr', '1fr', '70px']}
+          cols={[
+            'minmax(auto, max-content)',
+            '70px',
+            '1fr',
+            '1fr',
+            '1fr',
+            '70px',
+          ]}
           headers={[
             'Ships',
+            'Faction',
             'Percentile',
             'Std. Deviation',
             'Winrate',
@@ -35,6 +43,9 @@ export const CompositionStats = ({ value }: PilotStatsProps) => {
                 {stat.ships.map((ship, idx) => (
                   <ShipIcon key={idx} ship={ship} className="w-5 text-xl" />
                 ))}
+              </Table.Cell>
+              <Table.Cell>
+                <FactionIcon faction={stat.faction} />
               </Table.Cell>
               <Table.Cell variant="number">
                 {toPercentage(stat.percentile)}
