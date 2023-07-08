@@ -1,6 +1,5 @@
-import { useSquadStats } from '@/lib/stats/useSquadStats';
-import { SquadData } from '@/lib/types';
-import { Link, Message } from '@/ui';
+import type { SquadData } from '@/lib/types';
+import { create } from '@/lib/stats/create';
 
 import { ChassisDistribution } from '@/ui/stats/chassis-distribution';
 import { FactionCut } from '@/ui/stats/faction-cut';
@@ -19,7 +18,7 @@ export interface StatsViewProps {
 }
 
 export const StatsView = ({ squads }: StatsViewProps) => {
-  const stats = useSquadStats({ squads: [squads] });
+  const stats = create([squads]);
 
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-12">

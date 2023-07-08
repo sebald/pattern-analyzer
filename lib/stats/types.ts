@@ -73,7 +73,6 @@ export interface SquadDataCollection {
     [Size in 0 | 1 | 2 | 3 | 4 | 5 | 6]: number;
   };
   ship: FactionMap<Ships, ShipDataCollection>;
-  shipComposition: Map<string, number>;
   upgrade: FactionMapWithAll<string, UpgradeDataCollection>;
   composition: { [id: string]: CompositionDataCollection };
 }
@@ -135,7 +134,6 @@ export interface SquadStats {
     [Size in 0 | 1 | 2 | 3 | 4 | 5 | 6]: number;
   };
   ship: FactionMap<Ships, ShipStats>;
-  shipComposition: Map<string, number>;
   upgrade: FactionMapWithAll<string, UpgradeStats>;
   composition: { [id: string]: CompositionStats };
 }

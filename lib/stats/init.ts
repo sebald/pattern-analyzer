@@ -145,9 +145,6 @@ export const initCollection = (): SquadDataCollection => {
   // Ship stats
   const ship = initFactionMap<Ships, ShipDataCollection>();
 
-  // Number of squads with the same ships (key = ship ids separated by "|")
-  const shipComposition = new Map<string, number>();
-
   const composition = {};
 
   // Upgrades stats
@@ -164,7 +161,6 @@ export const initCollection = (): SquadDataCollection => {
     pilotCostDistribution,
     pilotSkillDistribution,
     ship,
-    shipComposition,
     upgrade,
     composition,
   };
@@ -233,9 +229,7 @@ export const initStats = (): SquadStats => {
   // Ship stats
   const ship = initFactionMap<Ships, ShipStats>();
 
-  // Number of squads with the same ships (key = ship ids separated by "|")
-  const shipComposition = new Map<string, number>();
-
+  // Composition of squads
   const composition: SquadStats['composition'] = {};
 
   // Upgrades stats
@@ -252,7 +246,6 @@ export const initStats = (): SquadStats => {
     pilotCostDistribution,
     pilotSkillDistribution,
     ship,
-    shipComposition,
     upgrade,
     composition,
   };

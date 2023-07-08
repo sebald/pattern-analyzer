@@ -32,7 +32,7 @@ import { CompositionStats } from '@/ui/stats/composition-stats';
 /**
  * Segment Config (see: https://beta.nextjs.org/docs/api-reference/segment-config)
  */
-export const revalidate = 10800; // 3 hours
+export const revalidate = 21600; // 6 hours
 
 // Metadata
 // ---------------

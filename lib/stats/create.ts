@@ -110,12 +110,6 @@ export const create = (list: SquadData[][]) => {
       });
     });
 
-    // Ship Composition
-    current.shipComposition.forEach((currentCount, cid) => {
-      const count = result.shipComposition.get(cid) || 0;
-      result.shipComposition.set(cid, count + currentCount);
-    });
-
     // Upgrade
     Object.keys(current.upgrade).forEach(key => {
       const fid = key as XWSFaction;

@@ -151,14 +151,8 @@ export const collect = (squads: SquadData[]) => {
         });
       });
 
-      // Sort so we can generate an ID
-      ships.sort();
-      const shipCompositionId = ships.join('|');
-      const shipCompositionCount =
-        data.shipComposition.get(shipCompositionId) || 0;
-      data.shipComposition.set(shipCompositionId, shipCompositionCount + 1);
-
       // Ship composition
+      ships.sort(); // Sort so we can generate an ID
       const cid = ships.join('.');
       const composition: CompositionDataCollection = data.composition[cid] || {
         ships: [...ships],
