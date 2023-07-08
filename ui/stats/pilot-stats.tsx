@@ -41,7 +41,7 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
           ];
         }, [])
       : [...(Object.entries(value[faction]) as [string, PilotStatsType][])];
-  data.sort(([, a], [, b]) => b[sort] - a[sort]);
+  data.sort(([, a], [, b]) => (b[sort] || 0) - (a[sort] || 0));
 
   return (
     <Card>
@@ -97,7 +97,7 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
                   {stat.deviation === 0 ? '-' : toPercentage(stat.deviation)}
                 </Table.Cell>
                 <Table.Cell variant="number">
-                  {toPercentage(stat.winrate)}
+                  {stat.winrate !== null ? toPercentage(stat.winrate) : '-'}
                 </Table.Cell>
                 <Table.Cell variant="number">
                   {toPercentage(stat.frequency)}

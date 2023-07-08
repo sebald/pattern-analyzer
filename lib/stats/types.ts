@@ -83,7 +83,7 @@ export interface SquadDataCollection {
 export interface PerformanceStats {
   percentile: number;
   deviation: number;
-  winrate: number;
+  winrate: number | null;
 }
 
 export interface FrequencyStats {

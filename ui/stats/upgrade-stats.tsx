@@ -36,9 +36,8 @@ export const UpgradeStats = ({ value }: UpgradeStatsProps) => {
 
   const data = [
     ...(Object.entries(value[faction]) as [string, UpgradeStatsType][]),
-  ]
-    .filter(([, info]) => (slot === 'all' ? true : info.slot === slot))
-    .sort(([, a], [, b]) => b[sort] - a[sort]);
+  ].filter(([, info]) => (slot === 'all' ? true : info.slot === slot));
+  data.sort(([, a], [, b]) => (b[sort] || 0) - (a[sort] || 0));
 
   return (
     <Card>
@@ -94,7 +93,7 @@ export const UpgradeStats = ({ value }: UpgradeStatsProps) => {
                   {stat.deviation === 0 ? '-' : toPercentage(stat.deviation)}
                 </Table.Cell>
                 <Table.Cell variant="number">
-                  {toPercentage(stat.winrate)}
+                  {stat.winrate !== null ? toPercentage(stat.winrate) : '-'}
                 </Table.Cell>
                 <Table.Cell variant="number">
                   {toPercentage(stat.frequency)}

@@ -36,7 +36,9 @@ export const CompositionStats = ({ value }: PilotStatsProps) => {
             stat.faction === faction
         );
   data.sort(([, a], [, b]) =>
-    sort === 'count' ? b.xws.length - a.xws.length : b[sort] - a[sort]
+    sort === 'count'
+      ? b.xws.length - a.xws.length
+      : (b[sort] || 0) - (a[sort] || 0)
   );
 
   return (
@@ -100,7 +102,7 @@ export const CompositionStats = ({ value }: PilotStatsProps) => {
                 {stat.deviation === 0 ? '-' : toPercentage(stat.deviation)}
               </Table.Cell>
               <Table.Cell variant="number">
-                {toPercentage(stat.winrate)}
+                {stat.winrate !== null ? toPercentage(stat.winrate) : '-'}
               </Table.Cell>
               <Table.Cell variant="number">{stat.xws.length}</Table.Cell>
             </Fragment>

@@ -5,7 +5,7 @@ export const metadata = {
 };
 
 const About = () => (
-  <div className="text-secondary-900">
+  <div className="mx-auto text-secondary-900">
     <Title>About</Title>
     <Headline level="2" className="pt-14">
       About Pattern Analyzer
@@ -112,7 +112,9 @@ const About = () => (
         <Text size="large" prose>
           <strong>Winrate:</strong> The winrate is expressed as a percentage and
           represents how much games an entity (pilot, upgrade,…) has won in
-          comparison to the total games it appeared in.
+          comparison to the total games it appeared in. Sometimes round data is
+          missing which causes an entity to have 0 games recorded. In this case
+          a &quot;-&quot; is displayed to indicate the missing information.
         </Text>
       </List.Item>
       <List.Item>
