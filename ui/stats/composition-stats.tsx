@@ -22,7 +22,7 @@ export const CompositionStats = ({ value }: PilotStatsProps) => {
         <Table
           cols={[
             'minmax(auto, max-content)',
-            '70px',
+            '85px',
             '1fr',
             '1fr',
             '1fr',
@@ -44,7 +44,7 @@ export const CompositionStats = ({ value }: PilotStatsProps) => {
                   <ShipIcon key={idx} ship={ship} className="w-5 text-xl" />
                 ))}
               </Table.Cell>
-              <Table.Cell>
+              <Table.Cell className="justify-center">
                 <FactionIcon faction={stat.faction} />
               </Table.Cell>
               <Table.Cell variant="number">
