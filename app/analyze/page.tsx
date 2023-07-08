@@ -13,7 +13,9 @@ import { getAllTournaments, getSquads } from '@/lib/vendor/listfortress';
 
 import { Caption, Inline, Title } from '@/ui';
 import { Calendar } from '@/ui/icons';
+
 import { ChassisDistribution } from '@/ui/stats/chassis-distribution';
+import { CompositionStats } from '@/ui/stats/composition-stats';
 import { FactionDistribution } from '@/ui/stats/faction-distribution';
 import { FactionPerformance } from '@/ui/stats/faction-performance';
 import { FactionVictories } from '@/ui/stats/faction-victories';
@@ -21,11 +23,10 @@ import { PilotCostDistribution } from '@/ui/stats/pilot-cost-distribution';
 import { PilotSkillDistribution } from '@/ui/stats/pilot-skill-distribution';
 import { PilotStats } from '@/ui/stats/pilot-stats';
 import { SquadSize } from '@/ui/stats/squad-size';
-import { UpgradeStats } from '@/ui/stats/upgrade-stats';
 import { StatsHint } from '@/ui/stats/stats-hint';
+import { UpgradeStats } from '@/ui/stats/upgrade-stats';
 
 import { DateSelection } from './_components/DateSelection';
-import { CompositionStats } from '@/ui/stats/composition-stats';
 
 // Config
 // ---------------

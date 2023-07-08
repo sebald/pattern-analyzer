@@ -2,6 +2,7 @@ import type { SquadData } from '@/lib/types';
 import { create } from '@/lib/stats/create';
 
 import { ChassisDistribution } from '@/ui/stats/chassis-distribution';
+import { CompositionStats } from '@/ui/stats/composition-stats';
 import { FactionCut } from '@/ui/stats/faction-cut';
 import { FactionDistribution } from '@/ui/stats/faction-distribution';
 import { FactionPerformance } from '@/ui/stats/faction-performance';
@@ -54,6 +55,9 @@ export const StatsView = ({ squads }: StatsViewProps) => {
       </div>
       <div className="col-span-full">
         <UpgradeStats value={stats.upgrade} />
+      </div>
+      <div className="col-span-full">
+        <CompositionStats value={stats.composition} />
       </div>
       <div className="col-span-full pt-8 lg:col-start-2 lg:col-end-12">
         <StatsHint />
