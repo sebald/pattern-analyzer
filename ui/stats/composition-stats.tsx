@@ -84,7 +84,7 @@ export const CompositionStats = ({ value }: CompositionStatsProps) => {
           <Table
             cols={[
               'minmax(auto, max-content)',
-              '90px',
+              '120px',
               '1fr',
               '1fr',
               '1fr',
@@ -107,7 +107,7 @@ export const CompositionStats = ({ value }: CompositionStatsProps) => {
               <Fragment key={id}>
                 <Table.Cell
                   variant="header"
-                  className="flex flex-row items-center gap-1"
+                  className="flex flex-row items-center gap-1 lg:gap-2"
                 >
                   {stat.ships.map((ship, idx) => (
                     <ShipIcon
