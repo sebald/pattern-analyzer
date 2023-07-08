@@ -17,7 +17,7 @@ const styles = {
           header: 'text-secondary-800',
         },
         size: {
-          collapsed: 'py-2',
+          collapsed: 'py-2 lg:py-2.5 min-h-[44px] lg:min-h-[50px]',
           relaxed: 'py-3',
         },
       },
