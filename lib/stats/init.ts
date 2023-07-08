@@ -1,5 +1,5 @@
 import type { Ships } from '../get-value';
-import type { XWSUpgradeSlots } from '../types';
+import type { XWSFaction, XWSUpgradeSlots } from '../types';
 import type {
   CommonDataCollection,
   CompositionStats,
@@ -70,8 +70,12 @@ export const initUpgradeStats = (slot: XWSUpgradeSlots): UpgradeStats => ({
   ...initFrequency(),
 });
 
-export const initCompositionStats = (ships: Ships[]): CompositionStats => ({
+export const initCompositionStats = (
+  ships: Ships[],
+  faction: XWSFaction
+): CompositionStats => ({
   ships,
+  faction,
   xws: [],
   record: { wins: 0, ties: 0, losses: 0 },
   ranks: [],

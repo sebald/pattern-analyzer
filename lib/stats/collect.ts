@@ -4,7 +4,6 @@ import { getPilotSkill } from '@/lib/yasb';
 
 import { initCollection } from './init';
 import { CompositionDataCollection } from './types';
-import { percentile } from '../utils';
 
 // Collect data
 // ---------------
@@ -163,6 +162,7 @@ export const collect = (squads: SquadData[]) => {
       const cid = ships.join('.');
       const composition: CompositionDataCollection = data.composition[cid] || {
         ships: [...ships],
+        faction,
         xws: [],
         record: { wins: 0, ties: 0, losses: 0 },
         ranks: [],

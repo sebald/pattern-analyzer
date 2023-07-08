@@ -145,7 +145,8 @@ export const create = (list: SquadData[][]) => {
     // Composition
     Object.entries(current.composition).forEach(([id, stats]) => {
       const composition =
-        result.composition[id] || initCompositionStats(stats.ships);
+        result.composition[id] ||
+        initCompositionStats(stats.ships, stats.faction);
 
       composition.xws.push(...stats.xws);
       composition.record.wins += stats.record.wins;

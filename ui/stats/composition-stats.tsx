@@ -29,23 +29,23 @@ export const CompositionStats = ({ value }: PilotStatsProps) => {
             'Count',
           ]}
         >
-          {Object.entries(value).map(([id, composition]) => (
+          {Object.entries(value).map(([id, stat]) => (
             <Fragment key={id}>
               <Table.Cell variant="header">
-                {composition.ships.map((ship, idx) => (
+                {stat.ships.map((ship, idx) => (
                   <ShipIcon key={idx} ship={ship} className="w-5 text-xl" />
                 ))}
               </Table.Cell>
               <Table.Cell variant="number">
-                {toPercentage(composition.percentile)}
+                {toPercentage(stat.percentile)}
               </Table.Cell>
               <Table.Cell variant="number">
-                {toPercentage(composition.deviation)}
+                {stat.deviation === 0 ? '-' : toPercentage(stat.deviation)}
               </Table.Cell>
               <Table.Cell variant="number">
-                {toPercentage(composition.winrate)}
+                {toPercentage(stat.winrate)}
               </Table.Cell>
-              <Table.Cell variant="number">{composition.xws.length}</Table.Cell>
+              <Table.Cell variant="number">{stat.xws.length}</Table.Cell>
             </Fragment>
           ))}
         </Table>
