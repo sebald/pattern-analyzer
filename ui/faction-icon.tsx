@@ -15,8 +15,8 @@ export const FactionIcon = ({ faction, ...props }: FactionIconProps) => {
   const title = getFactionName(faction);
   return (
     <Image
-      height={16}
-      width={16}
+      height={20}
+      width={20}
       {...props}
       alt={title}
       title={title}

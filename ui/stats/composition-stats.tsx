@@ -78,9 +78,16 @@ export const CompositionStats = ({ value }: PilotStatsProps) => {
         >
           {data.map(([id, stat]) => (
             <Fragment key={id}>
-              <Table.Cell variant="header">
+              <Table.Cell
+                variant="header"
+                className="flex flex-row items-center gap-1"
+              >
                 {stat.ships.map((ship, idx) => (
-                  <ShipIcon key={idx} ship={ship} className="w-5 text-2xl" />
+                  <ShipIcon
+                    key={idx}
+                    ship={ship}
+                    className="text-2xl text-secondary-700"
+                  />
                 ))}
               </Table.Cell>
               <Table.Cell className="justify-center">
