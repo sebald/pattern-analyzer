@@ -1,8 +1,18 @@
-import { Fragment } from 'react';
+'use client';
 
-import { Card, FactionIcon, ShipIcon, Table } from '@/ui';
+import { Fragment, useState } from 'react';
+
+import {
+  Card,
+  FactionIcon,
+  FactionSelection,
+  Select,
+  ShipIcon,
+  Table,
+} from '@/ui';
 import type { CompositionStats as CompositionStatsType } from '@/lib/stats/types';
 import { toPercentage } from '@/lib/utils/math.utils';
+import { XWSFaction } from '@/lib/types';
 
 // Props
 // ---------------
@@ -13,10 +23,39 @@ export interface PilotStatsProps {
 // Component
 // ---------------
 export const CompositionStats = ({ value }: PilotStatsProps) => {
+  const [faction, setFaction] = useState<XWSFaction | 'all'>('all');
+  const [sort, setSort] = useState<
+    'percentile' | 'deviation' | 'winrate' | 'count'
+  >('percentile');
+
+  const data =
+    faction === 'all'
+      ? (Object.entries(value) as [string, CompositionStatsType][])
+      : Object.entries(value).filter(
+          ([_, stat]: [string, CompositionStatsType]) =>
+            stat.faction === faction
+        );
+  data.sort(([, a], [, b]) =>
+    sort === 'count' ? b.xws.length - a.xws.length : b[sort] - a[sort]
+  );
+
   return (
     <Card>
       <Card.Header>
         <Card.Title>Compositions</Card.Title>
+        <Card.Actions>
+          <FactionSelection value={faction} onChange={setFaction} allowAll />
+          <Select
+            size="small"
+            value={sort}
+            onChange={e => setSort(e.target.value as any)}
+          >
+            <Select.Option value="percentile">By Percentile</Select.Option>
+            <Select.Option value="deviation">By Std. Deviation</Select.Option>
+            <Select.Option value="winrate">By Winrate</Select.Option>
+            <Select.Option value="count">By Count</Select.Option>
+          </Select>
+        </Card.Actions>
       </Card.Header>
       <Card.Body>
         <Table
@@ -37,11 +76,11 @@ export const CompositionStats = ({ value }: PilotStatsProps) => {
             'Count',
           ]}
         >
-          {Object.entries(value).map(([id, stat]) => (
+          {data.map(([id, stat]) => (
             <Fragment key={id}>
               <Table.Cell variant="header">
                 {stat.ships.map((ship, idx) => (
-                  <ShipIcon key={idx} ship={ship} className="w-5 text-xl" />
+                  <ShipIcon key={idx} ship={ship} className="w-5 text-2xl" />
                 ))}
               </Table.Cell>
               <Table.Cell className="justify-center">
