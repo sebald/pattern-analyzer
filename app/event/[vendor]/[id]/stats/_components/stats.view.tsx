@@ -10,7 +10,6 @@ import { FactionRecord } from '@/ui/stats/faction-record';
 import { PilotCostDistribution } from '@/ui/stats/pilot-cost-distribution';
 import { PilotSkillDistribution } from '@/ui/stats/pilot-skill-distribution';
 import { PilotStats } from '@/ui/stats/pilot-stats';
-import { ShipComposition } from '@/ui/stats/ship-composition';
 import { SquadSize } from '@/ui/stats/squad-size';
 import { StatsHint } from '@/ui/stats/stats-hint';
 import { UpgradeStats } from '@/ui/stats/upgrade-stats';
@@ -57,13 +56,7 @@ export const StatsView = ({ squads }: StatsViewProps) => {
       <div className="col-span-full">
         <UpgradeStats value={stats.upgrade} />
       </div>
-      <div className="self-start md:col-span-4">
-        <ShipComposition
-          value={stats.shipComposition}
-          total={stats.tournament.xws}
-        />
-      </div>
-      <div className="col-span-full pt-8 lg:col-start-2 lg:col-end-11">
+      <div className="col-span-full pt-8 lg:col-start-2 lg:col-end-12">
         <StatsHint />
       </div>
     </div>

@@ -12,7 +12,7 @@ export interface FactionRecordProps {
     [Faction in XWSFaction | 'unknown']: {
       ranks: number[];
       records: GameRecord[];
-      winrate: number;
+      winrate: number | null;
     };
   };
 }
@@ -45,7 +45,7 @@ export const FactionRecord = ({ value }: FactionRecordProps) => {
     })
     .filter(({ games }) => games > 0);
 
-  data.sort((a, b) => b.winrate - a.winrate);
+  data.sort((a, b) => (b.winrate || 0) - (a.winrate || 0));
 
   return (
     <Card>
@@ -69,7 +69,9 @@ export const FactionRecord = ({ value }: FactionRecordProps) => {
               <Table.Cell>
                 {record.wins} / {record.ties} / {record.losses}
               </Table.Cell>
-              <Table.Cell>{toPercentage(winrate)}</Table.Cell>
+              <Table.Cell>
+                {winrate !== null ? toPercentage(winrate) : '-'}
+              </Table.Cell>
               <Table.Cell>{top > 0 ? `#${top}` : '-'}</Table.Cell>
             </Fragment>
           ))}

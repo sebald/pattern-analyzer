@@ -20,7 +20,6 @@ import { FactionVictories } from '@/ui/stats/faction-victories';
 import { PilotCostDistribution } from '@/ui/stats/pilot-cost-distribution';
 import { PilotSkillDistribution } from '@/ui/stats/pilot-skill-distribution';
 import { PilotStats } from '@/ui/stats/pilot-stats';
-import { ShipComposition } from '@/ui/stats/ship-composition';
 import { SquadSize } from '@/ui/stats/squad-size';
 import { UpgradeStats } from '@/ui/stats/upgrade-stats';
 import { StatsHint } from '@/ui/stats/stats-hint';
@@ -159,13 +158,7 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
         <div className="col-span-full">
           <CompositionStats value={stats.composition} />
         </div>
-        <div className="self-start md:col-span-4">
-          <ShipComposition
-            value={stats.shipComposition}
-            total={stats.tournament.xws}
-          />
-        </div>
-        <div className="col-span-full pt-8 lg:col-start-2 lg:col-end-11">
+        <div className="col-span-full pt-8 lg:col-start-2 lg:col-end-12">
           <StatsHint />
         </div>
       </div>
