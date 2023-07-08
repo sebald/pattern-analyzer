@@ -63,7 +63,7 @@ export const CompositionStats = ({ value }: PilotStatsProps) => {
         <Table
           cols={[
             'minmax(auto, max-content)',
-            '85px',
+            '90px',
             '1fr',
             '1fr',
             '1fr',
@@ -92,8 +92,11 @@ export const CompositionStats = ({ value }: PilotStatsProps) => {
                   />
                 ))}
               </Table.Cell>
-              <Table.Cell className="justify-center">
-                <FactionIcon faction={stat.faction} />
+              <Table.Cell>
+                <FactionIcon
+                  faction={stat.faction}
+                  className="h-5 w-5 text-secondary-700"
+                />
               </Table.Cell>
               <Table.Cell variant="number">
                 {toPercentage(stat.percentile)}
