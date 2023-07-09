@@ -29,7 +29,7 @@ export interface PilotStatsProps {
 export const PilotStats = ({ value }: PilotStatsProps) => {
   const [faction, setFaction] = useState<XWSFaction | 'all'>('all');
   const [sort, setSort] = useState<
-    'percentile' | 'deviation' | 'winrate' | 'frequency' | 'count'
+    'percentile' | 'deviation' | 'winrate' | 'frequency' | 'count' | 'magic'
   >('percentile');
 
   const data =
@@ -41,7 +41,17 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
           ];
         }, [])
       : [...(Object.entries(value[faction]) as [string, PilotStatsType][])];
-  data.sort(([, a], [, b]) => b[sort] - a[sort]);
+
+  data.sort(([, a], [, b]) => {
+    const result = (b[sort] || 0) - (a[sort] || 0);
+
+    // Secondary sort by percentile (or deviation if sorted by percentile already)
+    return result !== 0
+      ? result
+      : sort === 'percentile'
+      ? b.deviation - a.deviation
+      : b.percentile - a.percentile;
+  });
 
   return (
     <Card>
@@ -59,6 +69,7 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
             <Select.Option value="winrate">By Winrate</Select.Option>
             <Select.Option value="frequency">By Frequency</Select.Option>
             <Select.Option value="count">By Count</Select.Option>
+            <Select.Option value="magic">By Magic</Select.Option>
           </Select>
         </Card.Actions>
       </Card.Header>
@@ -71,7 +82,8 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
               '1fr',
               '1fr',
               'minmax(90px, 1fr)',
-              '70px',
+              '85px',
+              '85px',
             ]}
             headers={[
               'Pilot',
@@ -80,7 +92,9 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
               'Winrate',
               'Frequency',
               'Count',
+              'Score',
             ]}
+            numeration
           >
             {data.map(([pilot, stat]) => (
               <Fragment key={pilot}>
@@ -97,12 +111,13 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
                   {stat.deviation === 0 ? '-' : toPercentage(stat.deviation)}
                 </Table.Cell>
                 <Table.Cell variant="number">
-                  {toPercentage(stat.winrate)}
+                  {stat.winrate !== null ? toPercentage(stat.winrate) : '-'}
                 </Table.Cell>
                 <Table.Cell variant="number">
                   {toPercentage(stat.frequency)}
                 </Table.Cell>
                 <Table.Cell variant="number">{stat.count}</Table.Cell>
+                <Table.Cell variant="number">{stat.magic}</Table.Cell>
               </Fragment>
             ))}
           </Table>

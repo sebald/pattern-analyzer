@@ -10,11 +10,13 @@ import {
 
 import { collect } from './collect';
 import {
+  initCompositionStats,
   initPilotStats,
   initShipSats,
   initStats,
   initUpgradeStats,
 } from './init';
+import { magic } from './magic';
 
 export const create = (list: SquadData[][]) => {
   const result = initStats();
@@ -27,6 +29,7 @@ export const create = (list: SquadData[][]) => {
   const factionPercentiles = new Map<string, number[]>();
   const pilotPercentiles = new Map<string, number[]>();
   const upgradePercentiles = new Map<string, number[]>(); // use faction/"all" prefix
+  const compositionPercentiles = new Map<string, number[]>();
 
   list.forEach(squads => {
     const current = collect(squads);
@@ -108,12 +111,6 @@ export const create = (list: SquadData[][]) => {
       });
     });
 
-    // Ship Composition
-    current.shipComposition.forEach((currentCount, cid) => {
-      const count = result.shipComposition.get(cid) || 0;
-      result.shipComposition.set(cid, count + currentCount);
-    });
-
     // Upgrade
     Object.keys(current.upgrade).forEach(key => {
       const fid = key as XWSFaction;
@@ -138,6 +135,26 @@ export const create = (list: SquadData[][]) => {
           ),
         ]);
       });
+    });
+
+    // Composition
+    Object.entries(current.composition).forEach(([id, stats]) => {
+      const composition =
+        result.composition[id] ||
+        initCompositionStats(stats.ships, stats.faction);
+
+      composition.xws.push(...stats.xws);
+      composition.record.wins += stats.record.wins;
+      composition.record.ties += stats.record.ties;
+      composition.record.losses += stats.record.losses;
+      composition.ranks.push(...stats.ranks);
+
+      compositionPercentiles.set(id, [
+        ...(compositionPercentiles.get(id) || []),
+        ...stats.ranks.map(rank => percentile(rank, current.tournament.count)),
+      ]);
+
+      result.composition[id] = composition;
     });
   });
 
@@ -165,6 +182,11 @@ export const create = (list: SquadData[][]) => {
       stats.winrate = winrate(stats.records);
       stats.percentile = average(pcs, 4);
       stats.deviation = deviation(pcs, 4);
+
+      stats.magic = magic({
+        ...stats,
+        count: stats.count,
+      });
     });
   });
 
@@ -194,6 +216,29 @@ export const create = (list: SquadData[][]) => {
       stats.winrate = winrate(stats.records);
       stats.percentile = average(pcs, 4);
       stats.deviation = deviation(pcs, 4);
+
+      stats.magic = magic({
+        ...stats,
+        count: stats.count,
+      });
+    });
+  });
+
+  // Composition: percentilce, deviation, winrate
+  Object.entries(result.composition).forEach(([cid, stats]) => {
+    const pcs = compositionPercentiles.get(cid)!;
+
+    stats.frequency = round(
+      stats.xws.length / result.faction[stats.faction].count,
+      4
+    );
+    stats.winrate = winrate([stats.record]);
+    stats.percentile = average(pcs, 4);
+    stats.deviation = deviation(pcs, 4);
+
+    stats.magic = magic({
+      ...stats,
+      count: stats.xws.length,
     });
   });
 

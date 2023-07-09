@@ -34,7 +34,7 @@ export interface CardTitleProps {
 }
 
 const CardTitle = ({ children }: CardTitleProps) => (
-  <div className="text-center text-lg font-bold">{children}</div>
+  <div className="text-center text-lg font-bold md:text-xl">{children}</div>
 );
 
 // Card.Header

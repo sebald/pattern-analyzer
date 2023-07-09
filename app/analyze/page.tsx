@@ -11,28 +11,30 @@ import {
 } from '@/lib/utils/date.utils';
 import { getAllTournaments, getSquads } from '@/lib/vendor/listfortress';
 
-import { Caption, Inline, Title } from '@/ui';
+import { Caption, Inline, Message, Title } from '@/ui';
 import { Calendar } from '@/ui/icons';
+
 import { ChassisDistribution } from '@/ui/stats/chassis-distribution';
+import { CompositionStats } from '@/ui/stats/composition-stats';
 import { FactionDistribution } from '@/ui/stats/faction-distribution';
 import { FactionPerformance } from '@/ui/stats/faction-performance';
 import { FactionVictories } from '@/ui/stats/faction-victories';
 import { PilotCostDistribution } from '@/ui/stats/pilot-cost-distribution';
 import { PilotSkillDistribution } from '@/ui/stats/pilot-skill-distribution';
 import { PilotStats } from '@/ui/stats/pilot-stats';
-import { ShipComposition } from '@/ui/stats/ship-composition';
 import { SquadSize } from '@/ui/stats/squad-size';
-import { UpgradeStats } from '@/ui/stats/upgrade-stats';
 import { StatsHint } from '@/ui/stats/stats-hint';
+import { UpgradeStats } from '@/ui/stats/upgrade-stats';
 
 import { DateSelection } from './_components/DateSelection';
+import Loading from './loading';
 
 // Config
 // ---------------
 /**
  * Segment Config (see: https://beta.nextjs.org/docs/api-reference/segment-config)
  */
-export const revalidate = 10800; // 3 hours
+export const revalidate = 21600; // 6 hours
 
 // Metadata
 // ---------------
@@ -96,7 +98,14 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
   const params = schema.safeParse(searchParams);
 
   if (!params.success) {
-    return 'nope';
+    return (
+      <div className="grid flex-1 place-items-center">
+        <Message variant="error">
+          <Message.Title>Whoopsie, something went wrong!</Message.Title>
+          Looks like there is an error in the given query parameters.
+        </Message>
+      </div>
+    );
   }
 
   const from =
@@ -155,13 +164,10 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
         <div className="col-span-full">
           <UpgradeStats value={stats.upgrade} />
         </div>
-        <div className="self-start md:col-span-4">
-          <ShipComposition
-            value={stats.shipComposition}
-            total={stats.tournament.xws}
-          />
+        <div className="col-span-full">
+          <CompositionStats value={stats.composition} />
         </div>
-        <div className="col-span-full pt-8 lg:col-start-2 lg:col-end-11">
+        <div className="col-span-full pt-8 lg:col-start-2 lg:col-end-12">
           <StatsHint />
         </div>
       </div>

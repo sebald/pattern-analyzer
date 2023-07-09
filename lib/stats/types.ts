@@ -1,5 +1,10 @@
 import type { Ships } from '@/lib/get-value';
-import type { XWSFaction, GameRecord, XWSUpgradeSlots } from '@/lib/types';
+import type {
+  XWSFaction,
+  GameRecord,
+  XWSUpgradeSlots,
+  XWSSquad,
+} from '@/lib/types';
 
 // Maps
 // ---------------
@@ -13,7 +18,7 @@ export type FactionMapWithAll<Key extends string, Value> = {
 
 // Collection
 // ---------------
-export interface FactionDataCollection {
+export interface CommonDataCollection {
   count: number;
   records: GameRecord[];
   ranks: number[];
@@ -40,6 +45,14 @@ export interface UpgradeDataCollection {
   ranks: number[];
 }
 
+export interface CompositionDataCollection {
+  ships: Ships[];
+  faction: XWSFaction;
+  xws: XWSSquad[];
+  record: GameRecord;
+  ranks: number[];
+}
+
 export interface SquadDataCollection {
   tournament: {
     xws: number;
@@ -47,7 +60,7 @@ export interface SquadDataCollection {
     cut: number;
   };
   faction: {
-    [Faction in XWSFaction | 'unknown']: FactionDataCollection;
+    [Faction in XWSFaction | 'unknown']: CommonDataCollection;
   };
   squadSizes: {
     [Size in 3 | 4 | 5 | 6 | 7 | 8]: number;
@@ -60,8 +73,8 @@ export interface SquadDataCollection {
     [Size in 0 | 1 | 2 | 3 | 4 | 5 | 6]: number;
   };
   ship: FactionMap<Ships, ShipDataCollection>;
-  shipComposition: Map<string, number>;
   upgrade: FactionMapWithAll<string, UpgradeDataCollection>;
+  composition: { [id: string]: CompositionDataCollection };
 }
 
 // Stats
@@ -69,26 +82,38 @@ export interface SquadDataCollection {
 export interface PerformanceStats {
   percentile: number;
   deviation: number;
-  winrate: number;
+  winrate: number | null;
 }
 
 export interface FrequencyStats {
   frequency: number;
 }
 
-export interface FactionStats extends FactionDataCollection, PerformanceStats {}
+export interface MagicStats {
+  magic: number;
+}
+
+export interface FactionStats extends CommonDataCollection, PerformanceStats {}
 
 export interface PilotStats
   extends PilotDataCollection,
     PerformanceStats,
-    FrequencyStats {}
+    FrequencyStats,
+    MagicStats {}
 
 export interface ShipStats extends ShipDataCollection, FrequencyStats {}
 
 export interface UpgradeStats
   extends UpgradeDataCollection,
     PerformanceStats,
-    FrequencyStats {}
+    FrequencyStats,
+    MagicStats {}
+
+export interface CompositionStats
+  extends CompositionDataCollection,
+    PerformanceStats,
+    FrequencyStats,
+    MagicStats {}
 
 export interface SquadStats {
   tournament: {
@@ -117,6 +142,6 @@ export interface SquadStats {
     [Size in 0 | 1 | 2 | 3 | 4 | 5 | 6]: number;
   };
   ship: FactionMap<Ships, ShipStats>;
-  shipComposition: Map<string, number>;
   upgrade: FactionMapWithAll<string, UpgradeStats>;
+  composition: { [id: string]: CompositionStats };
 }

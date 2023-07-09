@@ -5,7 +5,7 @@ export const metadata = {
 };
 
 const About = () => (
-  <div className="text-secondary-900">
+  <div className="mx-auto text-secondary-900">
     <Title>About</Title>
     <Headline level="2" className="pt-14">
       About Pattern Analyzer
@@ -36,27 +36,6 @@ const About = () => (
       this data anyway, it can also provide an export for Listforstress, so that
       it stays up to date and other tools like MetaWing and PBM have information
       to consume.
-    </Text>
-
-    <Headline level="2">How does it work!?</Headline>
-    <Text size="large" prose>
-      Pattern Analyzer crawls the vendor website (Longshanks, Rollbetter, …) for
-      information. Sometimes it might use an API of the site, other times it
-      uses the same website you are seeing when visiting the event page. In the
-      later case, Pattern Analyzer goes through the source code and extracts
-      information. If this information contains{' '}
-      <Link href="https://github.com/elistevens/xws-spec">XWS</Link> it can
-      directly be used. A link to <Link href="https://yasb.app/">YASB</Link>{' '}
-      works too. Pattern Analyzer can be converted to XWS. This standard,
-      established by the X-Wing community, is then used to generate and display
-      squads in a comprehensible form and to create additional statistics.
-    </Text>
-    <Text size="large" prose>
-      There is no database. Some pages are generated during build time and are{' '}
-      <Link href="https://vercel.com/docs/concepts/incremental-static-regeneration/overview">
-        incrementally regenerated
-      </Link>
-      , others are created on request.
     </Text>
 
     <Headline level="2" id="about-the-data">
@@ -112,7 +91,9 @@ const About = () => (
         <Text size="large" prose>
           <strong>Winrate:</strong> The winrate is expressed as a percentage and
           represents how much games an entity (pilot, upgrade,…) has won in
-          comparison to the total games it appeared in.
+          comparison to the total games it appeared in. Sometimes round data is
+          missing which causes an entity to have 0 games recorded. In this case
+          a &quot;-&quot; is displayed to indicate the missing information.
         </Text>
       </List.Item>
       <List.Item>
@@ -125,8 +106,19 @@ const About = () => (
       </List.Item>
       <List.Item>
         <Text size="large" prose>
-          <strong>Count:</strong> Because frequency is a relative number, the
-          absolute amount of appearances is displayed in addition.
+          <strong>Count:</strong> Since frequency is a relative value, the
+          absolute number of occurrences is also presented.
+        </Text>
+      </List.Item>
+      <List.Item>
+        <Text size="large" prose>
+          <strong>Score:</strong> The score value attempts to balance small
+          sample sizes and their percentile. However, be aware that there is no
+          elaborate science behind this number, even though it tries to quantify
+          the percentile, deviation, and count of an entity. The goal of the
+          score is to indicate whether a result is just a happy accident or if
+          it is somewhat reliable because multiple people achieved a similar
+          result. Essentially, it&quot;s a feel-good metric!
         </Text>
       </List.Item>
     </List>

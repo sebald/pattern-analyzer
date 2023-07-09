@@ -1,8 +1,8 @@
-import { useSquadStats } from '@/lib/stats/useSquadStats';
-import { SquadData } from '@/lib/types';
-import { Link, Message } from '@/ui';
+import type { SquadData } from '@/lib/types';
+import { create } from '@/lib/stats/create';
 
 import { ChassisDistribution } from '@/ui/stats/chassis-distribution';
+import { CompositionStats } from '@/ui/stats/composition-stats';
 import { FactionCut } from '@/ui/stats/faction-cut';
 import { FactionDistribution } from '@/ui/stats/faction-distribution';
 import { FactionPerformance } from '@/ui/stats/faction-performance';
@@ -10,7 +10,6 @@ import { FactionRecord } from '@/ui/stats/faction-record';
 import { PilotCostDistribution } from '@/ui/stats/pilot-cost-distribution';
 import { PilotSkillDistribution } from '@/ui/stats/pilot-skill-distribution';
 import { PilotStats } from '@/ui/stats/pilot-stats';
-import { ShipComposition } from '@/ui/stats/ship-composition';
 import { SquadSize } from '@/ui/stats/squad-size';
 import { StatsHint } from '@/ui/stats/stats-hint';
 import { UpgradeStats } from '@/ui/stats/upgrade-stats';
@@ -20,7 +19,7 @@ export interface StatsViewProps {
 }
 
 export const StatsView = ({ squads }: StatsViewProps) => {
-  const stats = useSquadStats({ squads: [squads] });
+  const stats = create([squads]);
 
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
@@ -57,13 +56,10 @@ export const StatsView = ({ squads }: StatsViewProps) => {
       <div className="col-span-full">
         <UpgradeStats value={stats.upgrade} />
       </div>
-      <div className="self-start md:col-span-4">
-        <ShipComposition
-          value={stats.shipComposition}
-          total={stats.tournament.xws}
-        />
+      <div className="col-span-full">
+        <CompositionStats value={stats.composition} />
       </div>
-      <div className="col-span-full pt-8 lg:col-start-2 lg:col-end-11">
+      <div className="col-span-full pt-8 lg:col-start-2 lg:col-end-12">
         <StatsHint />
       </div>
     </div>

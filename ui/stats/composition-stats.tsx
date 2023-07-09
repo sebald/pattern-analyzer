@@ -5,41 +5,43 @@ import { Fragment, useState } from 'react';
 import {
   Card,
   Collapsible,
+  FactionIcon,
   FactionSelection,
   Select,
+  ShipIcon,
   Table,
-  UpgradeSlotSelection,
 } from '@/ui';
-import { getUpgradeName } from '@/lib/get-value';
-import type { XWSFaction, XWSUpgradeSlots } from '@/lib/types';
-import { toPercentage } from '@/lib/utils';
-
-import type {
-  FactionMapWithAll,
-  UpgradeStats as UpgradeStatsType,
-} from '@/lib/stats/types';
+import type { CompositionStats as CompositionStatsType } from '@/lib/stats/types';
+import { toPercentage } from '@/lib/utils/math.utils';
+import { XWSFaction } from '@/lib/types';
 
 // Props
 // ---------------
-export interface UpgradeStatsProps {
-  value: FactionMapWithAll<string, UpgradeStatsType>;
+export interface CompositionStatsProps {
+  value: { [id: string]: CompositionStatsType };
 }
 
 // Component
 // ---------------
-export const UpgradeStats = ({ value }: UpgradeStatsProps) => {
+export const CompositionStats = ({ value }: CompositionStatsProps) => {
   const [faction, setFaction] = useState<XWSFaction | 'all'>('all');
-  const [slot, setSlot] = useState<XWSUpgradeSlots | 'all'>('all');
   const [sort, setSort] = useState<
     'percentile' | 'deviation' | 'winrate' | 'frequency' | 'count' | 'magic'
   >('percentile');
 
-  const data = [
-    ...(Object.entries(value[faction]) as [string, UpgradeStatsType][]),
-  ].filter(([, info]) => (slot === 'all' ? true : info.slot === slot));
+  const data =
+    faction === 'all'
+      ? (Object.entries(value) as [string, CompositionStatsType][])
+      : Object.entries(value).filter(
+          ([_, stat]: [string, CompositionStatsType]) =>
+            stat.faction === faction
+        );
 
   data.sort(([, a], [, b]) => {
-    const result = (b[sort] || 0) - (a[sort] || 0);
+    const result =
+      sort === 'count'
+        ? b.xws.length - a.xws.length
+        : (b[sort] || 0) - (a[sort] || 0);
 
     // Secondary sort by percentile (or deviation if sorted by percentile already)
     return result !== 0
@@ -52,10 +54,9 @@ export const UpgradeStats = ({ value }: UpgradeStatsProps) => {
   return (
     <Card>
       <Card.Header>
-        <Card.Title>Upgrades</Card.Title>
+        <Card.Title>Compositions</Card.Title>
         <Card.Actions>
           <FactionSelection value={faction} onChange={setFaction} allowAll />
-          <UpgradeSlotSelection value={slot} onChange={setSlot} allowAll />
           <Select
             size="small"
             value={sort}
@@ -71,10 +72,11 @@ export const UpgradeStats = ({ value }: UpgradeStatsProps) => {
         </Card.Actions>
       </Card.Header>
       <Card.Body>
-        <Collapsible maxHeight={375}>
+        <Collapsible maxHeight={800}>
           <Table
             cols={[
               'minmax(auto, max-content)',
+              '120px',
               '1fr',
               '1fr',
               '1fr',
@@ -83,7 +85,8 @@ export const UpgradeStats = ({ value }: UpgradeStatsProps) => {
               '85px',
             ]}
             headers={[
-              'Upgrade',
+              'Ships',
+              'Faction',
               'Percentile',
               'Std. Deviation',
               'Winrate',
@@ -93,12 +96,25 @@ export const UpgradeStats = ({ value }: UpgradeStatsProps) => {
             ]}
             numeration
           >
-            {data.map(([upgrade, stat]) => (
-              <Fragment key={upgrade}>
-                <Table.Cell variant="header">
-                  <div className="text-sm font-semibold">
-                    {getUpgradeName(upgrade) || upgrade}
-                  </div>
+            {data.map(([id, stat]) => (
+              <Fragment key={id}>
+                <Table.Cell
+                  variant="header"
+                  className="flex flex-row items-center gap-1 lg:gap-2"
+                >
+                  {stat.ships.map((ship, idx) => (
+                    <ShipIcon
+                      key={idx}
+                      ship={ship}
+                      className="text-2xl text-secondary-700"
+                    />
+                  ))}
+                </Table.Cell>
+                <Table.Cell>
+                  <FactionIcon
+                    faction={stat.faction}
+                    className="h-5 w-5 text-secondary-700"
+                  />
                 </Table.Cell>
                 <Table.Cell variant="number">
                   {toPercentage(stat.percentile)}
@@ -112,7 +128,7 @@ export const UpgradeStats = ({ value }: UpgradeStatsProps) => {
                 <Table.Cell variant="number">
                   {toPercentage(stat.frequency)}
                 </Table.Cell>
-                <Table.Cell variant="number">{stat.count}</Table.Cell>
+                <Table.Cell variant="number">{stat.xws.length}</Table.Cell>
                 <Table.Cell variant="number">{stat.magic}</Table.Cell>
               </Fragment>
             ))}
