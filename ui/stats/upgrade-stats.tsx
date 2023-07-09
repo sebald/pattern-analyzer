@@ -78,6 +78,7 @@ export const UpgradeStats = ({ value }: UpgradeStatsProps) => {
               'Frequency',
               'Count',
             ]}
+            numeration
           >
             {data.map(([upgrade, stat]) => (
               <Fragment key={upgrade}>

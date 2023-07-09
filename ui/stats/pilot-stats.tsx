@@ -81,6 +81,7 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
               'Frequency',
               'Count',
             ]}
+            numeration
           >
             {data.map(([pilot, stat]) => (
               <Fragment key={pilot}>

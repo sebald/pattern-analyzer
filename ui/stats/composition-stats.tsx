@@ -94,6 +94,7 @@ export const CompositionStats = ({ value }: CompositionStatsProps) => {
               'Count',
               'Score',
             ]}
+            numeration
           >
             {data.map(([id, stat]) => (
               <Fragment key={id}>

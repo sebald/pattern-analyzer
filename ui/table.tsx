@@ -17,7 +17,7 @@ const styles = {
           header: 'text-secondary-800',
         },
         size: {
-          collapsed: 'py-2 lg:py-2.5 min-h-[44px] lg:min-h-[50px]',
+          collapsed: 'py-2 md:py-2.5 min-h-[44px] md:min-h-[50px]',
           relaxed: 'py-3',
         },
       },
@@ -60,7 +60,9 @@ export const TableCell = ({
   className,
   children,
 }: TableCellProps) => (
-  <div className={styles.cell({ variant, size, className })}>{children}</div>
+  <div className={cn(styles.cell({ variant, size, className }))}>
+    {children}
+  </div>
 );
 
 // Table
@@ -68,13 +70,14 @@ export const TableCell = ({
 export interface TableProps {
   cols: string[];
   headers: React.ReactNode[];
+  numeration?: boolean;
   className?: string;
   size?: VariantProps<typeof styles.cell>['size'];
   children?: React.ReactNode;
 }
 
 export const Table = forwardRef<HTMLTableElement, TableProps>(
-  ({ cols, headers, className, size, children }, ref) => {
+  ({ cols, headers, numeration, className, size, children }, ref) => {
     if (cols.length !== headers.length) {
       throw new Error(
         `[Table] Number of columns and headers must be equal, got ${cols.length} cols and ${headers.length} headers.`
@@ -93,8 +96,12 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(
         isLast(idx) && 'pr-2'
       );
 
-    // Use CSS var to apply col layout
-    const styles = { '--table-cols': cols.join(' ') } as React.CSSProperties;
+    const styles = {
+      '--table-cols': cols.join(' '),
+      '--md-table-cols': numeration
+        ? `minmax(auto, max-content) ${cols.join(' ')}`
+        : undefined,
+    } as React.CSSProperties;
 
     return (
       <div
@@ -102,28 +109,42 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(
         style={styles}
         className={cn(
           'grid grid-cols-[var(--table-cols)] overflow-x-auto',
+          numeration && 'md:grid-cols-[var(--md-table-cols)]',
           className
         )}
       >
+        {numeration ? (
+          <TableHeader className="hidden md:flex">#</TableHeader>
+        ) : null}
         {headers.map((header, idx) => (
           <TableHeader key={idx} className={addColClasses(idx)}>
             {header}
           </TableHeader>
         ))}
-        {flattenChildren(children).map((child, idx) => {
-          if (
-            !React.isValidElement<{ className?: string; size?: string | null }>(
-              child
-            )
-          ) {
-            return child;
-          }
 
-          return React.cloneElement(child, {
-            ...child.props,
-            className: addColClasses(idx, child.props.className),
-            size,
-          });
+        {flattenChildren(children).map((child, idx) => {
+          // Make TS happy.
+          const cell = !React.isValidElement<{
+            className?: string;
+            size?: string | null;
+          }>(child)
+            ? child
+            : React.cloneElement(child, {
+                ...child.props,
+                className: addColClasses(idx, child.props.className),
+                size,
+              });
+
+          return numeration && isFirst(idx) ? (
+            <>
+              <TableCell className="hidden text-secondary-300 md:flex">
+                {idx / count + 1}
+              </TableCell>
+              {cell}
+            </>
+          ) : (
+            cell
+          );
         })}
       </div>
     );
