@@ -184,8 +184,7 @@ export const create = (list: SquadData[][]) => {
       stats.deviation = deviation(pcs, 4);
 
       stats.magic = magic({
-        base: stats.percentile,
-        factor: stats.frequency,
+        ...stats,
         coefficient: stats.count,
       });
     });
@@ -219,8 +218,7 @@ export const create = (list: SquadData[][]) => {
       stats.deviation = deviation(pcs, 4);
 
       stats.magic = magic({
-        base: stats.percentile,
-        factor: stats.frequency,
+        ...stats,
         coefficient: stats.count,
       });
     });
@@ -239,8 +237,7 @@ export const create = (list: SquadData[][]) => {
     stats.deviation = deviation(pcs, 4);
 
     stats.magic = magic({
-      base: stats.percentile,
-      factor: stats.frequency,
+      ...stats,
       coefficient: stats.xws.length,
     });
   });

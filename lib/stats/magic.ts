@@ -10,16 +10,8 @@ const LINEAR = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9];
 const scale = (val: number) => LINEAR[val] || 1;
 
 export interface MagicProps {
-  /**
-   * **base** should be a value reflecting
-   * the performance (e.g. percentile)
-   */
-  base: number;
-  /**
-   * **factor** should be a value reflecting
-   * the quantity (e.g. frequency)
-   */
-  factor: number;
+  percentile: number;
+  deviation: number;
   /**
    * **coefficient** should be a value reflecting
    * the quality of the data (e.g. count)
@@ -29,16 +21,10 @@ export interface MagicProps {
 
 /**
  * Calculate a "magic number". This really is not clever or scientific. Raw values,
- * like percentile, will still reflect reality more. In order to give a base
+ * like percentile, will still reflect reality more. In order to give
  * a "confidence score", this can be used.
  *
- * Basically:
- * - **base** should be a value reflecting the performance (e.g. percentile)
- * - **factor** should be a value reflecting the quantity (e.g. frequency)
- * - **coefficient** should be a value reflecting the quality of the data (e.g. count)
- *
- * Even though is calculate is absolute artificial, most people will feel the data and
- * its ranking is more correct and hopefully more relevant to them.
+ * The whole idea behind this forumla is to reflect "the meta".
  */
-export const magic = ({ base, factor, coefficient }: MagicProps) =>
-  round(base * factor * scale(coefficient) * 100, 2);
+export const magic = ({ percentile, deviation, coefficient }: MagicProps) =>
+  round(Math.max(percentile - deviation, 0.001) * scale(coefficient) * 100, 2);
