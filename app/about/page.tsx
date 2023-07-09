@@ -38,27 +38,6 @@ const About = () => (
       to consume.
     </Text>
 
-    <Headline level="2">How does it work!?</Headline>
-    <Text size="large" prose>
-      Pattern Analyzer crawls the vendor website (Longshanks, Rollbetter, …) for
-      information. Sometimes it might use an API of the site, other times it
-      uses the same website you are seeing when visiting the event page. In the
-      later case, Pattern Analyzer goes through the source code and extracts
-      information. If this information contains{' '}
-      <Link href="https://github.com/elistevens/xws-spec">XWS</Link> it can
-      directly be used. A link to <Link href="https://yasb.app/">YASB</Link>{' '}
-      works too. Pattern Analyzer can be converted to XWS. This standard,
-      established by the X-Wing community, is then used to generate and display
-      squads in a comprehensible form and to create additional statistics.
-    </Text>
-    <Text size="large" prose>
-      There is no database. Some pages are generated during build time and are{' '}
-      <Link href="https://vercel.com/docs/concepts/incremental-static-regeneration/overview">
-        incrementally regenerated
-      </Link>
-      , others are created on request.
-    </Text>
-
     <Headline level="2" id="about-the-data">
       About the Data
     </Headline>
