@@ -11,7 +11,7 @@ import {
 } from '@/lib/utils/date.utils';
 import { getAllTournaments, getSquads } from '@/lib/vendor/listfortress';
 
-import { Caption, Inline, Title } from '@/ui';
+import { Caption, Inline, Message, Title } from '@/ui';
 import { Calendar } from '@/ui/icons';
 
 import { ChassisDistribution } from '@/ui/stats/chassis-distribution';
@@ -27,6 +27,7 @@ import { StatsHint } from '@/ui/stats/stats-hint';
 import { UpgradeStats } from '@/ui/stats/upgrade-stats';
 
 import { DateSelection } from './_components/DateSelection';
+import Loading from './loading';
 
 // Config
 // ---------------
@@ -97,7 +98,14 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
   const params = schema.safeParse(searchParams);
 
   if (!params.success) {
-    return 'nope';
+    return (
+      <div className="grid flex-1 place-items-center">
+        <Message variant="error">
+          <Message.Title>Whoopsie, something went wrong!</Message.Title>
+          Looks like there is an error in the given query parameters.
+        </Message>
+      </div>
+    );
   }
 
   const from =
