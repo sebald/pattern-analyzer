@@ -12,7 +12,7 @@ import {
 import { getAllTournaments, getSquads } from '@/lib/vendor/listfortress';
 
 import { Caption, Inline, Message, Title } from '@/ui';
-import { Calendar } from '@/ui/icons';
+import { Calendar, Rocket, Trophy } from '@/ui/icons';
 
 import { ChassisDistribution } from '@/ui/stats/chassis-distribution';
 import { CompositionStats } from '@/ui/stats/composition-stats';
@@ -123,6 +123,13 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
             <Inline className="whitespace-nowrap">
               <Calendar className="h-3 w-3" /> {formatDate(from)} -{' '}
               {formatDate(to || today())}
+            </Inline>
+            <Inline className="whitespace-nowrap">
+              <Trophy className="h-3 w-3" /> {stats.tournament.total}{' '}
+              Tournaments
+            </Inline>
+            <Inline className="whitespace-nowrap">
+              <Rocket className="h-3 w-3" /> {stats.tournament.count} Squads
             </Inline>
           </Inline>
         </Caption>
