@@ -185,7 +185,7 @@ export const create = (list: SquadData[][]) => {
 
       stats.magic = magic({
         ...stats,
-        coefficient: stats.count,
+        count: stats.count,
       });
     });
   });
@@ -219,7 +219,7 @@ export const create = (list: SquadData[][]) => {
 
       stats.magic = magic({
         ...stats,
-        coefficient: stats.count,
+        count: stats.count,
       });
     });
   });
@@ -238,7 +238,7 @@ export const create = (list: SquadData[][]) => {
 
     stats.magic = magic({
       ...stats,
-      coefficient: stats.xws.length,
+      count: stats.xws.length,
     });
   });
 
