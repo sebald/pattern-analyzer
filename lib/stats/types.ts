@@ -106,7 +106,9 @@ export interface UpgradeStats
 export interface CompositionStats
   extends CompositionDataCollection,
     PerformanceStats,
-    FrequencyStats {}
+    FrequencyStats {
+  magic: number;
+}
 
 export interface SquadStats {
   tournament: {

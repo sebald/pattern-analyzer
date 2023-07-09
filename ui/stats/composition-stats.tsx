@@ -12,17 +12,8 @@ import {
   Table,
 } from '@/ui';
 import type { CompositionStats as CompositionStatsType } from '@/lib/stats/types';
-import { round, toPercentage } from '@/lib/utils/math.utils';
+import { toPercentage } from '@/lib/utils/math.utils';
 import { XWSFaction } from '@/lib/types';
-
-// Helpers
-// ---------------
-const calcMagicNumber = (stat: CompositionStatsType) =>
-  round(stat.percentile * stat.frequency * stat.xws.length * 100, 2);
-
-interface CompositionStatsTypeWithMagic extends CompositionStatsType {
-  magic: number;
-}
 
 // Props
 // ---------------
@@ -38,26 +29,27 @@ export const CompositionStats = ({ value }: CompositionStatsProps) => {
     'percentile' | 'deviation' | 'winrate' | 'frequency' | 'count' | 'magic'
   >('percentile');
 
-  let data = (Object.entries(value) as [string, CompositionStatsType][]).map(
-    ([id, stat]) => {
-      return [id, { ...stat, magic: calcMagicNumber(stat) }] as [
-        string,
-        CompositionStatsTypeWithMagic
-      ];
-    }
-  );
+  const data =
+    faction === 'all'
+      ? (Object.entries(value) as [string, CompositionStatsType][])
+      : Object.entries(value).filter(
+          ([_, stat]: [string, CompositionStatsType]) =>
+            stat.faction === faction
+        );
 
-  if (faction !== 'all') {
-    data = data.filter(
-      ([_, stat]: [string, CompositionStatsType]) => stat.faction === faction
-    );
-  }
+  data.sort(([, a], [, b]) => {
+    const result =
+      sort === 'count'
+        ? b.xws.length - a.xws.length
+        : (b[sort] || 0) - (a[sort] || 0);
 
-  data.sort(([, a], [, b]) =>
-    sort === 'count'
-      ? b.xws.length - a.xws.length
-      : (b[sort] || 0) - (a[sort] || 0)
-  );
+    // Secondary sort by percentile (or deviation is sorted by percentile already)
+    return sort !== 'percentile' && result === 0
+      ? b.percentile - a.percentile
+      : result === 0
+      ? b.deviation - a.deviation
+      : result;
+  });
 
   return (
     <Card>
@@ -89,8 +81,8 @@ export const CompositionStats = ({ value }: CompositionStatsProps) => {
               '1fr',
               '1fr',
               'minmax(90px, 1fr)',
-              '70px',
-              '70px',
+              '85px',
+              '85px',
             ]}
             headers={[
               'Ships',

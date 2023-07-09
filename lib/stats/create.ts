@@ -16,6 +16,7 @@ import {
   initStats,
   initUpgradeStats,
 } from './init';
+import { magic } from './magic';
 
 export const create = (list: SquadData[][]) => {
   const result = initStats();
@@ -224,6 +225,12 @@ export const create = (list: SquadData[][]) => {
     stats.winrate = winrate([stats.record]);
     stats.percentile = average(pcs, 4);
     stats.deviation = deviation(pcs, 4);
+
+    stats.magic = magic({
+      base: stats.percentile,
+      factor: stats.frequency,
+      coefficient: stats.xws.length,
+    });
   });
 
   return result;
