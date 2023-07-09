@@ -31,13 +31,23 @@ export const UpgradeStats = ({ value }: UpgradeStatsProps) => {
   const [faction, setFaction] = useState<XWSFaction | 'all'>('all');
   const [slot, setSlot] = useState<XWSUpgradeSlots | 'all'>('all');
   const [sort, setSort] = useState<
-    'percentile' | 'deviation' | 'winrate' | 'frequency' | 'count'
+    'percentile' | 'deviation' | 'winrate' | 'frequency' | 'count' | 'magic'
   >('percentile');
 
   const data = [
     ...(Object.entries(value[faction]) as [string, UpgradeStatsType][]),
   ].filter(([, info]) => (slot === 'all' ? true : info.slot === slot));
-  data.sort(([, a], [, b]) => (b[sort] || 0) - (a[sort] || 0));
+
+  data.sort(([, a], [, b]) => {
+    const result = (b[sort] || 0) - (a[sort] || 0);
+
+    // Secondary sort by percentile (or deviation if sorted by percentile already)
+    return result !== 0
+      ? result
+      : sort === 'percentile'
+      ? b.deviation - a.deviation
+      : b.percentile - a.percentile;
+  });
 
   return (
     <Card>
@@ -56,6 +66,7 @@ export const UpgradeStats = ({ value }: UpgradeStatsProps) => {
             <Select.Option value="winrate">By Winrate</Select.Option>
             <Select.Option value="frequency">By Frequency</Select.Option>
             <Select.Option value="count">By Count</Select.Option>
+            <Select.Option value="magic">By Magic</Select.Option>
           </Select>
         </Card.Actions>
       </Card.Header>
@@ -68,7 +79,8 @@ export const UpgradeStats = ({ value }: UpgradeStatsProps) => {
               '1fr',
               '1fr',
               'minmax(90px, 1fr)',
-              '70px',
+              '85px',
+              '85px',
             ]}
             headers={[
               'Upgrade',
@@ -77,6 +89,7 @@ export const UpgradeStats = ({ value }: UpgradeStatsProps) => {
               'Winrate',
               'Frequency',
               'Count',
+              'Score',
             ]}
             numeration
           >
@@ -100,6 +113,7 @@ export const UpgradeStats = ({ value }: UpgradeStatsProps) => {
                   {toPercentage(stat.frequency)}
                 </Table.Cell>
                 <Table.Cell variant="number">{stat.count}</Table.Cell>
+                <Table.Cell variant="number">{stat.magic}</Table.Cell>
               </Fragment>
             ))}
           </Table>

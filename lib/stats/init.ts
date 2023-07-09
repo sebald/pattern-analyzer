@@ -6,6 +6,7 @@ import type {
   FactionMap,
   FactionMapWithAll,
   FrequencyStats,
+  MagicStats,
   PerformanceStats,
   PilotDataCollection,
   PilotStats,
@@ -48,12 +49,17 @@ const initFrequency = (): FrequencyStats => ({
   frequency: 0,
 });
 
+const initMagic = (): MagicStats => ({
+  magic: 0,
+});
+
 export const initPilotStats = (ship: Ships): PilotStats => ({
   ship,
   lists: 0,
   ...initCommonData(),
   ...initPerformance(),
   ...initFrequency(),
+  ...initMagic(),
 });
 
 export const initShipSats = (): ShipStats => ({
@@ -68,6 +74,7 @@ export const initUpgradeStats = (slot: XWSUpgradeSlots): UpgradeStats => ({
   ...initCommonData(),
   ...initPerformance(),
   ...initFrequency(),
+  ...initMagic(),
 });
 
 export const initCompositionStats = (
@@ -81,6 +88,7 @@ export const initCompositionStats = (
   ranks: [],
   ...initPerformance(),
   ...initFrequency(),
+  ...initMagic(),
 });
 
 /**

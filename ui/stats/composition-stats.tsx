@@ -43,12 +43,12 @@ export const CompositionStats = ({ value }: CompositionStatsProps) => {
         ? b.xws.length - a.xws.length
         : (b[sort] || 0) - (a[sort] || 0);
 
-    // Secondary sort by percentile (or deviation is sorted by percentile already)
-    return sort !== 'percentile' && result === 0
-      ? b.percentile - a.percentile
-      : result === 0
+    // Secondary sort by percentile (or deviation if sorted by percentile already)
+    return result !== 0
+      ? result
+      : sort === 'percentile'
       ? b.deviation - a.deviation
-      : result;
+      : b.percentile - a.percentile;
   });
 
   return (

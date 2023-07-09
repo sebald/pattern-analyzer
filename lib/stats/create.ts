@@ -182,6 +182,12 @@ export const create = (list: SquadData[][]) => {
       stats.winrate = winrate(stats.records);
       stats.percentile = average(pcs, 4);
       stats.deviation = deviation(pcs, 4);
+
+      stats.magic = magic({
+        base: stats.percentile,
+        factor: stats.frequency,
+        coefficient: stats.count,
+      });
     });
   });
 
@@ -211,6 +217,12 @@ export const create = (list: SquadData[][]) => {
       stats.winrate = winrate(stats.records);
       stats.percentile = average(pcs, 4);
       stats.deviation = deviation(pcs, 4);
+
+      stats.magic = magic({
+        base: stats.percentile,
+        factor: stats.frequency,
+        coefficient: stats.count,
+      });
     });
   });
 
