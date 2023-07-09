@@ -5,7 +5,12 @@ import { usePathname, useRouter } from 'next/navigation';
 
 import { pointsUpdateDate } from '@/lib/config';
 import { Select, Spinner, type SelectProps } from '@/ui';
-import { monthsAgo, toDate } from '@/lib/utils/date.utils';
+import {
+  lastWeekend,
+  monthsAgo,
+  toDate,
+  toRange,
+} from '@/lib/utils/date.utils';
 
 // Props
 // ---------------
@@ -17,9 +22,13 @@ export const DateSelection = (props: DateSelectionProps) => {
   const { replace } = useRouter();
   const pathname = usePathname();
   const [pending, startTransition] = useTransition();
+  const [lastThursday, lastSunday] = lastWeekend();
 
-  const handleChange = (date: string) => {
-    const path = date ? `${pathname}?from=${date}` : pathname;
+  const handleChange = (value: string) => {
+    const [start, end] = value.split('/');
+    const path = start
+      ? `${pathname}?from=${start}${end ? `&to=${end}` : ''}`
+      : pathname;
 
     startTransition(() => {
       replace(`${path}`);
@@ -35,7 +44,10 @@ export const DateSelection = (props: DateSelectionProps) => {
         disabled={pending}
         onChange={e => handleChange(e.target.value)}
       >
-        <Select.Option value="">Last Month</Select.Option>
+        <Select.Option value={toRange(lastThursday, lastSunday)}>
+          Last Weekend
+        </Select.Option>
+        <Select.Option value={toDate(monthsAgo(1))}>Last Month</Select.Option>
         <Select.Option value={toDate(monthsAgo(3))}>
           Last 3 Months
         </Select.Option>

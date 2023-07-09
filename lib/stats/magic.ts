@@ -14,7 +14,6 @@ export interface MagicProps {
  * The whole idea behind this forumla is to reflect "the meta".
  */
 export const magic = ({ percentile, deviation, count }: MagicProps) =>
-  // round(Math.max(percentile - deviation, 0.001) * scale(coefficient) * 100, 2);
   round(
     Math.max(percentile - deviation, 0.001) *
       /**

@@ -18,6 +18,14 @@ export const monthsAgo = (val: number) =>
 export const today = () => dayjs().startOf('day').toDate();
 
 /**
+ * Returns the last weekend, starting on Thurdays :D
+ */
+export const lastWeekend = () => {
+  const thursday = dayjs().day(4).subtract(7, 'day');
+  return [thursday.toDate(), thursday.add(3, 'day').toDate()];
+};
+
+/**
  * Checks if two dates are equal.
  */
 export const isSameDate = (a: Date, b: Date) => dayjs(a).isSame(dayjs(b));
@@ -32,6 +40,14 @@ export const fromDate = (val: string) =>
  * Transforms a date object to a date string ('YYYY-MM-DD').
  */
 export const toDate = (date: Date) => dayjs(date).format('YYYY-MM-DD');
+
+/**
+ * Transforms a date object to a date range ('YYYY-MM-DD/YYYY-MM-DD').
+ */
+export const toRange = (from: Date, to?: Date) => {
+  const start = dayjs(from).format('YYYY-MM-DD');
+  return to ? `${start}/${dayjs(to).format('YYYY-MM-DD')}` : start;
+};
 
 /**
  * Formats date to a human readable format.

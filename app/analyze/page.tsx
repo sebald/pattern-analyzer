@@ -6,7 +6,7 @@ import {
   formatDate,
   fromDate,
   monthsAgo,
-  toDate,
+  toRange,
   today,
 } from '@/lib/utils/date.utils';
 import { getAllTournaments, getSquads } from '@/lib/vendor/listfortress';
@@ -135,7 +135,7 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
         </Caption>
       </div>
       <div className="flex flex-row items-end justify-end gap-2 pb-8 sm:gap-4">
-        <DateSelection defaultValue={toDate(from)} />
+        <DateSelection defaultValue={toRange(from, to)} />
       </div>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
         <div className="md:col-span-6">
