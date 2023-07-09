@@ -127,8 +127,19 @@ const About = () => (
       </List.Item>
       <List.Item>
         <Text size="large" prose>
-          <strong>Count:</strong> Because frequency is a relative number, the
-          absolute amount of appearances is displayed in addition.
+          <strong>Count:</strong> Since frequency is a relative value, the
+          absolute number of occurrences is also presented.
+        </Text>
+      </List.Item>
+      <List.Item>
+        <Text size="large" prose>
+          <strong>Score:</strong> The score value attempts to balance small
+          sample sizes and their percentile. However, be aware that there is no
+          elaborate science behind this number, even though it tries to quantify
+          the percentile, frequency, and count of an entity. The goal of the
+          score is to indicate whether a result is just a happy accident or if
+          it is somewhat reliable because multiple people achieved a similar
+          result. Essentially, it&quot;s a feel-good metric!
         </Text>
       </List.Item>
     </List>
