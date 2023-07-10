@@ -5,12 +5,7 @@ import { usePathname, useRouter } from 'next/navigation';
 
 import { pointsUpdateDate } from '@/lib/config';
 import { Select, Spinner, type SelectProps } from '@/ui';
-import {
-  lastWeekend,
-  monthsAgo,
-  toDate,
-  toRange,
-} from '@/lib/utils/date.utils';
+import { lastWeekend, monthsAgo, toDate } from '@/lib/utils/date.utils';
 
 // Props
 // ---------------
@@ -44,7 +39,7 @@ export const DateSelection = (props: DateSelectionProps) => {
         disabled={pending}
         onChange={e => handleChange(e.target.value)}
       >
-        <Select.Option value={toRange(lastThursday, lastSunday)}>
+        <Select.Option value={toDate(lastThursday, lastSunday)}>
           Last Weekend
         </Select.Option>
         <Select.Option value={toDate(monthsAgo(1))}>Last Month</Select.Option>

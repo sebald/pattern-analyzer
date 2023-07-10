@@ -37,14 +37,10 @@ export const fromDate = (val: string) =>
   dayjs(val, 'YYYY-MM-DD').startOf('day').toDate();
 
 /**
- * Transforms a date object to a date string ('YYYY-MM-DD').
+ * Transforms a date object to a date string ('YYYY-MM-DD'). If multiple dates
+ * are passed, it will return a date range ('YYYY-MM-DD/YYYY-MM-DD') instead.
  */
-export const toDate = (date: Date) => dayjs(date).format('YYYY-MM-DD');
-
-/**
- * Transforms a date object to a date range ('YYYY-MM-DD/YYYY-MM-DD').
- */
-export const toRange = (from: Date, to?: Date) => {
+export const toDate = (from: Date, to?: Date) => {
   const start = dayjs(from).format('YYYY-MM-DD');
   return to ? `${start}/${dayjs(to).format('YYYY-MM-DD')}` : start;
 };
