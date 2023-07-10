@@ -1,14 +1,8 @@
 import { z } from 'zod';
 
-import { baseUrl } from '@/lib/config';
+import { baseUrl, pointsUpdateDate } from '@/lib/config';
 import { create } from '@/lib/stats/create';
-import {
-  formatDate,
-  fromDate,
-  monthsAgo,
-  toDate,
-  today,
-} from '@/lib/utils/date.utils';
+import { formatDate, fromDate, toDate, today } from '@/lib/utils/date.utils';
 import { getAllTournaments, getSquads } from '@/lib/vendor/listfortress';
 
 import { Caption, Inline, Message, Title } from '@/ui';
@@ -109,7 +103,9 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
   }
 
   const from =
-    params.data && params.data.from ? fromDate(params.data.from) : monthsAgo(1);
+    params.data && params.data.from
+      ? fromDate(params.data.from)
+      : fromDate(pointsUpdateDate);
   const to =
     params.data && params.data.to ? fromDate(params.data.to) : undefined;
 
@@ -135,7 +131,7 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
         </Caption>
       </div>
       <div className="flex flex-row items-end justify-end gap-2 pb-8 sm:gap-4">
-        <DateSelection defaultValue={toDate(from)} />
+        <DateSelection defaultValue={toDate(from, to)} />
       </div>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
         <div className="md:col-span-6">

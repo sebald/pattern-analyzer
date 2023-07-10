@@ -5,7 +5,12 @@ import { usePathname, useRouter } from 'next/navigation';
 
 import { pointsUpdateDate } from '@/lib/config';
 import { Select, Spinner, type SelectProps } from '@/ui';
-import { monthsAgo, toDate } from '@/lib/utils/date.utils';
+import {
+  fromDate,
+  lastWeekend,
+  monthsAgo,
+  toDate,
+} from '@/lib/utils/date.utils';
 
 // Props
 // ---------------
@@ -13,35 +18,57 @@ export interface DateSelectionProps extends Omit<SelectProps, 'children'> {}
 
 // Component
 // ---------------
-export const DateSelection = (props: DateSelectionProps) => {
+export const DateSelection = ({
+  defaultValue,
+  ...props
+}: DateSelectionProps) => {
   const { replace } = useRouter();
   const pathname = usePathname();
   const [pending, startTransition] = useTransition();
 
-  const handleChange = (date: string) => {
-    const path = date ? `${pathname}?from=${date}` : pathname;
+  const handleChange = (value: string) => {
+    const [start, end] = value.split('/');
+    const path = start
+      ? `${pathname}?from=${start}${end ? `&to=${end}` : ''}`
+      : pathname;
 
     startTransition(() => {
       replace(`${path}`);
     });
   };
 
+  let options = {
+    'Last Points Update': pointsUpdateDate,
+    'Last Weekend': toDate.apply(null, lastWeekend()),
+    'Last Month': toDate(monthsAgo(1)),
+    // Add the option if the last points update is older
+    ...(fromDate(pointsUpdateDate) < monthsAgo(3)
+      ? { 'Last 3 Months': toDate(monthsAgo(3)) }
+      : {}),
+  };
+  type Options = keyof typeof options;
+
+  // Add "custom" option if defaultValue isn't an existing option
+  if (!Object.values(options).find(option => option === defaultValue)) {
+    // @ts-expect-error
+    options['Custom'] = defaultValue;
+  }
+
   return (
     <div className="flex items-center gap-2">
       {pending ? <Spinner className="h-4 w-4" /> : null}
       <Select
         {...props}
+        defaultValue={defaultValue}
         size="small"
         disabled={pending}
         onChange={e => handleChange(e.target.value)}
       >
-        <Select.Option value="">Last Month</Select.Option>
-        <Select.Option value={toDate(monthsAgo(3))}>
-          Last 3 Months
-        </Select.Option>
-        <Select.Option value={pointsUpdateDate}>
-          Last Points Update
-        </Select.Option>
+        {Object.keys(options).map(label => (
+          <Select.Option key={label} value={options[label as Options]}>
+            {label}
+          </Select.Option>
+        ))}
       </Select>
     </div>
   );
