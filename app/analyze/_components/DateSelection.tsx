@@ -18,7 +18,10 @@ export interface DateSelectionProps extends Omit<SelectProps, 'children'> {}
 
 // Component
 // ---------------
-export const DateSelection = (props: DateSelectionProps) => {
+export const DateSelection = ({
+  defaultValue,
+  ...props
+}: DateSelectionProps) => {
   const { replace } = useRouter();
   const pathname = usePathname();
   const [pending, startTransition] = useTransition();
@@ -34,7 +37,7 @@ export const DateSelection = (props: DateSelectionProps) => {
     });
   };
 
-  const options = {
+  let options = {
     'Last Points Update': pointsUpdateDate,
     'Last Weekend': toDate.apply(null, lastWeekend()),
     'Last Month': toDate(monthsAgo(1)),
@@ -45,11 +48,18 @@ export const DateSelection = (props: DateSelectionProps) => {
   };
   type Options = keyof typeof options;
 
+  // Add "custom" option if defaultValue isn't an existing option
+  if (!Object.values(options).find(option => option === defaultValue)) {
+    // @ts-expect-error
+    options['Custom'] = defaultValue;
+  }
+
   return (
     <div className="flex items-center gap-2">
       {pending ? <Spinner className="h-4 w-4" /> : null}
       <Select
         {...props}
+        defaultValue={defaultValue}
         size="small"
         disabled={pending}
         onChange={e => handleChange(e.target.value)}
