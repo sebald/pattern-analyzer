@@ -25,6 +25,7 @@ export * from './ship-icon';
 export * from './skeleton';
 export * from './spinner';
 export * from './squad';
+export * from './switch';
 export * from './table';
 export * from './text';
 export * from './textarea';

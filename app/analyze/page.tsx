@@ -5,7 +5,7 @@ import { create } from '@/lib/stats/create';
 import { formatDate, fromDate, toDate, today } from '@/lib/utils/date.utils';
 import { getAllTournaments, getSquads } from '@/lib/vendor/listfortress';
 
-import { Caption, Inline, Message, Title } from '@/ui';
+import { Caption, Inline, Message, Switch, Title } from '@/ui';
 import { Calendar, Rocket, Trophy } from '@/ui/icons';
 
 import { ChassisDistribution } from '@/ui/stats/chassis-distribution';
@@ -131,6 +131,7 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
         </Caption>
       </div>
       <div className="flex flex-row items-end justify-end gap-2 pb-8 sm:gap-4">
+        <Switch label="Exclude low Sample Size" />
         <DateSelection defaultValue={toDate(from, to)} />
       </div>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-12">

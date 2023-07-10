@@ -1,4 +1,5 @@
 import { type VariantProps, cva } from 'class-variance-authority';
+import { cn } from '@/lib/utils/classname.utils';
 
 // Styles
 // ---------------
@@ -27,7 +28,7 @@ export interface LabelProps
 // Component
 // ---------------
 export const Label = ({ children, size, className, ...props }: LabelProps) => (
-  <label {...props} className={styles({ size, className })}>
+  <label {...props} className={cn(styles({ size, className }))}>
     {children}
   </label>
 );
