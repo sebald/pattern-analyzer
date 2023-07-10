@@ -130,8 +130,8 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
           </Inline>
         </Caption>
       </div>
-      <div className="flex flex-row items-end justify-end gap-2 pb-8 sm:gap-4">
-        <Switch label="Exclude low Sample Size" />
+      <div className="flex flex-row items-center justify-end gap-2 pb-8 sm:gap-4">
+        <Switch size="small" label="Exclude small Sample Sizes" />
         <DateSelection defaultValue={toDate(from, to)} />
       </div>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-12">

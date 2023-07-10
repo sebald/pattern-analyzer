@@ -7,7 +7,7 @@ export const Loading = () => (
     <div className="mb-4 mt-8 flex flex-col items-end">
       <HeadlineSkeleton className="h-8 w-44" />
     </div>
-    <div className="grid grid-cols-2 gap-4">
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
       <CardChartSkeleton />
       <CardChartSkeleton />
       <CardChartSkeleton />
