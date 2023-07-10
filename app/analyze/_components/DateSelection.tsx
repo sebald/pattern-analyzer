@@ -5,7 +5,12 @@ import { usePathname, useRouter } from 'next/navigation';
 
 import { pointsUpdateDate } from '@/lib/config';
 import { Select, Spinner, type SelectProps } from '@/ui';
-import { lastWeekend, monthsAgo, toDate } from '@/lib/utils/date.utils';
+import {
+  fromDate,
+  lastWeekend,
+  monthsAgo,
+  toDate,
+} from '@/lib/utils/date.utils';
 
 // Props
 // ---------------
@@ -17,7 +22,6 @@ export const DateSelection = (props: DateSelectionProps) => {
   const { replace } = useRouter();
   const pathname = usePathname();
   const [pending, startTransition] = useTransition();
-  const [lastThursday, lastSunday] = lastWeekend();
 
   const handleChange = (value: string) => {
     const [start, end] = value.split('/');
@@ -30,6 +34,17 @@ export const DateSelection = (props: DateSelectionProps) => {
     });
   };
 
+  const options = {
+    'Last Points Update': pointsUpdateDate,
+    'Last Weekend': toDate.apply(null, lastWeekend()),
+    'Last Month': toDate(monthsAgo(1)),
+    // Add the option if the last points update is older
+    ...(fromDate(pointsUpdateDate) < monthsAgo(3)
+      ? { 'Last 3 Months': toDate(monthsAgo(3)) }
+      : {}),
+  };
+  type Options = keyof typeof options;
+
   return (
     <div className="flex items-center gap-2">
       {pending ? <Spinner className="h-4 w-4" /> : null}
@@ -39,16 +54,11 @@ export const DateSelection = (props: DateSelectionProps) => {
         disabled={pending}
         onChange={e => handleChange(e.target.value)}
       >
-        <Select.Option value={toDate(lastThursday, lastSunday)}>
-          Last Weekend
-        </Select.Option>
-        <Select.Option value={toDate(monthsAgo(1))}>Last Month</Select.Option>
-        <Select.Option value={toDate(monthsAgo(3))}>
-          Last 3 Months
-        </Select.Option>
-        <Select.Option value={pointsUpdateDate}>
-          Last Points Update
-        </Select.Option>
+        {Object.keys(options).map(label => (
+          <Select.Option key={label} value={options[label as Options]}>
+            {label}
+          </Select.Option>
+        ))}
       </Select>
     </div>
   );
