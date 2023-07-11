@@ -15,7 +15,7 @@ const getSquads = async ({ vendor, id }: GetSquadsProps) => {
   const res = await fetch(`${baseUrl}/api/${vendor}/${id}/squads`);
 
   if (!res.ok) {
-    throw new Error(`Failed to fetch squdas... (${vendor}/${id})`);
+    throw new Error(`Failed to fetch squads... (${vendor}/${id})`);
   }
 
   const squads = await res.json();

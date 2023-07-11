@@ -25,8 +25,14 @@ interface RollBetterLists {
 
 export interface RollBetterRegistration {
   id: number;
-  withList?: string;
-  withAlternateList: any;
+  lists: {
+    id: number;
+    name: string;
+    faction?: string;
+    format?: string;
+    raw: string;
+    priority: number;
+  }[];
   isWaitlisted: boolean;
   player: {
     username: string;
@@ -182,30 +188,36 @@ const getSquadsData = async (id: string, players: PlayerData[]) => {
 
     const {
       id,
-      withList,
+      lists,
       player: { username },
     } = registraion;
 
+    /**
+     * Rollbetter can store more than one lists per player, we don't support this yet.
+     * Just take the first one.
+     */
+    const list = lists[0] || { raw: '' };
+
     try {
-      if (withList) {
+      if (list.raw) {
         // Check if given as JSON
-        if (withList.startsWith('{')) {
-          xws = toXWS(withList);
+        if (list.raw.startsWith('{')) {
+          xws = toXWS(list.raw);
         }
         // Check if given as YASB Url
-        if (withList.trim().startsWith('https://yasb.app')) {
-          xws = yasb2xws(withList);
+        if (list.raw.trim().startsWith('https://yasb.app')) {
+          xws = yasb2xws(list.raw);
         }
         // Still nothin? Maybe there is a YASB link?
         if (!xws) {
-          xws = xwsFromText(withList).xws;
+          xws = xwsFromText(list.raw).xws;
         }
 
         url = getBuilderLink(xws);
       }
     } catch {
       console.log(
-        `[rollbetter] Failed to parse squad of "${username}" (${id}).\nOriginal value is: :${withList}`
+        `[rollbetter] Failed to parse squad of "${username}" (${id}).\nOriginal value is: :${list.raw}`
       );
     }
 
@@ -213,7 +225,7 @@ const getSquadsData = async (id: string, players: PlayerData[]) => {
       ...player,
       url,
       xws,
-      raw: withList || '',
+      raw: list.raw || '',
     };
   });
 };
