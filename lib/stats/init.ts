@@ -6,7 +6,7 @@ import type {
   FactionMap,
   FactionMapWithAll,
   FrequencyStats,
-  MagicStats,
+  ScoreStats,
   PerformanceStats,
   PilotDataCollection,
   PilotStats,
@@ -49,7 +49,7 @@ const initFrequency = (): FrequencyStats => ({
   frequency: 0,
 });
 
-const initMagic = (): MagicStats => ({
+const initMagic = (): ScoreStats => ({
   magic: 0,
 });
 

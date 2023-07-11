@@ -89,8 +89,8 @@ export interface FrequencyStats {
   frequency: number;
 }
 
-export interface MagicStats {
-  magic: number;
+export interface ScoreStats {
+  score: number;
 }
 
 export interface FactionStats extends CommonDataCollection, PerformanceStats {}
@@ -99,7 +99,7 @@ export interface PilotStats
   extends PilotDataCollection,
     PerformanceStats,
     FrequencyStats,
-    MagicStats {}
+    ScoreStats {}
 
 export interface ShipStats extends ShipDataCollection, FrequencyStats {}
 
@@ -107,13 +107,13 @@ export interface UpgradeStats
   extends UpgradeDataCollection,
     PerformanceStats,
     FrequencyStats,
-    MagicStats {}
+    ScoreStats {}
 
 export interface CompositionStats
   extends CompositionDataCollection,
     PerformanceStats,
     FrequencyStats,
-    MagicStats {}
+    ScoreStats {}
 
 export interface SquadStats {
   tournament: {

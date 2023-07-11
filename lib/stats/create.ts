@@ -183,7 +183,7 @@ export const create = (list: SquadData[][]) => {
       stats.percentile = average(pcs, 4);
       stats.deviation = deviation(pcs, 4);
 
-      stats.magic = magic({
+      stats.score = magic({
         ...stats,
         count: stats.count,
       });
@@ -217,7 +217,7 @@ export const create = (list: SquadData[][]) => {
       stats.percentile = average(pcs, 4);
       stats.deviation = deviation(pcs, 4);
 
-      stats.magic = magic({
+      stats.score = magic({
         ...stats,
         count: stats.count,
       });
@@ -236,7 +236,7 @@ export const create = (list: SquadData[][]) => {
     stats.percentile = average(pcs, 4);
     stats.deviation = deviation(pcs, 4);
 
-    stats.magic = magic({
+    stats.score = magic({
       ...stats,
       count: stats.xws.length,
     });
