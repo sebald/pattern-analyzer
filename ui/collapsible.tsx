@@ -3,6 +3,8 @@
 import { cloneElement, useRef, useState } from 'react';
 import useMeasure from 'react-use/lib/useMeasure';
 import { cva } from 'class-variance-authority';
+
+import { cn } from '@/lib/utils/classname.utils';
 import { Expand } from './icons';
 
 // Styles
@@ -80,14 +82,20 @@ export const Collapsible = ({
         {child}
         {collapsed && <div className={styles.gradient()} />}
       </div>
-      {
-        <div className="flex justify-center pt-2">
-          <button className={styles.toggle()} onClick={toggle}>
-            <Expand className="h-4 w-4" strokeWidth={2.5} />
-            {collapsed ? 'Show more' : 'Show less'}
-          </button>
-        </div>
-      }
+      <div
+        className={cn(
+          'pointer-events-none flex justify-center pt-2',
+          !collapsed && 'sticky bottom-2'
+        )}
+      >
+        <button
+          className={cn(styles.toggle(), 'pointer-events-auto')}
+          onClick={toggle}
+        >
+          <Expand className="h-4 w-4" strokeWidth={2.5} />
+          {collapsed ? 'Show more' : 'Show less'}
+        </button>
+      </div>
     </div>
   );
 };
