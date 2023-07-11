@@ -1,10 +1,7 @@
 'use client';
 
-import { useTransition } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
-
 import { pointsUpdateDate } from '@/lib/config';
-import { Select, Spinner, type SelectProps } from '@/ui';
+import { Select, type SelectProps } from '@/ui';
 import {
   fromDate,
   lastWeekend,
@@ -18,25 +15,7 @@ export interface DateSelectionProps extends Omit<SelectProps, 'children'> {}
 
 // Component
 // ---------------
-export const DateSelection = ({
-  defaultValue,
-  ...props
-}: DateSelectionProps) => {
-  const { replace } = useRouter();
-  const pathname = usePathname();
-  const [pending, startTransition] = useTransition();
-
-  const handleChange = (value: string) => {
-    const [start, end] = value.split('/');
-    const path = start
-      ? `${pathname}?from=${start}${end ? `&to=${end}` : ''}`
-      : pathname;
-
-    startTransition(() => {
-      replace(`${path}`);
-    });
-  };
-
+export const DateSelection = (props: DateSelectionProps) => {
   let options = {
     'Last Points Update': pointsUpdateDate,
     'Last Weekend': toDate.apply(null, lastWeekend()),
@@ -49,27 +28,18 @@ export const DateSelection = ({
   type Options = keyof typeof options;
 
   // Add "custom" option if defaultValue isn't an existing option
-  if (!Object.values(options).find(option => option === defaultValue)) {
+  if (!Object.values(options).find(option => option === props.defaultValue)) {
     // @ts-expect-error
-    options['Custom'] = defaultValue;
+    options['Custom'] = props.defaultValue;
   }
 
   return (
-    <div className="flex items-center gap-2">
-      {pending ? <Spinner className="h-4 w-4" /> : null}
-      <Select
-        {...props}
-        defaultValue={defaultValue}
-        size="small"
-        disabled={pending}
-        onChange={e => handleChange(e.target.value)}
-      >
-        {Object.keys(options).map(label => (
-          <Select.Option key={label} value={options[label as Options]}>
-            {label}
-          </Select.Option>
-        ))}
-      </Select>
-    </div>
+    <Select {...props} size="small">
+      {Object.keys(options).map(label => (
+        <Select.Option key={label} value={options[label as Options]}>
+          {label}
+        </Select.Option>
+      ))}
+    </Select>
   );
 };

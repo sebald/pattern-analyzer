@@ -29,7 +29,7 @@ export interface PilotStatsProps {
 export const PilotStats = ({ value }: PilotStatsProps) => {
   const [faction, setFaction] = useState<XWSFaction | 'all'>('all');
   const [sort, setSort] = useState<
-    'percentile' | 'deviation' | 'winrate' | 'frequency' | 'count' | 'magic'
+    'percentile' | 'deviation' | 'winrate' | 'frequency' | 'count' | 'score'
   >('percentile');
 
   const data =
@@ -69,7 +69,7 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
             <Select.Option value="winrate">By Winrate</Select.Option>
             <Select.Option value="frequency">By Frequency</Select.Option>
             <Select.Option value="count">By Count</Select.Option>
-            <Select.Option value="magic">By Magic</Select.Option>
+            <Select.Option value="score">By Score</Select.Option>
           </Select>
         </Card.Actions>
       </Card.Header>
@@ -117,7 +117,7 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
                   {toPercentage(stat.frequency)}
                 </Table.Cell>
                 <Table.Cell variant="number">{stat.count}</Table.Cell>
-                <Table.Cell variant="number">{stat.magic}</Table.Cell>
+                <Table.Cell variant="number">{stat.score}</Table.Cell>
               </Fragment>
             ))}
           </Table>
