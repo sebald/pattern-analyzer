@@ -5,7 +5,8 @@ import type { ListfortressTournament } from '@/lib/types';
 
 // Config
 // ---------------
-export const revalidate = 86_400; // 1 day
+export const revalidate = 'force-cache';
+export const fetchCache = 'force-cache';
 
 // Helpers
 // ---------------

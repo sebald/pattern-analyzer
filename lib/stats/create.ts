@@ -18,7 +18,11 @@ import {
 } from './init';
 import { magic } from './magic';
 
-export const create = (list: SquadData[][]) => {
+export interface CreateConfig {
+  smallSamples: boolean;
+}
+
+export const create = (list: SquadData[][], config: CreateConfig) => {
   const result = initStats();
   result.tournament.total = list.length;
 
@@ -187,6 +191,11 @@ export const create = (list: SquadData[][]) => {
         ...stats,
         count: stats.count,
       });
+
+      // Remove small samples sizes
+      if (!config.smallSamples && (stats.count < 5 || stats.score < 5)) {
+        delete result.pilot[fid][pid];
+      }
     });
   });
 
@@ -221,6 +230,11 @@ export const create = (list: SquadData[][]) => {
         ...stats,
         count: stats.count,
       });
+
+      // Remove small samples sizes
+      if (!config.smallSamples && (stats.count < 5 || stats.score < 5)) {
+        delete result.upgrade[fid][uid];
+      }
     });
   });
 
@@ -240,6 +254,11 @@ export const create = (list: SquadData[][]) => {
       ...stats,
       count: stats.xws.length,
     });
+
+    // Remove small samples sizes
+    if (!config.smallSamples && (stats.xws.length < 3 || stats.score < 5)) {
+      delete result.composition[cid];
+    }
   });
 
   return result;

@@ -3,6 +3,11 @@ import { z } from 'zod';
 
 import { getSquads } from '@/lib/vendor/listfortress';
 
+// Config
+// ---------------
+export const revalidate = 'force-cache';
+export const fetchCache = 'force-cache';
+
 // Helpers
 // ---------------
 const schema = {

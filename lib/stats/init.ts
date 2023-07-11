@@ -18,8 +18,6 @@ import type {
   UpgradeStats,
 } from './types';
 
-// Helpers
-// ---------------
 const initFactionMap = <Key extends string, Value>(): FactionMap<
   Key,
   Value
@@ -49,8 +47,8 @@ const initFrequency = (): FrequencyStats => ({
   frequency: 0,
 });
 
-const initMagic = (): ScoreStats => ({
-  magic: 0,
+const initScore = (): ScoreStats => ({
+  score: 0,
 });
 
 export const initPilotStats = (ship: Ships): PilotStats => ({
@@ -59,7 +57,7 @@ export const initPilotStats = (ship: Ships): PilotStats => ({
   ...initCommonData(),
   ...initPerformance(),
   ...initFrequency(),
-  ...initMagic(),
+  ...initScore(),
 });
 
 export const initShipSats = (): ShipStats => ({
@@ -74,7 +72,7 @@ export const initUpgradeStats = (slot: XWSUpgradeSlots): UpgradeStats => ({
   ...initCommonData(),
   ...initPerformance(),
   ...initFrequency(),
-  ...initMagic(),
+  ...initScore(),
 });
 
 export const initCompositionStats = (
@@ -88,7 +86,7 @@ export const initCompositionStats = (
   ranks: [],
   ...initPerformance(),
   ...initFrequency(),
-  ...initMagic(),
+  ...initScore(),
 });
 
 /**
