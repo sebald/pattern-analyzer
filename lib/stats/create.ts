@@ -162,7 +162,7 @@ export const create = (list: SquadData[][]) => {
   Object.keys(result.faction).forEach(key => {
     const fid = key as XWSFaction | 'unknown';
     const faction = result.faction[fid];
-    const pcs = factionPercentiles.get(fid)!;
+    const pcs = factionPercentiles.get(fid) || [];
 
     faction.percentile = average(pcs, 4);
     faction.deviation = deviation(pcs, 4);

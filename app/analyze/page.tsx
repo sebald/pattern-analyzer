@@ -5,7 +5,7 @@ import { create } from '@/lib/stats/create';
 import { formatDate, fromDate, toDate, today } from '@/lib/utils/date.utils';
 import { getAllTournaments, getSquads } from '@/lib/vendor/listfortress';
 
-import { Caption, Inline, Message, Switch, Title } from '@/ui';
+import { Caption, Inline, Message, Title } from '@/ui';
 import { Calendar, Rocket, Trophy } from '@/ui/icons';
 
 import { ChassisDistribution } from '@/ui/stats/chassis-distribution';
@@ -20,8 +20,7 @@ import { SquadSize } from '@/ui/stats/squad-size';
 import { StatsHint } from '@/ui/stats/stats-hint';
 import { UpgradeStats } from '@/ui/stats/upgrade-stats';
 
-import { DateSelection } from './_components/DateSelection';
-import Loading from './loading';
+import { Filter } from './_components/Filter';
 
 // Config
 // ---------------
@@ -50,10 +49,17 @@ export const metadata = {
 // Note: only checks the format, can still produce invalid dates (like 2022-02-31)
 const DATE_REGEX = /(\d{4})-(\d{2})-(\d{2})/;
 
-const schema = z.object({
-  from: z.string().regex(DATE_REGEX).optional(),
-  to: z.string().regex(DATE_REGEX).optional(),
-});
+const schema = z
+  .object({
+    from: z.string().regex(DATE_REGEX).optional(),
+    to: z.string().regex(DATE_REGEX).optional(),
+    'small-samples': z.union([z.literal('show'), z.literal('hide')]).optional(),
+  })
+  .transform(({ 'small-samples': smallSamples, ...props }) => ({
+    ...props,
+    smallSamples:
+      typeof smallSamples === 'undefined' || smallSamples === 'show',
+  }));
 
 // Data
 // ---------------
@@ -83,6 +89,7 @@ interface AnalyzePageProps {
   searchParams: {
     from: string;
     to: string;
+    'small-samples': 'show' | 'hide';
   };
 }
 
@@ -110,6 +117,7 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
     params.data && params.data.to ? fromDate(params.data.to) : undefined;
 
   const stats = await getStats({ from, to });
+  console.log(params);
   return (
     <>
       <div className="pb-6">
@@ -130,10 +138,10 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
           </Inline>
         </Caption>
       </div>
-      <div className="flex flex-row items-center justify-end gap-2 pb-8 sm:gap-4">
-        <Switch size="small" label="Exclude small Sample Sizes" />
-        <DateSelection defaultValue={toDate(from, to)} />
-      </div>
+      <Filter
+        smallSamples={params.data.smallSamples}
+        dateRange={toDate(from, to)}
+      />
       <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
         <div className="md:col-span-6">
           <FactionDistribution
