@@ -9,18 +9,9 @@ import { getAllTournaments, getSquads } from '@/lib/vendor/listfortress';
 import { Caption, Inline, Message, Title } from '@/ui';
 import { Calendar, Rocket, Trophy } from '@/ui/icons';
 
-import { ChassisDistribution } from '@/ui/stats/chassis-distribution';
 import { CompositionStats } from '@/ui/stats/composition-stats';
-import { FactionDistribution } from '@/ui/stats/faction-distribution';
-import { FactionPerformance } from '@/ui/stats/faction-performance';
-import { FactionVictories } from '@/ui/stats/faction-victories';
 import { Filter } from '@/ui/stats/filter';
-import { PilotCostDistribution } from '@/ui/stats/pilot-cost-distribution';
-import { PilotSkillDistribution } from '@/ui/stats/pilot-skill-distribution';
-import { PilotStats } from '@/ui/stats/pilot-stats';
-import { SquadSize } from '@/ui/stats/squad-size';
 import { StatsHint } from '@/ui/stats/stats-hint';
-import { UpgradeStats } from '@/ui/stats/upgrade-stats';
 
 // Config
 // ---------------
@@ -75,7 +66,7 @@ const getStats = cache(
     );
     let stats = create(squads, { smallSamples });
 
-    return stats;
+    return { tournament: stats.tournament, composition: stats.composition };
   }
 );
 
@@ -117,7 +108,7 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
   return (
     <>
       <div className="pb-6">
-        <Title>Analyze</Title>
+        <Title>Composition</Title>
         <Caption>
           <Inline className="gap-4">
             <Inline className="whitespace-nowrap">
@@ -139,39 +130,6 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
         dateRange={toDate(from, to)}
       />
       <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
-        <div className="md:col-span-6">
-          <FactionDistribution
-            value={stats.faction}
-            total={stats.tournament.count}
-          />
-        </div>
-        <div className="md:col-span-6">
-          <FactionPerformance value={stats.faction} />
-        </div>
-        <div className="md:col-span-6">
-          <FactionVictories
-            value={stats.faction}
-            total={stats.tournament.total}
-          />
-        </div>
-        <div className="md:col-span-6">
-          <SquadSize value={stats.squadSizes} total={stats.tournament.xws} />
-        </div>
-        <div className="col-span-full">
-          <ChassisDistribution value={stats.ship} />
-        </div>
-        <div className="md:col-span-6">
-          <PilotCostDistribution value={stats.pilotCostDistribution} />
-        </div>
-        <div className="md:col-span-6">
-          <PilotSkillDistribution value={stats.pilotSkillDistribution} />
-        </div>
-        <div className="col-span-full">
-          <PilotStats value={stats.pilot} />
-        </div>
-        <div className="col-span-full">
-          <UpgradeStats value={stats.upgrade} />
-        </div>
         <div className="col-span-full">
           <CompositionStats value={stats.composition} />
         </div>

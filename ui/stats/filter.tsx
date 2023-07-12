@@ -3,8 +3,7 @@
 import { useTransition } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 
-import { Spinner, Switch } from '@/ui';
-import { DateSelection } from './DateSelection';
+import { DateSelection, Spinner, Switch } from '@/ui';
 
 // Props
 // ---------------
