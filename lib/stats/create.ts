@@ -147,7 +147,7 @@ export const create = (list: SquadData[][], config?: CreateConfig) => {
         result.composition[id] ||
         initCompositionStats(stats.ships, stats.faction);
 
-      composition.xws.push(...stats.xws);
+      composition.count += stats.count;
       composition.record.wins += stats.record.wins;
       composition.record.ties += stats.record.ties;
       composition.record.losses += stats.record.losses;
@@ -187,10 +187,7 @@ export const create = (list: SquadData[][], config?: CreateConfig) => {
       stats.percentile = average(pcs, 4);
       stats.deviation = deviation(pcs, 4);
 
-      stats.score = magic({
-        ...stats,
-        count: stats.count,
-      });
+      stats.score = magic(stats);
 
       // Remove small samples sizes
       if (
@@ -230,10 +227,7 @@ export const create = (list: SquadData[][], config?: CreateConfig) => {
       stats.percentile = average(pcs, 4);
       stats.deviation = deviation(pcs, 4);
 
-      stats.score = magic({
-        ...stats,
-        count: stats.count,
-      });
+      stats.score = magic(stats);
 
       // Remove small samples sizes
       if (
@@ -251,23 +245,20 @@ export const create = (list: SquadData[][], config?: CreateConfig) => {
     const pcs = compositionPercentiles.get(cid)!;
 
     stats.frequency = round(
-      stats.xws.length / result.faction[stats.faction].count,
+      stats.count / result.faction[stats.faction].count,
       4
     );
     stats.winrate = winrate([stats.record]);
     stats.percentile = average(pcs, 4);
     stats.deviation = deviation(pcs, 4);
 
-    stats.score = magic({
-      ...stats,
-      count: stats.xws.length,
-    });
+    stats.score = magic(stats);
 
     // Remove small samples sizes
     if (
       config &&
       !config.smallSamples &&
-      (stats.xws.length < 3 || stats.score < 5)
+      (stats.count < 3 || stats.score < 5)
     ) {
       delete result.composition[cid];
     }
