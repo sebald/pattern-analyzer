@@ -3,14 +3,14 @@ import type { StatModule } from '../factory';
 import type { CommonDataCollection } from '../types';
 import { initCommonData } from '../init';
 
-export interface FactionStats {
+export interface FactionData {
   faction: {
     [Faction in XWSFaction | 'unknown']: CommonDataCollection;
   };
 }
 
-export const faction: () => StatModule<FactionStats> = () => {
-  const data = {
+export const faction: () => StatModule<FactionData> = () => {
+  const data: FactionData['faction'] = {
     rebelalliance: initCommonData(),
     galacticempire: initCommonData(),
     scumandvillainy: initCommonData(),
@@ -19,17 +19,22 @@ export const faction: () => StatModule<FactionStats> = () => {
     galacticrepublic: initCommonData(),
     separatistalliance: initCommonData(),
     unknown: initCommonData(),
-  } satisfies FactionStats['faction'];
+  };
 
   return {
-    squad: (squad, { faction }) => {
+    squad: (squad, { faction: fid }) => {
       const rank = squad.rank;
-      data[faction].count += 1;
-      data[faction].ranks.push(rank.elimination ?? rank.swiss);
-      data[faction].records.push(squad.record);
+      data[fid].count += 1;
+      data[fid].ranks.push(rank.elimination ?? rank.swiss);
+      data[fid].records.push(squad.record);
+
+      // TODO: add total to ctx and calculate percentile (store in module)
     },
-    get: () => ({
-      faction: data,
-    }),
+    get: ({ total }) => {
+      return {
+        // TODO: Move calculations from create here
+        faction: data,
+      };
+    },
   };
 };

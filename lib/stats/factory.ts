@@ -10,7 +10,7 @@ import type {
 
 // Types
 // ---------------
-export interface ModuleContext {
+export interface SquadModuleContext {
   faction: XWSFaction | 'unknown';
   rank: {
     swiss: number;
@@ -22,36 +22,39 @@ export interface ModuleContext {
    */
   unique: (val: string) => boolean;
 }
+export interface XWSModuleContext extends Omit<SquadModuleContext, 'faction'> {
+  faction: XWSFaction;
+}
 
 export interface StatModule<T> {
   /**
    * Gets the whole squad, can do whatever.
    */
-  squad?: (squad: SquadData, ctx: ModuleContext) => void;
+  squad?: (squad: SquadData, ctx: SquadModuleContext) => void;
   /**
    * Gets the squad's XWS
    */
-  xws?: (xws: XWSSquad, ctx: ModuleContext) => void;
+  xws?: (xws: XWSSquad, ctx: XWSModuleContext) => void;
   /**
    * Gets every pilot of the squad
    */
-  pilot?: (pilot: XWSPilot, ctx: ModuleContext) => void;
+  pilot?: (pilot: XWSPilot, ctx: XWSModuleContext) => void;
   /**
    * Gets every ship of the squad
    */
-  ship?: (ship: Ships, ctx: ModuleContext) => void;
+  ship?: (ship: Ships, ctx: XWSModuleContext) => void;
   /**
    * Gets every upgrade of very pilot in the squad
    */
   upgrade?: (
     upgrade: string,
     slot: XWSUpgradeSlots,
-    ctx: ModuleContext
+    ctx: XWSModuleContext
   ) => void;
   /**
    * Returns the stats
    */
-  get: () => T;
+  get: (ctx: { total: number }) => T;
 }
 
 export interface TournamentStats {
@@ -62,17 +65,17 @@ export interface TournamentStats {
 
 // Factory
 // ---------------
-export const factory = (modules: StatModule<any>[]) => {
+export const factory = <T = any>(modules: StatModule<any>[]) => {
   const hooks = {
-    squad: (squad: SquadData, ctx: ModuleContext) =>
+    squad: (squad: SquadData, ctx: SquadModuleContext) =>
       modules.forEach(m => m.squad?.(squad, ctx)),
-    xws: (xws: XWSSquad, ctx: ModuleContext) =>
+    xws: (xws: XWSSquad, ctx: XWSModuleContext) =>
       modules.forEach(m => m.xws?.(xws, ctx)),
-    pilot: (pilot: XWSPilot, ctx: ModuleContext) =>
+    pilot: (pilot: XWSPilot, ctx: XWSModuleContext) =>
       modules.forEach(m => m.pilot?.(pilot, ctx)),
-    ship: (ship: Ships, ctx: ModuleContext) =>
+    ship: (ship: Ships, ctx: XWSModuleContext) =>
       modules.forEach(m => m.ship?.(ship, ctx)),
-    upgrade: (upgrade: string, slot: XWSUpgradeSlots, ctx: ModuleContext) =>
+    upgrade: (upgrade: string, slot: XWSUpgradeSlots, ctx: XWSModuleContext) =>
       modules.forEach(m => m.upgrade?.(upgrade, slot, ctx)),
   };
 
@@ -86,12 +89,8 @@ export const factory = (modules: StatModule<any>[]) => {
     data.forEach(item => {
       // Setup context for hooks.
       const cache = new Set<string>();
-      const ctx: ModuleContext = {
-        faction: item.xws ? item.xws.faction : 'unknown',
-        rank: item.rank,
-        record: item.record,
-        unique: (val: string) => cache.has(val),
-      };
+      const faction = item.xws ? item.xws.faction : 'unknown';
+      const unique = (val: string) => cache.has(val);
 
       if (item.xws) {
         tournament.xws += 1;
@@ -101,9 +100,21 @@ export const factory = (modules: StatModule<any>[]) => {
       }
 
       // HOOK: Squads
-      hooks.squad(item, ctx);
+      hooks.squad(item, {
+        faction,
+        rank: item.rank,
+        record: item.record,
+        unique,
+      });
 
-      if (item.xws && ctx.faction !== 'unknown') {
+      if (item.xws && faction !== 'unknown') {
+        const ctx = {
+          faction,
+          rank: item.rank,
+          record: item.record,
+          unique,
+        };
+
         // HOOK: XWS
         hooks.xws(item.xws, ctx);
 
@@ -129,11 +140,12 @@ export const factory = (modules: StatModule<any>[]) => {
       }
     });
 
-    // ???
-
     return {
       tournament,
-      ...modules.reduce((o, m) => ({ o, ...m.get() }), {}),
-    };
+      ...modules.reduce(
+        (o, m) => ({ o, ...m.get({ total: data.length }) }),
+        {}
+      ),
+    } as T & { tournament: TournamentStats };
   };
 };

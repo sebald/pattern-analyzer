@@ -18,7 +18,7 @@ import type {
   UpgradeStats,
 } from './types';
 
-const initFactionMap = <Key extends string, Value>(): FactionMap<
+export const initFactionMap = <Key extends string, Value>(): FactionMap<
   Key,
   Value
 > => ({
