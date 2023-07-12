@@ -114,7 +114,9 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(
         )}
       >
         {numeration ? (
-          <TableHeader className="hidden md:flex">#</TableHeader>
+          <TableHeader key="idx-header" className="hidden md:flex">
+            #
+          </TableHeader>
         ) : null}
         {headers.map((header, idx) => (
           <TableHeader key={idx} className={addColClasses(idx)}>
@@ -137,7 +139,10 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(
 
           return numeration && isFirst(idx) ? (
             <>
-              <TableCell className="hidden text-secondary-300 md:flex">
+              <TableCell
+                key={`idx.${idx / count + 1}`}
+                className="hidden text-secondary-300 md:flex"
+              >
                 {idx / count + 1}
               </TableCell>
               {cell}
