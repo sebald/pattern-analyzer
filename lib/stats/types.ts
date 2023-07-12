@@ -48,7 +48,7 @@ export interface UpgradeDataCollection {
 export interface CompositionDataCollection {
   ships: Ships[];
   faction: XWSFaction;
-  xws: XWSSquad[];
+  count: number;
   record: GameRecord;
   ranks: number[];
 }

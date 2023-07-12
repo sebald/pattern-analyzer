@@ -157,14 +157,14 @@ export const collect = (squads: SquadData[]) => {
       const composition: CompositionDataCollection = data.composition[cid] || {
         ships: [...ships],
         faction,
-        xws: [],
+        count: 0,
         record: { wins: 0, ties: 0, losses: 0 },
         ranks: [],
       };
 
       data.composition[cid] = {
         ...composition,
-        xws: [...composition.xws, squad.xws],
+        count: composition.count + 1,
         record: {
           wins: composition.record.wins + squad.record.wins,
           ties: composition.record.ties + squad.record.ties,
