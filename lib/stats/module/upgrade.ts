@@ -1,5 +1,3 @@
-import type { Ships } from '@/lib/get-value';
-import type { GameRecord, XWSFaction } from '@/lib/types';
 import {
   average,
   deviation,
@@ -7,18 +5,19 @@ import {
   round,
   winrate,
 } from '@/lib/utils/math.utils';
+import type { GameRecord, XWSFaction, XWSUpgradeSlots } from '@/lib/types';
 
 import { magic } from '../magic';
-import type { FactionMap } from '../types';
+import type { FactionMapWithAll } from '../types';
 import type { StatModule } from './factory';
 
 // Types
 // ---------------
-export interface PilotData {
-  pilot: FactionMap<
+export interface UpgradeData {
+  upgrade: FactionMapWithAll<
     string,
     {
-      ship: Ships;
+      slot: XWSUpgradeSlots;
       count: number;
       lists: number;
       record: GameRecord;
@@ -32,7 +31,7 @@ export interface PilotData {
 }
 
 interface Data {
-  ship: Ships;
+  slot: XWSUpgradeSlots;
   count: number;
   lists: number;
   record: GameRecord;
@@ -40,13 +39,13 @@ interface Data {
 }
 
 type Store = {
-  [Faction in XWSFaction]: { [pilot: string]: Data };
+  [Faction in XWSFaction | 'all']: { [upgrade: string]: Data };
 };
 
 // Helper
 // ---------------
-const init = (ship: Ships): Data => ({
-  ship,
+const init = (slot: XWSUpgradeSlots): Data => ({
+  slot,
   count: 0,
   lists: 0,
   record: { wins: 0, ties: 0, losses: 0 },
@@ -55,8 +54,9 @@ const init = (ship: Ships): Data => ({
 
 // Module
 // ---------------
-export const pilot: () => StatModule<PilotData> = () => {
+export const upgrade: () => StatModule<UpgradeData> = () => {
   const store: Store = {
+    all: {},
     rebelalliance: {},
     galacticempire: {},
     scumandvillainy: {},
@@ -67,8 +67,9 @@ export const pilot: () => StatModule<PilotData> = () => {
   };
 
   return {
-    pilot: (pilot, { faction, record, rank, unique, tournament }) => {
-      const item = store[faction][pilot.id] || init(pilot.ship);
+    upgrade: (upgrade, slot, { faction, record, rank, unique, tournament }) => {
+      // Updage overall
+      let item = store['all'][upgrade] || init(slot);
 
       item.count += 1;
       item.record.wins += record.wins;
@@ -78,15 +79,33 @@ export const pilot: () => StatModule<PilotData> = () => {
         percentile(rank.elimination ?? rank.swiss, tournament.count.all)
       );
 
-      if (!unique(pilot.id)) {
+      if (!unique(upgrade)) {
         item.lists += 1;
       }
 
-      store[faction][pilot.id] = item;
+      store['all'][upgrade] = item;
+
+      // Upgrade for faction
+      item = store[faction][upgrade] || init(slot);
+
+      item.count += 1;
+      item.record.wins += record.wins;
+      item.record.ties += record.ties;
+      item.record.losses += record.losses;
+      item.percentiles.push(
+        percentile(rank.elimination ?? rank.swiss, tournament.count.all)
+      );
+
+      if (!unique(upgrade)) {
+        item.lists += 1;
+      }
+
+      store[faction][upgrade] = item;
     },
     get: ({ tournament, config }) => {
-      const result: PilotData = {
-        pilot: {
+      const result: UpgradeData = {
+        upgrade: {
+          all: {},
           rebelalliance: {},
           galacticempire: {},
           scumandvillainy: {},
@@ -98,9 +117,9 @@ export const pilot: () => StatModule<PilotData> = () => {
       };
 
       Object.keys(store).forEach(key => {
-        const fid = key as XWSFaction;
+        const fid = key as XWSFaction | 'all';
 
-        Object.entries(store[fid]).forEach(([pid, item]) => {
+        Object.entries(store[fid]).forEach(([uid, item]) => {
           const stat = {
             count: item.count,
             percentile: average(item.percentiles, 4),
@@ -113,8 +132,8 @@ export const pilot: () => StatModule<PilotData> = () => {
             return;
           }
 
-          result.pilot[fid][pid] = {
-            ship: item.ship,
+          result.upgrade[fid][uid] = {
+            slot: item.slot,
             count: item.count,
             lists: item.lists,
             record: item.record,

@@ -69,7 +69,7 @@ export const faction: () => StatModule<FactionData> = () => {
       store[fid].record.wins += record.wins;
       store[fid].record.ties += record.ties;
       store[fid].record.losses += record.losses;
-      store[fid].percentiles.push(percentile(rank, tournament.count.total));
+      store[fid].percentiles.push(percentile(rank, tournament.count.all));
 
       if (rank < store[fid].top) {
         store[fid].top = rank;
@@ -98,7 +98,7 @@ export const faction: () => StatModule<FactionData> = () => {
         result.faction[fid].record = data.record;
 
         result.faction[fid].frequency = round(
-          data.count / tournament.count.total,
+          data.count / tournament.count.all,
           4
         );
         result.faction[fid].percentile = average(data.percentiles, 4);

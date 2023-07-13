@@ -5,6 +5,7 @@ import {
   pilotCostDistribution,
   pilotSkillDistribution,
   squadSizes,
+  upgrade,
 } from '@/lib/stats/module';
 
 import { squads } from './squads.fixture';
@@ -37,6 +38,11 @@ test('create stats (pilotCostDistribution)', () => {
 test('create stats (pilotSkillDistribution)', () => {
   const stats = factory([pilotSkillDistribution()])(squads);
   expect(stats.pilotSkillDistribution).toMatchSnapshot();
+});
+
+test('create stats (upgrade)', () => {
+  const stats = factory([upgrade()])(squads);
+  expect(stats.upgrade).toMatchSnapshot();
 });
 
 // =======
