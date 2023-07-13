@@ -1,7 +1,5 @@
 import type { Ships } from '@/lib/get-value';
 import type { GameRecord, XWSFaction } from '@/lib/types';
-import type { StatModule } from '../factory';
-import type { FactionMap } from '../types';
 import {
   average,
   deviation,
@@ -9,7 +7,10 @@ import {
   round,
   winrate,
 } from '@/lib/utils/math.utils';
+
+import type { StatModule } from './factory';
 import { magic } from '../magic';
+import type { FactionMap } from '../types';
 
 // Types
 // ---------------
@@ -74,7 +75,7 @@ export const pilot: () => StatModule<PilotData> = () => {
       item.record.ties += record.ties;
       item.record.losses += record.losses;
       item.percentiles.push(
-        percentile(rank.elimination ?? rank.swiss, tournament.count)
+        percentile(rank.elimination ?? rank.swiss, tournament.count.total)
       );
 
       if (!unique(pilot.id)) {
@@ -107,7 +108,7 @@ export const pilot: () => StatModule<PilotData> = () => {
           };
           const score = magic(stat);
 
-          // Skip if small sample sizes is too small
+          // Skip small sample sizes
           if (config.smallSamples === false && (stat.count < 5 || score < 5)) {
             return;
           }
@@ -117,7 +118,7 @@ export const pilot: () => StatModule<PilotData> = () => {
             count: item.count,
             lists: item.lists,
             record: item.record,
-            frequency: round(item.count / tournament.count, 4),
+            frequency: round(item.count / tournament.count[fid], 4),
             percentile: stat.percentile,
             deviation: stat.deviation,
             winrate: winrate([item.record]),

@@ -11,7 +11,7 @@ import type {
 // Types
 // ---------------
 export interface TournamentStats {
-  count: number;
+  count: { [Faction in XWSFaction | 'unknown' | 'total']: number };
   xws: number;
   cut: number;
 }
@@ -89,7 +89,17 @@ export const factory = <T = any>(
 
   return (data: SquadData[]) => {
     const tournament: TournamentStats = {
-      count: data.length,
+      count: {
+        total: data.length,
+        rebelalliance: 0,
+        galacticempire: 0,
+        scumandvillainy: 0,
+        resistance: 0,
+        firstorder: 0,
+        galacticrepublic: 0,
+        separatistalliance: 0,
+        unknown: 0,
+      },
       xws: 0,
       cut: 0,
     };
@@ -99,6 +109,8 @@ export const factory = <T = any>(
       const cache = new Set<string>();
       const faction = item.xws ? item.xws.faction : 'unknown';
       const unique = (val: string) => cache.has(val);
+
+      tournament.count[faction] += 1;
 
       if (item.xws) {
         tournament.xws += 1;

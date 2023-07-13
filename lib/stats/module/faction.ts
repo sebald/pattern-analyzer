@@ -1,5 +1,5 @@
 import type { GameRecord, XWSFaction } from '@/lib/types';
-import type { StatModule } from '../factory';
+import type { StatModule } from './factory';
 import {
   average,
   deviation,
@@ -69,7 +69,7 @@ export const faction: () => StatModule<FactionData> = () => {
       store[fid].record.wins += record.wins;
       store[fid].record.ties += record.ties;
       store[fid].record.losses += record.losses;
-      store[fid].percentiles.push(percentile(rank, tournament.count));
+      store[fid].percentiles.push(percentile(rank, tournament.count.total));
 
       if (rank < store[fid].top) {
         store[fid].top = rank;
@@ -97,7 +97,10 @@ export const faction: () => StatModule<FactionData> = () => {
         result.faction[fid].top = data.top;
         result.faction[fid].record = data.record;
 
-        result.faction[fid].frequency = round(data.count / tournament.count, 4);
+        result.faction[fid].frequency = round(
+          data.count / tournament.count.total,
+          4
+        );
         result.faction[fid].percentile = average(data.percentiles, 4);
         result.faction[fid].deviation = deviation(data.percentiles, 4);
         result.faction[fid].winrate = winrate([data.record]);

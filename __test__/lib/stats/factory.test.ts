@@ -1,5 +1,10 @@
-import { factory } from '@/lib/stats/factory';
-import { faction, pilot, squadSizes } from '@/lib/stats/module';
+import { factory } from '@/lib/stats/module/factory';
+import {
+  faction,
+  pilot,
+  pilotCostDistribution,
+  squadSizes,
+} from '@/lib/stats/module';
 
 import { squads } from './squads.fixture';
 
@@ -18,7 +23,12 @@ test('create stats (squadSizes)', () => {
   expect(stats.squadSizes).toMatchSnapshot();
 });
 
-// test('create stats (pilot)', () => {
-//   const stats = factory([pilot()])(squads);
-//   expect(stats.pilot).toMatchSnapshot();
-// });
+test('create stats (pilot)', () => {
+  const stats = factory([pilot()])(squads);
+  expect(stats.pilot).toMatchSnapshot();
+});
+
+test('create stats (pilotCostDistribution)', () => {
+  const stats = factory([pilotCostDistribution()])(squads);
+  expect(stats.pilotCostDistribution).toMatchSnapshot();
+});

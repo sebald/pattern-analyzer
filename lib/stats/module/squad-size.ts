@@ -1,8 +1,8 @@
-import { StatModule } from '../factory';
+import { StatModule } from './factory';
 
 // Types
 // ---------------
-export interface SquadSizeData {
+export interface SquadSizeStats {
   squadSizes: {
     [Size in 3 | 4 | 5 | 6 | 7 | 8]: number;
   };
@@ -10,7 +10,7 @@ export interface SquadSizeData {
 
 // Module
 // ---------------
-export const squadSizes: () => StatModule<SquadSizeData> = () => {
+export const squadSizes: () => StatModule<SquadSizeStats> = () => {
   const store = {
     3: 0,
     4: 0,
