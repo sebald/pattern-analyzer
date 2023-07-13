@@ -33,6 +33,10 @@ export interface XWSModuleContext extends Omit<SquadModuleContext, 'faction'> {
   faction: XWSFaction;
 }
 
+export interface StatsConfig {
+  smallSamples?: boolean;
+}
+
 export interface StatModule<T> {
   /**
    * Gets the whole squad, can do whatever.
@@ -61,12 +65,15 @@ export interface StatModule<T> {
   /**
    * Returns the stats
    */
-  get: (ctx: { tournament: TournamentStats }) => T;
+  get: (ctx: { tournament: TournamentStats; config: StatsConfig }) => T;
 }
 
 // Factory
 // ---------------
-export const factory = <T = any>(modules: StatModule<any>[]) => {
+export const factory = <T = any>(
+  modules: StatModule<any>[],
+  config: StatsConfig = {}
+) => {
   const hooks = {
     squad: (squad: SquadData, ctx: SquadModuleContext) =>
       modules.forEach(m => m.squad?.(squad, ctx)),
@@ -145,7 +152,10 @@ export const factory = <T = any>(modules: StatModule<any>[]) => {
 
     return {
       tournament,
-      ...modules.reduce((o, m) => ({ o, ...m.get({ tournament }) }), {}),
+      ...modules.reduce(
+        (o, m) => ({ o, ...m.get({ tournament, config }) }),
+        {}
+      ),
     } as T & { tournament: TournamentStats };
   };
 };

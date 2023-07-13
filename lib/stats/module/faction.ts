@@ -20,9 +20,9 @@ export interface FactionData {
       top: number;
       record: GameRecord;
       frequency: number;
+      winrate: number | null;
       percentile: number;
       deviation: number;
-      winrate: number | null;
     };
   };
 }
@@ -47,7 +47,7 @@ const init = (): Data => ({
   percentiles: [],
 });
 
-// Modules
+// Module
 // ---------------
 export const faction: () => StatModule<FactionData> = () => {
   const store: Store = {
@@ -64,16 +64,16 @@ export const faction: () => StatModule<FactionData> = () => {
   return {
     squad: (squad, { faction: fid, record, tournament }) => {
       const rank = squad.rank.elimination ?? squad.rank.swiss;
+
       store[fid].count += 1;
       store[fid].record.wins += record.wins;
       store[fid].record.ties += record.ties;
       store[fid].record.losses += record.losses;
+      store[fid].percentiles.push(percentile(rank, tournament.count));
 
       if (rank < store[fid].top) {
         store[fid].top = rank;
       }
-
-      store[fid].percentiles.push(percentile(rank, tournament.count));
     },
     get: ({ tournament }) => {
       const result = {
