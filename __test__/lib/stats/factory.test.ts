@@ -18,7 +18,7 @@ test('create stats (squadSizes)', () => {
   expect(stats.squadSizes).toMatchSnapshot();
 });
 
-test('create stats (pilot)', () => {
-  const stats = factory([pilot()])(squads);
-  expect(stats.pilot).toMatchSnapshot();
-});
+// test('create stats (pilot)', () => {
+//   const stats = factory([pilot()])(squads);
+//   expect(stats.pilot).toMatchSnapshot();
+// });

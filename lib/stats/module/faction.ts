@@ -1,40 +1,109 @@
-import type { XWSFaction } from '@/lib/types';
+import type { GameRecord, XWSFaction } from '@/lib/types';
 import type { StatModule } from '../factory';
-import type { CommonDataCollection } from '../types';
-import { initCommonData } from '../init';
+import {
+  average,
+  deviation,
+  percentile,
+  round,
+  winrate,
+} from '@/lib/utils/math.utils';
 
+// Types
+// ---------------
 export interface FactionData {
   faction: {
-    [Faction in XWSFaction | 'unknown']: CommonDataCollection;
+    [Faction in XWSFaction | 'unknown']: {
+      count: number;
+      /**
+       * Best placedment in a tournment (= max(...ranks))
+       */
+      top: number;
+      record: GameRecord;
+      frequency: number;
+      percentile: number;
+      deviation: number;
+      winrate: number | null;
+    };
   };
 }
 
+interface Data {
+  count: number;
+  top: number;
+  record: GameRecord;
+  percentiles: number[];
+}
+
+type Store = {
+  [Faction in XWSFaction | 'unknown']: Data;
+};
+
+// Helper
+// ---------------
+const init = (): Data => ({
+  count: 0,
+  record: { wins: 0, ties: 0, losses: 0 },
+  top: 1000, // Use a high number to initialize 🤷‍♂️
+  percentiles: [],
+});
+
+// Modules
+// ---------------
 export const faction: () => StatModule<FactionData> = () => {
-  const data: FactionData['faction'] = {
-    rebelalliance: initCommonData(),
-    galacticempire: initCommonData(),
-    scumandvillainy: initCommonData(),
-    resistance: initCommonData(),
-    firstorder: initCommonData(),
-    galacticrepublic: initCommonData(),
-    separatistalliance: initCommonData(),
-    unknown: initCommonData(),
+  const store: Store = {
+    rebelalliance: init(),
+    galacticempire: init(),
+    scumandvillainy: init(),
+    resistance: init(),
+    firstorder: init(),
+    galacticrepublic: init(),
+    separatistalliance: init(),
+    unknown: init(),
   };
 
   return {
-    squad: (squad, { faction: fid }) => {
-      const rank = squad.rank;
-      data[fid].count += 1;
-      data[fid].ranks.push(rank.elimination ?? rank.swiss);
-      data[fid].records.push(squad.record);
+    squad: (squad, { faction: fid, record, tournament }) => {
+      const rank = squad.rank.elimination ?? squad.rank.swiss;
+      store[fid].count += 1;
+      store[fid].record.wins += record.wins;
+      store[fid].record.ties += record.ties;
+      store[fid].record.losses += record.losses;
 
-      // TODO: add total to ctx and calculate percentile (store in module)
+      if (rank < store[fid].top) {
+        store[fid].top = rank;
+      }
+
+      store[fid].percentiles.push(percentile(rank, tournament.count));
     },
-    get: ({ total }) => {
-      return {
-        // TODO: Move calculations from create here
-        faction: data,
-      };
+    get: ({ tournament }) => {
+      const result = {
+        faction: {
+          rebelalliance: {},
+          galacticempire: {},
+          scumandvillainy: {},
+          resistance: {},
+          firstorder: {},
+          galacticrepublic: {},
+          separatistalliance: {},
+          unknown: {},
+        },
+      } as FactionData;
+
+      Object.keys(store).forEach(key => {
+        const fid = key as XWSFaction | 'unknown';
+        const data = store[fid];
+
+        result.faction[fid].count = data.count;
+        result.faction[fid].top = data.top;
+        result.faction[fid].record = data.record;
+
+        result.faction[fid].frequency = round(data.count / tournament.count, 4);
+        result.faction[fid].percentile = average(data.percentiles, 4);
+        result.faction[fid].deviation = deviation(data.percentiles, 4);
+        result.faction[fid].winrate = winrate([data.record]);
+      });
+
+      return result;
     },
   };
 };

@@ -10,8 +10,15 @@ import type {
 
 // Types
 // ---------------
+export interface TournamentStats {
+  count: number;
+  xws: number;
+  cut: number;
+}
+
 export interface SquadModuleContext {
   faction: XWSFaction | 'unknown';
+  tournament: TournamentStats;
   rank: {
     swiss: number;
     elimination?: number;
@@ -54,13 +61,7 @@ export interface StatModule<T> {
   /**
    * Returns the stats
    */
-  get: (ctx: { total: number }) => T;
-}
-
-export interface TournamentStats {
-  count: number;
-  xws: number;
-  cut: number;
+  get: (ctx: { tournament: TournamentStats }) => T;
 }
 
 // Factory
@@ -102,6 +103,7 @@ export const factory = <T = any>(modules: StatModule<any>[]) => {
       // HOOK: Squads
       hooks.squad(item, {
         faction,
+        tournament,
         rank: item.rank,
         record: item.record,
         unique,
@@ -110,6 +112,7 @@ export const factory = <T = any>(modules: StatModule<any>[]) => {
       if (item.xws && faction !== 'unknown') {
         const ctx = {
           faction,
+          tournament,
           rank: item.rank,
           record: item.record,
           unique,
@@ -142,10 +145,7 @@ export const factory = <T = any>(modules: StatModule<any>[]) => {
 
     return {
       tournament,
-      ...modules.reduce(
-        (o, m) => ({ o, ...m.get({ total: data.length }) }),
-        {}
-      ),
+      ...modules.reduce((o, m) => ({ o, ...m.get({ tournament }) }), {}),
     } as T & { tournament: TournamentStats };
   };
 };

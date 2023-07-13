@@ -1,13 +1,17 @@
 import { StatModule } from '../factory';
 
+// Types
+// ---------------
 export interface SquadSizeData {
   squadSizes: {
     [Size in 3 | 4 | 5 | 6 | 7 | 8]: number;
   };
 }
 
+// Module
+// ---------------
 export const squadSizes: () => StatModule<SquadSizeData> = () => {
-  const data = {
+  const store = {
     3: 0,
     4: 0,
     5: 0,
@@ -17,10 +21,10 @@ export const squadSizes: () => StatModule<SquadSizeData> = () => {
   };
 
   return {
-    xws: xws => {
-      const num = xws.pilots.length as 3 | 4 | 5 | 6 | 7 | 8;
-      data[num] += 1;
+    xws: ({ pilots }) => {
+      const num = pilots.length as 3 | 4 | 5 | 6 | 7 | 8;
+      store[num] += 1;
     },
-    get: () => ({ squadSizes: data }),
+    get: () => ({ squadSizes: store }),
   };
 };
