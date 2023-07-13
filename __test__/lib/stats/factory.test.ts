@@ -3,6 +3,7 @@ import {
   faction,
   pilot,
   pilotCostDistribution,
+  pilotSkillDistribution,
   squadSizes,
 } from '@/lib/stats/module';
 
@@ -31,6 +32,11 @@ test('create stats (pilot)', () => {
 test('create stats (pilotCostDistribution)', () => {
   const stats = factory([pilotCostDistribution()])(squads);
   expect(stats.pilotCostDistribution).toMatchSnapshot();
+});
+
+test('create stats (pilotSkillDistribution)', () => {
+  const stats = factory([pilotSkillDistribution()])(squads);
+  expect(stats.pilotSkillDistribution).toMatchSnapshot();
 });
 
 // =======
