@@ -29,9 +29,26 @@ const PILOT_SUFFIX = {
   'poedameron-swz68': 'HoH',
   'temminwexley-swz68': 'HoH',
 
-  // Szenarios
+  // Scenarios
   'Siege of Coruscant': 'SoC',
   'Battle of Yavin': 'BoY',
+
+  // SSP
+  'darthvader-swz105': 'SSP',
+  'maarekstele-swz105': 'SSP',
+  'idenversio-swz105': 'SSP',
+  'nightbeast-swz105': 'SSP',
+  'valenrudor-swz105': 'SSP',
+  'captainjonus-swz105': 'SSP',
+  'tomaxbren-swz105': 'SSP',
+
+  'arvelcrynyd-swz106': 'SSP',
+  'dutchvander-swz106': 'SSP',
+  'hortonsalm-swz106': 'SSP',
+  'jakefarrell-swz106': 'SSP',
+  'jekporkins-swz106': 'SSP',
+  'lukeskywalker-swz106': 'SSP',
+  'sharabey-swz106': 'SSP',
 };
 
 const UPGRADE_SUFFIX = {

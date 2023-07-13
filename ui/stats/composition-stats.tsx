@@ -38,10 +38,7 @@ export const CompositionStats = ({ value }: CompositionStatsProps) => {
         );
 
   data.sort(([, a], [, b]) => {
-    const result =
-      sort === 'count'
-        ? b.xws.length - a.xws.length
-        : (b[sort] || 0) - (a[sort] || 0);
+    const result = (b[sort] || 0) - (a[sort] || 0);
 
     // Secondary sort by percentile (or deviation if sorted by percentile already)
     return result !== 0
@@ -128,7 +125,7 @@ export const CompositionStats = ({ value }: CompositionStatsProps) => {
                 <Table.Cell variant="number">
                   {toPercentage(stat.frequency)}
                 </Table.Cell>
-                <Table.Cell variant="number">{stat.xws.length}</Table.Cell>
+                <Table.Cell variant="number">{stat.count}</Table.Cell>
                 <Table.Cell variant="number">{stat.score}</Table.Cell>
               </Fragment>
             ))}
