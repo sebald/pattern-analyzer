@@ -32,3 +32,10 @@ test('create stats (pilotCostDistribution)', () => {
   const stats = factory([pilotCostDistribution()])(squads);
   expect(stats.pilotCostDistribution).toMatchSnapshot();
 });
+
+// =======
+
+test('create stats (multiple)', () => {
+  const stats = factory([faction(), pilot()])(squads);
+  expect(stats).toMatchSnapshot();
+});
