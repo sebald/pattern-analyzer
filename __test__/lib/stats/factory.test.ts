@@ -1,5 +1,6 @@
 import { factory } from '@/lib/stats/module/factory';
 import {
+  composition,
   faction,
   pilot,
   pilotCostDistribution,
@@ -49,6 +50,11 @@ test('create stats (upgrade)', () => {
 test('create stats (ship)', () => {
   const stats = factory([ship()])(squads);
   expect(stats.ship).toMatchSnapshot();
+});
+
+test('create stats (composition)', () => {
+  const stats = factory([composition()])(squads);
+  expect(stats.composition).toMatchSnapshot();
 });
 
 // =======

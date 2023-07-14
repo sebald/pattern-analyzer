@@ -40,6 +40,7 @@ export interface StatsConfig {
 export interface StatModule<T> {
   /**
    * Gets the whole squad, can do whatever.
+   * At this point the squad might not have a valid XWS!
    */
   squad?: (squad: SquadData, ctx: SquadModuleContext) => void;
   /**

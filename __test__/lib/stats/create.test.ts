@@ -42,3 +42,9 @@ test('create stats (upgrade)', () => {
 
   expect(stats.upgrade).toMatchSnapshot();
 });
+
+test('create stats (composition)', () => {
+  const stats = create([squads]);
+
+  expect(stats.composition).toMatchSnapshot();
+});

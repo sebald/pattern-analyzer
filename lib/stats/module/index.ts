@@ -1,3 +1,4 @@
+export * from './composition';
 export * from './faction';
 export * from './pilot';
 export * from './pilot-cost-distribution';
