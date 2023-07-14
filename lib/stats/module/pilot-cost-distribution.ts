@@ -1,8 +1,8 @@
-import { StatModule } from './factory';
+import { StatModule } from '../setup';
 
 // Types
 // ---------------
-export interface PilotCostDistributionStats {
+export interface PilotCostDistributionData {
   pilotCostDistribution: {
     [Size in 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9]: number;
   };
@@ -10,7 +10,7 @@ export interface PilotCostDistributionStats {
 
 // Module
 // ---------------
-export const pilotCostDistribution: () => StatModule<PilotCostDistributionStats> =
+export const pilotCostDistribution: () => StatModule<PilotCostDistributionData> =
   () => {
     const store = {
       1: 0,

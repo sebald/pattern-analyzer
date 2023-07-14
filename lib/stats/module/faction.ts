@@ -1,5 +1,5 @@
 import type { GameRecord, XWSFaction } from '@/lib/types';
-import type { StatModule } from './factory';
+import type { StatModule } from '../setup';
 import {
   average,
   deviation,
@@ -18,6 +18,7 @@ export interface FactionData {
        * Best placedment in a tournment (= max(...ranks))
        */
       top: number;
+      ranks: number[];
       record: GameRecord;
       frequency: number;
       winrate: number | null;
@@ -30,6 +31,7 @@ export interface FactionData {
 interface Data {
   count: number;
   top: number;
+  ranks: number[];
   record: GameRecord;
   percentiles: number[];
 }
@@ -44,6 +46,7 @@ const init = (): Data => ({
   count: 0,
   record: { wins: 0, ties: 0, losses: 0 },
   top: 1000, // Use a high number to initialize 🤷‍♂️
+  ranks: [],
   percentiles: [],
 });
 
@@ -69,6 +72,7 @@ export const faction: () => StatModule<FactionData> = () => {
       store[fid].record.wins += record.wins;
       store[fid].record.ties += record.ties;
       store[fid].record.losses += record.losses;
+      store[fid].ranks.push(rank);
       store[fid].percentiles.push(percentile(rank, tournament.count.all));
 
       if (rank < store[fid].top) {
@@ -96,6 +100,7 @@ export const faction: () => StatModule<FactionData> = () => {
         result.faction[fid].count = data.count;
         result.faction[fid].top = data.top;
         result.faction[fid].record = data.record;
+        result.faction[fid].ranks = data.ranks;
 
         result.faction[fid].frequency = round(
           data.count / tournament.count.all,

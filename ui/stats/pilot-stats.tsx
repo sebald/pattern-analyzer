@@ -10,13 +10,22 @@ import {
   ShipIcon,
   Table,
 } from '@/ui';
-import type {
-  FactionMap,
-  PilotStats as PilotStatsType,
-} from '@/lib/stats/types';
-import type { XWSFaction } from '@/lib/types';
-import { getPilotName } from '@/lib/get-value';
+import type { FactionMap } from '@/lib/stats/types';
+import type { GameRecord, XWSFaction } from '@/lib/types';
+import { Ships, getPilotName } from '@/lib/get-value';
 import { toPercentage } from '@/lib/utils';
+
+interface PilotStatsType {
+  ship: Ships;
+  count: number;
+  lists: number;
+  record: GameRecord;
+  frequency: number;
+  winrate: number | null;
+  percentile: number;
+  deviation: number;
+  score: number;
+}
 
 // Props
 // ---------------

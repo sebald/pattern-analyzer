@@ -9,7 +9,7 @@ import {
 } from '@/lib/utils/math.utils';
 
 import { magic } from '../magic';
-import type { StatModule } from './factory';
+import type { StatModule } from '../setup';
 
 // Types
 // ---------------

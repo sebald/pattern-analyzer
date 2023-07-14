@@ -4,14 +4,13 @@ import { ResponsivePie } from '@nivo/pie';
 
 import { Card } from '@/ui';
 import { getFactionName } from '@/lib/get-value';
-import type { FactionStats } from '@/lib/stats/types';
 import type { XWSFaction } from '@/lib/types';
 import { FACTION_ABBR, FACTION_COLORS, toPercentage } from '@/lib/utils';
 
 // Props
 // ---------------
 export interface FactionDistributionProps {
-  value: { [key in XWSFaction | 'unknown']: FactionStats };
+  value: { [key in XWSFaction | 'unknown']: { count: number } };
   total: number;
 }
 
@@ -22,7 +21,7 @@ export const FactionDistribution = ({
   total,
 }: FactionDistributionProps) => {
   const data = (
-    Object.entries(value) as [XWSFaction | 'unknown', FactionStats][]
+    Object.entries(value) as [XWSFaction | 'unknown', { count: number }][]
   )
     .map(([faction, { count }]) => ({
       id: faction,

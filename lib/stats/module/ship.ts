@@ -3,7 +3,7 @@ import type { XWSFaction } from '@/lib/types';
 import { round } from '@/lib/utils/math.utils';
 
 import type { FactionMap } from '../types';
-import type { StatModule } from './factory';
+import type { StatModule } from '../setup';
 
 // Types
 // ---------------
@@ -76,7 +76,6 @@ export const ship: () => StatModule<ShipData> = () => {
         const fid = key as XWSFaction;
 
         Object.entries(store[fid]).forEach(([sid, item]) => {
-          console.log(sid, fid, item.count, tournament.count[fid]);
           result.ship[fid][sid as Ships] = {
             count: item.count,
             lists: item.lists,

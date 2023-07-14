@@ -10,7 +10,7 @@ import {
 
 import { magic } from '../magic';
 import type { FactionMap } from '../types';
-import type { StatModule } from './factory';
+import type { StatModule } from '../setup';
 
 // Types
 // ---------------

@@ -1,9 +1,9 @@
 import { getPilotSkill } from '@/lib/yasb';
-import { StatModule } from './factory';
+import { StatModule } from '../setup';
 
 // Types
 // ---------------
-export interface PilotSkillDistributionStats {
+export interface PilotSkillDistributionData {
   pilotSkillDistribution: {
     [Size in 0 | 1 | 2 | 3 | 4 | 5 | 6]: number;
   };
@@ -11,7 +11,7 @@ export interface PilotSkillDistributionStats {
 
 // Module
 // ---------------
-export const pilotSkillDistribution: () => StatModule<PilotSkillDistributionStats> =
+export const pilotSkillDistribution: () => StatModule<PilotSkillDistributionData> =
   () => {
     const store = {
       0: 0,

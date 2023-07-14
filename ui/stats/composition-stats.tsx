@@ -2,6 +2,7 @@
 
 import { Fragment, useState } from 'react';
 
+import type { Ships } from '@/lib/get-value';
 import {
   Card,
   Collapsible,
@@ -11,9 +12,20 @@ import {
   ShipIcon,
   Table,
 } from '@/ui';
-import type { CompositionStats as CompositionStatsType } from '@/lib/stats/types';
 import { toPercentage } from '@/lib/utils/math.utils';
-import { XWSFaction } from '@/lib/types';
+import type { GameRecord, XWSFaction } from '@/lib/types';
+
+interface CompositionStatsType {
+  ships: Ships[];
+  faction: XWSFaction;
+  count: number;
+  record: GameRecord;
+  frequency: number;
+  winrate: number | null;
+  percentile: number;
+  deviation: number;
+  score: number;
+}
 
 // Props
 // ---------------

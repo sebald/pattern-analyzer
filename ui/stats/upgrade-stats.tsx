@@ -11,13 +11,22 @@ import {
   UpgradeSlotSelection,
 } from '@/ui';
 import { getUpgradeName } from '@/lib/get-value';
-import type { XWSFaction, XWSUpgradeSlots } from '@/lib/types';
+import type { GameRecord, XWSFaction, XWSUpgradeSlots } from '@/lib/types';
 import { toPercentage } from '@/lib/utils';
 
-import type {
-  FactionMapWithAll,
-  UpgradeStats as UpgradeStatsType,
-} from '@/lib/stats/types';
+import type { FactionMapWithAll } from '@/lib/stats/types';
+
+interface UpgradeStatsType {
+  slot: XWSUpgradeSlots;
+  count: number;
+  lists: number;
+  record: GameRecord;
+  frequency: number;
+  winrate: number | null;
+  percentile: number;
+  deviation: number;
+  score: number;
+}
 
 // Props
 // ---------------

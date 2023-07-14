@@ -71,24 +71,27 @@ export interface StatModule<T> {
 
 // Factory
 // ---------------
-export const factory = <T = any>(
-  modules: StatModule<any>[],
-  config: StatsConfig = {}
-) => {
-  const hooks = {
-    squad: (squad: SquadData, ctx: SquadModuleContext) =>
-      modules.forEach(m => m.squad?.(squad, ctx)),
-    xws: (xws: XWSSquad, ctx: XWSModuleContext) =>
-      modules.forEach(m => m.xws?.(xws, ctx)),
-    pilot: (pilot: XWSPilot, ctx: XWSModuleContext) =>
-      modules.forEach(m => m.pilot?.(pilot, ctx)),
-    ship: (ship: Ships, ctx: XWSModuleContext) =>
-      modules.forEach(m => m.ship?.(ship, ctx)),
-    upgrade: (upgrade: string, slot: XWSUpgradeSlots, ctx: XWSModuleContext) =>
-      modules.forEach(m => m.upgrade?.(upgrade, slot, ctx)),
-  };
+export const setup =
+  <T = any>(modules: (() => StatModule<any>)[], config: StatsConfig = {}) =>
+  (data: SquadData[]) => {
+    const plugins = modules.map(m => m());
 
-  return (data: SquadData[]) => {
+    const hooks = {
+      squad: (squad: SquadData, ctx: SquadModuleContext) =>
+        plugins.forEach(p => p.squad?.(squad, ctx)),
+      xws: (xws: XWSSquad, ctx: XWSModuleContext) =>
+        plugins.forEach(p => p.xws?.(xws, ctx)),
+      pilot: (pilot: XWSPilot, ctx: XWSModuleContext) =>
+        plugins.forEach(p => p.pilot?.(pilot, ctx)),
+      ship: (ship: Ships, ctx: XWSModuleContext) =>
+        plugins.forEach(p => p.ship?.(ship, ctx)),
+      upgrade: (
+        upgrade: string,
+        slot: XWSUpgradeSlots,
+        ctx: XWSModuleContext
+      ) => plugins.forEach(p => p.upgrade?.(upgrade, slot, ctx)),
+    };
+
     const tournament: TournamentStats = {
       count: {
         all: data.length,
@@ -165,10 +168,9 @@ export const factory = <T = any>(
 
     return {
       tournament,
-      ...modules.reduce(
-        (o, m) => ({ o, ...m.get({ tournament, config }) }),
+      ...plugins.reduce(
+        (o, p) => ({ o, ...p.get({ tournament, config }) }),
         {}
       ),
     } as T & { tournament: TournamentStats };
   };
-};
