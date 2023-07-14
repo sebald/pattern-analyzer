@@ -169,7 +169,7 @@ export const setup =
     return {
       tournament,
       ...plugins.reduce(
-        (o, p) => ({ o, ...p.get({ tournament, config }) }),
+        (o, p) => ({ ...o, ...p.get({ tournament, config }) }),
         {}
       ),
     } as T & { tournament: TournamentStats };
