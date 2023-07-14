@@ -4,6 +4,7 @@ import {
   pilot,
   pilotCostDistribution,
   pilotSkillDistribution,
+  ship,
   squadSizes,
   upgrade,
 } from '@/lib/stats/module';
@@ -43,6 +44,11 @@ test('create stats (pilotSkillDistribution)', () => {
 test('create stats (upgrade)', () => {
   const stats = factory([upgrade()])(squads);
   expect(stats.upgrade).toMatchSnapshot();
+});
+
+test('create stats (ship)', () => {
+  const stats = factory([ship()])(squads);
+  expect(stats.ship).toMatchSnapshot();
 });
 
 // =======

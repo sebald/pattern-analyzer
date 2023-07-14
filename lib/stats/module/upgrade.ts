@@ -137,7 +137,7 @@ export const upgrade: () => StatModule<UpgradeData> = () => {
             count: item.count,
             lists: item.lists,
             record: item.record,
-            frequency: round(item.count / tournament.count[fid], 4),
+            frequency: round(item.lists / tournament.count[fid], 4),
             percentile: stat.percentile,
             deviation: stat.deviation,
             winrate: winrate([item.record]),

@@ -392,7 +392,7 @@ exports[`create stats (multiple) 1`] = `
       "blacksquadronace": {
         "count": 3,
         "deviation": 0,
-        "frequency": 0.5,
+        "frequency": 0.1667,
         "lists": 1,
         "percentile": 0.22,
         "record": {
@@ -512,7 +512,7 @@ exports[`create stats (multiple) 1`] = `
       "obsidiansquadronpilot": {
         "count": 2,
         "deviation": 0,
-        "frequency": 0.3333,
+        "frequency": 0.1667,
         "lists": 1,
         "percentile": 0.4,
         "record": {
@@ -1692,7 +1692,7 @@ exports[`create stats (multiple) 1`] = `
       "haorchallprototype": {
         "count": 2,
         "deviation": 0,
-        "frequency": 0.5,
+        "frequency": 0.25,
         "lists": 1,
         "percentile": 0.28,
         "record": {
@@ -1722,7 +1722,7 @@ exports[`create stats (multiple) 1`] = `
       "kelrodoaiholdout": {
         "count": 2,
         "deviation": 0,
-        "frequency": 0.5,
+        "frequency": 0.25,
         "lists": 1,
         "percentile": 0.28,
         "record": {
@@ -1737,7 +1737,7 @@ exports[`create stats (multiple) 1`] = `
       "onderonoppressor": {
         "count": 2,
         "deviation": 0,
-        "frequency": 0.5,
+        "frequency": 0.25,
         "lists": 1,
         "percentile": 0.28,
         "record": {
@@ -2002,7 +2002,7 @@ exports[`create stats (pilot) 1`] = `
     "blacksquadronace": {
       "count": 3,
       "deviation": 0,
-      "frequency": 0.5,
+      "frequency": 0.1667,
       "lists": 1,
       "percentile": 0.22,
       "record": {
@@ -2122,7 +2122,7 @@ exports[`create stats (pilot) 1`] = `
     "obsidiansquadronpilot": {
       "count": 2,
       "deviation": 0,
-      "frequency": 0.3333,
+      "frequency": 0.1667,
       "lists": 1,
       "percentile": 0.4,
       "record": {
@@ -3302,7 +3302,7 @@ exports[`create stats (pilot) 1`] = `
     "haorchallprototype": {
       "count": 2,
       "deviation": 0,
-      "frequency": 0.5,
+      "frequency": 0.25,
       "lists": 1,
       "percentile": 0.28,
       "record": {
@@ -3332,7 +3332,7 @@ exports[`create stats (pilot) 1`] = `
     "kelrodoaiholdout": {
       "count": 2,
       "deviation": 0,
-      "frequency": 0.5,
+      "frequency": 0.25,
       "lists": 1,
       "percentile": 0.28,
       "record": {
@@ -3347,7 +3347,7 @@ exports[`create stats (pilot) 1`] = `
     "onderonoppressor": {
       "count": 2,
       "deviation": 0,
-      "frequency": 0.5,
+      "frequency": 0.25,
       "lists": 1,
       "percentile": 0.28,
       "record": {
@@ -3449,6 +3449,260 @@ exports[`create stats (pilotSkillDistribution) 1`] = `
 }
 `;
 
+exports[`create stats (ship) 1`] = `
+{
+  "firstorder": {
+    "tiefofighter": {
+      "count": 11,
+      "frequency": 1,
+      "lists": 6,
+    },
+    "tiesebomber": {
+      "count": 1,
+      "frequency": 0.1667,
+      "lists": 1,
+    },
+    "tiesffighter": {
+      "count": 8,
+      "frequency": 0.8333,
+      "lists": 5,
+    },
+    "tiewiwhispermodifiedinterceptor": {
+      "count": 10,
+      "frequency": 1,
+      "lists": 6,
+    },
+  },
+  "galacticempire": {
+    "tieadvancedv1": {
+      "count": 3,
+      "frequency": 0.5,
+      "lists": 3,
+    },
+    "tieadvancedx1": {
+      "count": 4,
+      "frequency": 0.6667,
+      "lists": 4,
+    },
+    "tieininterceptor": {
+      "count": 7,
+      "frequency": 0.5,
+      "lists": 3,
+    },
+    "tielnfighter": {
+      "count": 6,
+      "frequency": 0.3333,
+      "lists": 2,
+    },
+    "tiereaper": {
+      "count": 2,
+      "frequency": 0.3333,
+      "lists": 2,
+    },
+    "tiesabomber": {
+      "count": 7,
+      "frequency": 0.5,
+      "lists": 3,
+    },
+    "vt49decimator": {
+      "count": 1,
+      "frequency": 0.1667,
+      "lists": 1,
+    },
+  },
+  "galacticrepublic": {
+    "arc170starfighter": {
+      "count": 5,
+      "frequency": 0.5,
+      "lists": 3,
+    },
+    "btlbywing": {
+      "count": 1,
+      "frequency": 0.1667,
+      "lists": 1,
+    },
+    "clonez95headhunter": {
+      "count": 6,
+      "frequency": 0.6667,
+      "lists": 4,
+    },
+    "delta7aethersprite": {
+      "count": 1,
+      "frequency": 0.1667,
+      "lists": 1,
+    },
+    "eta2actis": {
+      "count": 4,
+      "frequency": 0.5,
+      "lists": 3,
+    },
+    "gauntletfighter": {
+      "count": 1,
+      "frequency": 0.1667,
+      "lists": 1,
+    },
+    "laatigunship": {
+      "count": 2,
+      "frequency": 0.3333,
+      "lists": 2,
+    },
+    "nabooroyaln1starfighter": {
+      "count": 3,
+      "frequency": 0.5,
+      "lists": 3,
+    },
+    "nimbusclassvwing": {
+      "count": 8,
+      "frequency": 0.6667,
+      "lists": 4,
+    },
+    "v19torrentstarfighter": {
+      "count": 2,
+      "frequency": 0.3333,
+      "lists": 2,
+    },
+  },
+  "rebelalliance": {
+    "arc170starfighter": {
+      "count": 3,
+      "frequency": 0.1333,
+      "lists": 2,
+    },
+    "asf01bwing": {
+      "count": 1,
+      "frequency": 0.0667,
+      "lists": 1,
+    },
+    "btla4ywing": {
+      "count": 5,
+      "frequency": 0.3333,
+      "lists": 5,
+    },
+    "fangfighter": {
+      "count": 5,
+      "frequency": 0.3333,
+      "lists": 5,
+    },
+    "modifiedyt1300lightfreighter": {
+      "count": 11,
+      "frequency": 0.6,
+      "lists": 9,
+    },
+    "rz1awing": {
+      "count": 13,
+      "frequency": 0.6667,
+      "lists": 10,
+    },
+    "sheathipedeclassshuttle": {
+      "count": 1,
+      "frequency": 0.0667,
+      "lists": 1,
+    },
+    "t65xwing": {
+      "count": 19,
+      "frequency": 0.8667,
+      "lists": 13,
+    },
+    "tielnfighter": {
+      "count": 9,
+      "frequency": 0.6,
+      "lists": 9,
+    },
+    "ut60duwing": {
+      "count": 1,
+      "frequency": 0.0667,
+      "lists": 1,
+    },
+    "vcx100lightfreighter": {
+      "count": 2,
+      "frequency": 0.1333,
+      "lists": 2,
+    },
+  },
+  "resistance": {
+    "btanr2ywing": {
+      "count": 2,
+      "frequency": 0.2857,
+      "lists": 2,
+    },
+    "resistancetransportpod": {
+      "count": 2,
+      "frequency": 0.2857,
+      "lists": 2,
+    },
+    "rz2awing": {
+      "count": 5,
+      "frequency": 0.7143,
+      "lists": 5,
+    },
+    "scavengedyt1300": {
+      "count": 5,
+      "frequency": 0.7143,
+      "lists": 5,
+    },
+    "t70xwing": {
+      "count": 17,
+      "frequency": 1,
+      "lists": 7,
+    },
+  },
+  "scumandvillainy": {
+    "fangfighter": {
+      "count": 3,
+      "frequency": 1,
+      "lists": 1,
+    },
+    "hwk290lightfreighter": {
+      "count": 1,
+      "frequency": 1,
+      "lists": 1,
+    },
+  },
+  "separatistalliance": {
+    "belbullab22starfighter": {
+      "count": 2,
+      "frequency": 0.5,
+      "lists": 2,
+    },
+    "droidtrifighter": {
+      "count": 1,
+      "frequency": 0.25,
+      "lists": 1,
+    },
+    "firesprayclasspatrolcraft": {
+      "count": 2,
+      "frequency": 0.5,
+      "lists": 2,
+    },
+    "gauntletfighter": {
+      "count": 1,
+      "frequency": 0.25,
+      "lists": 1,
+    },
+    "hmpdroidgunship": {
+      "count": 2,
+      "frequency": 0.25,
+      "lists": 1,
+    },
+    "nantexclassstarfighter": {
+      "count": 1,
+      "frequency": 0.25,
+      "lists": 1,
+    },
+    "rogueclassstarfighter": {
+      "count": 3,
+      "frequency": 0.75,
+      "lists": 3,
+    },
+    "vultureclassdroidfighter": {
+      "count": 9,
+      "frequency": 1,
+      "lists": 4,
+    },
+  },
+}
+`;
+
 exports[`create stats (squadSizes) 1`] = `
 {
   "3": 0,
@@ -3499,7 +3753,7 @@ exports[`create stats (upgrade) 1`] = `
     "advancedoptics": {
       "count": 8,
       "deviation": 0.3276,
-      "frequency": 0.16,
+      "frequency": 0.1,
       "lists": 5,
       "percentile": 0.4425,
       "record": {
@@ -3559,7 +3813,7 @@ exports[`create stats (upgrade) 1`] = `
     "alpha3bbesh": {
       "count": 6,
       "deviation": 0.2956,
-      "frequency": 0.12,
+      "frequency": 0.06,
       "lists": 3,
       "percentile": 0.6433,
       "record": {
@@ -3619,7 +3873,7 @@ exports[`create stats (upgrade) 1`] = `
     "barragerockets": {
       "count": 7,
       "deviation": 0.3102,
-      "frequency": 0.14,
+      "frequency": 0.06,
       "lists": 3,
       "percentile": 0.6457,
       "record": {
@@ -3664,7 +3918,7 @@ exports[`create stats (upgrade) 1`] = `
     "beskarreinforcedplating": {
       "count": 14,
       "deviation": 0.2781,
-      "frequency": 0.28,
+      "frequency": 0.24,
       "lists": 12,
       "percentile": 0.5014,
       "record": {
@@ -3724,7 +3978,7 @@ exports[`create stats (upgrade) 1`] = `
     "bombletgenerator": {
       "count": 5,
       "deviation": 0.3552,
-      "frequency": 0.1,
+      "frequency": 0.06,
       "lists": 3,
       "percentile": 0.592,
       "record": {
@@ -3739,7 +3993,7 @@ exports[`create stats (upgrade) 1`] = `
     "brilliantevasion": {
       "count": 11,
       "deviation": 0.2913,
-      "frequency": 0.22,
+      "frequency": 0.18,
       "lists": 9,
       "percentile": 0.2655,
       "record": {
@@ -3844,7 +4098,7 @@ exports[`create stats (upgrade) 1`] = `
     "clustermissiles": {
       "count": 16,
       "deviation": 0.3111,
-      "frequency": 0.32,
+      "frequency": 0.22,
       "lists": 11,
       "percentile": 0.4813,
       "record": {
@@ -3904,7 +4158,7 @@ exports[`create stats (upgrade) 1`] = `
     "concussionmissiles": {
       "count": 7,
       "deviation": 0.2949,
-      "frequency": 0.14,
+      "frequency": 0.12,
       "lists": 6,
       "percentile": 0.3543,
       "record": {
@@ -4009,7 +4263,7 @@ exports[`create stats (upgrade) 1`] = `
     "deadeyeshot": {
       "count": 3,
       "deviation": 0.0471,
-      "frequency": 0.06,
+      "frequency": 0.04,
       "lists": 2,
       "percentile": 0.1533,
       "record": {
@@ -4054,7 +4308,7 @@ exports[`create stats (upgrade) 1`] = `
     "dedicated": {
       "count": 7,
       "deviation": 0.288,
-      "frequency": 0.14,
+      "frequency": 0.06,
       "lists": 3,
       "percentile": 0.68,
       "record": {
@@ -4144,7 +4398,7 @@ exports[`create stats (upgrade) 1`] = `
     "electrochaffmissiles": {
       "count": 2,
       "deviation": 0,
-      "frequency": 0.04,
+      "frequency": 0.02,
       "lists": 1,
       "percentile": 0.28,
       "record": {
@@ -4159,7 +4413,7 @@ exports[`create stats (upgrade) 1`] = `
     "elusive": {
       "count": 11,
       "deviation": 0.3188,
-      "frequency": 0.22,
+      "frequency": 0.16,
       "lists": 8,
       "percentile": 0.4709,
       "record": {
@@ -4189,7 +4443,7 @@ exports[`create stats (upgrade) 1`] = `
     "energyshellcharges": {
       "count": 9,
       "deviation": 0.2786,
-      "frequency": 0.18,
+      "frequency": 0.06,
       "lists": 3,
       "percentile": 0.4289,
       "record": {
@@ -4219,7 +4473,7 @@ exports[`create stats (upgrade) 1`] = `
     "enhancedjammingsuite": {
       "count": 10,
       "deviation": 0.2803,
-      "frequency": 0.2,
+      "frequency": 0.12,
       "lists": 6,
       "percentile": 0.448,
       "record": {
@@ -4279,7 +4533,7 @@ exports[`create stats (upgrade) 1`] = `
     "fanatical": {
       "count": 7,
       "deviation": 0.2401,
-      "frequency": 0.14,
+      "frequency": 0.08,
       "lists": 4,
       "percentile": 0.2771,
       "record": {
@@ -4294,7 +4548,7 @@ exports[`create stats (upgrade) 1`] = `
     "fearless": {
       "count": 3,
       "deviation": 0,
-      "frequency": 0.06,
+      "frequency": 0.02,
       "lists": 1,
       "percentile": 0.36,
       "record": {
@@ -4354,7 +4608,7 @@ exports[`create stats (upgrade) 1`] = `
     "firecontrolsystem": {
       "count": 13,
       "deviation": 0.2918,
-      "frequency": 0.26,
+      "frequency": 0.22,
       "lists": 11,
       "percentile": 0.3538,
       "record": {
@@ -4384,7 +4638,7 @@ exports[`create stats (upgrade) 1`] = `
     "grapplingstruts": {
       "count": 7,
       "deviation": 0.3046,
-      "frequency": 0.14,
+      "frequency": 0.08,
       "lists": 4,
       "percentile": 0.4686,
       "record": {
@@ -4444,7 +4698,7 @@ exports[`create stats (upgrade) 1`] = `
     "heroic": {
       "count": 20,
       "deviation": 0.2529,
-      "frequency": 0.4,
+      "frequency": 0.14,
       "lists": 7,
       "percentile": 0.629,
       "record": {
@@ -4549,7 +4803,7 @@ exports[`create stats (upgrade) 1`] = `
     "integratedsfoils": {
       "count": 17,
       "deviation": 0.2848,
-      "frequency": 0.34,
+      "frequency": 0.14,
       "lists": 7,
       "percentile": 0.62,
       "record": {
@@ -4579,7 +4833,7 @@ exports[`create stats (upgrade) 1`] = `
     "ioncannon": {
       "count": 3,
       "deviation": 0.2923,
-      "frequency": 0.06,
+      "frequency": 0.04,
       "lists": 2,
       "percentile": 0.3067,
       "record": {
@@ -4774,7 +5028,7 @@ exports[`create stats (upgrade) 1`] = `
     "marksmanship": {
       "count": 44,
       "deviation": 0.3067,
-      "frequency": 0.88,
+      "frequency": 0.64,
       "lists": 32,
       "percentile": 0.5345,
       "record": {
@@ -4819,7 +5073,7 @@ exports[`create stats (upgrade) 1`] = `
     "munitionsfailsafe": {
       "count": 6,
       "deviation": 0.2312,
-      "frequency": 0.12,
+      "frequency": 0.1,
       "lists": 5,
       "percentile": 0.51,
       "record": {
@@ -4864,7 +5118,7 @@ exports[`create stats (upgrade) 1`] = `
     "novicetechnician": {
       "count": 6,
       "deviation": 0.2758,
-      "frequency": 0.12,
+      "frequency": 0.1,
       "lists": 5,
       "percentile": 0.5633,
       "record": {
@@ -4909,7 +5163,7 @@ exports[`create stats (upgrade) 1`] = `
     "patience": {
       "count": 2,
       "deviation": 0,
-      "frequency": 0.04,
+      "frequency": 0.02,
       "lists": 1,
       "percentile": 0.1,
       "record": {
@@ -4924,7 +5178,7 @@ exports[`create stats (upgrade) 1`] = `
     "patternanalyzer": {
       "count": 14,
       "deviation": 0.2676,
-      "frequency": 0.28,
+      "frequency": 0.22,
       "lists": 11,
       "percentile": 0.5671,
       "record": {
@@ -4984,7 +5238,7 @@ exports[`create stats (upgrade) 1`] = `
     "plasmatorpedoes": {
       "count": 5,
       "deviation": 0.3256,
-      "frequency": 0.1,
+      "frequency": 0.08,
       "lists": 4,
       "percentile": 0.416,
       "record": {
@@ -5029,7 +5283,7 @@ exports[`create stats (upgrade) 1`] = `
     "predator": {
       "count": 18,
       "deviation": 0.2408,
-      "frequency": 0.36,
+      "frequency": 0.26,
       "lists": 13,
       "percentile": 0.5078,
       "record": {
@@ -5059,7 +5313,7 @@ exports[`create stats (upgrade) 1`] = `
     "protonbombs": {
       "count": 3,
       "deviation": 0.3206,
-      "frequency": 0.06,
+      "frequency": 0.04,
       "lists": 2,
       "percentile": 0.7133,
       "record": {
@@ -5089,7 +5343,7 @@ exports[`create stats (upgrade) 1`] = `
     "protonrockets": {
       "count": 9,
       "deviation": 0.2356,
-      "frequency": 0.18,
+      "frequency": 0.12,
       "lists": 6,
       "percentile": 0.5778,
       "record": {
@@ -5194,7 +5448,7 @@ exports[`create stats (upgrade) 1`] = `
     "r3astromech": {
       "count": 9,
       "deviation": 0.2727,
-      "frequency": 0.18,
+      "frequency": 0.14,
       "lists": 7,
       "percentile": 0.6556,
       "record": {
@@ -5209,7 +5463,7 @@ exports[`create stats (upgrade) 1`] = `
     "r4astromech": {
       "count": 11,
       "deviation": 0.2955,
-      "frequency": 0.22,
+      "frequency": 0.16,
       "lists": 8,
       "percentile": 0.4891,
       "record": {
@@ -5254,7 +5508,7 @@ exports[`create stats (upgrade) 1`] = `
     "r4pastromech": {
       "count": 6,
       "deviation": 0.3429,
-      "frequency": 0.12,
+      "frequency": 0.08,
       "lists": 4,
       "percentile": 0.42,
       "record": {
@@ -5299,7 +5553,7 @@ exports[`create stats (upgrade) 1`] = `
     "repulsorliftstabilizers": {
       "count": 2,
       "deviation": 0,
-      "frequency": 0.04,
+      "frequency": 0.02,
       "lists": 1,
       "percentile": 0.28,
       "record": {
@@ -5359,7 +5613,7 @@ exports[`create stats (upgrade) 1`] = `
     "saturationsalvo": {
       "count": 7,
       "deviation": 0.3102,
-      "frequency": 0.14,
+      "frequency": 0.06,
       "lists": 3,
       "percentile": 0.6457,
       "record": {
@@ -5464,7 +5718,7 @@ exports[`create stats (upgrade) 1`] = `
     "servomotorsfoils": {
       "count": 11,
       "deviation": 0.1765,
-      "frequency": 0.22,
+      "frequency": 0.14,
       "lists": 7,
       "percentile": 0.6691,
       "record": {
@@ -5494,7 +5748,7 @@ exports[`create stats (upgrade) 1`] = `
     "shieldupgrade": {
       "count": 8,
       "deviation": 0.2609,
-      "frequency": 0.16,
+      "frequency": 0.14,
       "lists": 7,
       "percentile": 0.5075,
       "record": {
@@ -5539,7 +5793,7 @@ exports[`create stats (upgrade) 1`] = `
     "specialforcesgunner": {
       "count": 8,
       "deviation": 0.2317,
-      "frequency": 0.16,
+      "frequency": 0.1,
       "lists": 5,
       "percentile": 0.49,
       "record": {
@@ -5599,7 +5853,7 @@ exports[`create stats (upgrade) 1`] = `
     "swarmtactics": {
       "count": 9,
       "deviation": 0.2861,
-      "frequency": 0.18,
+      "frequency": 0.16,
       "lists": 8,
       "percentile": 0.5333,
       "record": {
@@ -5629,7 +5883,7 @@ exports[`create stats (upgrade) 1`] = `
     "synchronizedconsole": {
       "count": 17,
       "deviation": 0.3548,
-      "frequency": 0.34,
+      "frequency": 0.12,
       "lists": 6,
       "percentile": 0.3918,
       "record": {
@@ -5644,7 +5898,7 @@ exports[`create stats (upgrade) 1`] = `
     "targetingcomputer": {
       "count": 6,
       "deviation": 0.3677,
-      "frequency": 0.12,
+      "frequency": 0.1,
       "lists": 5,
       "percentile": 0.51,
       "record": {
@@ -5719,7 +5973,7 @@ exports[`create stats (upgrade) 1`] = `
     "trickshot": {
       "count": 13,
       "deviation": 0.2574,
-      "frequency": 0.26,
+      "frequency": 0.22,
       "lists": 11,
       "percentile": 0.5938,
       "record": {
@@ -5779,7 +6033,7 @@ exports[`create stats (upgrade) 1`] = `
     "veterantailgunner": {
       "count": 10,
       "deviation": 0.3622,
-      "frequency": 0.2,
+      "frequency": 0.14,
       "lists": 7,
       "percentile": 0.49,
       "record": {
@@ -5869,7 +6123,7 @@ exports[`create stats (upgrade) 1`] = `
     "xx23sthreadtracers": {
       "count": 4,
       "deviation": 0.0726,
-      "frequency": 0.08,
+      "frequency": 0.06,
       "lists": 3,
       "percentile": 0.405,
       "record": {
@@ -5886,7 +6140,7 @@ exports[`create stats (upgrade) 1`] = `
     "advancedoptics": {
       "count": 5,
       "deviation": 0.2581,
-      "frequency": 0.8333,
+      "frequency": 0.5,
       "lists": 3,
       "percentile": 0.244,
       "record": {
@@ -5946,7 +6200,7 @@ exports[`create stats (upgrade) 1`] = `
     "clustermissiles": {
       "count": 10,
       "deviation": 0.2909,
-      "frequency": 1.6667,
+      "frequency": 1,
       "lists": 6,
       "percentile": 0.382,
       "record": {
@@ -6006,7 +6260,7 @@ exports[`create stats (upgrade) 1`] = `
     "enhancedjammingsuite": {
       "count": 10,
       "deviation": 0.2803,
-      "frequency": 1.6667,
+      "frequency": 1,
       "lists": 6,
       "percentile": 0.448,
       "record": {
@@ -6021,7 +6275,7 @@ exports[`create stats (upgrade) 1`] = `
     "fanatical": {
       "count": 7,
       "deviation": 0.2401,
-      "frequency": 1.1667,
+      "frequency": 0.6667,
       "lists": 4,
       "percentile": 0.2771,
       "record": {
@@ -6126,7 +6380,7 @@ exports[`create stats (upgrade) 1`] = `
     "marksmanship": {
       "count": 6,
       "deviation": 0.2637,
-      "frequency": 1,
+      "frequency": 0.8333,
       "lists": 5,
       "percentile": 0.4767,
       "record": {
@@ -6156,7 +6410,7 @@ exports[`create stats (upgrade) 1`] = `
     "patternanalyzer": {
       "count": 6,
       "deviation": 0.1954,
-      "frequency": 1,
+      "frequency": 0.6667,
       "lists": 4,
       "percentile": 0.6033,
       "record": {
@@ -6171,7 +6425,7 @@ exports[`create stats (upgrade) 1`] = `
     "predator": {
       "count": 7,
       "deviation": 0.0871,
-      "frequency": 1.1667,
+      "frequency": 0.5,
       "lists": 3,
       "percentile": 0.6229,
       "record": {
@@ -6231,7 +6485,7 @@ exports[`create stats (upgrade) 1`] = `
     "specialforcesgunner": {
       "count": 8,
       "deviation": 0.2317,
-      "frequency": 1.3333,
+      "frequency": 0.8333,
       "lists": 5,
       "percentile": 0.49,
       "record": {
@@ -6323,7 +6577,7 @@ exports[`create stats (upgrade) 1`] = `
     "barragerockets": {
       "count": 6,
       "deviation": 0.25,
-      "frequency": 1,
+      "frequency": 0.3333,
       "lists": 2,
       "percentile": 0.73,
       "record": {
@@ -6338,7 +6592,7 @@ exports[`create stats (upgrade) 1`] = `
     "bombletgenerator": {
       "count": 4,
       "deviation": 0.25,
-      "frequency": 0.6667,
+      "frequency": 0.3333,
       "lists": 2,
       "percentile": 0.73,
       "record": {
@@ -6608,7 +6862,7 @@ exports[`create stats (upgrade) 1`] = `
     "marksmanship": {
       "count": 6,
       "deviation": 0.2774,
-      "frequency": 1,
+      "frequency": 0.8333,
       "lists": 5,
       "percentile": 0.6,
       "record": {
@@ -6698,7 +6952,7 @@ exports[`create stats (upgrade) 1`] = `
     "saturationsalvo": {
       "count": 6,
       "deviation": 0.25,
-      "frequency": 1,
+      "frequency": 0.3333,
       "lists": 2,
       "percentile": 0.73,
       "record": {
@@ -6743,7 +6997,7 @@ exports[`create stats (upgrade) 1`] = `
     "targetingcomputer": {
       "count": 3,
       "deviation": 0.1886,
-      "frequency": 0.5,
+      "frequency": 0.3333,
       "lists": 2,
       "percentile": 0.6667,
       "record": {
@@ -6790,7 +7044,7 @@ exports[`create stats (upgrade) 1`] = `
     "alpha3bbesh": {
       "count": 6,
       "deviation": 0.2956,
-      "frequency": 1,
+      "frequency": 0.5,
       "lists": 3,
       "percentile": 0.6433,
       "record": {
@@ -6820,7 +7074,7 @@ exports[`create stats (upgrade) 1`] = `
     "brilliantevasion": {
       "count": 5,
       "deviation": 0.0392,
-      "frequency": 0.8333,
+      "frequency": 0.5,
       "lists": 3,
       "percentile": 0.092,
       "record": {
@@ -6895,7 +7149,7 @@ exports[`create stats (upgrade) 1`] = `
     "concussionmissiles": {
       "count": 3,
       "deviation": 0.3677,
-      "frequency": 0.5,
+      "frequency": 0.3333,
       "lists": 2,
       "percentile": 0.38,
       "record": {
@@ -6925,7 +7179,7 @@ exports[`create stats (upgrade) 1`] = `
     "deadeyeshot": {
       "count": 2,
       "deviation": 0,
-      "frequency": 0.3333,
+      "frequency": 0.1667,
       "lists": 1,
       "percentile": 0.12,
       "record": {
@@ -6940,7 +7194,7 @@ exports[`create stats (upgrade) 1`] = `
     "dedicated": {
       "count": 7,
       "deviation": 0.288,
-      "frequency": 1.1667,
+      "frequency": 0.5,
       "lists": 3,
       "percentile": 0.68,
       "record": {
@@ -6970,7 +7224,7 @@ exports[`create stats (upgrade) 1`] = `
     "elusive": {
       "count": 3,
       "deviation": 0.3111,
-      "frequency": 0.5,
+      "frequency": 0.3333,
       "lists": 2,
       "percentile": 0.46,
       "record": {
@@ -7000,7 +7254,7 @@ exports[`create stats (upgrade) 1`] = `
     "firecontrolsystem": {
       "count": 5,
       "deviation": 0.3243,
-      "frequency": 0.8333,
+      "frequency": 0.5,
       "lists": 3,
       "percentile": 0.256,
       "record": {
@@ -7045,7 +7299,7 @@ exports[`create stats (upgrade) 1`] = `
     "ioncannon": {
       "count": 2,
       "deviation": 0,
-      "frequency": 0.3333,
+      "frequency": 0.1667,
       "lists": 1,
       "percentile": 0.1,
       "record": {
@@ -7105,7 +7359,7 @@ exports[`create stats (upgrade) 1`] = `
     "marksmanship": {
       "count": 4,
       "deviation": 0.0141,
-      "frequency": 0.6667,
+      "frequency": 0.5,
       "lists": 3,
       "percentile": 0.12,
       "record": {
@@ -7135,7 +7389,7 @@ exports[`create stats (upgrade) 1`] = `
     "patience": {
       "count": 2,
       "deviation": 0,
-      "frequency": 0.3333,
+      "frequency": 0.1667,
       "lists": 1,
       "percentile": 0.1,
       "record": {
@@ -7150,7 +7404,7 @@ exports[`create stats (upgrade) 1`] = `
     "plasmatorpedoes": {
       "count": 3,
       "deviation": 0.264,
-      "frequency": 0.5,
+      "frequency": 0.3333,
       "lists": 2,
       "percentile": 0.3067,
       "record": {
@@ -7240,7 +7494,7 @@ exports[`create stats (upgrade) 1`] = `
     "r3astromech": {
       "count": 4,
       "deviation": 0.3607,
-      "frequency": 0.6667,
+      "frequency": 0.5,
       "lists": 3,
       "percentile": 0.625,
       "record": {
@@ -7255,7 +7509,7 @@ exports[`create stats (upgrade) 1`] = `
     "r4astromech": {
       "count": 2,
       "deviation": 0,
-      "frequency": 0.3333,
+      "frequency": 0.1667,
       "lists": 1,
       "percentile": 0.14,
       "record": {
@@ -7300,7 +7554,7 @@ exports[`create stats (upgrade) 1`] = `
     "r4pastromech": {
       "count": 6,
       "deviation": 0.3429,
-      "frequency": 1,
+      "frequency": 0.6667,
       "lists": 4,
       "percentile": 0.42,
       "record": {
@@ -7435,7 +7689,7 @@ exports[`create stats (upgrade) 1`] = `
     "synchronizedconsole": {
       "count": 17,
       "deviation": 0.3548,
-      "frequency": 2.8333,
+      "frequency": 1,
       "lists": 6,
       "percentile": 0.3918,
       "record": {
@@ -7480,7 +7734,7 @@ exports[`create stats (upgrade) 1`] = `
     "veterantailgunner": {
       "count": 5,
       "deviation": 0.4164,
-      "frequency": 0.8333,
+      "frequency": 0.5,
       "lists": 3,
       "percentile": 0.392,
       "record": {
@@ -7587,7 +7841,7 @@ exports[`create stats (upgrade) 1`] = `
     "beskarreinforcedplating": {
       "count": 12,
       "deviation": 0.2938,
-      "frequency": 0.8,
+      "frequency": 0.7333,
       "lists": 11,
       "percentile": 0.525,
       "record": {
@@ -7632,7 +7886,7 @@ exports[`create stats (upgrade) 1`] = `
     "clustermissiles": {
       "count": 4,
       "deviation": 0.1418,
-      "frequency": 0.2667,
+      "frequency": 0.2,
       "lists": 3,
       "percentile": 0.75,
       "record": {
@@ -7707,7 +7961,7 @@ exports[`create stats (upgrade) 1`] = `
     "elusive": {
       "count": 5,
       "deviation": 0.3073,
-      "frequency": 0.3333,
+      "frequency": 0.2,
       "lists": 3,
       "percentile": 0.616,
       "record": {
@@ -7902,7 +8156,7 @@ exports[`create stats (upgrade) 1`] = `
     "marksmanship": {
       "count": 11,
       "deviation": 0.2042,
-      "frequency": 0.7333,
+      "frequency": 0.6,
       "lists": 9,
       "percentile": 0.5982,
       "record": {
@@ -8067,7 +8321,7 @@ exports[`create stats (upgrade) 1`] = `
     "protonrockets": {
       "count": 9,
       "deviation": 0.2356,
-      "frequency": 0.6,
+      "frequency": 0.4,
       "lists": 6,
       "percentile": 0.5778,
       "record": {
@@ -8127,7 +8381,7 @@ exports[`create stats (upgrade) 1`] = `
     "r3astromech": {
       "count": 5,
       "deviation": 0.1688,
-      "frequency": 0.3333,
+      "frequency": 0.2667,
       "lists": 4,
       "percentile": 0.68,
       "record": {
@@ -8142,7 +8396,7 @@ exports[`create stats (upgrade) 1`] = `
     "r4astromech": {
       "count": 3,
       "deviation": 0.1791,
-      "frequency": 0.2,
+      "frequency": 0.1333,
       "lists": 2,
       "percentile": 0.5667,
       "record": {
@@ -8172,7 +8426,7 @@ exports[`create stats (upgrade) 1`] = `
     "servomotorsfoils": {
       "count": 11,
       "deviation": 0.1765,
-      "frequency": 0.7333,
+      "frequency": 0.4667,
       "lists": 7,
       "percentile": 0.6691,
       "record": {
@@ -8202,7 +8456,7 @@ exports[`create stats (upgrade) 1`] = `
     "swarmtactics": {
       "count": 5,
       "deviation": 0.1917,
-      "frequency": 0.3333,
+      "frequency": 0.2667,
       "lists": 4,
       "percentile": 0.692,
       "record": {
@@ -8217,7 +8471,7 @@ exports[`create stats (upgrade) 1`] = `
     "trickshot": {
       "count": 9,
       "deviation": 0.1988,
-      "frequency": 0.6,
+      "frequency": 0.5333,
       "lists": 8,
       "percentile": 0.5822,
       "record": {
@@ -8262,7 +8516,7 @@ exports[`create stats (upgrade) 1`] = `
     "veterantailgunner": {
       "count": 3,
       "deviation": 0.198,
-      "frequency": 0.2,
+      "frequency": 0.1333,
       "lists": 2,
       "percentile": 0.58,
       "record": {
@@ -8307,7 +8561,7 @@ exports[`create stats (upgrade) 1`] = `
     "xx23sthreadtracers": {
       "count": 3,
       "deviation": 0.0094,
-      "frequency": 0.2,
+      "frequency": 0.1333,
       "lists": 2,
       "percentile": 0.4467,
       "record": {
@@ -8324,7 +8578,7 @@ exports[`create stats (upgrade) 1`] = `
     "advancedoptics": {
       "count": 3,
       "deviation": 0.0094,
-      "frequency": 0.4286,
+      "frequency": 0.2857,
       "lists": 2,
       "percentile": 0.7733,
       "record": {
@@ -8549,7 +8803,7 @@ exports[`create stats (upgrade) 1`] = `
     "heroic": {
       "count": 20,
       "deviation": 0.2529,
-      "frequency": 2.8571,
+      "frequency": 1,
       "lists": 7,
       "percentile": 0.629,
       "record": {
@@ -8564,7 +8818,7 @@ exports[`create stats (upgrade) 1`] = `
     "integratedsfoils": {
       "count": 17,
       "deviation": 0.2848,
-      "frequency": 2.4286,
+      "frequency": 1,
       "lists": 7,
       "percentile": 0.62,
       "record": {
@@ -8654,7 +8908,7 @@ exports[`create stats (upgrade) 1`] = `
     "marksmanship": {
       "count": 10,
       "deviation": 0.3392,
-      "frequency": 1.4286,
+      "frequency": 0.8571,
       "lists": 6,
       "percentile": 0.532,
       "record": {
@@ -8699,7 +8953,7 @@ exports[`create stats (upgrade) 1`] = `
     "patternanalyzer": {
       "count": 7,
       "deviation": 0.3031,
-      "frequency": 1,
+      "frequency": 0.8571,
       "lists": 6,
       "percentile": 0.5857,
       "record": {
@@ -8744,7 +8998,7 @@ exports[`create stats (upgrade) 1`] = `
     "r4astromech": {
       "count": 6,
       "deviation": 0.3072,
-      "frequency": 0.8571,
+      "frequency": 0.7143,
       "lists": 5,
       "percentile": 0.5667,
       "record": {
@@ -8864,7 +9118,7 @@ exports[`create stats (upgrade) 1`] = `
     "trickshot": {
       "count": 2,
       "deviation": 0,
-      "frequency": 0.2857,
+      "frequency": 0.1429,
       "lists": 1,
       "percentile": 0.76,
       "record": {
@@ -8911,7 +9165,7 @@ exports[`create stats (upgrade) 1`] = `
     "beskarreinforcedplating": {
       "count": 2,
       "deviation": 0,
-      "frequency": 2,
+      "frequency": 1,
       "lists": 1,
       "percentile": 0.36,
       "record": {
@@ -8941,7 +9195,7 @@ exports[`create stats (upgrade) 1`] = `
     "fearless": {
       "count": 3,
       "deviation": 0,
-      "frequency": 3,
+      "frequency": 1,
       "lists": 1,
       "percentile": 0.36,
       "record": {
@@ -9138,7 +9392,7 @@ exports[`create stats (upgrade) 1`] = `
     "electrochaffmissiles": {
       "count": 2,
       "deviation": 0,
-      "frequency": 0.5,
+      "frequency": 0.25,
       "lists": 1,
       "percentile": 0.28,
       "record": {
@@ -9153,7 +9407,7 @@ exports[`create stats (upgrade) 1`] = `
     "energyshellcharges": {
       "count": 9,
       "deviation": 0.2786,
-      "frequency": 2.25,
+      "frequency": 0.75,
       "lists": 3,
       "percentile": 0.4289,
       "record": {
@@ -9198,7 +9452,7 @@ exports[`create stats (upgrade) 1`] = `
     "grapplingstruts": {
       "count": 7,
       "deviation": 0.3046,
-      "frequency": 1.75,
+      "frequency": 1,
       "lists": 4,
       "percentile": 0.4686,
       "record": {
@@ -9258,7 +9512,7 @@ exports[`create stats (upgrade) 1`] = `
     "marksmanship": {
       "count": 6,
       "deviation": 0.3254,
-      "frequency": 1.5,
+      "frequency": 0.75,
       "lists": 3,
       "percentile": 0.72,
       "record": {
@@ -9273,7 +9527,7 @@ exports[`create stats (upgrade) 1`] = `
     "munitionsfailsafe": {
       "count": 2,
       "deviation": 0,
-      "frequency": 0.5,
+      "frequency": 0.25,
       "lists": 1,
       "percentile": 0.28,
       "record": {
@@ -9303,7 +9557,7 @@ exports[`create stats (upgrade) 1`] = `
     "novicetechnician": {
       "count": 3,
       "deviation": 0.3111,
-      "frequency": 0.75,
+      "frequency": 0.5,
       "lists": 2,
       "percentile": 0.5,
       "record": {
@@ -9333,7 +9587,7 @@ exports[`create stats (upgrade) 1`] = `
     "predator": {
       "count": 2,
       "deviation": 0,
-      "frequency": 0.5,
+      "frequency": 0.25,
       "lists": 1,
       "percentile": 0.28,
       "record": {
@@ -9348,7 +9602,7 @@ exports[`create stats (upgrade) 1`] = `
     "protonbombs": {
       "count": 3,
       "deviation": 0.3206,
-      "frequency": 0.75,
+      "frequency": 0.5,
       "lists": 2,
       "percentile": 0.7133,
       "record": {
@@ -9378,7 +9632,7 @@ exports[`create stats (upgrade) 1`] = `
     "repulsorliftstabilizers": {
       "count": 2,
       "deviation": 0,
-      "frequency": 0.5,
+      "frequency": 0.25,
       "lists": 1,
       "percentile": 0.28,
       "record": {
@@ -9423,7 +9677,7 @@ exports[`create stats (upgrade) 1`] = `
     "shieldupgrade": {
       "count": 3,
       "deviation": 0.33,
-      "frequency": 0.75,
+      "frequency": 0.5,
       "lists": 2,
       "percentile": 0.4933,
       "record": {
