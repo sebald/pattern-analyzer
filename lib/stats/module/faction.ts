@@ -1,5 +1,5 @@
 import type { GameRecord, XWSFaction } from '@/lib/types';
-import type { StatModule } from '../setup';
+import type { StatModule } from '../types';
 import {
   average,
   deviation,

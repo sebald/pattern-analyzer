@@ -78,7 +78,7 @@ const schema = z
     smallSamples: smallSamples === 'show',
   }));
 
-  interface StatsData
+interface StatsData
   extends CompositionData,
     FactionData,
     PilotData,

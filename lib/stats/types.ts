@@ -1,5 +1,13 @@
 import type { Ships } from '@/lib/get-value';
-import type { XWSFaction, GameRecord, XWSUpgradeSlots } from '@/lib/types';
+import type {
+  XWSFaction,
+  GameRecord,
+  XWSUpgradeSlots,
+  SquadData,
+  XWSPilot,
+  XWSSquad,
+} from '@/lib/types';
+import type { BaseData } from './module/base';
 
 // Maps
 // ---------------
@@ -11,132 +19,73 @@ export type FactionMapWithAll<Key extends string, Value> = {
   [faction in XWSFaction | 'all']: { [key in Key]?: Value };
 };
 
-// Collection
+// Modules
 // ---------------
-export interface CommonDataCollection {
-  count: number;
-  records: GameRecord[];
-  ranks: number[];
-}
-
-export interface PilotDataCollection {
-  ship: Ships;
-  count: number;
-  lists: number;
-  records: GameRecord[];
-  ranks: number[];
-}
-
-export interface ShipDataCollection {
-  count: number;
-  lists: number;
-}
-
-export interface UpgradeDataCollection {
-  slot: XWSUpgradeSlots;
-  count: number;
-  lists: number;
-  records: GameRecord[];
-  ranks: number[];
-}
-
-export interface CompositionDataCollection {
-  ships: Ships[];
-  faction: XWSFaction;
-  count: number;
+export interface SquadModuleContext {
+  faction: XWSFaction | 'unknown';
+  tournament: {
+    count: { [Faction in XWSFaction | 'unknown' | 'all']: number };
+    xws: number;
+    cut: number;
+  };
+  rank: {
+    swiss: number;
+    elimination?: number;
+  };
   record: GameRecord;
-  ranks: number[];
+  /**
+   * Check for duplicated pilots (a.k.a. generics) and upgrades
+   */
+  unique: (val: string) => boolean;
 }
 
-export interface SquadDataCollection {
-  tournament: {
-    xws: number;
-    count: number;
-    cut: number;
-  };
-  faction: {
-    [Faction in XWSFaction | 'unknown']: CommonDataCollection;
-  };
-  squadSizes: {
-    [Size in 3 | 4 | 5 | 6 | 7 | 8]: number;
-  };
-  pilot: FactionMap<string, PilotDataCollection>;
-  pilotCostDistribution: {
-    [Size in 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9]: number;
-  };
-  pilotSkillDistribution: {
-    [Size in 0 | 1 | 2 | 3 | 4 | 5 | 6]: number;
-  };
-  ship: FactionMap<Ships, ShipDataCollection>;
-  upgrade: FactionMapWithAll<string, UpgradeDataCollection>;
-  composition: { [id: string]: CompositionDataCollection };
+export interface XWSModuleContext extends Omit<SquadModuleContext, 'faction'> {
+  faction: XWSFaction;
 }
 
-// Stats
-// ---------------
-export interface PerformanceStats {
-  percentile: number;
-  deviation: number;
-  winrate: number | null;
+export interface StatsConfig {
+  smallSamples?: boolean;
 }
 
-export interface FrequencyStats {
-  frequency: number;
+export interface BaseModule<T> {
+  /**
+   * Gets only the current tournament, no context.
+   */
+  add: (tournament: SquadModuleContext['tournament']) => void;
+  /**
+   * Returns the stats
+   */
+  get: (config: StatsConfig) => T;
 }
 
-export interface ScoreStats {
-  score: number;
-}
-
-export interface FactionStats extends CommonDataCollection, PerformanceStats {}
-
-export interface PilotStats
-  extends PilotDataCollection,
-    PerformanceStats,
-    FrequencyStats,
-    ScoreStats {}
-
-export interface ShipStats extends ShipDataCollection, FrequencyStats {}
-
-export interface UpgradeStats
-  extends UpgradeDataCollection,
-    PerformanceStats,
-    FrequencyStats,
-    ScoreStats {}
-
-export interface CompositionStats
-  extends CompositionDataCollection,
-    PerformanceStats,
-    FrequencyStats,
-    ScoreStats {}
-
-export interface SquadStats {
-  tournament: {
-    /**
-     * Number of tournaments
-     */
-    total: number;
-    xws: number;
-    /**
-     * Number of squads
-     */
-    count: number;
-    cut: number;
-  };
-  faction: {
-    [Faction in XWSFaction | 'unknown']: FactionStats;
-  };
-  squadSizes: {
-    [Size in 3 | 4 | 5 | 6 | 7 | 8]: number;
-  };
-  pilot: FactionMap<string, PilotStats>;
-  pilotCostDistribution: {
-    [Size in 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9]: number;
-  };
-  pilotSkillDistribution: {
-    [Size in 0 | 1 | 2 | 3 | 4 | 5 | 6]: number;
-  };
-  ship: FactionMap<Ships, ShipStats>;
-  upgrade: FactionMapWithAll<string, UpgradeStats>;
-  composition: { [id: string]: CompositionStats };
+export interface StatModule<T> {
+  /**
+   * Gets the whole squad, can do whatever.
+   * At this point the squad might not have a valid XWS!
+   */
+  squad?: (squad: SquadData, ctx: SquadModuleContext) => void;
+  /**
+   * Gets the squad's XWS
+   */
+  xws?: (xws: XWSSquad, ctx: XWSModuleContext) => void;
+  /**
+   * Gets every pilot of the squad
+   */
+  pilot?: (pilot: XWSPilot, ctx: XWSModuleContext) => void;
+  /**
+   * Gets every ship of the squad
+   */
+  ship?: (ship: Ships, ctx: XWSModuleContext) => void;
+  /**
+   * Gets every upgrade of very pilot in the squad
+   */
+  upgrade?: (
+    upgrade: string,
+    slot: XWSUpgradeSlots,
+    ctx: XWSModuleContext
+  ) => void;
+  /**
+   * Returns the stats
+   */
+  get: (ctx: BaseData & { config: StatsConfig }) => T;
 }

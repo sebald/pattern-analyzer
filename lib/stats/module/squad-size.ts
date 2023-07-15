@@ -1,4 +1,4 @@
-import { StatModule } from '../setup';
+import { StatModule } from '../types';
 
 // Types
 // ---------------
