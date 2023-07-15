@@ -6,30 +6,36 @@ import { BaseModule } from '../setup';
 export interface BaseData {
   tournament: {
     /**
+     * Number of aggregated tournaments
+     */
+    total: number;
+    /**
      * Number of overall squads, per faction/unknown and all
      */
     count: { [faction in XWSFaction | 'all' | 'unknown']: number }
     /**
      * Number of squads that have XWS
      */
-    xws: 0,
+    xws: number;
     /**
      * Number of squads in the cut
      */
-    cut: 0,
+    cut: number;
   }
 }
 
 type Store = {
+  total: number;
   count: { [faction in XWSFaction | 'all' | 'unknown']: number };
-  xws: 0;
-  cut: 0;
+  xws: number;
+  cut: number;
 };
 
 // Module
 // ---------------
 export const base: () => BaseModule<BaseData> = () => {
   const store: Store = {
+    total: 0,
     count: {
       all: 0,
       rebelalliance: 0,
@@ -47,6 +53,7 @@ export const base: () => BaseModule<BaseData> = () => {
 
   return {
     add: (tournament) => {
+      store.total += 1;
       store.xws += tournament.xws;
       store.cut += tournament.cut;
 

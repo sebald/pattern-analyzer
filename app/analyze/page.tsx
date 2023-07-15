@@ -168,7 +168,7 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
               Tournaments
             </Inline>
             <Inline className="whitespace-nowrap">
-              <Rocket className="h-3 w-3" /> {stats.tournament.count} Squads
+              <Rocket className="h-3 w-3" /> {stats.tournament.count.all} Squads
             </Inline>
           </Inline>
         </Caption>
@@ -181,7 +181,7 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
         <div className="md:col-span-6">
           <FactionDistribution
             value={stats.faction}
-            total={stats.tournament.count}
+            total={stats.tournament.count.all}
           />
         </div>
         <div className="md:col-span-6">
@@ -194,7 +194,7 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
           />
         </div>
         <div className="md:col-span-6">
-          <SquadSize value={stats.squadSizes} total={stats.tournament.xws} />
+          <SquadSize value={stats.squadSize} total={stats.tournament.xws} />
         </div>
         <div className="col-span-full">
           <ChassisDistribution value={stats.ship} />

@@ -7,19 +7,17 @@ import type {
   XWSSquad,
   XWSUpgradeSlots,
 } from '@/lib/types';
-import { base } from './module/base';
+import { base, BaseData } from './module/base';
 
 // Types
 // ---------------
-export interface TournamentStats {
-  count: { [Faction in XWSFaction | 'unknown' | 'all']: number };
-  xws: number;
-  cut: number;
-}
-
 export interface SquadModuleContext {
   faction: XWSFaction | 'unknown';
-  tournament: TournamentStats;
+  tournament: {
+    count: { [Faction in XWSFaction | 'unknown' | 'all']: number };
+    xws: number;
+    cut: number;
+  };
   rank: {
     swiss: number;
     elimination?: number;
@@ -42,7 +40,7 @@ export interface BaseModule<T> {
   /**
    * Gets only the current tournament, no context.
    */
-  add: (tournament: TournamentStats) => void;
+  add: (tournament: SquadModuleContext['tournament']) => void;
   /**
    * Returns the stats
    */
@@ -78,7 +76,7 @@ export interface StatModule<T> {
   /**
    * Returns the stats
    */
-  get: (ctx: { tournament: TournamentStats; config: StatsConfig }) => T;
+  get: (ctx: BaseData & { config: StatsConfig }) => T;
 }
 
 // Factory
@@ -106,7 +104,7 @@ export const setup =
         ) => plugins.forEach(p => p.upgrade?.(upgrade, slot, ctx)),
       };
 
-      const tournament: TournamentStats = {
+      const tournament: SquadModuleContext['tournament'] = {
         count: {
           all: data.length,
           rebelalliance: 0,
@@ -193,5 +191,5 @@ export const setup =
         (o, p) => ({ ...o, ...p.get({ tournament, config }) }),
         {}
       ),
-    } as T & { tournament: TournamentStats };
+    } as T & BaseData;
   };
