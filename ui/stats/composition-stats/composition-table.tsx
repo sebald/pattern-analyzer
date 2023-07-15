@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 
 import { toPercentage } from '@/lib/utils';
 import type { XWSFaction } from '@/lib/types';
-import { Collapsible, FactionIcon, ShipIcon, Table } from '@/ui';
+import { Collapsible, FactionIcon, Link, ShipIcon, Table } from '@/ui';
 
 import type { CompositionStatsType } from './types';
 
@@ -75,17 +75,16 @@ export const CompositionTable = ({
       >
         {data.map(([id, stat]) => (
           <Fragment key={id}>
-            <Table.Cell
-              variant="header"
-              className="flex flex-row items-center gap-1 lg:gap-2"
-            >
-              {stat.ships.map((ship, idx) => (
-                <ShipIcon
-                  key={idx}
-                  ship={ship}
-                  className="text-2xl text-secondary-700"
-                />
-              ))}
+            <Table.Cell variant="header">
+              <Link
+                href={`/analyze/composition/${id}`}
+                variant="highlight"
+                className="flex flex-row items-center gap-1 lg:gap-2"
+              >
+                {stat.ships.map((ship, idx) => (
+                  <ShipIcon key={idx} ship={ship} className="text-2xl" />
+                ))}
+              </Link>
             </Table.Cell>
             <Table.Cell>
               <FactionIcon

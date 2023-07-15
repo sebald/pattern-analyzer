@@ -88,7 +88,7 @@ interface AnalyzePageProps {
 
 // Page
 // ---------------
-const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
+const AnalyzeCompositionPage = async ({ searchParams }: AnalyzePageProps) => {
   const params = schema.safeParse(searchParams);
 
   if (!params.success) {
@@ -151,4 +151,4 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
   );
 };
 
-export default AnalyzePage;
+export default AnalyzeCompositionPage;
