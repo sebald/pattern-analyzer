@@ -36,6 +36,7 @@ export interface CollapsibleProps {
   maxHeight: number;
   defaultCollapsed?: boolean;
   scrollOffset?: number;
+  disabled?: boolean;
   children: React.ReactElement;
 }
 
@@ -45,6 +46,7 @@ export const Collapsible = ({
   defaultCollapsed = true,
   scrollOffset = 150,
   maxHeight,
+  disabled,
   children,
 }: CollapsibleProps) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -66,9 +68,9 @@ export const Collapsible = ({
 
   /**
    * Do not wrap into collapsible if the element is not
-   * larger than given max height.
+   * larger than given max height ... or if it is disabled.
    */
-  if (height <= maxHeight) {
+  if (disabled || height <= maxHeight) {
     return <>{child}</>;
   }
 

@@ -5,10 +5,13 @@ import { baseUrl, pointsUpdateDate } from '@/lib/config';
 import { formatDate, fromDate, toDate, today } from '@/lib/utils/date.utils';
 import { getAllTournaments, getSquads } from '@/lib/vendor/listfortress';
 
-import { Caption, Inline, Message, Title } from '@/ui';
+import { Caption, Card, Collapsible, Inline, Message, Title } from '@/ui';
 import { Calendar, Rocket, Trophy } from '@/ui/icons';
 
-import { CompositionStats } from '@/ui/stats/composition-stats';
+import {
+  CompositionStats,
+  CompositionTable,
+} from '@/ui/stats/composition-stats';
 import { Filter } from '@/ui/stats/filter';
 import { StatsHint } from '@/ui/stats/stats-hint';
 import { setup } from '@/lib/stats';
@@ -134,7 +137,11 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
       />
       <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
         <div className="col-span-full">
-          <CompositionStats value={stats.composition} />
+          <Card inset="headless">
+            <Card.Body>
+              <CompositionTable value={stats.composition} collapsible={false} />
+            </Card.Body>
+          </Card>
         </div>
         <div className="col-span-full pt-8 lg:col-start-2 lg:col-end-12">
           <StatsHint />

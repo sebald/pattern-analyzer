@@ -17,6 +17,7 @@ const styles = {
         },
         inset: {
           default: ['px-3 pt-3 pb-2'],
+          headless: ['px-3 pt-4 pb-2'], // No title/card.header
         },
       },
       defaultVariants: {
