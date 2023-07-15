@@ -1,5 +1,5 @@
 import type { XWSFaction } from '@/lib/types';
-import { BaseModule } from '../setup';
+import type { BaseModule } from '../types';
 
 // Types
 // ---------------
@@ -12,7 +12,7 @@ export interface BaseData {
     /**
      * Number of overall squads, per faction/unknown and all
      */
-    count: { [faction in XWSFaction | 'all' | 'unknown']: number }
+    count: { [faction in XWSFaction | 'all' | 'unknown']: number };
     /**
      * Number of squads that have XWS
      */
@@ -21,7 +21,7 @@ export interface BaseData {
      * Number of squads in the cut
      */
     cut: number;
-  }
+  };
 }
 
 type Store = {
@@ -52,15 +52,15 @@ export const base: () => BaseModule<BaseData> = () => {
   };
 
   return {
-    add: (tournament) => {
+    add: tournament => {
       store.total += 1;
       store.xws += tournament.xws;
       store.cut += tournament.cut;
 
       Object.keys(store.count).forEach(key => {
-        const faction = key as XWSFaction | 'all' | 'unknown'
+        const faction = key as XWSFaction | 'all' | 'unknown';
         store.count[faction] += tournament.count[faction];
-      })
+      });
     },
     get: () => ({ tournament: store }),
   };

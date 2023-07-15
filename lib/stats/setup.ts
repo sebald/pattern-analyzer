@@ -1,83 +1,20 @@
 import type { Ships } from '@/lib/get-value';
 import type {
-  GameRecord,
   SquadData,
-  XWSFaction,
   XWSPilot,
   XWSSquad,
   XWSUpgradeSlots,
 } from '@/lib/types';
 import { base, BaseData } from './module/base';
+import type {
+  StatModule,
+  StatsConfig,
+  SquadModuleContext,
+  XWSModuleContext,
+} from './types';
 
 // Types
 // ---------------
-export interface SquadModuleContext {
-  faction: XWSFaction | 'unknown';
-  tournament: {
-    count: { [Faction in XWSFaction | 'unknown' | 'all']: number };
-    xws: number;
-    cut: number;
-  };
-  rank: {
-    swiss: number;
-    elimination?: number;
-  };
-  record: GameRecord;
-  /**
-   * Check for duplicated pilots (a.k.a. generics) and upgrades
-   */
-  unique: (val: string) => boolean;
-}
-export interface XWSModuleContext extends Omit<SquadModuleContext, 'faction'> {
-  faction: XWSFaction;
-}
-
-export interface StatsConfig {
-  smallSamples?: boolean;
-}
-
-export interface BaseModule<T> {
-  /**
-   * Gets only the current tournament, no context.
-   */
-  add: (tournament: SquadModuleContext['tournament']) => void;
-  /**
-   * Returns the stats
-   */
-  get: (config: StatsConfig) => T;
-}
-
-export interface StatModule<T> {
-  /**
-   * Gets the whole squad, can do whatever.
-   * At this point the squad might not have a valid XWS!
-   */
-  squad?: (squad: SquadData, ctx: SquadModuleContext) => void;
-  /**
-   * Gets the squad's XWS
-   */
-  xws?: (xws: XWSSquad, ctx: XWSModuleContext) => void;
-  /**
-   * Gets every pilot of the squad
-   */
-  pilot?: (pilot: XWSPilot, ctx: XWSModuleContext) => void;
-  /**
-   * Gets every ship of the squad
-   */
-  ship?: (ship: Ships, ctx: XWSModuleContext) => void;
-  /**
-   * Gets every upgrade of very pilot in the squad
-   */
-  upgrade?: (
-    upgrade: string,
-    slot: XWSUpgradeSlots,
-    ctx: XWSModuleContext
-  ) => void;
-  /**
-   * Returns the stats
-   */
-  get: (ctx: BaseData & { config: StatsConfig }) => T;
-}
 
 // Factory
 // ---------------

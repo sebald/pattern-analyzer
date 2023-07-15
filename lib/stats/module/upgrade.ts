@@ -8,8 +8,7 @@ import {
 import type { GameRecord, XWSFaction, XWSUpgradeSlots } from '@/lib/types';
 
 import { magic } from '../magic';
-import type { FactionMapWithAll } from '../types';
-import type { StatModule } from '../setup';
+import type { FactionMapWithAll, StatModule } from '../types';
 
 // Types
 // ---------------

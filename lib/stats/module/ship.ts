@@ -2,8 +2,7 @@ import type { Ships } from '@/lib/get-value';
 import type { XWSFaction } from '@/lib/types';
 import { round } from '@/lib/utils/math.utils';
 
-import type { FactionMap } from '../types';
-import type { StatModule } from '../setup';
+import type { FactionMap, StatModule } from '../types';
 
 // Types
 // ---------------

@@ -1,5 +1,5 @@
 import { getPilotSkill } from '@/lib/yasb';
-import { StatModule } from '../setup';
+import { StatModule } from '../types';
 
 // Types
 // ---------------
