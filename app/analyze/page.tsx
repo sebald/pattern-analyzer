@@ -2,7 +2,25 @@ import { cache } from 'react';
 import { z } from 'zod';
 
 import { baseUrl, pointsUpdateDate } from '@/lib/config';
-import { create } from '@/lib/stats';
+import { setup } from '@/lib/stats';
+import {
+  composition,
+  faction,
+  pilot,
+  pilotCostDistribution,
+  pilotSkillDistribution,
+  ship,
+  squadSize,
+  upgrade,
+  type CompositionData,
+  type FactionData,
+  type PilotData,
+  type PilotCostDistributionData,
+  type PilotSkillDistributionData,
+  type ShipData,
+  type SquadSizeData,
+  type UpgradeData,
+} from '@/lib/stats/module';
 import { formatDate, fromDate, toDate, today } from '@/lib/utils/date.utils';
 import { getAllTournaments, getSquads } from '@/lib/vendor/listfortress';
 
@@ -59,6 +77,27 @@ const schema = z
     ...props,
     smallSamples: smallSamples === 'show',
   }));
+
+  interface StatsData
+  extends CompositionData,
+    FactionData,
+    PilotData,
+    PilotCostDistributionData,
+    PilotSkillDistributionData,
+    ShipData,
+    SquadSizeData,
+    UpgradeData {}
+
+const create = setup<StatsData>([
+  composition,
+  faction,
+  pilotCostDistribution,
+  pilotSkillDistribution,
+  pilot,
+  ship,
+  squadSize,
+  upgrade,
+]);
 
 // Data
 // ---------------

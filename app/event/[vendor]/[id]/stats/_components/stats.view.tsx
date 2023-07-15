@@ -64,7 +64,7 @@ export interface StatsViewProps {
 // Component
 // ---------------
 export const StatsView = ({ squads }: StatsViewProps) => {
-  const stats = create(squads);
+  const stats = create([squads]);
 
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
