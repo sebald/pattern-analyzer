@@ -59,7 +59,7 @@ export const base: () => BaseModule<BaseData> = () => {
 
       Object.keys(store.count).forEach(key => {
         const faction = key as XWSFaction | 'all' | 'unknown'
-        store.count[faction] = tournament.count[faction];
+        store.count[faction] += tournament.count[faction];
       })
     },
     get: () => ({ tournament: store }),
