@@ -10,8 +10,8 @@ import { FACTION_COLORS, toPercentage } from '@/lib/utils';
 export interface FactionRecordProps {
   value: {
     [Faction in XWSFaction | 'unknown']: {
-      ranks: number[];
-      records: GameRecord[];
+      top: number;
+      record: GameRecord;
       winrate: number | null;
     };
   };
@@ -21,19 +21,9 @@ export interface FactionRecordProps {
 // ---------------
 export const FactionRecord = ({ value }: FactionRecordProps) => {
   const data = Object.entries(value)
-    .map(([key, { records, winrate, ranks }]) => {
+    .map(([key, { record, winrate, top }]) => {
       const faction = key as XWSFaction | 'unknown';
-      const record = records.reduce(
-        (acc, rec) => {
-          acc.wins = acc.wins + rec.wins;
-          acc.ties = acc.ties + rec.ties;
-          acc.losses = acc.losses + rec.losses;
-          return acc;
-        },
-        { wins: 0, ties: 0, losses: 0 }
-      );
       const games = record.wins + record.ties + record.losses;
-      const top = ranks.length ? ranks[0] : 0;
 
       return {
         faction,

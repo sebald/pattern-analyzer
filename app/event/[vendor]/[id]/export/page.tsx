@@ -5,6 +5,11 @@ import { ExportListfortress } from './_components/export-listfortress';
 import { ExportLongshanks } from './_components/export-longshanks';
 import { ExportRollbetter } from './_components/export-rollbetter';
 
+/**
+ * Opt into background revalidation. (see: https://github.com/vercel/next.js/discussions/43085)
+ */
+export const generateStaticParams = () => [];
+
 // Helpers
 // ---------------
 const EXPORT_COMPONENT = {

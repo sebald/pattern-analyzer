@@ -1,5 +1,23 @@
+import { setup } from '@/lib/stats';
+import {
+  composition,
+  faction,
+  pilot,
+  pilotCostDistribution,
+  pilotSkillDistribution,
+  ship,
+  squadSize,
+  upgrade,
+  type CompositionData,
+  type FactionData,
+  type PilotData,
+  type PilotCostDistributionData,
+  type PilotSkillDistributionData,
+  type ShipData,
+  type SquadSizeData,
+  type UpgradeData,
+} from '@/lib/stats/module';
 import type { SquadData } from '@/lib/types';
-import { create } from '@/lib/stats/create';
 
 import { ChassisDistribution } from '@/ui/stats/chassis-distribution';
 import { CompositionStats } from '@/ui/stats/composition-stats';
@@ -14,10 +32,37 @@ import { SquadSize } from '@/ui/stats/squad-size';
 import { StatsHint } from '@/ui/stats/stats-hint';
 import { UpgradeStats } from '@/ui/stats/upgrade-stats';
 
+// Helpers
+// ---------------
+interface StatsData
+  extends CompositionData,
+    FactionData,
+    PilotData,
+    PilotCostDistributionData,
+    PilotSkillDistributionData,
+    ShipData,
+    SquadSizeData,
+    UpgradeData {}
+
+const create = setup<StatsData>([
+  composition,
+  faction,
+  pilotCostDistribution,
+  pilotSkillDistribution,
+  pilot,
+  ship,
+  squadSize,
+  upgrade,
+]);
+
+// Props
+// ---------------
 export interface StatsViewProps {
   squads: SquadData[];
 }
 
+// Component
+// ---------------
 export const StatsView = ({ squads }: StatsViewProps) => {
   const stats = create([squads]);
 
@@ -26,7 +71,7 @@ export const StatsView = ({ squads }: StatsViewProps) => {
       <div className="md:col-span-6">
         <FactionDistribution
           value={stats.faction}
-          total={stats.tournament.count}
+          total={stats.tournament.count.all}
         />
       </div>
       <div className="md:col-span-6">
@@ -39,7 +84,7 @@ export const StatsView = ({ squads }: StatsViewProps) => {
         <FactionCut tournament={stats.tournament} value={stats.faction} />
       </div>
       <div className="md:col-span-6">
-        <SquadSize value={stats.squadSizes} total={stats.tournament.xws} />
+        <SquadSize value={stats.squadSize} total={stats.tournament.xws} />
       </div>
       <div className="col-span-full">
         <ChassisDistribution value={stats.ship} />

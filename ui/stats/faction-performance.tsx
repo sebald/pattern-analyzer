@@ -30,7 +30,7 @@ export const FactionPerformance = ({ value }: FactionPerformanceProps) => {
         deviation,
       };
     })
-    // Remove "uknown" if everything was parsed!
+    // Remove "unknown" if everything was parsed!
     .filter(({ faction, percentile }) =>
       faction !== 'unknown' ? true : percentile > 0
     );

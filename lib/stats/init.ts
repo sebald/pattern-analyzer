@@ -18,7 +18,7 @@ import type {
   UpgradeStats,
 } from './types';
 
-const initFactionMap = <Key extends string, Value>(): FactionMap<
+export const initFactionMap = <Key extends string, Value>(): FactionMap<
   Key,
   Value
 > => ({
@@ -31,7 +31,7 @@ const initFactionMap = <Key extends string, Value>(): FactionMap<
   separatistalliance: {},
 });
 
-const initCommonData = (): CommonDataCollection => ({
+export const initCommonData = (): CommonDataCollection => ({
   count: 0,
   records: [],
   ranks: [],

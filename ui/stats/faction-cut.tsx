@@ -88,7 +88,7 @@ const ConfigDialog = ({ cut, updateCut }: ConfigDialogProps) => {
 // ---------------
 export interface FactionCutProps {
   tournament: {
-    count: number;
+    count: { all: number };
     cut: number;
   };
   value: {
@@ -103,7 +103,7 @@ export interface FactionCutProps {
 // ---------------
 export const FactionCut = ({ tournament, value }: FactionCutProps) => {
   const [cut, setCut] = useState(
-    tournament.cut > 0 ? tournament.cut : getCutBySize(tournament.count)
+    tournament.cut > 0 ? tournament.cut : getCutBySize(tournament.count.all)
   );
 
   const data = Object.entries(value)
@@ -112,7 +112,9 @@ export const FactionCut = ({ tournament, value }: FactionCutProps) => {
       const cutsize = ranks.filter(rank => rank <= cut).length;
       const cutrate = count > 0 ? round(cutsize / count, 4) : 0;
       const diff =
-        tournament.count > 0 ? cutrate - round(count / tournament.count, 4) : 0;
+        tournament.count.all > 0
+          ? cutrate - round(count / tournament.count.all, 4)
+          : 0;
 
       return {
         faction,

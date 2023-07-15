@@ -1,10 +1,5 @@
 import type { Ships } from '@/lib/get-value';
-import type {
-  XWSFaction,
-  GameRecord,
-  XWSUpgradeSlots,
-  XWSSquad,
-} from '@/lib/types';
+import type { XWSFaction, GameRecord, XWSUpgradeSlots } from '@/lib/types';
 
 // Maps
 // ---------------
