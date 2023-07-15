@@ -2733,6 +2733,7 @@ exports[`create stats (multiple) 1`] = `
       "unknown": 5,
     },
     "cut": 16,
+    "total": 1,
     "xws": 45,
   },
 }
@@ -4637,6 +4638,7 @@ exports[`create stats (tournament) 1`] = `
     "unknown": 5,
   },
   "cut": 16,
+  "total": 1,
   "xws": 45,
 }
 `;
