@@ -4,6 +4,11 @@ import { SquadData, Vendor } from '@/lib/types';
 import { LongshanksSquadView } from './_components/longshanks-squad.view';
 import { SquadsView } from './_components/squad.view';
 
+/**
+ * Opt into background revalidation. (see: https://github.com/vercel/next.js/discussions/43085)
+ */
+export const generateStaticParams = () => [];
+
 // Data
 // ---------------
 interface GetSquadsProps {
