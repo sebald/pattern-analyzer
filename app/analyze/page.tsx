@@ -78,15 +78,15 @@ const schema = z
     smallSamples: smallSamples === 'show',
   }));
 
-  interface StatsData
+interface StatsData
   extends CompositionData,
-    FactionData,
-    PilotData,
-    PilotCostDistributionData,
-    PilotSkillDistributionData,
-    ShipData,
-    SquadSizeData,
-    UpgradeData {}
+  FactionData,
+  PilotData,
+  PilotCostDistributionData,
+  PilotSkillDistributionData,
+  ShipData,
+  SquadSizeData,
+  UpgradeData {}
 
 const create = setup<StatsData>([
   composition,

@@ -2,7 +2,6 @@ import { cache } from 'react';
 import { z } from 'zod';
 
 import { baseUrl, pointsUpdateDate } from '@/lib/config';
-import { create } from '@/lib/stats';
 import { formatDate, fromDate, toDate, today } from '@/lib/utils/date.utils';
 import { getAllTournaments, getSquads } from '@/lib/vendor/listfortress';
 
@@ -12,6 +11,8 @@ import { Calendar, Rocket, Trophy } from '@/ui/icons';
 import { CompositionStats } from '@/ui/stats/composition-stats';
 import { Filter } from '@/ui/stats/filter';
 import { StatsHint } from '@/ui/stats/stats-hint';
+import { setup } from '@/lib/stats';
+import { CompositionData, composition } from '@/lib/stats/module';
 
 // Config
 // ---------------
@@ -50,6 +51,8 @@ const schema = z
     ...props,
     smallSamples: smallSamples === 'show',
   }));
+
+const create = setup<CompositionData>([composition]);
 
 // Data
 // ---------------
@@ -120,7 +123,7 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
               Tournaments
             </Inline>
             <Inline className="whitespace-nowrap">
-              <Rocket className="h-3 w-3" /> {stats.tournament.count} Squads
+              <Rocket className="h-3 w-3" /> {stats.tournament.count.all} Squads
             </Inline>
           </Inline>
         </Caption>
