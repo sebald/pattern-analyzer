@@ -73,7 +73,7 @@ export const CompositionTable = ({
               <Link
                 href={`/analyze/composition/${id}`}
                 variant="highlight"
-                className="flex flex-row items-center gap-1 lg:gap-2"
+                className="flex w-full flex-row items-center gap-1 lg:gap-2"
               >
                 {stat.ships.map((ship, idx) => (
                   <ShipIcon key={idx} ship={ship} className="text-2xl" />
