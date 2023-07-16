@@ -1,23 +1,15 @@
 import { Fragment } from 'react';
 
 import { toPercentage } from '@/lib/utils';
-import type { XWSFaction } from '@/lib/types';
 import { Collapsible, FactionIcon, Link, ShipIcon, Table } from '@/ui';
 
+import { useCompositionFilter } from './context';
 import type { CompositionStatsType } from './types';
 
 // Props
 // ---------------
 export interface CompositionTableProps {
   value: { [id: string]: CompositionStatsType };
-  faction?: XWSFaction | 'all';
-  sort?:
-    | 'percentile'
-    | 'deviation'
-    | 'winrate'
-    | 'frequency'
-    | 'count'
-    | 'score';
   collapsible?: boolean;
 }
 
@@ -25,10 +17,10 @@ export interface CompositionTableProps {
 // ---------------
 export const CompositionTable = ({
   value,
-  faction = 'all',
-  sort = 'score',
   collapsible = true,
 }: CompositionTableProps) => {
+  const { faction = 'all', sort = 'percentile' } = useCompositionFilter();
+
   const data =
     faction === 'all'
       ? (Object.entries(value) as [string, CompositionStatsType][])
