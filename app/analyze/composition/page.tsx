@@ -5,11 +5,12 @@ import { baseUrl, pointsUpdateDate } from '@/lib/config';
 import { formatDate, fromDate, toDate, today } from '@/lib/utils/date.utils';
 import { getAllTournaments, getSquads } from '@/lib/vendor/listfortress';
 
-import { Caption, Card, Collapsible, Inline, Message, Title } from '@/ui';
+import { Caption, Card, Inline, Message, Title } from '@/ui';
 import { Calendar, Rocket, Trophy } from '@/ui/icons';
 
 import {
-  CompositionStats,
+  CompositionFilter,
+  CompositionFilterProvider,
   CompositionTable,
 } from '@/ui/stats/composition-stats';
 import { Filter } from '@/ui/stats/filter';
@@ -112,7 +113,7 @@ const AnalyzeCompositionPage = async ({ searchParams }: AnalyzePageProps) => {
   const stats = await getStats(from, to, params.data.smallSamples);
 
   return (
-    <>
+    <CompositionFilterProvider>
       <div className="pb-6">
         <Title>Composition</Title>
         <Caption>
@@ -134,7 +135,9 @@ const AnalyzeCompositionPage = async ({ searchParams }: AnalyzePageProps) => {
       <Filter
         smallSamples={!params.data.smallSamples}
         dateRange={toDate(from, to)}
-      />
+      >
+        <CompositionFilter />
+      </Filter>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
         <div className="col-span-full">
           <Card inset="headless">
@@ -147,7 +150,7 @@ const AnalyzeCompositionPage = async ({ searchParams }: AnalyzePageProps) => {
           <StatsHint />
         </div>
       </div>
-    </>
+    </CompositionFilterProvider>
   );
 };
 

@@ -1,3 +1,5 @@
+'use client';
+
 import { Fragment } from 'react';
 
 import { toPercentage } from '@/lib/utils';

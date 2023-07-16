@@ -1,3 +1,5 @@
+'use client';
+
 import { FactionSelection, Select } from '@/ui';
 import { useCompositionFilter } from './context';
 
