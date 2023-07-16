@@ -52,6 +52,12 @@ export const compositionDetails = (id: string, list: SquadData[][]) => {
 
       stats.faction = current.xws.faction;
       stats.squads.push(current);
+
+      // Gather data about exact pilot composition
+      // count/lists/percentile/deviation
+
+      // Gather data about each pilot and upgrade
+      // count/lists/percentile/deviation
     });
   });
 
