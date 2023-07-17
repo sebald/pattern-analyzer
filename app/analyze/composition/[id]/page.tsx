@@ -2,25 +2,39 @@ import { pointsUpdateDate } from '@/lib/config';
 import { compositionDetails } from '@/lib/stats/details/composition';
 import { fromDate } from '@/lib/utils/date.utils';
 import { getAllTournaments, getSquads } from '@/lib/vendor/listfortress';
-import { Message, Title } from '@/ui';
 import { SquadList } from '@/ui/squad-list';
-import { z } from 'zod';
 
 /**
  * Opt into background revalidation. (see: https://github.com/vercel/next.js/discussions/43085)
  */
-export const generateStaticParams = () => [];
+export const generateStaticParams = async () => {
+  const tournaments = await getAllTournaments({
+    from: fromDate(pointsUpdateDate),
+    format: 'standard',
+  });
+
+  const squads = await Promise.all(
+    tournaments.map(({ id }) => getSquads({ id: `${id}` }))
+  );
+
+  const compositions = new Set<string>();
+  squads.flat().forEach(({ xws }) => {
+    if (!xws) return;
+
+    const id = xws.pilots.map(({ ship }) => ship).join('.');
+    compositions.add(id);
+  });
+
+  return [...compositions.values()].map(id => ({
+    id,
+  }));
+};
 
 // Data
 // ---------------
-const getCompositionStats = async (
-  id: string,
-  from: Date,
-  to: Date | undefined
-) => {
+const getCompositionStats = async (id: string, from: Date) => {
   const tournaments = await getAllTournaments({
     from,
-    to,
     format: 'standard',
   });
 
@@ -44,8 +58,7 @@ interface PageParams {
 const Page = async ({ params }: PageParams) => {
   const stats = await getCompositionStats(
     params.id,
-    fromDate(pointsUpdateDate),
-    undefined
+    fromDate(pointsUpdateDate)
   );
 
   return (

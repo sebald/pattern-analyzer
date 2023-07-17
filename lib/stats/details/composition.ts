@@ -58,6 +58,8 @@ export const compositionDetails = (id: string, list: SquadData[][]) => {
 
       // Gather data about each pilot and upgrade
       // count/lists/percentile/deviation
+
+      // "Trend" = percentile 1,2,3 months ago
     });
   });
 
