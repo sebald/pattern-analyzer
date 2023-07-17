@@ -38,11 +38,13 @@ const getCompositionStats = async (id: string, from: Date) => {
     format: 'standard',
   });
 
-  const squads = await Promise.all(
-    tournaments.map(({ id }) => getSquads({ id: `${id}` }))
+  const data = await Promise.all(
+    tournaments.map(({ id, date }) =>
+      getSquads({ id: `${id}` }).then(squads => ({ date, squads }))
+    )
   );
 
-  return compositionDetails(id, squads);
+  return compositionDetails(id, data);
 };
 
 // Props

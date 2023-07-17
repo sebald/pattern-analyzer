@@ -7,7 +7,6 @@ import { percentile } from '@/lib/utils/math.utils';
 export interface SquadCompositionData {
   id: string;
   faction: XWSFaction;
-  squads: SquadData[];
   count: number;
   record: GameRecord;
   percentiles: number[];
@@ -19,13 +18,25 @@ export interface SquadCompositionData {
       percentiles: number[];
     };
   };
+
+  squads: {
+    player: string;
+    xws: XWSSquad;
+    event: {
+      date: string;
+      total: number;
+      rank: {
+        swiss: number;
+        elimination?: number;
+      };
+    };
+  }[];
 }
 
 export interface SquadCompositionStats {
   id: string;
   faction: XWSFaction;
   ships: Ships[];
-  squads: SquadData[];
   count: number;
   frequency: number;
   winrate: number | null;
@@ -44,7 +55,10 @@ const isComposition = (id: string, xws: XWSSquad) => {
 
 // Module
 // ---------------
-export const compositionDetails = (id: string, list: SquadData[][]) => {
+export const compositionDetails = (
+  id: string,
+  input: { date: string; squads: SquadData[] }[]
+) => {
   const stats: SquadCompositionData = {
     id,
     faction: 'rebelalliance', // just so TS shuts up
@@ -55,10 +69,10 @@ export const compositionDetails = (id: string, list: SquadData[][]) => {
     pilot: {},
   };
 
-  list.forEach(tournament => {
-    const total = tournament.length;
+  input.forEach(({ date, squads }) => {
+    const total = squads.length;
 
-    tournament.forEach(current => {
+    squads.forEach(current => {
       if (!current.xws) return;
       if (!isComposition(id, current.xws)) return;
 
@@ -74,9 +88,6 @@ export const compositionDetails = (id: string, list: SquadData[][]) => {
       stats.record.ties += current.record.ties;
       stats.record.losses += current.record.losses;
       stats.percentiles.push(pct);
-
-      // ??? group by pilots?, also add tournament info like name/player to it?
-      stats.squads.push(current);
 
       // Stats based on pilot
       current.xws.pilots.forEach(({ id: pid }) => {
@@ -95,8 +106,15 @@ export const compositionDetails = (id: string, list: SquadData[][]) => {
         stats.pilot[pid] = pilot;
       });
 
-      // Gather data about exact pilot composition
-      // count/lists/percentile/deviation
+      stats.squads.push({
+        player: current.player,
+        xws: current.xws,
+        event: {
+          total,
+          date,
+          rank: current.rank,
+        },
+      });
 
       // Gather data about each pilot and upgrade
       // count/lists/percentile/deviation
