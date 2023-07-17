@@ -60,6 +60,9 @@ test('calculate percentile', () => {
 
   expect(percentile(4, 20)).toMatchInlineSnapshot(`0.8421`);
   expect(percentile(3, 12)).toMatchInlineSnapshot(`0.8182`);
+
+  expect(percentile(1, 10)).toMatchInlineSnapshot(`1`);
+  expect(percentile(3, 10)).toMatchInlineSnapshot(`0.7778`);
 });
 
 test('calculate deviation', () => {
