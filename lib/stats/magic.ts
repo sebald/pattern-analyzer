@@ -13,9 +13,9 @@ export interface MagicProps {
  *
  * The whole idea behind this forumla is to reflect "the meta".
  */
-export const magic = ({ percentile, deviation, count }: MagicProps) =>
+export const magic = ({ percentile, count }: MagicProps) =>
   round(
-    Math.max(percentile - deviation, 0.001) *
+    percentile *
       /**
        * Make sure that even a count of one still yields a score
        * that is not 0. ln(2) = 0.69, so use 0.3 for count = 1.
