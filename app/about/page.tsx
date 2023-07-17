@@ -65,10 +65,10 @@ const About = () => (
         </Text>
         <Text size="large" prose>
           For example, if a pilot makes 1st and 3rd place in a tournament with
-          10 participants, her percentile will be 80% since there is one
-          occurrence of the the pilot that is better than 90% of the field (1st
-          place) and the occurrence (3rd place) is better then 70% of the field.
-          Thus on average the pilot performed better than 80% of the field.
+          10 participants, her percentile will be 89% since there is one
+          occurrence of the the pilot that is better than 100% of the field (1st
+          place) and the occurrence (3rd place) is better then 78% of the field.
+          Thus on average the pilot performed better than 89% of the field.
         </Text>
       </List.Item>
       <List.Item>
