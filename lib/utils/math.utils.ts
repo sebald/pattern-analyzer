@@ -65,7 +65,7 @@ export const winrate = (
  * https://www.cuemath.com/percentile-formula/
  */
 export const percentile = (rank: number, total: number) =>
-  round((total - rank) / total, 4);
+  round((total - rank) / (total - 1), 4);
 
 /**
  * Calculate standard deviation.
