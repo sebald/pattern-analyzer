@@ -1,5 +1,6 @@
 import type { Ships } from '@/lib/get-value';
 import type { GameRecord, SquadData, XWSFaction, XWSSquad } from '@/lib/types';
+import { percentile } from '@/lib/utils/math.utils';
 
 // Types
 // ---------------
@@ -10,6 +11,14 @@ export interface SquadCompositionData {
   count: number;
   record: GameRecord;
   percentiles: number[];
+
+  pilot: {
+    [id: string]: {
+      count: number;
+      record: GameRecord;
+      percentiles: number[];
+    };
+  };
 }
 
 export interface SquadCompositionStats {
@@ -43,15 +52,48 @@ export const compositionDetails = (id: string, list: SquadData[][]) => {
     count: 0,
     record: { wins: 0, ties: 0, losses: 0 },
     percentiles: [],
+    pilot: {},
   };
 
-  list.forEach(data => {
-    data.forEach(current => {
+  list.forEach(tournament => {
+    const total = tournament.length;
+
+    tournament.forEach(current => {
       if (!current.xws) return;
       if (!isComposition(id, current.xws)) return;
 
+      const pct = percentile(
+        current.rank.elimination ?? current.rank.swiss,
+        total
+      );
+
+      // Overall stats
       stats.faction = current.xws.faction;
+      stats.count += 1;
+      stats.record.wins += current.record.wins;
+      stats.record.ties += current.record.ties;
+      stats.record.losses += current.record.losses;
+      stats.percentiles.push(pct);
+
+      // ??? group by pilots?, also add tournament info like name/player to it?
       stats.squads.push(current);
+
+      // Stats based on pilot
+      current.xws.pilots.forEach(({ id: pid }) => {
+        const pilot = stats.pilot[pid] || {
+          count: 0,
+          record: { wins: 0, ties: 0, losses: 0 },
+          percentiles: [],
+        };
+
+        pilot.count += 1;
+        pilot.record.wins += current.record.wins;
+        pilot.record.ties += current.record.ties;
+        pilot.record.losses += current.record.losses;
+        pilot.percentiles.push(pct);
+
+        stats.pilot[pid] = pilot;
+      });
 
       // Gather data about exact pilot composition
       // count/lists/percentile/deviation
