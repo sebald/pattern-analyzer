@@ -7,7 +7,7 @@ export interface YASBPilot {
   name: string;
   ship: string;
   points: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
-  skill: 0 | 1 | 2 | 3 | 4 | 5 | 6;
+  skill: 0 | 1 | 2 | 3 | 4 | 5 | 6 | '*';
   xws?: string;
 }
 
@@ -72,6 +72,9 @@ export const getPointsByName = (id: string) => {
 
 export const getPilotSkill = (id: string) => {
   const { skill } = getPilotByName(id) || { skill: 1 };
+  if (id === 'nashtahpup') {
+    console.log(id, getPilotByName(id));
+  }
   return skill;
 };
 

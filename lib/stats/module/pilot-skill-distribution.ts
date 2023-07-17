@@ -26,6 +26,8 @@ export const pilotSkillDistribution: () => StatModule<PilotSkillDistributionData
     return {
       pilot: pilot => {
         const skill = getPilotSkill(pilot.id);
+        // Ignore "Nashtah Pup"
+        if (skill === '*') return;
         store[skill] += 1;
       },
       get: () => ({ pilotSkillDistribution: store }),
