@@ -24,7 +24,7 @@ export const lastWeekend = () => {
   const thursday = dayjs().day(4).subtract(7, 'day');
   return [thursday.toDate(), thursday.add(3, 'day').toDate()] satisfies [
     Date,
-    Date
+    Date,
   ];
 };
 
@@ -47,6 +47,12 @@ export const toDate = (from: Date, to?: Date) => {
   const start = dayjs(from).format('YYYY-MM-DD');
   return to ? `${start}/${dayjs(to).format('YYYY-MM-DD')}` : start;
 };
+
+/**
+ * Transforms a string (date) to 'YYYY-MM'. Can be used to group data by month.
+ */
+export const toMonth = (val: string) =>
+  dayjs(val).startOf('month').format('YYYY-MM');
 
 /**
  * Formats date to a human readable format.

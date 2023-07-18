@@ -1,10 +1,20 @@
 import type { Ships } from '@/lib/get-value';
 import type { GameRecord, SquadData, XWSFaction, XWSSquad } from '@/lib/types';
-import { percentile } from '@/lib/utils/math.utils';
+import { toMonth } from '@/lib/utils/date.utils';
+import {
+  average,
+  deviation,
+  percentile,
+  round,
+  winrate,
+} from '@/lib/utils/math.utils';
 
 // Types
 // ---------------
 export interface SquadCompositionData {
+  /**
+   * Composition id (ships separated by ".")
+   */
   id: string;
   faction: XWSFaction;
   count: number;
@@ -20,6 +30,10 @@ export interface SquadCompositionData {
   };
 
   squads: {
+    /**
+     * Pilot ids separated by "."
+     */
+    id: string;
     player: string;
     xws: XWSSquad;
     event: {
@@ -42,7 +56,22 @@ export interface SquadCompositionStats {
   winrate: number | null;
   percentile: number;
   deviation: number;
-  score: number;
+
+  trend: {
+    date: string;
+    count: number;
+    percentile: number;
+  }[];
+
+  pilot: {
+    [id: string]: {
+      count: number;
+      frequency: number;
+      winrate: number | null;
+      percentile: number;
+      deviation: number;
+    };
+  };
 }
 
 // Helpers
@@ -69,11 +98,17 @@ export const compositionDetails = (
     pilot: {},
   };
 
+  let squadsInFaction = 0;
+
   input.forEach(({ date, squads }) => {
     const total = squads.length;
 
     squads.forEach(current => {
       if (!current.xws) return;
+
+      const faction = current.xws.faction;
+      squadsInFaction += 1;
+
       if (!isComposition(id, current.xws)) return;
 
       const pct = percentile(
@@ -82,12 +117,23 @@ export const compositionDetails = (
       );
 
       // Overall stats
-      stats.faction = current.xws.faction;
+      stats.faction = faction;
       stats.count += 1;
       stats.record.wins += current.record.wins;
       stats.record.ties += current.record.ties;
       stats.record.losses += current.record.losses;
       stats.percentiles.push(pct);
+
+      stats.squads.push({
+        id: current.xws.pilots.map(({ id }) => id).join('.'),
+        player: current.player,
+        xws: current.xws,
+        event: {
+          total,
+          date,
+          rank: current.rank,
+        },
+      });
 
       // Stats based on pilot
       current.xws.pilots.forEach(({ id: pid }) => {
@@ -105,36 +151,42 @@ export const compositionDetails = (
 
         stats.pilot[pid] = pilot;
       });
-
-      stats.squads.push({
-        player: current.player,
-        xws: current.xws,
-        event: {
-          total,
-          date,
-          rank: current.rank,
-        },
-      });
-
-      // Gather data about each pilot and upgrade
-      // count/lists/percentile/deviation
-
-      // "Trend" = percentile 1,2,3 months ago
     });
   });
 
+  // Overall
   const result: SquadCompositionStats = {
     id: stats.id,
     faction: stats.faction,
     ships: stats.id.split('.') as Ships[],
-    squads: stats.squads,
     count: stats.count,
-    frequency: 0,
-    winrate: 0,
-    percentile: 0,
-    deviation: 0,
-    score: 0,
+    frequency: round(stats.count / squadsInFaction, 4),
+    winrate: winrate([stats.record]),
+    percentile: average(stats.percentiles, 4),
+    deviation: deviation(stats.percentiles, 4),
+    trend: [],
+    pilot: {},
   };
+
+  // Trend
+  const trends: { [month: string]: { count: number; percentiles: number[] } } =
+    {};
+  stats.squads.forEach(({ event }) => {
+    const month = toMonth(event.date);
+  });
+
+  // Pilots
+  Object.entries(stats.pilot).forEach(([pid, pilot]) => {
+    result.pilot[pid] = {
+      count: pilot.count,
+      frequency: round(pilot.count / stats.count, 4),
+      winrate: winrate([pilot.record]),
+      percentile: average(pilot.percentiles, 4),
+      deviation: deviation(pilot.percentiles, 4),
+    };
+  });
+
+  // TODO: group suqads by pilots?
 
   return result;
 };
