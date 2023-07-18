@@ -33,7 +33,7 @@ const DialogOverlay = forwardRef<
 >(({ className, children, ...props }, ref) => (
   <Primitive.Overlay
     className={cn(
-      'animate-in fade-in fixed inset-0 z-50 bg-black/50 backdrop-blur-sm transition-opacity',
+      'fixed inset-0 z-50 bg-black/50 backdrop-blur-sm transition-opacity animate-in fade-in',
       className
     )}
     {...props}
@@ -54,7 +54,7 @@ const DialogContent = forwardRef<
       ref={ref}
       className={cn(
         'border border-secondary-100 bg-white px-4 py-3 shadow shadow-secondary-600 sm:max-w-lg sm:rounded-lg',
-        'animate-in fade-in-90 slide-in-from-bottom-10 sm:zoom-in-90 sm:slide-in-from-bottom-0 fixed z-50 grid w-full scale-100 gap-2 opacity-100',
+        'fixed z-50 grid w-full scale-100 gap-2 opacity-100 animate-in fade-in-90 slide-in-from-bottom-10 sm:zoom-in-90 sm:slide-in-from-bottom-0',
         className
       )}
       {...props}
@@ -62,7 +62,7 @@ const DialogContent = forwardRef<
       {children}
       <Primitive.Close
         className={cn(
-          'absolute top-4 right-4 rounded-sm opacity-70 transition-opacity',
+          'absolute right-4 top-4 rounded-sm opacity-70 transition-opacity',
           'hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-primary-200 focus:ring-offset-2 disabled:pointer-events-none',
           'data-[state=open]:bg-secondary-100'
         )}

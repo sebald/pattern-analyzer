@@ -72,7 +72,7 @@ const getEventRounds = async (
         type: allRounds[idx] > 0 ? 'swiss' : 'elimination',
         number: Math.abs(allRounds[idx]),
         html,
-      }) as const
+      } as const)
   );
 };
 

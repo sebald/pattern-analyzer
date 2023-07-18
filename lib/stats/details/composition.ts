@@ -58,9 +58,29 @@ export interface SquadCompositionStats {
   deviation: number;
 
   trend: {
+    /**
+     * Date format YYYY-MM
+     */
     date: string;
     count: number;
     percentile: number;
+  }[];
+
+  squads: {
+    /**
+     * Pilot ids separated by "."
+     */
+    id: string;
+    player: string;
+    xws: XWSSquad;
+    event: {
+      date: string;
+      total: number;
+      rank: {
+        swiss: number;
+        elimination?: number;
+      };
+    };
   }[];
 
   pilot: {
@@ -80,6 +100,30 @@ const isComposition = (id: string, xws: XWSSquad) => {
   const ships = xws.pilots.map(p => p.ship);
   ships.sort();
   return id === ships.join('.');
+};
+
+const createTrends = (squads: SquadCompositionData['squads']) => {
+  const trends: { [month: string]: { count: number; percentiles: number[] } } =
+    {};
+
+  squads.forEach(({ event }) => {
+    const date = toMonth(event.date);
+
+    const item = trends[date] || { count: 0, percentiles: [] };
+    item.count += 1;
+    item.percentiles.push(
+      event.rank.elimination ?? event.rank.swiss,
+      event.total
+    );
+
+    trends[date] = item;
+  });
+
+  return Object.entries(trends).map(([date, { count, percentiles }]) => ({
+    date,
+    count,
+    percentile: average(percentiles, 4),
+  }));
 };
 
 // Module
@@ -164,16 +208,10 @@ export const compositionDetails = (
     winrate: winrate([stats.record]),
     percentile: average(stats.percentiles, 4),
     deviation: deviation(stats.percentiles, 4),
-    trend: [],
+    trend: createTrends(stats.squads),
+    squads: stats.squads,
     pilot: {},
   };
-
-  // Trend
-  const trends: { [month: string]: { count: number; percentiles: number[] } } =
-    {};
-  stats.squads.forEach(({ event }) => {
-    const month = toMonth(event.date);
-  });
 
   // Pilots
   Object.entries(stats.pilot).forEach(([pid, pilot]) => {
@@ -185,8 +223,6 @@ export const compositionDetails = (
       deviation: deviation(pilot.percentiles, 4),
     };
   });
-
-  // TODO: group suqads by pilots?
 
   return result;
 };
