@@ -4,7 +4,7 @@ import { Title } from '@/ui';
 const Layout = ({ children }: { children: ReactNode }) => (
   <>
     <div className="pb-6">
-      <Title>Composition Details</Title>
+      <Title>Details</Title>
     </div>
     <div>{children}</div>
   </>

@@ -26,7 +26,7 @@ export const TrendCurve = ({ value }: TrendCurveProps) => {
     y: percentile,
     count,
   }));
-  console.log(data);
+
   return (
     <div className="h-64">
       <ResponsiveLine
