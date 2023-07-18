@@ -63,11 +63,7 @@ const Page = async ({ params }: PageParams) => {
     fromDate(pointsUpdateDate)
   );
 
-  return (
-    <>
-      <SquadList squads={stats.squads} />
-    </>
-  );
+  return <div>hello</div>;
 };
 
 export default Page;
