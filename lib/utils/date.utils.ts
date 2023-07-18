@@ -67,3 +67,9 @@ export const formatDate = (date: Date) => {
     year: 'numeric',
   });
 };
+
+/**
+ * Formats motn date ('YYYY-MM') to a human readable format.
+ */
+export const formatMonth = (val: string) =>
+  dayjs(val, 'YYYY-MM').format('MMM YY');

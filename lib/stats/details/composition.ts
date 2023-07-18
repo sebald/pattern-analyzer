@@ -1,6 +1,6 @@
 import type { Ships } from '@/lib/get-value';
 import type { GameRecord, SquadData, XWSFaction, XWSSquad } from '@/lib/types';
-import { toMonth } from '@/lib/utils/date.utils';
+import { fromDate, toMonth } from '@/lib/utils/date.utils';
 import {
   average,
   deviation,
@@ -112,18 +112,27 @@ const createTrends = (squads: SquadCompositionData['squads']) => {
     const item = trends[date] || { count: 0, percentiles: [] };
     item.count += 1;
     item.percentiles.push(
-      event.rank.elimination ?? event.rank.swiss,
-      event.total
+      percentile(event.rank.elimination ?? event.rank.swiss, event.total)
     );
 
     trends[date] = item;
   });
 
-  return Object.entries(trends).map(([date, { count, percentiles }]) => ({
-    date,
-    count,
-    percentile: average(percentiles, 4),
-  }));
+  const result = Object.entries(trends).map(
+    ([date, { count, percentiles }]) => ({
+      date,
+      count,
+      percentile: average(percentiles, 4),
+    })
+  );
+
+  result.sort(
+    (a, b) =>
+      new Date(fromDate(`${a.date}-01`)).getTime() -
+      new Date(fromDate(`${b.date}-01`)).getTime()
+  );
+
+  return result;
 };
 
 // Module

@@ -4,7 +4,10 @@ import { compositionDetails } from '@/lib/stats/details/composition';
 import { toPercentage } from '@/lib/utils';
 import { fromDate } from '@/lib/utils/date.utils';
 import { getAllTournaments, getSquads } from '@/lib/vendor/listfortress';
-import { Card, Detail, Headline, ShipIcon } from '@/ui';
+
+import { Card, Detail, ShipIcon } from '@/ui';
+
+import { TrendCurve } from './_component/trend-curve';
 
 /**
  * Opt into background revalidation. (see: https://github.com/vercel/next.js/discussions/43085)
@@ -64,10 +67,10 @@ const Page = async ({ params }: PageParams) => {
     params.id,
     fromDate(pointsUpdateDate)
   );
-  console.log(stats.ships);
+
   return (
-    <>
-      <Card>
+    <div className="grid gap-4 md:grid-cols-12">
+      <Card className="col-span-full lg:col-span-7">
         <Card.Header>
           <Card.Title>Overview</Card.Title>
         </Card.Header>
@@ -114,7 +117,15 @@ const Page = async ({ params }: PageParams) => {
           </div>
         </Card.Body>
       </Card>
-    </>
+      <Card className="col-span-full lg:col-span-5">
+        <Card.Header>
+          <Card.Title>Trend (in Percentile)</Card.Title>
+          <Card.Body>
+            <TrendCurve value={stats.trend} />
+          </Card.Body>
+        </Card.Header>
+      </Card>
+    </div>
   );
 };
 
