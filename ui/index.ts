@@ -7,6 +7,7 @@ export { Collapsible, type CollapsibleProps } from './collapsible';
 export * from './container';
 export { CopyButton, type CopyButtonProps } from './copy-button';
 export * from './date-selection';
+export * from './detail';
 export * from './dialog';
 export * from './divider';
 export * from './faction-icon';

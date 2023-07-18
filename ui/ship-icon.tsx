@@ -20,7 +20,7 @@ export const ShipIcon = ({ ship, className, ...props }: ShipIconProps) => (
   <span
     {...props}
     title={getShipName(ship) || ship}
-    className={cn(xwingShips.className, className)}
+    className={cn(xwingShips.className, className, 'leading-none')}
   >
     {(icons as any)[ship] || ship}
   </span>

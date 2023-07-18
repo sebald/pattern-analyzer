@@ -52,10 +52,11 @@ const CardHeader = ({ children }: CardHeaderProps) => (
 // ---------------
 export interface CardBodyProps {
   children: React.ReactNode;
+  className?: string;
 }
 
-const CardBody = ({ children }: CardBodyProps) => (
-  <div className="flex-1">{children}</div>
+const CardBody = ({ children, className }: CardBodyProps) => (
+  <div className={cn('flex-1', className)}>{children}</div>
 );
 
 // Card.Footer
