@@ -14,6 +14,6 @@ export const Detail = ({ label, value }: DetailProps) => (
     <div className="text-sm font-medium leading-none text-primary-500">
       {label}
     </div>
-    <div className="text-2xl font-medium text-secondary-900">{value}</div>
+    <div className="text-2xl font-medium text-secondary-700">{value}</div>
   </div>
 );

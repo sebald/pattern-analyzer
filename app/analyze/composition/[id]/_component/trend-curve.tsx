@@ -45,7 +45,13 @@ export const TrendCurve = ({ value }: TrendCurveProps) => {
           min: 0,
           max: 1,
         }}
-        axisLeft={{ tickValues: 5, format: toPercentage }}
+        axisLeft={{
+          tickValues: 3,
+          format: toPercentage,
+          legend: <tspan style={{ fontWeight: 700 }}>Percentile</tspan>,
+          legendPosition: 'middle',
+          legendOffset: -45,
+        }}
         pointLabel={({ y }) => toPercentage(y as number)}
         enablePointLabel
         enableArea
@@ -59,7 +65,7 @@ export const TrendCurve = ({ value }: TrendCurveProps) => {
         ]}
         colors="#5155b1"
         fill={[{ match: '*', id: 'gradient' }]}
-        margin={{ top: 15, right: 30, bottom: 30, left: 40 }}
+        margin={{ top: 15, right: 30, bottom: 30, left: 60 }}
         isInteractive={false}
         animate={false}
       />

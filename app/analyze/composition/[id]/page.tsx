@@ -70,52 +70,40 @@ const Page = async ({ params }: PageParams) => {
 
   return (
     <div className="grid gap-4 md:grid-cols-12">
-      <Card className="col-span-full lg:col-span-7">
+      <Card className="col-span-full md:col-span-6 lg:col-span-3">
         <Card.Header>
-          <Card.Title>Overview</Card.Title>
+          <Card.Title>Chassis</Card.Title>
         </Card.Header>
-        <Card.Body className="grid divide-y px-3 md:grid-cols-2 md:divide-x md:divide-y-0">
-          <div className="flex flex-col pb-5 md:row-span-3 md:pb-0 md:pt-2">
-            <Detail
-              label="Ships"
-              value={stats.ships.map((ship, idx) => (
-                <div
-                  key={idx}
-                  className="flex items-center gap-2 text-secondary-700"
-                >
-                  <ShipIcon key={idx} ship={ship} className="text-3xl" />
-                  <span className="text-sm font-medium">
-                    {getShipName(ship)}
-                  </span>
-                </div>
-              ))}
-            />
-          </div>
-          <div className="py-5 md:col-start-2 md:pb-3 md:pl-8 md:pt-2">
-            <Detail
-              label="Percentile"
-              value={`${toPercentage(stats.percentile)} (${toPercentage(
-                stats.deviation
-              )})`}
-            />
-          </div>
-          <div className="py-5 md:col-start-2 md:py-3 md:pl-8">
-            <Detail
-              label="Winrate"
-              value={stats.winrate !== null ? toPercentage(stats.winrate) : '-'}
-            />
-          </div>
-          <div className="py-5 md:col-start-2 md:pl-8 md:pt-3">
-            <Detail
-              label="Frequency (Overall)"
-              value={`${toPercentage(stats.frequency)} (${stats.count})`}
-            />
-          </div>
+        <Card.Body className="px-3">
+          {stats.ships.map((ship, idx) => (
+            <div key={idx} className="flex items-center gap-2">
+              <ShipIcon key={idx} ship={ship} className="text-3xl" />
+              <span className="text-sm font-medium">{getShipName(ship)}</span>
+            </div>
+          ))}
         </Card.Body>
       </Card>
-      <Card className="col-span-full lg:col-span-5">
+      <Card className="col-span-full md:col-span-6 lg:col-span-4">
         <Card.Header>
-          <Card.Title>Trend (in Percentile)</Card.Title>
+          <Card.Title>Stats</Card.Title>
+        </Card.Header>
+        <Card.Body className="grid grid-flow-row grid-cols-2 gap-y-4 px-3">
+          <Detail label="Percentile" value={toPercentage(stats.percentile)} />
+          <Detail label="Deviation" value={toPercentage(stats.deviation)} />
+          <Detail
+            label="Winrate"
+            value={stats.winrate !== null ? toPercentage(stats.winrate) : '-'}
+          />
+          <Detail
+            label="Frequency (Overall)"
+            value={toPercentage(stats.frequency)}
+          />
+          <Detail label="Count" value={stats.count} />
+        </Card.Body>
+      </Card>
+      <Card className="col-span-full md:col-span-12 lg:col-span-5">
+        <Card.Header>
+          <Card.Title>Trend</Card.Title>
           <Card.Body>
             <TrendCurve value={stats.trend} />
           </Card.Body>
