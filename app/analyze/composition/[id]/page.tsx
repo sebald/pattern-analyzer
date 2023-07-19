@@ -74,9 +74,9 @@ const Page = async ({ params }: PageParams) => {
         <Card.Header>
           <Card.Title>Chassis</Card.Title>
         </Card.Header>
-        <Card.Body className="px-3">
+        <Card.Body className="flex flex-col gap-2 px-3">
           {stats.ships.map((ship, idx) => (
-            <div key={idx} className="flex items-center gap-2">
+            <div key={idx} className="flex items-center gap-1">
               <ShipIcon key={idx} ship={ship} className="text-3xl" />
               <span className="text-sm font-medium">{getShipName(ship)}</span>
             </div>
@@ -113,14 +113,14 @@ const Page = async ({ params }: PageParams) => {
         <Card.Header>
           <Card.Title>Squads</Card.Title>
           <Card.Body className="grid divide-y">
-            {stats.squads.map(({ player, event, xws }) => (
+            {/* {stats.squads.map(({ player, event, xws }) => (
               <div
                 key={player + event.date + event.rank.swiss}
                 className="px-8 py-6"
               >
                 <Squad variant="narrow" size="small" xws={xws} />
               </div>
-            ))}
+            ))} */}
           </Card.Body>
         </Card.Header>
       </Card>
