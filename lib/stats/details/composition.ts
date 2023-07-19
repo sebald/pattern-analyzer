@@ -91,6 +91,27 @@ export interface SquadCompositionStats {
 
 // Helpers
 // ---------------
+const createPilotsId = (xws: XWSSquad) => {
+  const pilots = [...xws.pilots];
+  pilots.sort((a, b) => {
+    if (a.ship < b.ship) {
+      return -1;
+    }
+    if (a.ship > b.ship) {
+      return 1;
+    }
+    if (a.id < b.id) {
+      return -1;
+    }
+    if (a.id > b.id) {
+      return 1;
+    }
+    return 0;
+  });
+
+  return pilots.map(({ id }) => id).join('.');
+};
+
 const isComposition = (id: string, xws: XWSSquad) => {
   const ships = xws.pilots.map(p => p.ship);
   ships.sort();
@@ -221,7 +242,7 @@ export const compositionDetails = (
       stats.percentiles.push(pct);
 
       stats.squads.push({
-        id: current.xws.pilots.map(({ id }) => id).join('.'),
+        id: createPilotsId(current.xws),
         player: current.player,
         xws: current.xws,
         date,
