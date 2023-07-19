@@ -35,9 +35,10 @@ export interface SquadCompositionData {
      */
     id: string;
     player: string;
+    date: string;
     xws: XWSSquad;
     percentile: number;
-    date: string;
+    record: GameRecord;
   }[];
 }
 
@@ -66,11 +67,10 @@ export interface SquadCompositionStats {
   squads: {
     [pilots: string]: {
       items: {
-        xws: XWSSquad[];
+        xws: XWSSquad;
         date: string;
         player: string;
       }[];
-      count: number;
       frequency: number;
       winrate: number | null;
       percentile: number;
@@ -129,11 +129,52 @@ const createTrends = (squads: SquadCompositionData['squads']) => {
 };
 
 const groupSquads = (squads: SquadCompositionData['squads']) => {
-  const stats = {};
+  const data: {
+    [id: string]: {
+      percentiles: number[];
+      record: GameRecord;
+      items: { xws: XWSSquad; date: string; player: string }[];
+    };
+  } = {};
+  const groups: SquadCompositionStats['squads'] = {};
 
-  squads.forEach(({ id }) => {});
+  squads.forEach(squad => {
+    const current = data[squad.id] || {
+      record: {
+        wins: 0,
+        ties: 0,
+        losses: 0,
+      },
+      percentiles: [],
+      items: [],
+    };
 
-  return {};
+    current.record.wins += squad.record.wins;
+    current.record.ties += squad.record.ties;
+    current.record.losses += squad.record.losses;
+    current.percentiles.push(squad.percentile);
+    current.items.push({
+      xws: squad.xws,
+      date: squad.date,
+      player: squad.player,
+    });
+
+    data[squad.id] = current;
+  });
+
+  Object.keys(data).forEach(id => {
+    const current = data[id];
+
+    groups[id] = {
+      items: current.items,
+      frequency: round(current.items.length / squads.length, 4),
+      winrate: winrate([current.record]),
+      percentile: average(current.percentiles, 4),
+      deviation: deviation(current.percentiles, 4),
+    };
+  });
+
+  return groups;
 };
 
 // Module
@@ -184,6 +225,7 @@ export const compositionDetails = (
         player: current.player,
         xws: current.xws,
         date,
+        record: current.record,
         percentile: pct,
       });
 
