@@ -69,7 +69,7 @@ const Page = async ({ params }: PageParams) => {
   );
 
   return (
-    <div className="grid gap-4 md:grid-cols-12">
+    <div className="grid gap-4 pt-3 md:grid-cols-12">
       <Card className="col-span-full md:col-span-6 lg:col-span-3">
         <Card.Header>
           <Card.Title>Chassis</Card.Title>
