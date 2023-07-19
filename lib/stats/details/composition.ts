@@ -1,4 +1,4 @@
-import type { Ships } from '@/lib/get-value';
+import { getFactionByShip, type Ships } from '@/lib/get-value';
 import type { GameRecord, SquadData, XWSFaction, XWSSquad } from '@/lib/types';
 import { fromDate, toMonth } from '@/lib/utils/date.utils';
 import {
@@ -36,14 +36,8 @@ export interface SquadCompositionData {
     id: string;
     player: string;
     xws: XWSSquad;
-    event: {
-      date: string;
-      total: number;
-      rank: {
-        swiss: number;
-        elimination?: number;
-      };
-    };
+    percentile: number;
+    date: string;
   }[];
 }
 
@@ -66,22 +60,23 @@ export interface SquadCompositionStats {
     percentile: number;
   }[];
 
+  /**
+   * Grouped by pilots
+   */
   squads: {
-    /**
-     * Pilot ids separated by "."
-     */
-    id: string;
-    player: string;
-    xws: XWSSquad;
-    event: {
-      date: string;
-      total: number;
-      rank: {
-        swiss: number;
-        elimination?: number;
-      };
+    [pilots: string]: {
+      items: {
+        xws: XWSSquad[];
+        date: string;
+        player: string;
+      }[];
+      count: number;
+      frequency: number;
+      winrate: number | null;
+      percentile: number;
+      deviation: number;
     };
-  }[];
+  };
 
   pilot: {
     [id: string]: {
@@ -106,14 +101,12 @@ const createTrends = (squads: SquadCompositionData['squads']) => {
   const trends: { [month: string]: { count: number; percentiles: number[] } } =
     {};
 
-  squads.forEach(({ event }) => {
-    const date = toMonth(event.date);
+  squads.forEach(squad => {
+    const date = toMonth(squad.date);
 
     const item = trends[date] || { count: 0, percentiles: [] };
     item.count += 1;
-    item.percentiles.push(
-      percentile(event.rank.elimination ?? event.rank.swiss, event.total)
-    );
+    item.percentiles.push(squad.percentile);
 
     trends[date] = item;
   });
@@ -135,6 +128,14 @@ const createTrends = (squads: SquadCompositionData['squads']) => {
   return result;
 };
 
+const groupSquads = (squads: SquadCompositionData['squads']) => {
+  const stats = {};
+
+  squads.forEach(({ id }) => {});
+
+  return {};
+};
+
 // Module
 // ---------------
 export const compositionDetails = (
@@ -143,7 +144,8 @@ export const compositionDetails = (
 ) => {
   const stats: SquadCompositionData = {
     id,
-    faction: 'rebelalliance', // just so TS shuts up
+    // Get first ship to derive faction
+    faction: getFactionByShip(id.split('.')[0] as Ships),
     squads: [],
     count: 0,
     record: { wins: 0, ties: 0, losses: 0 },
@@ -159,8 +161,9 @@ export const compositionDetails = (
     squads.forEach(current => {
       if (!current.xws) return;
 
-      const faction = current.xws.faction;
-      squadsInFaction += 1;
+      if (stats.faction === current.xws.faction) {
+        squadsInFaction += 1;
+      }
 
       if (!isComposition(id, current.xws)) return;
 
@@ -170,7 +173,6 @@ export const compositionDetails = (
       );
 
       // Overall stats
-      stats.faction = faction;
       stats.count += 1;
       stats.record.wins += current.record.wins;
       stats.record.ties += current.record.ties;
@@ -181,11 +183,8 @@ export const compositionDetails = (
         id: current.xws.pilots.map(({ id }) => id).join('.'),
         player: current.player,
         xws: current.xws,
-        event: {
-          total,
-          date,
-          rank: current.rank,
-        },
+        date,
+        percentile: pct,
       });
 
       // Stats based on pilot
@@ -218,7 +217,7 @@ export const compositionDetails = (
     percentile: average(stats.percentiles, 4),
     deviation: deviation(stats.percentiles, 4),
     trend: createTrends(stats.squads),
-    squads: stats.squads,
+    squads: groupSquads(stats.squads),
     pilot: {},
   };
 

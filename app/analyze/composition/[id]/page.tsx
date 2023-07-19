@@ -95,7 +95,7 @@ const Page = async ({ params }: PageParams) => {
             value={stats.winrate !== null ? toPercentage(stats.winrate) : '-'}
           />
           <Detail
-            label="Frequency (Overall)"
+            label="Frequency (in Faction)"
             value={toPercentage(stats.frequency)}
           />
           <Detail label="Count" value={stats.count} />
