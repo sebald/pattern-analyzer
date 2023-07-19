@@ -5,9 +5,14 @@ import { toPercentage } from '@/lib/utils';
 import { fromDate } from '@/lib/utils/date.utils';
 import { getAllTournaments, getSquads } from '@/lib/vendor/listfortress';
 
-import { Card, Detail, ShipIcon, Squad } from '@/ui';
+import { Card, Detail, ShipIcon } from '@/ui';
 
+import { SquadGroups } from './_component/squad-groups';
 import { TrendCurve } from './_component/trend-curve';
+
+// Config
+// ---------------
+export const revalidate = 21600; // 6 hours
 
 /**
  * Opt into background revalidation. (see: https://github.com/vercel/next.js/discussions/43085)
@@ -109,10 +114,12 @@ const Page = async ({ params }: PageParams) => {
           </Card.Body>
         </Card.Header>
       </Card>
-      <Card className="col-span-full px-0">
+      <Card className="col-span-full">
         <Card.Header>
           <Card.Title>Squads</Card.Title>
-          <Card.Body className="grid divide-y">
+          <Card.Body>
+            <SquadGroups value={stats.squads} />
+
             {/* {stats.squads.map(({ player, event, xws }) => (
               <div
                 key={player + event.date + event.rank.swiss}
