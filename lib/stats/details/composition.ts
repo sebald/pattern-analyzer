@@ -185,6 +185,9 @@ const groupSquads = (squads: SquadCompositionData['squads']) => {
 
   Object.keys(data).forEach(id => {
     const current = data[id];
+    current.items.sort(
+      (a, b) => fromDate(b.date).getTime() - fromDate(a.date).getTime()
+    );
 
     groups[id] = {
       items: current.items,
