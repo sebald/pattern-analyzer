@@ -1,11 +1,11 @@
 'use client';
 
-import { Accordion, CopyButton, Squad } from '@/ui';
+import { Accordion, Badge, CopyButton, Detail, Squad } from '@/ui';
 
 import { getPilotName } from '@/lib/get-value';
 import { type SquadCompositionStats } from '@/lib/stats/details/composition';
-import { Fragment } from 'react';
 import { formatDate } from '@/lib/utils/date.utils';
+import { toPercentage } from '@/lib/utils/math.utils';
 
 // Props
 // ---------------
@@ -24,10 +24,38 @@ export const SquadGroups = ({ value }: SquadGroupsProps) => {
       {Object.entries(value).map(([id, current]) => (
         <Accordion.Item value={id} key={id}>
           <Accordion.Trigger>
-            {id.split('.').map(getPilotName).join(', ')}
+            <div className="flex gap-2">
+              <div className="flex w-9 items-center justify-end">
+                <Badge variant="light">{current.items.length}</Badge>
+              </div>
+              {id.split('.').map(getPilotName).join(', ')}
+            </div>
           </Accordion.Trigger>
           <Accordion.Content>
-            <div className="flex flex-col gap-4">
+            <div className="flex justify-around gap-4 rounded bg-secondary-100/25 px-4 py-2">
+              <Detail
+                variant="secondary"
+                size="small"
+                align="left"
+                label="Percentile:"
+                value={toPercentage(current.percentile)}
+              />
+              <Detail
+                variant="secondary"
+                size="small"
+                align="left"
+                label="Deviant:"
+                value={toPercentage(current.deviation)}
+              />
+              <Detail
+                variant="secondary"
+                size="small"
+                align="left"
+                label="Winrate:"
+                value={current.winrate ? toPercentage(current.winrate) : '-'}
+              />
+            </div>
+            <div className="flex flex-col gap-4 pt-4">
               {current.items.map(({ date, player, xws }) => (
                 <div
                   key={date + player}

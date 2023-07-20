@@ -114,7 +114,7 @@ const Page = async ({ params }: PageParams) => {
           </Card.Body>
         </Card.Header>
       </Card>
-      <Card className="col-span-full px-0">
+      <Card className="col-span-full px-0 pb-0">
         <Card.Header>
           <Card.Title>Squads</Card.Title>
           <Card.Body>
