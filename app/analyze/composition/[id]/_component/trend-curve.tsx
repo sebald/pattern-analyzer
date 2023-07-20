@@ -28,7 +28,7 @@ export const TrendCurve = ({ value }: TrendCurveProps) => {
   }));
 
   return (
-    <div className="h-64">
+    <div className="grid h-64 auto-cols-fr">
       <ResponsiveLine
         data={[
           {
