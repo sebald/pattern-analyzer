@@ -59,7 +59,7 @@ export const SquadGroups = ({ value }: SquadGroupsProps) => {
               {current.items.map(({ date, player, xws }) => (
                 <div
                   key={date + player}
-                  className="gap grid grid-cols-2 gap-y-6 rounded-lg border border-secondary-200 px-4 py-6"
+                  className="gap grid grid-cols-2 gap-y-6"
                 >
                   <div>
                     <div className="text-sm font-medium leading-none">
