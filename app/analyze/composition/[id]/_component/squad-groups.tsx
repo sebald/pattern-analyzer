@@ -25,7 +25,7 @@ export const SquadGroups = ({ value }: SquadGroupsProps) => {
         <Accordion.Item value={id} key={id}>
           <Accordion.Trigger>
             <div className="flex gap-2">
-              <div className="flex w-9 items-center justify-end">
+              <div className="w-9 text-right">
                 <Badge variant="light">{current.items.length}</Badge>
               </div>
               {id.split('.').map(getPilotName).join(', ')}
