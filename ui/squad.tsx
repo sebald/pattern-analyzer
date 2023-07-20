@@ -25,7 +25,7 @@ const styles = {
   pilot: cva('flex items-center font-semibold text-secondary-900', {
     variants: {
       variant: {
-        narrow: '',
+        narrow: 'leading-none',
         default: 'pb-1',
       },
       size: {

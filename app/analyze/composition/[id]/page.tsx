@@ -114,20 +114,11 @@ const Page = async ({ params }: PageParams) => {
           </Card.Body>
         </Card.Header>
       </Card>
-      <Card className="col-span-full">
+      <Card className="col-span-full px-0">
         <Card.Header>
           <Card.Title>Squads</Card.Title>
           <Card.Body>
             <SquadGroups value={stats.squads} />
-
-            {/* {stats.squads.map(({ player, event, xws }) => (
-              <div
-                key={player + event.date + event.rank.swiss}
-                className="px-8 py-6"
-              >
-                <Squad variant="narrow" size="small" xws={xws} />
-              </div>
-            ))} */}
           </Card.Body>
         </Card.Header>
       </Card>

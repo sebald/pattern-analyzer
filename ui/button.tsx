@@ -5,7 +5,7 @@ import { forwardRef } from 'react';
 // ---------------
 const styles = cva(
   [
-    'rounded-lg transition-all focus:outline-none focus-visible:ring',
+    'transition-all focus:outline-none focus-visible:ring',
     'disabled:cursor-not-allowed disabled:border-primary-300/25 disabled:bg-primary-300/50',
   ],
   {
@@ -30,12 +30,14 @@ const styles = cva(
           'border-red-500 bg-red-500 text-white',
           'hover:border-red-700 hover:bg-red-700 focus-visible:ring-red-200',
         ],
+        flat: ['hover:bg-slate-300/50'],
       },
       size: {
         inherit: '', // inherit whatever is there
-        regular: 'text-sm px-5 py-2.5 shadow-sm',
-        large: 'text-lg px-6 py-3 shadow',
-        huge: 'text-xl px-12 py-5 shadow',
+        small: 'rounded text-xs px-2 py-1',
+        regular: 'rounded-lg text-sm px-5 py-2.5 shadow-sm',
+        large: 'rounded-lg text-lg px-6 py-3 shadow',
+        huge: 'rounded-lg text-xl px-12 py-5 shadow',
       },
     },
     defaultVariants: {
