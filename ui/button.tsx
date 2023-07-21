@@ -30,7 +30,6 @@ const styles = cva(
           'border-red-500 bg-red-500 text-white',
           'hover:border-red-700 hover:bg-red-700 focus-visible:ring-red-200',
         ],
-        flat: ['hover:bg-slate-300/50'],
       },
       size: {
         inherit: '', // inherit whatever is there

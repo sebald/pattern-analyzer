@@ -1,12 +1,11 @@
 'use client';
 
-import { Accordion, Badge, CopyButton, Detail, Squad } from '@/ui';
+import { Accordion, Badge, CopyButton, Detail, Squad, Timeline } from '@/ui';
 
 import { getPilotName } from '@/lib/get-value';
 import { type SquadCompositionStats } from '@/lib/stats/details/composition';
 import { formatDate } from '@/lib/utils/date.utils';
 import { toPercentage } from '@/lib/utils/math.utils';
-import { Timeline } from '@/ui/timeline';
 
 // Props
 // ---------------

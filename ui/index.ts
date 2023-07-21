@@ -34,5 +34,6 @@ export * from './table';
 export * from './text';
 export * from './textarea';
 export * from './tiles';
+export * from './timeline';
 export * from './title';
 export * from './upgrade-slot-selection';
