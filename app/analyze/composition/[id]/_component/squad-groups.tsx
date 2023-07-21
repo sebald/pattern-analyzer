@@ -61,9 +61,7 @@ export const SquadGroups = ({ value }: SquadGroupsProps) => {
                 {current.items.map(({ date, player, xws }) => (
                   <Timeline.Item key={date + player}>
                     <Timeline.Header>
-                      <div className="text-sm font-medium leading-none">
-                        {formatDate(new Date(date))}
-                      </div>
+                      {formatDate(new Date(date))}
                       <div className="text-xs text-secondary-400">
                         by {player}
                       </div>
