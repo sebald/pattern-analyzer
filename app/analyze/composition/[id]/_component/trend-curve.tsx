@@ -65,7 +65,7 @@ export const TrendCurve = ({ value }: TrendCurveProps) => {
         ]}
         colors="#5155b1"
         fill={[{ match: '*', id: 'gradient' }]}
-        margin={{ top: 15, right: 30, bottom: 30, left: 60 }}
+        margin={{ top: 20, right: 30, bottom: 30, left: 60 }}
         isInteractive={false}
         animate={false}
       />

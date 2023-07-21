@@ -75,24 +75,26 @@ const Page = async ({ params }: PageParams) => {
 
   return (
     <div className="grid gap-4 pt-3 md:grid-cols-12">
-      <Card className="col-span-full md:col-span-6 lg:col-span-3">
+      <Card className="col-span-full">
         <Card.Header>
           <Card.Title>Chassis</Card.Title>
         </Card.Header>
-        <Card.Body className="flex flex-col gap-2 px-3">
+        <Card.Body className="flex flex-wrap gap-x-4 gap-y-1 px-3 md:justify-center lg:gap-x-8">
           {stats.ships.map((ship, idx) => (
             <div key={idx} className="flex items-center gap-1">
               <ShipIcon key={idx} ship={ship} className="text-3xl" />
-              <span className="text-sm font-medium">{getShipName(ship)}</span>
+              <span className="whitespace-nowrap text-sm font-medium">
+                {getShipName(ship)}
+              </span>
             </div>
           ))}
         </Card.Body>
       </Card>
-      <Card className="col-span-full md:col-span-6 lg:col-span-4">
+      <Card className="col-span-full md:col-span-6 lg:col-span-5 lg:col-start-8">
         <Card.Header>
           <Card.Title>Stats</Card.Title>
         </Card.Header>
-        <Card.Body className="grid grid-flow-row grid-cols-2 gap-y-4 px-3">
+        <Card.Body className="grid grid-cols-[repeat(auto-fit,_minmax(min(155px,_100%),_1fr))] gap-2 px-2 lg:px-4">
           <Detail label="Percentile" value={toPercentage(stats.percentile)} />
           <Detail label="Deviation" value={toPercentage(stats.deviation)} />
           <Detail
@@ -106,7 +108,7 @@ const Page = async ({ params }: PageParams) => {
           <Detail label="Count" value={stats.count} />
         </Card.Body>
       </Card>
-      <Card className="col-span-full md:col-span-12 lg:col-span-5">
+      <Card className="col-span-full md:col-span-6 lg:col-span-5 lg:col-start-8">
         <Card.Header>
           <Card.Title>Trend</Card.Title>
           <Card.Body>
@@ -114,7 +116,7 @@ const Page = async ({ params }: PageParams) => {
           </Card.Body>
         </Card.Header>
       </Card>
-      <Card className="col-span-full px-0 pb-0 lg:col-span-6">
+      <Card className="col-span-full px-0 pb-0 lg:col-span-7 lg:row-start-2">
         <Card.Header>
           <Card.Title>Squads</Card.Title>
           <Card.Body>
