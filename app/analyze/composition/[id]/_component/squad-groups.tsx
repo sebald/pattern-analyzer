@@ -64,7 +64,7 @@ export const SquadGroups = ({ value }: SquadGroupsProps) => {
                       {formatDate(new Date(date))}
                       <Timeline.Caption>by {player}</Timeline.Caption>
                     </Timeline.Header>
-                    <Timeline.Body className="flex flex-col gap-4">
+                    <Timeline.Body className="flex flex-col items-start gap-4">
                       <Squad xws={xws} variant="narrow" />
                       <CopyButton size="small" content={JSON.stringify(xws)}>
                         Copy XWS
