@@ -62,11 +62,9 @@ export const SquadGroups = ({ value }: SquadGroupsProps) => {
                   <Timeline.Item key={date + player}>
                     <Timeline.Header>
                       {formatDate(new Date(date))}
-                      <div className="text-xs text-secondary-400">
-                        by {player}
-                      </div>
+                      <Timeline.Caption>by {player}</Timeline.Caption>
                     </Timeline.Header>
-                    <Timeline.Body>
+                    <Timeline.Body className="flex flex-col gap-4">
                       <Squad xws={xws} variant="narrow" />
                       <CopyButton size="small" content={JSON.stringify(xws)}>
                         Copy XWS
