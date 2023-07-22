@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils/classname.utils';
 // ---------------
 const styles = {
   card: cva(
-    ['flex h-full w-full flex-col items-stretch gap-4', 'rounded-lg bg-white'],
+    ['flex w-full flex-col items-stretch gap-4', 'rounded-lg bg-white'],
     {
       variants: {
         elevation: {
@@ -19,10 +19,15 @@ const styles = {
           default: ['px-3 pt-3 pb-2'],
           headless: ['px-3 pt-4 pb-2'], // No title/card.header
         },
+        size: {
+          default: 'h-full',
+          fit: 'h-fit',
+        },
       },
       defaultVariants: {
         elevation: 'default',
         inset: 'default',
+        size: 'default',
       },
     }
   ),
@@ -99,15 +104,16 @@ export interface CardProps
 }
 
 export const Card = ({
-  elevation: variant,
+  elevation,
   inset,
+  size,
   className,
   children,
   ...props
 }: CardProps) => (
   <div
     {...props}
-    className={cn(styles.card({ elevation: variant, inset, className }))}
+    className={cn(styles.card({ elevation, inset, size, className }))}
   >
     {children}
   </div>

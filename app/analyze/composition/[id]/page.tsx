@@ -90,40 +90,44 @@ const Page = async ({ params }: PageParams) => {
           ))}
         </Card.Body>
       </Card>
-      <Card className="col-span-full md:col-span-6 lg:col-span-5 lg:col-start-8">
-        <Card.Header>
-          <Card.Title>Stats</Card.Title>
-        </Card.Header>
-        <Card.Body className="grid grid-cols-[repeat(auto-fit,_minmax(min(155px,_100%),_1fr))] gap-2 px-2 lg:px-4">
-          <Detail label="Percentile" value={toPercentage(stats.percentile)} />
-          <Detail label="Deviation" value={toPercentage(stats.deviation)} />
-          <Detail
-            label="Winrate"
-            value={stats.winrate !== null ? toPercentage(stats.winrate) : '-'}
-          />
-          <Detail
-            label="Frequency (in Faction)"
-            value={toPercentage(stats.frequency)}
-          />
-          <Detail label="Count" value={stats.count} />
-        </Card.Body>
-      </Card>
-      <Card className="col-span-full md:col-span-6 lg:col-span-5 lg:col-start-8">
-        <Card.Header>
-          <Card.Title>Trend</Card.Title>
-          <Card.Body>
-            <TrendCurve value={stats.trend} />
+      <div className="col-span-full flex flex-col gap-4 md:col-span-6 lg:col-span-5 lg:col-start-8">
+        <Card>
+          <Card.Header>
+            <Card.Title>Stats</Card.Title>
+          </Card.Header>
+          <Card.Body className="grid grid-cols-[repeat(auto-fit,_minmax(min(155px,_100%),_1fr))] gap-2 px-2 pb-2 lg:px-4">
+            <Detail label="Percentile" value={toPercentage(stats.percentile)} />
+            <Detail label="Deviation" value={toPercentage(stats.deviation)} />
+            <Detail
+              label="Winrate"
+              value={stats.winrate !== null ? toPercentage(stats.winrate) : '-'}
+            />
+            <Detail
+              label="Frequency (in Faction)"
+              value={toPercentage(stats.frequency)}
+            />
+            <Detail label="Count" value={stats.count} />
           </Card.Body>
-        </Card.Header>
-      </Card>
-      <Card className="col-span-full px-0 pb-0 lg:col-span-7 lg:row-start-2">
-        <Card.Header>
-          <Card.Title>Squads</Card.Title>
-          <Card.Body>
-            <SquadGroups value={stats.squads} />
-          </Card.Body>
-        </Card.Header>
-      </Card>
+        </Card>
+        <Card>
+          <Card.Header>
+            <Card.Title>Trend</Card.Title>
+            <Card.Body>
+              <TrendCurve value={stats.trend} />
+            </Card.Body>
+          </Card.Header>
+        </Card>
+      </div>
+      <div className="col-span-full px-0 pb-0 lg:col-span-7 lg:row-span-2 lg:row-start-2">
+        <Card size="fit">
+          <Card.Header>
+            <Card.Title>Squads</Card.Title>
+            <Card.Body>
+              <SquadGroups value={stats.squads} />
+            </Card.Body>
+          </Card.Header>
+        </Card>
+      </div>
     </div>
   );
 };
