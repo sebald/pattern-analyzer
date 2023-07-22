@@ -20,14 +20,14 @@ const styles = {
           headless: ['px-3 pt-4 pb-2'], // No title/card.header
         },
         size: {
-          default: 'h-full',
+          stretch: 'h-full',
           fit: 'h-fit',
         },
       },
       defaultVariants: {
         elevation: 'default',
         inset: 'default',
-        size: 'default',
+        size: 'stretch',
       },
     }
   ),

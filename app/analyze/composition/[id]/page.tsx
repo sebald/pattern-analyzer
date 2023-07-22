@@ -91,7 +91,7 @@ const Page = async ({ params }: PageParams) => {
         </Card.Body>
       </Card>
       <div className="col-span-full flex flex-col gap-4 md:col-span-6 lg:col-span-5 lg:col-start-8">
-        <Card>
+        <Card size="fit">
           <Card.Header>
             <Card.Title>Stats</Card.Title>
           </Card.Header>
@@ -109,7 +109,7 @@ const Page = async ({ params }: PageParams) => {
             <Detail label="Count" value={stats.count} />
           </Card.Body>
         </Card>
-        <Card>
+        <Card size="fit">
           <Card.Header>
             <Card.Title>Trend</Card.Title>
             <Card.Body>
@@ -118,7 +118,7 @@ const Page = async ({ params }: PageParams) => {
           </Card.Header>
         </Card>
       </div>
-      <div className="col-span-full px-0 pb-0 lg:col-span-7 lg:row-span-1 lg:row-start-2">
+      <div className="col-span-full px-0 pb-0 lg:col-span-7 lg:row-start-2">
         <Card size="fit">
           <Card.Header>
             <Card.Title>Squads</Card.Title>
