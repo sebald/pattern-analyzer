@@ -22,6 +22,7 @@ export * from './link';
 export * from './list';
 export * from './logo';
 export * from './message';
+export * from './pilot-image';
 export * from './search-field';
 export * from './select';
 export * from './sheet';

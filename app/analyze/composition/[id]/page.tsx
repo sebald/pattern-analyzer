@@ -9,6 +9,7 @@ import { Card, Detail, ShipIcon } from '@/ui';
 
 import { SquadGroups } from './_component/squad-groups';
 import { TrendCurve } from './_component/trend-curve';
+import { PilotTable } from './_component/pilot-table';
 
 // Config
 // ---------------
@@ -128,6 +129,14 @@ const Page = async ({ params }: PageParams) => {
           </Card.Header>
         </Card>
       </div>
+      <Card className="col-span-full">
+        <Card.Header>
+          <Card.Title>Pilots</Card.Title>
+          <Card.Body>
+            <PilotTable value={stats.pilot} />
+          </Card.Body>
+        </Card.Header>
+      </Card>
     </div>
   );
 };
