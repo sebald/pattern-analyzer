@@ -28,12 +28,12 @@ export const revalidate = 21600; // 6 hours
 // Metadata
 // ---------------
 export const metadata = {
-  title: 'Pattern Analyzer | Analyze',
-  description: 'Analyze the current X-Wing meta!',
+  title: 'Pattern Analyzer | Compositions',
+  description: 'Take a loot at what is currently flown in X-Wing!',
   openGraph: {
     siteName: 'Pattern Analyzer',
-    title: 'Analyze',
-    description: 'Analyze the current X-Wing meta!',
+    title: 'Compositions',
+    description: 'Take a loot at what is currently flown in X-Wing!',
     images: `${baseUrl}/api/og.png`,
     locale: 'en-US',
     type: 'website',
@@ -115,7 +115,7 @@ const AnalyzeCompositionPage = async ({ searchParams }: AnalyzePageProps) => {
   return (
     <CompositionFilterProvider>
       <div className="pb-6">
-        <Title>Composition</Title>
+        <Title>Compositions</Title>
         <Caption>
           <Inline className="gap-4">
             <Inline className="whitespace-nowrap">
