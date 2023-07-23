@@ -11,13 +11,14 @@ const styles = {
     {
       variants: {
         elevation: {
-          default: ['shadow-card'],
-          lightest: ['shadow-sm'],
-          light: ['shadow'],
+          default: 'shadow-card',
+          lightest: 'shadow-sm',
+          light: 'shadow',
         },
         inset: {
-          default: ['px-3 pt-3 pb-2'],
-          headless: ['px-3 pt-4 pb-2'], // No title/card.header
+          default: 'px-3 pt-3 pb-2',
+          headless: 'px-3 pt-4 pb-2', // No title/card.header
+          list: 'px-0 pt-3 pb-2', // for when using a list
         },
         size: {
           stretch: 'h-full',
@@ -113,7 +114,7 @@ export const Card = ({
 }: CardProps) => (
   <div
     {...props}
-    className={cn(styles.card({ elevation, inset, size, className }))}
+    className={cn(styles.card({ elevation, inset, size }), className)}
   >
     {children}
   </div>

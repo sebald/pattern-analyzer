@@ -120,7 +120,7 @@ const Page = async ({ params }: PageParams) => {
         </Card>
       </div>
       <div className="col-span-full px-0 pb-0 lg:col-span-7 lg:row-start-2">
-        <Card size="fit">
+        <Card size="fit" inset="list">
           <Card.Header>
             <Card.Title>Squads</Card.Title>
             <Card.Body>
