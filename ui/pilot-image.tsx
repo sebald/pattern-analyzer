@@ -12,7 +12,7 @@ export interface PilotImageProps
 export const PilotImage = ({ pilot, alt, ...props }: PilotImageProps) => (
   <Image
     {...props}
-    src={`https://infinitearenas.com/xw2/images/pilots/${pilot}`}
+    src={`https://infinitearenas.com/xw2/images/pilots/${pilot}.png`}
     alt={alt || getPilotName(pilot) || ''}
   />
 );

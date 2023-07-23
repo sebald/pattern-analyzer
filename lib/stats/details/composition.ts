@@ -1,5 +1,11 @@
 import { getFactionByShip, type Ships } from '@/lib/get-value';
-import type { GameRecord, SquadData, XWSFaction, XWSSquad } from '@/lib/types';
+import type {
+  GameRecord,
+  SquadData,
+  XWSFaction,
+  XWSSquad,
+  XWSUpgrades,
+} from '@/lib/types';
 import { fromDate, toMonth } from '@/lib/utils/date.utils';
 import {
   average,
@@ -24,6 +30,7 @@ export interface SquadCompositionData {
   pilot: {
     [id: string]: {
       count: number;
+      upgrades: XWSUpgrades[];
       record: GameRecord;
       percentiles: number[];
     };
@@ -80,6 +87,7 @@ export interface SquadCompositionStats {
 
   pilot: {
     [id: string]: {
+      upgrades: { id: string; list: XWSUpgrades; percentile: number }[];
       count: number;
       frequency: number;
       winrate: number | null;
@@ -201,6 +209,54 @@ const groupSquads = (squads: SquadCompositionData['squads']) => {
   return groups;
 };
 
+/**
+ * Group upgrades of one pilot if the upgrades
+ * are exactly the same.
+ */
+const groupUpgrades = (value: {
+  upgrades: XWSUpgrades[];
+  percentiles: number[];
+}) => {
+  const getId = (us: XWSUpgrades) => {
+    const val = Object.values(us).flat();
+    val.sort();
+    return val.join('.');
+  };
+
+  const data: {
+    [id: string]: {
+      percentiles: number[];
+      list: XWSUpgrades;
+    };
+  } = {};
+  const groups: { id: string; list: XWSUpgrades; percentile: number }[] = [];
+
+  value.upgrades.forEach((upgrades, idx) => {
+    const id = getId(upgrades);
+    const current = data[id] || {
+      percentiles: [],
+      list: upgrades,
+    };
+
+    // Upgrades and percentile have same index
+    current.percentiles.push(value.percentiles[idx]);
+
+    return (data[id] = current);
+  });
+
+  Object.keys(data).forEach(id => {
+    groups.push({
+      id,
+      list: data[id].list,
+      percentile: average(data[id].percentiles, 4),
+    });
+  });
+
+  groups.sort((a, b) => b.percentile - a.percentile);
+
+  return groups;
+};
+
 // Module
 // ---------------
 export const compositionDetails = (
@@ -254,14 +310,16 @@ export const compositionDetails = (
       });
 
       // Stats based on pilot
-      current.xws.pilots.forEach(({ id: pid }) => {
+      current.xws.pilots.forEach(({ id: pid, upgrades }) => {
         const pilot = stats.pilot[pid] || {
           count: 0,
+          upgrades: [],
           record: { wins: 0, ties: 0, losses: 0 },
           percentiles: [],
         };
 
         pilot.count += 1;
+        pilot.upgrades.push(upgrades);
         pilot.record.wins += current.record.wins;
         pilot.record.ties += current.record.ties;
         pilot.record.losses += current.record.losses;
@@ -291,6 +349,7 @@ export const compositionDetails = (
   Object.entries(stats.pilot).forEach(([pid, pilot]) => {
     result.pilot[pid] = {
       count: pilot.count,
+      upgrades: groupUpgrades(pilot),
       frequency: round(pilot.count / stats.count, 4),
       winrate: winrate([pilot.record]),
       percentile: average(pilot.percentiles, 4),
