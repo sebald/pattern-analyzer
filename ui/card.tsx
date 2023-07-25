@@ -96,11 +96,14 @@ const CardMenu = ({ children }: CardMenuProps) => (
 // Card.Action
 // ---------------
 export interface CardActionsProps {
+  className?: string;
   children: React.ReactNode;
 }
 
-const CardActions = ({ children }: CardActionsProps) => (
-  <div className="flex flex-wrap justify-end gap-3 pb-1">{children}</div>
+const CardActions = ({ className, children }: CardActionsProps) => (
+  <div className={cn('flex flex-wrap justify-end gap-3 pb-1', className)}>
+    {children}
+  </div>
 );
 
 // Card

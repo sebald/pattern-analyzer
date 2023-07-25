@@ -29,6 +29,7 @@ export interface SquadCompositionData {
 
   pilot: {
     [id: string]: {
+      ship: Ships;
       count: number;
       upgrades: XWSUpgrades[];
       record: GameRecord;
@@ -87,6 +88,7 @@ export interface SquadCompositionStats {
 
   pilot: {
     [id: string]: {
+      ship: Ships;
       upgrades: {
         id: string;
         list: XWSUpgrades;
@@ -325,8 +327,9 @@ export const compositionDetails = (
       });
 
       // Stats based on pilot
-      current.xws.pilots.forEach(({ id: pid, upgrades }) => {
+      current.xws.pilots.forEach(({ id: pid, ship, upgrades }) => {
         const pilot = stats.pilot[pid] || {
+          ship,
           count: 0,
           upgrades: [],
           record: { wins: 0, ties: 0, losses: 0 },
@@ -363,8 +366,9 @@ export const compositionDetails = (
   // Pilots
   Object.entries(stats.pilot).forEach(([pid, pilot]) => {
     result.pilot[pid] = {
-      count: pilot.count,
+      ship: pilot.ship,
       upgrades: groupUpgrades(pilot),
+      count: pilot.count,
       frequency: round(pilot.count / stats.count, 4),
       winrate: winrate([pilot.record]),
       percentile: average(pilot.percentiles, 4),
