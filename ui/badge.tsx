@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils/classname.utils';
 
 // Styles
 // ---------------
-const styles = cva('inline-flex items-center leading-none justify-center', {
+const styles = cva('inline-flex items-center leading-none justify-center ', {
   variants: {
     variant: {
       default: 'bg-primary-800 text-primary-50',

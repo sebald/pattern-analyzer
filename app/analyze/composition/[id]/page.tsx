@@ -1,4 +1,4 @@
-import { pointsUpdateDate } from '@/lib/config';
+import { baseUrl, pointsUpdateDate } from '@/lib/config';
 import { getPilotName, getShipName } from '@/lib/get-value';
 import { compositionDetails } from '@/lib/stats/details/composition';
 import { toPercentage } from '@/lib/utils';
@@ -10,7 +10,6 @@ import { Badge, Card, Detail, PilotImage, ShipIcon } from '@/ui';
 
 import { SquadGroups } from './_component/squad-groups';
 import { TrendCurve } from './_component/trend-curve';
-import { PilotTable } from './_component/pilot-table';
 import { Fragment } from 'react';
 import { Info } from '@/ui/icons';
 
@@ -42,6 +41,21 @@ export const generateStaticParams = async () => {
   return [...compositions.values()].map(id => ({
     id,
   }));
+};
+
+// Metadata
+// ---------------
+export const metadata = {
+  title: 'Pattern Analyzer | Composition Details',
+  description: 'Take a loot at what is currently flown in X-Wing!',
+  openGraph: {
+    siteName: 'Pattern Analyzer',
+    title: 'Composition Details',
+    description: 'Take a loot at what is currently flown in X-Wing!',
+    images: `${baseUrl}/api/og.png`,
+    locale: 'en-US',
+    type: 'website',
+  },
 };
 
 // Data
@@ -134,15 +148,15 @@ const Page = async ({ params }: PageParams) => {
       </div>
       <Card className="col-span-full" inset="list">
         <Card.Header>
-          <Card.Title>Pilots & Loadouts</Card.Title>
+          <Card.Title>Pilots</Card.Title>
           <Card.Body variant="enumeration">
             {Object.entries(stats.pilot).map(([pid, current]) => (
               <div
                 key={pid}
-                className="grid grid-cols-[max-content,auto] grid-rows-[auto,auto,auto] gap-x-4 gap-y-3 px-4 py-5"
+                className="grid gap-x-4 gap-y-5 px-4 py-5 md:grid-cols-[max-content,auto] md:grid-rows-[auto,auto,auto]"
               >
                 <PilotImage
-                  className="row-span-full rounded-md"
+                  className="row-span-full hidden rounded-md md:block"
                   pilot={pid}
                   type="art"
                   width={125}
@@ -183,29 +197,31 @@ const Page = async ({ params }: PageParams) => {
                     value={toPercentage(current.frequency)}
                   />
                 </div>
-                <div className="pt-2">
-                  <div className="pb-2 font-medium">Loadout Performance:</div>
+                <div className="pt-4">
+                  <div className="font-medium underline underline-offset-1">
+                    Performance with Loadout
+                  </div>
                   {isStandardized(pid) ? (
-                    <div className="flex items-center gap-1 py-1 text-sm italic text-secondary-400">
+                    <div className="flex items-center gap-1 pt-2 text-sm italic text-secondary-400">
                       <Info className="h-4 w-4" /> Standarized Pilot. No
-                      vartions in loadout.
+                      variations in loadout possible.
                     </div>
                   ) : (
-                    <div className="grid grid-cols-[max-content,auto,max-content] gap-4">
+                    <div className="grid grid-cols-[max-content,auto,max-content] gap-4 pt-4">
                       {current.upgrades.map(
                         ({ id, list, count, percentile }) => (
                           <Fragment key={id}>
-                            <Badge
-                              className="tabular-nums"
-                              variant="neutral"
-                              size="small"
-                            >
-                              {count}
-                            </Badge>
-                            <div className="text-sm">
-                              {upgradesToList(list)}
+                            <div className="leading-6">
+                              <Badge
+                                className="tabular-nums"
+                                variant="neutral"
+                                size="small"
+                              >
+                                {count}
+                              </Badge>
                             </div>
-                            <div className="text-sm">
+                            <div>{upgradesToList(list)}</div>
+                            <div className="text-sm leading-6">
                               {toPercentage(percentile)}
                             </div>
                           </Fragment>
