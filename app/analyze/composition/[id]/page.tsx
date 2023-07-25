@@ -1,15 +1,17 @@
 import { pointsUpdateDate } from '@/lib/config';
-import { getShipName } from '@/lib/get-value';
+import { getPilotName, getShipName } from '@/lib/get-value';
 import { compositionDetails } from '@/lib/stats/details/composition';
 import { toPercentage } from '@/lib/utils';
 import { fromDate } from '@/lib/utils/date.utils';
 import { getAllTournaments, getSquads } from '@/lib/vendor/listfortress';
+import { upgradesToList } from '@/lib/xws';
 
-import { Card, Detail, ShipIcon } from '@/ui';
+import { Badge, Card, Detail, PilotImage, ShipIcon } from '@/ui';
 
 import { SquadGroups } from './_component/squad-groups';
 import { TrendCurve } from './_component/trend-curve';
 import { PilotTable } from './_component/pilot-table';
+import { Fragment } from 'react';
 
 // Config
 // ---------------
@@ -129,11 +131,77 @@ const Page = async ({ params }: PageParams) => {
           </Card.Header>
         </Card>
       </div>
-      <Card className="col-span-full">
+      <Card className="col-span-full" inset="list">
         <Card.Header>
-          <Card.Title>Pilots</Card.Title>
-          <Card.Body>
-            <PilotTable value={stats.pilot} />
+          <Card.Title>Pilots & Loadouts</Card.Title>
+          <Card.Body variant="enumeration">
+            {Object.entries(stats.pilot).map(([pid, current]) => (
+              <div
+                key={pid}
+                className="grid grid-cols-[max-content,auto] grid-rows-[auto,auto,auto] gap-x-4 gap-y-3 px-4 py-5"
+              >
+                <PilotImage
+                  className="row-span-full rounded-md"
+                  pilot={pid}
+                  type="art"
+                  width={125}
+                  height={125}
+                />
+                <div className="text-xl font-semibold leading-none">
+                  {getPilotName(pid)}
+                </div>
+                <div className="grid grid-cols-2 grid-rows-2 gap-x-8 gap-y-0.5">
+                  <Detail
+                    variant="secondary"
+                    size="small"
+                    align="left"
+                    label="Percentile:"
+                    value={toPercentage(current.percentile)}
+                  />
+                  <Detail
+                    variant="secondary"
+                    size="small"
+                    align="left"
+                    label="Winrate:"
+                    value={
+                      current.winrate ? toPercentage(current.winrate) : '-'
+                    }
+                  />
+                  <Detail
+                    variant="secondary"
+                    size="small"
+                    align="left"
+                    label="Deviation:"
+                    value={toPercentage(current.deviation)}
+                  />
+                  <Detail
+                    variant="secondary"
+                    size="small"
+                    align="left"
+                    label="Frequency:"
+                    value={toPercentage(current.frequency)}
+                  />
+                </div>
+                <div className="pt-2">
+                  <div className="font-medium">Upgrades:</div>
+                  <div className="grid grid-cols-[max-content,auto] gap-4">
+                    {current.upgrades.map(({ id, list, percentile }) => (
+                      <Fragment key={id}>
+                        <Badge
+                          className="self-start"
+                          variant="neutral"
+                          size="small"
+                        >
+                          {toPercentage(percentile)}
+                        </Badge>
+                        <div className="text-sm">{upgradesToList(list)}</div>
+                      </Fragment>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+            {/* <PilotTable value={stats.pilot} /> */}
           </Card.Body>
         </Card.Header>
       </Card>

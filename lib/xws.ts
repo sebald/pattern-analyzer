@@ -1,6 +1,7 @@
-import type { XWSSquad } from './types';
+import type { XWSSquad, XWSUpgrades } from './types';
 import SL_PILOTS from './data/standard-loadout-pilots.json';
 import { getPointsByName } from './yasb';
+import { getUpgradeName } from './get-value';
 
 // LBN has some error and unnormalized in pilot ids.
 const PILOT_ID_MAP = {
@@ -80,3 +81,9 @@ export const getBuilderLink = (xws: XWSSquad | null) =>
   // Remove `print` from lbn to show the builder instead
   xws?.vendor?.lbn?.link.replace('print', '') ||
   null;
+
+export const upgradesToList = (upgrades: XWSUpgrades) =>
+  (Object.entries(upgrades) as [keyof XWSUpgrades, string[]][])
+    .map(([_, list]) => list.map(name => getUpgradeName(name) || name))
+    .flat()
+    .join(', ');

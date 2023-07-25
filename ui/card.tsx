@@ -32,6 +32,14 @@ const styles = {
       },
     }
   ),
+  body: cva('flex-1', {
+    variants: {
+      variant: {
+        enumeration:
+          'divide-y divide-secondary-100 border-t border-secondary-100',
+      },
+    },
+  }),
 };
 
 // Card.Title
@@ -56,13 +64,13 @@ const CardHeader = ({ children }: CardHeaderProps) => (
 
 // Card.Body
 // ---------------
-export interface CardBodyProps {
+export interface CardBodyProps extends VariantProps<typeof styles.body> {
   children: React.ReactNode;
   className?: string;
 }
 
-const CardBody = ({ children, className }: CardBodyProps) => (
-  <div className={cn('flex-1', className)}>{children}</div>
+const CardBody = ({ variant, children, className }: CardBodyProps) => (
+  <div className={cn(styles.body({ variant }), className)}>{children}</div>
 );
 
 // Card.Footer

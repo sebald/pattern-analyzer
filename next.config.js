@@ -45,7 +45,7 @@ const config = {
         protocol: 'https',
         hostname: 'infinitearenas.com',
         port: '',
-        pathname: '/xw2/images/pilots/**',
+        pathname: '/xw2/images/**',
       },
     ],
   },

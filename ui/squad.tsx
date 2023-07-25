@@ -1,7 +1,8 @@
 import { VariantProps, cva } from 'class-variance-authority';
 
-import { getPilotName, getShipName, getUpgradeName } from '@/lib/get-value';
-import type { XWSSquad, XWSUpgrades } from '@/lib/types';
+import { getPilotName, getShipName } from '@/lib/get-value';
+import type { XWSSquad } from '@/lib/types';
+import { upgradesToList } from '@/lib/xws';
 
 // Helper
 // ---------------
@@ -39,12 +40,6 @@ const styles = {
     },
   }),
 };
-
-const upgradesToList = (upgrades: XWSUpgrades) =>
-  (Object.entries(upgrades) as [keyof XWSUpgrades, string[]][])
-    .map(([_, list]) => list.map(name => getUpgradeName(name) || name))
-    .flat()
-    .join(', ');
 
 // Props
 // ---------------

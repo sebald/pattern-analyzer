@@ -7,7 +7,7 @@ const styles = {
   container: cva('', {
     variants: {
       align: {
-        left: 'flex items-center gap-2',
+        left: 'flex items-center justify-between gap-2',
       },
       variant: {
         default: '',
@@ -47,7 +47,7 @@ const styles = {
       },
       size: {
         default: 'text-2xl font-medium',
-        small: 'text-xs',
+        small: 'text-sm',
       },
     },
     defaultVariants: {
