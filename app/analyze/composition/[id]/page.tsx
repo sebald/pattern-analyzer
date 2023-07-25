@@ -4,7 +4,7 @@ import { compositionDetails } from '@/lib/stats/details/composition';
 import { toPercentage } from '@/lib/utils';
 import { fromDate } from '@/lib/utils/date.utils';
 import { getAllTournaments, getSquads } from '@/lib/vendor/listfortress';
-import { upgradesToList } from '@/lib/xws';
+import { isStandardized, upgradesToList } from '@/lib/xws';
 
 import { Badge, Card, Detail, PilotImage, ShipIcon } from '@/ui';
 
@@ -12,6 +12,7 @@ import { SquadGroups } from './_component/squad-groups';
 import { TrendCurve } from './_component/trend-curve';
 import { PilotTable } from './_component/pilot-table';
 import { Fragment } from 'react';
+import { Info } from '@/ui/icons';
 
 // Config
 // ---------------
@@ -183,21 +184,35 @@ const Page = async ({ params }: PageParams) => {
                   />
                 </div>
                 <div className="pt-2">
-                  <div className="font-medium">Upgrades:</div>
-                  <div className="grid grid-cols-[max-content,auto] gap-4">
-                    {current.upgrades.map(({ id, list, percentile }) => (
-                      <Fragment key={id}>
-                        <Badge
-                          className="self-start"
-                          variant="neutral"
-                          size="small"
-                        >
-                          {toPercentage(percentile)}
-                        </Badge>
-                        <div className="text-sm">{upgradesToList(list)}</div>
-                      </Fragment>
-                    ))}
-                  </div>
+                  <div className="pb-2 font-medium">Loadout Performance:</div>
+                  {isStandardized(pid) ? (
+                    <div className="flex items-center gap-1 py-1 text-sm italic text-secondary-400">
+                      <Info className="h-4 w-4" /> Standarized Pilot. No
+                      vartions in loadout.
+                    </div>
+                  ) : (
+                    <div className="grid grid-cols-[max-content,auto,max-content] gap-4">
+                      {current.upgrades.map(
+                        ({ id, list, count, percentile }) => (
+                          <Fragment key={id}>
+                            <Badge
+                              className="tabular-nums"
+                              variant="neutral"
+                              size="small"
+                            >
+                              {count}
+                            </Badge>
+                            <div className="text-sm">
+                              {upgradesToList(list)}
+                            </div>
+                            <div className="text-sm">
+                              {toPercentage(percentile)}
+                            </div>
+                          </Fragment>
+                        )
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
             ))}

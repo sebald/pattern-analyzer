@@ -87,7 +87,12 @@ export interface SquadCompositionStats {
 
   pilot: {
     [id: string]: {
-      upgrades: { id: string; list: XWSUpgrades; percentile: number }[];
+      upgrades: {
+        id: string;
+        list: XWSUpgrades;
+        count: number;
+        percentile: number;
+      }[];
       count: number;
       frequency: number;
       winrate: number | null;
@@ -225,30 +230,40 @@ const groupUpgrades = (value: {
 
   const data: {
     [id: string]: {
-      percentiles: number[];
+      count: number;
       list: XWSUpgrades;
+      percentiles: number[];
     };
   } = {};
-  const groups: { id: string; list: XWSUpgrades; percentile: number }[] = [];
+  const groups: {
+    id: string;
+    list: XWSUpgrades;
+    count: number;
+    percentile: number;
+  }[] = [];
 
   value.upgrades.forEach((upgrades, idx) => {
     const id = getId(upgrades);
     const current = data[id] || {
-      percentiles: [],
       list: upgrades,
+      count: 0,
+      percentiles: [],
     };
 
     // Upgrades and percentile have same index
     current.percentiles.push(value.percentiles[idx]);
+    current.count += 1;
 
-    return (data[id] = current);
+    data[id] = current;
   });
 
+  // map -> array
   Object.keys(data).forEach(id => {
     groups.push({
       id,
-      list: data[id].list,
+      count: data[id].count,
       percentile: average(data[id].percentiles, 4),
+      list: data[id].list,
     });
   });
 
@@ -342,7 +357,7 @@ export const compositionDetails = (
     deviation: deviation(stats.percentiles, 4),
     trend: createTrends(stats.squads),
     squads: groupSquads(stats.squads),
-    pilot: {},
+    pilot: {}, // Filled below
   };
 
   // Pilots

@@ -87,3 +87,5 @@ export const upgradesToList = (upgrades: XWSUpgrades) =>
     .map(([_, list]) => list.map(name => getUpgradeName(name) || name))
     .flat()
     .join(', ');
+
+export const isStandardized = (pilot: string) => pilot in SL_PILOTS;
