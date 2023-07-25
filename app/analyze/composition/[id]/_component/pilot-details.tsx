@@ -54,7 +54,7 @@ export const PilotDetails = ({ className, ships, value }: PilotDetailProps) => {
                 width={250}
                 height={250}
               />
-              <div className="text-xl font-semibold leading-none lg:text-2xl lg:font-bold">
+              <div className="text-2xl font-bold leading-none">
                 {getPilotName(pid)}
               </div>
               <div className="flex flex-wrap gap-x-8 gap-y-0.5">
