@@ -47,7 +47,7 @@ const styles = {
         secondary: 'text-secondary-950',
       },
       size: {
-        default: 'text-lg',
+        default: 'text-lg font-medium',
         large: 'text-2xl font-medium',
       },
     },
