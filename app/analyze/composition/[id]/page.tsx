@@ -113,7 +113,7 @@ const Page = async ({ params }: PageParams) => {
           <Card.Header>
             <Card.Title>Stats</Card.Title>
           </Card.Header>
-          <Card.Body className="grid grid-cols-[repeat(auto-fit,_minmax(min(155px,_100%),_1fr))] gap-2 px-2 pb-2 lg:px-4">
+          <Card.Body className="grid grid-cols-[repeat(auto-fit,_minmax(min(155px,100%),1fr))] gap-2 px-2 pb-2 lg:px-4">
             <Detail label="Percentile" value={toPercentage(stats.percentile)} />
             <Detail label="Deviation" value={toPercentage(stats.deviation)} />
             <Detail
@@ -153,23 +153,24 @@ const Page = async ({ params }: PageParams) => {
             {Object.entries(stats.pilot).map(([pid, current]) => (
               <div
                 key={pid}
-                className="grid gap-x-4 gap-y-5 px-4 py-5 md:grid-cols-[max-content,auto] md:grid-rows-[auto,auto,auto]"
+                className="grid gap-x-4 gap-y-5 px-4 py-5 md:grid-cols-[150px,auto] md:grid-rows-[auto,auto,auto] lg:grid-cols-[200px,auto] lg:gap-y-3"
               >
                 <PilotImage
                   className="row-span-full hidden rounded-md md:block"
                   pilot={pid}
                   type="art"
-                  width={125}
-                  height={125}
+                  width={250}
+                  height={250}
                 />
-                <div className="text-xl font-semibold leading-none">
+                <div className="text-xl font-semibold leading-none lg:text-2xl lg:font-bold">
                   {getPilotName(pid)}
                 </div>
-                <div className="grid grid-cols-2 grid-rows-2 gap-x-8 gap-y-0.5">
+                <div className="flex flex-wrap gap-x-8 gap-y-0.5">
                   <Detail
                     variant="secondary"
                     size="small"
                     align="left"
+                    className="max-w-[150px]"
                     label="Percentile:"
                     value={toPercentage(current.percentile)}
                   />
@@ -177,6 +178,15 @@ const Page = async ({ params }: PageParams) => {
                     variant="secondary"
                     size="small"
                     align="left"
+                    className="max-w-[150px]"
+                    label="Deviation:"
+                    value={toPercentage(current.deviation)}
+                  />
+                  <Detail
+                    variant="secondary"
+                    size="small"
+                    align="left"
+                    className="max-w-[150px]"
                     label="Winrate:"
                     value={
                       current.winrate ? toPercentage(current.winrate) : '-'
@@ -186,28 +196,22 @@ const Page = async ({ params }: PageParams) => {
                     variant="secondary"
                     size="small"
                     align="left"
-                    label="Deviation:"
-                    value={toPercentage(current.deviation)}
-                  />
-                  <Detail
-                    variant="secondary"
-                    size="small"
-                    align="left"
+                    className="max-w-[150px]"
                     label="Frequency:"
                     value={toPercentage(current.frequency)}
                   />
                 </div>
                 <div className="pt-4">
-                  <div className="font-medium underline underline-offset-1">
+                  <div className="text-sm font-medium uppercase text-secondary-500">
                     Performance with Loadout
                   </div>
                   {isStandardized(pid) ? (
-                    <div className="flex items-center gap-1 pt-2 text-sm italic text-secondary-400">
+                    <div className="text-secondary-950 flex items-center gap-1 pt-2 text-sm italic">
                       <Info className="h-4 w-4" /> Standarized Pilot. No
                       variations in loadout possible.
                     </div>
                   ) : (
-                    <div className="grid grid-cols-[max-content,auto,max-content] gap-4 pt-4">
+                    <div className="grid max-w-3xl grid-cols-[max-content,auto,max-content] gap-4 pt-4 lg:pt-2">
                       {current.upgrades.map(
                         ({ id, list, count, percentile }) => (
                           <Fragment key={id}>
@@ -220,7 +224,9 @@ const Page = async ({ params }: PageParams) => {
                                 {count}
                               </Badge>
                             </div>
-                            <div>{upgradesToList(list)}</div>
+                            <div className="font-medium">
+                              {upgradesToList(list)}
+                            </div>
                             <div className="text-sm leading-6">
                               {toPercentage(percentile)}
                             </div>

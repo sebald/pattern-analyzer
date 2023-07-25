@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { type VariantProps, cva } from 'class-variance-authority';
+import { cn } from '@/lib/utils/classname.utils';
 
 // Styles
 // ---------------
@@ -27,7 +28,7 @@ const styles = {
     variants: {
       variant: {
         default: 'text-primary-500',
-        secondary: 'text-secondary-900',
+        secondary: 'text-secondary-950',
       },
       size: {
         default: '',
@@ -60,15 +61,27 @@ const styles = {
 // Props
 // ---------------
 export interface DetailProps extends VariantProps<typeof styles.container> {
+  className?: string;
   label: ReactNode;
   value: ReactNode;
 }
 
 // Component
 // ---------------
-export const Detail = ({ label, value, variant, size, align }: DetailProps) => (
-  <div className={styles.container({ variant, size, align })}>
-    <div className={styles.label({ variant, size })}>{label}</div>
-    <div className={styles.value({ variant, size })}>{value}</div>
+export const Detail = ({
+  label,
+  value,
+  variant,
+  size,
+  align,
+  className,
+}: DetailProps) => (
+  <div className={cn(styles.container({ variant, size, align }), className)}>
+    <div className={cn(styles.label({ variant, size }), className)}>
+      {label}
+    </div>
+    <div className={cn(styles.value({ variant, size }), className)}>
+      {value}
+    </div>
   </div>
 );
