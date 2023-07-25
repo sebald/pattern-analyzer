@@ -20,7 +20,7 @@ export const PilotDetails = ({ value }: PilotDetailProps) =>
   Object.entries(value).map(([pid, current]) => (
     <div
       key={pid}
-      className="grid gap-x-4 gap-y-5 px-4 py-5 md:grid-cols-[150px,auto] md:grid-rows-[auto,auto,auto] lg:grid-cols-[200px,auto] lg:gap-y-3"
+      className="grid gap-x-4 gap-y-6 px-4 py-5 md:grid-cols-[150px,auto] md:grid-rows-[auto,auto,auto] lg:grid-cols-[200px,auto]"
     >
       <PilotImage
         className="row-span-full hidden rounded-md md:block"
@@ -58,7 +58,7 @@ export const PilotDetails = ({ value }: PilotDetailProps) =>
           value={toPercentage(current.frequency)}
         />
       </div>
-      <div className="pt-4">
+      <div>
         <div className="text-sm font-medium text-secondary-400">
           Performance with Loadout
         </div>
