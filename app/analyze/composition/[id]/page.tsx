@@ -111,17 +111,27 @@ const Page = async ({ params }: PageParams) => {
           <Card.Title>Stats</Card.Title>
         </Card.Header>
         <Card.Body className="grid grid-cols-[repeat(auto-fit,_minmax(min(155px,100%),1fr))] gap-2 px-2 pb-2 lg:px-4">
-          <Detail label="Percentile" value={toPercentage(stats.percentile)} />
-          <Detail label="Deviation" value={toPercentage(stats.deviation)} />
+          <Detail
+            label="Percentile"
+            size="large"
+            value={toPercentage(stats.percentile)}
+          />
+          <Detail
+            label="Deviation"
+            size="large"
+            value={toPercentage(stats.deviation)}
+          />
           <Detail
             label="Winrate"
+            size="large"
             value={stats.winrate !== null ? toPercentage(stats.winrate) : '-'}
           />
           <Detail
             label="Frequency (in Faction)"
+            size="large"
             value={toPercentage(stats.frequency)}
           />
-          <Detail label="Count" value={stats.count} />
+          <Detail label="Count" size="large" value={stats.count} />
         </Card.Body>
       </Card>
       <Card className="col-span-full md:col-span-6">

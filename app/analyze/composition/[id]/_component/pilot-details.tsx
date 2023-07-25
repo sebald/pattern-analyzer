@@ -35,39 +35,31 @@ export const PilotDetails = ({ value }: PilotDetailProps) =>
       <div className="flex flex-wrap gap-x-8 gap-y-0.5">
         <Detail
           variant="secondary"
-          size="small"
-          align="left"
           className="max-w-[150px]"
-          label="Percentile:"
+          label="Percentile"
           value={toPercentage(current.percentile)}
         />
         <Detail
           variant="secondary"
-          size="small"
-          align="left"
           className="max-w-[150px]"
-          label="Deviation:"
+          label="Deviation"
           value={toPercentage(current.deviation)}
         />
         <Detail
           variant="secondary"
-          size="small"
-          align="left"
           className="max-w-[150px]"
-          label="Winrate:"
+          label="Winrate"
           value={current.winrate ? toPercentage(current.winrate) : '-'}
         />
         <Detail
           variant="secondary"
-          size="small"
-          align="left"
           className="max-w-[150px]"
-          label="Frequency:"
+          label="Frequency"
           value={toPercentage(current.frequency)}
         />
       </div>
       <div className="pt-4">
-        <div className="text-sm font-medium uppercase text-secondary-500">
+        <div className="text-sm font-medium text-secondary-400">
           Performance with Loadout
         </div>
         {isStandardized(pid) ? (

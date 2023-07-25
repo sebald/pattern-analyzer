@@ -16,7 +16,7 @@ const styles = {
       },
       size: {
         default: '',
-        small: '',
+        large: '',
       },
     },
     defaultVariants: {
@@ -28,11 +28,11 @@ const styles = {
     variants: {
       variant: {
         default: 'text-primary-500',
-        secondary: 'text-secondary-950',
+        secondary: 'text-secondary-400',
       },
       size: {
         default: '',
-        small: '',
+        large: '',
       },
     },
     defaultVariants: {
@@ -44,11 +44,11 @@ const styles = {
     variants: {
       variant: {
         default: 'text-secondary-700',
-        secondary: 'text-secondary-400',
+        secondary: 'text-secondary-950',
       },
       size: {
-        default: 'text-2xl font-medium',
-        small: 'text-sm',
+        default: 'text-lg',
+        large: 'text-2xl font-medium',
       },
     },
     defaultVariants: {
