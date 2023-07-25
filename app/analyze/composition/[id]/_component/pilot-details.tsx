@@ -64,26 +64,16 @@ export const PilotDetails = ({ value }: PilotDetailProps) =>
         </div>
         {isStandardized(pid) ? (
           <div className="text-secondary-950 flex items-center gap-1 pt-2 text-sm italic">
-            <Info className="h-4 w-4" /> Standarized Pilot. No variations in
-            loadout possible.
+            <Info className="h-4 w-4" /> Standarized Pilot. No variations.
           </div>
         ) : (
-          <div className="grid max-w-3xl grid-cols-[max-content,auto,max-content] gap-4 pt-4 lg:pt-2">
+          <div className="grid grid-cols-[max-content,auto] gap-x-6 gap-y-3 pt-2">
             {current.upgrades.map(({ id, list, count, percentile }) => (
               <Fragment key={id}>
-                <div className="leading-6">
-                  <Badge
-                    className="tabular-nums"
-                    variant="neutral"
-                    size="small"
-                  >
-                    {count}
-                  </Badge>
+                <div className="text-right text-sm leading-6 text-secondary-600">
+                  {toPercentage(percentile)} ({count})
                 </div>
                 <div className="font-medium">{upgradesToList(list)}</div>
-                <div className="pl-4 text-sm leading-6">
-                  {toPercentage(percentile)}
-                </div>
               </Fragment>
             ))}
           </div>
