@@ -35,22 +35,16 @@ export const SquadGroups = ({ value }: SquadGroupsProps) => {
             <div className="flex flex-wrap justify-around gap-2 rounded bg-secondary-100/25 px-2 py-2 md:gap-4 md:px-4">
               <Detail
                 variant="secondary"
-                size="small"
-                align="left"
                 label="Percentile:"
                 value={toPercentage(current.percentile)}
               />
               <Detail
                 variant="secondary"
-                size="small"
-                align="left"
                 label="Deviation:"
                 value={toPercentage(current.deviation)}
               />
               <Detail
                 variant="secondary"
-                size="small"
-                align="left"
                 label="Winrate:"
                 value={current.winrate ? toPercentage(current.winrate) : '-'}
               />
