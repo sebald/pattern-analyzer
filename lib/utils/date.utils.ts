@@ -49,6 +49,12 @@ export const toDate = (from: Date, to?: Date) => {
 };
 
 /**
+ * Transforms a string (date) to 'YYYY-MM'. Can be used to group data by month.
+ */
+export const toMonth = (val: string) =>
+  dayjs(val).startOf('month').format('YYYY-MM');
+
+/**
  * Formats date to a human readable format.
  */
 export const formatDate = (date: Date) => {
@@ -61,3 +67,9 @@ export const formatDate = (date: Date) => {
     year: 'numeric',
   });
 };
+
+/**
+ * Formats motn date ('YYYY-MM') to a human readable format.
+ */
+export const formatMonth = (val: string) =>
+  dayjs(val, 'YYYY-MM').format('MMM YY');

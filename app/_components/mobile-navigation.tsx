@@ -73,6 +73,13 @@ export const MobileNavigation = () => {
           Pattern Analyzer
         </NavLink>
         <div className="flex flex-col gap-7 pl-2">
+          <NavLink
+            href="/"
+            close={close}
+            className="text-xl font-medium hover:text-primary-500"
+          >
+            Home
+          </NavLink>
           {[...siteNavigation, ...secondaryNavigation].map(({ name, href }) => (
             <NavLink
               key={href}

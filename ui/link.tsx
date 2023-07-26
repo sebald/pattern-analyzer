@@ -18,6 +18,7 @@ const styles = cva(
           'border-secondary-100 bg-white text-secondary-700',
           'hover:bg-secondary-50 focus-visible:ring-primary-200',
         ],
+        highlight: 'opacity-50 hover:opacity-100',
       },
       size: {
         inherit: '', // inherit whatever is there

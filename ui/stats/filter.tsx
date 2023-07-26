@@ -1,6 +1,6 @@
 'use client';
 
-import { useTransition } from 'react';
+import { type ReactNode, useTransition } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 
 import { DateSelection, Spinner, Switch } from '@/ui';
@@ -8,13 +8,14 @@ import { DateSelection, Spinner, Switch } from '@/ui';
 // Props
 // ---------------
 export interface FilterProps {
+  children?: ReactNode;
   dateRange: string;
   smallSamples: boolean;
 }
 
 // Component
 // ---------------
-export const Filter = ({ dateRange, smallSamples }: FilterProps) => {
+export const Filter = ({ children, dateRange, smallSamples }: FilterProps) => {
   const { replace } = useRouter();
   const pathname = usePathname();
   const [pending, startTransition] = useTransition();
@@ -46,7 +47,7 @@ export const Filter = ({ dateRange, smallSamples }: FilterProps) => {
   };
 
   return (
-    <div className="flex flex-row items-center justify-end gap-2 pb-8 sm:gap-4">
+    <div className="flex flex-row flex-wrap items-center justify-end gap-2 pb-8 sm:gap-4">
       {pending ? <Spinner className="h-4 w-4" /> : null}
       <Switch
         size="small"
@@ -60,6 +61,7 @@ export const Filter = ({ dateRange, smallSamples }: FilterProps) => {
         onChange={e => handleChange(['dateRange', e.target.value])}
         disabled={pending}
       />
+      {children}
     </div>
   );
 };
