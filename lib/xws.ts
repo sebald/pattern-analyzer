@@ -1,6 +1,7 @@
-import type { XWSSquad } from './types';
+import type { XWSSquad, XWSUpgrades } from './types';
 import SL_PILOTS from './data/standard-loadout-pilots.json';
 import { getPointsByName } from './yasb';
+import { getUpgradeName } from './get-value';
 
 // LBN has some error and unnormalized in pilot ids.
 const PILOT_ID_MAP = {
@@ -17,6 +18,15 @@ const PILOT_ID_MAP = {
   'poedameron-2': 'poedameron-swz68',
   'tomaxbren-SWZ105': 'tomaxbren-swz105',
   'herasyndulla-bwing': 'herasyndulla-asf01bwing',
+  corranhornxwing: 'corranhorn-t65xwing',
+  'bokatankryze-separatistalliance': 'bokatankryze',
+  lukeskywalkerboy: 'lukeskywalker-battleofyavin',
+  wampaboy: 'wampa-battleofyavin',
+  durgeseparatist: 'durge',
+  dist81soc: 'dist81-siegeofcoruscant',
+  dbs404soc: 'dbs404-siegeofcoruscant',
+  dbs32csoc: 'dbs32c-siegeofcoruscant',
+  bosskz95headhunter: 'bossk-z95af4headhunter',
 };
 
 /**
@@ -28,7 +38,7 @@ export const normalize = (xws: XWSSquad | null) => {
   }
 
   const pilots = xws.pilots.map(pilot => {
-    // Fix some weird IDs from LBN
+    // Fix some broken IDs from builders that don't follow XWS
     //@ts-expect-error (ID accessing allowed to fail)
     const pilotId = PILOT_ID_MAP[pilot.id];
     if (pilotId) {
@@ -80,3 +90,11 @@ export const getBuilderLink = (xws: XWSSquad | null) =>
   // Remove `print` from lbn to show the builder instead
   xws?.vendor?.lbn?.link.replace('print', '') ||
   null;
+
+export const upgradesToList = (upgrades: XWSUpgrades) =>
+  (Object.entries(upgrades) as [keyof XWSUpgrades, string[]][])
+    .map(([_, list]) => list.map(name => getUpgradeName(name) || name))
+    .flat()
+    .join(', ');
+
+export const isStandardized = (pilot: string) => pilot in SL_PILOTS;

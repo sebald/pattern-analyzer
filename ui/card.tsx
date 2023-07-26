@@ -7,24 +7,39 @@ import { cn } from '@/lib/utils/classname.utils';
 // ---------------
 const styles = {
   card: cva(
-    ['flex h-full w-full flex-col items-stretch gap-4', 'rounded-lg bg-white'],
+    ['flex w-full flex-col items-stretch gap-4', 'rounded-lg bg-white'],
     {
       variants: {
         elevation: {
-          default: ['shadow-card'],
-          lightest: ['shadow-sm'],
-          light: ['shadow'],
+          default: 'shadow-card',
+          lightest: 'shadow-sm',
+          light: 'shadow',
         },
         inset: {
-          default: ['px-3 pt-3 pb-2'],
+          default: 'px-3 pt-3 pb-2',
+          headless: 'px-3 pt-4 pb-2', // No title/card.header
+          list: 'px-0 pt-3 pb-2', // for when using a list
+        },
+        size: {
+          stretch: 'h-full',
+          fit: 'h-fit',
         },
       },
       defaultVariants: {
         elevation: 'default',
         inset: 'default',
+        size: 'stretch',
       },
     }
   ),
+  body: cva('flex-1', {
+    variants: {
+      variant: {
+        enumeration:
+          'divide-y divide-secondary-100 border-t border-secondary-100',
+      },
+    },
+  }),
 };
 
 // Card.Title
@@ -49,12 +64,13 @@ const CardHeader = ({ children }: CardHeaderProps) => (
 
 // Card.Body
 // ---------------
-export interface CardBodyProps {
+export interface CardBodyProps extends VariantProps<typeof styles.body> {
   children: React.ReactNode;
+  className?: string;
 }
 
-const CardBody = ({ children }: CardBodyProps) => (
-  <div className="flex-1">{children}</div>
+const CardBody = ({ variant, children, className }: CardBodyProps) => (
+  <div className={cn(styles.body({ variant }), className)}>{children}</div>
 );
 
 // Card.Footer
@@ -80,11 +96,14 @@ const CardMenu = ({ children }: CardMenuProps) => (
 // Card.Action
 // ---------------
 export interface CardActionsProps {
+  className?: string;
   children: React.ReactNode;
 }
 
-const CardActions = ({ children }: CardActionsProps) => (
-  <div className="flex flex-wrap justify-end gap-3 pb-1">{children}</div>
+const CardActions = ({ className, children }: CardActionsProps) => (
+  <div className={cn('flex flex-wrap justify-end gap-3 pb-1', className)}>
+    {children}
+  </div>
 );
 
 // Card
@@ -97,15 +116,16 @@ export interface CardProps
 }
 
 export const Card = ({
-  elevation: variant,
+  elevation,
   inset,
+  size,
   className,
   children,
   ...props
 }: CardProps) => (
   <div
     {...props}
-    className={cn(styles.card({ elevation: variant, inset, className }))}
+    className={cn(styles.card({ elevation, inset, size }), className)}
   >
     {children}
   </div>

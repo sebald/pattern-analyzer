@@ -112,9 +112,8 @@ const getStats = cache(
     const squads = await Promise.all(
       tournaments.map(({ id }) => getSquads({ id: `${id}` }))
     );
-    let stats = create(squads, { smallSamples });
 
-    return stats;
+    return create(squads, { smallSamples });
   }
 );
 

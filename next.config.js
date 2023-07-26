@@ -43,15 +43,9 @@ const config = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'squadbuilder.fantasyflightgames.com',
+        hostname: 'infinitearenas.com',
         port: '',
-        pathname: '/ship_types/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'squadbuilder.fantasyflightgames.com',
-        port: '',
-        pathname: '/factions/**',
+        pathname: '/xw2/images/**',
       },
     ],
   },

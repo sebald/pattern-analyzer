@@ -24,12 +24,12 @@ export const vendors = [
 // ---------------
 export const siteNavigation = [
   {
-    name: 'Home',
-    href: '/',
-  },
-  {
     name: 'Analyze',
     href: '/analyze',
+  },
+  {
+    name: 'Compositions',
+    href: '/analyze/composition',
   },
 ];
 

@@ -5,10 +5,14 @@ import { baseUrl, pointsUpdateDate } from '@/lib/config';
 import { formatDate, fromDate, toDate, today } from '@/lib/utils/date.utils';
 import { getAllTournaments, getSquads } from '@/lib/vendor/listfortress';
 
-import { Caption, Inline, Message, Title } from '@/ui';
+import { Caption, Card, Inline, Message, Title } from '@/ui';
 import { Calendar, Rocket, Trophy } from '@/ui/icons';
 
-import { CompositionStats } from '@/ui/stats/composition-stats';
+import {
+  CompositionFilter,
+  CompositionFilterProvider,
+  CompositionTable,
+} from '@/ui/stats/composition-stats';
 import { Filter } from '@/ui/stats/filter';
 import { StatsHint } from '@/ui/stats/stats-hint';
 import { setup } from '@/lib/stats';
@@ -24,12 +28,12 @@ export const revalidate = 21600; // 6 hours
 // Metadata
 // ---------------
 export const metadata = {
-  title: 'Pattern Analyzer | Analyze',
-  description: 'Analyze the current X-Wing meta!',
+  title: 'Pattern Analyzer | Compositions',
+  description: 'Take a look at what is currently flown in X-Wing!',
   openGraph: {
     siteName: 'Pattern Analyzer',
-    title: 'Analyze',
-    description: 'Analyze the current X-Wing meta!',
+    title: 'Compositions',
+    description: 'Take a look at what is currently flown in X-Wing!',
     images: `${baseUrl}/api/og.png`,
     locale: 'en-US',
     type: 'website',
@@ -85,7 +89,7 @@ interface AnalyzePageProps {
 
 // Page
 // ---------------
-const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
+const AnalyzeCompositionPage = async ({ searchParams }: AnalyzePageProps) => {
   const params = schema.safeParse(searchParams);
 
   if (!params.success) {
@@ -111,7 +115,7 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
   return (
     <>
       <div className="pb-6">
-        <Title>Composition</Title>
+        <Title>Compositions</Title>
         <Caption>
           <Inline className="gap-4">
             <Inline className="whitespace-nowrap">
@@ -128,20 +132,31 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
           </Inline>
         </Caption>
       </div>
-      <Filter
-        smallSamples={!params.data.smallSamples}
-        dateRange={toDate(from, to)}
-      />
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
-        <div className="col-span-full">
-          <CompositionStats value={stats.composition} />
+      <CompositionFilterProvider>
+        <Filter
+          smallSamples={!params.data.smallSamples}
+          dateRange={toDate(from, to)}
+        >
+          <CompositionFilter />
+        </Filter>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
+          <div className="col-span-full">
+            <Card inset="headless">
+              <Card.Body>
+                <CompositionTable
+                  value={stats.composition}
+                  collapsible={false}
+                />
+              </Card.Body>
+            </Card>
+          </div>
+          <div className="col-span-full pt-8 lg:col-start-2 lg:col-end-12">
+            <StatsHint />
+          </div>
         </div>
-        <div className="col-span-full pt-8 lg:col-start-2 lg:col-end-12">
-          <StatsHint />
-        </div>
-      </div>
+      </CompositionFilterProvider>
     </>
   );
 };
 
-export default AnalyzePage;
+export default AnalyzeCompositionPage;
