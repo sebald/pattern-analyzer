@@ -85,7 +85,7 @@ export const PilotDetails = ({ className, ships, value }: PilotDetailProps) => {
               </div>
               <div>
                 <div className="text-sm font-medium text-secondary-400">
-                  Performance with Loadout
+                  Loadout Performance
                 </div>
                 {isStandardized(pid) ? (
                   <div className="text-secondary-950 flex items-center gap-1 pt-2 text-sm italic">
