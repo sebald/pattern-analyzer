@@ -45,11 +45,11 @@ export const generateStaticParams = async () => {
 // ---------------
 export const metadata = {
   title: 'Pattern Analyzer | Composition Details',
-  description: 'Take a loot at what is currently flown in X-Wing!',
+  description: 'Take a look at what is currently flown in X-Wing!',
   openGraph: {
     siteName: 'Pattern Analyzer',
     title: 'Composition Details',
-    description: 'Take a loot at what is currently flown in X-Wing!',
+    description: 'Take a look at what is currently flown in X-Wing!',
     images: `${baseUrl}/api/og.png`,
     locale: 'en-US',
     type: 'website',

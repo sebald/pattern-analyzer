@@ -29,11 +29,11 @@ export const revalidate = 21600; // 6 hours
 // ---------------
 export const metadata = {
   title: 'Pattern Analyzer | Compositions',
-  description: 'Take a loot at what is currently flown in X-Wing!',
+  description: 'Take a look at what is currently flown in X-Wing!',
   openGraph: {
     siteName: 'Pattern Analyzer',
     title: 'Compositions',
-    description: 'Take a loot at what is currently flown in X-Wing!',
+    description: 'Take a look at what is currently flown in X-Wing!',
     images: `${baseUrl}/api/og.png`,
     locale: 'en-US',
     type: 'website',
