@@ -32,20 +32,20 @@ export const SquadGroups = ({ value }: SquadGroupsProps) => {
             </div>
           </Accordion.Trigger>
           <Accordion.Content>
-            <div className="flex flex-wrap justify-around gap-2 rounded bg-secondary-100/25 px-2 py-2 md:gap-4 md:px-4">
+            <div className="flex flex-wrap gap-x-8 gap-y-4">
               <Detail
                 variant="secondary"
-                label="Percentile:"
+                label="Percentile"
                 value={toPercentage(current.percentile)}
               />
               <Detail
                 variant="secondary"
-                label="Deviation:"
+                label="Deviation"
                 value={toPercentage(current.deviation)}
               />
               <Detail
                 variant="secondary"
-                label="Winrate:"
+                label="Winrate"
                 value={current.winrate ? toPercentage(current.winrate) : '-'}
               />
             </div>
