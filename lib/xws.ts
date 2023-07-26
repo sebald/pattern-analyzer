@@ -18,6 +18,15 @@ const PILOT_ID_MAP = {
   'poedameron-2': 'poedameron-swz68',
   'tomaxbren-SWZ105': 'tomaxbren-swz105',
   'herasyndulla-bwing': 'herasyndulla-asf01bwing',
+  corranhornxwing: 'corranhorn-t65xwing',
+  'bokatankryze-separatistalliance': 'bokatankryze',
+  lukeskywalkerboy: 'lukeskywalker-battleofyavin',
+  wampaboy: 'wampa-battleofyavin',
+  durgeseparatist: 'durge',
+  dist81soc: 'dist81-siegeofcoruscant',
+  dbs404soc: 'dbs404-siegeofcoruscant',
+  dbs32csoc: 'dbs32c-siegeofcoruscant',
+  bosskz95headhunter: 'bossk-z95af4headhunter',
 };
 
 /**
@@ -29,7 +38,7 @@ export const normalize = (xws: XWSSquad | null) => {
   }
 
   const pilots = xws.pilots.map(pilot => {
-    // Fix some weird IDs from LBN
+    // Fix some broken IDs from builders that don't follow XWS
     //@ts-expect-error (ID accessing allowed to fail)
     const pilotId = PILOT_ID_MAP[pilot.id];
     if (pilotId) {
