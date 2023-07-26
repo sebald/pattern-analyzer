@@ -72,9 +72,6 @@ export const getPointsByName = (id: string) => {
 
 export const getPilotSkill = (id: string) => {
   const { skill } = getPilotByName(id) || { skill: 1 };
-  if (id === 'nashtahpup') {
-    console.log(id, getPilotByName(id));
-  }
   return skill;
 };
 

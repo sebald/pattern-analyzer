@@ -4350,12 +4350,12 @@ exports[`create stats (pilotCostDistribution) 1`] = `
 exports[`create stats (pilotSkillDistribution) 1`] = `
 {
   "0": 0,
-  "1": 12,
+  "1": 14,
   "2": 6,
   "3": 38,
-  "4": 55,
-  "5": 71,
-  "6": 37,
+  "4": 51,
+  "5": 72,
+  "6": 38,
 }
 `;
 
