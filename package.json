@@ -13,6 +13,7 @@
     "typecheck": "tsc --noEmit",
     "test": "jest",
     "clean": "rm -rf .next",
+    "db:create": "tsx ./scripts/create-database.ts",
     "update:xwing": "zx scripts/update-xwing-data.mjs",
     "update:yasb": "zx scripts/update-yasb-data.mjs"
   },
@@ -62,6 +63,7 @@
     "prettier": "2.8.8",
     "prettier-plugin-tailwindcss": "0.4.1",
     "tailwindcss": "3.3.3",
+    "tsx": "^3.12.7",
     "typescript": "5.1.6",
     "xwing-data2": "github:guidokessels/xwing-data2#6299a76",
     "yasb": "github:raithos/xwing#a4e6821",
