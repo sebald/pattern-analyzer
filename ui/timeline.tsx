@@ -7,10 +7,7 @@ export interface TimelineItemProps {
 }
 
 const TimelineItem = ({ children }: TimelineItemProps) => (
-  <div>
-    <div className="absolute left-[-9px] mt-1 h-4 w-4 rounded-full border-2 border-white bg-primary-500" />
-    <div className="flex flex-col gap-x-10 gap-y-6 md:flex-row">{children}</div>
-  </div>
+  <div className="flex flex-col gap-x-10 gap-y-6 md:flex-row">{children}</div>
 );
 
 // Timeline.Header
@@ -20,7 +17,8 @@ export interface TimelineHeaderProps {
 }
 
 const TimelineHeader = ({ children }: TimelineHeaderProps) => (
-  <div className="mt-1.5 text-sm font-medium leading-none md:mt-0 md:text-base">
+  <div className="mt-1.5 text-sm font-medium leading-none md:mt-0 md:w-28 md:text-base">
+    <div className="absolute left-[-9px] mt-1 h-4 w-4 rounded-full border-2 border-white bg-primary-500" />
     {children}
   </div>
 );
