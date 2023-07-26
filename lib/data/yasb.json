@@ -47,8 +47,7 @@
       "name": "Garven Dreis (X-Wing)",
       "ship": "T-65 X-wing",
       "points": 5,
-      "skill": 4,
-      "xws": "garvendreis-t65xwing"
+      "skill": 4
     },
     {
       "id": 7,
@@ -94,24 +93,21 @@
       "name": "Sabine Wren (TIE Fighter)",
       "ship": "TIE/ln Fighter",
       "points": 2,
-      "skill": 3,
-      "xws": "sabinewren-tielnfighter"
+      "skill": 3
     },
     {
       "id": 14,
       "name": "Ezra Bridger (TIE Fighter)",
       "ship": "TIE/ln Fighter",
       "points": 3,
-      "skill": 3,
-      "xws": "ezrabridger-tielnfighter"
+      "skill": 3
     },
     {
       "id": 15,
       "name": "\"Zeb\" Orrelios (TIE Fighter)",
       "ship": "TIE/ln Fighter",
       "points": 3,
-      "skill": 2,
-      "xws": "zeborrelios-tielnfighter"
+      "skill": 2
     },
     {
       "id": 16,
@@ -178,8 +174,7 @@
       "name": "Norra Wexley (Y-Wing)",
       "ship": "BTL-A4 Y-wing",
       "points": 5,
-      "skill": 5,
-      "xws": "norrawexley-btla4ywing"
+      "skill": 5
     },
     {
       "id": 26,
@@ -298,16 +293,14 @@
       "name": "Han Solo",
       "ship": "Modified YT-1300 Light Freighter",
       "points": 7,
-      "skill": 6,
-      "xws": "hansolo-modifiedyt1300lightfreighter"
+      "skill": 6
     },
     {
       "id": 43,
       "name": "Lando Calrissian",
       "ship": "Modified YT-1300 Light Freighter",
       "points": 7,
-      "skill": 5,
-      "xws": "landocalrissian-modifiedyt1300lightfreighter"
+      "skill": 5
     },
     {
       "id": 44,
@@ -433,8 +426,7 @@
       "name": "Hera Syndulla (VCX-100)",
       "ship": "VCX-100 Light Freighter",
       "points": 7,
-      "skill": 5,
-      "xws": "herasyndulla-vcx100lightfreighter"
+      "skill": 5
     },
     {
       "id": 62,
@@ -490,24 +482,21 @@
       "name": "Fenn Rau (Sheathipede)",
       "ship": "Sheathipede-Class Shuttle",
       "points": 5,
-      "skill": 6,
-      "xws": "fennrau-sheathipedeclassshuttle"
+      "skill": 6
     },
     {
       "id": 70,
       "name": "Ezra Bridger (Sheathipede)",
       "ship": "Sheathipede-Class Shuttle",
       "points": 4,
-      "skill": 3,
-      "xws": "ezrabridger-sheathipedeclassshuttle"
+      "skill": 3
     },
     {
       "id": 71,
       "name": "\"Zeb\" Orrelios (Sheathipede)",
       "ship": "Sheathipede-Class Shuttle",
       "points": 3,
-      "skill": 2,
-      "xws": "zeborrelios-sheathipedeclassshuttle"
+      "skill": 2
     },
     {
       "id": 72,
@@ -663,8 +652,7 @@
       "name": "Lando Calrissian (Scum) (Escape Craft)",
       "ship": "Escape Craft",
       "points": 3,
-      "skill": 4,
-      "xws": "landocalrissian-escapecraft"
+      "skill": 4
     },
     {
       "id": 94,
@@ -678,8 +666,7 @@
       "name": "L3-37 (Escape Craft)",
       "ship": "Escape Craft",
       "points": 3,
-      "skill": 2,
-      "xws": "l337-escapecraft"
+      "skill": 2
     },
     {
       "id": 96,
@@ -903,8 +890,7 @@
       "name": "Sabine Wren (Scum)",
       "ship": "Lancer-Class Pursuit Craft",
       "points": 6,
-      "skill": 3,
-      "xws": "sabinewren-lancerclasspursuitcraft"
+      "skill": 3
     },
     {
       "id": 128,
@@ -1058,8 +1044,7 @@
       "name": "Dalan Oberos (StarViper)",
       "ship": "StarViper-class Attack Platform",
       "points": 5,
-      "skill": 4,
-      "xws": "dalanoberos-starviperclassattackplatform"
+      "skill": 4
     },
     {
       "id": 150,
@@ -1724,16 +1709,14 @@
       "name": "Han Solo (Resistance)",
       "ship": "Scavenged YT-1300",
       "points": 6,
-      "skill": 6,
-      "xws": "hansolo-scavengedyt1300"
+      "skill": 6
     },
     {
       "id": 246,
       "name": "Chewbacca (Resistance)",
       "ship": "Scavenged YT-1300",
       "points": 6,
-      "skill": 4,
-      "xws": "chewbacca-scavengedyt1300"
+      "skill": 4
     },
     {
       "id": 247,
@@ -1803,8 +1786,7 @@
       "name": "Black Squadron Ace (T-70)",
       "ship": "T-70 X-wing",
       "points": 5,
-      "skill": 4,
-      "xws": "blacksquadronace-t70xwing"
+      "skill": 4
     },
     {
       "id": 257,
@@ -2266,8 +2248,7 @@
       "name": "Anakin Skywalker (N-1 Starfighter)",
       "ship": "Naboo Royal N-1 Starfighter",
       "points": 5,
-      "skill": 4,
-      "xws": "anakinskywalker-nabooroyaln1starfighter"
+      "skill": 4
     },
     {
       "id": 323,
@@ -2382,8 +2363,7 @@
       "name": "\"Odd Ball\" (ARC-170)",
       "ship": "ARC-170 Starfighter",
       "points": 4,
-      "skill": 5,
-      "xws": "oddball-arc170starfighter"
+      "skill": 5
     },
     {
       "id": 339,
@@ -2530,8 +2510,7 @@
       "name": "Anakin Skywalker (Y-Wing)",
       "ship": "BTL-B Y-wing",
       "points": 6,
-      "skill": 6,
-      "xws": "anakinskywalker-btlbywing"
+      "skill": 6
     },
     {
       "id": 360,
@@ -2580,77 +2559,76 @@
       "name": "\"Odd Ball\" (Y-Wing)",
       "ship": "BTL-B Y-wing",
       "points": 4,
-      "skill": 5,
-      "xws": "oddball-btlbywing"
+      "skill": 5
     },
     {
       "id": 367,
       "name": "Republic Judiciary",
       "ship": "CR90 Corellian Corvette",
-      "points": 0,
+      "points": 15,
       "skill": 8
     },
     {
       "id": 368,
       "name": "Alderaanian Guard",
       "ship": "CR90 Corellian Corvette",
-      "points": 0,
+      "points": 15,
       "skill": 8
     },
     {
       "id": 369,
       "name": "Outer Rim Patrol",
       "ship": "Raider-class Corvette",
-      "points": 0,
+      "points": 16,
       "skill": 8
     },
     {
       "id": 370,
       "name": "First Order Collaborators",
       "ship": "Raider-class Corvette",
-      "points": 0,
+      "points": 16,
       "skill": 8
     },
     {
       "id": 371,
       "name": "Echo Base Evacuees",
       "ship": "GR-75 Medium Transport",
-      "points": 0,
+      "points": 10,
       "skill": 7
     },
     {
       "id": 372,
       "name": "New Republic Volunteers",
       "ship": "GR-75 Medium Transport",
-      "points": 0,
+      "points": 10,
       "skill": 7
     },
     {
       "id": 373,
       "name": "Outer Rim Garrison",
       "ship": "Gozanti-class Cruiser",
-      "points": 0,
+      "points": 11,
       "skill": 7
     },
     {
       "id": 374,
       "name": "First Order Sympathizers",
       "ship": "Gozanti-class Cruiser",
-      "points": 0,
+      "points": 11,
       "skill": 7
     },
     {
       "id": 375,
       "name": "Separatist Privateers",
       "ship": "C-ROC Cruiser",
-      "points": 0,
+      "points": 10,
       "skill": 7
     },
     {
       "id": 376,
       "name": "Syndicate Smugglers",
       "ship": "C-ROC Cruiser",
-      "points": 0,
+      "points": 10,
       "skill": 7
     },
     {
@@ -2805,8 +2783,7 @@
       "name": "Bossk (Z-95 Headhunter)",
       "ship": "Z-95-AF4 Headhunter",
       "points": 2,
-      "skill": 4,
-      "xws": "bossk-z95af4headhunter"
+      "skill": 4
     },
     {
       "id": 399,
@@ -2841,16 +2818,14 @@
       "name": "Gideon Hask (Xi Shuttle)",
       "ship": "Xi-class Light Shuttle",
       "points": 4,
-      "skill": 4,
-      "xws": "gideonhask-xiclasslightshuttle"
+      "skill": 4
     },
     {
       "id": 404,
       "name": "Commander Malarus (Xi Shuttle)",
       "ship": "Xi-class Light Shuttle",
       "points": 4,
-      "skill": 5,
-      "xws": "commandermalarus-xiclasslightshuttle"
+      "skill": 5
     },
     {
       "id": 405,
@@ -3011,8 +2986,7 @@
       "name": "Boba Fett (Separatist)",
       "ship": "Firespray-class Patrol Craft",
       "points": 7,
-      "skill": 3,
-      "xws": "bobafett-separatistalliance"
+      "skill": 3
     },
     {
       "id": 428,
@@ -3068,8 +3042,7 @@
       "name": "\"Odd Ball\" (V-wing)",
       "ship": "Nimbus-class V-wing",
       "points": 3,
-      "skill": 5,
-      "xws": "oddball-nimbusclassvwing"
+      "skill": 5
     },
     {
       "id": 436,
@@ -3104,32 +3077,28 @@
       "name": "Obi-Wan Kenobi (Eta-2)",
       "ship": "Eta-2 Actis",
       "points": 5,
-      "skill": 5,
-      "xws": "obiwankenobi-eta2actis"
+      "skill": 5
     },
     {
       "id": 441,
       "name": "Anakin Skywalker (Eta-2)",
       "ship": "Eta-2 Actis",
       "points": 5,
-      "skill": 6,
-      "xws": "anakinskywalker-eta2actis"
+      "skill": 6
     },
     {
       "id": 442,
       "name": "Poe Dameron (HoH)",
       "ship": "T-70 X-wing",
       "points": 6,
-      "skill": 6,
-      "xws": "poedameron-swz68"
+      "skill": 6
     },
     {
       "id": 443,
       "name": "Temmin Wexley (HoH)",
       "ship": "T-70 X-wing",
       "points": 5,
-      "skill": 4,
-      "xws": "temminwexley-swz68"
+      "skill": 4
     },
     {
       "id": 444,
@@ -3178,32 +3147,28 @@
       "name": "Hera Syndulla (B-Wing)",
       "ship": "A/SF-01 B-wing",
       "points": 5,
-      "skill": 6,
-      "xws": "herasyndulla-asf01bwing"
+      "skill": 6
     },
     {
       "id": 451,
       "name": "Hera Syndulla (A-Wing)",
       "ship": "RZ-1 A-wing",
       "points": 4,
-      "skill": 6,
-      "xws": "herasyndulla-rz1awing"
+      "skill": 6
     },
     {
       "id": 452,
       "name": "Wedge Antilles (A-Wing)",
       "ship": "RZ-1 A-wing",
       "points": 3,
-      "skill": 4,
-      "xws": "wedgeantilles-rz1awing"
+      "skill": 4
     },
     {
       "id": 453,
       "name": "Sabine Wren (A-Wing)",
       "ship": "RZ-1 A-wing",
       "points": 3,
-      "skill": 3,
-      "xws": "sabinewren-rz1awing"
+      "skill": 3
     },
     {
       "id": 454,
@@ -3224,16 +3189,14 @@
       "name": "Gideon Hask (TIE Interceptor)",
       "ship": "TIE/in Interceptor",
       "points": 4,
-      "skill": 4,
-      "xws": "gideonhask-tieininterceptor"
+      "skill": 4
     },
     {
       "id": 457,
       "name": "Kanan Jarrus (HWK-290)",
       "ship": "HWK-290 Light Freighter",
       "points": 4,
-      "skill": 3,
-      "xws": "kananjarrus-hwk290lightfreighter"
+      "skill": 3
     },
     {
       "id": 458,
@@ -3268,16 +3231,14 @@
       "name": "Shara Bey (A-Wing)",
       "ship": "RZ-1 A-wing",
       "points": 4,
-      "skill": 4,
-      "xws": "sharabey-rz1awing"
+      "skill": 4
     },
     {
       "id": 463,
       "name": "Ahsoka Tano (A-Wing)",
       "ship": "RZ-1 A-wing",
       "points": 5,
-      "skill": 5,
-      "xws": "ahsokatano-rz1awing"
+      "skill": 5
     },
     {
       "id": 464,
@@ -3312,16 +3273,14 @@
       "name": "Vult Skerris (TIE Interceptor)",
       "ship": "TIE/in Interceptor",
       "points": 4,
-      "skill": 5,
-      "xws": "vultskerris-tieininterceptor"
+      "skill": 5
     },
     {
       "id": 469,
       "name": "Darth Vader (TIE Defender)",
       "ship": "TIE/d Defender",
       "points": 9,
-      "skill": 6,
-      "xws": "darthvader-tieddefender"
+      "skill": 6
     },
     {
       "id": 470,
@@ -3363,14 +3322,14 @@
       "id": 475,
       "name": "Colicoid Destroyer",
       "ship": "Trident-class Assault Ship",
-      "points": 85,
+      "points": 12,
       "skill": 8
     },
     {
       "id": 476,
       "name": "Lawless Pirates",
       "ship": "Trident-class Assault Ship",
-      "points": 85,
+      "points": 12,
       "skill": 8
     },
     {
@@ -3427,8 +3386,7 @@
       "name": "C'ai Threnalli (Y-Wing)",
       "ship": "BTA-NR2 Y-wing",
       "points": 4,
-      "skill": 2,
-      "xws": "caithrenalli-btanr2ywing"
+      "skill": 2
     },
     {
       "id": 485,
@@ -3449,8 +3407,7 @@
       "name": "Kylo Ren (TIE Whisper)",
       "ship": "TIE/wi Whisper Modified Interceptor",
       "points": 5,
-      "skill": 5,
-      "xws": "kyloren-tiewiwhispermodifiedinterceptor"
+      "skill": 5
     },
     {
       "id": 488,
@@ -3499,8 +3456,7 @@
       "name": "\"Scorch\" (TIE/Se Bomber)",
       "ship": "TIE/se Bomber",
       "points": 3,
-      "skill": 4,
-      "xws": "scorch-tiesebomber"
+      "skill": 4
     },
     {
       "id": 495,
@@ -3549,8 +3505,7 @@
       "name": "Fenn Rau (Rebel Fang)",
       "ship": "Fang Fighter",
       "points": 5,
-      "skill": 6,
-      "xws": "fennrau-rebel-fang"
+      "skill": 6
     },
     {
       "id": 502,
@@ -3603,8 +3558,7 @@
       "name": "Bo-Katan Kryze",
       "ship": "Gauntlet Fighter",
       "points": 6,
-      "skill": 4,
-      "xws": "bokatankryze-separatistalliance"
+      "skill": 4
     },
     {
       "id": 510,
@@ -3675,16 +3629,14 @@
       "name": "\"Chopper\" (Gauntlet Fighter)",
       "ship": "Gauntlet Fighter",
       "points": 6,
-      "skill": 2,
-      "xws": "chopper-gauntletfighter"
+      "skill": 2
     },
     {
       "id": 520,
       "name": "Ezra Bridger (Gauntlet Fighter)",
       "ship": "Gauntlet Fighter",
       "points": 6,
-      "skill": 3,
-      "xws": "ezrabridger-gauntletfighter"
+      "skill": 3
     },
     {
       "id": 521,
@@ -3719,72 +3671,63 @@
       "name": "Plo Koon (Delta-7b)",
       "ship": "Delta-7b Aethersprite",
       "points": 7,
-      "skill": 5,
-      "xws": "plokoon-delta7baethersprite"
+      "skill": 5
     },
     {
       "id": 526,
       "name": "Saesee Tiin (Delta-7b)",
       "ship": "Delta-7b Aethersprite",
       "points": 6,
-      "skill": 4,
-      "xws": "saeseetiin-delta7baethersprite"
+      "skill": 4
     },
     {
       "id": 527,
       "name": "Mace Windu (Delta-7b)",
       "ship": "Delta-7b Aethersprite",
       "points": 5,
-      "skill": 4,
-      "xws": "macewindu-delta7baethersprite"
+      "skill": 4
     },
     {
       "id": 528,
       "name": "Anakin Skywalker (Delta-7b)",
       "ship": "Delta-7b Aethersprite",
       "points": 7,
-      "skill": 6,
-      "xws": "anakinskywalker-delta7baethersprite"
+      "skill": 6
     },
     {
       "id": 529,
       "name": "Luminara Unduli (Delta-7b)",
       "ship": "Delta-7b Aethersprite",
       "points": 6,
-      "skill": 4,
-      "xws": "luminaraunduli-delta7baethersprite"
+      "skill": 4
     },
     {
       "id": 530,
       "name": "Barriss Offee (Delta-7b)",
       "ship": "Delta-7b Aethersprite",
       "points": 5,
-      "skill": 4,
-      "xws": "barrissoffee-delta7baethersprite"
+      "skill": 4
     },
     {
       "id": 531,
       "name": "Ahsoka Tano (Delta-7b)",
       "ship": "Delta-7b Aethersprite",
       "points": 6,
-      "skill": 3,
-      "xws": "ahsokatano-delta7baethersprite"
+      "skill": 3
     },
     {
       "id": 532,
       "name": "Jedi Knight (Delta-7b)",
       "ship": "Delta-7b Aethersprite",
       "points": 6,
-      "skill": 3,
-      "xws": "jediknight-delta7baethersprite"
+      "skill": 3
     },
     {
       "id": 533,
       "name": "Obi-Wan Kenobi (Delta-7b)",
       "ship": "Delta-7b Aethersprite",
       "points": 7,
-      "skill": 5,
-      "xws": "obiwankenobi-delta7baethersprite"
+      "skill": 5
     },
     {
       "id": 534,
@@ -3798,16 +3741,14 @@
       "name": "Viktor Hel (Rogue)",
       "ship": "Rogue-class Starfighter",
       "points": 4,
-      "skill": 4,
-      "xws": "viktorhel-rogueclassstarfighter"
+      "skill": 4
     },
     {
       "id": 536,
       "name": "Nom Lumb (Rogue)",
       "ship": "Rogue-class Starfighter",
       "points": 4,
-      "skill": 1,
-      "xws": "nomlumb-rogueclassstarfighter"
+      "skill": 1
     },
     {
       "id": 537,
@@ -3821,8 +3762,7 @@
       "name": "Cad Bane (Separatist)",
       "ship": "Rogue-class Starfighter",
       "points": 4,
-      "skill": 4,
-      "xws": "cadbane-separatistalliance"
+      "skill": 4
     },
     {
       "id": 539,
@@ -3878,16 +3818,14 @@
       "name": "\"Hawk\" (Z-95)",
       "ship": "Clone Z-95 Headhunter",
       "points": 3,
-      "skill": 4,
-      "xws": "hawk-clonez95headhunter"
+      "skill": 4
     },
     {
       "id": 547,
       "name": "\"Warthog\" (Z-95)",
       "ship": "Clone Z-95 Headhunter",
       "points": 3,
-      "skill": 3,
-      "xws": "warthog-clonez95headhunter"
+      "skill": 3
     },
     {
       "id": 548,
@@ -3936,328 +3874,287 @@
       "name": "Garven Dreis (BoY)",
       "ship": "T-65 X-wing",
       "points": 4,
-      "skill": 4,
-      "xws": "garvendreis-battleofyavin"
+      "skill": 4
     },
     {
       "id": 555,
       "name": "Luke Skywalker (BoY)",
       "ship": "T-65 X-wing",
       "points": 5,
-      "skill": 5,
-      "xws": "lukeskywalker-battleofyavin"
+      "skill": 5
     },
     {
       "id": 556,
       "name": "Jek Porkins (BoY)",
       "ship": "T-65 X-wing",
       "points": 4,
-      "skill": 4,
-      "xws": "jekporkins-battleofyavin"
+      "skill": 4
     },
     {
       "id": 557,
       "name": "Biggs Darklighter (BoY)",
       "ship": "T-65 X-wing",
       "points": 5,
-      "skill": 3,
-      "xws": "biggsdarklighter-battleofyavin"
+      "skill": 3
     },
     {
       "id": 558,
       "name": "Wedge Antilles (BoY)",
       "ship": "T-65 X-wing",
       "points": 5,
-      "skill": 5,
-      "xws": "wedgeantilles-battleofyavin"
+      "skill": 5
     },
     {
       "id": 559,
       "name": "Han Solo (BoY)",
       "ship": "Modified YT-1300 Light Freighter",
       "points": 7,
-      "skill": 6,
-      "xws": "hansolo-battleofyavin"
+      "skill": 6
     },
     {
       "id": 560,
       "name": "\"Dutch\" Vander (BoY)",
       "ship": "BTL-A4 Y-wing",
       "points": 4,
-      "skill": 4,
-      "xws": "dutchvander-battleofyavin"
+      "skill": 4
     },
     {
       "id": 561,
       "name": "Dex Tiree (BoY)",
       "ship": "BTL-A4 Y-wing",
       "points": 4,
-      "skill": 2,
-      "xws": "dextiree-battleofyavin"
+      "skill": 2
     },
     {
       "id": 562,
       "name": "\"Pops\" Krail (BoY)",
       "ship": "BTL-A4 Y-wing",
       "points": 4,
-      "skill": 4,
-      "xws": "popskrail-battleofyavin"
+      "skill": 4
     },
     {
       "id": 563,
       "name": "Hol Okand (BoY)",
       "ship": "BTL-A4 Y-wing",
       "points": 3,
-      "skill": 4,
-      "xws": "holokand-battleofyavin"
+      "skill": 4
     },
     {
       "id": 564,
       "name": "Darth Vader (BoY)",
       "ship": "TIE Advanced x1",
       "points": 6,
-      "skill": 6,
-      "xws": "darthvader-battleofyavin"
+      "skill": 6
     },
     {
       "id": 565,
       "name": "\"Backstabber\" (BoY)",
       "ship": "TIE/ln Fighter",
       "points": 4,
-      "skill": 5,
-      "xws": "backstabber-battleofyavin"
+      "skill": 5
     },
     {
       "id": 566,
       "name": "\"Mauler\" Mithel (BoY)",
       "ship": "TIE/ln Fighter",
       "points": 3,
-      "skill": 5,
-      "xws": "maulermithel-battleofyavin"
+      "skill": 5
     },
     {
       "id": 567,
       "name": "\"Dark Curse\" (BoY)",
       "ship": "TIE/ln Fighter",
       "points": 4,
-      "skill": 6,
-      "xws": "darkcurse-battleofyavin"
+      "skill": 6
     },
     {
       "id": 568,
       "name": "\"Wampa\" (BoY)",
       "ship": "TIE/ln Fighter",
       "points": 3,
-      "skill": 1,
-      "xws": "wampa-battleofyavin"
+      "skill": 1
     },
     {
       "id": 569,
       "name": "Iden Versio (BoY)",
       "ship": "TIE/in Interceptor",
       "points": 5,
-      "skill": 4,
-      "xws": "idenversio-battleofyavin"
+      "skill": 4
     },
     {
       "id": 570,
       "name": "Sigma 4 (BoY)",
       "ship": "TIE/in Interceptor",
       "points": 4,
-      "skill": 4,
-      "xws": "sigma4-battleofyavin"
+      "skill": 4
     },
     {
       "id": 571,
       "name": "Sigma 5 (BoY)",
       "ship": "TIE/in Interceptor",
       "points": 4,
-      "skill": 4,
-      "xws": "sigma5-battleofyavin"
+      "skill": 4
     },
     {
       "id": 572,
       "name": "Sigma 6 (BoY)",
       "ship": "TIE/in Interceptor",
       "points": 4,
-      "skill": 4,
-      "xws": "sigma6-battleofyavin"
+      "skill": 4
     },
     {
       "id": 573,
       "name": "Sigma 7 (BoY)",
       "ship": "TIE/in Interceptor",
       "points": 4,
-      "skill": 4,
-      "xws": "sigma7-battleofyavin"
+      "skill": 4
     },
     {
       "id": 574,
       "name": "Anakin Skywalker (SoC)",
       "ship": "Eta-2 Actis",
       "points": 4,
-      "skill": 6,
-      "xws": "anakinskywalker-siegeofcoruscant"
+      "skill": 6
     },
     {
       "id": 575,
       "name": "Obi-Wan Kenobi (SoC)",
       "ship": "Eta-2 Actis",
       "points": 4,
-      "skill": 5,
-      "xws": "obiwankenobi-siegeofcoruscant"
+      "skill": 5
     },
     {
       "id": 576,
       "name": "Shaak Ti (SoC)",
       "ship": "Eta-2 Actis",
       "points": 4,
-      "skill": 4,
-      "xws": "shaakti-siegeofcoruscant"
+      "skill": 4
     },
     {
       "id": 577,
       "name": "\"Odd Ball\" (SoC)",
       "ship": "ARC-170 Starfighter",
       "points": 4,
-      "skill": 5,
-      "xws": "oddball-siegeofcoruscant"
+      "skill": 5
     },
     {
       "id": 578,
       "name": "\"Wolffe\" (SoC)",
       "ship": "ARC-170 Starfighter",
       "points": 4,
-      "skill": 4,
-      "xws": "wolffe-siegeofcoruscant"
+      "skill": 4
     },
     {
       "id": 579,
       "name": "\"Jag\" (SoC)",
       "ship": "ARC-170 Starfighter",
       "points": 4,
-      "skill": 3,
-      "xws": "jag-siegeofcoruscant"
+      "skill": 3
     },
     {
       "id": 580,
       "name": "\"Contrail\" (SoC)",
       "ship": "Nimbus-class V-wing",
       "points": 4,
-      "skill": 5,
-      "xws": "contrail-siegeofcoruscant"
+      "skill": 5
     },
     {
       "id": 581,
       "name": "\"Klick\" (SoC)",
       "ship": "Nimbus-class V-wing",
       "points": 4,
-      "skill": 4,
-      "xws": "klick-siegeofcoruscant"
+      "skill": 4
     },
     {
       "id": 582,
       "name": "\"Kickback\" (SoC)",
       "ship": "V-19 Torrent Starfighter",
       "points": 3,
-      "skill": 5,
-      "xws": "kickback-siegeofcoruscant"
+      "skill": 5
     },
     {
       "id": 583,
       "name": "\"Axe\" (SoC)",
       "ship": "V-19 Torrent Starfighter",
       "points": 3,
-      "skill": 3,
-      "xws": "axe-siegeofcoruscant"
+      "skill": 3
     },
     {
       "id": 584,
       "name": "Count Dooku (SoC)",
       "ship": "Sith Infiltrator",
       "points": 6,
-      "skill": 5,
-      "xws": "countdooku-siegeofcoruscant"
+      "skill": 5
     },
     {
       "id": 585,
       "name": "DBS-32C (SoC)",
       "ship": "Hyena-class Droid Bomber",
       "points": 3,
-      "skill": 3,
-      "xws": "dbs32c-siegeofcoruscant"
+      "skill": 3
     },
     {
       "id": 586,
       "name": "DBS-404 (SoC)",
       "ship": "Hyena-class Droid Bomber",
       "points": 3,
-      "skill": 4,
-      "xws": "dbs404-siegeofcoruscant"
+      "skill": 4
     },
     {
       "id": 587,
       "name": "Baktoid Prototype (SoC)",
       "ship": "Hyena-class Droid Bomber",
       "points": 3,
-      "skill": 1,
-      "xws": "baktoidprototype-siegeofcoruscant"
+      "skill": 1
     },
     {
       "id": 588,
       "name": "DIS-347 (SoC)",
       "ship": "Droid Tri-fighter",
       "points": 3,
-      "skill": 3,
-      "xws": "dis347-siegeofcoruscant"
+      "skill": 3
     },
     {
       "id": 589,
       "name": "DIS-T81 (SoC)",
       "ship": "Droid Tri-fighter",
       "points": 4,
-      "skill": 4,
-      "xws": "dist81-siegeofcoruscant"
+      "skill": 4
     },
     {
       "id": 590,
       "name": "Phlac-Arphocc Prototype (SoC)",
       "ship": "Droid Tri-fighter",
       "points": 4,
-      "skill": 5,
-      "xws": "phlacarphoccprototype-siegeofcoruscant"
+      "skill": 5
     },
     {
       "id": 591,
       "name": "DFS-081 (SoC)",
       "ship": "Vulture-class Droid Fighter",
       "points": 2,
-      "skill": 3,
-      "xws": "dfs081-siegeofcoruscant"
+      "skill": 3
     },
     {
       "id": 592,
       "name": "DFS-311 (SoC)",
       "ship": "Vulture-class Droid Fighter",
       "points": 3,
-      "skill": 1,
-      "xws": "dfs311-siegeofcoruscant"
+      "skill": 1
     },
     {
       "id": 593,
       "name": "Haor Chall Prototype (SoC)",
       "ship": "Vulture-class Droid Fighter",
       "points": 2,
-      "skill": 1,
-      "xws": "haorchallprototype-siegeofcoruscant"
+      "skill": 1
     },
     {
       "id": 594,
       "name": "Corran Horn (X-Wing)",
       "ship": "T-65 X-wing",
       "points": 4,
-      "skill": 5,
-      "xws": "corranhorn-t65xwing"
+      "skill": 5
     },
     {
       "id": 595,
@@ -4327,16 +4224,14 @@
       "name": "Poe Dameron (YT-1300)",
       "ship": "Scavenged YT-1300",
       "points": 7,
-      "skill": 6,
-      "xws": "poedameron-scavengedyt1300"
+      "skill": 6
     },
     {
       "id": 605,
       "name": "Lando Calrissian (Resistance)",
       "ship": "Scavenged YT-1300",
       "points": 7,
-      "skill": 5,
-      "xws": "landocalrissian-scavengedyt1300"
+      "skill": 5
     },
     {
       "id": 606,
@@ -4413,8 +4308,7 @@
       "name": "Durge (Separatist)",
       "ship": "Rogue-class Starfighter",
       "points": 4,
-      "skill": 5,
-      "xws": "durge-separatistalliance"
+      "skill": 5
     },
     {
       "id": 617,
@@ -4442,8 +4336,7 @@
       "name": "Adi Gallia (Delta-7B)",
       "ship": "Delta-7b Aethersprite",
       "points": 7,
-      "skill": 5,
-      "xws": "adigallia-delta7baethersprite"
+      "skill": 5
     },
     {
       "id": 621,
@@ -4513,112 +4406,168 @@
       "name": "Darth Vader (SSP)",
       "ship": "TIE Advanced x1",
       "points": 6,
-      "skill": 6,
-      "xws": "darthvader-swz105"
+      "skill": 6
     },
     {
       "id": 631,
       "name": "Maarek Stele (SSP)",
       "ship": "TIE Advanced x1",
       "points": 5,
-      "skill": 5,
-      "xws": "maarekstele-swz105"
+      "skill": 5
     },
     {
       "id": 632,
       "name": "Captain Jonus (SSP)",
       "ship": "TIE/sa Bomber",
       "points": 4,
-      "skill": 4,
-      "xws": "captainjonus-swz105"
+      "skill": 4
     },
     {
       "id": 633,
       "name": "Tomax Bren (SSP)",
       "ship": "TIE/sa Bomber",
       "points": 5,
-      "skill": 5,
-      "xws": "tomaxbren-swz105"
+      "skill": 5
     },
     {
       "id": 634,
       "name": "Iden Versio (SSP)",
       "ship": "TIE/ln Fighter",
       "points": 4,
-      "skill": 4,
-      "xws": "idenversio-swz105"
+      "skill": 4
     },
     {
       "id": 635,
       "name": "\"Night Beast\" (SSP)",
       "ship": "TIE/ln Fighter",
       "points": 3,
-      "skill": 2,
-      "xws": "nightbeast-swz105"
+      "skill": 2
     },
     {
       "id": 636,
       "name": "Valen Rudor (SSP)",
       "ship": "TIE/ln Fighter",
       "points": 3,
-      "skill": 3,
-      "xws": "valenrudor-swz105"
+      "skill": 3
     },
     {
       "id": 637,
       "name": "\"Dutch\" Vander (SSP)",
       "ship": "BTL-A4 Y-wing",
       "points": 4,
-      "skill": 4,
-      "xws": "dutchvander-swz106"
+      "skill": 4
     },
     {
       "id": 638,
       "name": "Horton Salm (SSP)",
       "ship": "BTL-A4 Y-wing",
       "points": 4,
-      "skill": 4,
-      "xws": "hortonsalm-swz106"
+      "skill": 4
     },
     {
       "id": 639,
       "name": "Arvel Crynyd (SSP)",
       "ship": "RZ-1 A-wing",
       "points": 4,
-      "skill": 3,
-      "xws": "arvelcrynyd-swz106"
+      "skill": 3
     },
     {
       "id": 640,
       "name": "Jake Farrell (SSP)",
       "ship": "RZ-1 A-wing",
       "points": 5,
-      "skill": 4,
-      "xws": "jakefarrell-swz106"
+      "skill": 4
     },
     {
       "id": 641,
       "name": "Jek Porkins (SSP)",
       "ship": "T-65 X-wing",
       "points": 5,
-      "skill": 4,
-      "xws": "jekporkins-swz106"
+      "skill": 4
     },
     {
       "id": 642,
       "name": "Luke Skywalker (SSP)",
       "ship": "T-65 X-wing",
       "points": 6,
-      "skill": 5,
-      "xws": "lukeskywalker-swz106"
+      "skill": 5
     },
     {
       "id": 643,
       "name": "Shara Bey (SSP)",
       "ship": "RZ-1 A-wing",
       "points": 4,
-      "skill": 4,
-      "xws": "sharabey-swz106"
+      "skill": 4
+    },
+    {
+      "id": 644,
+      "name": "\"Deathfire\" (TBE)",
+      "ship": "TIE/sa Bomber",
+      "points": 20,
+      "skill": 3
+    },
+    {
+      "id": 645,
+      "name": "Major Rhymer (TBE)",
+      "ship": "TIE/sa Bomber",
+      "points": 20,
+      "skill": 4
+    },
+    {
+      "id": 646,
+      "name": "Captain Jonus (TBE)",
+      "ship": "TIE/sa Bomber",
+      "points": 20,
+      "skill": 4
+    },
+    {
+      "id": 647,
+      "name": "Tomax Bren (TBE)",
+      "ship": "TIE/sa Bomber",
+      "points": 20,
+      "skill": 5
+    },
+    {
+      "id": 648,
+      "name": "Dash Rendar (YLF)",
+      "ship": "YT-2400 Light Freighter",
+      "points": 20,
+      "skill": 5
+    },
+    {
+      "id": 649,
+      "name": "Dash Rendar (YLF-SL)",
+      "ship": "YT-2400 Light Freighter",
+      "points": 20,
+      "skill": 5
+    },
+    {
+      "id": 650,
+      "name": "Dash Rendar (Scum)",
+      "ship": "YT-2400 Light Freighter",
+      "points": 20,
+      "skill": 5
+    },
+    {
+      "id": 651,
+      "name": "\"Leebo\" (YLF)",
+      "ship": "YT-2400 Light Freighter",
+      "points": 20,
+      "skill": 3
+    },
+    {
+      "id": 652,
+      "name": "\"Leebo\" (YLF-SL)",
+      "ship": "YT-2400 Light Freighter",
+      "points": 20,
+      "skill": 3
+    },
+    {
+      "id": 653,
+      "name": "\"Leebo\" (Scum)",
+      "ship": "YT-2400 Light Freighter",
+      "points": 20,
+      "skill": 3
     }
   ],
   "upgrades": [
@@ -4736,14 +4685,12 @@
     {
       "id": 22,
       "name": "Chewbacca (Scum)",
-      "slot": "Crew",
-      "xws": "chewbacca-crew"
+      "slot": "Crew"
     },
     {
       "id": 23,
       "name": "\"Chopper\" (Crew)",
-      "slot": "Crew",
-      "xws": "chopper-crew"
+      "slot": "Crew"
     },
     {
       "id": 24,
@@ -4848,14 +4795,12 @@
     {
       "id": 44,
       "name": "Lando Calrissian",
-      "slot": "Crew",
-      "xws": "landocalrissian"
+      "slot": "Crew"
     },
     {
       "id": 45,
       "name": "Lando Calrissian (Scum)",
-      "slot": "Crew",
-      "xws": "landocalrissian-crew"
+      "slot": "Crew"
     },
     {
       "id": 46,
@@ -4910,8 +4855,7 @@
     {
       "id": 56,
       "name": "R2-D2 (Crew)",
-      "slot": "Crew",
-      "xws": "r2d2-crew"
+      "slot": "Crew"
     },
     {
       "id": 57,
@@ -5051,14 +4995,12 @@
     {
       "id": 84,
       "name": "Han Solo",
-      "slot": "Gunner",
-      "xws": "hansolo"
+      "slot": "Gunner"
     },
     {
       "id": 85,
       "name": "Han Solo (Scum)",
-      "slot": "Gunner",
-      "xws": "hansolo-gunner"
+      "slot": "Gunner"
     },
     {
       "id": 86,
@@ -5557,14 +5499,12 @@
     {
       "id": 187,
       "name": "Rey",
-      "slot": "Gunner",
-      "xws": "rey-gunner"
+      "slot": "Gunner"
     },
     {
       "id": 188,
       "name": "Chewbacca (Resistance)",
-      "slot": "Crew",
-      "xws": "chewbacca-crew-swz19"
+      "slot": "Crew"
     },
     {
       "id": 189,
@@ -5579,14 +5519,12 @@
     {
       "id": 191,
       "name": "C-3PO (Resistance)",
-      "slot": "Crew",
-      "xws": "c3po-crew"
+      "slot": "Crew"
     },
     {
       "id": 192,
       "name": "Han Solo (Resistance)",
-      "slot": "Crew",
-      "xws": "hansolo-crew"
+      "slot": "Crew"
     },
     {
       "id": 193,
@@ -5846,8 +5784,7 @@
     {
       "id": 244,
       "name": "Leia Organa (Resistance)",
-      "slot": "Crew",
-      "xws": "leiaorgana-resistance"
+      "slot": "Crew"
     },
     {
       "id": 245,
@@ -5897,8 +5834,7 @@
     {
       "id": 254,
       "name": "C-3PO (Republic)",
-      "slot": "Crew",
-      "xws": "c3po-republic"
+      "slot": "Crew"
     },
     {
       "id": 255,
@@ -6298,8 +6234,7 @@
     {
       "id": 334,
       "name": "Boba Fett (Separatist)",
-      "slot": "Gunner",
-      "xws": "bobafett-gunner"
+      "slot": "Gunner"
     },
     {
       "id": 335,
@@ -6329,8 +6264,7 @@
     {
       "id": 340,
       "name": "R2-D2 (Republic)",
-      "slot": "Astromech",
-      "xws": "r2d2-republic"
+      "slot": "Astromech"
     },
     {
       "id": 341,
@@ -6420,8 +6354,7 @@
     {
       "id": 358,
       "name": "R2-D2 (Resistance)",
-      "slot": "Astromech",
-      "xws": "r2d2-resistance"
+      "slot": "Astromech"
     },
     {
       "id": 359,
@@ -6481,8 +6414,7 @@
     {
       "id": 370,
       "name": "Slave I (Separatist)",
-      "slot": "Title",
-      "xws": "slavei-swz82"
+      "slot": "Title"
     },
     {
       "id": 371,
@@ -6517,8 +6449,7 @@
     {
       "id": 377,
       "name": "B6 Blade Wing Prototype (Epic)",
-      "slot": "Command",
-      "xws": "b6bladewingprototype-command"
+      "slot": "Command"
     },
     {
       "id": 378,
@@ -6528,8 +6459,7 @@
     {
       "id": 379,
       "name": "Sabine Wren (Gunner)",
-      "slot": "Gunner",
-      "xws": "sabinewren-gunner"
+      "slot": "Gunner"
     },
     {
       "id": 380,
@@ -6754,8 +6684,7 @@
     {
       "id": 424,
       "name": "Ahsoka Tano (Crew)",
-      "slot": "Crew",
-      "xws": "ahsokatano-crew"
+      "slot": "Crew"
     },
     {
       "id": 425,
@@ -6766,8 +6695,7 @@
     {
       "id": 426,
       "name": "Bo-Katan Kryze (Rebel/Scum)",
-      "slot": "Crew",
-      "xws": "bokatankryze-rebel-scum"
+      "slot": "Crew"
     },
     {
       "id": 427,
@@ -6837,14 +6765,12 @@
     {
       "id": 440,
       "name": "Maul (Mandalore)",
-      "slot": "Crew",
-      "xws": "maul-crew"
+      "slot": "Crew"
     },
     {
       "id": 441,
       "name": "Gar Saxon (Gunner)",
-      "slot": "Gunner",
-      "xws": "garsaxon-gunner"
+      "slot": "Gunner"
     },
     {
       "id": 442,
@@ -6854,8 +6780,7 @@
     {
       "id": 443,
       "name": "Ursa Wren (Gunner)",
-      "slot": "Gunner",
-      "xws": "ursawren-gunner"
+      "slot": "Gunner"
     },
     {
       "id": 444,
@@ -7106,6 +7031,51 @@
       "id": 493,
       "name": "Evasion Sequence 7 (SoC)",
       "slot": "Modification"
+    },
+    {
+      "id": 494,
+      "name": "Swift Approach (TBE)",
+      "slot": "Talent"
+    },
+    {
+      "id": 495,
+      "name": "Automated Loaders (TBE)",
+      "slot": "Modification"
+    },
+    {
+      "id": 496,
+      "name": "Top Cover (TBE)",
+      "slot": "Talent"
+    },
+    {
+      "id": 497,
+      "name": "True Grit (TBE)",
+      "slot": "Talent"
+    },
+    {
+      "id": 498,
+      "name": "Mercenary (YLF)",
+      "slot": "Talent"
+    },
+    {
+      "id": 499,
+      "name": "Efficient Processing (YLF)",
+      "slot": "Talent"
+    },
+    {
+      "id": 500,
+      "name": "Seeker Missiles (YLF)",
+      "slot": "Missile"
+    },
+    {
+      "id": 501,
+      "name": "\"Leebo\" (YLF)",
+      "slot": "Crew"
+    },
+    {
+      "id": 502,
+      "name": "Outrider (YLF)",
+      "slot": "Title"
     }
   ]
 }

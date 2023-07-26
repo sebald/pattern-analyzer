@@ -108,12 +108,6 @@ export const getSquads = async ({ id }: { id: string }) => {
   const { participants, rounds } = await getTournament(id);
   const records: { [playerId: string]: SquadData['record'] } = {};
 
-  /**
-   * Failsage: Some tournament software breaks listfortress tournaments.
-   * E.g. https://listfortress.com/tournaments/3805
-   */
-  participants.every;
-
   rounds.forEach(round => {
     round.matches.forEach(
       ({ player1_id, player1_points, player2_id, player2_points }) => {
