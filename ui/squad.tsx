@@ -1,5 +1,6 @@
 import { VariantProps, cva } from 'class-variance-authority';
 
+import { cn } from '@/lib/utils/classname.utils';
 import { getPilotName, getShipName } from '@/lib/get-value';
 import type { XWSSquad } from '@/lib/types';
 import { upgradesToList } from '@/lib/xws';
@@ -23,7 +24,7 @@ const styles = {
       size: 'default',
     },
   }),
-  pilot: cva('flex items-center font-semibold text-secondary-900', {
+  pilot: cva('flex items-center font-semibold', {
     variants: {
       variant: {
         narrow: 'leading-none',
@@ -44,16 +45,17 @@ const styles = {
 // Props
 // ---------------
 export interface SquadProps extends VariantProps<typeof styles.container> {
+  className?: string;
   xws: XWSSquad;
 }
 
 // Component
 // ---------------
-export const Squad = ({ variant, size, xws }: SquadProps) => {
+export const Squad = ({ variant, size, className, xws }: SquadProps) => {
   const { pilots } = xws;
 
   return (
-    <div className={styles.container({ variant, size })}>
+    <div className={cn(styles.container({ variant, size }), className)}>
       {pilots.map(({ id, ship, upgrades }, idx) => (
         <div key={`${id}-${idx}`}>
           <div

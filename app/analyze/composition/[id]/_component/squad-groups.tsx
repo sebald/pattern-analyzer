@@ -6,6 +6,7 @@ import { getPilotName } from '@/lib/get-value';
 import { type SquadCompositionStats } from '@/lib/stats/details/composition';
 import { formatDate } from '@/lib/utils/date.utils';
 import { toPercentage } from '@/lib/utils/math.utils';
+import { Copy } from '@/ui/icons';
 
 // Props
 // ---------------
@@ -32,24 +33,24 @@ export const SquadGroups = ({ value }: SquadGroupsProps) => {
             </div>
           </Accordion.Trigger>
           <Accordion.Content>
-            <div className="flex flex-wrap gap-x-8 gap-y-4">
-              <Detail
-                variant="secondary"
-                label="Percentile"
-                value={toPercentage(current.percentile)}
-              />
-              <Detail
-                variant="secondary"
-                label="Deviation"
-                value={toPercentage(current.deviation)}
-              />
-              <Detail
-                variant="secondary"
-                label="Winrate"
-                value={current.winrate ? toPercentage(current.winrate) : '-'}
-              />
-            </div>
-            <div className="flex flex-col gap-4 pt-4">
+            <div className="flex flex-col gap-8 pt-6">
+              <div className="flex flex-wrap gap-8 px-2">
+                <Detail
+                  variant="secondary"
+                  label="Percentile"
+                  value={toPercentage(current.percentile)}
+                />
+                <Detail
+                  variant="secondary"
+                  label="Deviation"
+                  value={toPercentage(current.deviation)}
+                />
+                <Detail
+                  variant="secondary"
+                  label="Winrate"
+                  value={current.winrate ? toPercentage(current.winrate) : '-'}
+                />
+              </div>
               <Timeline>
                 {current.items.map(({ date, player, xws }) => (
                   <Timeline.Item key={date + player}>
@@ -57,10 +58,10 @@ export const SquadGroups = ({ value }: SquadGroupsProps) => {
                       {formatDate(new Date(date))}
                       <Timeline.Caption>by {player}</Timeline.Caption>
                     </Timeline.Header>
-                    <Timeline.Body className="flex flex-col items-start gap-4">
-                      <Squad xws={xws} variant="narrow" />
+                    <Timeline.Body className="flex flex-1 flex-col items-start justify-between gap-4 md:mt-[3px] md:gap-6 lg:flex-row">
+                      <Squad variant="narrow" xws={xws} />
                       <CopyButton size="small" content={JSON.stringify(xws)}>
-                        Copy XWS
+                        <Copy className="inline-block h-4 w-4" /> Copy XWS
                       </CopyButton>
                     </Timeline.Body>
                   </Timeline.Item>
