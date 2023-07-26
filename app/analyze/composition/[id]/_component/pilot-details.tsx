@@ -26,7 +26,10 @@ export const PilotDetails = ({ className, ships, value }: PilotDetailProps) => {
   const data = Object.entries(value);
 
   if (grouped) {
-    data.sort(([, a], [, b]) => ships.indexOf(a.ship) - ships.indexOf(b.ship));
+    data.sort(([, a], [, b]) => {
+      const result = ships.indexOf(a.ship) - ships.indexOf(b.ship);
+      return result !== 0 ? result : b.percentile - a.percentile;
+    });
   }
 
   return (
@@ -68,7 +71,9 @@ export const PilotDetails = ({ className, ships, value }: PilotDetailProps) => {
                   variant="secondary"
                   className="max-w-[150px]"
                   label="Deviation"
-                  value={toPercentage(current.deviation)}
+                  value={
+                    current.deviation ? toPercentage(current.deviation) : '-'
+                  }
                 />
                 <Detail
                   variant="secondary"
