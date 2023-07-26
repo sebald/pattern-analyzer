@@ -33,12 +33,11 @@ const AccordionTrigger = React.forwardRef<
         'flex flex-1 items-center justify-between gap-4 py-5',
         'text-left font-medium transition-all hover:underline',
         '[&[data-state=open]>svg]:rotate-180',
-        'outline-none focus-visible:bg-primary-200/50',
-        className
+        'outline-none focus-visible:bg-primary-200/50'
       )}
       {...props}
     >
-      {children}
+      <div className={className}>{children}</div>
       <ChevronDown
         className="h-5 w-5 shrink-0 transition-transform duration-200"
         strokeWidth={2}
