@@ -4,6 +4,7 @@ import { Fragment } from 'react';
 
 import { toPercentage } from '@/lib/utils';
 import { Collapsible, FactionIcon, Link, ShipIcon, Table } from '@/ui';
+import { Folder } from '@/ui/icons';
 
 import { useCompositionFilter } from './context';
 import type { CompositionStatsType } from './types';
@@ -46,14 +47,15 @@ export const CompositionTable = ({
     <Collapsible maxHeight={800} disabled={!collapsible}>
       <Table
         cols={[
-          'minmax(auto, max-content)',
-          '120px',
+          'max-content',
+          'max-content',
           '1fr',
           '1fr',
           '1fr',
-          'minmax(90px, 1fr)',
-          '85px',
-          '85px',
+          '1fr',
+          '1fr',
+          '1fr',
+          'max-content',
         ]}
         headers={[
           'Ships',
@@ -64,21 +66,19 @@ export const CompositionTable = ({
           'Frequency',
           'Count',
           'Score',
+          'View',
         ]}
         numeration
       >
         {data.map(([id, stat]) => (
           <Fragment key={id}>
-            <Table.Cell variant="header">
-              <Link
-                href={`/analyze/composition/${id}`}
-                variant="highlight"
-                className="flex w-full items-center gap-1 lg:gap-2"
-              >
-                {stat.ships.map((ship, idx) => (
-                  <ShipIcon key={idx} ship={ship} className="text-2xl" />
-                ))}
-              </Link>
+            <Table.Cell
+              variant="header"
+              className="flex w-full items-center gap-1 "
+            >
+              {stat.ships.map((ship, idx) => (
+                <ShipIcon key={idx} ship={ship} className="text-2xl" />
+              ))}
             </Table.Cell>
             <Table.Cell>
               <FactionIcon
@@ -100,6 +100,15 @@ export const CompositionTable = ({
             </Table.Cell>
             <Table.Cell variant="number">{stat.count}</Table.Cell>
             <Table.Cell variant="number">{stat.score}</Table.Cell>
+            <Table.Cell className="justify-center">
+              <Link
+                href={`/analyze/composition/${id}`}
+                variant="highlight"
+                className="text-primary-800"
+              >
+                <Folder className="h-5 w-5" />
+              </Link>
+            </Table.Cell>
           </Fragment>
         ))}
       </Table>

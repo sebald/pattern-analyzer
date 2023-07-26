@@ -60,7 +60,7 @@ export const TableCell = ({
   className,
   children,
 }: TableCellProps) => (
-  <div className={cn(styles.cell({ variant, size, className }))}>
+  <div className={cn(styles.cell({ variant, size }), className)}>
     {children}
   </div>
 );
