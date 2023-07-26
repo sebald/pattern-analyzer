@@ -113,7 +113,7 @@ const AnalyzeCompositionPage = async ({ searchParams }: AnalyzePageProps) => {
   const stats = await getStats(from, to, params.data.smallSamples);
 
   return (
-    <CompositionFilterProvider>
+    <>
       <div className="pb-6">
         <Title>Compositions</Title>
         <Caption>
@@ -132,25 +132,30 @@ const AnalyzeCompositionPage = async ({ searchParams }: AnalyzePageProps) => {
           </Inline>
         </Caption>
       </div>
-      <Filter
-        smallSamples={!params.data.smallSamples}
-        dateRange={toDate(from, to)}
-      >
-        <CompositionFilter />
-      </Filter>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
-        <div className="col-span-full">
-          <Card inset="headless">
-            <Card.Body>
-              <CompositionTable value={stats.composition} collapsible={false} />
-            </Card.Body>
-          </Card>
+      <CompositionFilterProvider>
+        <Filter
+          smallSamples={!params.data.smallSamples}
+          dateRange={toDate(from, to)}
+        >
+          <CompositionFilter />
+        </Filter>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
+          <div className="col-span-full">
+            <Card inset="headless">
+              <Card.Body>
+                <CompositionTable
+                  value={stats.composition}
+                  collapsible={false}
+                />
+              </Card.Body>
+            </Card>
+          </div>
+          <div className="col-span-full pt-8 lg:col-start-2 lg:col-end-12">
+            <StatsHint />
+          </div>
         </div>
-        <div className="col-span-full pt-8 lg:col-start-2 lg:col-end-12">
-          <StatsHint />
-        </div>
-      </div>
-    </CompositionFilterProvider>
+      </CompositionFilterProvider>
+    </>
   );
 };
 
