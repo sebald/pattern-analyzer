@@ -6,6 +6,7 @@ export interface MetadataConfig {
   description?: string;
   ogTitle?: string;
   ogWidth?: number;
+  ogShips?: string;
 }
 
 export const createMetadata = ({
@@ -13,10 +14,12 @@ export const createMetadata = ({
   description,
   ogTitle,
   ogWidth,
+  ogShips,
 }: MetadataConfig) => {
   const ogParams = new URLSearchParams({
     ...(ogTitle ? { title: ogTitle } : {}),
     ...(ogWidth ? { width: `${ogWidth}` } : {}),
+    ...(ogShips ? { ships: `${ogShips}` } : {}),
   }).toString();
 
   return {

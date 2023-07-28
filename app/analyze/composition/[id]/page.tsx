@@ -52,13 +52,14 @@ interface PageParams {
 
 // Metadata
 // ---------------
-export const generateMetadata = ({ params }: PageParams) =>
-  createMetadata({
-    title: 'Composition Details',
+export const generateMetadata = ({ params }: PageParams) => {
+  const ships = params.id.split('.').map(ship => getShipName(ship));
+  return createMetadata({
+    title: `Composition: ${ships.join(', ')}`,
     description: 'Take a look at what is currently flown in X-Wing!',
-    ogTitle: 'Composition Details',
-    ogWidth: 60,
+    ogShips: params.id,
   });
+};
 
 // Data
 // ---------------
