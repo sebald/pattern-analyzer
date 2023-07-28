@@ -6,6 +6,7 @@ import { Navigation } from '@/ui/navigation';
 import { Trophy, Download, BarChart, Calendar, Columns } from '@/ui/icons';
 
 import { baseUrl, vendors } from '@/lib/config';
+import { createMetadata } from '@/lib/metadata';
 import type { EventInfo, Vendor } from '@/lib/types';
 import { formatDate, fromDate } from '@/lib/utils/date.utils';
 
@@ -53,18 +54,11 @@ export const generateMetadata = async ({ params }: LayoutProps) => {
     id: params.id,
   });
 
-  return {
-    title: `Pattern Analyzer | ${event.name}`,
-    description: 'View squads & stats',
-    openGraph: {
-      siteName: 'Pattern Analyzer',
-      title: event.name,
-      description: 'X-Wing Tournament data & statistics',
-      images: `${baseUrl}/api/og.png?title=${encodeURIComponent(event.name)}`,
-      locale: 'en-US',
-      type: 'website',
-    },
-  } satisfies Metadata;
+  return createMetadata({
+    title: event.name,
+    description: 'View Squads & Stats',
+    ogTitle: event.name,
+  });
 };
 
 // Component

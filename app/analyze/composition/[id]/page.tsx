@@ -10,6 +10,7 @@ import { Card, Detail, ShipIcon } from '@/ui';
 import { PilotDetails } from './_component/pilot-details';
 import { SquadGroups } from './_component/squad-groups';
 import { TrendCurve } from './_component/trend-curve';
+import { createMetadata } from '@/lib/metadata';
 
 // Config
 // ---------------
@@ -41,19 +42,23 @@ export const generateStaticParams = async () => {
   }));
 };
 
+// Props
+// ---------------
+interface PageParams {
+  params: {
+    id: string;
+  };
+}
+
 // Metadata
 // ---------------
-export const metadata = {
-  title: 'Pattern Analyzer | Composition Details',
-  description: 'Take a look at what is currently flown in X-Wing!',
-  openGraph: {
-    siteName: 'Pattern Analyzer',
-    title: 'Composition Details',
+export const generateMetadata = ({ params }: PageParams) => {
+  const ships = params.id.split('.').map(ship => getShipName(ship));
+  return createMetadata({
+    title: `Composition: ${ships.join(', ')}`,
     description: 'Take a look at what is currently flown in X-Wing!',
-    images: `${baseUrl}/api/og.png`,
-    locale: 'en-US',
-    type: 'website',
-  },
+    ogShips: params.id,
+  });
 };
 
 // Data
@@ -72,14 +77,6 @@ const getCompositionStats = async (id: string, from: Date) => {
 
   return compositionDetails(id, data);
 };
-
-// Props
-// ---------------
-interface PageParams {
-  params: {
-    id: string;
-  };
-}
 
 // Page
 // ---------------

@@ -1,8 +1,8 @@
+import { createMetadata } from '@/lib/metadata';
+
 // Metadata
 // ---------------
-export const metadata = {
-  title: '404 - Page not founds',
-};
+export const metadata = createMetadata({ title: '404 - Page not found' });
 
 // Page
 // ---------------

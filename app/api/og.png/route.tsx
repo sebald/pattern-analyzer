@@ -1,4 +1,6 @@
 import { type NextRequest, ImageResponse } from 'next/server';
+import shipIcons from '@/lib/data/ship-icons.json';
+import { getShipName } from '@/lib/get-value';
 
 // Config
 // ---------------
@@ -32,72 +34,99 @@ const loadInter = fetch(
 const loadMontserrat = fetch(
   new URL('../../fonts/Montserrat-Black.ttf', import.meta.url)
 ).then(async res => res.arrayBuffer());
+const loadXWingShips = fetch(
+  new URL('../../fonts/xwing-miniatures-ships.ttf', import.meta.url)
+).then(async res => res.arrayBuffer());
 
 // Handler
 // ---------------
 export const GET = async (req: NextRequest) => {
   const url = new URL(req.url);
-  const title = url.searchParams.get('title');
+  const title = url.searchParams.get('title') || '';
+  const ships = url.searchParams.get('ships');
+  const width = url.searchParams.get('width');
 
-  const [inter, montserrat] = await Promise.all([loadInter, loadMontserrat]);
+  const [inter, montserrat, shipFont] = await Promise.all([
+    loadInter,
+    loadMontserrat,
+    loadXWingShips,
+  ]);
 
-  const content = title ? (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        maxWidth: '80%',
-      }}
-    >
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: 2,
-          color: '#6167ca',
-          fontFamily: 'Montserrat',
-          fontWeight: 900,
-          fontSize: 32,
-          textTransform: 'uppercase',
-          lineHeight: 1,
-        }}
-      >
-        <Logo size="40" /> <span>Pattern Analyzer</span>
-      </div>
-      <div
-        style={{
-          color: '#3c4073',
-          fontSize: title.length > 40 ? 90 : 110,
-          fontWeight: 900,
-          lineHeight: 1,
-          // @ts-ignore
-          textWrap: 'balance',
-        }}
-      >
-        {title}
-      </div>
-    </div>
-  ) : (
-    <>
-      <Logo size="340" />
+  const content =
+    title || ships ? (
       <div
         style={{
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'center',
-          gap: 0,
-          fontFamily: 'Montserrat',
-          fontWeight: 900,
-          textTransform: 'uppercase',
-          lineHeight: 1,
-          fontSize: 90,
+          ...(width ? { width: `${width}%` } : { maxWidth: '80%' }),
         }}
       >
-        <span>Pattern</span>
-        <span>Analyzer</span>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 2,
+            color: '#6167ca',
+            fontFamily: 'Montserrat',
+            fontWeight: 900,
+            fontSize: 32,
+            textTransform: 'uppercase',
+            lineHeight: 1,
+          }}
+        >
+          <Logo size="40" /> <span>Pattern Analyzer</span>
+        </div>
+        <div
+          style={{
+            color: '#3c4073',
+            fontSize: title.length > 40 || ships ? 90 : 110,
+            fontWeight: 900,
+            lineHeight: 1,
+            // @ts-ignore
+            textWrap: 'balance',
+          }}
+        >
+          {title}
+        </div>
+        {ships && (
+          <div
+            style={{
+              color: '#3c4073',
+              fontFamily: 'Ships',
+              fontSize: 200,
+              fontWeight: 400,
+              lineHeight: 0.8,
+            }}
+          >
+            {ships
+              .split('.')
+              // @ts-expect-error
+              .map(ship => shipIcons[ship])
+              .join(' ')}
+          </div>
+        )}
       </div>
-    </>
-  );
+    ) : (
+      <>
+        <Logo size="340" />
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            gap: 0,
+            fontFamily: 'Montserrat',
+            fontWeight: 900,
+            textTransform: 'uppercase',
+            lineHeight: 1,
+            fontSize: 90,
+          }}
+        >
+          <span>Pattern</span>
+          <span>Analyzer</span>
+        </div>
+      </>
+    );
 
   return new ImageResponse(
     (
@@ -133,6 +162,12 @@ export const GET = async (req: NextRequest) => {
           weight: 900,
           style: 'normal',
           data: montserrat,
+        },
+        {
+          name: 'Ships',
+          weight: 400,
+          style: 'normal',
+          data: shipFont,
         },
       ],
     }
