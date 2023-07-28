@@ -1,8 +1,7 @@
+import { createMetadata } from '@/lib/metadata';
 import { Headline, Link, List, Text, Title } from '@/ui';
 
-export const metadata = {
-  title: 'Pattern Analyzer | About',
-};
+export const metadata = createMetadata({ title: 'About' });
 
 const About = () => (
   <div className="mx-auto text-secondary-900">

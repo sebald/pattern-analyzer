@@ -38,6 +38,7 @@ const loadMontserrat = fetch(
 export const GET = async (req: NextRequest) => {
   const url = new URL(req.url);
   const title = url.searchParams.get('title');
+  const width = url.searchParams.get('width');
 
   const [inter, montserrat] = await Promise.all([loadInter, loadMontserrat]);
 
@@ -46,7 +47,7 @@ export const GET = async (req: NextRequest) => {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        maxWidth: '80%',
+        ...(width ? { width: `${width}%` } : { maxWidth: '80%' }),
       }}
     >
       <div

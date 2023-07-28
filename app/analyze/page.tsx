@@ -1,7 +1,8 @@
 import { cache } from 'react';
 import { z } from 'zod';
 
-import { baseUrl, pointsUpdateDate } from '@/lib/config';
+import { pointsUpdateDate } from '@/lib/config';
+import { createMetadata } from '@/lib/metadata';
 import { setup } from '@/lib/stats';
 import {
   composition,
@@ -49,18 +50,10 @@ export const revalidate = 21600; // 6 hours
 
 // Metadata
 // ---------------
-export const metadata = {
-  title: 'Pattern Analyzer | Analyze',
+export const metadata = createMetadata({
+  title: 'Analyze',
   description: 'Analyze the current X-Wing meta!',
-  openGraph: {
-    siteName: 'Pattern Analyzer',
-    title: 'Analyze',
-    description: 'Analyze the current X-Wing meta!',
-    images: `${baseUrl}/api/og.png`,
-    locale: 'en-US',
-    type: 'website',
-  },
-};
+});
 
 // Helpers
 // ---------------
