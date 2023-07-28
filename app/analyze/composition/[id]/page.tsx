@@ -55,7 +55,7 @@ interface PageParams {
 export const generateMetadata = ({ params }: PageParams) => {
   const ships = params.id.split('.').map(ship => getShipName(ship));
   return createMetadata({
-    title: `Composition: ${ships.join(', ')}`,
+    title: `Squad Composition: ${ships.join(', ')}`,
     description: 'Take a look at what is currently flown in X-Wing!',
     ogShips: params.id,
   });

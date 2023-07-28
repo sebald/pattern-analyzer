@@ -32,7 +32,7 @@ export const createMetadata = ({
     metadataBase: new URL('https://www.pattern-analyzer.app/'),
     openGraph: {
       siteName: 'Pattern Analyzer',
-      title: 'Home',
+      title: ogTitle ?? title,
       description: description ?? 'X-Wing tournament data & statistics',
       images: `${baseUrl}/api/og.png${ogParams ? `?${ogParams}` : ''}`,
       type: 'website',
