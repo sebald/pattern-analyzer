@@ -36,6 +36,10 @@ const PILOT_ID_MAP = {
   herasyndullaawing: 'herasyndulla-rz1awing',
   dalanoberosstarviper: 'dalanoberos-starviperclassattackplatform',
   vultskerristieinterceptor: 'vultskerris-tieininterceptor',
+  garvendreisboy: 'garvendreis-battleofyavin',
+  jekporkinsboy: 'jekporkins-battleofyavin',
+  oddballywing: 'oddball-btlbywing',
+  anakinskywalkerywing: 'anakinskywalker-btlbywing',
 };
 
 /**
