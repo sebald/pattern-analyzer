@@ -27,6 +27,15 @@ const PILOT_ID_MAP = {
   dbs404soc: 'dbs404-siegeofcoruscant',
   dbs32csoc: 'dbs32c-siegeofcoruscant',
   bosskz95headhunter: 'bossk-z95af4headhunter',
+  fennraurebelfang: 'fennrau-rebel-fang',
+  wedgeantillesawing: 'wedgeantilles-rz1awing',
+  darthvaderssp: 'darthvader-swz105',
+  sabinewrentiefighter: 'sabinewren-tielnfighter',
+  kylorentiewhisper: 'kyloren-tiewiwhispermodifiedinterceptor',
+  poedameronyt1300: 'poedameron-scavengedyt1300',
+  herasyndullaawing: 'herasyndulla-rz1awing',
+  dalanoberosstarviper: 'dalanoberos-starviperclassattackplatform',
+  vultskerristieinterceptor: 'vultskerris-tieininterceptor',
 };
 
 /**
