@@ -22,7 +22,7 @@ const PILOT_ID_MAP = {
   'bokatankryze-separatistalliance': 'bokatankryze',
   lukeskywalkerboy: 'lukeskywalker-battleofyavin',
   wampaboy: 'wampa-battleofyavin',
-  durgeseparatist: 'durge',
+  durgeseparatist: 'durge-separatistalliance',
   dist81soc: 'dist81-siegeofcoruscant',
   dbs404soc: 'dbs404-siegeofcoruscant',
   dbs32csoc: 'dbs32c-siegeofcoruscant',
@@ -40,6 +40,17 @@ const PILOT_ID_MAP = {
   jekporkinsboy: 'jekporkins-battleofyavin',
   oddballywing: 'oddball-btlbywing',
   anakinskywalkerywing: 'anakinskywalker-btlbywing',
+  darkcurseboy: 'darkcurse-battleofyavin',
+  countdookusoc: 'countdooku-siegeofcoruscant',
+  darthvaderboy: 'darthvader-battleofyavin',
+  maulermithelboy: 'maulermithel-battleofyavin',
+  hansoloboy: 'hansolo-battleofyavin',
+  holokandboy: 'holokand-battleofyavin',
+  darthvadertiedefender: 'darthvader-tieddefender',
+  wedgeantillesboy: 'wedgeantilles-battleofyavin',
+  // These ones are really dumb ...
+  'hansolo-rebelalliance': 'hansolo-modifiedyt1300lightfreighter',
+  'durge-separatistalliance': 'durge-separatistalliance',
 };
 
 /**
@@ -52,8 +63,10 @@ export const normalize = (xws: XWSSquad | null) => {
 
   const pilots = xws.pilots.map(pilot => {
     // Fix some broken IDs from builders that don't follow XWS
-    //@ts-expect-error (ID accessing allowed to fail)
-    const pilotId = PILOT_ID_MAP[pilot.id];
+    const pilotId =
+      //@ts-expect-error (ID accessing allowed to fail)
+      PILOT_ID_MAP[pilot.id] || PILOT_ID_MAP[`${pilot.id}-${xws.faction}`];
+
     if (pilotId) {
       pilot = {
         ...pilot,

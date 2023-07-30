@@ -19,6 +19,10 @@ const manifest = read('data/manifest.json');
 // ---------------
 
 const PILOT_SUFFIX = {
+  // Faction Hint
+  'hansolo-scumandvillainy': 'Scum',
+  'durge-separatistalliance': 'CIS',
+
   // Ships / Configs
   delta7baethersprite: '7b',
   'oddball-arc170starfighter': 'ARC-170',
@@ -86,16 +90,22 @@ const EXTRA_UPGRADES = {
  * Only take certain properties from pilot and
  * append scenario abbreviation to name if applicable.
  */
-const parsePilots = (pilots, ship) =>
+const parsePilots = (pilots, ship, faction) =>
   pilots.reduce((o, pilot) => {
     const { xws: id, name, caption, standardLoadout, cost, standard } = pilot;
 
     o[id] = {
       id,
       name:
-        PILOT_SUFFIX[id] || PILOT_SUFFIX[ship] || PILOT_SUFFIX[caption]
+        PILOT_SUFFIX[id] ||
+        PILOT_SUFFIX[ship] ||
+        PILOT_SUFFIX[caption] ||
+        PILOT_SUFFIX[`${id}-${faction}`]
           ? `${name} (${
-              PILOT_SUFFIX[id] || PILOT_SUFFIX[ship] || PILOT_SUFFIX[caption]
+              PILOT_SUFFIX[id] ||
+              PILOT_SUFFIX[ship] ||
+              PILOT_SUFFIX[caption] ||
+              PILOT_SUFFIX[`${id}-${faction}`]
             })`
           : name,
       caption,
@@ -122,7 +132,7 @@ const getShipsByFaction = faction => {
       id,
       name,
       icon,
-      pilots: parsePilots(pilots, id),
+      pilots: parsePilots(pilots, id, faction),
     };
     return o;
   }, {});
