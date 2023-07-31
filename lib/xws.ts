@@ -1,4 +1,4 @@
-import type { XWSSquad, XWSUpgrades } from './types';
+import type { XWSFaction, XWSSquad, XWSUpgrades } from './types';
 import SL_PILOTS from './data/standard-loadout-pilots.json';
 import { getPointsByName } from './yasb';
 import { getUpgradeName } from './get-value';
@@ -20,12 +20,7 @@ const PILOT_ID_MAP = {
   'herasyndulla-bwing': 'herasyndulla-asf01bwing',
   corranhornxwing: 'corranhorn-t65xwing',
   'bokatankryze-separatistalliance': 'bokatankryze',
-  lukeskywalkerboy: 'lukeskywalker-battleofyavin',
-  wampaboy: 'wampa-battleofyavin',
   durgeseparatist: 'durge-separatistalliance',
-  dist81soc: 'dist81-siegeofcoruscant',
-  dbs404soc: 'dbs404-siegeofcoruscant',
-  dbs32csoc: 'dbs32c-siegeofcoruscant',
   bosskz95headhunter: 'bossk-z95af4headhunter',
   fennraurebelfang: 'fennrau-rebel-fang',
   wedgeantillesawing: 'wedgeantilles-rz1awing',
@@ -36,21 +31,41 @@ const PILOT_ID_MAP = {
   herasyndullaawing: 'herasyndulla-rz1awing',
   dalanoberosstarviper: 'dalanoberos-starviperclassattackplatform',
   vultskerristieinterceptor: 'vultskerris-tieininterceptor',
-  garvendreisboy: 'garvendreis-battleofyavin',
-  jekporkinsboy: 'jekporkins-battleofyavin',
   oddballywing: 'oddball-btlbywing',
   anakinskywalkerywing: 'anakinskywalker-btlbywing',
-  darkcurseboy: 'darkcurse-battleofyavin',
-  countdookusoc: 'countdooku-siegeofcoruscant',
-  darthvaderboy: 'darthvader-battleofyavin',
-  maulermithelboy: 'maulermithel-battleofyavin',
-  hansoloboy: 'hansolo-battleofyavin',
-  holokandboy: 'holokand-battleofyavin',
   darthvadertiedefender: 'darthvader-tieddefender',
-  wedgeantillesboy: 'wedgeantilles-battleofyavin',
+  landocalrissianresistance: 'landocalrissian-scavengedyt1300',
+  gideonhaskxishuttle: 'gideonhask-xiclasslightshuttle',
+  sabinewrenawing: 'sabinewren-rz1awing',
+  ezrabridgergauntletfighter: 'ezrabridger-gauntletfighter',
+  herasyndullabwing: 'herasyndulla-asf01bwing',
+  garvendreisxwing: 'garvendreis-t65xwing',
+  gideonhasktieinterceptor: 'gideonhask-tieininterceptor',
+  anakinskywalkerdelta7b: 'anakinskywalker-delta7baethersprite',
+  chewbaccaresistance: 'chewbacca-scavengedyt1300',
+  macewindudelta7b: 'macewindu-delta7baethersprite',
+  ahsokatanoawing: 'ahsokatano-rz1awing',
+  l337escapecraft: 'l337-escapecraft',
   // These ones are really dumb ...
   'hansolo-rebelalliance': 'hansolo-modifiedyt1300lightfreighter',
   'durge-separatistalliance': 'durge-separatistalliance',
+};
+
+export const parsePilotId = (val: string, faction: XWSFaction) => {
+  let pilot = val
+    // Scenarios
+    .replace(/boy$/, '-battleofyavin')
+    .replace(/soc$/, '-siegeofcoruscant')
+    // Factions
+    .replace(/separatist$/, '-separatistalliance');
+
+  return (
+    //@ts-expect-error (ID accessing allowed to fail)
+    PILOT_ID_MAP[val] ??
+    //@ts-expect-error (ID accessing allowed to fail)
+    PILOT_ID_MAP[`${val}-${faction}`] ??
+    pilot
+  );
 };
 
 /**
@@ -62,17 +77,10 @@ export const normalize = (xws: XWSSquad | null) => {
   }
 
   const pilots = xws.pilots.map(pilot => {
-    // Fix some broken IDs from builders that don't follow XWS
-    const pilotId =
-      //@ts-expect-error (ID accessing allowed to fail)
-      PILOT_ID_MAP[pilot.id] || PILOT_ID_MAP[`${pilot.id}-${xws.faction}`];
-
-    if (pilotId) {
-      pilot = {
-        ...pilot,
-        id: pilotId,
-      };
-    }
+    pilot = {
+      ...pilot,
+      id: parsePilotId(pilot.id, xws.faction),
+    };
 
     // Add loadout and costs to pilots with standard loadouts
     //@ts-expect-error (ID accessing allowed to fail)
