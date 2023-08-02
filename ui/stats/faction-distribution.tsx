@@ -40,9 +40,11 @@ export const FactionDistribution = ({
       <Card.Title>Faction Distribution</Card.Title>
       <div className="h-60 md:h-72">
         <ResponsivePie
-          data={data.filter(({ value }) => value > 0)}
+          data={data.filter(({ value }) => value > 0) as any}
           valueFormat={value => toPercentage(value / total)}
-          arcLinkLabel={({ data }) => FACTION_ABBR[data.id]}
+          arcLinkLabel={({ data }) =>
+            FACTION_ABBR[(data as any).id as XWSFaction | 'unknown']
+          }
           colors={{ datum: 'data.color' }}
           sortByValue
           innerRadius={0.5}
