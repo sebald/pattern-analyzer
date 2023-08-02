@@ -46,6 +46,7 @@ const PILOT_ID_MAP = {
   macewindudelta7b: 'macewindu-delta7baethersprite',
   ahsokatanoawing: 'ahsokatano-rz1awing',
   l337escapecraft: 'l337-escapecraft',
+  nomlumbrogue: 'nomlumb-rogueclassstarfighter',
   // These ones are really dumb ...
   'hansolo-rebelalliance': 'hansolo-modifiedyt1300lightfreighter',
   'durge-separatistalliance': 'durge-separatistalliance',

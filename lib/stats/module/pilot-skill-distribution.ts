@@ -28,10 +28,11 @@ export const pilotSkillDistribution: () => StatModule<PilotSkillDistributionData
         const skill = getPilotSkill(pilot.id);
         // Ignore "Nashtah Pup"
         if (skill === '*') return;
-        // DEBUG: This happens a lot so we leave this here...
-        // if (isNaN(skill) || skill < 0 || skill > 6) {
-        //   console.log(pilot.id, skill);
-        // }
+        if (isNaN(skill) || skill < 0 || skill > 6) {
+          // DEBUG: This happens a lot so we leave this here...
+          // console.log(pilot.id, skill);
+          return;
+        }
         store[skill] += 1;
       },
       get: () => ({ pilotSkillDistribution: store }),
