@@ -98,3 +98,12 @@ export const upgradesToList = (upgrades: XWSUpgrades) =>
     .join(', ');
 
 export const isStandardized = (pilot: string) => pilot in SL_PILOTS;
+
+export const toCompositionId = (xws: XWSSquad | null) => {
+  if (!xws) return null;
+
+  const id = xws.pilots.map(pilot => pilot.ship);
+  id.sort();
+
+  return id.join('.');
+};
