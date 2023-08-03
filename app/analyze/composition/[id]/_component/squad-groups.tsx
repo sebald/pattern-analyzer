@@ -22,7 +22,7 @@ export const SquadGroups = ({ value }: SquadGroupsProps) => {
 
   return (
     <Accordion type="multiple">
-      {Object.entries(value).map(([id, current]) => (
+      {data.map(([id, current]) => (
         <Accordion.Item value={id} key={id}>
           <Accordion.Trigger className="flex gap-4 text-lg">
             <div className="w-14">

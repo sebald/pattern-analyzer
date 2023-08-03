@@ -73,7 +73,7 @@ export const Switch = forwardRef<
   return (
     <div className="flex cursor-pointer items-center gap-2">
       {label && (
-        <Label htmlFor={id} className="m-0 select-none font-normal">
+        <Label htmlFor={id} size={size} className="m-0 select-none font-normal">
           {label}
         </Label>
       )}

@@ -12,6 +12,7 @@ import type {
   SquadModuleContext,
   XWSModuleContext,
 } from './types';
+import { isStandardized } from '../xws';
 
 // Types
 // ---------------
@@ -107,8 +108,11 @@ export const setup =
               Object.entries(pilot.upgrades) as [XWSUpgradeSlots, string[]][]
             ).forEach(([slot, upgrades]) => {
               upgrades.forEach(upgrade => {
-                // HOOK: Upgrade
-                hooks.upgrade(upgrade, slot, ctx);
+                // Ignore Upgrades from Standarizes Cards
+                if (!isStandardized(pilot.id)) {
+                  // HOOK: Upgrade
+                  hooks.upgrade(upgrade, slot, ctx);
+                }
                 cache.add(upgrade);
               });
             });

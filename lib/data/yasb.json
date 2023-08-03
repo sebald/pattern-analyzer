@@ -2565,28 +2565,28 @@
       "id": 367,
       "name": "Republic Judiciary",
       "ship": "CR90 Corellian Corvette",
-      "points": 15,
+      "points": 14,
       "skill": 8
     },
     {
       "id": 368,
       "name": "Alderaanian Guard",
       "ship": "CR90 Corellian Corvette",
-      "points": 15,
+      "points": 14,
       "skill": 8
     },
     {
       "id": 369,
       "name": "Outer Rim Patrol",
       "ship": "Raider-class Corvette",
-      "points": 16,
+      "points": 15,
       "skill": 8
     },
     {
       "id": 370,
       "name": "First Order Collaborators",
       "ship": "Raider-class Corvette",
-      "points": 16,
+      "points": 15,
       "skill": 8
     },
     {

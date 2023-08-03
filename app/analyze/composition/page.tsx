@@ -14,6 +14,7 @@ import {
   CompositionTable,
 } from '@/ui/stats/composition-stats';
 import { Filter } from '@/ui/stats/filter';
+import { createMetadata } from '@/lib/metadata';
 import { StatsHint } from '@/ui/stats/stats-hint';
 import { setup } from '@/lib/stats';
 import { CompositionData, composition } from '@/lib/stats/module';
@@ -27,18 +28,12 @@ export const revalidate = 21600; // 6 hours
 
 // Metadata
 // ---------------
-export const metadata = {
-  title: 'Pattern Analyzer | Compositions',
+export const metadata = createMetadata({
+  title: 'Compositions',
   description: 'Take a look at what is currently flown in X-Wing!',
-  openGraph: {
-    siteName: 'Pattern Analyzer',
-    title: 'Compositions',
-    description: 'Take a look at what is currently flown in X-Wing!',
-    images: `${baseUrl}/api/og.png`,
-    locale: 'en-US',
-    type: 'website',
-  },
-};
+  ogTitle: 'Squad Compositions',
+  ogWidth: 65,
+});
 
 // Helpers
 // ---------------
