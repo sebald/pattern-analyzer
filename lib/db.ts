@@ -114,19 +114,36 @@ export const getTournamentsInfo = async ({ from, to }: DatabaseFilter) => {
 // ---------------
 export const getSquads = async ({ from, to }: DatabaseFilter) => {
   const connection = client.connection();
-  let result: ExecutedQuery;
+  let result: [
+    squads: ExecutedQuery,
+    meta: ExecutedQuery,
+    tournaments: ExecutedQuery
+  ];
 
   try {
-    result = await connection.execute(`
-      SELECT *
-      FROM squads
-      WHERE date ${between(from, to)};
-    `);
+    result = await Promise.all([
+      connection.execute(`
+        SELECT *
+        FROM squads
+        WHERE date ${between(from, to)};
+      `),
+      connection.execute(`
+        SELECT COUNT(*) AS total
+        FROM tournaments 
+        WHERE date ${between(from, to)};
+      `),
+      connection.execute(`
+        SELECT faction, COUNT(*) AS count
+        FROM squads
+        WHERE date ${between(from, to)}
+        GROUP BY faction;
+      `),
+    ]);
   } catch {
     throw new Error(`Failed to fetch squads...`);
   }
 
-  return (result.rows as SquadRow[]).map(squad => ({
+  const squads = (result[0].rows as SquadRow[]).map(squad => ({
     id: squad.id,
     player: squad.player,
     date: new Date(squad.date),
@@ -144,4 +161,34 @@ export const getSquads = async ({ from, to }: DatabaseFilter) => {
     composition: squad.composition,
     percentile: Number(squad.percentile),
   })) satisfies SquadEntitiy[];
+
+  const tournaments = result[1].rows[0] as { total: string };
+
+  const count = (
+    result[2].rows as { faction: XWSFaction | 'unknown'; count: string }[]
+  ).reduce(
+    (o, { faction, count }) => {
+      o[faction] = Number(count);
+      return o;
+    },
+    {
+      all: squads.length,
+      rebelalliance: 0,
+      galacticempire: 0,
+      scumandvillainy: 0,
+      resistance: 0,
+      firstorder: 0,
+      galacticrepublic: 0,
+      separatistalliance: 0,
+      unknown: 0,
+    }
+  );
+
+  return {
+    squads,
+    meta: {
+      tournaments: Number(tournaments.total),
+      count,
+    },
+  };
 };

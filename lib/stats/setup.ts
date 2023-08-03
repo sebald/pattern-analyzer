@@ -1,18 +1,13 @@
+import type { SquadEntitiy } from '@/lib/db';
 import type { Ships } from '@/lib/get-value';
-import type {
-  SquadData,
-  XWSPilot,
-  XWSSquad,
-  XWSUpgradeSlots,
-} from '@/lib/types';
-import { base, BaseData } from './module/base';
+import type { XWSPilot, XWSSquad, XWSUpgradeSlots } from '@/lib/types';
+import { isStandardized } from '@/lib/xws';
 import type {
   StatModule,
   StatsConfig,
   SquadModuleContext,
   XWSModuleContext,
 } from './types';
-import { isStandardized } from '../xws';
 
 // Types
 // ---------------
@@ -21,13 +16,19 @@ import { isStandardized } from '../xws';
 // ---------------
 export const setup =
   <T = any>(modules: (() => StatModule<any>)[]) =>
-  (list: SquadData[][], config: StatsConfig = {}) => {
-    const basePlugin = base();
+  (squads: SquadEntitiy[], config: StatsConfig) => {
     const plugins = modules.map(m => m());
+    // Data about the tournaments the squads were run
+    const tournament: SquadModuleContext['tournament'] = {
+      total: config.tournaments,
+      count: config.count,
+      xws: config.count.all - config.count.unknown,
+      cut: 0,
+    };
 
-    list.forEach(data => {
+    squads.forEach(current => {
       const hooks = {
-        squad: (squad: SquadData, ctx: SquadModuleContext) =>
+        squad: (squad: SquadEntitiy, ctx: SquadModuleContext) =>
           plugins.forEach(p => p.squad?.(squad, ctx)),
         xws: (xws: XWSSquad, ctx: XWSModuleContext) =>
           plugins.forEach(p => p.xws?.(xws, ctx)),
@@ -42,95 +43,65 @@ export const setup =
         ) => plugins.forEach(p => p.upgrade?.(upgrade, slot, ctx)),
       };
 
-      const tournament: SquadModuleContext['tournament'] = {
-        count: {
-          all: data.length,
-          rebelalliance: 0,
-          galacticempire: 0,
-          scumandvillainy: 0,
-          resistance: 0,
-          firstorder: 0,
-          galacticrepublic: 0,
-          separatistalliance: 0,
-          unknown: 0,
-        },
-        xws: 0,
-        cut: 0,
-      };
+      // Setup context for hooks.
+      const cache = new Set<string>();
+      const faction = current.xws ? current.xws.faction : 'unknown';
+      const unique = (val: string) => cache.has(val);
 
-      // Single Tournament
-      data.forEach(current => {
-        // Setup context for hooks.
-        const cache = new Set<string>();
-        const faction = current.xws ? current.xws.faction : 'unknown';
-        const unique = (val: string) => cache.has(val);
+      if (current.rank.elimination) {
+        tournament.cut += 1;
+      }
 
-        tournament.count[faction] += 1;
+      // HOOK: Squads
+      hooks.squad(current, {
+        faction,
+        tournament,
+        rank: current.rank,
+        record: current.record,
+        unique,
+      });
 
-        if (current.xws) {
-          tournament.xws += 1;
-        }
-        if (current.rank.elimination) {
-          tournament.cut += 1;
-        }
-
-        // HOOK: Squads
-        hooks.squad(current, {
+      if (current.xws && faction !== 'unknown') {
+        const ctx = {
           faction,
           tournament,
           rank: current.rank,
           record: current.record,
           unique,
-        });
+        };
 
-        if (current.xws && faction !== 'unknown') {
-          const ctx = {
-            faction,
-            tournament,
-            rank: current.rank,
-            record: current.record,
-            unique,
-          };
+        // HOOK: XWS
+        hooks.xws(current.xws, ctx);
 
-          // HOOK: XWS
-          hooks.xws(current.xws, ctx);
+        current.xws.pilots.forEach(pilot => {
+          // HOOK: Pilot
+          hooks.pilot(pilot, ctx);
+          cache.add(pilot.id);
 
-          current.xws.pilots.forEach(pilot => {
-            // HOOK: Pilot
-            hooks.pilot(pilot, ctx);
-            cache.add(pilot.id);
+          // HOOK: Ship
+          hooks.ship(pilot.ship, ctx);
+          cache.add(pilot.ship);
 
-            // HOOK: Ship
-            hooks.ship(pilot.ship, ctx);
-            cache.add(pilot.ship);
-
-            (
-              Object.entries(pilot.upgrades) as [XWSUpgradeSlots, string[]][]
-            ).forEach(([slot, upgrades]) => {
-              upgrades.forEach(upgrade => {
-                // Ignore Upgrades from Standarizes Cards
-                if (!isStandardized(pilot.id)) {
-                  // HOOK: Upgrade
-                  hooks.upgrade(upgrade, slot, ctx);
-                }
-                cache.add(upgrade);
-              });
+          (
+            Object.entries(pilot.upgrades) as [XWSUpgradeSlots, string[]][]
+          ).forEach(([slot, upgrades]) => {
+            upgrades.forEach(upgrade => {
+              // Ignore Upgrades from Standarizes Cards
+              if (!isStandardized(pilot.id)) {
+                // HOOK: Upgrade
+                hooks.upgrade(upgrade, slot, ctx);
+              }
+              cache.add(upgrade);
             });
           });
-        }
-      });
-      // "HOOK": Base Plugin
-      basePlugin.add(tournament);
+        });
+      }
     });
 
-    // Get data from base plugin to call other plugins.
-    const { tournament } = basePlugin.get(config);
-
     return {
-      tournament,
       ...plugins.reduce(
         (o, p) => ({ ...o, ...p.get({ tournament, config }) }),
         {}
       ),
-    } as T & BaseData;
+    } as T;
   };
