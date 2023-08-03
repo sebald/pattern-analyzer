@@ -62,7 +62,6 @@ export const EventForm = () => {
         onChange={e => handleChange(e.target.value)}
         error={error}
         inputMode="numeric"
-        autoFocus
       />
       <Button variant="primary" size="large" type="submit">
         {pending ? <Spinner className="h-6 w-6" /> : 'Submit'}
