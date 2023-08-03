@@ -40,6 +40,7 @@ import { PilotStats } from '@/ui/stats/pilot-stats';
 import { SquadSize } from '@/ui/stats/squad-size';
 import { StatsHint } from '@/ui/stats/stats-hint';
 import { UpgradeStats } from '@/ui/stats/upgrade-stats';
+import { getTournaments } from '@/lib/db';
 
 // Config
 // ---------------
@@ -101,6 +102,8 @@ const getStats = cache(
       to,
       format: 'standard',
     });
+
+    await getTournaments({ from, to });
 
     const squads = await Promise.all(
       tournaments.map(({ id }) => getSquads({ id: `${id}` }))
