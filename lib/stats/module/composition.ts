@@ -1,12 +1,6 @@
 import type { Ships } from '@/lib/get-value';
 import type { GameRecord, XWSFaction } from '@/lib/types';
-import {
-  average,
-  deviation,
-  percentile,
-  round,
-  winrate,
-} from '@/lib/utils/math.utils';
+import { average, deviation, round, winrate } from '@/lib/utils/math.utils';
 
 import { magic } from '../magic';
 import type { StatModule } from '../types';
@@ -57,7 +51,7 @@ export const composition: () => StatModule<CompositionData> = () => {
   const store: Store = {};
 
   return {
-    xws: (xws, { faction, record, rank, tournament }) => {
+    xws: (xws, { faction, record, rank, percentile, tournament }) => {
       const ships = xws.pilots.map(({ ship }) => ship);
       ships.sort();
       const id = ships.join('.');
@@ -68,9 +62,7 @@ export const composition: () => StatModule<CompositionData> = () => {
       item.record.wins += record.wins;
       item.record.ties += record.ties;
       item.record.losses += record.losses;
-      item.percentiles.push(
-        percentile(rank.elimination ?? rank.swiss, tournament.count.all)
-      );
+      item.percentiles.push(percentile);
 
       store[id] = item;
     },

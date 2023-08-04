@@ -58,6 +58,7 @@ export const setup =
         tournament,
         rank: current.rank,
         record: current.record,
+        percentile: current.percentile,
         unique,
       });
 
@@ -67,6 +68,7 @@ export const setup =
           tournament,
           rank: current.rank,
           record: current.record,
+          percentile: current.percentile,
           unique,
         };
 

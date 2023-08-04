@@ -34,6 +34,7 @@ export interface SquadModuleContext {
     elimination: number | null;
   };
   record: GameRecord;
+  percentile: number;
   /**
    * Check for duplicated pilots (a.k.a. generics) and upgrades
    */
