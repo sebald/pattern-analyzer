@@ -1,9 +1,9 @@
 import { cache } from 'react';
 import { z } from 'zod';
 
-import { baseUrl, pointsUpdateDate } from '@/lib/config';
+import { pointsUpdateDate } from '@/lib/config';
+import { getSquads } from '@/lib/db';
 import { formatDate, fromDate, toDate, today } from '@/lib/utils/date.utils';
-import { getAllTournaments, getSquads } from '@/lib/vendor/listfortress';
 
 import { Caption, Card, Inline, Message, Title } from '@/ui';
 import { Calendar, Rocket, Trophy } from '@/ui/icons';
@@ -57,18 +57,15 @@ const create = setup<CompositionData>([composition]);
 // ---------------
 const getStats = cache(
   async (from: Date, to: Date | undefined, smallSamples: boolean) => {
-    const tournaments = await getAllTournaments({
-      from,
-      to,
-      format: 'standard',
-    });
-
-    const squads = await Promise.all(
-      tournaments.map(({ id }) => getSquads({ id: `${id}` }))
-    );
-    let stats = create(squads, { smallSamples });
-
-    return { tournament: stats.tournament, composition: stats.composition };
+    const { squads, meta } = await getSquads({ from, to });
+    return {
+      stats: create(squads, {
+        smallSamples,
+        count: meta.count,
+        tournaments: meta.tournaments,
+      }),
+      meta,
+    };
   }
 );
 
@@ -105,7 +102,7 @@ const AnalyzeCompositionPage = async ({ searchParams }: AnalyzePageProps) => {
   const to =
     params.data && params.data.to ? fromDate(params.data.to) : undefined;
 
-  const stats = await getStats(from, to, params.data.smallSamples);
+  const { stats, meta } = await getStats(from, to, params.data.smallSamples);
 
   return (
     <>
@@ -118,11 +115,10 @@ const AnalyzeCompositionPage = async ({ searchParams }: AnalyzePageProps) => {
               {formatDate(to || today())}
             </Inline>
             <Inline className="whitespace-nowrap">
-              <Trophy className="h-3 w-3" /> {stats.tournament.total}{' '}
-              Tournaments
+              <Trophy className="h-3 w-3" /> {meta.tournaments} Tournaments
             </Inline>
             <Inline className="whitespace-nowrap">
-              <Rocket className="h-3 w-3" /> {stats.tournament.count.all} Squads
+              <Rocket className="h-3 w-3" /> {meta.count.all} Squads
             </Inline>
           </Inline>
         </Caption>
