@@ -2720,22 +2720,6 @@ exports[`create stats (multiple) 1`] = `
       },
     },
   },
-  "tournament": {
-    "count": {
-      "all": 50,
-      "firstorder": 6,
-      "galacticempire": 6,
-      "galacticrepublic": 6,
-      "rebelalliance": 15,
-      "resistance": 7,
-      "scumandvillainy": 1,
-      "separatistalliance": 4,
-      "unknown": 5,
-    },
-    "cut": 16,
-    "total": 1,
-    "xws": 45,
-  },
 }
 `;
 
@@ -4621,25 +4605,6 @@ exports[`create stats (squadSize) 1`] = `
   "6": 3,
   "7": 1,
   "8": 1,
-}
-`;
-
-exports[`create stats (tournament) 1`] = `
-{
-  "count": {
-    "all": 50,
-    "firstorder": 6,
-    "galacticempire": 6,
-    "galacticrepublic": 6,
-    "rebelalliance": 15,
-    "resistance": 7,
-    "scumandvillainy": 1,
-    "separatistalliance": 4,
-    "unknown": 5,
-  },
-  "cut": 16,
-  "total": 1,
-  "xws": 45,
 }
 `;
 

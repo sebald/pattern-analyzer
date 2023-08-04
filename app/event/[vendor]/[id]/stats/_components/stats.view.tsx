@@ -1,4 +1,4 @@
-import { toSquadEntitiy, type SquadEntitiy } from '@/lib/db';
+import type { SquadEntitiy } from '@/lib/db';
 import { setup } from '@/lib/stats';
 import {
   composition,
@@ -18,6 +18,7 @@ import {
   type SquadSizeData,
   type UpgradeData,
 } from '@/lib/stats/module';
+import { toSquadEntitiy } from '@/lib/transform';
 import type { SquadData } from '@/lib/types';
 
 import { ChassisDistribution } from '@/ui/stats/chassis-distribution';
