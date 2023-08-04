@@ -1,10 +1,8 @@
 import { Client, ExecutedQuery } from '@planetscale/database';
 
 import { pointsUpdateDate } from '@/lib/config';
-import type { GameRecord, SquadData, XWSFaction, XWSSquad } from '@/lib/types';
+import type { GameRecord, XWSFaction, XWSSquad } from '@/lib/types';
 import { toDate, today } from '@/lib/utils/date.utils';
-import { percentile } from '@/lib/utils';
-import { toCompositionId } from '@/lib/xws';
 
 // Config
 // ---------------

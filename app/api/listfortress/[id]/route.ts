@@ -27,6 +27,7 @@ const getTournament = async (id: string) => {
   const tournament: ListfortressTournament = await res.json();
   return tournament;
 };
+
 // Props
 // ---------------
 interface RouteContext {
