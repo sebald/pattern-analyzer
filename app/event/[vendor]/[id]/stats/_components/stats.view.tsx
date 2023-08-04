@@ -86,7 +86,7 @@ export const StatsView = ({ squads }: StatsViewProps) => {
 
   squads.forEach(sq => {
     entities.push(toSquadEntitiy(sq, tournament));
-    count[sq.xws?.faction ?? 'unknown'] = +1;
+    count[sq.xws?.faction ?? 'unknown'] += 1;
 
     if (sq.rank.elimination) {
       cut += 1;
