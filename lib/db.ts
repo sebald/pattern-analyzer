@@ -1,8 +1,10 @@
 import { Client, ExecutedQuery } from '@planetscale/database';
 
 import { pointsUpdateDate } from '@/lib/config';
-import type { GameRecord, XWSFaction, XWSSquad } from '@/lib/types';
+import type { GameRecord, SquadData, XWSFaction, XWSSquad } from '@/lib/types';
 import { toDate, today } from '@/lib/utils/date.utils';
+import { percentile } from '@/lib/utils';
+import { toCompositionId } from '@/lib/xws';
 
 // Config
 // ---------------
@@ -190,5 +192,32 @@ export const getSquads = async ({ from, to }: DatabaseFilter) => {
       tournaments: Number(tournaments.total),
       count,
     },
+  };
+};
+
+// Conversion
+// ---------------
+export const toSquadEntitiy = (
+  val: SquadData,
+  tournament: { date: Date; total: number }
+): SquadEntitiy => {
+  const xws = val.xws;
+
+  return {
+    id: Number(val.id),
+    player: val.player,
+    date: tournament.date,
+    rank: {
+      swiss: val.rank.swiss,
+      elimination: val.rank.elimination ?? null,
+    },
+    record: val.record,
+    xws: val.xws,
+    faction: xws?.faction ?? 'unknown',
+    composition: toCompositionId(xws),
+    percentile: percentile(
+      val.rank.elimination ?? val.rank.swiss,
+      tournament.total
+    ),
   };
 };
