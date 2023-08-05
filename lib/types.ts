@@ -90,6 +90,7 @@ export interface XWSSquad {
   };
   version: string;
   name: string;
+  obstacles?: string[];
 }
 
 export interface XWSPilot {

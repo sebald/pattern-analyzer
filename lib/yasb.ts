@@ -78,14 +78,23 @@ export const getPilotSkill = (id: string) => {
 /**
  * Converts as YASB URL to XWS
  */
-export const yasb2xws = (link: string): XWSSquad => {
-  const url = new URL(link);
+export interface YASBParams {
+  d: string;
+  sn: string;
+  f: string;
+  obs?: string | undefined;
+}
 
-  const params = Object.fromEntries(url.searchParams.entries()) as Record<
+const parseYASBUrl = (val: string) => {
+  const url = new URL(val);
+  return Object.fromEntries(url.searchParams.entries()) as Record<
     'f' | 'd' | 'sn' | 'obs',
     string
   >;
+};
 
+export const yasb2xws = (val: string | YASBParams): XWSSquad => {
+  const params = typeof val === 'string' ? parseYASBUrl(val) : val;
   const faction = params.f.replace(/\s/g, '').toLowerCase() as XWSFaction;
 
   /**
@@ -154,6 +163,11 @@ export const yasb2xws = (link: string): XWSSquad => {
     });
   });
 
+  const link = new URL('https://yasb.app');
+  Object.entries(params).forEach(([name, value]) => {
+    link.searchParams.set(name, value);
+  });
+
   return {
     faction,
     pilots,
@@ -165,9 +179,10 @@ export const yasb2xws = (link: string): XWSSquad => {
         builder: 'YASB - X-Wing 2.5',
         builder_url: 'https://yasb.app/',
         version: '',
-        link: link,
+        link: link.toString(),
       },
     },
+    obstacles: params.obs ? params.obs.split(',') : undefined,
   };
 };
 
