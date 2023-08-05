@@ -1,40 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { z } from 'zod';
-
-// Helpers
-// ---------------
-const schema = {
-  params: z.object({
-    token: z.string(),
-  }),
-};
-
-// Props
-// ---------------
-interface RouteContext {
-  params: {
-    token?: string;
-  };
-}
 
 // Handler
 // ---------------
-export const GET = async (_: NextRequest, { params }: RouteContext) => {
-  const result = schema.params.safeParse(params);
+export const GET = async (request: NextRequest) => {
+  const { searchParams } = new URL(request.url);
 
-  if (!result.success) {
-    return NextResponse.json(
-      {
-        name: 'Error parsing input.',
-        message: result.error.issues,
-      },
-      {
-        status: 400,
-      }
-    );
-  }
-
-  const { token } = result.data;
+  const token = searchParams.get('token');
+  console.log(token);
 
   if (token !== process.env.SYNC_TOKEN) {
     return NextResponse.json(
@@ -47,4 +19,14 @@ export const GET = async (_: NextRequest, { params }: RouteContext) => {
       }
     );
   }
+
+  return NextResponse.json(
+    {
+      name: 'Sync Complete!',
+      message: `Synced ... tournaments`,
+    },
+    {
+      status: 200,
+    }
+  );
 };

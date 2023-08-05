@@ -52,6 +52,12 @@ CREATE TABLE squads (
 const INSERT_SQUAD =
   'INSERT INTO squads (`listfortress_ref`, `composition`, `faction`, `player`, `date`, `xws`, `wins`, `ties`, `losses`, `swiss`, `cut`, `percentile`) VALUES (:ref, :composition, :faction, :player, :date, :xws, :wins, :ties, :losses, :swiss, :cut, :percentile)';
 
+const CREATE_SYNC_TABLE = `
+CREATE TABLE info (
+  
+);
+`;
+
 // Script
 // ---------------
 void (async () => {
