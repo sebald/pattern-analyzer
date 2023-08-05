@@ -9,38 +9,46 @@ export interface YASBPilot {
   points: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
   skill: 0 | 1 | 2 | 3 | 4 | 5 | 6 | '*';
   xws?: string;
+  xwsaddon?: string;
+}
+
+export interface YASBUpgrade {
+  id: number;
+  name: string;
+  slot?: string;
+  xws?: string;
+  xwsaddon?: undefined;
 }
 
 export const YASB_URL_REGEXP =
   /https:\/\/yasb\.app\/\?f(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=,]*)/;
 
-/**
- * Take a display text (e.g. "Han Solo") and convert it to an
- * XWS identifier.
- *
- * Note that xwing-data2 and YASB differ here when it comes to
- * secondary info like ships and scenario packs. YASB includes this
- * information in the display title (e.g. "Han Solo (BoY)" or "Han Solo (Scum)").
- *
- * On the other hand YASB does not append this information to the xws all
- * the time. We nee transform this ourselves.
- */
-const SUFFIX_NORMALIZATION = {
-  SoC: '-siegeofcoruscant',
-  Boy: '-battleofyavin',
-};
-
-export const toXWSIdentifier = (input: string) => {
-  // `suffix` can be a scenario, ship or faction
-  const [name, suffix = ''] = input.split(/[()]/);
-
-  const id = name
+export const canonicalize = (val: string) =>
+  val
     .toLowerCase()
     .replace(/[^a-z0-9]/g, '')
     .replace(/\s+/g, '-');
 
-  // @ts-expect-error (using indexsignature here is fine TS ...)
-  return `${id}${SUFFIX_NORMALIZATION[suffix] || ''}`;
+export const toPilotId = (pilot: YASBPilot) => {
+  const [name, suffix] = pilot.name.split(/[()]/);
+
+  return pilot.xws != null
+    ? pilot.xws
+    : pilot.xwsaddon != null
+    ? canonicalize(name) + '-' + pilot.xwsaddon
+    : canonicalize(name) +
+      (suffix != null ? '-' + canonicalize(pilot.ship) : '');
+};
+
+export const toUpgradeId = (upgrade: YASBUpgrade) => {
+  const [name, suffix] = upgrade.name.split(/[()]/);
+
+  return upgrade.xws != null
+    ? upgrade.xws
+    : upgrade.xwsaddon != null
+    ? canonicalize(name) + '-' + upgrade.xwsaddon
+    : canonicalize(name) +
+      (suffix != null ? '-' + canonicalize(upgrade.slot || '') : '');
 };
 
 /**
@@ -75,14 +83,15 @@ export const getPilotSkill = (id: string) => {
   return skill;
 };
 
-/**
- * Converts as YASB URL to XWS
- */
 export interface YASBParams {
   d: string;
   sn: string;
   f: string;
   obs?: string | undefined;
+}
+
+export interface Yasb2XwsConfig {
+  upgrades: 'ALL' | 'IGNORE_STANDARDIZED';
 }
 
 const parseYASBUrl = (val: string) => {
@@ -93,6 +102,9 @@ const parseYASBUrl = (val: string) => {
   >;
 };
 
+/**
+ * Converts as YASB URL to XWS
+ */
 export const yasb2xws = (val: string | YASBParams): XWSSquad => {
   const params = typeof val === 'string' ? parseYASBUrl(val) : val;
   const faction = params.f.replace(/\s/g, '').toLowerCase() as XWSFaction;
@@ -140,11 +152,8 @@ export const yasb2xws = (val: string | YASBParams): XWSSquad => {
       const slot =
         upgrade.slot === 'Force'
           ? 'force-power'
-          : (toXWSIdentifier(
-              upgrade.slot || 'unknown-slot'
-            ) as keyof XWSUpgrades);
-      const name =
-        upgrade.xws || toXWSIdentifier(upgrade.name || 'unknown-upgrade');
+          : (canonicalize(upgrade.slot || 'unknown-slot') as keyof XWSUpgrades);
+      const name = toUpgradeId(upgrade as YASBUpgrade);
 
       if (!o[slot]) {
         o[slot] = [];
@@ -156,8 +165,8 @@ export const yasb2xws = (val: string | YASBParams): XWSSquad => {
     }, {} as XWSUpgrades);
 
     pilots.push({
-      id: pilot.xws || toXWSIdentifier(pilot.name || 'unknown-pilot'),
-      ship: toXWSIdentifier(pilot.ship || 'unknown-ship') as Ships,
+      id: toPilotId(pilot as YASBPilot),
+      ship: canonicalize(pilot.ship || 'unknown-ship') as Ships,
       points: pilot.points || 1, // This actually never happens ... hopefully
       upgrades,
     });
