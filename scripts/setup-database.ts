@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 
 import { pointsUpdateDate } from '@/lib/config';
 import { getAllTournaments, getSquads } from '@/lib/vendor/listfortress';
-import { fromDate } from '@/lib/utils/date.utils';
+import { fromDate, now } from '@/lib/utils/date.utils';
 import { percentile } from '@/lib/utils/math.utils';
 import { normalize, toCompositionId } from '@/lib/xws';
 
@@ -52,11 +52,19 @@ CREATE TABLE squads (
 const INSERT_SQUAD =
   'INSERT INTO squads (`listfortress_ref`, `composition`, `faction`, `player`, `date`, `xws`, `wins`, `ties`, `losses`, `swiss`, `cut`, `percentile`) VALUES (:ref, :composition, :faction, :player, :date, :xws, :wins, :ties, :losses, :swiss, :cut, :percentile)';
 
-const CREATE_SYNC_TABLE = `
-CREATE TABLE info (
-  
+/**
+ * Pseudo Redis, don't want to have the maintanance overhead
+ * using a dedicated KeyValue-storage (like `kv`) for one value (sync).
+ */
+const CREATE_SYSTEM_TABLE = `
+CREATE TABLE system (
+  \`key\` VARCHAR(100) PRIMARY KEY,
+  \`value\` TEXT
 );
 `;
+
+const INSERT_SYSTEM =
+  'INSERT INTO system (`key`, `value`) VALUES (:key, :value)';
 
 // Script
 // ---------------
@@ -68,10 +76,12 @@ void (async () => {
     // Clear everything!
     await db.execute('DROP TABLE IF EXISTS squads;');
     await db.execute('DROP TABLE IF EXISTS tournaments;');
+    await db.execute('DROP TABLE IF EXISTS system;');
 
     // Create tables
     await db.execute(CREATE_TOURNAMENTS_TABLE);
     await db.execute(CREATE_SQUADS_TABLE);
+    await db.execute(CREATE_SYSTEM_TABLE);
 
     console.log('🏆 Fetching tournaments...');
     const tournaments = await getAllTournaments({
@@ -123,10 +133,16 @@ void (async () => {
       })
     );
 
+    console.log('⏲️  Update last sync...');
+    await db.execute(INSERT_SYSTEM, {
+      key: 'last_sync',
+      value: now(),
+    });
+
     console.log(
       `🏁 Setup done! (${tournaments.length} Tournaments, ${squadCount} Squads)`
     );
   } catch (err: any) {
-    console.log(chalk.red.bold(err.body.message));
+    console.log(chalk.red.bold(err?.body?.message || err.message || err));
   }
 })();
