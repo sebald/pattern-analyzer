@@ -117,7 +117,7 @@ export const getSquads = async ({ from, to }: DatabaseFilter) => {
   let result: [
     squads: ExecutedQuery,
     meta: ExecutedQuery,
-    tournaments: ExecutedQuery
+    tournaments: ExecutedQuery,
   ];
 
   try {

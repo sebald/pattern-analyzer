@@ -24,7 +24,7 @@ export const lastWeekend = () => {
   const thursday = dayjs().day(4).subtract(7, 'day');
   return [thursday.toDate(), thursday.add(3, 'day').toDate()] satisfies [
     Date,
-    Date
+    Date,
   ];
 };
 
