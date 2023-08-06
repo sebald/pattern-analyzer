@@ -293,14 +293,16 @@
       "name": "Han Solo",
       "ship": "Modified YT-1300 Light Freighter",
       "points": 7,
-      "skill": 6
+      "skill": 6,
+      "xwsaddon": "modifiedyt1300lightfreighter"
     },
     {
       "id": 43,
       "name": "Lando Calrissian",
       "ship": "Modified YT-1300 Light Freighter",
       "points": 7,
-      "skill": 5
+      "skill": 5,
+      "xwsaddon": "modifiedyt1300lightfreighter"
     },
     {
       "id": 44,
@@ -3091,14 +3093,16 @@
       "name": "Poe Dameron (HoH)",
       "ship": "T-70 X-wing",
       "points": 6,
-      "skill": 6
+      "skill": 6,
+      "xwsaddon": "swz68"
     },
     {
       "id": 443,
       "name": "Temmin Wexley (HoH)",
       "ship": "T-70 X-wing",
       "points": 5,
-      "skill": 4
+      "skill": 4,
+      "xwsaddon": "swz68"
     },
     {
       "id": 444,
@@ -3505,7 +3509,8 @@
       "name": "Fenn Rau (Rebel Fang)",
       "ship": "Fang Fighter",
       "points": 5,
-      "skill": 6
+      "skill": 6,
+      "xwsaddon": "rebel-fang"
     },
     {
       "id": 502,
@@ -3558,7 +3563,8 @@
       "name": "Bo-Katan Kryze",
       "ship": "Gauntlet Fighter",
       "points": 6,
-      "skill": 4
+      "skill": 4,
+      "xwsaddon": "separatistalliance"
     },
     {
       "id": 510,
@@ -3762,7 +3768,8 @@
       "name": "Cad Bane (Separatist)",
       "ship": "Rogue-class Starfighter",
       "points": 4,
-      "skill": 4
+      "skill": 4,
+      "xwsaddon": "separatistalliance"
     },
     {
       "id": 539,
@@ -3874,280 +3881,320 @@
       "name": "Garven Dreis (BoY)",
       "ship": "T-65 X-wing",
       "points": 4,
-      "skill": 4
+      "skill": 4,
+      "xwsaddon": "battleofyavin"
     },
     {
       "id": 555,
       "name": "Luke Skywalker (BoY)",
       "ship": "T-65 X-wing",
       "points": 5,
-      "skill": 5
+      "skill": 5,
+      "xwsaddon": "battleofyavin"
     },
     {
       "id": 556,
       "name": "Jek Porkins (BoY)",
       "ship": "T-65 X-wing",
       "points": 4,
-      "skill": 4
+      "skill": 4,
+      "xwsaddon": "battleofyavin"
     },
     {
       "id": 557,
       "name": "Biggs Darklighter (BoY)",
       "ship": "T-65 X-wing",
       "points": 5,
-      "skill": 3
+      "skill": 3,
+      "xwsaddon": "battleofyavin"
     },
     {
       "id": 558,
       "name": "Wedge Antilles (BoY)",
       "ship": "T-65 X-wing",
       "points": 5,
-      "skill": 5
+      "skill": 5,
+      "xwsaddon": "battleofyavin"
     },
     {
       "id": 559,
       "name": "Han Solo (BoY)",
       "ship": "Modified YT-1300 Light Freighter",
       "points": 7,
-      "skill": 6
+      "skill": 6,
+      "xwsaddon": "battleofyavin"
     },
     {
       "id": 560,
       "name": "\"Dutch\" Vander (BoY)",
       "ship": "BTL-A4 Y-wing",
       "points": 4,
-      "skill": 4
+      "skill": 4,
+      "xwsaddon": "battleofyavin"
     },
     {
       "id": 561,
       "name": "Dex Tiree (BoY)",
       "ship": "BTL-A4 Y-wing",
       "points": 4,
-      "skill": 2
+      "skill": 2,
+      "xwsaddon": "battleofyavin"
     },
     {
       "id": 562,
       "name": "\"Pops\" Krail (BoY)",
       "ship": "BTL-A4 Y-wing",
       "points": 4,
-      "skill": 4
+      "skill": 4,
+      "xwsaddon": "battleofyavin"
     },
     {
       "id": 563,
       "name": "Hol Okand (BoY)",
       "ship": "BTL-A4 Y-wing",
       "points": 3,
-      "skill": 4
+      "skill": 4,
+      "xwsaddon": "battleofyavin"
     },
     {
       "id": 564,
       "name": "Darth Vader (BoY)",
       "ship": "TIE Advanced x1",
       "points": 6,
-      "skill": 6
+      "skill": 6,
+      "xwsaddon": "battleofyavin"
     },
     {
       "id": 565,
       "name": "\"Backstabber\" (BoY)",
       "ship": "TIE/ln Fighter",
       "points": 4,
-      "skill": 5
+      "skill": 5,
+      "xwsaddon": "battleofyavin"
     },
     {
       "id": 566,
       "name": "\"Mauler\" Mithel (BoY)",
       "ship": "TIE/ln Fighter",
       "points": 3,
-      "skill": 5
+      "skill": 5,
+      "xwsaddon": "battleofyavin"
     },
     {
       "id": 567,
       "name": "\"Dark Curse\" (BoY)",
       "ship": "TIE/ln Fighter",
       "points": 4,
-      "skill": 6
+      "skill": 6,
+      "xwsaddon": "battleofyavin"
     },
     {
       "id": 568,
       "name": "\"Wampa\" (BoY)",
       "ship": "TIE/ln Fighter",
       "points": 3,
-      "skill": 1
+      "skill": 1,
+      "xwsaddon": "battleofyavin"
     },
     {
       "id": 569,
       "name": "Iden Versio (BoY)",
       "ship": "TIE/in Interceptor",
       "points": 5,
-      "skill": 4
+      "skill": 4,
+      "xwsaddon": "battleofyavin"
     },
     {
       "id": 570,
       "name": "Sigma 4 (BoY)",
       "ship": "TIE/in Interceptor",
       "points": 4,
-      "skill": 4
+      "skill": 4,
+      "xwsaddon": "battleofyavin"
     },
     {
       "id": 571,
       "name": "Sigma 5 (BoY)",
       "ship": "TIE/in Interceptor",
       "points": 4,
-      "skill": 4
+      "skill": 4,
+      "xwsaddon": "battleofyavin"
     },
     {
       "id": 572,
       "name": "Sigma 6 (BoY)",
       "ship": "TIE/in Interceptor",
       "points": 4,
-      "skill": 4
+      "skill": 4,
+      "xwsaddon": "battleofyavin"
     },
     {
       "id": 573,
       "name": "Sigma 7 (BoY)",
       "ship": "TIE/in Interceptor",
       "points": 4,
-      "skill": 4
+      "skill": 4,
+      "xwsaddon": "battleofyavin"
     },
     {
       "id": 574,
       "name": "Anakin Skywalker (SoC)",
       "ship": "Eta-2 Actis",
       "points": 4,
-      "skill": 6
+      "skill": 6,
+      "xwsaddon": "siegeofcoruscant"
     },
     {
       "id": 575,
       "name": "Obi-Wan Kenobi (SoC)",
       "ship": "Eta-2 Actis",
       "points": 4,
-      "skill": 5
+      "skill": 5,
+      "xwsaddon": "siegeofcoruscant"
     },
     {
       "id": 576,
       "name": "Shaak Ti (SoC)",
       "ship": "Eta-2 Actis",
       "points": 4,
-      "skill": 4
+      "skill": 4,
+      "xwsaddon": "siegeofcoruscant"
     },
     {
       "id": 577,
       "name": "\"Odd Ball\" (SoC)",
       "ship": "ARC-170 Starfighter",
       "points": 4,
-      "skill": 5
+      "skill": 5,
+      "xwsaddon": "siegeofcoruscant"
     },
     {
       "id": 578,
       "name": "\"Wolffe\" (SoC)",
       "ship": "ARC-170 Starfighter",
       "points": 4,
-      "skill": 4
+      "skill": 4,
+      "xwsaddon": "siegeofcoruscant"
     },
     {
       "id": 579,
       "name": "\"Jag\" (SoC)",
       "ship": "ARC-170 Starfighter",
       "points": 4,
-      "skill": 3
+      "skill": 3,
+      "xwsaddon": "siegeofcoruscant"
     },
     {
       "id": 580,
       "name": "\"Contrail\" (SoC)",
       "ship": "Nimbus-class V-wing",
       "points": 4,
-      "skill": 5
+      "skill": 5,
+      "xwsaddon": "siegeofcoruscant"
     },
     {
       "id": 581,
       "name": "\"Klick\" (SoC)",
       "ship": "Nimbus-class V-wing",
       "points": 4,
-      "skill": 4
+      "skill": 4,
+      "xwsaddon": "siegeofcoruscant"
     },
     {
       "id": 582,
       "name": "\"Kickback\" (SoC)",
       "ship": "V-19 Torrent Starfighter",
       "points": 3,
-      "skill": 5
+      "skill": 5,
+      "xwsaddon": "siegeofcoruscant"
     },
     {
       "id": 583,
       "name": "\"Axe\" (SoC)",
       "ship": "V-19 Torrent Starfighter",
       "points": 3,
-      "skill": 3
+      "skill": 3,
+      "xwsaddon": "siegeofcoruscant"
     },
     {
       "id": 584,
       "name": "Count Dooku (SoC)",
       "ship": "Sith Infiltrator",
       "points": 6,
-      "skill": 5
+      "skill": 5,
+      "xwsaddon": "siegeofcoruscant"
     },
     {
       "id": 585,
       "name": "DBS-32C (SoC)",
       "ship": "Hyena-class Droid Bomber",
       "points": 3,
-      "skill": 3
+      "skill": 3,
+      "xwsaddon": "siegeofcoruscant"
     },
     {
       "id": 586,
       "name": "DBS-404 (SoC)",
       "ship": "Hyena-class Droid Bomber",
       "points": 3,
-      "skill": 4
+      "skill": 4,
+      "xwsaddon": "siegeofcoruscant"
     },
     {
       "id": 587,
       "name": "Baktoid Prototype (SoC)",
       "ship": "Hyena-class Droid Bomber",
       "points": 3,
-      "skill": 1
+      "skill": 1,
+      "xwsaddon": "siegeofcoruscant"
     },
     {
       "id": 588,
       "name": "DIS-347 (SoC)",
       "ship": "Droid Tri-fighter",
       "points": 3,
-      "skill": 3
+      "skill": 3,
+      "xwsaddon": "siegeofcoruscant"
     },
     {
       "id": 589,
       "name": "DIS-T81 (SoC)",
       "ship": "Droid Tri-fighter",
       "points": 4,
-      "skill": 4
+      "skill": 4,
+      "xwsaddon": "siegeofcoruscant"
     },
     {
       "id": 590,
       "name": "Phlac-Arphocc Prototype (SoC)",
       "ship": "Droid Tri-fighter",
       "points": 4,
-      "skill": 5
+      "skill": 5,
+      "xwsaddon": "siegeofcoruscant"
     },
     {
       "id": 591,
       "name": "DFS-081 (SoC)",
       "ship": "Vulture-class Droid Fighter",
       "points": 2,
-      "skill": 3
+      "skill": 3,
+      "xwsaddon": "siegeofcoruscant"
     },
     {
       "id": 592,
       "name": "DFS-311 (SoC)",
       "ship": "Vulture-class Droid Fighter",
       "points": 3,
-      "skill": 1
+      "skill": 1,
+      "xwsaddon": "siegeofcoruscant"
     },
     {
       "id": 593,
       "name": "Haor Chall Prototype (SoC)",
       "ship": "Vulture-class Droid Fighter",
       "points": 2,
-      "skill": 1
+      "skill": 1,
+      "xwsaddon": "siegeofcoruscant"
     },
     {
       "id": 594,
@@ -4308,7 +4355,8 @@
       "name": "Durge (Separatist)",
       "ship": "Rogue-class Starfighter",
       "points": 4,
-      "skill": 5
+      "skill": 5,
+      "xwsaddon": "separatistalliance"
     },
     {
       "id": 617,
@@ -4406,168 +4454,192 @@
       "name": "Darth Vader (SSP)",
       "ship": "TIE Advanced x1",
       "points": 6,
-      "skill": 6
+      "skill": 6,
+      "xwsaddon": "swz105"
     },
     {
       "id": 631,
       "name": "Maarek Stele (SSP)",
       "ship": "TIE Advanced x1",
       "points": 5,
-      "skill": 5
+      "skill": 5,
+      "xwsaddon": "swz105"
     },
     {
       "id": 632,
       "name": "Captain Jonus (SSP)",
       "ship": "TIE/sa Bomber",
       "points": 4,
-      "skill": 4
+      "skill": 4,
+      "xwsaddon": "swz105"
     },
     {
       "id": 633,
       "name": "Tomax Bren (SSP)",
       "ship": "TIE/sa Bomber",
       "points": 5,
-      "skill": 5
+      "skill": 5,
+      "xwsaddon": "swz105"
     },
     {
       "id": 634,
       "name": "Iden Versio (SSP)",
       "ship": "TIE/ln Fighter",
       "points": 4,
-      "skill": 4
+      "skill": 4,
+      "xwsaddon": "swz105"
     },
     {
       "id": 635,
       "name": "\"Night Beast\" (SSP)",
       "ship": "TIE/ln Fighter",
       "points": 3,
-      "skill": 2
+      "skill": 2,
+      "xwsaddon": "swz105"
     },
     {
       "id": 636,
       "name": "Valen Rudor (SSP)",
       "ship": "TIE/ln Fighter",
       "points": 3,
-      "skill": 3
+      "skill": 3,
+      "xwsaddon": "swz105"
     },
     {
       "id": 637,
       "name": "\"Dutch\" Vander (SSP)",
       "ship": "BTL-A4 Y-wing",
       "points": 4,
-      "skill": 4
+      "skill": 4,
+      "xwsaddon": "swz106"
     },
     {
       "id": 638,
       "name": "Horton Salm (SSP)",
       "ship": "BTL-A4 Y-wing",
       "points": 4,
-      "skill": 4
+      "skill": 4,
+      "xwsaddon": "swz106"
     },
     {
       "id": 639,
       "name": "Arvel Crynyd (SSP)",
       "ship": "RZ-1 A-wing",
       "points": 4,
-      "skill": 3
+      "skill": 3,
+      "xwsaddon": "swz106"
     },
     {
       "id": 640,
       "name": "Jake Farrell (SSP)",
       "ship": "RZ-1 A-wing",
       "points": 5,
-      "skill": 4
+      "skill": 4,
+      "xwsaddon": "swz106"
     },
     {
       "id": 641,
       "name": "Jek Porkins (SSP)",
       "ship": "T-65 X-wing",
       "points": 5,
-      "skill": 4
+      "skill": 4,
+      "xwsaddon": "swz106"
     },
     {
       "id": 642,
       "name": "Luke Skywalker (SSP)",
       "ship": "T-65 X-wing",
       "points": 6,
-      "skill": 5
+      "skill": 5,
+      "xwsaddon": "swz106"
     },
     {
       "id": 643,
       "name": "Shara Bey (SSP)",
       "ship": "RZ-1 A-wing",
       "points": 4,
-      "skill": 4
+      "skill": 4,
+      "xwsaddon": "swz106"
     },
     {
       "id": 644,
       "name": "\"Deathfire\" (TBE)",
       "ship": "TIE/sa Bomber",
       "points": 20,
-      "skill": 3
+      "skill": 3,
+      "xwsaddon": "swz98"
     },
     {
       "id": 645,
       "name": "Major Rhymer (TBE)",
       "ship": "TIE/sa Bomber",
       "points": 20,
-      "skill": 4
+      "skill": 4,
+      "xwsaddon": "swz98"
     },
     {
       "id": 646,
       "name": "Captain Jonus (TBE)",
       "ship": "TIE/sa Bomber",
       "points": 20,
-      "skill": 4
+      "skill": 4,
+      "xwsaddon": "swz98"
     },
     {
       "id": 647,
       "name": "Tomax Bren (TBE)",
       "ship": "TIE/sa Bomber",
       "points": 20,
-      "skill": 5
+      "skill": 5,
+      "xwsaddon": "swz98"
     },
     {
       "id": 648,
       "name": "Dash Rendar (YLF)",
       "ship": "YT-2400 Light Freighter",
       "points": 20,
-      "skill": 5
+      "skill": 5,
+      "xwsaddon": "swz103"
     },
     {
       "id": 649,
       "name": "Dash Rendar (YLF-SL)",
       "ship": "YT-2400 Light Freighter",
       "points": 20,
-      "skill": 5
+      "skill": 5,
+      "xwsaddon": "swz103-sl-rebelalliance"
     },
     {
       "id": 650,
       "name": "Dash Rendar (Scum)",
       "ship": "YT-2400 Light Freighter",
       "points": 20,
-      "skill": 5
+      "skill": 5,
+      "xwsaddon": "swz103-sl-scumandvillainy"
     },
     {
       "id": 651,
       "name": "\"Leebo\" (YLF)",
       "ship": "YT-2400 Light Freighter",
       "points": 20,
-      "skill": 3
+      "skill": 3,
+      "xwsaddon": "swz103"
     },
     {
       "id": 652,
       "name": "\"Leebo\" (YLF-SL)",
       "ship": "YT-2400 Light Freighter",
       "points": 20,
-      "skill": 3
+      "skill": 3,
+      "xwsaddon": "swz103-sl-rebelalliance"
     },
     {
       "id": 653,
       "name": "\"Leebo\" (Scum)",
       "ship": "YT-2400 Light Freighter",
       "points": 20,
-      "skill": 3
+      "skill": 3,
+      "xwsaddon": "swz103-sl-scumandvillainy"
     }
   ],
   "upgrades": [
@@ -5499,12 +5571,14 @@
     {
       "id": 187,
       "name": "Rey",
-      "slot": "Gunner"
+      "slot": "Gunner",
+      "xwsaddon": "gunner"
     },
     {
       "id": 188,
       "name": "Chewbacca (Resistance)",
-      "slot": "Crew"
+      "slot": "Crew",
+      "xwsaddon": "crew-swz19"
     },
     {
       "id": 189,
@@ -5784,7 +5858,8 @@
     {
       "id": 244,
       "name": "Leia Organa (Resistance)",
-      "slot": "Crew"
+      "slot": "Crew",
+      "xwsaddon": "resistance"
     },
     {
       "id": 245,
@@ -5834,7 +5909,8 @@
     {
       "id": 254,
       "name": "C-3PO (Republic)",
-      "slot": "Crew"
+      "slot": "Crew",
+      "xwsaddon": "republic"
     },
     {
       "id": 255,
@@ -6264,7 +6340,8 @@
     {
       "id": 340,
       "name": "R2-D2 (Republic)",
-      "slot": "Astromech"
+      "slot": "Astromech",
+      "xwsaddon": "republic"
     },
     {
       "id": 341,
@@ -6354,7 +6431,8 @@
     {
       "id": 358,
       "name": "R2-D2 (Resistance)",
-      "slot": "Astromech"
+      "slot": "Astromech",
+      "xwsaddon": "resistance"
     },
     {
       "id": 359,
@@ -6414,7 +6492,8 @@
     {
       "id": 370,
       "name": "Slave I (Separatist)",
-      "slot": "Title"
+      "slot": "Title",
+      "xwsaddon": "swz82"
     },
     {
       "id": 371,
@@ -6695,7 +6774,8 @@
     {
       "id": 426,
       "name": "Bo-Katan Kryze (Rebel/Scum)",
-      "slot": "Crew"
+      "slot": "Crew",
+      "xwsaddon": "rebel-scum"
     },
     {
       "id": 427,
