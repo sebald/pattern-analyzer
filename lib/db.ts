@@ -117,7 +117,7 @@ export const getSquads = async ({ from, to }: DatabaseFilter) => {
   let result: [
     squads: ExecutedQuery,
     meta: ExecutedQuery,
-    tournaments: ExecutedQuery,
+    tournaments: ExecutedQuery
   ];
 
   try {
@@ -191,4 +191,23 @@ export const getSquads = async ({ from, to }: DatabaseFilter) => {
       count,
     },
   };
+};
+
+// System
+// ---------------
+export const getLastSync = async () => {
+  const connection = client.connection();
+  let result: ExecutedQuery;
+
+  try {
+    result = await connection.execute(`
+      SELECT value 
+      FROM system 
+      WHERE \`key\` = 'last_sync';
+    `);
+  } catch {
+    throw new Error(`Failed to fetch tournaments...`);
+  }
+
+  return new Date((result.rows[0] as { value: string }).value);
 };

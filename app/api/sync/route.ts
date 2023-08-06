@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { getLastSync } from '@/lib/db';
+import { getAllTournaments } from '@/lib/vendor/listfortress';
 
 // Handler
 // ---------------
@@ -18,6 +20,14 @@ export const GET = async (request: NextRequest) => {
       }
     );
   }
+
+  const lastSync = await getLastSync();
+  const tournaments = await getAllTournaments({
+    from: lastSync,
+    format: 'standard',
+  });
+
+  console.log(tournaments);
 
   return NextResponse.json(
     {
