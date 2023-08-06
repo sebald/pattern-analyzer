@@ -19,7 +19,7 @@ interface SquadsTable {
   id: Generated<number>;
   listfortress_ref: number;
   composition?: string;
-  faction: string;
+  faction: XWSFaction | 'unknown';
   player?: string;
   date: string;
   xws?: XWSSquad;
@@ -107,6 +107,23 @@ export interface DatabaseFilter {
 
 // Tournaments
 // ---------------
+export const createTournamentsTable = async () =>
+  db.schema
+    .createTable('tournaments')
+    .addColumn('id', 'integer', col =>
+      col.primaryKey().autoIncrement().unsigned()
+    )
+    .addColumn('listfortress_ref', 'integer', col =>
+      col.unsigned().notNull().unique()
+    )
+    .addColumn('name', 'varchar(100)', col => col.notNull())
+    .addColumn('date', 'datetime', col => col.notNull())
+    .execute();
+
+export const addTournaments = async (
+  tournaments: Omit<TournamentsTable, 'id'>[]
+) => db.insertInto('tournaments').values(tournaments).execute();
+
 export const getTournaments = async ({ from, to }: DatabaseFilter) => {
   const connection = client.connection();
   let result: ExecutedQuery;
