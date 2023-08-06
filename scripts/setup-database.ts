@@ -41,10 +41,10 @@ CREATE TABLE squads (
   player VARCHAR(100),
   date DATETIME NOT NULL,
   xws JSON,
-  wins INT UNSIGNED,
-  ties INT UNSIGNED,
-  losses INT UNSIGNED,
-  swiss INT UNSIGNED,
+  wins INT UNSIGNED NOT NULL,
+  ties INT UNSIGNED NOT NULL,
+  losses INT UNSIGNED NOT NULL,
+  swiss INT UNSIGNED NOT NULL,
   cut INT UNSIGNED,
   percentile DECIMAL(5, 4) NOT NULL
 );`;

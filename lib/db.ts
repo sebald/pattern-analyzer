@@ -1,8 +1,52 @@
 import { Client, ExecutedQuery } from '@planetscale/database';
+import { type Generated, Kysely } from 'kysely';
+import { PlanetScaleDialect } from 'kysely-planetscale';
 
 import { pointsUpdateDate } from '@/lib/config';
 import type { GameRecord, XWSFaction, XWSSquad } from '@/lib/types';
 import { toDate, today } from '@/lib/utils/date.utils';
+
+// Database
+// ---------------
+interface TournamentsTable {
+  id: Generated<number>;
+  listfortress_ref: number;
+  name: string;
+  date: string;
+}
+
+interface SquadsTable {
+  id: Generated<number>;
+  listfortress_ref: number;
+  composition?: string;
+  faction: string;
+  player?: string;
+  date: string;
+  xws?: XWSSquad;
+  wins: number;
+  ties: number;
+  losses: number;
+  swiss: number;
+  cut?: number;
+  percentile: string;
+}
+
+interface SystemTable {
+  key: string;
+  value: string;
+}
+
+interface Database {
+  tournaments: TournamentsTable;
+  squads: SquadsTable;
+  system: SystemTable;
+}
+
+export const db = new Kysely<Database>({
+  dialect: new PlanetScaleDialect({
+    url: process.env.DATABASE_URL,
+  }),
+});
 
 // Config
 // ---------------
@@ -196,18 +240,11 @@ export const getSquads = async ({ from, to }: DatabaseFilter) => {
 // System
 // ---------------
 export const getLastSync = async () => {
-  const connection = client.connection();
-  let result: ExecutedQuery;
+  const { value } = await db
+    .selectFrom('system')
+    .select('value')
+    .where('key', '=', 'last_sync')
+    .executeTakeFirstOrThrow();
 
-  try {
-    result = await connection.execute(`
-      SELECT value 
-      FROM system 
-      WHERE \`key\` = 'last_sync';
-    `);
-  } catch {
-    throw new Error(`Failed to fetch tournaments...`);
-  }
-
-  return new Date((result.rows[0] as { value: string }).value);
+  return new Date(value);
 };

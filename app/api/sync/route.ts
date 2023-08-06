@@ -27,7 +27,7 @@ export const GET = async (request: NextRequest) => {
     format: 'standard',
   });
 
-  console.log(tournaments);
+  console.log(lastSync, tournaments);
 
   return NextResponse.json(
     {
