@@ -33,11 +33,11 @@ export const getTournaments = async ({ from, to }: DateFilter) => {
 export const getTournamentsInfo = async ({ from, to }: DateFilter) => {
   const tc = db
     .selectFrom('tournaments')
-    .select(eb => [eb.fn.count('id').as('tournaments_count')]);
+    .select(eb => [eb.fn.countAll().as('tournaments_count')]);
 
   const sc = db
     .selectFrom('squads')
-    .select(eb => [eb.fn.count('id').as('squqads_count')]);
+    .select(eb => [eb.fn.countAll().as('squqads_count')]);
 
   if (from) {
     tc.where('date', '<=', typeof from === 'string' ? from : toDate(from));

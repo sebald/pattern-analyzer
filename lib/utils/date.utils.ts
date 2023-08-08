@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
-dayjs.extend(utc)
+dayjs.extend(utc);
 
 /**
  * Returns a date that was given days ago, with time set to midnight.

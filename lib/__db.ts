@@ -88,7 +88,7 @@ export interface SquadEntitiy {
     elimination: number | null;
   };
   record: GameRecord;
-  xws: XWSSquad | null;
+  xws?: XWSSquad;
   faction: XWSFaction | 'unknown';
   composition: string | null;
   percentile: number;
@@ -180,7 +180,7 @@ export const getSquads = async ({ from, to }: DatabaseFilter) => {
   let result: [
     squads: ExecutedQuery,
     meta: ExecutedQuery,
-    tournaments: ExecutedQuery
+    tournaments: ExecutedQuery,
   ];
 
   try {
