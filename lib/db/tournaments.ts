@@ -2,7 +2,7 @@ import { sql } from 'kysely';
 import { toDate } from '@/lib/utils/date.utils';
 
 import { db, type TournamentsTable } from './db';
-import { type DateFilter } from './utils';
+import { type DateFilter } from './types';
 
 // Add
 // ---------------

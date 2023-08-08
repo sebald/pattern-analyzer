@@ -1,4 +1,4 @@
-import { SquadEntitiy } from './__db';
+import { SquadEntitiy } from './db/types';
 import { SquadData } from './types';
 import { percentile } from './utils';
 import { toCompositionId } from './xws';
@@ -15,12 +15,12 @@ export const toSquadEntitiy = (
     date: tournament.date,
     rank: {
       swiss: val.rank.swiss,
-      elimination: val.rank.elimination ?? null,
+      elimination: val.rank.elimination,
     },
     record: val.record,
-    xws: val.xws,
+    xws: val.xws || undefined,
     faction: xws?.faction ?? 'unknown',
-    composition: toCompositionId(xws),
+    composition: xws ? toCompositionId(xws) : undefined,
     percentile: percentile(
       val.rank.elimination ?? val.rank.swiss,
       tournament.total

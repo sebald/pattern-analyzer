@@ -7,7 +7,7 @@ export interface DateFilter {
 
 export interface SquadEntitiy {
   id: number;
-  player?: string;
+  player: string;
   date: Date;
   rank: {
     swiss: number;

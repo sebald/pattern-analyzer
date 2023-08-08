@@ -1,7 +1,7 @@
 import { cache } from 'react';
 import { z } from 'zod';
 
-import { getSquads } from '@/lib/__db';
+import { getSquads } from '@/lib/db/squads';
 import { pointsUpdateDate } from '@/lib/config';
 import { createMetadata } from '@/lib/metadata';
 import { setup } from '@/lib/stats';

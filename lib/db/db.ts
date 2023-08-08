@@ -17,7 +17,7 @@ export interface SquadsTable {
   listfortress_ref: number;
   composition?: string;
   faction: XWSFaction | 'unknown';
-  player?: string;
+  player: string;
   date: string;
   xws?: XWSSquad;
   wins: number;

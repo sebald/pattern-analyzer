@@ -31,7 +31,7 @@ export interface SquadModuleContext {
   };
   rank: {
     swiss: number;
-    elimination: number | null;
+    elimination?: number;
   };
   record: GameRecord;
   percentile: number;

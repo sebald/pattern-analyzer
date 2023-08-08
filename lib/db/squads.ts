@@ -1,7 +1,7 @@
 import { toDate } from '@/lib/utils/date.utils';
 
 import { db } from './db';
-import type { DateFilter, SquadEntitiy } from './utils';
+import type { DateFilter, SquadEntitiy } from './types';
 
 export const getSquads = async (props: DateFilter) => {
   const sq = db.selectFrom('squads').selectAll();
