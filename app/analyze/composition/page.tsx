@@ -2,7 +2,7 @@ import { cache } from 'react';
 import { z } from 'zod';
 
 import { pointsUpdateDate } from '@/lib/config';
-import { getSquads } from '@/lib/db';
+import { getSquads } from '@/lib/__db';
 import { formatDate, fromDate, toDate, today } from '@/lib/utils/date.utils';
 
 import { Caption, Card, Inline, Message, Title } from '@/ui';

@@ -1,4 +1,4 @@
-import type { SquadEntitiy } from '@/lib/db';
+import type { SquadEntitiy } from '@/lib/__db';
 import type { Ships } from '@/lib/get-value';
 import type {
   XWSFaction,

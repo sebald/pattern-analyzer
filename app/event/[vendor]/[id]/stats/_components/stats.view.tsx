@@ -1,4 +1,4 @@
-import type { SquadEntitiy } from '@/lib/db';
+import type { SquadEntitiy } from '@/lib/__db';
 import { setup } from '@/lib/stats';
 import {
   composition,

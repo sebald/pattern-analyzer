@@ -107,7 +107,7 @@ export interface DatabaseFilter {
 
 // Tournaments
 // ---------------
-export const createTournamentsTable = async () =>
+export const createTournaments = async () =>
   db.schema
     .createTable('tournaments')
     .addColumn('id', 'integer', col =>
@@ -119,6 +119,8 @@ export const createTournamentsTable = async () =>
     .addColumn('name', 'varchar(100)', col => col.notNull())
     .addColumn('date', 'datetime', col => col.notNull())
     .execute();
+
+export const dropTournaments = async () => db.schema.dropTable('tournaments');
 
 export const addTournaments = async (
   tournaments: Omit<TournamentsTable, 'id'>[]

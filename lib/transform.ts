@@ -1,4 +1,4 @@
-import { SquadEntitiy } from './db';
+import { SquadEntitiy } from './__db';
 import { SquadData } from './types';
 import { percentile } from './utils';
 import { toCompositionId } from './xws';

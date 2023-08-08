@@ -10,10 +10,9 @@ import { fromDate, now } from '@/lib/utils/date.utils';
 import { percentile } from '@/lib/utils/math.utils';
 import { normalize, toCompositionId } from '@/lib/xws';
 
-$.verbose = false;
-
 // Config
 // ---------------
+$.verbose = false;
 dotenv.config({ path: '.env.local' });
 const config = {
   url: process.env.DATABASE_URL,

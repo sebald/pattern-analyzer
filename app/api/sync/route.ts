@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getLastSync } from '@/lib/db';
+import { getLastSync } from '@/lib/__db';
 import { getAllTournaments } from '@/lib/vendor/listfortress';
 
 // Handler
