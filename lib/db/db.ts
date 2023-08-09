@@ -92,7 +92,7 @@ export const initDatabase = async () =>
 
 export const teatdownDatabase = async () =>
   Promise.allSettled([
-    db.schema.dropTable('tournaments').execute(),
-    db.schema.dropTable('squads').execute(),
-    db.schema.dropTable('system').execute(),
+    db.schema.dropIndex('tournaments').ifExists().execute(),
+    db.schema.dropTable('squads').ifExists().execute(),
+    db.schema.dropTable('system').ifExists().execute(),
   ]);

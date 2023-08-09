@@ -9,6 +9,11 @@ import { getAllTournaments, getSquads } from '@/lib/vendor/listfortress';
 import { fromDate, now } from '@/lib/utils/date.utils';
 import { percentile } from '@/lib/utils/math.utils';
 import { normalize, toCompositionId } from '@/lib/xws';
+import {
+  initDatabase,
+  teatdownDatabase as teardownDatabase,
+} from '@/lib/db/db';
+import { addTournaments } from '@/lib/db/tournaments';
 
 // Config
 // ---------------
@@ -73,44 +78,39 @@ void (async () => {
   try {
     console.log('🌱 Create Tables...');
     // Clear everything!
-    await db.execute('DROP TABLE IF EXISTS squads;');
-    await db.execute('DROP TABLE IF EXISTS tournaments;');
-    await db.execute('DROP TABLE IF EXISTS system;');
+    await teardownDatabase();
 
     // Create tables
-    await db.execute(CREATE_TOURNAMENTS_TABLE);
-    await db.execute(CREATE_SQUADS_TABLE);
-    await db.execute(CREATE_SYSTEM_TABLE);
+    await initDatabase();
 
     console.log('🏆 Fetching tournaments...');
     const tournaments = await getAllTournaments({
       from: fromDate(pointsUpdateDate),
-
       format: 'standard',
-    });
-
-    console.log('🚛 Inserting tournaments...');
-    await Promise.all(
-      tournaments.map(tournament =>
-        db.execute(INSERT_TOURNAMENT, {
-          ref: tournament.id,
-          name: tournament.name,
-          date: tournament.date,
-        })
-      )
+    }).then(result =>
+      result.map(({ id, name, date }) => ({
+        listfortress_ref: id,
+        name,
+        date,
+      }))
     );
 
+    console.log('🚛 Adding tournaments...');
+    await addTournaments(tournaments);
+
     let squadCount = 0;
-    console.log('🚀 Inserting squads...');
+    console.log('🚀 Adding squads...');
     await Promise.all(
       tournaments.map(async tournament => {
-        const squads = await getSquads({ id: `${tournament.id}` });
+        const squads = await getSquads({
+          id: `${tournament.listfortress_ref}`,
+        });
         squadCount += squads.length;
 
         return Promise.all(
           squads.map(squad =>
             db.execute(INSERT_SQUAD, {
-              ref: tournament.id,
+              ref: tournament.listfortress_ref,
               composition: squad.xws ? toCompositionId(squad.xws) : undefined,
               faction: squad.xws?.faction || 'unkown',
               player: squad.player,
