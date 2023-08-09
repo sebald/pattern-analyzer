@@ -4,7 +4,22 @@ import { db } from './db';
 import type { DateFilter, SquadEntitiy } from './types';
 
 export const getSquads = async (props: DateFilter) => {
-  const sq = db.selectFrom('squads').selectAll();
+  const sq = db
+    .selectFrom('squads')
+    .select([
+      'id',
+      'composition',
+      'faction',
+      'player',
+      'date',
+      'xws',
+      'wins',
+      'ties',
+      'losses',
+      'swiss',
+      'cut',
+      'percentile',
+    ]);
   const tq = db
     .selectFrom('squads')
     .select(eb => [
