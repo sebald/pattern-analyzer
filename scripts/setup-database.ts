@@ -111,7 +111,7 @@ void (async () => {
           squads.map(squad =>
             db.execute(INSERT_SQUAD, {
               ref: tournament.id,
-              composition: toCompositionId(squad.xws),
+              composition: squad.xws ? toCompositionId(squad.xws) : undefined,
               faction: squad.xws?.faction || 'unkown',
               player: squad.player,
               date: tournament.date,
