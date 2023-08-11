@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "repository": "github:sebald/pattern-analyzer",
-  "packageManager": "pnpm@8.6.11",
+  "packageManager": "pnpm@8.6.12",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
