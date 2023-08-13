@@ -1,4 +1,4 @@
-import { baseUrl, pointsUpdateDate } from '@/lib/config';
+import { pointsUpdateDate } from '@/lib/config';
 import { getShipName } from '@/lib/get-value';
 import { compositionDetails } from '@/lib/stats/details/composition';
 import { toPercentage } from '@/lib/utils';
