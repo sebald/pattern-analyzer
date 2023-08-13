@@ -1,8 +1,15 @@
 import { toDate } from '@/lib/utils/date.utils';
 
-import { db } from './db';
+import { SquadsTable, db } from './db';
 import type { DateFilter, SquadEntitiy } from './types';
 
+// Add
+// ---------------
+export const addSquads = async (squads: Omit<SquadsTable, 'id'>[]) =>
+  db.insertInto('squads').values(squads).execute();
+
+// Get
+// ---------------
 export const getSquads = async (props: DateFilter) => {
   const sq = db
     .selectFrom('squads')

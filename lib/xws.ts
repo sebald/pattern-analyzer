@@ -74,7 +74,7 @@ export const parsePilotId = (val: string, faction: XWSFaction) => {
 /**
  * Adjust some irregularities coming from LBN and Rollbetter.
  */
-export const normalize = (xws: XWSSquad | null) => {
+export const normalize = (xws: XWSSquad | null): XWSSquad | null => {
   if (!xws) {
     return xws;
   }
