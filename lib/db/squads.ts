@@ -1,8 +1,7 @@
 import { toDate } from '@/lib/utils/date.utils';
 
 import { SquadsTable, db } from './db';
-import type { DateFilter, SquadEntitiy } from './types';
-import { XWSFaction } from '../types';
+import type { DateFilter, SquadEntitiy, WithProperties } from './types';
 
 // Add
 // ---------------
@@ -11,7 +10,20 @@ export const addSquads = async (squads: Omit<SquadsTable, 'id'>[]) =>
 
 // Get
 // ---------------
-export const getSquads = async ({ from, to }: DateFilter) => {
+export interface GetSquadsProps extends DateFilter {
+  composition?: string;
+}
+
+export type GetSquadsResult<Props extends GetSquadsProps> =
+  Props['composition'] extends string
+    ? WithProperties<SquadEntitiy, 'composition' | 'xws'>[]
+    : SquadEntitiy[];
+
+export const getSquads = async <Props extends GetSquadsProps>({
+  from,
+  to,
+  composition,
+}: Props): Promise<GetSquadsResult<Props>> => {
   const query = db
     .selectFrom('squads')
     .select([
@@ -37,6 +49,10 @@ export const getSquads = async ({ from, to }: DateFilter) => {
     query.where('date', '>=', typeof to === 'string' ? to : toDate(to));
   }
 
+  if (composition) {
+    query.where('composition', '=', composition);
+  }
+
   const result = await query.execute();
   return result.map(squad => ({
     id: squad.id,
@@ -55,7 +71,7 @@ export const getSquads = async ({ from, to }: DateFilter) => {
     faction: squad.faction,
     composition: squad.composition,
     percentile: Number(squad.percentile),
-  })) satisfies SquadEntitiy[];
+  })) as any; // Have to case here :-/
 };
 
 // Count
