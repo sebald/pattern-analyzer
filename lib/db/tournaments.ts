@@ -36,7 +36,7 @@ export const getTournamentsInfo = async ({ from, to }: DateFilter) => {
 
   const sc = db
     .selectFrom('squads')
-    .select(eb => [eb.fn.countAll().as('squqads_count')]);
+    .select(eb => [eb.fn.countAll().as('squads_count')]);
 
   if (from) {
     tc.where('date', '<=', typeof from === 'string' ? from : toDate(from));
@@ -56,7 +56,26 @@ export const getTournamentsInfo = async ({ from, to }: DateFilter) => {
   return {
     count: {
       tournament: Number(result[0].tournaments_count),
-      squads: Number(result[1].squqads_count),
+      squads: Number(result[1].squads_count),
     },
   };
+};
+
+// Count
+// ---------------
+export const getTournamentsCount = async ({ from, to }: DateFilter) => {
+  const query = db
+    .selectFrom('tournaments')
+    .select(eb => [eb.fn.countAll().as('tournaments_count')]);
+
+  if (from) {
+    query.where('date', '<=', typeof from === 'string' ? from : toDate(from));
+  }
+
+  if (to) {
+    query.where('date', '>=', typeof to === 'string' ? to : toDate(to));
+  }
+
+  const result = await query.executeTakeFirstOrThrow();
+  return Number(result.tournaments_count);
 };

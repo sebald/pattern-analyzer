@@ -1,7 +1,7 @@
 import { cache } from 'react';
 import { z } from 'zod';
 
-import { getSquads } from '@/lib/db/squads';
+import { getSquads, getFactionCount } from '@/lib/db/squads';
 import { pointsUpdateDate } from '@/lib/config';
 import { createMetadata } from '@/lib/metadata';
 import { setup } from '@/lib/stats';
@@ -40,6 +40,7 @@ import { PilotStats } from '@/ui/stats/pilot-stats';
 import { SquadSize } from '@/ui/stats/squad-size';
 import { StatsHint } from '@/ui/stats/stats-hint';
 import { UpgradeStats } from '@/ui/stats/upgrade-stats';
+import { getTournamentsCount } from '@/lib/db/tournaments';
 
 // Config
 // ---------------
@@ -96,14 +97,22 @@ const create = setup<StatsData>([
 // ---------------
 const getStats = cache(
   async (from: Date, to: Date | undefined, smallSamples: boolean) => {
-    const { squads, meta } = await getSquads({ from, to });
+    const [squads, tournaments, count] = await Promise.all([
+      getSquads({ from, to }),
+      getTournamentsCount({ from, to }),
+      getFactionCount({ from, to }),
+    ]);
+
     return {
       stats: create(squads, {
         smallSamples,
-        count: meta.count,
-        tournaments: meta.tournaments,
+        count,
+        tournaments,
       }),
-      meta,
+      meta: {
+        tournaments,
+        count,
+      },
     };
   }
 );

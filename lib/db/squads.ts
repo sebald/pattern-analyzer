@@ -2,6 +2,7 @@ import { toDate } from '@/lib/utils/date.utils';
 
 import { SquadsTable, db } from './db';
 import type { DateFilter, SquadEntitiy } from './types';
+import { XWSFaction } from '../types';
 
 // Add
 // ---------------
@@ -10,8 +11,8 @@ export const addSquads = async (squads: Omit<SquadsTable, 'id'>[]) =>
 
 // Get
 // ---------------
-export const getSquads = async (props: DateFilter) => {
-  const sq = db
+export const getSquads = async ({ from, to }: DateFilter) => {
+  const query = db
     .selectFrom('squads')
     .select([
       'id',
@@ -27,33 +28,74 @@ export const getSquads = async (props: DateFilter) => {
       'cut',
       'percentile',
     ]);
-  const tq = db
+
+  if (from) {
+    query.where('date', '<=', typeof from === 'string' ? from : toDate(from));
+  }
+
+  if (to) {
+    query.where('date', '>=', typeof to === 'string' ? to : toDate(to));
+  }
+
+  const result = await query.execute();
+  return result.map(squad => ({
+    id: squad.id,
+    player: squad.player,
+    date: new Date(squad.date),
+    rank: {
+      swiss: squad.swiss,
+      elimination: squad.cut,
+    },
+    record: {
+      wins: squad.wins,
+      ties: squad.ties,
+      losses: squad.losses,
+    },
+    xws: squad.xws,
+    faction: squad.faction,
+    composition: squad.composition,
+    percentile: Number(squad.percentile),
+  })) satisfies SquadEntitiy[];
+};
+
+// Count
+// ---------------
+export const getSquadsCount = async ({ from, to }: DateFilter) => {
+  const query = db
     .selectFrom('squads')
-    .select(eb => [
-      eb.fn.count('listfortress_ref').distinct().as('tournaments_count'),
-    ]);
+    .select(eb => [eb.fn.countAll().as('squads_count')]);
 
-  if (props.from) {
-    const from =
-      typeof props.from === 'string' ? props.from : toDate(props.from);
-    sq.where('date', '<=', from);
-    tq.where('date', '<=', from);
+  if (from) {
+    query.where('date', '<=', typeof from === 'string' ? from : toDate(from));
   }
 
-  if (props.to) {
-    const to = typeof props.to === 'string' ? props.to : toDate(props.to);
-    sq.where('date', '>=', to);
-    tq.where('date', '>=', to);
+  if (to) {
+    query.where('date', '>=', typeof to === 'string' ? to : toDate(to));
   }
 
-  const result = await Promise.all([
-    sq.execute(),
-    tq.executeTakeFirstOrThrow(),
-  ]);
+  const result = await query.executeTakeFirstOrThrow();
+  return Number(result.squads_count);
+};
 
-  const squads: SquadEntitiy[] = [];
-  const count = {
-    all: result[0].length,
+// Factions
+// ---------------
+export const getFactionCount = async ({ from, to }: DateFilter) => {
+  const query = db
+    .selectFrom('squads')
+    .select(eb => ['faction', eb.fn.countAll().as('count')])
+    .groupBy('faction');
+
+  if (from) {
+    query.where('date', '<=', typeof from === 'string' ? from : toDate(from));
+  }
+
+  if (to) {
+    query.where('date', '>=', typeof to === 'string' ? to : toDate(to));
+  }
+
+  const result = await query.execute();
+  const map = {
+    all: 0,
     rebelalliance: 0,
     galacticempire: 0,
     scumandvillainy: 0,
@@ -64,34 +106,11 @@ export const getSquads = async (props: DateFilter) => {
     unknown: 0,
   };
 
-  result[0].forEach(squad => {
-    count[squad.faction] += 1;
-
-    squads.push({
-      id: squad.id,
-      player: squad.player,
-      date: new Date(squad.date),
-      rank: {
-        swiss: squad.swiss,
-        elimination: squad.cut,
-      },
-      record: {
-        wins: squad.wins,
-        ties: squad.ties,
-        losses: squad.losses,
-      },
-      xws: squad.xws,
-      faction: squad.faction,
-      composition: squad.composition,
-      percentile: Number(squad.percentile),
-    });
+  result.forEach(({ faction, count }) => {
+    const num = Number(count);
+    map['all'] += num;
+    map[faction] += num;
   });
 
-  return {
-    squads,
-    meta: {
-      tournaments: Number(result[1].tournaments_count),
-      count,
-    },
-  };
+  return map;
 };
