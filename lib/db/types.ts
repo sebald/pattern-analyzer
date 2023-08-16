@@ -17,7 +17,7 @@ export interface DateFilter {
 export interface SquadEntitiy {
   id: number;
   player: string;
-  date: Date;
+  date: string;
   rank: {
     swiss: number;
     elimination?: number;
@@ -26,5 +26,24 @@ export interface SquadEntitiy {
   xws?: XWSSquad;
   faction: XWSFaction | 'unknown';
   composition?: string;
+  percentile: number;
+}
+
+/**
+ * Same as `SquadEntity` but has XWS and thus
+ * faction and composition exists.
+ */
+export interface SquadEntitiyWithXWS {
+  id: number;
+  player: string;
+  date: string;
+  rank: {
+    swiss: number;
+    elimination?: number;
+  };
+  record: GameRecord;
+  xws: XWSSquad;
+  faction: XWSFaction;
+  composition: string;
   percentile: number;
 }

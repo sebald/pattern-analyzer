@@ -1,7 +1,7 @@
 import { toDate } from '@/lib/utils/date.utils';
 
 import { SquadsTable, db } from './db';
-import type { DateFilter, SquadEntitiy, WithProperties } from './types';
+import type { DateFilter, SquadEntitiy, SquadEntitiyWithXWS } from './types';
 
 // Add
 // ---------------
@@ -15,9 +15,7 @@ export interface GetSquadsProps extends DateFilter {
 }
 
 export type GetSquadsResult<Props extends GetSquadsProps> =
-  Props['composition'] extends string
-    ? WithProperties<SquadEntitiy, 'composition' | 'xws'>[]
-    : SquadEntitiy[];
+  Props['composition'] extends string ? SquadEntitiyWithXWS[] : SquadEntitiy[];
 
 export const getSquads = async <Props extends GetSquadsProps>({
   from,
@@ -57,7 +55,7 @@ export const getSquads = async <Props extends GetSquadsProps>({
   return result.map(squad => ({
     id: squad.id,
     player: squad.player,
-    date: new Date(squad.date),
+    date: squad.date,
     rank: {
       swiss: squad.swiss,
       elimination: squad.cut,
@@ -71,7 +69,7 @@ export const getSquads = async <Props extends GetSquadsProps>({
     faction: squad.faction,
     composition: squad.composition,
     percentile: Number(squad.percentile),
-  })) as any; // Have to case here :-/
+  })) as any; // Have to cast here :-/
 };
 
 // Count

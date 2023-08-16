@@ -2,7 +2,8 @@ import { cache } from 'react';
 import { z } from 'zod';
 
 import { pointsUpdateDate } from '@/lib/config';
-import { getSquads } from '@/lib/db/squads';
+import { getFactionCount, getSquads } from '@/lib/db/squads';
+import { getTournamentsCount } from '@/lib/db/tournaments';
 import { formatDate, fromDate, toDate, today } from '@/lib/utils/date.utils';
 
 import { Caption, Card, Inline, Message, Title } from '@/ui';
@@ -57,14 +58,22 @@ const create = setup<CompositionData>([composition]);
 // ---------------
 const getStats = cache(
   async (from: Date, to: Date | undefined, smallSamples: boolean) => {
-    const { squads, meta } = await getSquads({ from, to });
+    const [squads, tournaments, count] = await Promise.all([
+      getSquads({ from, to }),
+      getTournamentsCount({ from, to }),
+      getFactionCount({ from, to }),
+    ]);
+
     return {
       stats: create(squads, {
         smallSamples,
-        count: meta.count,
-        tournaments: meta.tournaments,
+        count,
+        tournaments,
       }),
-      meta,
+      meta: {
+        tournaments,
+        count,
+      },
     };
   }
 );

@@ -3,7 +3,6 @@ import { getShipName } from '@/lib/get-value';
 import { compositionDetails } from '@/lib/stats/details/composition';
 import { toPercentage } from '@/lib/utils';
 import { fromDate } from '@/lib/utils/date.utils';
-import { getAllTournaments, getSquads } from '@/lib/vendor/listfortress';
 
 import { Card, Detail, ShipIcon } from '@/ui';
 
@@ -11,6 +10,7 @@ import { PilotDetails } from './_component/pilot-details';
 import { SquadGroups } from './_component/squad-groups';
 import { TrendCurve } from './_component/trend-curve';
 import { createMetadata } from '@/lib/metadata';
+import { getFactionCount, getSquads } from '@/lib/db/squads';
 
 // Config
 // ---------------
@@ -20,24 +20,16 @@ export const revalidate = 21600; // 6 hours
  * Opt into background revalidation. (see: https://github.com/vercel/next.js/discussions/43085)
  */
 export const generateStaticParams = async () => {
-  const tournaments = await getAllTournaments({
-    from: fromDate(pointsUpdateDate),
-    format: 'standard',
-  });
-
-  const squads = await Promise.all(
-    tournaments.map(({ id }) => getSquads({ id: `${id}` }))
-  );
-
+  const squads = await getSquads({ from: fromDate(pointsUpdateDate) });
   const compositions = new Set<string>();
-  squads.flat().forEach(({ xws }) => {
-    if (!xws) return;
 
-    const id = xws.pilots.map(({ ship }) => ship).join('.');
-    compositions.add(id);
+  squads.forEach(({ composition }) => {
+    if (composition) {
+      compositions.add(composition);
+    }
   });
 
-  return [...compositions.values()].map(id => ({
+  return [...compositions].map(id => ({
     id,
   }));
 };
@@ -63,19 +55,10 @@ export const generateMetadata = ({ params }: PageParams) => {
 
 // Data
 // ---------------
-const getCompositionStats = async (id: string, from: Date) => {
-  const tournaments = await getAllTournaments({
-    from,
-    format: 'standard',
-  });
-
-  const data = await Promise.all(
-    tournaments.map(({ id, date }) =>
-      getSquads({ id: `${id}` }).then(squads => ({ date, squads }))
-    )
-  );
-
-  return compositionDetails(id, data);
+const getCompositionStats = async (composition: string, from: Date) => {
+  const squads = await getSquads({ from, composition });
+  const count = await getFactionCount({ from });
+  return compositionDetails({ composition, squads, count });
 };
 
 // Page
