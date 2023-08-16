@@ -51,6 +51,9 @@ export const getSquads = async <Props extends GetSquadsProps>({
     query.where('composition', '=', composition);
   }
 
+  // The "where does not work?"
+  console.log(query);
+
   const result = await query.execute();
   return result.map(squad => ({
     id: squad.id,

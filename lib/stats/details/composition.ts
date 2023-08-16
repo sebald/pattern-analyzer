@@ -128,12 +128,6 @@ const createPilotsId = (xws: XWSSquad) => {
   return pilots.map(({ id }) => id).join('.');
 };
 
-const isComposition = (id: string, xws: XWSSquad) => {
-  const ships = xws.pilots.map(p => p.ship);
-  ships.sort();
-  return id === ships.join('.');
-};
-
 const createTrends = (squads: SquadCompositionData['squads']) => {
   const trends: { [month: string]: { count: number; percentiles: number[] } } =
     {};
@@ -301,6 +295,11 @@ export const compositionDetails = ({
   };
 
   squads.forEach(current => {
+    if (!current.xws) {
+      console.log(current);
+      return;
+    }
+
     const pct = percentile(
       current.rank.elimination ?? current.rank.swiss,
       total
