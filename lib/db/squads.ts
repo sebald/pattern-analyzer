@@ -22,7 +22,7 @@ export const getSquads = async <Props extends GetSquadsProps>({
   to,
   composition,
 }: Props): Promise<GetSquadsResult<Props>> => {
-  const query = db
+  let query = db
     .selectFrom('squads')
     .select([
       'id',
@@ -40,21 +40,23 @@ export const getSquads = async <Props extends GetSquadsProps>({
     ]);
 
   if (from) {
-    query.where('date', '<=', typeof from === 'string' ? from : toDate(from));
+    query = query.where(
+      'date',
+      '>=',
+      typeof from === 'string' ? from : toDate(from)
+    );
   }
 
   if (to) {
-    query.where('date', '>=', typeof to === 'string' ? to : toDate(to));
+    query = query.where('date', '<=', typeof to === 'string' ? to : toDate(to));
   }
 
   if (composition) {
-    query.where('composition', '=', composition);
+    query = query.where('composition', '=', composition);
   }
 
-  // The "where does not work?"
-  console.log(query);
-
   const result = await query.execute();
+  console.log(result.length);
   return result.map(squad => ({
     id: squad.id,
     player: squad.player,
@@ -78,16 +80,20 @@ export const getSquads = async <Props extends GetSquadsProps>({
 // Count
 // ---------------
 export const getSquadsCount = async ({ from, to }: DateFilter) => {
-  const query = db
+  let query = db
     .selectFrom('squads')
     .select(eb => [eb.fn.countAll().as('squads_count')]);
 
   if (from) {
-    query.where('date', '<=', typeof from === 'string' ? from : toDate(from));
+    query = query.where(
+      'date',
+      '>=',
+      typeof from === 'string' ? from : toDate(from)
+    );
   }
 
   if (to) {
-    query.where('date', '>=', typeof to === 'string' ? to : toDate(to));
+    query = query.where('date', '<=', typeof to === 'string' ? to : toDate(to));
   }
 
   const result = await query.executeTakeFirstOrThrow();
@@ -97,17 +103,21 @@ export const getSquadsCount = async ({ from, to }: DateFilter) => {
 // Factions
 // ---------------
 export const getFactionCount = async ({ from, to }: DateFilter) => {
-  const query = db
+  let query = db
     .selectFrom('squads')
     .select(eb => ['faction', eb.fn.countAll().as('count')])
     .groupBy('faction');
 
   if (from) {
-    query.where('date', '<=', typeof from === 'string' ? from : toDate(from));
+    query = query.where(
+      'date',
+      '>=',
+      typeof from === 'string' ? from : toDate(from)
+    );
   }
 
   if (to) {
-    query.where('date', '>=', typeof to === 'string' ? to : toDate(to));
+    query = query.where('date', '<=', typeof to === 'string' ? to : toDate(to));
   }
 
   const result = await query.execute();

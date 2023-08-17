@@ -17,11 +17,11 @@ export const getTournaments = async ({ from, to }: DateFilter) => {
     .select(['listfortress_ref as id', 'name', 'date']);
 
   if (from) {
-    query.where('date', '<=', typeof from === 'string' ? from : toDate(from));
+    query.where('date', '>=', typeof from === 'string' ? from : toDate(from));
   }
 
   if (to) {
-    query.where('date', '>=', typeof to === 'string' ? to : toDate(to));
+    query.where('date', '<=', typeof to === 'string' ? to : toDate(to));
   }
 
   return query.execute();
@@ -39,13 +39,13 @@ export const getTournamentsInfo = async ({ from, to }: DateFilter) => {
     .select(eb => [eb.fn.countAll().as('squads_count')]);
 
   if (from) {
-    tc.where('date', '<=', typeof from === 'string' ? from : toDate(from));
-    sc.where('date', '<=', typeof from === 'string' ? from : toDate(from));
+    tc.where('date', '>=', typeof from === 'string' ? from : toDate(from));
+    sc.where('date', '>=', typeof from === 'string' ? from : toDate(from));
   }
 
   if (to) {
-    tc.where('date', '>=', typeof to === 'string' ? to : toDate(to));
-    sc.where('date', '>=', typeof to === 'string' ? to : toDate(to));
+    tc.where('date', '<=', typeof to === 'string' ? to : toDate(to));
+    sc.where('date', '<=', typeof to === 'string' ? to : toDate(to));
   }
 
   const result = await Promise.all([
@@ -69,11 +69,11 @@ export const getTournamentsCount = async ({ from, to }: DateFilter) => {
     .select(eb => [eb.fn.countAll().as('tournaments_count')]);
 
   if (from) {
-    query.where('date', '<=', typeof from === 'string' ? from : toDate(from));
+    query.where('date', '>=', typeof from === 'string' ? from : toDate(from));
   }
 
   if (to) {
-    query.where('date', '>=', typeof to === 'string' ? to : toDate(to));
+    query.where('date', '<=', typeof to === 'string' ? to : toDate(to));
   }
 
   const result = await query.executeTakeFirstOrThrow();
