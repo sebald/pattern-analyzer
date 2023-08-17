@@ -56,7 +56,6 @@ export const getSquads = async <Props extends GetSquadsProps>({
   }
 
   const result = await query.execute();
-  console.log(result.length);
   return result.map(squad => ({
     id: squad.id,
     player: squad.player,
