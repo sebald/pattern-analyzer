@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 
 import { pointsUpdateDate } from '@/lib/config';
 import { getAllTournaments, getSquads } from '@/lib/vendor/listfortress';
-import { fromDate, now } from '@/lib/utils/date.utils';
+import { fromDate } from '@/lib/utils/date.utils';
 import { percentile } from '@/lib/utils/math.utils';
 import { normalize, toCompositionId } from '@/lib/xws';
 
@@ -74,7 +74,7 @@ void (async () => {
             wins: squad.record.wins,
             ties: squad.record.ties,
             losses: squad.record.losses,
-            record: JSON.stringify(squad.record),
+            record: squad.record,
             swiss: squad.rank.swiss,
             cut: squad.rank.elimination,
             percentile: percentile(

@@ -34,6 +34,7 @@ export const getSquads = async <Props extends GetSquadsProps>({
       'wins',
       'ties',
       'losses',
+      'record',
       'swiss',
       'cut',
       'percentile',

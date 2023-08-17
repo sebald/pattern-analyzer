@@ -1,7 +1,7 @@
 import { Generated, Kysely } from 'kysely';
 import { PlanetScaleDialect } from 'kysely-planetscale';
 
-import type { XWSFaction, XWSSquad } from '@/lib/types';
+import type { GameRecord, XWSFaction, XWSSquad } from '@/lib/types';
 
 // Types
 // ---------------
@@ -23,6 +23,7 @@ export interface SquadsTable {
   wins: number;
   ties: number;
   losses: number;
+  record: GameRecord;
   swiss: number;
   cut?: number;
   percentile: string;
@@ -80,6 +81,7 @@ export const initDatabase = async () =>
       .addColumn('ties', 'integer', col => col.unsigned().notNull())
       .addColumn('losses', 'integer', col => col.unsigned().notNull())
       .addColumn('swiss', 'integer', col => col.unsigned().notNull())
+      .addColumn('record', 'json', col => col.unsigned().notNull())
       .addColumn('cut', 'integer', col => col.unsigned())
       .addColumn('percentile', 'decimal(5, 4)', col => col.notNull())
       .execute(),
