@@ -5,8 +5,9 @@ import type { DateFilter, SquadEntitiy, SquadEntitiyWithXWS } from './types';
 
 // Add
 // ---------------
-export const addSquads = async (squads: Omit<SquadsTable, 'id'>[]) =>
-  db.insertInto('squads').values(squads).execute();
+export const addSquads = async (
+  squads: Omit<SquadsTable, 'id'> | Omit<SquadsTable, 'id'>[]
+) => db.insertInto('squads').values(squads).execute();
 
 // Get
 // ---------------

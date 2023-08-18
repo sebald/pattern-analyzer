@@ -7,7 +7,8 @@ export const setLastSync = async () =>
   db
     .insertInto('system')
     .values({ key: 'last_sync', value: now() })
-    .onDuplicateKeyUpdate({ key: 'last_sync' });
+    .onDuplicateKeyUpdate({ key: 'last_sync' })
+    .executeTakeFirst();
 
 export const getLastSync = async () => {
   const { value } = await db

@@ -70,7 +70,7 @@ export const GET = async (request: NextRequest) => {
           faction: squad.xws?.faction || 'unknown',
           player: squad.player,
           date: tournament.date,
-          xws: squad.xws ? normalize(squad.xws)! : undefined,
+          xws: normalize(squad.xws) || undefined,
           wins: squad.record.wins,
           ties: squad.record.ties,
           losses: squad.record.losses,

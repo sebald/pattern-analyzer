@@ -1,5 +1,5 @@
 import { Generated, Kysely } from 'kysely';
-import { PlanetScaleDialect } from 'kysely-planetscale';
+import { PlanetScaleDialect, inflateDates } from 'kysely-planetscale';
 
 import type { GameRecord, XWSFaction, XWSSquad } from '@/lib/types';
 
@@ -45,12 +45,20 @@ interface Database {
 export const db = new Kysely<Database>({
   dialect: new PlanetScaleDialect({
     url: process.env.DATABASE_URL,
+    cast: (field, value) => {
+      console.log(field.type);
+      if (field.type === 'json' && value) {
+        return JSON.stringify(value);
+      }
+
+      return inflateDates(field, value);
+    },
   }),
   // log: ['query'],
 });
 
 export const initDatabase = async () =>
-  Promise.allSettled([
+  Promise.all([
     // Tournaments
     db.schema
       .createTable('tournaments')
@@ -69,9 +77,7 @@ export const initDatabase = async () =>
       .addColumn('id', 'integer', col =>
         col.primaryKey().autoIncrement().unsigned()
       )
-      .addColumn('listfortress_ref', 'integer', col =>
-        col.unsigned().notNull().unique()
-      )
+      .addColumn('listfortress_ref', 'integer', col => col.unsigned().notNull())
       .addColumn('composition', 'varchar(255)')
       .addColumn('faction', 'varchar(50)', col => col.notNull())
       .addColumn('player', 'varchar(100)')
@@ -81,7 +87,7 @@ export const initDatabase = async () =>
       .addColumn('ties', 'integer', col => col.unsigned().notNull())
       .addColumn('losses', 'integer', col => col.unsigned().notNull())
       .addColumn('swiss', 'integer', col => col.unsigned().notNull())
-      .addColumn('record', 'json', col => col.unsigned().notNull())
+      .addColumn('record', 'json', col => col.notNull())
       .addColumn('cut', 'integer', col => col.unsigned())
       .addColumn('percentile', 'decimal(5, 4)', col => col.notNull())
       .execute(),
@@ -93,9 +99,9 @@ export const initDatabase = async () =>
       .execute(),
   ]);
 
-export const teatdownDatabase = async () =>
-  Promise.allSettled([
-    db.schema.dropIndex('tournaments').ifExists().execute(),
+export const teardownDatabase = async () =>
+  Promise.all([
+    db.schema.dropTable('tournaments').ifExists().execute(),
     db.schema.dropTable('squads').ifExists().execute(),
     db.schema.dropTable('system').ifExists().execute(),
   ]);
