@@ -1,16 +1,16 @@
-import { pointsUpdateDate } from '@/lib/config';
-import { getShipName } from '@/lib/get-value';
 import { compositionDetails } from '@/lib/stats/details/composition';
-import { toPercentage } from '@/lib/utils';
+import { createMetadata } from '@/lib/metadata';
 import { fromDate } from '@/lib/utils/date.utils';
+import { getFactionCount, getSquads } from '@/lib/db/squads';
+import { getShipName } from '@/lib/get-value';
+import { pointsUpdateDate } from '@/lib/config';
+import { toPercentage } from '@/lib/utils';
 
 import { Card, Detail, ShipIcon } from '@/ui';
 
 import { PilotDetails } from './_component/pilot-details';
 import { SquadGroups } from './_component/squad-groups';
 import { TrendCurve } from './_component/trend-curve';
-import { createMetadata } from '@/lib/metadata';
-import { getFactionCount, getSquads } from '@/lib/db/squads';
 
 // Config
 // ---------------
