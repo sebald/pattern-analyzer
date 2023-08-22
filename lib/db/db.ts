@@ -1,5 +1,5 @@
-import { Generated, Kysely } from 'kysely';
-import { PlanetScaleDialect, inflateDates } from 'kysely-planetscale';
+import { type ColumnType, type Generated, Kysely } from 'kysely';
+import { PlanetScaleDialect } from 'kysely-planetscale';
 
 import type { GameRecord, XWSFaction, XWSSquad } from '@/lib/types';
 
@@ -19,11 +19,11 @@ export interface SquadsTable {
   faction: XWSFaction | 'unknown';
   player: string;
   date: string;
-  xws?: XWSSquad;
+  xws?: ColumnType<XWSSquad, string, string>;
   wins: number;
   ties: number;
   losses: number;
-  record: GameRecord;
+  record: ColumnType<GameRecord, string, string>;
   swiss: number;
   cut?: number;
   percentile: string;
@@ -34,7 +34,7 @@ export interface SystemTable {
   value: string;
 }
 
-interface Database {
+export interface Database {
   tournaments: TournamentsTable;
   squads: SquadsTable;
   system: SystemTable;
@@ -45,14 +45,6 @@ interface Database {
 export const db = new Kysely<Database>({
   dialect: new PlanetScaleDialect({
     url: process.env.DATABASE_URL,
-    cast: (field, value) => {
-      console.log(field.type);
-      if (field.type === 'json' && value) {
-        return JSON.stringify(value);
-      }
-
-      return inflateDates(field, value);
-    },
   }),
   // log: ['query'],
 });

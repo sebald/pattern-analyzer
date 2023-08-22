@@ -67,14 +67,16 @@ export const GET = async (request: NextRequest) => {
         squads.map(squad => ({
           listfortress_ref: tournament.listfortress_ref,
           composition: squad.xws ? toCompositionId(squad.xws) : undefined,
-          faction: squad.xws?.faction || 'unknown',
+          faction: squad.xws?.faction ?? 'unknown',
           player: squad.player,
           date: tournament.date,
-          xws: normalize(squad.xws) || undefined,
+          xws: squad.xws
+            ? JSON.stringify(normalize(squad.xws)) || undefined
+            : undefined,
           wins: squad.record.wins,
           ties: squad.record.ties,
           losses: squad.record.losses,
-          record: squad.record,
+          record: JSON.stringify(squad.record),
           swiss: squad.rank.swiss,
           cut: squad.rank.elimination,
           percentile: percentile(

@@ -1,12 +1,13 @@
+import type { InsertObjectOrList } from 'kysely/dist/cjs/parser/insert-values-parser';
 import { toDate } from '@/lib/utils/date.utils';
 
-import { SquadsTable, db } from './db';
+import { Database, db } from './db';
 import type { DateFilter, SquadEntitiy, SquadEntitiyWithXWS } from './types';
 
 // Add
 // ---------------
 export const addSquads = async (
-  squads: Omit<SquadsTable, 'id'> | Omit<SquadsTable, 'id'>[]
+  squads: InsertObjectOrList<Database, 'squads'>
 ) => db.insertInto('squads').values(squads).execute();
 
 // Get
