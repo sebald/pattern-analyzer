@@ -1,6 +1,7 @@
 import { SquadEntitiy } from './db/types';
 import { SquadData } from './types';
-import { percentile } from './utils';
+import { percentile } from './utils/math.utils';
+import { toDate } from './utils/date.utils';
 import { toCompositionId } from './xws';
 
 export const toSquadEntitiy = (
@@ -12,7 +13,7 @@ export const toSquadEntitiy = (
   return {
     id: Number(val.id),
     player: val.player,
-    date: tournament.date,
+    date: toDate(tournament.date),
     rank: {
       swiss: val.rank.swiss,
       elimination: val.rank.elimination,
