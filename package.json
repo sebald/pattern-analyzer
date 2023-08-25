@@ -63,7 +63,7 @@
     "tailwindcss": "3.3.3",
     "typescript": "5.1.6",
     "xwing-data2": "github:guidokessels/xwing-data2#29db078",
-    "yasb": "github:raithos/xwing#fafc1d4",
+    "yasb": "github:raithos/xwing#0a996a5",
     "zx": "7.2.3"
   }
 }
