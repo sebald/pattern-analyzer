@@ -62,7 +62,7 @@
     "prettier-plugin-tailwindcss": "0.5.3",
     "tailwindcss": "3.3.3",
     "typescript": "5.1.6",
-    "xwing-data2": "github:guidokessels/xwing-data2#b3c0c1f",
+    "xwing-data2": "github:guidokessels/xwing-data2#29db078",
     "yasb": "github:raithos/xwing#fafc1d4",
     "zx": "7.2.3"
   }
