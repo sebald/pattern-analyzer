@@ -114,7 +114,7 @@ const About = () => (
           <strong>Score:</strong> The score value attempts to balance small
           sample sizes and their percentile. However, be aware that there is no
           elaborate science behind this number, even though it tries to quantify
-          the percentile, deviation, and count of an entity. The goal of the
+          the percentile, and count of an entity. The goal of the
           score is to indicate whether a result is just a happy accident or if
           it is somewhat reliable because multiple people achieved a similar
           result. Essentially, it&quot;s a feel-good metric!
