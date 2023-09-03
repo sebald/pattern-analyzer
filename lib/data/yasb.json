@@ -4637,7 +4637,7 @@
       "id": 653,
       "name": "\"Leebo\" (Scum)",
       "ship": "YT-2400 Light Freighter",
-      "points": 7,
+      "points": 6,
       "skill": 3,
       "xwsaddon": "swz103-sl-scumandvillainy"
     }
@@ -6498,7 +6498,8 @@
     {
       "id": 371,
       "name": "Vectored Cannons (RZ-1)",
-      "slot": "Configuration"
+      "slot": "Configuration",
+      "xws": "vectoredcannonsrz1"
     },
     {
       "id": 372,

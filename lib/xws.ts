@@ -99,7 +99,7 @@ export const normalize = (xws: XWSSquad | null) => {
     pilot.upgrades = pilot.upgrades || {};
 
     // LBN doesn't give the correct points costs
-    if (!pilot.points) {
+    if (!pilot.points || pilot.points === 100) {
       pilot.points = getPointsByName(pilot.id);
     }
 
