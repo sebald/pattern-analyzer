@@ -1,4 +1,9 @@
-import type { XWSFaction, XWSSquad, XWSUpgrades } from './types';
+import type {
+  XWSFaction,
+  XWSSquad,
+  XWSUpgradeSlots,
+  XWSUpgrades,
+} from './types';
 import SL_PILOTS from './data/standard-loadout-pilots.json';
 import { getPointsByName } from './yasb';
 import { getUpgradeName } from './get-value';
@@ -54,6 +59,11 @@ const PILOT_ID_MAP = {
   'durge-separatistalliance': 'durge-separatistalliance',
 };
 
+const UPGRADE_ID_MAP = {
+  r2d2resistance: 'r2d2-resistance',
+  choppercrew: 'chopper-crew',
+};
+
 export const parsePilotId = (val: string, faction: XWSFaction) => {
   let pilot = val
     // Scenarios
@@ -95,11 +105,20 @@ export const normalize = (xws: XWSSquad | null): XWSSquad | null => {
       };
     }
 
-    // LBN doesn't adhere XWS ...
+    // Fix upgrade IDs...
     pilot.upgrades = pilot.upgrades || {};
+    Object.keys(pilot.upgrades).forEach(slot => {
+      const current = pilot.upgrades[slot as XWSUpgradeSlots];
+      if (current) {
+        pilot.upgrades[slot as XWSUpgradeSlots] = current.map(
+          //@ts-expect-error (ID accessing allowed to fail)
+          upgrade => UPGRADE_ID_MAP[upgrade] ?? upgrade
+        );
+      }
+    });
 
     // LBN doesn't give the correct points costs
-    if (!pilot.points) {
+    if (!pilot.points || pilot.points === 100) {
       pilot.points = getPointsByName(pilot.id);
     }
 

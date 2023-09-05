@@ -4565,7 +4565,7 @@
       "id": 644,
       "name": "\"Deathfire\" (TBE)",
       "ship": "TIE/sa Bomber",
-      "points": 20,
+      "points": 3,
       "skill": 3,
       "xwsaddon": "swz98"
     },
@@ -4573,7 +4573,7 @@
       "id": 645,
       "name": "Major Rhymer (TBE)",
       "ship": "TIE/sa Bomber",
-      "points": 20,
+      "points": 4,
       "skill": 4,
       "xwsaddon": "swz98"
     },
@@ -4581,7 +4581,7 @@
       "id": 646,
       "name": "Captain Jonus (TBE)",
       "ship": "TIE/sa Bomber",
-      "points": 20,
+      "points": 5,
       "skill": 4,
       "xwsaddon": "swz98"
     },
@@ -4589,7 +4589,7 @@
       "id": 647,
       "name": "Tomax Bren (TBE)",
       "ship": "TIE/sa Bomber",
-      "points": 20,
+      "points": 3,
       "skill": 5,
       "xwsaddon": "swz98"
     },
@@ -4597,7 +4597,7 @@
       "id": 648,
       "name": "Dash Rendar (YLF)",
       "ship": "YT-2400 Light Freighter",
-      "points": 20,
+      "points": 7,
       "skill": 5,
       "xwsaddon": "swz103"
     },
@@ -4605,7 +4605,7 @@
       "id": 649,
       "name": "Dash Rendar (YLF-SL)",
       "ship": "YT-2400 Light Freighter",
-      "points": 20,
+      "points": 7,
       "skill": 5,
       "xwsaddon": "swz103-sl-rebelalliance"
     },
@@ -4613,7 +4613,7 @@
       "id": 650,
       "name": "Dash Rendar (Scum)",
       "ship": "YT-2400 Light Freighter",
-      "points": 20,
+      "points": 7,
       "skill": 5,
       "xwsaddon": "swz103-sl-scumandvillainy"
     },
@@ -4621,7 +4621,7 @@
       "id": 651,
       "name": "\"Leebo\" (YLF)",
       "ship": "YT-2400 Light Freighter",
-      "points": 20,
+      "points": 6,
       "skill": 3,
       "xwsaddon": "swz103"
     },
@@ -4629,7 +4629,7 @@
       "id": 652,
       "name": "\"Leebo\" (YLF-SL)",
       "ship": "YT-2400 Light Freighter",
-      "points": 20,
+      "points": 6,
       "skill": 3,
       "xwsaddon": "swz103-sl-rebelalliance"
     },
@@ -4637,7 +4637,7 @@
       "id": 653,
       "name": "\"Leebo\" (Scum)",
       "ship": "YT-2400 Light Freighter",
-      "points": 20,
+      "points": 6,
       "skill": 3,
       "xwsaddon": "swz103-sl-scumandvillainy"
     }
@@ -6498,7 +6498,8 @@
     {
       "id": 371,
       "name": "Vectored Cannons (RZ-1)",
-      "slot": "Configuration"
+      "slot": "Configuration",
+      "xws": "vectoredcannonsrz1"
     },
     {
       "id": 372,
@@ -7151,11 +7152,6 @@
       "id": 501,
       "name": "\"Leebo\" (YLF)",
       "slot": "Crew"
-    },
-    {
-      "id": 502,
-      "name": "Outrider (YLF)",
-      "slot": "Title"
     }
   ]
 }
