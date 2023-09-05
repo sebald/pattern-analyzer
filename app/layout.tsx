@@ -1,4 +1,5 @@
 import { Container } from '@/ui';
+import { getLastSync } from '@/lib/db/system';
 import { createMetadata } from '@/lib/metadata';
 import { cn } from '@/lib/utils';
 
@@ -20,22 +21,26 @@ export interface LayoutProps {
 
 // Layout
 // ---------------
-const Layout = ({ children }: LayoutProps) => (
-  <html lang="en">
-    <body
-      className={cn(
-        sans.variable,
-        'flex min-h-screen flex-col bg-primary-50 font-sans'
-      )}
-    >
-      <SiteHeader />
-      <Container className="flex flex-1 flex-col pb-10 pt-8 md:pt-20">
-        {children}
-      </Container>
-      <SiteFooter />
-      <AnalyticsWrapper />
-    </body>
-  </html>
-);
+const Layout = async ({ children }: LayoutProps) => {
+  const lastSync = await getLastSync();
+
+  return (
+    <html lang="en">
+      <body
+        className={cn(
+          sans.variable,
+          'flex min-h-screen flex-col bg-primary-50 font-sans'
+        )}
+      >
+        <SiteHeader />
+        <Container className="flex flex-1 flex-col pb-10 pt-8 md:pt-20">
+          {children}
+        </Container>
+        <SiteFooter lastUpdate={lastSync} />
+        <AnalyticsWrapper />
+      </body>
+    </html>
+  );
+};
 
 export default Layout;

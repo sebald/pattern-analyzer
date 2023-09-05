@@ -114,13 +114,25 @@ const About = () => (
           <strong>Score:</strong> The score value attempts to balance small
           sample sizes and their percentile. However, be aware that there is no
           elaborate science behind this number, even though it tries to quantify
-          the percentile, and count of an entity. The goal of the
-          score is to indicate whether a result is just a happy accident or if
-          it is somewhat reliable because multiple people achieved a similar
-          result. Essentially, it&quot;s a feel-good metric!
+          the percentile, and count of an entity. The goal of the score is to
+          indicate whether a result is just a happy accident or if it is
+          somewhat reliable because multiple people achieved a similar result.
+          Essentially, it&quot;s a feel-good metric!
         </Text>
       </List.Item>
     </List>
+    <Headline level="2">Source</Headline>
+    <Text className="prose">
+      The source code is available on{' '}
+      <a
+        href="https://github.com/sebald/pattern-analyzer/"
+        target="_blank"
+        rel="noreferrer"
+      >
+        GitHub
+      </a>
+      .
+    </Text>
   </div>
 );
 
