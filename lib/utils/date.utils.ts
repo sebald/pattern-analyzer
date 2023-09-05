@@ -1,14 +1,6 @@
 import dayjs from 'dayjs';
-import relativeTime from 'dayjs/plugin/relativeTime';
 import utc from 'dayjs/plugin/utc';
-
-dayjs.extend(relativeTime);
 dayjs.extend(utc);
-
-/**
- * Formats given date to a relative humand readable time string.
- */
-export const ago = (date: Date) => dayjs().from(date, true);
 
 /**
  * Returns a date that was given days ago, with time set to midnight.
