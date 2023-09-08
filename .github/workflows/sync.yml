@@ -1,0 +1,17 @@
+name: Sync
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+
+jobs:
+  sync:
+    name: Sync
+    runs-on: ubuntu-latest
+    steps:
+      # Setup
+      - name: Trigger Sync
+        shell: bash
+        env:
+          TOKEN: ${{ secrets.SYNC_TOKEN }}
+        run: curl -X GET "https://pattern-analyzer.app/api/sync?token=$TOKEN"
