@@ -2,7 +2,7 @@ name: Sync
 
 on:
   schedule:
-    - cron: '*/3 * * * *'
+    - cron: '0 0,8,16,20 * * *'
 
 jobs:
   sync:
@@ -14,4 +14,4 @@ jobs:
         shell: bash
         env:
           TOKEN: ${{ secrets.SYNC_TOKEN }}
-        run: curl -X GET "https://pattern-analyzer.app/api/sync?token=TEST"
+        run: curl -X GET "https://pattern-analyzer.app/api/sync?token=$TOKEN"
