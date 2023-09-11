@@ -6,6 +6,10 @@ import { getLastSync, setLastSync } from '@/lib/db/system';
 import { normalize, toCompositionId } from '@/lib/xws';
 import { percentile } from '@/lib/utils/math.utils';
 
+// Config
+// ---------------
+export const dynamic = 'force-dynamic';
+
 // Handler
 // ---------------
 export const GET = async (request: NextRequest) => {
