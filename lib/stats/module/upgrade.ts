@@ -1,10 +1,4 @@
-import {
-  average,
-  deviation,
-  percentile,
-  round,
-  winrate,
-} from '@/lib/utils/math.utils';
+import { average, deviation, round, winrate } from '@/lib/utils/math.utils';
 import type { GameRecord, XWSFaction, XWSUpgradeSlots } from '@/lib/types';
 
 import { magic } from '../magic';
@@ -66,7 +60,7 @@ export const upgrade: () => StatModule<UpgradeData> = () => {
   };
 
   return {
-    upgrade: (upgrade, slot, { faction, record, rank, unique, tournament }) => {
+    upgrade: (upgrade, slot, { faction, record, unique, percentile }) => {
       // Updage overall
       let item = store['all'][upgrade] || init(slot);
 
@@ -74,9 +68,7 @@ export const upgrade: () => StatModule<UpgradeData> = () => {
       item.record.wins += record.wins;
       item.record.ties += record.ties;
       item.record.losses += record.losses;
-      item.percentiles.push(
-        percentile(rank.elimination ?? rank.swiss, tournament.count.all)
-      );
+      item.percentiles.push(percentile);
 
       if (!unique(upgrade)) {
         item.lists += 1;
@@ -91,9 +83,7 @@ export const upgrade: () => StatModule<UpgradeData> = () => {
       item.record.wins += record.wins;
       item.record.ties += record.ties;
       item.record.losses += record.losses;
-      item.percentiles.push(
-        percentile(rank.elimination ?? rank.swiss, tournament.count.all)
-      );
+      item.percentiles.push(percentile);
 
       if (!unique(upgrade)) {
         item.lists += 1;

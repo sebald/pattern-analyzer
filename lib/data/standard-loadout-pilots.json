@@ -2,15 +2,9 @@
   "dextiree-battleofyavin": {
     "points": 4,
     "upgrades": {
-      "turret": [
-        "dorsalturret"
-      ],
-      "torpedo": [
-        "advprotontorpedoes"
-      ],
-      "astromech": [
-        "r4astromech"
-      ]
+      "turret": ["dorsalturret"],
+      "torpedo": ["advprotontorpedoes"],
+      "astromech": ["r4astromech"]
     }
   },
   "dutchvander-battleofyavin": {
@@ -44,128 +38,76 @@
   "popskrail-battleofyavin": {
     "points": 4,
     "upgrades": {
-      "turret": [
-        "ioncannonturret"
-      ],
-      "torpedo": [
-        "advprotontorpedoes"
-      ],
-      "astromech": [
-        "r4astromech"
-      ]
+      "turret": ["ioncannonturret"],
+      "torpedo": ["advprotontorpedoes"],
+      "astromech": ["r4astromech"]
     }
   },
   "dutchvander-swz106": {
     "points": 4,
     "upgrades": {
-      "turret": [
-        "ioncannonturret"
-      ],
-      "device": [
-        "protonbombs"
-      ]
+      "turret": ["ioncannonturret"],
+      "device": ["protonbombs"]
     }
   },
   "hortonsalm-swz106": {
     "points": 4,
     "upgrades": {
-      "turret": [
-        "ioncannonturret"
-      ],
-      "device": [
-        "proximitymines"
-      ]
+      "turret": ["ioncannonturret"],
+      "device": ["proximitymines"]
     }
   },
   "hansolo-battleofyavin": {
     "points": 7,
     "upgrades": {
-      "crew": [
-        "chewbacca-battleofyavin"
-      ],
-      "illicit": [
-        "riggedcargochute"
-      ],
-      "title": [
-        "millenniumfalcon"
-      ],
-      "configuration": [
-        "l337sprogramming-battleofyavin"
-      ]
+      "crew": ["chewbacca-battleofyavin"],
+      "illicit": ["riggedcargochute"],
+      "title": ["millenniumfalcon"],
+      "configuration": ["l337sprogramming-battleofyavin"]
     }
   },
   "arvelcrynyd-swz106": {
     "points": 4,
     "upgrades": {
-      "talent": [
-        "predator"
-      ],
-      "modification": [
-        "afterburners"
-      ]
+      "talent": ["predator"],
+      "modification": ["afterburners"]
     }
   },
   "jakefarrell-swz106": {
     "points": 5,
     "upgrades": {
-      "talent": [
-        "elusive",
-        "outmaneuver"
-      ],
-      "missile": [
-        "ionmissiles"
-      ]
+      "talent": ["elusive", "outmaneuver"],
+      "missile": ["ionmissiles"]
     }
   },
   "sharabey-swz106": {
     "points": 4,
     "upgrades": {
-      "talent": [
-        "hopeful"
-      ],
-      "missile": [
-        "concussionmissiles"
-      ]
+      "talent": ["hopeful"],
+      "missile": ["concussionmissiles"]
     }
   },
   "biggsdarklighter-battleofyavin": {
     "points": 5,
     "upgrades": {
-      "talent": [
-        "attackspeed-battleofyavin",
-        "selfless"
-      ],
-      "torpedo": [
-        "protontorpedoes"
-      ],
-      "astromech": [
-        "r2f2-battleofyavin"
-      ]
+      "talent": ["attackspeed-battleofyavin", "selfless"],
+      "torpedo": ["protontorpedoes"],
+      "astromech": ["r2f2-battleofyavin"]
     }
   },
   "garvendreis-battleofyavin": {
     "points": 4,
     "upgrades": {
-      "torpedo": [
-        "advprotontorpedoes"
-      ],
-      "astromech": [
-        "r5k6-battleofyavin"
-      ]
+      "torpedo": ["advprotontorpedoes"],
+      "astromech": ["r5k6-battleofyavin"]
     }
   },
   "jekporkins-battleofyavin": {
     "points": 4,
     "upgrades": {
-      "torpedo": [
-        "advprotontorpedoes"
-      ],
-      "astromech": [
-        "r5d8-battleofyavin"
-      ],
-      "modification": [
-        "unstablesublightengines-battleofyavin"
-      ]
+      "torpedo": ["advprotontorpedoes"],
+      "astromech": ["r5d8-battleofyavin"],
+      "modification": ["unstablesublightengines-battleofyavin"]
     }
   },
   "lukeskywalker-battleofyavin": {
@@ -188,16 +130,9 @@
   "wedgeantilles-battleofyavin": {
     "points": 5,
     "upgrades": {
-      "talent": [
-        "attackspeed-battleofyavin",
-        "marksmanship"
-      ],
-      "torpedo": [
-        "protontorpedoes"
-      ],
-      "astromech": [
-        "r2a3-battleofyavin"
-      ]
+      "talent": ["attackspeed-battleofyavin", "marksmanship"],
+      "torpedo": ["protontorpedoes"],
+      "astromech": ["r2a3-battleofyavin"]
     }
   },
   "lukeskywalker-swz106": {
@@ -262,194 +197,120 @@
   "darthvader-battleofyavin": {
     "points": 6,
     "upgrades": {
-      "talent": [
-        "marksmanship"
-      ],
-      "force-power": [
-        "hate"
-      ],
-      "modification": [
-        "afterburners"
-      ]
+      "talent": ["marksmanship"],
+      "force-power": ["hate"],
+      "modification": ["afterburners"]
     }
   },
   "darthvader-swz105": {
     "points": 6,
     "upgrades": {
-      "force-power": [
-        "hate"
-      ],
-      "missile": [
-        "ionmissiles"
-      ],
-      "modification": [
-        "afterburners"
-      ]
+      "force-power": ["hate"],
+      "missile": ["ionmissiles"],
+      "modification": ["afterburners"]
     }
   },
   "maarekstele-swz105": {
     "points": 5,
     "upgrades": {
-      "talent": [
-        "elusive",
-        "outmaneuver"
-      ],
-      "modification": [
-        "afterburners"
-      ]
+      "talent": ["elusive", "outmaneuver"],
+      "modification": ["afterburners"]
     }
   },
   "idenversio-battleofyavin": {
     "points": 5,
     "upgrades": {
-      "talent": [
-        "predator",
-        "fanatic-battleofyavin"
-      ]
+      "talent": ["predator", "fanatic-battleofyavin"]
     }
   },
   "sigma4-battleofyavin": {
     "points": 4,
     "upgrades": {
-      "talent": [
-        "disciplined"
-      ],
-      "tech": [
-        "primedthrusters"
-      ]
+      "talent": ["disciplined"],
+      "tech": ["primedthrusters"]
     }
   },
   "sigma5-battleofyavin": {
     "points": 4,
     "upgrades": {
-      "modification": [
-        "sensorjammer-battleofyavin"
-      ],
-      "talent": [
-        "elusive"
-      ]
+      "modification": ["sensorjammer-battleofyavin"],
+      "talent": ["elusive"]
     }
   },
   "sigma6-battleofyavin": {
     "points": 4,
     "upgrades": {
-      "talent": [
-        "daredevil"
-      ],
-      "modification": [
-        "afterburners"
-      ]
+      "talent": ["daredevil"],
+      "modification": ["afterburners"]
     }
   },
   "sigma7-battleofyavin": {
     "points": 4,
     "upgrades": {
-      "talent": [
-        "marksmanship"
-      ],
-      "sensor": [
-        "firecontrolsystem"
-      ]
+      "talent": ["marksmanship"],
+      "sensor": ["firecontrolsystem"]
     }
   },
   "backstabber-battleofyavin": {
     "points": 4,
     "upgrades": {
-      "talent": [
-        "crackshot",
-        "disciplined"
-      ],
-      "modification": [
-        "afterburners"
-      ]
+      "talent": ["crackshot", "disciplined"],
+      "modification": ["afterburners"]
     }
   },
   "darkcurse-battleofyavin": {
     "points": 4,
     "upgrades": {
-      "talent": [
-        "ruthless"
-      ],
-      "modification": [
-        "precisionionengines"
-      ]
+      "talent": ["ruthless"],
+      "modification": ["precisionionengines"]
     }
   },
   "maulermithel-battleofyavin": {
     "points": 3,
     "upgrades": {
-      "talent": [
-        "predator"
-      ],
-      "modification": [
-        "afterburners"
-      ]
+      "talent": ["predator"],
+      "modification": ["afterburners"]
     }
   },
   "wampa-battleofyavin": {
     "points": 3,
     "upgrades": {
-      "talent": [
-        "elusive",
-        "vengeful-battleofyavin"
-      ]
+      "talent": ["elusive", "vengeful-battleofyavin"]
     }
   },
   "idenversio-swz105": {
     "points": 4,
     "upgrades": {
-      "talent": [
-        "disciplined",
-        "elusive"
-      ]
+      "talent": ["disciplined", "elusive"]
     }
   },
   "nightbeast-swz105": {
     "points": 3,
     "upgrades": {
-      "talent": [
-        "disciplined",
-        "predator"
-      ]
+      "talent": ["disciplined", "predator"]
     }
   },
   "valenrudor-swz105": {
     "points": 3,
     "upgrades": {
-      "talent": [
-        "disciplined"
-      ],
-      "modification": [
-        "precisionionengines"
-      ]
+      "talent": ["disciplined"],
+      "modification": ["precisionionengines"]
     }
   },
   "captainjonus-swz105": {
     "points": 4,
     "upgrades": {
-      "talent": [
-        "feedbackping"
-      ],
-      "torpedo": [
-        "plasmatorpedoes"
-      ],
-      "device": [
-        "protonbombs"
-      ]
+      "talent": ["feedbackping"],
+      "torpedo": ["plasmatorpedoes"],
+      "device": ["protonbombs"]
     }
   },
   "tomaxbren-swz105": {
     "points": 5,
     "upgrades": {
-      "talent": [
-        "elusive"
-      ],
-      "missile": [
-        "barragerockets"
-      ],
-      "device": [
-        "proximitymines"
-      ]
+      "talent": ["elusive"],
+      "missile": ["barragerockets"],
+      "device": ["proximitymines"]
     }
   },
   "deathfire-swz98": {
@@ -507,261 +368,150 @@
   "oddball-siegeofcoruscant": {
     "points": 4,
     "upgrades": {
-      "talent": [
-        "selfless"
-      ],
-      "gunner": [
-        "veterantailgunner"
-      ],
-      "astromech": [
-        "r4pastromech"
-      ]
+      "talent": ["selfless"],
+      "gunner": ["veterantailgunner"],
+      "astromech": ["r4pastromech"]
     }
   },
   "wolffe-siegeofcoruscant": {
     "points": 4,
     "upgrades": {
-      "crew": [
-        "wolfpack-siegeofcoruscant"
-      ],
-      "gunner": [
-        "veterantailgunner"
-      ],
-      "astromech": [
-        "q7astromech"
-      ]
+      "crew": ["wolfpack-siegeofcoruscant"],
+      "gunner": ["veterantailgunner"],
+      "astromech": ["q7astromech"]
     }
   },
   "jag-siegeofcoruscant": {
     "points": 4,
     "upgrades": {
-      "gunner": [
-        "veterantailgunner"
-      ],
-      "astromech": [
-        "r4pastromech"
-      ],
-      "modification": [
-        "synchronizedconsole"
-      ]
+      "gunner": ["veterantailgunner"],
+      "astromech": ["r4pastromech"],
+      "modification": ["synchronizedconsole"]
     }
   },
   "kickback-siegeofcoruscant": {
     "points": 3,
     "upgrades": {
-      "missile": [
-        "diamondboronmissiles"
-      ],
-      "modification": [
-        "munitionsfailsafe"
-      ]
+      "missile": ["diamondboronmissiles"],
+      "modification": ["munitionsfailsafe"]
     }
   },
   "axe-siegeofcoruscant": {
     "points": 3,
     "upgrades": {
-      "talent": [
-        "deadeyeshot"
-      ],
-      "missile": [
-        "barragerockets"
-      ]
+      "talent": ["deadeyeshot"],
+      "missile": ["barragerockets"]
     }
   },
   "anakinskywalker-siegeofcoruscant": {
     "points": 4,
     "upgrades": {
-      "force-power": [
-        "malice"
-      ],
-      "cannon": [
-        "ancillaryionweapons-siegeofcoruscant"
-      ],
-      "astromech": [
-        "r2d2-republic"
-      ]
+      "force-power": ["malice"],
+      "cannon": ["ancillaryionweapons-siegeofcoruscant"],
+      "astromech": ["r2d2-republic"]
     }
   },
   "obiwankenobi-siegeofcoruscant": {
     "points": 4,
     "upgrades": {
-      "force-power": [
-        "patience"
-      ],
-      "cannon": [
-        "ancillaryionweapons-siegeofcoruscant"
-      ],
-      "astromech": [
-        "r4p17-siegeofcoruscant"
-      ]
+      "force-power": ["patience"],
+      "cannon": ["ancillaryionweapons-siegeofcoruscant"],
+      "astromech": ["r4p17-siegeofcoruscant"]
     }
   },
   "shaakti-siegeofcoruscant": {
     "points": 4,
     "upgrades": {
-      "talent": [
-        "marksmanship"
-      ],
-      "force-power": [
-        "brilliantevasion"
-      ],
-      "cannon": [
-        "ancillaryionweapons-siegeofcoruscant"
-      ],
-      "astromech": [
-        "r4pastromech"
-      ]
+      "talent": ["marksmanship"],
+      "force-power": ["brilliantevasion"],
+      "cannon": ["ancillaryionweapons-siegeofcoruscant"],
+      "astromech": ["r4pastromech"]
     }
   },
   "klick-siegeofcoruscant": {
     "points": 4,
     "upgrades": {
-      "astromech": [
-        "r3astromech"
-      ],
-      "modification": [
-        "precisionionengines"
-      ],
-      "configuration": [
-        "alpha3eesk"
-      ]
+      "astromech": ["r3astromech"],
+      "modification": ["precisionionengines"],
+      "configuration": ["alpha3eesk"]
     }
   },
   "contrail-siegeofcoruscant": {
     "points": 4,
     "upgrades": {
-      "talent": [
-        "ionlimiteroverride"
-      ],
-      "astromech": [
-        "preciseastromech-battleofyavin"
-      ],
-      "device": [
-        "ionbombs"
-      ],
-      "configuration": [
-        "alpha3bbesh"
-      ]
+      "talent": ["ionlimiteroverride"],
+      "astromech": ["preciseastromech-battleofyavin"],
+      "device": ["ionbombs"],
+      "configuration": ["alpha3bbesh"]
     }
   },
   "dfs081-siegeofcoruscant": {
     "points": 2,
     "upgrades": {
-      "missile": [
-        "discordmissiles"
-      ],
-      "modification": [
-        "contingencyprotocol-siegeofcoruscant"
-      ],
-      "configuration": [
-        "strutlockoverride-siegeofcoruscant"
-      ]
+      "missile": ["discordmissiles"],
+      "modification": ["contingencyprotocol-siegeofcoruscant"],
+      "configuration": ["strutlockoverride-siegeofcoruscant"]
     }
   },
   "dfs311-siegeofcoruscant": {
     "points": 3,
     "upgrades": {
-      "missile": [
-        "discordmissiles"
-      ],
-      "modification": [
-        "contingencyprotocol-siegeofcoruscant"
-      ],
-      "configuration": [
-        "strutlockoverride-siegeofcoruscant"
-      ]
+      "missile": ["discordmissiles"],
+      "modification": ["contingencyprotocol-siegeofcoruscant"],
+      "configuration": ["strutlockoverride-siegeofcoruscant"]
     }
   },
   "haorchallprototype-siegeofcoruscant": {
     "points": 2,
     "upgrades": {
-      "missile": [
-        "ionmissiles"
-      ],
-      "modification": [
-        "contingencyprotocol-siegeofcoruscant"
-      ],
-      "configuration": [
-        "strutlockoverride-siegeofcoruscant"
-      ]
+      "missile": ["ionmissiles"],
+      "modification": ["contingencyprotocol-siegeofcoruscant"],
+      "configuration": ["strutlockoverride-siegeofcoruscant"]
     }
   },
   "countdooku-siegeofcoruscant": {
     "points": 6,
     "upgrades": {
-      "force-power": [
-        "malice",
-        "roilinganger-siegeofcoruscant"
-      ],
-      "title": [
-        "scimitar"
-      ]
+      "force-power": ["malice", "roilinganger-siegeofcoruscant"],
+      "title": ["scimitar"]
     }
   },
   "dbs32c-siegeofcoruscant": {
     "points": 3,
     "upgrades": {
-      "torpedo": [
-        "plasmatorpedoes"
-      ],
-      "modification": [
-        "contingencyprotocol-siegeofcoruscant"
-      ],
-      "configuration": [
-        "strutlockoverride-siegeofcoruscant"
-      ]
+      "torpedo": ["plasmatorpedoes"],
+      "modification": ["contingencyprotocol-siegeofcoruscant"],
+      "configuration": ["strutlockoverride-siegeofcoruscant"]
     }
   },
   "dbs404-siegeofcoruscant": {
     "points": 3,
     "upgrades": {
-      "torpedo": [
-        "advprotontorpedoes"
-      ],
-      "modification": [
-        "contingencyprotocol-siegeofcoruscant"
-      ],
-      "configuration": [
-        "strutlockoverride-siegeofcoruscant"
-      ]
+      "torpedo": ["advprotontorpedoes"],
+      "modification": ["contingencyprotocol-siegeofcoruscant"],
+      "configuration": ["strutlockoverride-siegeofcoruscant"]
     }
   },
   "baktoidprototype-siegeofcoruscant": {
     "points": 3,
     "upgrades": {
-      "missile": [
-        "homingmissiles"
-      ],
-      "modification": [
-        "contingencyprotocol-siegeofcoruscant"
-      ],
-      "configuration": [
-        "strutlockoverride-siegeofcoruscant"
-      ]
+      "missile": ["homingmissiles"],
+      "modification": ["contingencyprotocol-siegeofcoruscant"],
+      "configuration": ["strutlockoverride-siegeofcoruscant"]
     }
   },
   "dis347-siegeofcoruscant": {
     "points": 3,
     "upgrades": {
-      "talent": [
-        "marksmanship"
-      ],
-      "modification": [
-        "afterburners",
-        "contingencyprotocol-siegeofcoruscant"
-      ]
+      "talent": ["marksmanship"],
+      "modification": ["afterburners", "contingencyprotocol-siegeofcoruscant"]
     }
   },
   "dist81-siegeofcoruscant": {
     "points": 4,
     "upgrades": {
-      "talent": [
-        "outmaneuver"
-      ],
-      "modification": [
-        "afterburners",
-        "contingencyprotocol-siegeofcoruscant"
-      ]
+      "talent": ["outmaneuver"],
+      "modification": ["afterburners", "contingencyprotocol-siegeofcoruscant"]
     }
   },
   "phlacarphoccprototype-siegeofcoruscant": {

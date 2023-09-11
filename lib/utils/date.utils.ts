@@ -1,4 +1,14 @@
 import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+import utc from 'dayjs/plugin/utc';
+
+dayjs.extend(relativeTime);
+dayjs.extend(utc);
+
+/**
+ * Formats given date to a relative humand readable time string.
+ */
+export const ago = (date: Date) => dayjs().from(date, true);
 
 /**
  * Returns a date that was given days ago, with time set to midnight.
@@ -18,13 +28,18 @@ export const monthsAgo = (val: number) =>
 export const today = () => dayjs().startOf('day').toDate();
 
 /**
+ * Returns curren time as UTC.
+ */
+export const now = () => dayjs.utc().format();
+
+/**
  * Returns the last weekend, starting on Thurdays :D
  */
 export const lastWeekend = () => {
   const thursday = dayjs().day(4).subtract(7, 'day');
   return [thursday.toDate(), thursday.add(3, 'day').toDate()] satisfies [
     Date,
-    Date
+    Date,
   ];
 };
 

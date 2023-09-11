@@ -1,9 +1,9 @@
+import type { SquadEntitiy } from '@/lib/db/types';
 import type { Ships } from '@/lib/get-value';
 import type {
   XWSFaction,
   GameRecord,
   XWSUpgradeSlots,
-  SquadData,
   XWSPilot,
   XWSSquad,
 } from '@/lib/types';
@@ -24,6 +24,7 @@ export type FactionMapWithAll<Key extends string, Value> = {
 export interface SquadModuleContext {
   faction: XWSFaction | 'unknown';
   tournament: {
+    total: number;
     count: { [Faction in XWSFaction | 'unknown' | 'all']: number };
     xws: number;
     cut: number;
@@ -33,6 +34,7 @@ export interface SquadModuleContext {
     elimination?: number;
   };
   record: GameRecord;
+  percentile: number;
   /**
    * Check for duplicated pilots (a.k.a. generics) and upgrades
    */
@@ -45,6 +47,10 @@ export interface XWSModuleContext extends Omit<SquadModuleContext, 'faction'> {
 
 export interface StatsConfig {
   smallSamples?: boolean;
+  tournaments: number;
+  count: {
+    [Key in XWSFaction | 'all' | 'unknown']: number;
+  };
 }
 
 export interface BaseModule<T> {
@@ -63,7 +69,7 @@ export interface StatModule<T> {
    * Gets the whole squad, can do whatever.
    * At this point the squad might not have a valid XWS!
    */
-  squad?: (squad: SquadData, ctx: SquadModuleContext) => void;
+  squad?: (squad: SquadEntitiy, ctx: SquadModuleContext) => void;
   /**
    * Gets the squad's XWS
    */
@@ -87,5 +93,8 @@ export interface StatModule<T> {
   /**
    * Returns the stats
    */
-  get: (ctx: BaseData & { config: StatsConfig }) => T;
+  get: (ctx: {
+    tournament: SquadModuleContext['tournament'];
+    config: StatsConfig;
+  }) => T;
 }

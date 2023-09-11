@@ -84,7 +84,7 @@ export const parsePilotId = (val: string, faction: XWSFaction) => {
 /**
  * Adjust some irregularities coming from LBN and Rollbetter.
  */
-export const normalize = (xws: XWSSquad | null) => {
+export const normalize = (xws: XWSSquad | null): XWSSquad | null => {
   if (!xws) {
     return xws;
   }
@@ -154,3 +154,10 @@ export const upgradesToList = (upgrades: XWSUpgrades) =>
     .join(', ');
 
 export const isStandardized = (pilot: string) => pilot in SL_PILOTS;
+
+export const toCompositionId = (xws: XWSSquad) => {
+  const id = xws.pilots.map(pilot => pilot.ship);
+  id.sort();
+
+  return id.join('.');
+};

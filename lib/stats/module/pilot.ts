@@ -1,12 +1,6 @@
 import type { Ships } from '@/lib/get-value';
 import type { GameRecord, XWSFaction } from '@/lib/types';
-import {
-  average,
-  deviation,
-  percentile,
-  round,
-  winrate,
-} from '@/lib/utils/math.utils';
+import { average, deviation, round, winrate } from '@/lib/utils/math.utils';
 
 import { magic } from '../magic';
 import type { FactionMap } from '../types';
@@ -67,16 +61,14 @@ export const pilot: () => StatModule<PilotData> = () => {
   };
 
   return {
-    pilot: (pilot, { faction, record, rank, unique, tournament }) => {
+    pilot: (pilot, { faction, record, unique, percentile }) => {
       const item = store[faction][pilot.id] || init(pilot.ship);
 
       item.count += 1;
       item.record.wins += record.wins;
       item.record.ties += record.ties;
       item.record.losses += record.losses;
-      item.percentiles.push(
-        percentile(rank.elimination ?? rank.swiss, tournament.count.all)
-      );
+      item.percentiles.push(percentile);
 
       if (!unique(pilot.id)) {
         item.lists += 1;

@@ -1,4 +1,5 @@
-import { getFactionByShip, type Ships } from '@/lib/get-value';
+import { SquadEntitiyWithXWS } from '@/lib/db/types';
+import type { Ships } from '@/lib/get-value';
 import type {
   GameRecord,
   SquadData,
@@ -125,12 +126,6 @@ const createPilotsId = (xws: XWSSquad) => {
   });
 
   return pilots.map(({ id }) => id).join('.');
-};
-
-const isComposition = (id: string, xws: XWSSquad) => {
-  const ships = xws.pilots.map(p => p.ship);
-  ships.sort();
-  return id === ships.join('.');
 };
 
 const createTrends = (squads: SquadCompositionData['squads']) => {
@@ -276,14 +271,22 @@ const groupUpgrades = (value: {
 
 // Module
 // ---------------
-export const compositionDetails = (
-  id: string,
-  input: { date: string; squads: SquadData[] }[]
-) => {
+export interface CompositionDetailsProps {
+  composition: string;
+  squads: SquadEntitiyWithXWS[];
+  count: { [Faction in XWSFaction]: number };
+}
+
+export const compositionDetails = ({
+  composition,
+  squads,
+  count,
+}: CompositionDetailsProps) => {
+  const total = squads.length;
   const stats: SquadCompositionData = {
-    id,
-    // Get first ship to derive faction
-    faction: getFactionByShip(id.split('.')[0] as Ships),
+    id: composition,
+    // Get first squad to derive faction
+    faction: squads[0].faction,
     squads: [],
     count: 0,
     record: { wins: 0, ties: 0, losses: 0 },
@@ -291,60 +294,51 @@ export const compositionDetails = (
     pilot: {},
   };
 
-  let squadsInFaction = 0;
+  squads.forEach(current => {
+    if (!current.xws) {
+      console.log(current);
+      return;
+    }
 
-  input.forEach(({ date, squads }) => {
-    const total = squads.length;
+    const pct = percentile(
+      current.rank.elimination ?? current.rank.swiss,
+      total
+    );
 
-    squads.forEach(current => {
-      if (!current.xws) return;
+    // Overall stats
+    stats.count += 1;
+    stats.record.wins += current.record.wins;
+    stats.record.ties += current.record.ties;
+    stats.record.losses += current.record.losses;
+    stats.percentiles.push(pct);
 
-      if (stats.faction === current.xws.faction) {
-        squadsInFaction += 1;
-      }
+    stats.squads.push({
+      id: createPilotsId(current.xws),
+      player: current.player,
+      xws: current.xws,
+      date: current.date,
+      record: current.record,
+      percentile: pct,
+    });
 
-      if (!isComposition(id, current.xws)) return;
+    // Stats based on pilot
+    current.xws.pilots.forEach(({ id: pid, ship, upgrades }) => {
+      const pilot = stats.pilot[pid] || {
+        ship,
+        count: 0,
+        upgrades: [],
+        record: { wins: 0, ties: 0, losses: 0 },
+        percentiles: [],
+      };
 
-      const pct = percentile(
-        current.rank.elimination ?? current.rank.swiss,
-        total
-      );
+      pilot.count += 1;
+      pilot.upgrades.push(upgrades);
+      pilot.record.wins += current.record.wins;
+      pilot.record.ties += current.record.ties;
+      pilot.record.losses += current.record.losses;
+      pilot.percentiles.push(pct);
 
-      // Overall stats
-      stats.count += 1;
-      stats.record.wins += current.record.wins;
-      stats.record.ties += current.record.ties;
-      stats.record.losses += current.record.losses;
-      stats.percentiles.push(pct);
-
-      stats.squads.push({
-        id: createPilotsId(current.xws),
-        player: current.player,
-        xws: current.xws,
-        date,
-        record: current.record,
-        percentile: pct,
-      });
-
-      // Stats based on pilot
-      current.xws.pilots.forEach(({ id: pid, ship, upgrades }) => {
-        const pilot = stats.pilot[pid] || {
-          ship,
-          count: 0,
-          upgrades: [],
-          record: { wins: 0, ties: 0, losses: 0 },
-          percentiles: [],
-        };
-
-        pilot.count += 1;
-        pilot.upgrades.push(upgrades);
-        pilot.record.wins += current.record.wins;
-        pilot.record.ties += current.record.ties;
-        pilot.record.losses += current.record.losses;
-        pilot.percentiles.push(pct);
-
-        stats.pilot[pid] = pilot;
-      });
+      stats.pilot[pid] = pilot;
     });
   });
 
@@ -354,7 +348,7 @@ export const compositionDetails = (
     faction: stats.faction,
     ships: stats.id.split('.') as Ships[],
     count: stats.count,
-    frequency: round(stats.count / squadsInFaction, 4),
+    frequency: round(stats.count / count[stats.faction], 4),
     winrate: winrate([stats.record]),
     percentile: average(stats.percentiles, 4),
     deviation: deviation(stats.percentiles, 4),

@@ -88,7 +88,7 @@ export const GET = async (_: NextRequest, { params }: RouteContext) => {
       wins: swiss.wins + (cut?.wins || 0),
       ties: swiss.ties + (cut?.ties || 0),
       losses: swiss.losses + (cut?.losses || 0),
-    } satisfies GameRecord);
+    }) satisfies GameRecord;
 
   // Cut data
   const cut = new Map<string, { rank: number; record: GameRecord }>();

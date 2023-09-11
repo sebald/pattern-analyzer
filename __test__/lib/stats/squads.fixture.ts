@@ -1,6 +1,6 @@
 // Real data from the Welsh Open 2023 (listfortress/3774)
 // doesn't quite fit our types for it 🫣
-export const squads = [
+const squads = [
   {
     id: '70784',
     player: 'John BL',
@@ -3607,4 +3607,6 @@ export const squads = [
     mov: -8,
     dropped: null,
   },
-] as any;
+] as any[];
+
+export default squads;
