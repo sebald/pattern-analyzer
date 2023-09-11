@@ -146,8 +146,8 @@ devDependencies:
     specifier: 3.3.3
     version: 3.3.3
   tsx:
-    specifier: 3.12.7
-    version: 3.12.7
+    specifier: 3.12.8
+    version: 3.12.8
   typescript:
     specifier: 5.1.6
     version: 5.1.6
@@ -6506,8 +6506,8 @@ packages:
       typescript: 5.1.6
     dev: true
 
-  /tsx@3.12.7:
-    resolution: {integrity: sha512-C2Ip+jPmqKd1GWVQDvz/Eyc6QJbGfE7NrR3fx5BpEHMZsEHoIxHL1j+lKdGobr8ovEyqeNkPLSKp6SCSOt7gmw==}
+  /tsx@3.12.8:
+    resolution: {integrity: sha512-Lt9KYaRGF023tlLInPj8rgHwsZU8qWLBj4iRXNWxTfjIkU7canGL806AqKear1j722plHuiYNcL2ZCo6uS9UJA==}
     hasBin: true
     dependencies:
       '@esbuild-kit/cjs-loader': 2.4.2
