@@ -16,20 +16,19 @@ export const GET = async (request: NextRequest) => {
   const { searchParams } = new URL(request.url);
 
   const token = searchParams.get('token');
+  const lastSync = await getLastSync();
 
   if (token !== process.env.SYNC_TOKEN) {
     return NextResponse.json(
       {
-        name: 'Nope...',
-        message: 'ಠ_ಠ U no syncing!',
+        name: 'Sync!',
+        message: `Latest sync at ${lastSync}`,
       },
       {
-        status: 401,
+        status: 200,
       }
     );
   }
-
-  const lastSync = await getLastSync();
 
   // Find new tournaments
   const tournaments = await getAllTournaments({
@@ -44,6 +43,7 @@ export const GET = async (request: NextRequest) => {
   );
 
   if (tournaments.length === 0) {
+    await setLastSync();
     return NextResponse.json(
       {
         name: 'Sync Complete!',
