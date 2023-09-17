@@ -18,16 +18,13 @@ const schema = {
 
 // Helper
 // ---------------
-const getEventSection = async (
-  id: string,
-  section: 'player' | 'player_cut'
-) => {
+const getResults = async (id: string) => {
   const res = await fetch(
-    `https://longshanks.org/events/detail/panel_standings.php?event=${id}&section=${section}`
+    `https://longshanks.org/events/detail/panel_standings.php?event=${id}&section=player`
   );
 
   if (!res.ok) {
-    throw new Error(`Failed to fetch section data... (${id}, ${section})`);
+    throw new Error(`Failed to fetch section data... (${id})`);
   }
 
   return await res.text();
@@ -60,11 +57,16 @@ export const GET = async (_: NextRequest, { params }: RouteContext) => {
   const { id } = event.data;
 
   // Fetch partial HTML
-  const [playerHtml, cutHtml] = await Promise.all([
-    getEventSection(id, 'player'),
-    getEventSection(id, 'player_cut'),
-  ]);
-  const $ = load(playerHtml);
+  const html = await getResults(id);
+  const $ = load(html);
+
+  // If there is a cut, this element exists twice.
+  const rankings = $('.ranking.event');
+
+  const [$cut, $swiss] =
+    rankings.length == 2
+      ? [rankings.eq(0), rankings.eq(1)]
+      : [null, rankings.eq(0)];
 
   // Helpers
   const getPlayerId = (el: Element) =>
@@ -92,21 +94,25 @@ export const GET = async (_: NextRequest, { params }: RouteContext) => {
 
   // Cut data
   const cut = new Map<string, { rank: number; record: GameRecord }>();
-  load(cutHtml)('.player .data')
-    .toArray()
-    .map(el => {
-      const id = getPlayerId(el);
-      const { rank } = getRankingInfo(el);
-      const record = {
-        wins: Number($('.wins', el).first().text().trim()),
-        ties: Number($('.ties', el).first().text().trim()),
-        losses: Number($('.loss', el).first().text().trim()),
-      };
-      cut.set(id, { rank, record });
-    });
+  if ($cut) {
+    $cut
+      .find('.player .data')
+      .toArray()
+      .map(el => {
+        const id = getPlayerId(el);
+        const { rank } = getRankingInfo(el);
+        const record = {
+          wins: Number($('.wins', el).first().text().trim()),
+          ties: Number($('.ties', el).first().text().trim()),
+          losses: Number($('.loss', el).first().text().trim()),
+        };
+        cut.set(id, { rank, record });
+      });
+  }
 
   // Swiss data and merge with cut data
-  const players = $('.player .data')
+  const players = $swiss
+    .find('.player .data')
     .toArray()
     .map(el => {
       const id = getPlayerId(el);
