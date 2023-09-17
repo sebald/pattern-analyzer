@@ -9,6 +9,7 @@ import { percentile } from '@/lib/utils/math.utils';
 // Config
 // ---------------
 export const dynamic = 'force-dynamic';
+export const revalidate = 3600; // 1 hour
 
 // Handler
 // ---------------
