@@ -149,5 +149,12 @@ export const GET = async (_: NextRequest, { params }: RouteContext) => {
       };
     });
 
+  players.sort((a, b) => {
+    if (a.rank.elimination || b.rank.elimination) {
+      return (a.rank.elimination ?? 1000) - (b.rank.elimination ?? 1000);
+    }
+    return a.rank.swiss - b.rank.swiss;
+  });
+
   return NextResponse.json(players);
 };
