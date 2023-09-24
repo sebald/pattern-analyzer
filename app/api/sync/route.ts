@@ -6,17 +6,8 @@ import { getLastSync, setLastSync } from '@/lib/db/system';
 import { normalize, toCompositionId } from '@/lib/xws';
 import { percentile } from '@/lib/utils/math.utils';
 
-// Config
-// ---------------
-export const dynamic = 'force-dynamic';
-export const revalidate = 3600; // 1 hour
-
-// Handler
-// ---------------
-export const GET = async (request: NextRequest) => {
-  const { searchParams } = new URL(request.url);
-
-  const token = searchParams.get('token');
+export const POST = async (request: NextRequest) => {
+  const { token } = await request.json();
   const lastSync = await getLastSync();
 
   if (token !== process.env.SYNC_TOKEN) {

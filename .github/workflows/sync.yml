@@ -14,4 +14,8 @@ jobs:
         shell: bash
         env:
           TOKEN: ${{ secrets.SYNC_TOKEN }}
-        run: curl -X GET "https://pattern-analyzer.app/api/sync?token=$TOKEN"
+        run: |
+          curl --header "Content-Type: application/json" \
+            --request POST \
+            --data '{"token":"$TOKEN"}' \
+            https://pattern-analyzer.app/api/sync
