@@ -29,6 +29,7 @@ const PILOT_ID_MAP = {
   durgeseparatist: 'durge-separatistalliance',
   bosskz95headhunter: 'bossk-z95af4headhunter',
   fennraurebelfang: 'fennrau-rebel-fang',
+  'fennrau-fangfighter': 'fennrau-rebel-fang',
   wedgeantillesawing: 'wedgeantilles-rz1awing',
   darthvaderssp: 'darthvader-swz105',
   sabinewrentiefighter: 'sabinewren-tielnfighter',
