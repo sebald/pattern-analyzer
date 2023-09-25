@@ -6,6 +6,23 @@ import { getLastSync, setLastSync } from '@/lib/db/system';
 import { normalize, toCompositionId } from '@/lib/xws';
 import { percentile } from '@/lib/utils/math.utils';
 
+// GET
+// ---------------
+export const GET = async () => {
+  const lastSync = await getLastSync();
+  return NextResponse.json(
+    {
+      name: 'Sync!',
+      message: `Latest sync at ${lastSync}`,
+    },
+    {
+      status: 200,
+    }
+  );
+};
+
+// POST
+// ---------------
 export const POST = async (request: NextRequest) => {
   const { token } = await request.json();
   const lastSync = await getLastSync();
