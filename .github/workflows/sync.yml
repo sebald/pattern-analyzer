@@ -17,5 +17,5 @@ jobs:
         run: |
           curl -L --header "Content-Type: application/json" \
             --request POST \
-            --data '{"token":"$TOKEN"}' \
+            --data '{"token":"reTurn.0f.th3.jed1!is_The-B3ST_star-waRs-moviE!"}' \
             https://www.pattern-analyzer.app/api/sync

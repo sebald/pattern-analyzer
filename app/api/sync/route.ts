@@ -30,7 +30,7 @@ export const POST = async (request: NextRequest) => {
   if (token !== process.env.SYNC_TOKEN) {
     return NextResponse.json(
       {
-        name: 'Sync!',
+        name: 'Sync Info!',
         message: `Latest sync at ${lastSync}`,
       },
       {
