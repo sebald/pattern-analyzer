@@ -2,7 +2,6 @@ import { SquadEntitiyWithXWS } from '@/lib/db/types';
 import type { Ships } from '@/lib/get-value';
 import type {
   GameRecord,
-  SquadData,
   XWSFaction,
   XWSSquad,
   XWSUpgrades,
@@ -282,7 +281,6 @@ export const compositionDetails = ({
   squads,
   count,
 }: CompositionDetailsProps) => {
-  const total = squads.length;
   const stats: SquadCompositionData = {
     id: composition,
     // Get first squad to derive faction
@@ -300,17 +298,12 @@ export const compositionDetails = ({
       return;
     }
 
-    const pct = percentile(
-      current.rank.elimination ?? current.rank.swiss,
-      total
-    );
-
     // Overall stats
     stats.count += 1;
     stats.record.wins += current.record.wins;
     stats.record.ties += current.record.ties;
     stats.record.losses += current.record.losses;
-    stats.percentiles.push(pct);
+    stats.percentiles.push(current.percentile);
 
     stats.squads.push({
       id: createPilotsId(current.xws),
@@ -318,7 +311,7 @@ export const compositionDetails = ({
       xws: current.xws,
       date: current.date,
       record: current.record,
-      percentile: pct,
+      percentile: current.percentile,
     });
 
     // Stats based on pilot
@@ -336,7 +329,7 @@ export const compositionDetails = ({
       pilot.record.wins += current.record.wins;
       pilot.record.ties += current.record.ties;
       pilot.record.losses += current.record.losses;
-      pilot.percentiles.push(pct);
+      pilot.percentiles.push(current.percentile);
 
       stats.pilot[pid] = pilot;
     });
