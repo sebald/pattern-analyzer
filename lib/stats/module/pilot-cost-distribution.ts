@@ -27,6 +27,11 @@ export const pilotCostDistribution: () => StatModule<PilotCostDistributionData> 
     return {
       pilot: pilot => {
         const points = pilot.points as 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
+        if (isNaN(points) || points < 0 || points > 9) {
+          // DEBUG: This happens a lot so we leave this here...
+          // console.log(pilot.id, points);
+          return;
+        }
         store[points] += 1;
       },
       get: () => ({ pilotCostDistribution: store }),
