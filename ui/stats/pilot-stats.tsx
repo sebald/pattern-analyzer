@@ -109,7 +109,7 @@ export const PilotStats = ({ value }: PilotStatsProps) => {
               <Fragment key={pilot}>
                 <Table.Cell variant="header">
                   <ShipIcon ship={stat.ship} className="w-5 text-xl" />
-                  <div className="text-sm font-semibold">
+                  <div className="font-semibold">
                     {getPilotName(pilot) || pilot}
                   </div>
                 </Table.Cell>

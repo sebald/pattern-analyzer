@@ -27,6 +27,8 @@ export const PilotCostDistribution = ({
     return t;
   }, 0);
 
+  const largeValue = Object.values(value).some(val => val > 1000);
+
   return (
     <Card>
       <Card.Title>Pilot Cost Distribution</Card.Title>
@@ -55,7 +57,12 @@ export const PilotCostDistribution = ({
           ]}
           colors="#8490db"
           fill={[{ match: '*', id: 'gradient' }]}
-          margin={{ top: 20, right: 30, bottom: 20, left: 30 }}
+          margin={{
+            top: 20,
+            right: 30,
+            bottom: 20,
+            left: largeValue ? 40 : 30,
+          }}
           animate={false}
         />
       </div>

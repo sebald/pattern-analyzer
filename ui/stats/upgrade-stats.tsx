@@ -105,7 +105,7 @@ export const UpgradeStats = ({ value }: UpgradeStatsProps) => {
             {data.map(([upgrade, stat]) => (
               <Fragment key={upgrade}>
                 <Table.Cell variant="header">
-                  <div className="text-sm font-semibold">
+                  <div className="font-semibold">
                     {getUpgradeName(upgrade) || upgrade}
                   </div>
                 </Table.Cell>

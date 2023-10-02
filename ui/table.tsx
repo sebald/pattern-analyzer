@@ -7,7 +7,7 @@ import { cn, flattenChildren } from '@/lib/utils';
 const styles = {
   cell: cva(
     [
-      'border-t border-secondary-100 font-light text-xs px-4 flex flex-row items-center',
+      'border-t border-secondary-100 font-light text-xs px-4 flex flex-row items-center lg:text-sm lg:font-normal',
     ],
     {
       variants: {
