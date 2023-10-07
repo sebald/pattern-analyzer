@@ -40,8 +40,8 @@ const SheetClose = Primitive.Close;
 
 // Sheet.Portal
 // ---------------
-const SheetPortal = ({ className, ...props }: Primitive.DialogPortalProps) => (
-  <Primitive.Portal className={cn(className)} {...props} />
+const SheetPortal = (props: Primitive.DialogPortalProps) => (
+  <Primitive.Portal {...props} />
 );
 SheetPortal.displayName = Primitive.Portal.displayName;
 
