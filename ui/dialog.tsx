@@ -12,7 +12,7 @@ const DialogPortal = ({
   className,
   children,
   ...props
-}: Primitive.DialogPortalProps) => (
+}: Primitive.DialogPortalProps & { className?: string }) => (
   <Primitive.Portal {...props}>
     <div
       className={cn(
