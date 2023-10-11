@@ -29,6 +29,10 @@ export interface TournamentFilter {
    * Tournaments occured at or before given date.
    */
   to?: Date;
+  /**
+   * Tournament was created (added to DB) after given date.
+   */
+  created_after?: Date;
 }
 
 export const getAllTournaments = async ({
@@ -36,6 +40,7 @@ export const getAllTournaments = async ({
   format,
   from,
   to,
+  created_after,
 }: TournamentFilter = {}) => {
   const api_url = 'https://listfortress.com/api/v1/tournaments/';
   const res = await fetch(api_url);
@@ -59,12 +64,16 @@ export const getAllTournaments = async ({
 
     // Occured in given time frame
     const date = new Date(t.date);
-
     if (from && date < from) {
       return false;
     }
-
     if (to && date > to) {
+      return false;
+    }
+
+    // Created after given date
+    const created = new Date(t.created_at);
+    if (created_after && created < created_after) {
       return false;
     }
 

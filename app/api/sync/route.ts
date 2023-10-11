@@ -6,21 +6,6 @@ import { getLastSync, setLastSync } from '@/lib/db/system';
 import { normalize, toCompositionId } from '@/lib/xws';
 import { percentile } from '@/lib/utils/math.utils';
 
-// GET
-// ---------------
-export const GET = async () => {
-  const lastSync = await getLastSync();
-  return NextResponse.json(
-    {
-      name: 'Sync!',
-      message: `Latest sync at ${lastSync}`,
-    },
-    {
-      status: 200,
-    }
-  );
-};
-
 // POST
 // ---------------
 export const POST = async (request: NextRequest) => {
@@ -41,7 +26,7 @@ export const POST = async (request: NextRequest) => {
 
   // Find new tournaments
   const tournaments = await getAllTournaments({
-    from: lastSync,
+    created_after: lastSync,
     format: 'standard',
   }).then(result =>
     result.map(({ id, name, date }) => ({
