@@ -1,6 +1,7 @@
 #!/usr/bin/env tsx
 import 'zx/globals';
 import dotenv from 'dotenv';
+import pLimit from 'p-limit';
 
 import { pointsUpdateDate } from '@/lib/config';
 import { getAllTournaments, getSquads } from '@/lib/vendor/listfortress';
@@ -12,6 +13,7 @@ import { normalize, toCompositionId } from '@/lib/xws';
 // ---------------
 $.verbose = false;
 dotenv.config({ path: '.env.local' });
+const limit = pLimit(100);
 
 // Script
 // ---------------
@@ -53,28 +55,32 @@ void (async () => {
           squadCount += squads.length;
 
           return squads.map(squad =>
-            addSquads([
-              {
-                listfortress_ref: tournament.listfortress_ref,
-                composition: squad.xws ? toCompositionId(squad.xws) : undefined,
-                faction: squad.xws?.faction || 'unknown',
-                player: squad.player,
-                date: tournament.date,
-                xws: squad.xws
-                  ? JSON.stringify(normalize(squad.xws)) || undefined
-                  : undefined,
-                wins: squad.record.wins,
-                ties: squad.record.ties,
-                losses: squad.record.losses,
-                record: JSON.stringify(squad.record),
-                swiss: squad.rank.swiss,
-                cut: squad.rank.elimination,
-                percentile: percentile(
-                  squad.rank.elimination ?? squad.rank.swiss,
-                  squads.length
-                ).toString(),
-              },
-            ])
+            limit(() =>
+              addSquads([
+                {
+                  listfortress_ref: tournament.listfortress_ref,
+                  composition: squad.xws
+                    ? toCompositionId(squad.xws)
+                    : undefined,
+                  faction: squad.xws?.faction || 'unknown',
+                  player: squad.player,
+                  date: tournament.date,
+                  xws: squad.xws
+                    ? JSON.stringify(normalize(squad.xws)) || undefined
+                    : undefined,
+                  wins: squad.record.wins,
+                  ties: squad.record.ties,
+                  losses: squad.record.losses,
+                  record: JSON.stringify(squad.record),
+                  swiss: squad.rank.swiss,
+                  cut: squad.rank.elimination,
+                  percentile: percentile(
+                    squad.rank.elimination ?? squad.rank.swiss,
+                    squads.length
+                  ).toString(),
+                },
+              ])
+            )
           );
         })
         .flat()

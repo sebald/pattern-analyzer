@@ -37,6 +37,7 @@
     "kysely": "^0.26.3",
     "kysely-planetscale": "^1.4.0",
     "next": "13.5.3",
+    "p-limit": "^4.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-is": "18.2.0",
