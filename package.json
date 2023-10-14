@@ -70,7 +70,7 @@
     "prettier-plugin-tailwindcss": "0.5.5",
     "tailwindcss": "3.3.3",
     "tsx": "3.13.0",
-    "turbo": "1.10.14",
+    "turbo": "1.10.15",
     "typescript": "5.1.6",
     "xwing-data2": "github:danrs/xwing-data2#6735cf4",
     "yasb": "github:raithos/xwing#cbb7ab9",
