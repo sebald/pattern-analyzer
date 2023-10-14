@@ -4,7 +4,7 @@
   "private": true,
   "repository": "github:sebald/pattern-analyzer",
   "sideEffects": false,
-  "packageManager": "pnpm@8.7.6",
+  "packageManager": "pnpm@8.8.0",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
