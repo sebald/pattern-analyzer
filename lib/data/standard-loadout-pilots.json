@@ -504,6 +504,37 @@
       ]
     }
   },
+  "leebo-swz103-sl-scumandvillainy": {
+    "points": 6,
+    "upgrades": {
+      "talent": [
+        "efficientprocessing-swz103"
+      ],
+      "missile": [
+        "seekermissiles-swz103"
+      ],
+      "title": [
+        "outrider"
+      ]
+    }
+  },
+  "dashrendar-swz103-sl-scumandvillainy": {
+    "points": 7,
+    "upgrades": {
+      "talent": [
+        "mercenary-swz103"
+      ],
+      "missile": [
+        "seekermissiles-swz103"
+      ],
+      "crew": [
+        "leebo-swz103"
+      ],
+      "title": [
+        "outrider"
+      ]
+    }
+  },
   "oddball-siegeofcoruscant": {
     "points": 4,
     "upgrades": {
