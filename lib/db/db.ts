@@ -1,8 +1,8 @@
 import { Kysely, MysqlDialect } from 'kysely';
 import { type ColumnType, type Generated } from 'kysely';
+import { createPool } from 'mysql2';
 
 import type { GameRecord, XWSFaction, XWSSquad } from '@/lib/types';
-import { createPool } from 'mysql2';
 
 // Types
 // ---------------
@@ -45,15 +45,14 @@ export interface Database {
 // ---------------
 export const db = new Kysely<Database>({
   dialect: new MysqlDialect({
-    pool: async () =>
-      createPool({
-        host: process.env.DATABASE_HOST,
-        user: process.env.DATABASE_USERNAME,
-        password: process.env.DATABASE_PASSWORD,
-        database: 'main',
-      }),
+    pool: createPool({
+      host: process.env.DATABASE_HOST,
+      user: process.env.DATABASE_USERNAME,
+      password: process.env.DATABASE_PASSWORD,
+      database: 'main',
+    }),
   }),
-  // log: ['query'],
+  // log: ['query', 'error'],
 });
 
 export const initDatabase = async () =>
