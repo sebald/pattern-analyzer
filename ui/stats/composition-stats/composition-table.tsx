@@ -102,7 +102,7 @@ export const CompositionTable = ({
             <Table.Cell variant="number">{stat.score}</Table.Cell>
             <Table.Cell className="justify-center">
               <Link
-                href={`/analyze/composition/${id}`}
+                href={`/composition/${id}`}
                 variant="highlight"
                 className="text-primary-800"
               >
