@@ -161,8 +161,8 @@ devDependencies:
     specifier: github:danrs/xwing-data2#6735cf4
     version: github.com/danrs/xwing-data2/6735cf4
   yasb:
-    specifier: github:raithos/xwing#cbb7ab9
-    version: github.com/raithos/xwing/cbb7ab9
+    specifier: github:raithos/xwing#6cc31c9
+    version: github.com/raithos/xwing/6cc31c9
   zx:
     specifier: 7.2.3
     version: 7.2.3
@@ -7065,8 +7065,8 @@ packages:
       string-math: 1.2.2
     dev: true
 
-  github.com/raithos/xwing/cbb7ab9:
-    resolution: {tarball: https://codeload.github.com/raithos/xwing/tar.gz/cbb7ab9}
+  github.com/raithos/xwing/6cc31c9:
+    resolution: {tarball: https://codeload.github.com/raithos/xwing/tar.gz/6cc31c9}
     name: yasb
     version: 2.5.0
     dev: true
