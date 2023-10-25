@@ -4,7 +4,7 @@
   "private": true,
   "repository": "github:sebald/pattern-analyzer",
   "sideEffects": false,
-  "packageManager": "pnpm@8.8.0",
+  "packageManager": "pnpm@8.9.2",
   "dependencies": {
     "@nivo/axes": "0.83.0",
     "@nivo/bar": "0.83.0",
