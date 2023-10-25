@@ -95,4 +95,5 @@ void (async () => {
   } catch (err: any) {
     console.log(chalk.red.bold(err?.body?.message || err.message || err));
   }
+  process.exit(0); // Weird 🤷‍♂️
 })();
