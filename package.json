@@ -5,20 +5,6 @@
   "repository": "github:sebald/pattern-analyzer",
   "sideEffects": false,
   "packageManager": "pnpm@8.8.0",
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "format": "prettier . --write",
-    "typecheck": "tsc --noEmit",
-    "test": "jest",
-    "clean": "rm -rf .next",
-    "db:setup": "tsx ./scripts/setup-database.ts",
-    "db:query": "tsx ./scripts/query-database.ts",
-    "update:xwing": "zx scripts/update-xwing-data.mjs",
-    "update:yasb": "zx scripts/update-yasb-data.mjs"
-  },
   "dependencies": {
     "@nivo/axes": "0.83.0",
     "@nivo/bar": "0.83.0",
@@ -34,10 +20,10 @@
     "class-variance-authority": "0.7.0",
     "clsx": "2.0.0",
     "dayjs": "1.11.10",
-    "kysely": "^0.26.3",
-    "kysely-planetscale": "^1.4.0",
+    "kysely": "0.26.3",
+    "mysql2": "3.6.2",
     "next": "13.5.4",
-    "p-limit": "^4.0.0",
+    "p-limit": "4.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-is": "18.2.0",
@@ -45,7 +31,7 @@
     "react-use-clipboard": "1.0.9",
     "swr": "2.2.4",
     "tailwind-merge": "1.14.0",
-    "tailwindcss-animate": "^1.0.7",
+    "tailwindcss-animate": "1.0.7",
     "use-debounce": "9.0.4",
     "zod": "3.22.4"
   },
@@ -75,5 +61,19 @@
     "xwing-data2": "github:danrs/xwing-data2#6735cf4",
     "yasb": "github:raithos/xwing#cbb7ab9",
     "zx": "7.2.3"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "format": "prettier . --write",
+    "typecheck": "tsc --noEmit",
+    "test": "jest",
+    "clean": "rm -rf .next",
+    "db:setup": "tsx ./scripts/setup-database.ts",
+    "db:query": "tsx ./scripts/query-database.ts",
+    "update:xwing": "zx scripts/update-xwing-data.mjs",
+    "update:yasb": "zx scripts/update-yasb-data.mjs"
   }
 }
