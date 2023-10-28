@@ -1,6 +1,6 @@
-import { type NextRequest, ImageResponse } from 'next/server';
+import { ImageResponse } from 'next/og';
+import type { NextRequest } from 'next/server';
 import shipIcons from '@/lib/data/ship-icons.json';
-import { getShipName } from '@/lib/get-value';
 
 // Config
 // ---------------
