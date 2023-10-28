@@ -1,10 +1,8 @@
-import { z } from 'zod';
-
 import { pointsUpdateDate } from '@/lib/config';
 import { getFactionCount, getSquads } from '@/lib/db/squads';
 import { getTournamentsCount } from '@/lib/db/tournaments';
 import { formatDate, fromDate, toDate, today } from '@/lib/utils/date.utils';
-import { pq } from '@/lib/utils/url.utils';
+import { toRange } from '@/lib/utils/url.utils';
 
 import { Caption, Card, Inline, Message, Title } from '@/ui';
 import { Calendar, Rocket, Trophy } from '@/ui/icons';
@@ -39,29 +37,11 @@ export const metadata = createMetadata({
 
 // Helpers
 // ---------------
-// Note: only checks the format, can still produce invalid dates (like 2022-02-31)
-const DATE_REGEX = /(\d{4})-(\d{2})-(\d{2})/;
-
-const schema = z
-  .object({
-    from: z.string().regex(DATE_REGEX).optional(),
-    to: z.string().regex(DATE_REGEX).optional(),
-    'small-samples': z.union([z.literal('show'), z.literal('hide')]).optional(),
-  })
-  .transform(({ 'small-samples': smallSamples, ...props }) => ({
-    ...props,
-    smallSamples: smallSamples === 'show',
-  }));
-
 const create = setup<CompositionData>([composition]);
 
 // Data
 // ---------------
-const getStats = async (
-  from: Date,
-  to: Date | undefined,
-  smallSamples: boolean
-) => {
+const getStats = async (from: Date, to: Date | undefined) => {
   const [squads, tournaments, count] = await Promise.all([
     getSquads({ from, to }),
     getTournamentsCount({ from, to }),
@@ -70,7 +50,6 @@ const getStats = async (
 
   return {
     stats: create(squads, {
-      smallSamples,
       count,
       tournaments,
     }),
@@ -85,33 +64,17 @@ const getStats = async (
 // ---------------
 interface PageProps {
   params: {
-    query?: string[];
+    range?: string[];
   };
 }
 
 // Page
 // ---------------
 const CompositionsPage = async ({ params }: PageProps) => {
-  const query = schema.safeParse(pq(params.query?.[0]));
-
-  if (!query.success) {
-    return (
-      <div className="grid flex-1 place-items-center">
-        <Message variant="error">
-          <Message.Title>Whoopsie, something went wrong!</Message.Title>
-          Looks like there is an error in the given query parameters.
-        </Message>
-      </div>
-    );
-  }
-
-  const from =
-    query.data && query.data.from
-      ? fromDate(query.data.from)
-      : fromDate(pointsUpdateDate);
-  const to = query.data && query.data.to ? fromDate(query.data.to) : undefined;
-
-  const { stats, meta } = await getStats(from, to, query.data.smallSamples);
+  const range = toRange(params.range?.[0]);
+  const from = fromDate(range ? range.from : pointsUpdateDate);
+  const to = range ? fromDate(range.to) : undefined;
+  const { stats, meta } = await getStats(from, to);
 
   return (
     <>
@@ -134,10 +97,7 @@ const CompositionsPage = async ({ params }: PageProps) => {
       </div>
       <QueryFilter></QueryFilter>
       <CompositionFilterProvider>
-        <StatsFilter
-          smallSamples={!query.data.smallSamples}
-          dateRange={toDate(from, to)}
-        >
+        <StatsFilter smallSamples={false} dateRange={toDate(from, to)}>
           <CompositionFilter />
         </StatsFilter>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-12">

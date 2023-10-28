@@ -1,9 +1,8 @@
-import qs from 'query-string';
+// Note: only checks the format, can still produce invalid dates (like 2022-02-31)
+const DATE_RANGE_REGEX =
+  /(?<from>\d{4}-(\d{2})-(\d{2}))(?:\.(?<to>\d{4}-(\d{2})-(\d{2})))?/;
 
-/**
- * Used to parse a dynamic route segment and use it as query params.
- *
- * This is done because using `searchParams` (the real query params) will cause
- * pages to switch to dynamic mode.
- */
-export const pq = (query: string = '') => qs.parse(decodeURIComponent(query));
+export const toRange = (val: string = '') => {
+  const result = val.match(DATE_RANGE_REGEX);
+  return result ? result.groups! : null;
+};

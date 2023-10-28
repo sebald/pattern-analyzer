@@ -13,6 +13,7 @@ const config = {
     '@/lib/$': '<rootDir>/@/lib/$1',
   },
   testEnvironment: 'jest-environment-jsdom',
+  prettierPath: null,
 };
 
 module.exports = createJestConfig(config);
