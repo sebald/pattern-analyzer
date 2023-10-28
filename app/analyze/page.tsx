@@ -33,7 +33,7 @@ import { CompositionStats } from '@/ui/stats/composition-stats';
 import { FactionDistribution } from '@/ui/stats/faction-distribution';
 import { FactionPerformance } from '@/ui/stats/faction-performance';
 import { FactionVictories } from '@/ui/stats/faction-victories';
-import { Filter } from '@/ui/stats/filter';
+import { StatsFilter } from '@/ui/stats/stats-filter';
 import { PilotCostDistribution } from '@/ui/stats/pilot-cost-distribution';
 import { PilotSkillDistribution } from '@/ui/stats/pilot-skill-distribution';
 import { PilotStats } from '@/ui/stats/pilot-stats';
@@ -171,7 +171,7 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
           </Inline>
         </Caption>
       </div>
-      <Filter
+      <StatsFilter
         smallSamples={!params.data.smallSamples}
         dateRange={toDate(from, to)}
       />

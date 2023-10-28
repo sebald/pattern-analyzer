@@ -4,6 +4,7 @@ import { pointsUpdateDate } from '@/lib/config';
 import { getFactionCount, getSquads } from '@/lib/db/squads';
 import { getTournamentsCount } from '@/lib/db/tournaments';
 import { formatDate, fromDate, toDate, today } from '@/lib/utils/date.utils';
+import { pq } from '@/lib/utils/url.utils';
 
 import { Caption, Card, Inline, Message, Title } from '@/ui';
 import { Calendar, Rocket, Trophy } from '@/ui/icons';
@@ -13,11 +14,12 @@ import {
   CompositionFilterProvider,
   CompositionTable,
 } from '@/ui/stats/composition-stats';
-import { Filter } from '@/ui/stats/filter';
+import { StatsFilter } from '@/ui/stats/stats-filter';
 import { createMetadata } from '@/lib/metadata';
 import { StatsHint } from '@/ui/stats/stats-hint';
 import { setup } from '@/lib/stats';
 import { CompositionData, composition } from '@/lib/stats/module';
+import { QueryFilter } from '@/ui/filter/query-filter';
 
 // Config
 // ---------------
@@ -81,20 +83,18 @@ const getStats = async (
 
 // Props
 // ---------------
-interface AnalyzePageProps {
-  searchParams: {
-    from: string;
-    to: string;
-    'small-samples': 'show' | 'hide';
+interface PageProps {
+  params: {
+    query?: string[];
   };
 }
 
 // Page
 // ---------------
-const AnalyzeCompositionPage = async ({ searchParams }: AnalyzePageProps) => {
-  const params = schema.safeParse(searchParams);
+const CompositionsPage = async ({ params }: PageProps) => {
+  const query = schema.safeParse(pq(params.query?.[0]));
 
-  if (!params.success) {
+  if (!query.success) {
     return (
       <div className="grid flex-1 place-items-center">
         <Message variant="error">
@@ -106,13 +106,12 @@ const AnalyzeCompositionPage = async ({ searchParams }: AnalyzePageProps) => {
   }
 
   const from =
-    params.data && params.data.from
-      ? fromDate(params.data.from)
+    query.data && query.data.from
+      ? fromDate(query.data.from)
       : fromDate(pointsUpdateDate);
-  const to =
-    params.data && params.data.to ? fromDate(params.data.to) : undefined;
+  const to = query.data && query.data.to ? fromDate(query.data.to) : undefined;
 
-  const { stats, meta } = await getStats(from, to, params.data.smallSamples);
+  const { stats, meta } = await getStats(from, to, query.data.smallSamples);
 
   return (
     <>
@@ -133,13 +132,14 @@ const AnalyzeCompositionPage = async ({ searchParams }: AnalyzePageProps) => {
           </Inline>
         </Caption>
       </div>
+      <QueryFilter></QueryFilter>
       <CompositionFilterProvider>
-        <Filter
-          smallSamples={!params.data.smallSamples}
+        <StatsFilter
+          smallSamples={!query.data.smallSamples}
           dateRange={toDate(from, to)}
         >
           <CompositionFilter />
-        </Filter>
+        </StatsFilter>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
           <div className="col-span-full">
             <Card inset="headless">
@@ -160,4 +160,4 @@ const AnalyzeCompositionPage = async ({ searchParams }: AnalyzePageProps) => {
   );
 };
 
-export default AnalyzeCompositionPage;
+export default CompositionsPage;

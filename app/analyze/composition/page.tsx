@@ -14,7 +14,7 @@ import {
   CompositionFilterProvider,
   CompositionTable,
 } from '@/ui/stats/composition-stats';
-import { Filter } from '@/ui/stats/filter';
+import { StatsFilter } from '@/ui/stats/stats-filter';
 import { createMetadata } from '@/lib/metadata';
 import { StatsHint } from '@/ui/stats/stats-hint';
 import { setup } from '@/lib/stats';
@@ -133,12 +133,12 @@ const AnalyzeCompositionPage = async ({ searchParams }: AnalyzePageProps) => {
         </Caption>
       </div>
       <CompositionFilterProvider>
-        <Filter
+        <StatsFilter
           smallSamples={!params.data.smallSamples}
           dateRange={toDate(from, to)}
         >
           <CompositionFilter />
-        </Filter>
+        </StatsFilter>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
           <div className="col-span-full">
             <Card inset="headless">

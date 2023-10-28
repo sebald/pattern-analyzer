@@ -7,13 +7,7 @@ import type {
   XWSUpgrades,
 } from '@/lib/types';
 import { fromDate, toMonth } from '@/lib/utils/date.utils';
-import {
-  average,
-  deviation,
-  percentile,
-  round,
-  winrate,
-} from '@/lib/utils/math.utils';
+import { average, deviation, round, winrate } from '@/lib/utils/math.utils';
 
 // Types
 // ---------------
