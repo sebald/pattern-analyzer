@@ -41,10 +41,6 @@ export const createMetadata = ({
       card: 'summary_large_image',
       creator: '@sebastiansebald',
     },
-    themeColor: [
-      { media: '(prefers-color-scheme: light)', color: '#3c4073' },
-      { media: '(prefers-color-scheme: dark)', color: '#96a6e3' },
-    ],
     other: {
       'msapplication-TileColor': '#96a6e3',
     },
