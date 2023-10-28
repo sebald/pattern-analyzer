@@ -2,10 +2,6 @@ import { ImageResponse } from 'next/og';
 import type { NextRequest } from 'next/server';
 import shipIcons from '@/lib/data/ship-icons.json';
 
-// Config
-// ---------------
-export const runtime = 'edge';
-
 // Logo
 // ---------------
 const Logo = ({ size }: { size: string }) => (
