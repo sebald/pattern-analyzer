@@ -74,6 +74,7 @@ const CompositionsPage = async ({ params }: PageProps) => {
   const range = toRange(params.range?.[0]);
   const from = fromDate(range ? range.from : pointsUpdateDate);
   const to = range ? fromDate(range.to) : undefined;
+
   const { stats, meta } = await getStats(from, to);
 
   return (
