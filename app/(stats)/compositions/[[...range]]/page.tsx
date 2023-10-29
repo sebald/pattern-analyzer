@@ -1,23 +1,25 @@
+import { notFound } from 'next/navigation';
+
 import { pointsUpdateDate } from '@/lib/config';
+import { createMetadata } from '@/lib/metadata';
 import { getFactionCount, getSquads } from '@/lib/db/squads';
 import { getTournamentsCount } from '@/lib/db/tournaments';
 import { formatDate, fromDate, toDate, today } from '@/lib/utils/date.utils';
 import { toRange } from '@/lib/utils/url.utils';
 
-import { Caption, Card, Inline, Message, Title } from '@/ui';
+import { Caption, Card, Inline, Title } from '@/ui';
 import { Calendar, Rocket, Trophy } from '@/ui/icons';
 
+import { useQueryFilter } from '@/ui/filter/useQueryFilter';
 import {
   CompositionFilter,
   CompositionFilterProvider,
   CompositionTable,
 } from '@/ui/stats/composition-stats';
 import { StatsFilter } from '@/ui/stats/stats-filter';
-import { createMetadata } from '@/lib/metadata';
 import { StatsHint } from '@/ui/stats/stats-hint';
 import { setup } from '@/lib/stats';
 import { CompositionData, composition } from '@/lib/stats/module';
-import { QueryFilter } from '@/ui/filter/query-filter';
 
 // Config
 // ---------------
@@ -71,6 +73,10 @@ interface PageProps {
 // Page
 // ---------------
 const CompositionsPage = async ({ params }: PageProps) => {
+  if (params.range && params.range.length > 1) {
+    notFound();
+  }
+
   const range = toRange(params.range?.[0]);
   const from = fromDate(range ? range.from : pointsUpdateDate);
   const to = range ? fromDate(range.to) : undefined;
@@ -96,7 +102,6 @@ const CompositionsPage = async ({ params }: PageProps) => {
           </Inline>
         </Caption>
       </div>
-      <QueryFilter></QueryFilter>
       <CompositionFilterProvider>
         <StatsFilter smallSamples={false} dateRange={toDate(from, to)}>
           <CompositionFilter />
