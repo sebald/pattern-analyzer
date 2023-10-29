@@ -24,6 +24,7 @@ export const CompositionTable = ({
   collapsible = true,
   filter,
 }: CompositionTableProps) => {
+  // TODO: move these out of the table, just a "filter" and "sort" function?
   const { faction = 'all', sort = 'percentile' } = useCompositionFilter();
   let data = Object.entries(value);
 
