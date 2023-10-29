@@ -19,7 +19,7 @@ import { StatsFilter } from '@/ui/stats/stats-filter';
 import { StatsHint } from '@/ui/stats/stats-hint';
 import { setup } from '@/lib/stats';
 import { CompositionData, composition } from '@/lib/stats/module';
-import { SmallSamplesFilter } from '@/ui/filter/small-samples-filter';
+import { SmallSamplesFilter } from '@/ui/params/small-samples-filter';
 import { Suspense } from 'react';
 import { Compositions } from './compositions';
 

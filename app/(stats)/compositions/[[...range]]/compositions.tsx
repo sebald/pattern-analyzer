@@ -1,7 +1,7 @@
 'use client';
 
 import { Card } from '@/ui';
-import { useSmallSamplesFilter } from '@/ui/filter/small-samples-filter';
+import { useSmallSamplesFilter } from '@/ui/params/small-samples-filter';
 import { CompositionTable } from '@/ui/stats/composition-stats';
 import type { CompositionData } from '@/lib/stats/module/composition';
 

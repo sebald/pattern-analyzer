@@ -1,12 +1,12 @@
 'use client';
 
 import { Switch } from '@/ui/switch';
-import { useQueryFilter } from './useQueryFilter';
+import { useParams } from './useParams';
 
 // Hook
 // ---------------
 export const useSmallSamplesFilter = () => {
-  const [filter, setFilter] = useQueryFilter(['small-samples']);
+  const [filter, setFilter] = useParams(['small-samples']);
 
   const setSmallSamples = (val: boolean) =>
     setFilter({
