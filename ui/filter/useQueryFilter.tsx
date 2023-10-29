@@ -16,9 +16,16 @@ export const useQueryFilter = <Params extends string>(keys: Params[]) => {
     filter[key] = searchParams.get(key) || null;
   });
 
-  const setFilter = (key: string, value: string) => {
+  const setFilter = (values: { [key: string]: string | null }) => {
     const filterParams = new URLSearchParams(searchParams.toString());
-    filterParams.set(key, value);
+
+    Object.entries(values).forEach(([key, value]) => {
+      if (value) {
+        filterParams.set(key, value);
+      } else {
+        filterParams.delete(key);
+      }
+    });
 
     const ps = filterParams.toString();
     const queryString = `${ps.length ? '?' : ''}${ps}`;
@@ -26,19 +33,5 @@ export const useQueryFilter = <Params extends string>(keys: Params[]) => {
     router.replace(`${pathname}${queryString}`, { scroll: false });
   };
 
-  return { filter, setFilter };
+  return [filter, setFilter] as const;
 };
-
-// export interface QueryFilterProps {
-//   children?: ReactNode;
-// }
-
-// export const QueryFilter = ({ children }: QueryFilterProps) => {
-//   const { replace } = useRouter();
-//   const pathname = usePathname();
-//   const [pending, startTransition] = useTransition();
-
-//   console.log(pathname);
-
-//   return <>{children}</>;
-// };

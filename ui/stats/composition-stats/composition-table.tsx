@@ -14,6 +14,7 @@ import type { CompositionStatsType } from './types';
 export interface CompositionTableProps {
   value: { [id: string]: CompositionStatsType };
   collapsible?: boolean;
+  filter?: (entry: [string, CompositionStatsType]) => boolean;
 }
 
 // Components
@@ -21,16 +22,17 @@ export interface CompositionTableProps {
 export const CompositionTable = ({
   value,
   collapsible = true,
+  filter,
 }: CompositionTableProps) => {
   const { faction = 'all', sort = 'percentile' } = useCompositionFilter();
+  let data = Object.entries(value);
 
-  const data =
-    faction === 'all'
-      ? (Object.entries(value) as [string, CompositionStatsType][])
-      : Object.entries(value).filter(
-          ([_, stat]: [string, CompositionStatsType]) =>
-            stat.faction === faction
-        );
+  if (faction !== 'all' || filter) {
+    data = data.filter(entry => {
+      let result = faction === 'all' || entry[1].faction === faction;
+      return result && filter ? filter(entry) : result;
+    });
+  }
 
   data.sort(([, a], [, b]) => {
     const result = (b[sort] || 0) - (a[sort] || 0);

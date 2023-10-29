@@ -10,7 +10,6 @@ import { toRange } from '@/lib/utils/url.utils';
 import { Caption, Card, Inline, Title } from '@/ui';
 import { Calendar, Rocket, Trophy } from '@/ui/icons';
 
-import { useQueryFilter } from '@/ui/filter/useQueryFilter';
 import {
   CompositionFilter,
   CompositionFilterProvider,
@@ -20,6 +19,9 @@ import { StatsFilter } from '@/ui/stats/stats-filter';
 import { StatsHint } from '@/ui/stats/stats-hint';
 import { setup } from '@/lib/stats';
 import { CompositionData, composition } from '@/lib/stats/module';
+import { SmallSamplesFilter } from '@/ui/filter/small-samples-filter';
+import { Suspense } from 'react';
+import { Compositions } from './compositions';
 
 // Config
 // ---------------
@@ -102,20 +104,16 @@ const CompositionsPage = async ({ params }: PageProps) => {
           </Inline>
         </Caption>
       </div>
+      <Inline align="end">
+        <SmallSamplesFilter />
+      </Inline>
       <CompositionFilterProvider>
         <StatsFilter smallSamples={false} dateRange={toDate(from, to)}>
           <CompositionFilter />
         </StatsFilter>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
           <div className="col-span-full">
-            <Card inset="headless">
-              <Card.Body>
-                <CompositionTable
-                  value={stats.composition}
-                  collapsible={false}
-                />
-              </Card.Body>
-            </Card>
+            <Compositions data={stats.composition} />
           </div>
           <div className="col-span-full pt-8 lg:col-start-2 lg:col-end-12">
             <StatsHint />
