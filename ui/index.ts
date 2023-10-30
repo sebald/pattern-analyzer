@@ -28,6 +28,7 @@ export * from './select';
 export * from './sheet';
 export * from './ship-icon';
 export * from './skeleton';
+export * from './sort-selection';
 export * from './spinner';
 export * from './squad';
 export * from './switch';

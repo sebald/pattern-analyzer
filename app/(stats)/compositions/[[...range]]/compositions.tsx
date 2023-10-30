@@ -1,8 +1,9 @@
 'use client';
 
 import { Card } from '@/ui';
-import { useSmallSamplesFilter } from '@/ui/filter/small-samples-filter';
-import { useFactionFilter } from '@/ui/filter/faction-filter';
+import { useSmallSamplesFilter } from '@/ui/params/small-samples-filter';
+import { useFactionFilter } from '@/ui/params/faction-filter';
+import { useSortParam } from '@/ui/params/sort-param';
 import { CompositionTable } from '@/ui/stats/composition-stats';
 
 import type { CompositionData } from '@/lib/stats/module/composition';
@@ -14,6 +15,7 @@ export interface CompositionsProps {
 export const Compositions = ({ data }: CompositionsProps) => {
   const [smallSamples] = useSmallSamplesFilter();
   const [faction] = useFactionFilter();
+  const [sort] = useSortParam();
 
   return (
     <Card inset="headless">
@@ -32,6 +34,7 @@ export const Compositions = ({ data }: CompositionsProps) => {
 
             return true;
           }}
+          sortBy={sort}
         />
       </Card.Body>
     </Card>

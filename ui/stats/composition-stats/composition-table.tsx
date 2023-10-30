@@ -3,20 +3,11 @@
 import { Fragment } from 'react';
 
 import { toPercentage } from '@/lib/utils';
+import type { SortOptions } from '@/ui';
 import { Collapsible, FactionIcon, Link, ShipIcon, Table } from '@/ui';
 import { Folder } from '@/ui/icons';
 
 import type { CompositionStatsType } from './types';
-
-// Types
-// ---------------
-export type SortOptions =
-  | 'percentile'
-  | 'deviation'
-  | 'winrate'
-  | 'frequency'
-  | 'count'
-  | 'score';
 
 // Props
 // ---------------

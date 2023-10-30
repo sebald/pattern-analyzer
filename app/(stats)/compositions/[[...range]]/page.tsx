@@ -10,14 +10,14 @@ import { fromDateRange } from '@/lib/utils/url.utils';
 import { Caption, Inline, Title } from '@/ui';
 import { Calendar, Rocket, Trophy } from '@/ui/icons';
 
-import { StatsFilter } from '@/ui/stats/stats-filter';
 import { StatsHint } from '@/ui/stats/stats-hint';
 import { setup } from '@/lib/stats';
 import { CompositionData, composition } from '@/lib/stats/module';
 
-import { DateRangeFilter } from '@/ui/filter/date-range-filter';
-import { FactionFilter } from '@/ui/filter/faction-filter';
-import { SmallSamplesFilter } from '@/ui/filter/small-samples-filter';
+import { DateRangeFilter } from '@/ui/params/date-range-filter';
+import { FactionFilter } from '@/ui/params/faction-filter';
+import { SmallSamplesFilter } from '@/ui/params/small-samples-filter';
+import { SortParam } from '@/ui/params/sort-param';
 
 import { Compositions } from './compositions';
 
@@ -103,13 +103,14 @@ const CompositionsPage = async ({ params }: PageProps) => {
           </Inline>
         </Caption>
       </div>
-      <Inline className="gap-4" align="end">
+      <Inline className="gap-2 pb-8 sm:gap-4" align="end">
         <SmallSamplesFilter />
         <DateRangeFilter
           pathname="/compositions"
           defaultValue={toDate(from, to)}
         />
         <FactionFilter />
+        <SortParam />
       </Inline>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
         <div className="col-span-full">
