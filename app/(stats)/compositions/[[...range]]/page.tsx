@@ -18,9 +18,12 @@ import { StatsFilter } from '@/ui/stats/stats-filter';
 import { StatsHint } from '@/ui/stats/stats-hint';
 import { setup } from '@/lib/stats';
 import { CompositionData, composition } from '@/lib/stats/module';
-import { SmallSamplesFilter } from '@/ui/filter/small-samples-filter';
-import { Compositions } from './compositions';
+
 import { DateRangeFilter } from '@/ui/filter/date-range-filter';
+import { FactionFilter } from '@/ui/filter/faction-filter';
+import { SmallSamplesFilter } from '@/ui/filter/small-samples-filter';
+
+import { Compositions } from './compositions';
 
 // Config
 // ---------------
@@ -110,6 +113,7 @@ const CompositionsPage = async ({ params }: PageProps) => {
           pathname="/compositions"
           defaultValue={toDate(from, to)}
         />
+        <FactionFilter />
       </Inline>
       <CompositionFilterProvider>
         <StatsFilter smallSamples={false} dateRange={toDate(from, to)}>

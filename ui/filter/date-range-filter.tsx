@@ -12,8 +12,8 @@ import {
 } from '@/lib/utils/date.utils';
 import { toDateRange } from '@/lib/utils/url.utils';
 
-import { Select } from '../select';
-import type { SelectProps } from '../select';
+import { Select } from '@/ui/select';
+import type { SelectProps } from '@/ui/select';
 
 export interface DateRangeFilterProps extends Omit<SelectProps, 'children'> {
   /**

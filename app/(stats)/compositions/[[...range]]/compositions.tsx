@@ -2,7 +2,9 @@
 
 import { Card } from '@/ui';
 import { useSmallSamplesFilter } from '@/ui/filter/small-samples-filter';
+import { useFactionFilter } from '@/ui/filter/faction-filter';
 import { CompositionTable } from '@/ui/stats/composition-stats';
+
 import type { CompositionData } from '@/lib/stats/module/composition';
 
 export interface CompositionsProps {
@@ -11,6 +13,7 @@ export interface CompositionsProps {
 
 export const Compositions = ({ data }: CompositionsProps) => {
   const [smallSamples] = useSmallSamplesFilter();
+  const [faction] = useFactionFilter();
 
   return (
     <Card inset="headless">
@@ -18,11 +21,17 @@ export const Compositions = ({ data }: CompositionsProps) => {
         <CompositionTable
           value={data}
           collapsible={false}
-          filter={
-            smallSamples === 'hide'
-              ? ([, stat]) => stat.count >= 3 && stat.score >= 5
-              : undefined
-          }
+          filter={([, stat]) => {
+            if (smallSamples === 'hide' && (stat.count < 3 || stat.score < 5)) {
+              return false;
+            }
+
+            if (faction !== 'all' && stat.faction !== faction) {
+              return false;
+            }
+
+            return true;
+          }}
         />
       </Card.Body>
     </Card>
