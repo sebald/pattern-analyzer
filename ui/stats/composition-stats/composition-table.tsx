@@ -6,8 +6,17 @@ import { toPercentage } from '@/lib/utils';
 import { Collapsible, FactionIcon, Link, ShipIcon, Table } from '@/ui';
 import { Folder } from '@/ui/icons';
 
-import { useCompositionFilter } from './context';
 import type { CompositionStatsType } from './types';
+
+// Types
+// ---------------
+export type SortOptions =
+  | 'percentile'
+  | 'deviation'
+  | 'winrate'
+  | 'frequency'
+  | 'count'
+  | 'score';
 
 // Props
 // ---------------
@@ -15,6 +24,7 @@ export interface CompositionTableProps {
   value: { [id: string]: CompositionStatsType };
   collapsible?: boolean;
   filter?: (entry: [string, CompositionStatsType]) => boolean;
+  sortBy?: SortOptions;
 }
 
 // Components
@@ -23,25 +33,21 @@ export const CompositionTable = ({
   value,
   collapsible = true,
   filter,
+  sortBy = 'percentile',
 }: CompositionTableProps) => {
-  // TODO: move these out of the table, just a "filter" and "sort" function?
-  const { faction = 'all', sort = 'percentile' } = useCompositionFilter();
   let data = Object.entries(value);
 
-  if (faction !== 'all' || filter) {
-    data = data.filter(entry => {
-      let result = faction === 'all' || entry[1].faction === faction;
-      return result && filter ? filter(entry) : result;
-    });
+  if (filter) {
+    data = data.filter(filter);
   }
 
   data.sort(([, a], [, b]) => {
-    const result = (b[sort] || 0) - (a[sort] || 0);
+    const result = (b[sortBy] || 0) - (a[sortBy] || 0);
 
     // Secondary sort by percentile (or deviation if sorted by percentile already)
     return result !== 0
       ? result
-      : sort === 'percentile'
+      : sortBy === 'percentile'
       ? b.deviation - a.deviation
       : b.percentile - a.percentile;
   });

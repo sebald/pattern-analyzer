@@ -10,10 +10,6 @@ import { fromDateRange } from '@/lib/utils/url.utils';
 import { Caption, Inline, Title } from '@/ui';
 import { Calendar, Rocket, Trophy } from '@/ui/icons';
 
-import {
-  CompositionFilter,
-  CompositionFilterProvider,
-} from '@/ui/stats/composition-stats';
 import { StatsFilter } from '@/ui/stats/stats-filter';
 import { StatsHint } from '@/ui/stats/stats-hint';
 import { setup } from '@/lib/stats';
@@ -115,19 +111,14 @@ const CompositionsPage = async ({ params }: PageProps) => {
         />
         <FactionFilter />
       </Inline>
-      <CompositionFilterProvider>
-        <StatsFilter smallSamples={false} dateRange={toDate(from, to)}>
-          <CompositionFilter />
-        </StatsFilter>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
-          <div className="col-span-full">
-            <Compositions data={stats.composition} />
-          </div>
-          <div className="col-span-full pt-8 lg:col-start-2 lg:col-end-12">
-            <StatsHint />
-          </div>
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
+        <div className="col-span-full">
+          <Compositions data={stats.composition} />
         </div>
-      </CompositionFilterProvider>
+        <div className="col-span-full pt-8 lg:col-start-2 lg:col-end-12">
+          <StatsHint />
+        </div>
+      </div>
     </>
   );
 };
