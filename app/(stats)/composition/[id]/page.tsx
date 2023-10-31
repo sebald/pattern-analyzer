@@ -1,4 +1,9 @@
-import { compositionDetails } from '@/lib/stats/details/composition';
+import { notFound } from 'next/navigation';
+
+import {
+  SquadCompositionStats,
+  compositionDetails,
+} from '@/lib/stats/details/composition';
 import { createMetadata } from '@/lib/metadata';
 import { fromDate } from '@/lib/utils/date.utils';
 import { getFactionCount, getSquads } from '@/lib/db/squads';
@@ -64,10 +69,12 @@ const getCompositionStats = async (composition: string, from: Date) => {
 // Page
 // ---------------
 const Page = async ({ params }: PageParams) => {
-  const stats = await getCompositionStats(
-    params.id,
-    fromDate(pointsUpdateDate)
-  );
+  let stats: SquadCompositionStats;
+  try {
+    stats = await getCompositionStats(params.id, fromDate(pointsUpdateDate));
+  } catch {
+    notFound();
+  }
 
   return (
     <div className="grid gap-4 pt-3 md:grid-cols-12">

@@ -1,7 +1,7 @@
 'use client';
 
 import type { ChangeEvent } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 import { pointsUpdateDate } from '@/lib/config';
 import {
@@ -14,6 +14,7 @@ import { toDateRange } from '@/lib/utils/url.utils';
 
 import { Select } from '@/ui/select';
 import type { SelectProps } from '@/ui/select';
+import { useSearchParam } from 'react-use';
 
 export interface DateRangeFilterProps extends Omit<SelectProps, 'children'> {
   /**
@@ -27,6 +28,7 @@ export const DateRangeFilter = ({
   ...props
 }: DateRangeFilterProps) => {
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   let options = {
     'Last Points Update': '',
@@ -41,7 +43,9 @@ export const DateRangeFilter = ({
 
   const updateDateRange = (e: ChangeEvent<HTMLSelectElement>) => {
     const [from, to] = e.target.value.split('/');
-    router.push(`${pathname}/${toDateRange(from, to)}`);
+    const qs = searchParams.size ? `?${searchParams.toString()}` : '';
+
+    router.push(`${pathname}/${toDateRange(from, to)}${qs}`);
   };
 
   return (

@@ -20,6 +20,7 @@ import { SmallSamplesFilter } from '@/ui/params/small-samples-filter';
 import { SortParam } from '@/ui/params/sort-param';
 
 import { Compositions } from './compositions';
+import { Suspense } from 'react';
 
 // Config
 // ---------------
@@ -112,14 +113,16 @@ const CompositionsPage = async ({ params }: PageProps) => {
         <FactionFilter />
         <SortParam />
       </Inline>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
-        <div className="col-span-full">
-          <Compositions data={stats.composition} />
+      <Suspense fallback={<div>loading...</div>}>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
+          <div className="col-span-full">
+            <Compositions data={stats.composition} />
+          </div>
+          <div className="col-span-full pt-8 lg:col-start-2 lg:col-end-12">
+            <StatsHint />
+          </div>
         </div>
-        <div className="col-span-full pt-8 lg:col-start-2 lg:col-end-12">
-          <StatsHint />
-        </div>
-      </div>
+      </Suspense>
     </>
   );
 };
