@@ -1,8 +1,5 @@
 'use client';
 
-import type { ChangeEvent } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
-
 import { pointsUpdateDate } from '@/lib/config';
 import {
   toDate,
@@ -10,25 +7,33 @@ import {
   monthsAgo,
   fromDate,
 } from '@/lib/utils/date.utils';
-import { toDateRange } from '@/lib/utils/url.utils';
-
+import { fromDateRange } from '@/lib/utils/params.utils';
 import { Select } from '@/ui/select';
-import type { SelectProps } from '@/ui/select';
-import { useSearchParam } from 'react-use';
 
-export interface DateRangeFilterProps extends Omit<SelectProps, 'children'> {
-  /**
-   * Pathname of the base URL (range will be appended)
-   */
-  pathname: string;
-}
+import { useParams } from './useParams';
 
-export const DateRangeFilter = ({
-  pathname,
-  ...props
-}: DateRangeFilterProps) => {
-  const router = useRouter();
-  const searchParams = useSearchParams();
+// Hooks
+// ---------------
+export const useDateRangeFilter = () => {
+  const [filter, setFilter] = useParams(['from', 'to']);
+
+  const setDateRange = (val: string) => {
+    setFilter(fromDateRange(val));
+  };
+
+  const dateRange = filter.from
+    ? filter.to
+      ? `${filter.from}/${filter.to}`
+      : filter.from
+    : pointsUpdateDate;
+
+  return [dateRange, setDateRange] as const;
+};
+
+// Component
+// ---------------
+export const DateRangeFilter = () => {
+  const [dateRange, setDateRange] = useDateRangeFilter();
 
   let options = {
     'Last Points Update': '',
@@ -41,15 +46,12 @@ export const DateRangeFilter = ({
   };
   type Options = keyof typeof options;
 
-  const updateDateRange = (e: ChangeEvent<HTMLSelectElement>) => {
-    const [from, to] = e.target.value.split('/');
-    const qs = searchParams.size ? `?${searchParams.toString()}` : '';
-
-    router.push(`${pathname}/${toDateRange(from, to)}${qs}`);
-  };
-
   return (
-    <Select {...props} size="small" onChange={updateDateRange}>
+    <Select
+      size="small"
+      value={dateRange}
+      onChange={e => setDateRange(e.target.value)}
+    >
       {Object.keys(options).map(label => (
         <Select.Option key={label} value={options[label as Options]}>
           {label}

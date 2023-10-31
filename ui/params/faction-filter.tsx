@@ -16,10 +16,9 @@ export const useFactionFilter = () => {
     });
   };
 
-  return [filter.faction || 'all', setFaction] as [
-    XWSFaction | 'all',
-    (faction: XWSFaction | 'all') => void,
-  ];
+  const faction = (filter.faction || 'all') as XWSFaction | 'all';
+
+  return [faction, setFaction] as const;
 };
 
 // Component

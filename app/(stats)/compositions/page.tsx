@@ -1,17 +1,17 @@
-import { notFound } from 'next/navigation';
+import { z } from 'zod';
 
 import { pointsUpdateDate } from '@/lib/config';
 import { createMetadata } from '@/lib/metadata';
 import { getFactionCount, getSquads } from '@/lib/db/squads';
 import { getTournamentsCount } from '@/lib/db/tournaments';
 import { formatDate, fromDate, toDate, today } from '@/lib/utils/date.utils';
-import { fromDateRange } from '@/lib/utils/url.utils';
 
 import {
   Caption,
   CardTableSkeleton,
   Inline,
   LineSkeleton,
+  Message,
   Skeleton,
   Title,
 } from '@/ui';
@@ -28,13 +28,7 @@ import { SortParam } from '@/ui/params/sort-param';
 
 import { Compositions } from './compositions';
 import { Suspense } from 'react';
-
-// Config
-// ---------------
-/**
- * Segment Config (see: https://beta.nextjs.org/docs/api-reference/segment-config)
- */
-export const revalidate = 21600; // 6 hours
+import { toDateRange } from '@/lib/utils/params.utils';
 
 // Metadata
 // ---------------
@@ -80,7 +74,6 @@ const getStats = async (from: Date, to: Date | undefined) => {
 // ---------------
 const Info = async ({ from, to }: { from: Date; to?: Date }) => {
   const info = await getInfo(from, to);
-
   return (
     <>
       <Inline className="whitespace-nowrap">
@@ -101,21 +94,29 @@ const Content = async ({ from, to }: { from: Date; to?: Date }) => {
 // Props
 // ---------------
 interface PageProps {
-  params: {
-    range?: string[];
+  searchParams: {
+    from: string;
+    to: string;
   };
 }
 
 // Page
 // ---------------
-const CompositionsPage = async ({ params }: PageProps) => {
-  if (params.range && params.range.length > 1) {
-    notFound();
+const CompositionsPage = async ({ searchParams }: PageProps) => {
+  const result = toDateRange(searchParams);
+
+  if (result.error) {
+    return (
+      <div className="grid flex-1 place-items-center">
+        <Message variant="error">
+          <Message.Title>Whoopsie, something went wrong!</Message.Title>
+          Looks like there is an error in the given query parameters.
+        </Message>
+      </div>
+    );
   }
 
-  const range = fromDateRange(params.range?.[0]);
-  const from = fromDate(range ? range.from : pointsUpdateDate);
-  const to = range && range.to ? fromDate(range.to) : undefined;
+  const { from, to } = result;
 
   return (
     <>
@@ -144,10 +145,7 @@ const CompositionsPage = async ({ params }: PageProps) => {
       </div>
       <Inline className="gap-2 pb-8 sm:gap-4" align="end">
         <SmallSamplesFilter />
-        <DateRangeFilter
-          pathname="/compositions"
-          defaultValue={toDate(from, to)}
-        />
+        <DateRangeFilter />
         <FactionFilter />
         <SortParam />
       </Inline>
