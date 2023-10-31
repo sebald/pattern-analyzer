@@ -53,7 +53,7 @@ export const db = new Kysely<Database>({
         database: 'main',
       }),
   }),
-  log: ['query', 'error'],
+  // log: ['query', 'error'],
 });
 
 export const initDatabase = async () =>
