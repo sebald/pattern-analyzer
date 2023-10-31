@@ -7,7 +7,14 @@ import { getTournamentsCount } from '@/lib/db/tournaments';
 import { formatDate, fromDate, toDate, today } from '@/lib/utils/date.utils';
 import { fromDateRange } from '@/lib/utils/url.utils';
 
-import { Caption, CardTableSkeleton, Inline, Title } from '@/ui';
+import {
+  Caption,
+  CardTableSkeleton,
+  Inline,
+  LineSkeleton,
+  Skeleton,
+  Title,
+} from '@/ui';
 import { Calendar, Rocket, Trophy } from '@/ui/icons';
 
 import { StatsHint } from '@/ui/stats/stats-hint';
@@ -44,6 +51,18 @@ const create = setup<CompositionData>([composition]);
 
 // Data
 // ---------------
+const getInfo = async (from: Date, to: Date | undefined) => {
+  const [tournaments, count] = await Promise.all([
+    getTournamentsCount({ from, to }),
+    getFactionCount({ from, to }),
+  ]);
+
+  return {
+    tournaments,
+    count,
+  };
+};
+
 const getStats = async (from: Date, to: Date | undefined) => {
   const [squads, tournaments, count] = await Promise.all([
     getSquads({ from, to }),
@@ -51,22 +70,31 @@ const getStats = async (from: Date, to: Date | undefined) => {
     getFactionCount({ from, to }),
   ]);
 
-  return {
-    stats: create(squads, {
-      count,
-      tournaments,
-    }),
-    meta: {
-      tournaments,
-      count,
-    },
-  };
+  return create(squads, {
+    count,
+    tournaments,
+  });
 };
 
-// Content (wrapped for suspense)
+// Info and Content Blocks
 // ---------------
+const Info = async ({ from, to }: { from: Date; to?: Date }) => {
+  const info = await getInfo(from, to);
+
+  return (
+    <>
+      <Inline className="whitespace-nowrap">
+        <Trophy className="h-3 w-3" /> {info.tournaments} Tournaments
+      </Inline>
+      <Inline className="whitespace-nowrap">
+        <Rocket className="h-3 w-3" /> {info.count.all} Squads
+      </Inline>
+    </>
+  );
+};
+
 const Content = async ({ from, to }: { from: Date; to?: Date }) => {
-  const { stats } = await getStats(from, to);
+  const stats = await getStats(from, to);
   return <Compositions data={stats.composition} />;
 };
 
@@ -86,11 +114,8 @@ const CompositionsPage = async ({ params }: PageProps) => {
   }
 
   const range = fromDateRange(params.range?.[0]);
-
   const from = fromDate(range ? range.from : pointsUpdateDate);
   const to = range && range.to ? fromDate(range.to) : undefined;
-
-  const { meta } = await getStats(from, to);
 
   return (
     <>
@@ -102,12 +127,18 @@ const CompositionsPage = async ({ params }: PageProps) => {
               <Calendar className="h-3 w-3" /> {formatDate(from)} -{' '}
               {formatDate(to || today())}
             </Inline>
-            <Inline className="whitespace-nowrap">
-              <Trophy className="h-3 w-3" /> {meta.tournaments} Tournaments
-            </Inline>
-            <Inline className="whitespace-nowrap">
-              <Rocket className="h-3 w-3" /> {meta.count.all} Squads
-            </Inline>
+            <Suspense
+              fallback={
+                <Skeleton>
+                  <Inline className="gap-4">
+                    <LineSkeleton className="h-3 w-32 bg-primary-200" />
+                    <LineSkeleton className="h-3 w-24 bg-primary-200" />
+                  </Inline>
+                </Skeleton>
+              }
+            >
+              <Info to={to} from={from} />
+            </Suspense>
           </Inline>
         </Caption>
       </div>
@@ -120,16 +151,16 @@ const CompositionsPage = async ({ params }: PageProps) => {
         <FactionFilter />
         <SortParam />
       </Inline>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
-        <div className="col-span-full">
-          <Suspense fallback={<CardTableSkeleton />}>
+      <Suspense fallback={<CardTableSkeleton />}>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
+          <div className="col-span-full">
             <Content to={to} from={from} />
-          </Suspense>
+          </div>
+          <div className="col-span-full pt-8 lg:col-start-2 lg:col-end-12">
+            <StatsHint />
+          </div>
         </div>
-        <div className="col-span-full pt-8 lg:col-start-2 lg:col-end-12">
-          <StatsHint />
-        </div>
-      </div>
+      </Suspense>
     </>
   );
 };
