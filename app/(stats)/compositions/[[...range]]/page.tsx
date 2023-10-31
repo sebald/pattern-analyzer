@@ -7,7 +7,7 @@ import { getTournamentsCount } from '@/lib/db/tournaments';
 import { formatDate, fromDate, toDate, today } from '@/lib/utils/date.utils';
 import { fromDateRange } from '@/lib/utils/url.utils';
 
-import { Caption, Inline, Title } from '@/ui';
+import { Caption, CardTableSkeleton, Inline, Title } from '@/ui';
 import { Calendar, Rocket, Trophy } from '@/ui/icons';
 
 import { StatsHint } from '@/ui/stats/stats-hint';
@@ -63,6 +63,13 @@ const getStats = async (from: Date, to: Date | undefined) => {
   };
 };
 
+// Content (wrapped for suspense)
+// ---------------
+const Content = async ({ from, to }: { from: Date; to?: Date }) => {
+  const { stats } = await getStats(from, to);
+  return <Compositions data={stats.composition} />;
+};
+
 // Props
 // ---------------
 interface PageProps {
@@ -83,7 +90,7 @@ const CompositionsPage = async ({ params }: PageProps) => {
   const from = fromDate(range ? range.from : pointsUpdateDate);
   const to = range && range.to ? fromDate(range.to) : undefined;
 
-  const { stats, meta } = await getStats(from, to);
+  const { meta } = await getStats(from, to);
 
   return (
     <>
@@ -113,16 +120,16 @@ const CompositionsPage = async ({ params }: PageProps) => {
         <FactionFilter />
         <SortParam />
       </Inline>
-      <Suspense fallback={<div>loading...</div>}>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
-          <div className="col-span-full">
-            <Compositions data={stats.composition} />
-          </div>
-          <div className="col-span-full pt-8 lg:col-start-2 lg:col-end-12">
-            <StatsHint />
-          </div>
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
+        <div className="col-span-full">
+          <Suspense fallback={<CardTableSkeleton />}>
+            <Content to={to} from={from} />
+          </Suspense>
         </div>
-      </Suspense>
+        <div className="col-span-full pt-8 lg:col-start-2 lg:col-end-12">
+          <StatsHint />
+        </div>
+      </div>
     </>
   );
 };
