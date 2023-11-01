@@ -12,7 +12,7 @@ const Loading = () => {
 };
 
 export const Filter = ({ children }: { children?: ReactNode }) => (
-  <Inline className="gap-2 pb-8 sm:gap-4" align="end">
+  <Inline className="gap-2 pb-6 sm:gap-4" align="end">
     <ParamsProvier>
       <Loading />
       {children}
