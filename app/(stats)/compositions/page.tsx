@@ -29,6 +29,7 @@ import { SortParam } from '@/ui/params/sort-param';
 import { Compositions } from './compositions';
 import { Suspense } from 'react';
 import { toDateRange } from '@/lib/utils/params.utils';
+import { Filter } from '@/ui/params/filter';
 
 // Metadata
 // ---------------
@@ -143,12 +144,12 @@ const CompositionsPage = async ({ searchParams }: PageProps) => {
           </Inline>
         </Caption>
       </div>
-      <Inline className="gap-2 pb-8 sm:gap-4" align="end">
+      <Filter>
         <SmallSamplesFilter />
         <DateRangeFilter />
         <FactionFilter />
         <SortParam />
-      </Inline>
+      </Filter>
       <Suspense fallback={<CardTableSkeleton />}>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
           <div className="col-span-full">
