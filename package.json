@@ -23,6 +23,7 @@
     "kysely": "0.26.3",
     "mysql2": "3.6.2",
     "next": "14.0.0",
+    "nextjs-google-analytics": "^2.3.3",
     "p-limit": "4.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
