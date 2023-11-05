@@ -1,6 +1,7 @@
 import { ImageResponse } from 'next/og';
 import type { NextRequest } from 'next/server';
 import shipIcons from '@/lib/data/ship-icons.json';
+import { baseUrl } from '@/lib/config';
 
 // Logo
 // ---------------
@@ -24,15 +25,15 @@ const Logo = ({ size }: { size: string }) => (
 
 // Fonts
 // ---------------
-const loadInter = fetch(
-  new URL('../../fonts/Inter-Black.ttf', import.meta.url)
-).then(async res => res.arrayBuffer());
-const loadMontserrat = fetch(
-  new URL('../../fonts/Montserrat-Black.ttf', import.meta.url)
-).then(async res => res.arrayBuffer());
-const loadXWingShips = fetch(
-  new URL('../../fonts/xwing-miniatures-ships.ttf', import.meta.url)
-).then(async res => res.arrayBuffer());
+const loadInter = fetch(`${baseUrl}/Inter-Black.ttf`).then(res =>
+  res.arrayBuffer()
+);
+const loadMontserrat = fetch(`${baseUrl}/Montserrat-Black.ttf`).then(res =>
+  res.arrayBuffer()
+);
+const loadXWingShips = fetch(`${baseUrl}/xwing-miniatures-ships.ttf`).then(
+  res => res.arrayBuffer()
+);
 
 // Handler
 // ---------------
