@@ -23,7 +23,7 @@ export const siteNavigation = [
   },
   {
     name: 'Compositions',
-    href: '/compositions',
+    href: '/composition',
   },
 ];
 
