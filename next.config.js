@@ -1,7 +1,7 @@
 // Security headers (from https://www.yagiz.co/securing-your-nextjs-13-application)
 const ContentSecurityPolicy = `
   default-src 'self' vercel.live;
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' cdn.vercel-insights.com vercel.live;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' cdn.vercel-insights.com vercel.live https://www.google-analytics.com https://ssl.google-analytics.com https://www.googletagmanager.com;
   style-src 'self' 'unsafe-inline';
   img-src * blob: data:;
   media-src 'none';
