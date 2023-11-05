@@ -127,24 +127,24 @@ const Page = async ({ params }: PageParams) => {
       <Card className="col-span-full md:col-span-6">
         <Card.Header>
           <Card.Title>Trend</Card.Title>
-          <Card.Body>
-            <TrendCurve value={stats.trend} />
-          </Card.Body>
         </Card.Header>
+        <Card.Body>
+          <TrendCurve value={stats.trend} />
+        </Card.Body>
       </Card>
       <PilotDetails
         className="col-span-full"
         ships={stats.ships}
         value={stats.pilot}
       />
-      <Card size="fit" inset="list" className="col-span-full">
+      {/* <Card size="fit" inset="list" className="col-span-full">
         <Card.Header>
           <Card.Title>Squads</Card.Title>
-          <Card.Body>
-            <SquadGroups value={stats.squads} />
-          </Card.Body>
         </Card.Header>
-      </Card>
+        <Card.Body>
+          <SquadGroups value={stats.squads} />
+        </Card.Body>
+      </Card> */}
     </div>
   );
 };
