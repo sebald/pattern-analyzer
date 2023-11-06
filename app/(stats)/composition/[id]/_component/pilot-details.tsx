@@ -72,13 +72,11 @@ export const PilotDetails = ({ className, ships, value }: PilotDetailProps) => {
                     </div>
                     <div className="flex flex-wrap gap-x-8 gap-y-4">
                       <Detail
-                        variant="secondary"
                         className="max-w-[150px]"
                         label="Percentile"
                         value={toPercentage(current.percentile)}
                       />
                       <Detail
-                        variant="secondary"
                         className="max-w-[150px]"
                         label="Deviation"
                         value={
@@ -88,7 +86,6 @@ export const PilotDetails = ({ className, ships, value }: PilotDetailProps) => {
                         }
                       />
                       <Detail
-                        variant="secondary"
                         className="max-w-[150px]"
                         label="Winrate"
                         value={
@@ -96,7 +93,6 @@ export const PilotDetails = ({ className, ships, value }: PilotDetailProps) => {
                         }
                       />
                       <Detail
-                        variant="secondary"
                         className="max-w-[150px]"
                         label="Frequency"
                         value={toPercentage(current.frequency)}

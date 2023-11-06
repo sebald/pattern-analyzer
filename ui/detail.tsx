@@ -12,7 +12,7 @@ const styles = {
       },
       variant: {
         default: '',
-        secondary: '',
+        primary: '',
       },
       size: {
         default: '',
@@ -27,8 +27,8 @@ const styles = {
   label: cva('text-sm font-medium leading-none', {
     variants: {
       variant: {
-        default: 'text-primary-500',
-        secondary: 'text-secondary-400',
+        default: 'text-secondary-400',
+        primary: 'text-primary-500',
       },
       size: {
         default: '',
@@ -43,8 +43,8 @@ const styles = {
   value: cva('', {
     variants: {
       variant: {
-        default: 'text-secondary-700',
-        secondary: 'text-secondary-950',
+        default: 'text-secondary-950',
+        primary: 'text-secondary-700',
       },
       size: {
         default: 'text-lg font-medium',
