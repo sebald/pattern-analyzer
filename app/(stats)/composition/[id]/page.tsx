@@ -77,7 +77,7 @@ const Page = async ({ params }: PageParams) => {
   }
 
   return (
-    <div className="flex flex-col gap-12">
+    <div className="flex flex-col gap-16">
       <div className="grid gap-4 pt-3 md:grid-cols-12">
         <Card className="col-span-full md:col-span-6">
           <Card.Header>
