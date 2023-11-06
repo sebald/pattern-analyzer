@@ -52,7 +52,9 @@ export const TrendCurve = ({ value }: TrendCurveProps) => {
           legendPosition: 'middle',
           legendOffset: -45,
         }}
-        pointLabel={({ y }) => toPercentage(y as number)}
+        pointLabel={data =>
+          `${toPercentage(data.y as number)} (${(data as any).count})`
+        }
         enablePointLabel
         enableArea
         enableGridX={false}
