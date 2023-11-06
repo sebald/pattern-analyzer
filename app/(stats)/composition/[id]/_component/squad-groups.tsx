@@ -1,12 +1,21 @@
 'use client';
 
-import { Accordion, Badge, CopyButton, Detail, Squad, Timeline } from '@/ui';
+import {
+  Accordion,
+  Badge,
+  CopyButton,
+  Detail,
+  Link,
+  Squad,
+  Timeline,
+} from '@/ui';
 
-import { getPilotName } from '@/lib/get-value';
-import { type SquadCompositionStats } from '@/lib/stats/details/composition';
+import { Copy, Trophy } from '@/ui/icons';
 import { formatDate } from '@/lib/utils/date.utils';
+import { getPilotName } from '@/lib/get-value';
+import { ordinalize } from '@/lib/utils/number.utils';
 import { toPercentage } from '@/lib/utils/math.utils';
-import { Copy } from '@/ui/icons';
+import { type SquadCompositionStats } from '@/lib/stats/details/composition';
 
 // Props
 // ---------------
@@ -34,35 +43,56 @@ export const SquadGroups = ({ value }: SquadGroupsProps) => {
             <div className="flex flex-col gap-8 pt-6">
               <div className="flex flex-wrap gap-8 px-2">
                 <Detail
+                  size="large"
                   label="Percentile"
                   value={toPercentage(current.percentile)}
                 />
                 <Detail
+                  size="large"
                   label="Deviation"
                   value={
                     current.deviation ? toPercentage(current.deviation) : '-'
                   }
                 />
                 <Detail
+                  size="large"
                   label="Winrate"
                   value={current.winrate ? toPercentage(current.winrate) : '-'}
                 />
               </div>
               <Timeline>
-                {current.items.map(({ date, player, xws }) => (
-                  <Timeline.Item key={date + player}>
-                    <Timeline.Header>
-                      {formatDate(new Date(date))}
-                      <Timeline.Caption>by {player}</Timeline.Caption>
-                    </Timeline.Header>
-                    <Timeline.Body className="flex flex-1 flex-col items-start justify-between gap-4 md:mt-[3px] md:gap-6 lg:flex-row">
-                      <Squad variant="narrow" xws={xws} />
-                      <CopyButton size="small" content={JSON.stringify(xws)}>
-                        <Copy className="inline-block h-4 w-4" /> Copy XWS
-                      </CopyButton>
-                    </Timeline.Body>
-                  </Timeline.Item>
-                ))}
+                {current.items.map(
+                  ({ date, rank, tournamentId, player, xws }) => (
+                    <Timeline.Item key={date + player}>
+                      <Timeline.Header>
+                        {formatDate(new Date(date))}
+                        <Timeline.Caption>
+                          by {player} (
+                          {ordinalize(rank.elimination || rank.swiss)})
+                        </Timeline.Caption>
+                      </Timeline.Header>
+                      <Timeline.Body className="flex flex-1 flex-col items-start justify-between gap-4 md:mt-[3px] md:gap-6 lg:flex-row">
+                        <Squad variant="narrow" xws={xws} />
+                        <div className="flex gap-4 lg:flex-col lg:items-end">
+                          <Link
+                            variant="button"
+                            size="small"
+                            href={`/event/listfortress/${tournamentId}`}
+                          >
+                            <Trophy className="inline-block h-4 w-4" /> View
+                            Tournament
+                          </Link>
+                          <CopyButton
+                            size="small"
+                            content={JSON.stringify(xws)}
+                          >
+                            <Copy className="inline-block h-4 w-4" /> Copy XWS
+                          </CopyButton>
+                        </div>
+                      </Timeline.Body>
+                    </Timeline.Item>
+                  )
+                )}
               </Timeline>
             </div>
           </Accordion.Content>

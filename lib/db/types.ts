@@ -35,6 +35,7 @@ export interface SquadEntitiy {
  */
 export interface SquadEntitiyWithXWS {
   id: number;
+  tournamentId: number;
   player: string;
   date: string;
   rank: {

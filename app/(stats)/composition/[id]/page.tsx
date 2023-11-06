@@ -61,8 +61,10 @@ export const generateMetadata = ({ params }: PageParams) => {
 // Data
 // ---------------
 const getCompositionStats = async (composition: string, from: Date) => {
-  const squads = await getSquads({ from, composition });
-  const count = await getFactionCount({ from });
+  const [squads, count] = await Promise.all([
+    getSquads({ from, composition }),
+    getFactionCount({ from }),
+  ]);
   return compositionDetails({ composition, squads, count });
 };
 

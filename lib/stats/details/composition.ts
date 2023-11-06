@@ -36,11 +36,16 @@ export interface SquadCompositionData {
      * Pilot ids separated by "."
      */
     id: string;
+    tournamentId: number;
     player: string;
     date: string;
     xws: XWSSquad;
     percentile: number;
     record: GameRecord;
+    rank: {
+      swiss: number;
+      elimination?: number;
+    };
   }[];
 }
 
@@ -72,6 +77,11 @@ export interface SquadCompositionStats {
         xws: XWSSquad;
         date: string;
         player: string;
+        tournamentId: number;
+        rank: {
+          swiss: number;
+          elimination?: number;
+        };
       }[];
       frequency: number;
       winrate: number | null;
@@ -157,7 +167,16 @@ const groupSquads = (squads: SquadCompositionData['squads']) => {
     [id: string]: {
       percentiles: number[];
       record: GameRecord;
-      items: { xws: XWSSquad; date: string; player: string }[];
+      items: {
+        xws: XWSSquad;
+        date: string;
+        tournamentId: number;
+        player: string;
+        rank: {
+          swiss: number;
+          elimination?: number;
+        };
+      }[];
     };
   } = {};
   const groups: SquadCompositionStats['squads'] = {};
@@ -181,6 +200,8 @@ const groupSquads = (squads: SquadCompositionData['squads']) => {
       xws: squad.xws,
       date: squad.date,
       player: squad.player,
+      tournamentId: squad.tournamentId,
+      rank: squad.rank,
     });
 
     data[squad.id] = current;
@@ -301,10 +322,12 @@ export const compositionDetails = ({
 
     stats.squads.push({
       id: createPilotsId(current.xws),
+      tournamentId: current.tournamentId,
       player: current.player,
       xws: current.xws,
       date: current.date,
       record: current.record,
+      rank: current.rank,
       percentile: current.percentile,
     });
 
