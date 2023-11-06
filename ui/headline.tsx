@@ -20,12 +20,26 @@ const styles = cva(['scroll-m-20'], {
     },
     variant: {
       default: '',
-      section: 'text-primary-700 text-4xl',
+      section: 'text-primary-800',
     },
   },
+  compoundVariants: [
+    {
+      level: '2',
+      variant: 'section',
+      className:
+        'text-2xl font-extrabold uppercase md:text-4xl md:tracking-wide pb-4 pt-0',
+    },
+    {
+      level: '4',
+      variant: 'section',
+      className: 'font-semi p-0',
+    },
+  ],
   defaultVariants: {
     level: '1',
     font: 'headline',
+    variant: 'default',
   },
 });
 

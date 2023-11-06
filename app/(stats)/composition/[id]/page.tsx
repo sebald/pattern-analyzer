@@ -11,7 +11,7 @@ import { getShipName } from '@/lib/get-value';
 import { pointsUpdateDate } from '@/lib/config';
 import { toPercentage } from '@/lib/utils';
 
-import { Card, Detail, ShipIcon } from '@/ui';
+import { Card, Detail, Headline, ShipIcon } from '@/ui';
 
 import { PilotDetails } from './_component/pilot-details';
 import { SquadGroups } from './_component/squad-groups';
@@ -77,74 +77,76 @@ const Page = async ({ params }: PageParams) => {
   }
 
   return (
-    <div className="grid gap-4 pt-3 md:grid-cols-12">
-      <Card className="col-span-full md:col-span-6">
-        <Card.Header>
-          <Card.Title>Overview</Card.Title>
-        </Card.Header>
-        <Card.Body className="flex flex-col gap-8 px-2 lg:px-4">
-          <Detail
-            label="Chassis"
-            size="large"
-            value={
-              <div className="flex flex-wrap gap-x-4 gap-y-1 pt-0.5">
-                {stats.ships.map((ship, idx) => (
-                  <div key={idx} className="flex items-center gap-1">
-                    <ShipIcon key={idx} ship={ship} className="text-3xl" />
-                    <span className="whitespace-nowrap text-lg">
-                      {getShipName(ship)}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            }
-          />
-          <div className="grid grid-cols-[repeat(auto-fit,_minmax(min(155px,100%),1fr))] gap-2 pb-2">
+    <div className="flex flex-col gap-12">
+      <div className="grid gap-4 pt-3 md:grid-cols-12">
+        <Card className="col-span-full md:col-span-6">
+          <Card.Header>
+            <Card.Title>Overview</Card.Title>
+          </Card.Header>
+          <Card.Body className="flex flex-col gap-8 px-2 lg:px-4">
             <Detail
-              label="Percentile"
+              label="Chassis"
               size="large"
-              value={toPercentage(stats.percentile)}
+              value={
+                <div className="flex flex-wrap gap-x-4 gap-y-1 pt-0.5">
+                  {stats.ships.map((ship, idx) => (
+                    <div key={idx} className="flex items-center gap-1">
+                      <ShipIcon ship={ship} className="text-3xl" />
+                      <span className="whitespace-nowrap text-lg">
+                        {getShipName(ship)}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              }
             />
-            <Detail
-              label="Deviation"
-              size="large"
-              value={toPercentage(stats.deviation)}
-            />
-            <Detail
-              label="Winrate"
-              size="large"
-              value={stats.winrate !== null ? toPercentage(stats.winrate) : '-'}
-            />
-            <Detail
-              label="Frequency (in Faction)"
-              size="large"
-              value={toPercentage(stats.frequency)}
-            />
-            <Detail label="Count" size="large" value={stats.count} />
-          </div>
-        </Card.Body>
-      </Card>
-      <Card className="col-span-full md:col-span-6">
-        <Card.Header>
-          <Card.Title>Trend</Card.Title>
-        </Card.Header>
-        <Card.Body>
-          <TrendCurve value={stats.trend} />
-        </Card.Body>
-      </Card>
-      <PilotDetails
-        className="col-span-full"
-        ships={stats.ships}
-        value={stats.pilot}
-      />
-      {/* <Card size="fit" inset="list" className="col-span-full">
-        <Card.Header>
-          <Card.Title>Squads</Card.Title>
-        </Card.Header>
-        <Card.Body>
-          <SquadGroups value={stats.squads} />
-        </Card.Body>
-      </Card> */}
+            <div className="grid grid-cols-[repeat(auto-fit,_minmax(min(155px,100%),1fr))] gap-2 pb-2">
+              <Detail
+                label="Percentile"
+                size="large"
+                value={toPercentage(stats.percentile)}
+              />
+              <Detail
+                label="Deviation"
+                size="large"
+                value={toPercentage(stats.deviation)}
+              />
+              <Detail
+                label="Winrate"
+                size="large"
+                value={
+                  stats.winrate !== null ? toPercentage(stats.winrate) : '-'
+                }
+              />
+              <Detail
+                label="Frequency (in Faction)"
+                size="large"
+                value={toPercentage(stats.frequency)}
+              />
+              <Detail label="Count" size="large" value={stats.count} />
+            </div>
+          </Card.Body>
+        </Card>
+        <Card className="col-span-full md:col-span-6">
+          <Card.Header>
+            <Card.Title>Trend</Card.Title>
+          </Card.Header>
+          <Card.Body>
+            <TrendCurve value={stats.trend} />
+          </Card.Body>
+        </Card>
+      </div>
+      <div>
+        <Headline level="2" variant="section">
+          Squads
+        </Headline>
+        <Card size="fit" inset="list">
+          <Card.Body>
+            <SquadGroups value={stats.squads} />
+          </Card.Body>
+        </Card>
+      </div>
+      <PilotDetails ships={stats.ships} value={stats.pilot} />
     </div>
   );
 };
