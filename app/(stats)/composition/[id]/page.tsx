@@ -134,7 +134,7 @@ const Page = async ({ params }: PageParams) => {
             <Card.Title>Trend</Card.Title>
           </Card.Header>
           <Card.Body>
-            <TrendCurve value={stats.trend} />
+            <TrendCurve from={pointsUpdateDate} value={stats.trend} />
           </Card.Body>
         </Card>
       </div>
