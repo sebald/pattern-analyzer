@@ -164,8 +164,8 @@ devDependencies:
     specifier: 5.2.2
     version: 5.2.2
   xwing-data2:
-    specifier: github:danrs/xwing-data2#6735cf4
-    version: github.com/danrs/xwing-data2/6735cf4
+    specifier: github:danrs/xwing-data2#4a107f7
+    version: github.com/danrs/xwing-data2/4a107f7
   yasb:
     specifier: github:raithos/xwing#6cc31c9
     version: github.com/raithos/xwing/6cc31c9
@@ -7090,8 +7090,8 @@ packages:
       yaml: 2.3.1
     dev: true
 
-  github.com/danrs/xwing-data2/6735cf4:
-    resolution: {tarball: https://codeload.github.com/danrs/xwing-data2/tar.gz/6735cf4}
+  github.com/danrs/xwing-data2/4a107f7:
+    resolution: {tarball: https://codeload.github.com/danrs/xwing-data2/tar.gz/4a107f7}
     name: xwing-data2
     version: 3.9.1
     dependencies:
