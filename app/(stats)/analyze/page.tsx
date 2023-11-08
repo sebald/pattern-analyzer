@@ -1,12 +1,13 @@
 import { createMetadata } from '@/lib/metadata';
 import { toDateRange } from '@/lib/utils/params.utils';
 
-import { Caption, Message, Title } from '@/ui';
+import { Caption, CardChartSkeleton, Message, Title } from '@/ui';
 import { Filter } from '@/ui/params/filter';
 import { DateRangeFilter } from '@/ui/params/date-range-filter';
 import { StatsInfo } from '@/ui/stats/stats-info';
 
 import { Content } from './content';
+import { Suspense } from 'react';
 
 // Metadata
 // ---------------
@@ -14,6 +15,17 @@ export const metadata = createMetadata({
   title: 'Analyze',
   description: 'Analyze the current X-Wing meta!',
 });
+
+// Helpers
+// ---------------
+const Loading = () => (
+  <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+    <CardChartSkeleton />
+    <CardChartSkeleton />
+    <CardChartSkeleton />
+    <CardChartSkeleton />
+  </div>
+);
 
 // Props
 // ---------------
@@ -53,7 +65,9 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
       <Filter>
         <DateRangeFilter />
       </Filter>
-      <Content from={from} to={to} />
+      <Suspense fallback={<Loading />}>
+        <Content from={from} to={to} />
+      </Suspense>
     </>
   );
 };

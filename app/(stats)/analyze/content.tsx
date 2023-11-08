@@ -65,9 +65,16 @@ const create = setup<StatsData>([
   upgrade,
 ]);
 
+// Props
+// ---------------
+export interface ContentProps {
+  from: Date;
+  to?: Date;
+}
+
 // Component
 // ---------------
-export const Content = async ({ from, to }: { from: Date; to?: Date }) => {
+const AsyncContent = async ({ from, to }: ContentProps) => {
   const [squads, tournaments, count] = await Promise.all([
     getSquads({ from, to }),
     getTournamentsCount({ from, to }),
@@ -80,7 +87,7 @@ export const Content = async ({ from, to }: { from: Date; to?: Date }) => {
   });
 
   return (
-    <Suspense fallback={<Loading />}>
+    <>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
         <div className="md:col-span-6">
           <FactionDistribution value={stats.faction} total={count.all} />
@@ -119,6 +126,12 @@ export const Content = async ({ from, to }: { from: Date; to?: Date }) => {
           <StatsHint />
         </div>
       </div>
-    </Suspense>
+    </>
   );
 };
+
+export const Content = (props: ContentProps) => (
+  <Suspense fallback={<Loading />}>
+    <AsyncContent {...props} />
+  </Suspense>
+);
