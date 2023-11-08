@@ -1,7 +1,7 @@
 import { createMetadata } from '@/lib/metadata';
 import { getFactionCount, getSquads } from '@/lib/db/squads';
 import { getTournamentsCount } from '@/lib/db/tournaments';
-import { formatDate, fromDate, toDate, today } from '@/lib/utils/date.utils';
+import { formatDate, today } from '@/lib/utils/date.utils';
 
 import {
   Caption,
