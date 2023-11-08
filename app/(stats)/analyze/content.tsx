@@ -7,6 +7,7 @@ import { FactionPerformance } from '@/ui/stats/faction-performance';
 import { FactionVictories } from '@/ui/stats/faction-victories';
 import { PilotCostDistribution } from '@/ui/stats/pilot-cost-distribution';
 import { PilotSkillDistribution } from '@/ui/stats/pilot-skill-distribution';
+import { CardChartSkeleton } from '@/ui/skeleton';
 import { PilotStats } from '@/ui/stats/pilot-stats';
 import { SquadSize } from '@/ui/stats/squad-size';
 import { StatsHint } from '@/ui/stats/stats-hint';
@@ -30,9 +31,19 @@ import {
   squadSize,
   upgrade,
 } from '@/lib/stats/module';
+import { Suspense } from 'react';
 
 // Helpers
 // ---------------
+const Loading = () => (
+  <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+    <CardChartSkeleton />
+    <CardChartSkeleton />
+    <CardChartSkeleton />
+    <CardChartSkeleton />
+  </div>
+);
+
 interface StatsData
   extends CompositionData,
     FactionData,
@@ -69,40 +80,45 @@ export const Content = async ({ from, to }: { from: Date; to?: Date }) => {
   });
 
   return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
-      <div className="md:col-span-6">
-        <FactionDistribution value={stats.faction} total={count.all} />
+    <Suspense fallback={<Loading />}>
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
+        <div className="md:col-span-6">
+          <FactionDistribution value={stats.faction} total={count.all} />
+        </div>
+        <div className="md:col-span-6">
+          <FactionPerformance value={stats.faction} />
+        </div>
+        <div className="md:col-span-6">
+          <FactionVictories value={stats.faction} total={tournaments} />
+        </div>
+        <div className="md:col-span-6">
+          <SquadSize
+            value={stats.squadSize}
+            total={count.all - count.unknown}
+          />
+        </div>
+        <div className="col-span-full">
+          <ChassisDistribution value={stats.ship} />
+        </div>
+        <div className="md:col-span-6">
+          <PilotCostDistribution value={stats.pilotCostDistribution} />
+        </div>
+        <div className="md:col-span-6">
+          <PilotSkillDistribution value={stats.pilotSkillDistribution} />
+        </div>
+        <div className="col-span-full">
+          <PilotStats value={stats.pilot} />
+        </div>
+        <div className="col-span-full">
+          <UpgradeStats value={stats.upgrade} />
+        </div>
+        <div className="col-span-full">
+          <CompositionStats value={stats.composition} />
+        </div>
+        <div className="col-span-full pt-8 lg:col-start-2 lg:col-end-12">
+          <StatsHint />
+        </div>
       </div>
-      <div className="md:col-span-6">
-        <FactionPerformance value={stats.faction} />
-      </div>
-      <div className="md:col-span-6">
-        <FactionVictories value={stats.faction} total={tournaments} />
-      </div>
-      <div className="md:col-span-6">
-        <SquadSize value={stats.squadSize} total={count.all - count.unknown} />
-      </div>
-      <div className="col-span-full">
-        <ChassisDistribution value={stats.ship} />
-      </div>
-      <div className="md:col-span-6">
-        <PilotCostDistribution value={stats.pilotCostDistribution} />
-      </div>
-      <div className="md:col-span-6">
-        <PilotSkillDistribution value={stats.pilotSkillDistribution} />
-      </div>
-      <div className="col-span-full">
-        <PilotStats value={stats.pilot} />
-      </div>
-      <div className="col-span-full">
-        <UpgradeStats value={stats.upgrade} />
-      </div>
-      <div className="col-span-full">
-        <CompositionStats value={stats.composition} />
-      </div>
-      <div className="col-span-full pt-8 lg:col-start-2 lg:col-end-12">
-        <StatsHint />
-      </div>
-    </div>
+    </Suspense>
   );
 };

@@ -21,7 +21,6 @@ interface AnalyzePageProps {
   searchParams: {
     from: string;
     to: string;
-    'small-samples': 'show' | 'hide';
   };
 }
 
