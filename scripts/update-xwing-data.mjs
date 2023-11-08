@@ -18,6 +18,11 @@ const manifest = read('data/manifest.json');
 // Faction Data
 // ---------------
 
+// Not sure why we have to do this ...
+const ADDITIONAL_PILOTS = {
+  'fennrau-rebel-fang': 'Fenn Rau (Fang Fighter)',
+};
+
 const PILOT_SUFFIX = {
   // Faction Hint
   'hansolo-scumandvillainy': 'Scum',
@@ -192,7 +197,7 @@ const upgrades = manifest.upgrades.reduce((o, file) => {
 const display = {
   faction: {},
   ship: {},
-  pilot: {},
+  pilot: { ...ADDITIONAL_PILOTS },
   upgrades: {},
 };
 
@@ -231,6 +236,9 @@ read(manifest.factions[0]).forEach(({ xws: factionId, name, icon }) => {
 
     Object.values(ship.pilots).forEach(pilot => {
       display.pilot[pilot.id] = pilot.name;
+      if (/fenn/.test(pilot.id)) {
+        console.log(pilot.id, pilot.name);
+      }
 
       if (pilot.standardLoadout) {
         normalization[pilot.id] = {
