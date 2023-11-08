@@ -32,7 +32,7 @@ export const metadata = createMetadata({
 // ---------------
 const create = setup<CompositionData>([composition]);
 
-// Async content block
+// Content
 // ---------------
 const Content = async ({ from, to }: { from: Date; to?: Date }) => {
   const [squads, tournaments, count] = await Promise.all([
@@ -60,9 +60,9 @@ interface PageProps {
 // Page
 // ---------------
 const CompositionsPage = async ({ searchParams }: PageProps) => {
-  const result = toDateRange(searchParams);
+  const params = toDateRange(searchParams);
 
-  if (result.error) {
+  if (params.error) {
     return (
       <div className="grid flex-1 place-items-center">
         <Message variant="error">
@@ -73,7 +73,7 @@ const CompositionsPage = async ({ searchParams }: PageProps) => {
     );
   }
 
-  const { from, to } = result;
+  const { from, to } = params;
 
   return (
     <>
