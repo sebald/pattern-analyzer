@@ -1,6 +1,3 @@
-import { z } from 'zod';
-
-import { pointsUpdateDate } from '@/lib/config';
 import { createMetadata } from '@/lib/metadata';
 import { getFactionCount, getSquads } from '@/lib/db/squads';
 import { getTournamentsCount } from '@/lib/db/tournaments';
