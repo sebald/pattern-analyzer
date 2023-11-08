@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { getSquads, getFactionCount } from '@/lib/db/squads';
 import { getTournamentsCount } from '@/lib/db/tournaments';
 import { ChassisDistribution } from '@/ui/stats/chassis-distribution';
@@ -31,7 +32,6 @@ import {
   squadSize,
   upgrade,
 } from '@/lib/stats/module';
-import { Suspense } from 'react';
 
 // Helpers
 // ---------------
