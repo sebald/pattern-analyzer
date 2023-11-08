@@ -42,13 +42,6 @@ import { StatsHint } from '@/ui/stats/stats-hint';
 import { UpgradeStats } from '@/ui/stats/upgrade-stats';
 import { getTournamentsCount } from '@/lib/db/tournaments';
 
-// Config
-// ---------------
-/**
- * Segment Config (see: https://beta.nextjs.org/docs/api-reference/segment-config)
- */
-export const revalidate = 21600; // 6 hours
-
 // Metadata
 // ---------------
 export const metadata = createMetadata({

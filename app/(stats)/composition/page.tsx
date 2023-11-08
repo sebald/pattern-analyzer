@@ -1,18 +1,8 @@
 import { createMetadata } from '@/lib/metadata';
 import { getFactionCount, getSquads } from '@/lib/db/squads';
 import { getTournamentsCount } from '@/lib/db/tournaments';
-import { formatDate, today } from '@/lib/utils/date.utils';
 
-import {
-  Caption,
-  CardTableSkeleton,
-  Inline,
-  LineSkeleton,
-  Message,
-  Skeleton,
-  Title,
-} from '@/ui';
-import { Calendar, Rocket, Trophy } from '@/ui/icons';
+import { Caption, CardTableSkeleton, Message, Title } from '@/ui';
 
 import { StatsHint } from '@/ui/stats/stats-hint';
 import { setup } from '@/lib/stats';
@@ -27,6 +17,7 @@ import { Compositions } from './compositions';
 import { Suspense } from 'react';
 import { toDateRange } from '@/lib/utils/params.utils';
 import { Filter } from '@/ui/params/filter';
+import { StatsInfo } from '@/ui/stats/stats-info';
 
 // Metadata
 // ---------------
@@ -41,51 +32,19 @@ export const metadata = createMetadata({
 // ---------------
 const create = setup<CompositionData>([composition]);
 
-// Data
+// Async content block
 // ---------------
-const getInfo = async (from: Date, to: Date | undefined) => {
-  const [tournaments, count] = await Promise.all([
-    getTournamentsCount({ from, to }),
-    getFactionCount({ from, to }),
-  ]);
-
-  return {
-    tournaments,
-    count,
-  };
-};
-
-const getStats = async (from: Date, to: Date | undefined) => {
+const Content = async ({ from, to }: { from: Date; to?: Date }) => {
   const [squads, tournaments, count] = await Promise.all([
     getSquads({ from, to }),
     getTournamentsCount({ from, to }),
     getFactionCount({ from, to }),
   ]);
-
-  return create(squads, {
+  const stats = create(squads, {
     count,
     tournaments,
   });
-};
 
-// Info and Content Blocks
-// ---------------
-const Info = async ({ from, to }: { from: Date; to?: Date }) => {
-  const info = await getInfo(from, to);
-  return (
-    <>
-      <Inline className="whitespace-nowrap">
-        <Trophy className="h-3 w-3" /> {info.tournaments} Tournaments
-      </Inline>
-      <Inline className="whitespace-nowrap">
-        <Rocket className="h-3 w-3" /> {info.count.all} Squads
-      </Inline>
-    </>
-  );
-};
-
-const Content = async ({ from, to }: { from: Date; to?: Date }) => {
-  const stats = await getStats(from, to);
   return <Compositions data={stats.composition} />;
 };
 
@@ -121,24 +80,7 @@ const CompositionsPage = async ({ searchParams }: PageProps) => {
       <div className="pb-6">
         <Title>Compositions</Title>
         <Caption>
-          <Inline className="gap-4">
-            <Inline className="whitespace-nowrap">
-              <Calendar className="h-3 w-3" /> {formatDate(from)} -{' '}
-              {formatDate(to || today())}
-            </Inline>
-            <Suspense
-              fallback={
-                <Skeleton>
-                  <Inline className="gap-4">
-                    <LineSkeleton className="h-3 w-32 bg-primary-200" />
-                    <LineSkeleton className="h-3 w-24 bg-primary-200" />
-                  </Inline>
-                </Skeleton>
-              }
-            >
-              <Info to={to} from={from} />
-            </Suspense>
-          </Inline>
+          <StatsInfo from={from} to={to} />
         </Caption>
       </div>
       <Filter>
