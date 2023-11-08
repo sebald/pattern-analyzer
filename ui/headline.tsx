@@ -21,6 +21,7 @@ const styles = cva(['scroll-m-20'], {
     variant: {
       default: '',
       section: 'text-primary-800',
+      subsection: 'text-primary-800/60',
     },
   },
   compoundVariants: [
@@ -32,7 +33,7 @@ const styles = cva(['scroll-m-20'], {
     },
     {
       level: '4',
-      variant: 'section',
+      variant: 'subsection',
       className: 'font-semi p-0',
     },
   ],

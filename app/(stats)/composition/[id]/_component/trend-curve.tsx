@@ -79,14 +79,14 @@ export const TrendCurve = ({ from, to, value }: TrendCurveProps) => {
             style={{ pointerEvents: 'none' }}
           />
         )}
-        pointLabelYOffset={-15}
+        pointLabelYOffset={-12}
         enablePointLabel
         enableArea
         enableGridX={false}
         defs={[
           linearGradientDef('gradient', [
-            { offset: 0, color: '#5155b1' },
-            { offset: 100, color: '#96a6e3' },
+            { offset: 0, color: '#8490db' },
+            { offset: 100, color: '#d0dcf5' },
           ]),
         ]}
         colors="#5155b1"

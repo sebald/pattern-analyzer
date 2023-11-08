@@ -45,7 +45,7 @@ export const PilotDetails = ({ className, ships, value }: PilotDetailProps) => {
       <div className="flex flex-col gap-14">
         {Object.entries(data).map(([ship, pilots]) => (
           <div key={ship} className="flex flex-col gap-2">
-            <Headline level="4" variant="section">
+            <Headline level="4" variant="subsection">
               <div className="flex items-center gap-2">
                 <ShipIcon ship={ship} className="text-xl" />
                 <span className="whitespace-nowrap text-lg">
