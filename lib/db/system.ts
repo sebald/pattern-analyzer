@@ -9,14 +9,6 @@ export const setLastSync = async () => {
     .values({ key: 'last_sync', value: now() })
     .onDuplicateKeyUpdate({ key: 'last_sync' })
     .execute();
-
-  console.log(
-    db
-      .insertInto('system')
-      .values({ key: 'last_sync', value: now() })
-      .onDuplicateKeyUpdate({ key: 'last_sync' })
-      .compile()
-  );
 };
 
 export const getLastSync = async () => {
