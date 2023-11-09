@@ -97,7 +97,7 @@ const AsyncContent = async ({ from, to }: ContentProps) => {
           />
         </div>
         <div className="md:col-span-6">
-          <FactionPerformance value={stats.faction} />
+          <FactionPerformance value={stats.faction} ignoreUnknown />
         </div>
         <div className="md:col-span-6">
           <FactionVictories value={stats.faction} total={tournaments} />

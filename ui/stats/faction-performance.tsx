@@ -16,11 +16,15 @@ export interface FactionPerformanceProps {
       deviation: number;
     };
   };
+  ignoreUnknown?: boolean;
 }
 
 // Component
 // ---------------
-export const FactionPerformance = ({ value }: FactionPerformanceProps) => {
+export const FactionPerformance = ({
+  value,
+  ignoreUnknown,
+}: FactionPerformanceProps) => {
   const data = Object.entries(value)
     .map(([key, { percentile, deviation }]) => {
       const faction = key as XWSFaction | 'unknown';
@@ -32,7 +36,7 @@ export const FactionPerformance = ({ value }: FactionPerformanceProps) => {
     })
     // Remove "unknown" if everything was parsed!
     .filter(({ faction, percentile }) =>
-      faction !== 'unknown' ? true : percentile > 0
+      faction !== 'unknown' ? true : ignoreUnknown ? false : percentile > 0
     );
 
   return (
