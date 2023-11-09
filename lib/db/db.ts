@@ -45,13 +45,12 @@ export interface Database {
 // ---------------
 export const db = new Kysely<Database>({
   dialect: new MysqlDialect({
-    pool: async () =>
-      createPool({
-        host: process.env.DATABASE_HOST,
-        user: process.env.DATABASE_USERNAME,
-        password: process.env.DATABASE_PASSWORD,
-        database: 'main',
-      }),
+    pool: createPool({
+      host: process.env.DATABASE_HOST,
+      user: process.env.DATABASE_USERNAME,
+      password: process.env.DATABASE_PASSWORD,
+      database: 'main',
+    }),
   }),
   // log: ['query', 'error'],
 });
