@@ -90,7 +90,11 @@ const AsyncContent = async ({ from, to }: ContentProps) => {
     <>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
         <div className="md:col-span-6">
-          <FactionDistribution value={stats.faction} total={count.all} />
+          <FactionDistribution
+            value={stats.faction}
+            total={count.all}
+            ignoreUnknown
+          />
         </div>
         <div className="md:col-span-6">
           <FactionPerformance value={stats.faction} />
