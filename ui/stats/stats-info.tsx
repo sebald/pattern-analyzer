@@ -8,12 +8,36 @@ import { Trophy, Rocket, Calendar } from '@/ui/icons';
 import { Inline } from '@/ui/inline';
 import { Skeleton, LineSkeleton } from '@/ui/skeleton';
 
-export const StatsInfo = async ({ from, to }: { from: Date; to?: Date }) => {
+// Props
+// ---------------
+export interface StatsInfoProps {
+  from: Date;
+  to?: Date;
+}
+
+// Async Content
+// ---------------
+const AsyncStatsInfo = async ({ from, to }: StatsInfoProps) => {
   const [tournaments, count] = await Promise.all([
     getTournamentsCount({ from, to }),
     getFactionCount({ from, to }),
   ]);
 
+  return (
+    <>
+      <Inline className="whitespace-nowrap">
+        <Trophy className="h-3 w-3" /> {tournaments} Tournaments
+      </Inline>
+      <Inline className="whitespace-nowrap">
+        <Rocket className="h-3 w-3" /> {count.all} Squads
+      </Inline>
+    </>
+  );
+};
+
+// Component
+// ---------------
+export const StatsInfo = ({ from, to }: StatsInfoProps) => {
   return (
     <Inline className="gap-4">
       <Inline className="whitespace-nowrap">
@@ -30,12 +54,7 @@ export const StatsInfo = async ({ from, to }: { from: Date; to?: Date }) => {
           </Skeleton>
         }
       >
-        <Inline className="whitespace-nowrap">
-          <Trophy className="h-3 w-3" /> {tournaments} Tournaments
-        </Inline>
-        <Inline className="whitespace-nowrap">
-          <Rocket className="h-3 w-3" /> {count.all} Squads
-        </Inline>
+        <AsyncStatsInfo from={from} to={to} />
       </Suspense>
     </Inline>
   );
