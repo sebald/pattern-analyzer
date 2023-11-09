@@ -3,12 +3,12 @@ import { db } from './db';
 
 // Last Sync
 // ---------------
-export const setLastSync = async () =>
+export const setLastSync = () =>
   db
     .insertInto('system')
     .values({ key: 'last_sync', value: now() })
     .onDuplicateKeyUpdate({ key: 'last_sync' })
-    .executeTakeFirst();
+    .execute();
 
 export const getLastSync = async () => {
   const { value } = await db

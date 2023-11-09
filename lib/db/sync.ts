@@ -3,7 +3,7 @@ import { percentile } from '@/lib/utils';
 import { toCompositionId, normalize } from '@/lib/xws';
 
 import { addSquads } from './squads';
-import { setLastSync } from './system';
+import { getLastSync, setLastSync } from './system';
 import { addTournaments } from './tournaments';
 
 export const sync = async (date: Date) => {
@@ -20,7 +20,11 @@ export const sync = async (date: Date) => {
   );
 
   if (tournaments.length === 0) {
+    const a = await getLastSync();
+    console.log(a);
     await setLastSync();
+    const b = await getLastSync();
+    console.log(b);
     return {
       name: 'Sync Complete!',
       message: 'Already up to date!',

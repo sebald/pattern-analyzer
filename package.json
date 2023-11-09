@@ -74,7 +74,7 @@
     "test": "jest",
     "clean": "rm -rf .next",
     "db:setup": "tsx ./scripts/setup-database.ts",
-    "db:query": "tsx ./scripts/query-database.ts",
+    "db:sync": "tsx ./scripts/sync-database.ts",
     "update:xwing": "zx scripts/update-xwing-data.mjs",
     "update:yasb": "zx scripts/update-yasb-data.mjs"
   }
