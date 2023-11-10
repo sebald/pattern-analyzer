@@ -13,6 +13,7 @@ dotenv.config({ path: '.env.local' });
 // Script
 // ---------------
 void (async () => {
+  const { db } = await import('@/lib/db/db');
   const { getLastSync } = await import('@/lib/db/system');
   const { sync } = await import('@/lib/db/sync');
 
@@ -24,6 +25,8 @@ void (async () => {
 
     const latestSync = await getLastSync();
     console.log(`✅ Latest Sync: ${latestSync}`);
+
+    await db.destroy();
   } catch (err: any) {
     console.log(chalk.red.bold(err?.body?.message || err.message || err));
   }

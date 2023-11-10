@@ -19,7 +19,7 @@ const limit = pLimit(100);
 // ---------------
 void (async () => {
   // Loading dynamically so env is correctly loaded.
-  const { initDatabase, teardownDatabase } = await import('@/lib/db/db');
+  const { db, initDatabase, teardownDatabase } = await import('@/lib/db/db');
   const { addTournaments } = await import('@/lib/db/tournaments');
   const { addSquads } = await import('@/lib/db/squads');
   const { setLastSync } = await import('@/lib/db/system');
@@ -92,6 +92,8 @@ void (async () => {
     console.log(
       `🏁 Setup done! (${tournaments.length} Tournaments, ${squadCount} Squads)`
     );
+
+    // await db.destroy();
   } catch (err: any) {
     console.log(chalk.red.bold(err?.body?.message || err.message || err));
   }

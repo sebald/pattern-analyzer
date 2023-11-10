@@ -5,9 +5,13 @@ import { db } from './db';
 // ---------------
 export const setLastSync = async () => {
   await db
+    .deleteFrom('system')
+    .where('key', '=', 'last_sync')
+    .executeTakeFirstOrThrow();
+
+  await db
     .insertInto('system')
     .values({ key: 'last_sync', value: now() })
-    .onDuplicateKeyUpdate({ key: 'last_sync' })
     .execute();
 };
 
