@@ -15,7 +15,11 @@ export interface FilterProps {
 
 // Component
 // ---------------
-export const Filter = ({ children, dateRange, smallSamples }: FilterProps) => {
+export const StatsFilter = ({
+  children,
+  dateRange,
+  smallSamples,
+}: FilterProps) => {
   const { replace } = useRouter();
   const pathname = usePathname();
   const [pending, startTransition] = useTransition();

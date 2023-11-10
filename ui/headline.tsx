@@ -18,10 +18,29 @@ const styles = cva(['scroll-m-20'], {
       headline: `${headline.variable} font-headline`,
       inherit: '',
     },
+    variant: {
+      default: '',
+      section: 'text-primary-800',
+      subsection: 'text-primary-800/60',
+    },
   },
+  compoundVariants: [
+    {
+      level: '2',
+      variant: 'section',
+      className:
+        'text-2xl font-extrabold uppercase md:text-4xl md:tracking-wide pb-4 pt-0',
+    },
+    {
+      level: '4',
+      variant: 'subsection',
+      className: 'font-semi p-0',
+    },
+  ],
   defaultVariants: {
     level: '1',
     font: 'headline',
+    variant: 'default',
   },
 });
 
@@ -39,13 +58,17 @@ export interface HeadlineProps
 export const Headline = ({
   level,
   font,
+  variant,
   className,
   children,
   ...props
 }: HeadlineProps) => {
   const Element = `h${level}` as any;
   return (
-    <Element className={cn(styles({ level, font, className }))} {...props}>
+    <Element
+      className={cn(styles({ level, font, variant, className }))}
+      {...props}
+    >
       {children}
     </Element>
   );

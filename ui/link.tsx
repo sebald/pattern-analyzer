@@ -14,7 +14,7 @@ const styles = cva(
       variant: {
         default: 'cursor-pointer hover:text-primary-600',
         button: [
-          'rounded-lg font-medium border text-center shadow-sm',
+          'font-medium border text-center inline-block',
           'border-secondary-100 bg-white text-secondary-700',
           'hover:bg-secondary-50 focus-visible:ring-primary-200',
         ],
@@ -22,10 +22,23 @@ const styles = cva(
       },
       size: {
         inherit: '', // inherit whatever is there
+        small: 'text-xs px-2 py-1',
         regular: 'text-sm px-5 py-2.5',
         large: 'text-lg px-6 py-3',
       },
     },
+    compoundVariants: [
+      {
+        variant: 'button',
+        size: 'regular',
+        className: 'rounded-lg shadow-sm',
+      },
+      {
+        variant: 'button',
+        size: 'small',
+        className: 'rounded',
+      },
+    ],
     defaultVariants: {
       variant: 'default',
       size: 'inherit',

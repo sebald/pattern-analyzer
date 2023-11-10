@@ -104,3 +104,59 @@ export const CardChartSkeleton = () => (
     </Card.Footer>
   </Card>
 );
+
+// Loading: Chart with Card
+// ---------------
+const Row = ({ className }: { className?: string }) => (
+  <>
+    <div className="col-span-1 py-1">
+      <LineSkeleton className={`h-3 rounded ${className}`} />
+    </div>
+    <div className="col-span-4 py-1">
+      <LineSkeleton className={`h-3 rounded ${className}`} />
+    </div>
+    <div className="col-span-3 py-1">
+      <LineSkeleton className={`h-3 rounded ${className}`} />
+    </div>
+    <div className="col-span-2 py-1">
+      <LineSkeleton className={`h-3 rounded ${className}`} />
+    </div>
+    <div className="col-span-3 py-1">
+      <LineSkeleton className={`h-3 rounded ${className}`} />
+    </div>
+    <div className="col-span-3 py-1">
+      <LineSkeleton className={`h-3 rounded ${className}`} />
+    </div>
+    <div className="col-span-3 py-1">
+      <LineSkeleton className={`h-3 rounded ${className}`} />
+    </div>
+    <div className="col-span-3 py-1">
+      <LineSkeleton className={`h-3 rounded ${className}`} />
+    </div>
+    <div className="col-span-2 py-1">
+      <LineSkeleton className={`h-3 rounded ${className}`} />
+    </div>
+  </>
+);
+
+export const RowDivider = () => (
+  <div className="col-span-full w-full border-t border-secondary-50" />
+);
+
+export const CardTableSkeleton = () => (
+  <Card role="status" className="animate-pulse p-4" elevation="light">
+    <div className="grid grid-cols-[repeat(24,_minmax(0,_1fr))] gap-4">
+      <Row className="bg-primary-200" />
+      <RowDivider />
+      <Row />
+      <RowDivider />
+      <Row />
+      <RowDivider />
+      <Row />
+      <RowDivider />
+      <Row />
+      <RowDivider />
+      <Row />
+    </div>
+  </Card>
+);

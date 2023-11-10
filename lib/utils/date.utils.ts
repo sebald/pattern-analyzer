@@ -84,7 +84,23 @@ export const formatDate = (date: Date) => {
 };
 
 /**
- * Formats motn date ('YYYY-MM') to a human readable format.
+ * Formats month date ('YYYY-MM') to a human readable format.
  */
 export const formatMonth = (val: string) =>
-  dayjs(val, 'YYYY-MM').format('MMM YY');
+  dayjs(val, 'YYYY-MM').format('MMM YYYY');
+
+/**
+ * Creates a list of months, formatted 'YYYY-MM'.
+ */
+export const monthRange = (from: Date, to: Date) => {
+  let current = dayjs(from).startOf('month');
+  const end = dayjs(to).startOf('month');
+  const range = [current.format('YYYY-MM')];
+
+  while (current.isBefore(end)) {
+    current = current.add(1, 'month');
+    range.push(current.format('YYYY-MM'));
+  }
+
+  return range;
+};

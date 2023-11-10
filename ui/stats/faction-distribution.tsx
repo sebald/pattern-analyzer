@@ -12,6 +12,7 @@ import { FACTION_ABBR, FACTION_COLORS, toPercentage } from '@/lib/utils';
 export interface FactionDistributionProps {
   value: { [key in XWSFaction | 'unknown']: { count: number } };
   total: number;
+  ignoreUnknown?: boolean;
 }
 
 // Component
@@ -19,8 +20,10 @@ export interface FactionDistributionProps {
 export const FactionDistribution = ({
   value,
   total,
+  ignoreUnknown,
 }: FactionDistributionProps) => {
-  const data = (
+  let t = total;
+  let data = (
     Object.entries(value) as [XWSFaction | 'unknown', { count: number }][]
   )
     .map(([faction, { count }]) => ({
@@ -35,13 +38,19 @@ export const FactionDistribution = ({
     color: string;
   }[];
 
+  if (ignoreUnknown) {
+    const unknown = data.find(({ id }) => id === 'unknown');
+    t = total - ((unknown && unknown.value) || 0);
+    data = data.filter(({ id }) => id !== 'unknown');
+  }
+
   return (
     <Card>
       <Card.Title>Faction Distribution</Card.Title>
       <div className="h-60 md:h-72">
         <ResponsivePie
           data={data.filter(({ value }) => value > 0) as any}
-          valueFormat={value => toPercentage(value / total)}
+          valueFormat={value => toPercentage(value / t)}
           arcLinkLabel={({ data }) =>
             FACTION_ABBR[(data as any).id as XWSFaction | 'unknown']
           }

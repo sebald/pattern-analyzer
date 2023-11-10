@@ -28,6 +28,7 @@ export const getSquads = async <Props extends GetSquadsProps>({
     .selectFrom('squads')
     .select([
       'id',
+      'listfortress_ref',
       'composition',
       'faction',
       'player',
@@ -61,6 +62,7 @@ export const getSquads = async <Props extends GetSquadsProps>({
   const result = await query.execute();
   return result.map(squad => ({
     id: squad.id,
+    tournamentId: squad.listfortress_ref,
     player: squad.player,
     date: squad.date,
     rank: {

@@ -1,13 +1,26 @@
 'use client';
 
 import { toPercentage } from '@/lib/utils';
-import { formatMonth } from '@/lib/utils/date.utils';
+import {
+  formatMonth,
+  fromDate,
+  monthRange,
+  today,
+} from '@/lib/utils/date.utils';
 import { linearGradientDef } from '@nivo/core';
 import { ResponsiveLine } from '@nivo/line';
 
 // Props
 // ---------------
 export interface TrendCurveProps {
+  /**
+   * Date format 'YYYY-MM-DD'
+   */
+  from: string;
+  /**
+   * Date format 'YYYY-MM-DD'
+   */
+  to?: string;
   value: {
     /**
      * Date format YYYY-MM
@@ -20,12 +33,16 @@ export interface TrendCurveProps {
 
 // Components
 // ---------------
-export const TrendCurve = ({ value }: TrendCurveProps) => {
-  const data = value.map(({ date, percentile, count }) => ({
-    x: date,
-    y: percentile,
-    count,
-  }));
+export const TrendCurve = ({ from, to, value }: TrendCurveProps) => {
+  const range = monthRange(fromDate(from), to ? fromDate(to) : today());
+  const data = range.map(month => {
+    const datum = value.find(v => v.date === month);
+    return {
+      x: month,
+      y: datum?.percentile,
+      count: datum?.count || 0,
+    };
+  });
 
   return (
     <div className="grid h-64 auto-cols-fr">
@@ -52,20 +69,29 @@ export const TrendCurve = ({ value }: TrendCurveProps) => {
           legendPosition: 'middle',
           legendOffset: -45,
         }}
-        pointLabel={({ y }) => toPercentage(y as number)}
+        pointLabel={data =>
+          `${toPercentage(data.y as number)} (${(data as any).count})`
+        }
+        pointSymbol={({ datum }) => (
+          <circle
+            r={5 * Math.max(Math.log(datum.count), 1)}
+            fill="#5155b1"
+            style={{ pointerEvents: 'none' }}
+          />
+        )}
+        pointLabelYOffset={-12}
         enablePointLabel
         enableArea
         enableGridX={false}
-        pointSize={8}
         defs={[
           linearGradientDef('gradient', [
-            { offset: 0, color: '#5155b1' },
-            { offset: 100, color: '#96a6e3' },
+            { offset: 0, color: '#8490db' },
+            { offset: 100, color: '#d0dcf5' },
           ]),
         ]}
         colors="#5155b1"
         fill={[{ match: '*', id: 'gradient' }]}
-        margin={{ top: 20, right: 30, bottom: 30, left: 60 }}
+        margin={{ top: 30, right: 30, bottom: 30, left: 60 }}
         isInteractive={false}
         animate={false}
       />

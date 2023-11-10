@@ -3,10 +3,10 @@
 import { Fragment } from 'react';
 
 import { toPercentage } from '@/lib/utils';
+import type { SortOptions } from '@/ui';
 import { Collapsible, FactionIcon, Link, ShipIcon, Table } from '@/ui';
 import { Folder } from '@/ui/icons';
 
-import { useCompositionFilter } from './context';
 import type { CompositionStatsType } from './types';
 
 // Props
@@ -14,6 +14,8 @@ import type { CompositionStatsType } from './types';
 export interface CompositionTableProps {
   value: { [id: string]: CompositionStatsType };
   collapsible?: boolean;
+  filter?: (entry: [string, CompositionStatsType]) => boolean;
+  sortBy?: SortOptions;
 }
 
 // Components
@@ -21,24 +23,22 @@ export interface CompositionTableProps {
 export const CompositionTable = ({
   value,
   collapsible = true,
+  filter,
+  sortBy = 'percentile',
 }: CompositionTableProps) => {
-  const { faction = 'all', sort = 'percentile' } = useCompositionFilter();
+  let data = Object.entries(value);
 
-  const data =
-    faction === 'all'
-      ? (Object.entries(value) as [string, CompositionStatsType][])
-      : Object.entries(value).filter(
-          ([_, stat]: [string, CompositionStatsType]) =>
-            stat.faction === faction
-        );
+  if (filter) {
+    data = data.filter(filter);
+  }
 
   data.sort(([, a], [, b]) => {
-    const result = (b[sort] || 0) - (a[sort] || 0);
+    const result = (b[sortBy] || 0) - (a[sortBy] || 0);
 
     // Secondary sort by percentile (or deviation if sorted by percentile already)
     return result !== 0
       ? result
-      : sort === 'percentile'
+      : sortBy === 'percentile'
       ? b.deviation - a.deviation
       : b.percentile - a.percentile;
   });
@@ -102,7 +102,7 @@ export const CompositionTable = ({
             <Table.Cell variant="number">{stat.score}</Table.Cell>
             <Table.Cell className="justify-center">
               <Link
-                href={`/analyze/composition/${id}`}
+                href={`/composition/${id}`}
                 variant="highlight"
                 className="text-primary-800"
               >

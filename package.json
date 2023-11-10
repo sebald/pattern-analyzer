@@ -25,6 +25,7 @@
     "next": "14.0.0",
     "nextjs-google-analytics": "^2.3.3",
     "p-limit": "4.0.0",
+    "query-string": "^8.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-is": "18.2.0",
@@ -73,7 +74,7 @@
     "test": "jest",
     "clean": "rm -rf .next",
     "db:setup": "tsx ./scripts/setup-database.ts",
-    "db:query": "tsx ./scripts/query-database.ts",
+    "db:sync": "tsx ./scripts/sync-database.ts",
     "update:xwing": "zx scripts/update-xwing-data.mjs",
     "update:yasb": "zx scripts/update-yasb-data.mjs"
   }

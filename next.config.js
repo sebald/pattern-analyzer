@@ -37,6 +37,16 @@ const config = {
         destination: '/',
         permanent: true,
       },
+      {
+        source: '/analyze/composition',
+        destination: '/composition',
+        permanent: true,
+      },
+      {
+        source: '/analyze/composition/:id',
+        destination: '/composition/:id',
+        permanent: true,
+      },
     ];
   },
   images: {

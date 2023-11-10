@@ -18,7 +18,7 @@ const styles = {
         inset: {
           default: 'px-3 pt-3 pb-2',
           headless: 'px-3 pt-4 pb-2', // No title/card.header
-          list: 'px-0 pt-3 pb-2', // for when using a list
+          list: 'p-0', // when using a list
         },
         size: {
           stretch: 'h-full',
@@ -35,8 +35,7 @@ const styles = {
   body: cva('flex-1', {
     variants: {
       variant: {
-        enumeration:
-          'divide-y divide-secondary-100 border-t border-secondary-100',
+        enumeration: 'divide-y divide-secondary-100',
       },
     },
   }),
