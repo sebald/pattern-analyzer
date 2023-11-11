@@ -25,6 +25,10 @@ export const siteNavigation = [
     name: 'Compositions',
     href: '/composition',
   },
+  {
+    name: 'Pilots',
+    href: '/pilot',
+  },
 ];
 
 export const secondaryNavigation = [
