@@ -41,16 +41,20 @@ export interface Database {
   system: SystemTable;
 }
 
+export const pool = createPool({
+  host: process.env.DATABASE_HOST,
+  user: process.env.DATABASE_USERNAME,
+  password: process.env.DATABASE_PASSWORD,
+  database: 'main',
+  maxIdle: 1,
+  connectionLimit: 1,
+});
+
 // Database
 // ---------------
 export const db = new Kysely<Database>({
   dialect: new MysqlDialect({
-    pool: createPool({
-      host: process.env.DATABASE_HOST,
-      user: process.env.DATABASE_USERNAME,
-      password: process.env.DATABASE_PASSWORD,
-      database: 'main',
-    }),
+    pool,
   }),
   // log: ['query', 'error'],
 });
