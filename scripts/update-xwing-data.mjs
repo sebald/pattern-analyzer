@@ -17,12 +17,6 @@ const manifest = read('data/manifest.json');
 
 // Faction Data
 // ---------------
-
-// Not sure why we have to do this ...
-const ADDITIONAL_PILOTS = {
-  'fennrau-rebel-fang': 'Fenn Rau (Fang Fighter)',
-};
-
 const PILOT_SUFFIX = {
   // Faction Hint
   'hansolo-scumandvillainy': 'Scum',
@@ -197,7 +191,7 @@ const upgrades = manifest.upgrades.reduce((o, file) => {
 const display = {
   faction: {},
   ship: {},
-  pilot: { ...ADDITIONAL_PILOTS },
+  pilot: {},
   upgrades: {},
 };
 
