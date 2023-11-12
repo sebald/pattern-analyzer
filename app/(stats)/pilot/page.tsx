@@ -9,6 +9,8 @@ import { SmallSamplesFilter } from '@/ui/params/small-samples-filter';
 import { SortParam } from '@/ui/params/sort-param';
 import { StatsInfo } from '@/ui/stats/stats-info';
 
+import { Content } from './content';
+
 // Metadata
 // ---------------
 export const metadata = createMetadata({
@@ -59,6 +61,7 @@ const PilotsPage = async ({ searchParams }: PageProps) => {
         <FactionFilter />
         <SortParam />
       </Filter>
+      <Content from={from} to={to} />
     </>
   );
 };
