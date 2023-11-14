@@ -7,7 +7,6 @@ import type {
   XWSPilot,
   XWSSquad,
 } from '@/lib/types';
-import type { BaseData } from './module/base';
 
 // Maps
 // ---------------

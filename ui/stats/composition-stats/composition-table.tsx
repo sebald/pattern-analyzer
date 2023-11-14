@@ -18,7 +18,7 @@ export interface CompositionTableProps {
   sortBy?: SortOptions;
 }
 
-// Components
+// Component
 // ---------------
 export const CompositionTable = ({
   value,
@@ -99,7 +99,7 @@ export const CompositionTable = ({
               {toPercentage(stat.frequency)}
             </Table.Cell>
             <Table.Cell variant="number">{stat.count}</Table.Cell>
-            <Table.Cell variant="number">{stat.score}</Table.Cell>
+            <Table.Cell variant="number">{stat.score.toFixed(2)}</Table.Cell>
             <Table.Cell className="justify-center">
               <Link
                 href={`/composition/${id}`}
