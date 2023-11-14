@@ -1,22 +1,22 @@
 'use client';
 
-import type { CompositionData } from '@/lib/stats/module/composition';
+import type { PilotData } from '@/lib/stats/module';
 
 import { Card } from '@/ui';
-import { useSmallSamplesFilter } from '@/ui/params/small-samples-filter';
+import { PilotTable } from '@/ui/stats/pilot-stats';
 import { useFactionFilter } from '@/ui/params/faction-filter';
+import { useSmallSamplesFilter } from '@/ui/params/small-samples-filter';
 import { useSortParam } from '@/ui/params/sort-param';
-import { CompositionTable } from '@/ui/stats/composition-stats';
 
 // Props
 // ---------------
-export interface CompositionsProps {
-  data: CompositionData['composition'];
+export interface PilotsProps {
+  data: PilotData['pilot'];
 }
 
 // Component
 // ---------------
-export const Compositions = ({ data }: CompositionsProps) => {
+export const Pilots = ({ data }: PilotsProps) => {
   const [smallSamples] = useSmallSamplesFilter();
   const [faction] = useFactionFilter();
   const [sort] = useSortParam();
@@ -24,7 +24,7 @@ export const Compositions = ({ data }: CompositionsProps) => {
   return (
     <Card inset="headless">
       <Card.Body>
-        <CompositionTable
+        <PilotTable
           value={data}
           collapsible={false}
           filter={([, stat]) => {

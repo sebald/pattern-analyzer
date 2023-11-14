@@ -7,7 +7,8 @@ import { setup } from '@/lib/stats/setup';
 
 import { CardTableSkeleton } from '@/ui';
 import { StatsHint } from '@/ui/stats/stats-hint';
-import { PilotStats } from '@/ui/stats/pilot-stats';
+
+import { Pilots } from './pilots';
 
 // Helpers
 // ---------------
@@ -33,7 +34,7 @@ const AsyncContent = async ({ from, to }: ContentProps) => {
     tournaments,
   });
 
-  return <PilotStats value={stats.pilot} />;
+  return <Pilots data={stats.pilot} />;
 };
 
 export const Content = (props: ContentProps) => (
