@@ -4,7 +4,6 @@ import { cn } from '@/lib/utils';
 
 import './globals.css';
 import { sans } from './fonts';
-import { AnalyticsWrapper } from './_components/analytics';
 import { Analytics } from './_components/google-analytics';
 import { SiteHeader } from './_components/site-header';
 import { SiteFooter } from './_components/site-footer';
@@ -34,7 +33,6 @@ const Layout = ({ children }: LayoutProps) => (
         {children}
       </Container>
       <SiteFooter />
-      <AnalyticsWrapper />
       <Analytics />
     </body>
   </html>

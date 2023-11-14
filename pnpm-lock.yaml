@@ -32,9 +32,6 @@ dependencies:
   '@radix-ui/react-switch':
     specifier: 1.0.3
     version: 1.0.3(@types/react-dom@18.2.14)(@types/react@18.2.35)(react-dom@18.2.0)(react@18.2.0)
-  '@vercel/analytics':
-    specifier: 1.1.1
-    version: 1.1.1
   cheerio:
     specifier: 1.0.0-rc.12
     version: 1.0.0-rc.12
@@ -57,7 +54,7 @@ dependencies:
     specifier: 14.0.1
     version: 14.0.1(@babel/core@7.20.12)(react-dom@18.2.0)(react@18.2.0)
   nextjs-google-analytics:
-    specifier: ^2.3.3
+    specifier: 2.3.3
     version: 2.3.3(next@14.0.1)(react@18.2.0)
   p-limit:
     specifier: 4.0.0
@@ -2271,12 +2268,6 @@ packages:
   /@ungap/structured-clone@1.2.0:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
     dev: true
-
-  /@vercel/analytics@1.1.1:
-    resolution: {integrity: sha512-+NqgNmSabg3IFfxYhrWCfB/H+RCUOCR5ExRudNG2+pcRehq628DJB5e1u1xqwpLtn4pAYii4D98w7kofORAGQA==}
-    dependencies:
-      server-only: 0.0.1
-    dev: false
 
   /@xobotyi/scrollbar-width@1.9.5:
     resolution: {integrity: sha512-N8tkAACJx2ww8vFMneJmaAgmjAG1tnVBZJRLRcx061tmsLRZHSEZSLuGWnwPtunsSLvSqXQ2wfp7Mgqg1I+2dQ==}
@@ -6119,10 +6110,6 @@ packages:
 
   /seq-queue@0.0.5:
     resolution: {integrity: sha512-hr3Wtp/GZIc/6DAGPDcV4/9WoZhjrkXsi5B/07QgX8tsdc6ilr7BFM6PM6rbdAX1kFSDYeZGLipIZZKyQP0O5Q==}
-    dev: false
-
-  /server-only@0.0.1:
-    resolution: {integrity: sha512-qepMx2JxAa5jjfzxG79yPPq+8BuFToHd1hm7kI+Z4zAq1ftQiP7HcxMhDDItrbtwVeLg/cY2JnKnrcFkmiswNA==}
     dev: false
 
   /set-function-length@1.1.1:
