@@ -230,9 +230,6 @@ read(manifest.factions[0]).forEach(({ xws: factionId, name, icon }) => {
 
     Object.values(ship.pilots).forEach(pilot => {
       display.pilot[pilot.id] = pilot.name;
-      if (/fenn/.test(pilot.id)) {
-        console.log(pilot.id, pilot.name);
-      }
 
       if (pilot.standardLoadout) {
         normalization[pilot.id] = {
