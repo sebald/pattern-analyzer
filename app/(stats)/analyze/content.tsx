@@ -74,6 +74,7 @@ const AsyncContent = async ({ from, to }: ContentProps) => {
   const stats = create(squads, {
     count,
     tournaments,
+    smallSamples: false,
   });
 
   return (
