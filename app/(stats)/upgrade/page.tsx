@@ -15,7 +15,7 @@ import { Content } from './content';
 // ---------------
 export const metadata = createMetadata({
   title: 'Pilots',
-  description: 'Who is the best pilot in the Galaxy?!',
+  description: 'Find out what is the best upgrade!',
   ogTitle: 'Pilots',
   ogWidth: 65,
 });
@@ -31,7 +31,7 @@ interface PageProps {
 
 // Page
 // ---------------
-const PilotsPage = async ({ searchParams }: PageProps) => {
+const UpgradesPage = async ({ searchParams }: PageProps) => {
   const params = toDateRange(searchParams);
 
   if (params.error) {
@@ -50,7 +50,7 @@ const PilotsPage = async ({ searchParams }: PageProps) => {
   return (
     <>
       <div className="pb-6">
-        <Title>Pilots</Title>
+        <Title>Upgrades</Title>
         <Caption>
           <StatsInfo from={from} to={to} />
         </Caption>
@@ -66,4 +66,4 @@ const PilotsPage = async ({ searchParams }: PageProps) => {
   );
 };
 
-export default PilotsPage;
+export default UpgradesPage;
