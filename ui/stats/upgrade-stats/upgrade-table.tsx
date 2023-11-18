@@ -84,7 +84,7 @@ export const UpgradeTable = ({
       numeration
     >
       {data.map(([upgrade, stat]) => (
-        <Fragment key={`${stat.faction}-${upgrade}`}>
+        <Fragment key={`${stat.faction}-${stat.slot}-${upgrade}`}>
           <Table.Cell variant="header">
             <div className="font-semibold">
               {getUpgradeName(upgrade) || upgrade}
