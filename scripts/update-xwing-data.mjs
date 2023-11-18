@@ -83,6 +83,8 @@ const EXTRA_UPGRADES = {
   vectoredcannons: 'Vectored Cannons',
   r2a3: 'R2-A3',
   l337sprogramming: 'L3-37’s Programming',
+  'contingencyprotocol-modification': 'Contingency Protocol',
+  'strutlockoverride-configuration': 'Strut-Lock Override',
 };
 
 /**
