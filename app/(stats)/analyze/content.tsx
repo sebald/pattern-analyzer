@@ -10,7 +10,6 @@ import { PilotSkillDistribution } from '@/ui/stats/pilot-skill-distribution';
 import { CardChartSkeleton } from '@/ui/skeleton';
 import { SquadSize } from '@/ui/stats/squad-size';
 import { StatsHint } from '@/ui/stats/stats-hint';
-import { UpgradeStats } from '@/ui/stats/upgrade-stats';
 import { setup } from '@/lib/stats';
 import {
   FactionData,
@@ -107,9 +106,6 @@ const AsyncContent = async ({ from, to }: ContentProps) => {
         </div>
         <div className="md:col-span-6">
           <PilotSkillDistribution value={stats.pilotSkillDistribution} />
-        </div>
-        <div className="col-span-full">
-          <UpgradeStats value={stats.upgrade} />
         </div>
         <div className="col-span-full pt-8 lg:col-start-2 lg:col-end-12">
           <StatsHint />
