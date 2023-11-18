@@ -6,6 +6,7 @@ import { DateRangeFilter } from '@/ui/params/date-range-filter';
 import { FactionFilter } from '@/ui/params/faction-filter';
 import { Filter } from '@/ui/params/filter';
 import { SmallSamplesFilter } from '@/ui/params/small-samples-filter';
+import { SlotFilter } from '@/ui/params/slot-param';
 import { SortParam } from '@/ui/params/sort-param';
 import { StatsInfo } from '@/ui/stats/stats-info';
 
@@ -59,6 +60,7 @@ const UpgradesPage = async ({ searchParams }: PageProps) => {
         <SmallSamplesFilter />
         <DateRangeFilter />
         <FactionFilter />
+        <SlotFilter />
         <SortParam />
       </Filter>
       <Content from={from} to={to} />

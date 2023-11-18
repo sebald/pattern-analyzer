@@ -2,46 +2,43 @@
 
 import { Fragment } from 'react';
 
-import { Collapsible } from '@/ui';
-import type { SortOptions } from '@/ui';
-import { ShipIcon } from '@/ui/ship-icon';
-import { Table } from '@/ui/table';
+import { Collapsible, SortOptions, Table } from '@/ui';
 
-import { getPilotName } from '@/lib/get-value';
-import { toPercentage } from '@/lib/utils';
-import type { FactionMap } from '@/lib/stats/types';
+import { getUpgradeName } from '@/lib/get-value';
+import type { FactionMapWithAll } from '@/lib/stats/types';
 import type { XWSFaction } from '@/lib/types';
+import { toPercentage } from '@/lib/utils';
 
-import { PilotStatsType } from './types';
+import { UpgradeStatsType } from './types';
 
-export interface PilotStatTypeWithFaction extends PilotStatsType {
+export interface UpgradeStatTypeWithFaction extends UpgradeStatsType {
   faction: XWSFaction;
 }
 
 // Props
 // ---------------
-export interface PilotTableProps {
-  value: FactionMap<string, PilotStatsType>;
+export interface UpgradeTableProps {
+  value: FactionMapWithAll<string, UpgradeStatsType>;
   collapsible?: boolean;
-  filter?: (entry: [string, PilotStatTypeWithFaction]) => boolean;
+  filter?: (entry: [string, UpgradeStatTypeWithFaction]) => boolean;
   sortBy?: SortOptions;
 }
 
-// Component
+// Components
 // ---------------
-export const PilotTable = ({
+export const UpgradeTable = ({
   value,
   collapsible = true,
   filter,
   sortBy = 'percentile',
-}: PilotTableProps) => {
+}: UpgradeTableProps) => {
   let data = Object.entries(value).reduce(
-    (acc: [string, PilotStatTypeWithFaction][], [faction, map]) => {
+    (acc: [string, UpgradeStatTypeWithFaction][], [faction, map]) => {
       const entries = Object.entries(map)
         .filter(Boolean)
         .map(([id, stat]) => [id, { ...stat, faction }]) as [
         string,
-        PilotStatTypeWithFaction,
+        UpgradeStatTypeWithFaction,
       ][];
 
       return [...acc, ...entries];
@@ -76,7 +73,7 @@ export const PilotTable = ({
         '85px',
       ]}
       headers={[
-        'Pilot',
+        'Upgrade',
         'Percentile',
         'Std. Deviation',
         'Winrate',
@@ -86,11 +83,12 @@ export const PilotTable = ({
       ]}
       numeration
     >
-      {data.map(([pilot, stat]) => (
-        <Fragment key={`${stat.faction}-${pilot}`}>
+      {data.map(([upgrade, stat]) => (
+        <Fragment key={`${stat.faction}-${upgrade}`}>
           <Table.Cell variant="header">
-            <ShipIcon ship={stat.ship} className="w-5 text-xl" />
-            <div className="font-semibold">{getPilotName(pilot) || pilot}</div>
+            <div className="font-semibold">
+              {getUpgradeName(upgrade) || upgrade}
+            </div>
           </Table.Cell>
           <Table.Cell variant="number">
             {toPercentage(stat.percentile)}
@@ -105,14 +103,14 @@ export const PilotTable = ({
             {toPercentage(stat.frequency)}
           </Table.Cell>
           <Table.Cell variant="number">{stat.count}</Table.Cell>
-          <Table.Cell variant="number">{stat.score.toFixed(2)}</Table.Cell>
+          <Table.Cell variant="number">{stat.score}</Table.Cell>
         </Fragment>
       ))}
     </Table>
   );
 
   return collapsible ? (
-    <Collapsible maxHeight={800}>{table}</Collapsible>
+    <Collapsible maxHeight={375}>{table}</Collapsible>
   ) : (
     table
   );

@@ -8,6 +8,8 @@ import { setup } from '@/lib/stats/setup';
 import { CardTableSkeleton } from '@/ui';
 import { StatsHint } from '@/ui/stats/stats-hint';
 
+import { Upgrades } from './upgrades';
+
 // Helpers
 // ---------------
 const create = setup<UpgradeData>([upgrade]);
@@ -32,7 +34,7 @@ const AsyncContent = async ({ from, to }: ContentProps) => {
     tournaments,
   });
 
-  return <div>{JSON.stringify(stats.upgrade)}</div>;
+  return <Upgrades data={stats.upgrade} />;
 };
 
 export const Content = (props: ContentProps) => (

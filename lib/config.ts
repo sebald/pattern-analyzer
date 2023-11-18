@@ -29,6 +29,10 @@ export const siteNavigation = [
     name: 'Pilots',
     href: '/pilot',
   },
+  {
+    name: 'Upgrades',
+    href: '/upgrade',
+  },
 ];
 
 export const secondaryNavigation = [
