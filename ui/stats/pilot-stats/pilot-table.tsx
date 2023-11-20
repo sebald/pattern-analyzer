@@ -2,8 +2,9 @@
 
 import { Fragment } from 'react';
 
-import { Collapsible } from '@/ui';
+import { Collapsible, Link } from '@/ui';
 import type { SortOptions } from '@/ui';
+import { Folder } from '@/ui/icons';
 import { ShipIcon } from '@/ui/ship-icon';
 import { Table } from '@/ui/table';
 
@@ -74,6 +75,7 @@ export const PilotTable = ({
         'minmax(90px, 1fr)',
         '85px',
         '85px',
+        'max-content',
       ]}
       headers={[
         'Pilot',
@@ -83,14 +85,15 @@ export const PilotTable = ({
         'Frequency',
         'Count',
         'Score',
+        'View',
       ]}
       numeration
     >
-      {data.map(([pilot, stat]) => (
-        <Fragment key={`${stat.faction}-${pilot}`}>
+      {data.map(([id, stat]) => (
+        <Fragment key={`${stat.faction}-${id}`}>
           <Table.Cell variant="header">
             <ShipIcon ship={stat.ship} className="w-5 text-xl" />
-            <div className="font-semibold">{getPilotName(pilot) || pilot}</div>
+            <div className="font-semibold">{getPilotName(id) || id}</div>
           </Table.Cell>
           <Table.Cell variant="number">
             {toPercentage(stat.percentile)}
@@ -106,6 +109,15 @@ export const PilotTable = ({
           </Table.Cell>
           <Table.Cell variant="number">{stat.count}</Table.Cell>
           <Table.Cell variant="number">{stat.score.toFixed(2)}</Table.Cell>
+          <Table.Cell className="justify-center">
+            <Link
+              href={`/pilot/${id}`}
+              variant="highlight"
+              className="text-primary-800"
+            >
+              <Folder className="h-5 w-5" />
+            </Link>
+          </Table.Cell>
         </Fragment>
       ))}
     </Table>

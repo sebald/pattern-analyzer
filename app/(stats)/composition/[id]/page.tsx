@@ -41,7 +41,7 @@ export const generateStaticParams = async () => {
 
 // Props
 // ---------------
-interface PageParams {
+interface PageProps {
   params: {
     id: string;
   };
@@ -49,7 +49,7 @@ interface PageParams {
 
 // Metadata
 // ---------------
-export const generateMetadata = ({ params }: PageParams) => {
+export const generateMetadata = ({ params }: PageProps) => {
   const ships = params.id.split('.').map(ship => getShipName(ship));
   return createMetadata({
     title: `Squad Composition: ${ships.join(', ')}`,
@@ -70,7 +70,7 @@ const getCompositionStats = async (composition: string, from: Date) => {
 
 // Page
 // ---------------
-const Page = async ({ params }: PageParams) => {
+const Page = async ({ params }: PageProps) => {
   let stats: SquadCompositionStats;
   try {
     stats = await getCompositionStats(params.id, fromDate(pointsUpdateDate));
