@@ -9,6 +9,8 @@ import type {
 import { fromDate, toMonth } from '@/lib/utils/date.utils';
 import { average, deviation, round, winrate } from '@/lib/utils/math.utils';
 
+import { createPilotsId } from './utils';
+
 // Types
 // ---------------
 export interface SquadCompositionData {
@@ -110,27 +112,6 @@ export interface SquadCompositionStats {
 
 // Helpers
 // ---------------
-const createPilotsId = (xws: XWSSquad) => {
-  const pilots = [...xws.pilots];
-  pilots.sort((a, b) => {
-    if (a.ship < b.ship) {
-      return -1;
-    }
-    if (a.ship > b.ship) {
-      return 1;
-    }
-    if (a.id < b.id) {
-      return -1;
-    }
-    if (a.id > b.id) {
-      return 1;
-    }
-    return 0;
-  });
-
-  return pilots.map(({ id }) => id).join('.');
-};
-
 const createTrends = (squads: SquadCompositionData['squads']) => {
   const trends: { [month: string]: { count: number; percentiles: number[] } } =
     {};
@@ -300,11 +281,11 @@ export const compositionDetails = ({
     id: composition,
     // Get first squad to derive faction
     faction: squads[0].faction,
-    squads: [],
     count: 0,
     record: { wins: 0, ties: 0, losses: 0 },
     percentiles: [],
     pilot: {},
+    squads: [],
   };
 
   squads.forEach(current => {
@@ -352,7 +333,7 @@ export const compositionDetails = ({
     });
   });
 
-  // Overall
+  // Generate Result
   const result: SquadCompositionStats = {
     id: stats.id,
     faction: stats.faction,
