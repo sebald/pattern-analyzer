@@ -32,6 +32,15 @@ export const generateMetadata = ({ params }: PageProps) => {
   });
 };
 
+// Data
+// ---------------
+const getPilotStats = async (pilot: string, from: Date) => {
+  // const [squads, count] = await Promise.all([
+  //   getSquads({ from, pilot }),
+  //   getFactionCount({ from }),
+  // ]);
+};
+
 // Page
 // ---------------
 const Page = async ({ params }: PageProps) => {
