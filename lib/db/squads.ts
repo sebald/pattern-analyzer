@@ -1,9 +1,10 @@
+import { sql } from 'kysely';
 import type { InsertObjectOrList } from 'kysely/dist/cjs/parser/insert-values-parser';
+
 import { toDate } from '@/lib/utils/date.utils';
 
 import { Database, db } from './db';
 import type { DateFilter, SquadEntitiy, SquadEntitiyWithXWS } from './types';
-
 // Add
 // ---------------
 export const addSquads = async (
@@ -14,15 +15,21 @@ export const addSquads = async (
 // ---------------
 export interface GetSquadsProps extends DateFilter {
   composition?: string;
+  pilot?: string;
 }
 
 export type GetSquadsResult<Props extends GetSquadsProps> =
-  Props['composition'] extends string ? SquadEntitiyWithXWS[] : SquadEntitiy[];
+  Props['composition'] extends string
+    ? SquadEntitiyWithXWS[]
+    : Props['pilot'] extends string
+    ? SquadEntitiyWithXWS[]
+    : SquadEntitiy[];
 
 export const getSquads = async <Props extends GetSquadsProps>({
   from,
   to,
   composition,
+  pilot,
 }: Props): Promise<GetSquadsResult<Props>> => {
   let query = db
     .selectFrom('squads')
@@ -57,6 +64,12 @@ export const getSquads = async <Props extends GetSquadsProps>({
 
   if (composition) {
     query = query.where('composition', '=', composition);
+  }
+
+  if (pilot) {
+    query = query.where(
+      sql`JSON_CONTAINS(xws, '{ "id": "${sql.raw(pilot)}" }', '$.pilots')`
+    );
   }
 
   const result = await query.execute();

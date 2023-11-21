@@ -1,5 +1,11 @@
+import { notFound } from 'next/navigation';
+
+import { pointsUpdateDate } from '@/lib/config';
+import { getFactionCount, getSquads } from '@/lib/db/squads';
 import { getPilotName } from '@/lib/get-value';
 import { createMetadata } from '@/lib/metadata';
+import { PilotStats, pilotDetails } from '@/lib/stats/details/pilot';
+import { fromDate } from '@/lib/utils/date.utils';
 
 // Config
 // ---------------
@@ -35,16 +41,25 @@ export const generateMetadata = ({ params }: PageProps) => {
 // Data
 // ---------------
 const getPilotStats = async (pilot: string, from: Date) => {
-  // const [squads, count] = await Promise.all([
-  //   getSquads({ from, pilot }),
-  //   getFactionCount({ from }),
-  // ]);
+  const [squads, count] = await Promise.all([
+    getSquads({ from, pilot }),
+    getFactionCount({ from }),
+  ]);
+  console.log(pilot, squads.length);
+  return pilotDetails({ pilot, squads, count });
 };
 
 // Page
 // ---------------
 const Page = async ({ params }: PageProps) => {
-  return <div>{params.id}</div>;
+  let stats: PilotStats;
+  try {
+    stats = await getPilotStats(params.id, fromDate(pointsUpdateDate));
+  } catch {
+    notFound();
+  }
+
+  return <div>{stats.count}</div>;
 };
 
 export default Page;
