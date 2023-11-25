@@ -15,7 +15,7 @@ import { Card, Detail, Headline, ShipIcon } from '@/ui';
 
 import { PilotDetails } from './_component/pilot-details';
 import { SquadGroups } from './_component/squad-groups';
-import { TrendCurve } from './_component/trend-curve';
+import { HistoryCurve } from './_component/history-curve';
 
 // Config
 // ---------------
@@ -131,10 +131,10 @@ const Page = async ({ params }: PageProps) => {
         </Card>
         <Card className="col-span-full md:col-span-6">
           <Card.Header>
-            <Card.Title>Trend</Card.Title>
+            <Card.Title>History</Card.Title>
           </Card.Header>
           <Card.Body>
-            <TrendCurve from={pointsUpdateDate} value={stats.trend} />
+            <HistoryCurve from={pointsUpdateDate} value={stats.history} />
           </Card.Body>
         </Card>
       </div>

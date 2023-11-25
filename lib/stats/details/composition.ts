@@ -61,7 +61,7 @@ export interface SquadCompositionStats {
   percentile: number;
   deviation: number;
 
-  trend: {
+  history: {
     /**
      * Date format YYYY-MM
      */
@@ -112,21 +112,21 @@ export interface SquadCompositionStats {
 
 // Helpers
 // ---------------
-const createTrends = (squads: SquadCompositionData['squads']) => {
-  const trends: { [month: string]: { count: number; percentiles: number[] } } =
+const createHistory = (squads: SquadCompositionData['squads']) => {
+  const history: { [month: string]: { count: number; percentiles: number[] } } =
     {};
 
   squads.forEach(squad => {
     const date = toMonth(squad.date);
 
-    const item = trends[date] || { count: 0, percentiles: [] };
+    const item = history[date] || { count: 0, percentiles: [] };
     item.count += 1;
     item.percentiles.push(squad.percentile);
 
-    trends[date] = item;
+    history[date] = item;
   });
 
-  const result = Object.entries(trends).map(
+  const result = Object.entries(history).map(
     ([date, { count, percentiles }]) => ({
       date,
       count,
@@ -343,7 +343,7 @@ export const compositionDetails = ({
     winrate: winrate([stats.record]),
     percentile: average(stats.percentiles, 4),
     deviation: deviation(stats.percentiles, 4),
-    trend: createTrends(stats.squads),
+    history: createHistory(stats.squads),
     squads: groupSquads(stats.squads),
     pilot: {}, // Filled below
   };

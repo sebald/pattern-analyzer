@@ -45,7 +45,6 @@ const getPilotStats = async (pilot: string, from: Date) => {
     getSquads({ from, pilot }),
     getFactionCount({ from }),
   ]);
-  console.log(pilot, squads.length);
   return pilotDetails({ pilot, squads, count });
 };
 
@@ -59,7 +58,7 @@ const Page = async ({ params }: PageProps) => {
     notFound();
   }
 
-  return <div>{stats.count}</div>;
+  return <div>{JSON.stringify(stats)}</div>;
 };
 
 export default Page;

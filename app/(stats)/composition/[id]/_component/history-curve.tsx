@@ -12,7 +12,7 @@ import { ResponsiveLine } from '@nivo/line';
 
 // Props
 // ---------------
-export interface TrendCurveProps {
+export interface HistoryCurveProps {
   /**
    * Date format 'YYYY-MM-DD'
    */
@@ -33,7 +33,7 @@ export interface TrendCurveProps {
 
 // Components
 // ---------------
-export const TrendCurve = ({ from, to, value }: TrendCurveProps) => {
+export const HistoryCurve = ({ from, to, value }: HistoryCurveProps) => {
   const range = monthRange(fromDate(from), to ? fromDate(to) : today());
   const data = range.map(month => {
     const datum = value.find(v => v.date === month);
@@ -49,7 +49,7 @@ export const TrendCurve = ({ from, to, value }: TrendCurveProps) => {
       <ResponsiveLine
         data={[
           {
-            id: 'squad trend',
+            id: 'squad history',
             data,
           },
         ]}
