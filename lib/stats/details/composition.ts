@@ -9,7 +9,7 @@ import type {
 import { fromDate, toMonth } from '@/lib/utils/date.utils';
 import { average, deviation, round, winrate } from '@/lib/utils/math.utils';
 
-import { createPilotsId } from './utils';
+import { SquadStatData, createHistory, createPilotsId } from './utils';
 
 // Types
 // ---------------
@@ -33,22 +33,7 @@ export interface SquadCompositionData {
     };
   };
 
-  squads: {
-    /**
-     * Pilot ids separated by "."
-     */
-    id: string;
-    tournamentId: number;
-    player: string;
-    date: string;
-    xws: XWSSquad;
-    percentile: number;
-    record: GameRecord;
-    rank: {
-      swiss: number;
-      elimination?: number;
-    };
-  }[];
+  squads: SquadStatData[];
 }
 
 export interface SquadCompositionStats {
@@ -112,37 +97,6 @@ export interface SquadCompositionStats {
 
 // Helpers
 // ---------------
-const createHistory = (squads: SquadCompositionData['squads']) => {
-  const history: { [month: string]: { count: number; percentiles: number[] } } =
-    {};
-
-  squads.forEach(squad => {
-    const date = toMonth(squad.date);
-
-    const item = history[date] || { count: 0, percentiles: [] };
-    item.count += 1;
-    item.percentiles.push(squad.percentile);
-
-    history[date] = item;
-  });
-
-  const result = Object.entries(history).map(
-    ([date, { count, percentiles }]) => ({
-      date,
-      count,
-      percentile: average(percentiles, 4),
-    })
-  );
-
-  result.sort(
-    (a, b) =>
-      new Date(fromDate(`${a.date}-01`)).getTime() -
-      new Date(fromDate(`${b.date}-01`)).getTime()
-  );
-
-  return result;
-};
-
 const groupSquads = (squads: SquadCompositionData['squads']) => {
   const data: {
     [id: string]: {
