@@ -6,10 +6,11 @@ import type {
   XWSSquad,
   XWSUpgrades,
 } from '@/lib/types';
-import { fromDate, toMonth } from '@/lib/utils/date.utils';
+import { fromDate } from '@/lib/utils/date.utils';
 import { average, deviation, round, winrate } from '@/lib/utils/math.utils';
 
-import { SquadStatData, createHistory, createPilotsId } from './utils';
+import { PerformanceHistory, createHistory, createPilotsId } from './utils';
+import type { SquadStatData } from './types';
 
 // Types
 // ---------------
@@ -46,14 +47,7 @@ export interface SquadCompositionStats {
   percentile: number;
   deviation: number;
 
-  history: {
-    /**
-     * Date format YYYY-MM
-     */
-    date: string;
-    count: number;
-    percentile: number;
-  }[];
+  history: PerformanceHistory[];
 
   /**
    * Grouped by pilots

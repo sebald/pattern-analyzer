@@ -28,33 +28,25 @@ export const createPilotsId = (xws: XWSSquad) => {
 
 // Create performance history
 // ---------------
-export interface SquadStatData {
+export interface PerformanceHistory {
   /**
-   * Pilot ids separated by "."
+   * Date format YYYY-MM
    */
-  id: string;
-  tournamentId: number;
-  player: string;
   date: string;
-  xws: XWSSquad;
+  count: number;
   percentile: number;
-  record: GameRecord;
-  rank: {
-    swiss: number;
-    elimination?: number;
-  };
 }
 
-export const createHistory = (squads: SquadStatData[]) => {
+export const createHistory = (list: { date: string; percentile: number }[]) => {
   const history: { [month: string]: { count: number; percentiles: number[] } } =
     {};
 
-  squads.forEach(squad => {
-    const date = toMonth(squad.date);
+  list.forEach(current => {
+    const date = toMonth(current.date);
 
     const item = history[date] || { count: 0, percentiles: [] };
     item.count += 1;
-    item.percentiles.push(squad.percentile);
+    item.percentiles.push(current.percentile);
 
     history[date] = item;
   });
@@ -73,5 +65,5 @@ export const createHistory = (squads: SquadStatData[]) => {
       new Date(fromDate(`${b.date}-01`)).getTime()
   );
 
-  return result;
+  return result satisfies PerformanceHistory[];
 };
