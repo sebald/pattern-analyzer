@@ -2,8 +2,14 @@ import type { SquadEntitiyWithXWS } from '@/lib/db/types';
 import type { GameRecord, XWSFaction } from '@/lib/types';
 import { average, deviation, round, winrate } from '@/lib/utils/math.utils';
 
-import { PerformanceHistory, createHistory, createPilotsId } from './utils';
-import type { SquadStatData } from './types';
+import {
+  type DetailedSquadData,
+  type GroupedDetailedSquadData,
+  type PerformanceHistory,
+  createHistory,
+  createPilotsId,
+  groupSquads,
+} from './utils';
 
 // Types
 // ---------------
@@ -14,7 +20,7 @@ interface SquadPilotData {
   record: GameRecord;
   percentiles: number[];
 
-  squads: SquadStatData[];
+  squads: DetailedSquadData[];
 }
 
 export interface PilotStats {
@@ -27,6 +33,7 @@ export interface PilotStats {
   deviation: number;
 
   history: PerformanceHistory[];
+  squads: GroupedDetailedSquadData;
 }
 
 // Module
@@ -82,6 +89,7 @@ export const pilotDetails = ({ pilot, squads, count }: PilotDetailProps) => {
     percentile: average(stats.percentiles, 4),
     deviation: deviation(stats.percentiles, 4),
     history: createHistory(stats.squads),
+    squads: groupSquads(stats.squads),
   };
 
   return result;
