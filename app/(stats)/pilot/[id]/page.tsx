@@ -10,7 +10,10 @@ import { fromDate } from '@/lib/utils/date.utils';
 import { Card, Detail, Headline } from '@/ui';
 import { toPercentage } from '@/lib/utils';
 import { HistoryCurve } from '@/ui/stats/history-curve';
-import { SquadGroups } from '@/ui/stats/squad-groups';
+import { SmallSamplesFilter } from '@/ui/params/small-samples-filter';
+import { Filter } from '@/ui/params/filter';
+
+import { FilteredSquadGroups } from './_components/filtered-squad-groups';
 
 // Config
 // ---------------
@@ -102,12 +105,17 @@ const Page = async ({ params }: PageProps) => {
         </Card>
       </div>
       <div>
-        <Headline level="2" variant="section">
-          Squads
-        </Headline>
+        <div className="flex items-end justify-between">
+          <Headline level="2" variant="section">
+            Squads
+          </Headline>
+          <Filter>
+            <SmallSamplesFilter />
+          </Filter>
+        </div>
         <Card size="fit" inset="list">
           <Card.Body>
-            <SquadGroups value={stats.squads} />
+            <FilteredSquadGroups value={stats.squads} />
           </Card.Body>
         </Card>
       </div>
