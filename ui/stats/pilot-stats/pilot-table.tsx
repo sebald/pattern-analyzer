@@ -4,7 +4,7 @@ import { Fragment } from 'react';
 
 import { Collapsible, Link } from '@/ui';
 import type { SortOptions } from '@/ui';
-import { Folder } from '@/ui/icons';
+import { View } from '@/ui/icons';
 import { ShipIcon } from '@/ui/ship-icon';
 import { Table } from '@/ui/table';
 
@@ -115,7 +115,7 @@ export const PilotTable = ({
               variant="highlight"
               className="text-primary-800"
             >
-              <Folder className="h-5 w-5" />
+              <View className="h-5 w-5" />
             </Link>
           </Table.Cell>
         </Fragment>

@@ -5,7 +5,7 @@ import { Fragment } from 'react';
 import { toPercentage } from '@/lib/utils';
 import type { SortOptions } from '@/ui';
 import { Collapsible, FactionIcon, Link, ShipIcon, Table } from '@/ui';
-import { Folder } from '@/ui/icons';
+import { View } from '@/ui/icons';
 
 import type { CompositionStatsType } from './types';
 
@@ -105,7 +105,7 @@ export const CompositionTable = ({
               variant="highlight"
               className="text-primary-800"
             >
-              <Folder className="h-5 w-5" />
+              <View className="h-5 w-5" />
             </Link>
           </Table.Cell>
         </Fragment>
