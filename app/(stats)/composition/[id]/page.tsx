@@ -13,9 +13,9 @@ import { toPercentage } from '@/lib/utils';
 
 import { Card, Detail, Headline, ShipIcon } from '@/ui';
 import { HistoryCurve } from '@/ui/stats/history-curve';
+import { SquadGroups } from '@/ui/stats/squad-groups';
 
 import { PilotDetails } from './_component/pilot-details';
-import { SquadGroups } from './_component/squad-groups';
 
 // Config
 // ---------------

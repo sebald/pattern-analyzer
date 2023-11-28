@@ -7,9 +7,10 @@ import { getPilotName } from '@/lib/get-value';
 import { createMetadata } from '@/lib/metadata';
 import { PilotStats, pilotDetails } from '@/lib/stats/details/pilot';
 import { fromDate } from '@/lib/utils/date.utils';
-import { Card, Detail } from '@/ui';
+import { Card, Detail, Headline } from '@/ui';
 import { toPercentage } from '@/lib/utils';
 import { HistoryCurve } from '@/ui/stats/history-curve';
+import { SquadGroups } from '@/ui/stats/squad-groups';
 
 // Config
 // ---------------
@@ -97,6 +98,16 @@ const Page = async ({ params }: PageProps) => {
           </Card.Header>
           <Card.Body>
             <HistoryCurve from={pointsUpdateDate} value={stats.history} />
+          </Card.Body>
+        </Card>
+      </div>
+      <div>
+        <Headline level="2" variant="section">
+          Squads
+        </Headline>
+        <Card size="fit" inset="list">
+          <Card.Body>
+            <SquadGroups value={stats.squads} />
           </Card.Body>
         </Card>
       </div>
