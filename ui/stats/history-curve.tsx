@@ -1,14 +1,17 @@
 'use client';
 
-import { toPercentage } from '@/lib/utils';
+import { linearGradientDef } from '@nivo/core';
+import { ResponsiveLine } from '@nivo/line';
+
+import { round, toPercentage } from '@/lib/utils/math.utils';
 import {
   formatMonth,
   fromDate,
   monthRange,
   today,
 } from '@/lib/utils/date.utils';
-import { linearGradientDef } from '@nivo/core';
-import { ResponsiveLine } from '@nivo/line';
+
+import { theme } from './theme';
 
 // Props
 // ---------------
@@ -69,17 +72,18 @@ export const HistoryCurve = ({ from, to, value }: HistoryCurveProps) => {
           legendPosition: 'middle',
           legendOffset: -45,
         }}
+        theme={theme}
         pointLabel={data =>
           `${toPercentage(data.y as number)} (${(data as any).count})`
         }
         pointSymbol={({ datum }) => (
           <circle
-            r={5 * Math.max(Math.log(datum.count), 1)}
+            r={Math.min(round(5 * Math.max(Math.log(datum.count), 1), 0), 15)}
             fill="#5155b1"
             style={{ pointerEvents: 'none' }}
           />
         )}
-        pointLabelYOffset={-12}
+        pointLabelYOffset={-18}
         enablePointLabel
         enableArea
         enableGridX={false}

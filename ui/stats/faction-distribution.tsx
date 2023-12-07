@@ -7,6 +7,8 @@ import { getFactionName } from '@/lib/get-value';
 import type { XWSFaction } from '@/lib/types';
 import { FACTION_ABBR, FACTION_COLORS, toPercentage } from '@/lib/utils';
 
+import { theme } from './theme';
+
 // Props
 // ---------------
 export interface FactionDistributionProps {
@@ -54,6 +56,7 @@ export const FactionDistribution = ({
           arcLinkLabel={({ data }) =>
             FACTION_ABBR[(data as any).id as XWSFaction | 'unknown']
           }
+          theme={theme}
           colors={{ datum: 'data.color' }}
           sortByValue
           innerRadius={0.5}

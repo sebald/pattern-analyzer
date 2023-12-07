@@ -6,6 +6,8 @@ import { FACTION_ABBR, FACTION_COLORS, toPercentage } from '@/lib/utils';
 import { ResponsiveBar } from '@nivo/bar';
 import { getFactionName } from '@/lib/get-value';
 
+import { theme } from './theme';
+
 // Props
 // ---------------
 export interface FactionWinrateProps {
@@ -51,6 +53,7 @@ export const FactionVictories = ({ value, total }: FactionWinrateProps) => {
           axisBottom={{
             format: (faction: XWSFaction) => FACTION_ABBR[faction],
           }}
+          theme={theme}
           colors={({ data }) => FACTION_COLORS[data.faction]}
           padding={0.2}
           margin={{ top: 10, right: 10, bottom: 20, left: 45 }}

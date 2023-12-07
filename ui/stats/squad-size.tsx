@@ -5,6 +5,8 @@ import { BarCustomLayer, ResponsiveBar } from '@nivo/bar';
 import { Card } from '@/ui';
 import { COLOR_MAP, toPercentage, weightedAverage } from '@/lib/utils';
 
+import { theme } from './theme';
+
 // Props
 // ---------------
 export interface SquadSizeProps {
@@ -83,6 +85,7 @@ export const SquadSize = ({ value, total }: SquadSizeProps) => {
             'annotations',
             sideLabel,
           ]}
+          theme={theme}
           layout="horizontal"
           enableGridY={false}
           enableGridX={true}

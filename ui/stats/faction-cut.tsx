@@ -9,6 +9,8 @@ import { getFactionName } from '@/lib/get-value';
 import { FACTION_ABBR, FACTION_COLORS, round, toPercentage } from '@/lib/utils';
 import type { XWSFaction } from '@/lib/types';
 
+import { theme } from './theme';
+
 // Helpers
 // ---------------
 /**
@@ -154,6 +156,7 @@ export const FactionCut = ({ tournament, value }: FactionCutProps) => {
           axisBottom={{
             format: (faction: XWSFaction | 'unknown') => FACTION_ABBR[faction],
           }}
+          theme={theme}
           colors={({ data }) => FACTION_COLORS[data.faction]}
           padding={0.15}
           margin={{ top: 10, right: 10, bottom: 20, left: 45 }}

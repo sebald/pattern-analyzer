@@ -11,6 +11,8 @@ import type { FactionMap } from '@/lib/stats/types';
 import type { XWSFaction } from '@/lib/types';
 import { COLOR_MAP, toPercentage } from '@/lib/utils';
 
+import { theme } from './theme';
+
 // Helpers
 // ---------------
 const ShipIcon = ({ ship }: { ship: string }) => (
@@ -176,6 +178,7 @@ export const ChassisDistribution = ({ value }: ChassisDistributionProps) => {
           maxValue={1}
           valueFormat={value => (value > 0 ? toPercentage(value) : '')}
           {...chartConfig}
+          theme={theme}
           labelTextColor={({ data }) =>
             data.data.frequency >= 0.8 ? '#f1f5fc' : '#0f172a'
           }
