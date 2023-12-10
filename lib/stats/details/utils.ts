@@ -1,6 +1,6 @@
 import { fromDate, toMonth } from '@/lib/utils/date.utils';
 import { average, deviation, round, winrate } from '@/lib/utils/math.utils';
-import type { GameRecord, XWSSquad } from '@/lib/types';
+import type { GameRecord, XWSSquad, XWSUpgrades } from '@/lib/types';
 
 /**
  * Create a composition id from XWS (pilot ids separated by a ".")
@@ -168,6 +168,64 @@ export const groupSquads = (squads: DetailedSquadData[]) => {
       deviation: deviation(current.percentiles, 4),
     };
   });
+
+  return groups;
+};
+
+/**
+ * Group upgrades of one pilot if the upgrades
+ * are exactly the same.
+ */
+export const groupUpgrades = (value: {
+  upgrades: XWSUpgrades[];
+  percentiles: number[];
+}) => {
+  const getId = (us: XWSUpgrades) => {
+    const val = Object.values(us).flat();
+    val.sort();
+    return val.join('.');
+  };
+
+  const data: {
+    [id: string]: {
+      count: number;
+      list: XWSUpgrades;
+      percentiles: number[];
+    };
+  } = {};
+  const groups: {
+    id: string;
+    list: XWSUpgrades;
+    count: number;
+    percentile: number;
+  }[] = [];
+
+  value.upgrades.forEach((upgrades, idx) => {
+    const id = getId(upgrades);
+    const current = data[id] || {
+      list: upgrades,
+      count: 0,
+      percentiles: [],
+    };
+
+    // Upgrades and percentile have same index
+    current.percentiles.push(value.percentiles[idx]);
+    current.count += 1;
+
+    data[id] = current;
+  });
+
+  // map -> array
+  Object.keys(data).forEach(id => {
+    groups.push({
+      id,
+      count: data[id].count,
+      percentile: average(data[id].percentiles, 4),
+      list: data[id].list,
+    });
+  });
+
+  groups.sort((a, b) => b.percentile - a.percentile);
 
   return groups;
 };

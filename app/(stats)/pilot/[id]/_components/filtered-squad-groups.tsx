@@ -16,6 +16,8 @@ const EmptyState = () => (
   </div>
 );
 
+// Component
+// ---------------
 export const FilteredSquadGroups = ({ value }: SquadGroupsProps) => {
   const [smallSamples] = useSmallSamplesFilter();
   let result = value;

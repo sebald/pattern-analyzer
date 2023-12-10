@@ -28,7 +28,7 @@ export const Pilots = ({ data }: PilotsProps) => {
           value={data}
           collapsible={false}
           filter={([, stat]) => {
-            if (smallSamples === 'hide' && (stat.count < 3 || stat.score < 5)) {
+            if (smallSamples === 'hide' && (stat.count < 5 || stat.score < 5)) {
               return false;
             }
 

@@ -1,5 +1,5 @@
 import type { SquadEntitiyWithXWS } from '@/lib/db/types';
-import type { GameRecord, XWSFaction } from '@/lib/types';
+import type { GameRecord, XWSFaction, XWSUpgrades } from '@/lib/types';
 import { average, deviation, round, winrate } from '@/lib/utils/math.utils';
 
 import {
@@ -9,6 +9,7 @@ import {
   createHistory,
   createPilotsId,
   groupSquads,
+  groupUpgrades,
 } from './utils';
 
 // Types
@@ -20,6 +21,10 @@ interface SquadPilotData {
   record: GameRecord;
   percentiles: number[];
 
+  loadout: {
+    upgrades: XWSUpgrades[];
+    percentiles: number[];
+  };
   squads: DetailedSquadData[];
 }
 
@@ -34,6 +39,12 @@ export interface PilotStats {
 
   history: PerformanceHistory[];
   squads: GroupedDetailedSquadData;
+  upgrades: {
+    id: string;
+    list: XWSUpgrades;
+    count: number;
+    percentile: number;
+  }[];
 }
 
 // Module
@@ -52,6 +63,10 @@ export const pilotDetails = ({ pilot, squads, count }: PilotDetailProps) => {
     count: 0,
     record: { wins: 0, ties: 0, losses: 0 },
     percentiles: [],
+    loadout: {
+      upgrades: [],
+      percentiles: [],
+    },
     squads: [],
   };
 
@@ -67,6 +82,16 @@ export const pilotDetails = ({ pilot, squads, count }: PilotDetailProps) => {
     stats.record.ties += current.record.ties;
     stats.record.losses += current.record.losses;
     stats.percentiles.push(current.percentile);
+
+    current.xws.pilots.forEach(({ id, upgrades }) => {
+      // Filter out other pilots
+      if (id !== pilot) {
+        return;
+      }
+      // Upgrades and percentiles need to be aligned for later
+      stats.loadout.upgrades.push(upgrades);
+      stats.loadout.percentiles.push(current.percentile);
+    });
 
     stats.squads.push({
       id: createPilotsId(current.xws),
@@ -90,6 +115,7 @@ export const pilotDetails = ({ pilot, squads, count }: PilotDetailProps) => {
     deviation: deviation(stats.percentiles, 4),
     history: createHistory(stats.squads),
     squads: groupSquads(stats.squads),
+    upgrades: groupUpgrades(stats.loadout),
   };
 
   return result;

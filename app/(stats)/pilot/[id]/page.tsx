@@ -14,6 +14,7 @@ import { SmallSamplesFilter } from '@/ui/params/small-samples-filter';
 import { Filter } from '@/ui/params/filter';
 
 import { FilteredSquadGroups } from './_components/filtered-squad-groups';
+import { PilotLoadouts } from './_components/pilot-loadouts';
 
 // Config
 // ---------------
@@ -116,6 +117,16 @@ const Page = async ({ params }: PageProps) => {
         <Card size="fit" inset="list">
           <Card.Body>
             <FilteredSquadGroups value={stats.squads} />
+          </Card.Body>
+        </Card>
+      </div>
+      <div>
+        <Headline level="2" variant="section">
+          Loadouts
+        </Headline>
+        <Card size="fit" inset="list">
+          <Card.Body>
+            <PilotLoadouts value={stats.upgrades} />
           </Card.Body>
         </Card>
       </div>
