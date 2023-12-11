@@ -24,7 +24,7 @@ export const FilteredSquadGroups = ({ value }: SquadGroupsProps) => {
 
   if (smallSamples === 'hide') {
     result = Object.fromEntries(
-      Object.entries(value).filter(([, stat]) => stat.items.length >= 3)
+      Object.entries(value).filter(([, stat]) => stat.items.length >= 5)
     );
   }
 

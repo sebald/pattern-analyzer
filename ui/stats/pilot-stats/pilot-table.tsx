@@ -111,7 +111,9 @@ export const PilotTable = ({
           <Table.Cell variant="number">{stat.score.toFixed(2)}</Table.Cell>
           <Table.Cell className="justify-center">
             <Link
-              href={`/pilot/${id}`}
+              href={`/pilot/${id}${
+                stat.count <= 25 ? '?small-samples=show' : ''
+              }`}
               variant="highlight"
               className="text-primary-800"
             >
