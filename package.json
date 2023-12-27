@@ -58,7 +58,7 @@
     "tailwindcss": "3.3.5",
     "tsx": "4.6.2",
     "turbo": "1.10.16",
-    "typescript": "5.2.2",
+    "typescript": "5.3.3",
     "xwing-data2": "github:danrs/xwing-data2#4a107f7",
     "yasb": "github:raithos/xwing#ee42743",
     "zx": "7.2.3"
