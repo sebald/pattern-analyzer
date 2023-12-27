@@ -23,7 +23,7 @@
     "mysql2": "3.6.5",
     "next": "14.0.2",
     "nextjs-google-analytics": "2.3.3",
-    "p-limit": "5.0.0",
+    "p-limit": "4.0.0",
     "query-string": "^8.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
