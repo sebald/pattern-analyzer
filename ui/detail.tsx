@@ -17,6 +17,7 @@ const styles = {
       size: {
         default: '',
         large: '',
+        xlarge: '',
       },
     },
     defaultVariants: {
@@ -24,15 +25,16 @@ const styles = {
       size: 'default',
     },
   }),
-  label: cva('text-sm font-medium leading-none', {
+  label: cva('font-medium leading-none', {
     variants: {
       variant: {
         default: 'text-secondary-400',
         primary: 'text-primary-500',
       },
       size: {
-        default: '',
-        large: '',
+        default: 'text-sm',
+        large: 'text-sm',
+        xlarge: 'text-base',
       },
     },
     defaultVariants: {
@@ -49,6 +51,7 @@ const styles = {
       size: {
         default: 'text-lg font-medium',
         large: 'text-2xl font-medium',
+        xlarge: 'text-3xl font-medium',
       },
     },
     defaultVariants: {
