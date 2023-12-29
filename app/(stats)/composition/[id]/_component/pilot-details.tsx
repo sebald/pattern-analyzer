@@ -105,7 +105,7 @@ export const PilotDetails = ({ className, ships, value }: PilotDetailProps) => {
                       {isStandardized(pid) ? (
                         <div className="text-secondary-950 flex items-center gap-1 pt-2 text-sm italic">
                           <Info className="h-4 w-4" /> Standarized Pilot. No
-                          variations.
+                          loadout variations.
                         </div>
                       ) : (
                         <div className="grid grid-cols-[max-content,auto] gap-x-6 gap-y-3 pt-2">
