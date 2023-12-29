@@ -121,9 +121,14 @@ const Page = async ({ params }: PageProps) => {
         </Card>
       </div>
       <div>
-        <Headline level="2" variant="section">
-          Loadouts
-        </Headline>
+        <div className="flex items-end justify-between">
+          <Headline level="2" variant="section">
+            Loadouts
+          </Headline>
+          <Filter>
+            <SmallSamplesFilter />
+          </Filter>
+        </div>
         <Card size="fit" inset="list">
           <Card.Body>
             <PilotLoadouts value={stats.upgrades} />
