@@ -15,6 +15,8 @@ import { Filter } from '@/ui/params/filter';
 
 import { FilteredSquadGroups } from './_components/filtered-squad-groups';
 import { PilotLoadouts } from './_components/pilot-loadouts';
+import { isStandardized } from '@/lib/xws';
+import { Info } from '@/ui/icons';
 
 // Config
 // ---------------
@@ -138,11 +140,21 @@ const Page = async ({ params }: PageProps) => {
             <SmallSamplesFilter />
           </Filter>
         </div>
-        <Card size="fit" inset="list">
-          <Card.Body>
-            <PilotLoadouts value={stats.upgrades} />
-          </Card.Body>
-        </Card>
+        {isStandardized(params.id) ? (
+          <Card
+            inset="headless"
+            className="flex flex-row items-center gap-1 text-lg italic"
+          >
+            <Info className="h-6 w-6" /> Standarized Pilot. No loadout
+            variations.
+          </Card>
+        ) : (
+          <Card size="fit" inset="list">
+            <Card.Body variant="enumeration">
+              <PilotLoadouts value={stats.upgrades} />
+            </Card.Body>
+          </Card>
+        )}
       </div>
     </div>
   );
