@@ -81,54 +81,61 @@ const Page = async ({ params }: PageProps) => {
   return (
     <div className="flex flex-col gap-16">
       <div className="grid gap-4 pt-3 md:grid-cols-12">
-        <Card className="col-span-full md:col-span-6">
-          <Card.Header>
-            <Card.Title>Overview</Card.Title>
-          </Card.Header>
-          <Card.Body className="flex flex-col gap-8 px-2 lg:px-4">
-            <Detail
-              label="Chassis"
-              size="large"
-              value={
-                <div className="flex flex-wrap gap-x-4 gap-y-1 pt-0.5">
-                  {stats.ships.map((ship, idx) => (
-                    <div key={idx} className="flex items-center gap-1">
-                      <ShipIcon ship={ship} className="text-3xl" />
-                      <span className="whitespace-nowrap text-lg">
-                        {getShipName(ship)}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              }
-            />
-            <div className="grid grid-cols-[repeat(auto-fit,_minmax(min(155px,100%),1fr))] gap-2 pb-2">
+        <div className="md:col-span-6">
+          <div className="grid grid-cols-2 gap-4 lg:grid-cols-3">
+            <Card inset="headless" className="col-span-full">
+              <Detail
+                label="Chassis"
+                size="xlarge"
+                value={
+                  <div className="flex flex-wrap gap-x-4 gap-y-1 pt-0.5">
+                    {stats.ships.map((ship, idx) => (
+                      <div key={idx} className="flex items-center gap-1">
+                        <ShipIcon ship={ship} className="text-3xl" />
+                        <span className="whitespace-nowrap text-lg">
+                          {getShipName(ship)}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                }
+              />
+            </Card>
+            <Card inset="headless">
               <Detail
                 label="Percentile"
-                size="large"
+                size="xlarge"
                 value={toPercentage(stats.percentile)}
               />
+            </Card>
+            <Card inset="headless">
               <Detail
                 label="Deviation"
-                size="large"
+                size="xlarge"
                 value={toPercentage(stats.deviation)}
               />
+            </Card>
+            <Card inset="headless">
               <Detail
                 label="Winrate"
-                size="large"
+                size="xlarge"
                 value={
                   stats.winrate !== null ? toPercentage(stats.winrate) : '-'
                 }
               />
+            </Card>
+            <Card inset="headless">
               <Detail
                 label="Frequency (in Faction)"
-                size="large"
+                size="xlarge"
                 value={toPercentage(stats.frequency)}
               />
-              <Detail label="Count" size="large" value={stats.count} />
-            </div>
-          </Card.Body>
-        </Card>
+            </Card>
+            <Card inset="headless">
+              <Detail label="Count" size="xlarge" value={stats.count} />
+            </Card>
+          </div>
+        </div>
         <Card className="col-span-full md:col-span-6">
           <Card.Header>
             <Card.Title>History</Card.Title>
