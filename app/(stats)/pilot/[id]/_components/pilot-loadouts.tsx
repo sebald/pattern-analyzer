@@ -1,7 +1,8 @@
 'use client';
 
+import { getUpgradeName } from '@/lib/get-value';
 import { XWSUpgrades } from '@/lib/types';
-import { Badge } from '@/ui';
+import { Badge, Headline, List } from '@/ui';
 import { Archive } from '@/ui/icons';
 import { useSmallSamplesFilter } from '@/ui/params/small-samples-filter';
 
@@ -48,13 +49,22 @@ export const PilotLoadouts = ({ value }: PilotLoadoutProps) => {
    * same as with the squads: filter out low frequency loadouts
    * dont show loadout of SL?
    * sort by percentile / count / ... ?
+   *
+   * Do we need "list" property!?
    */
 
   return result.map(current => (
-    <div key={current.id}>
-      <div className="w-14">
-        <Badge variant="light">{current.count}</Badge>
-      </div>
-    </div>
+    <List key={current.id}>
+      <List.Item variant="complex">
+        <div className="fle-row flex gap-4">
+          <div className="w-14">
+            <Badge variant="light">{current.count}</Badge>
+          </div>
+          <div className="text-lg font-medium">
+            {current.id.split('.').map(getUpgradeName).join(', ')}
+          </div>
+        </div>
+      </List.Item>
+    </List>
   ));
 };
