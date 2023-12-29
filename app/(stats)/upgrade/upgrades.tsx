@@ -24,8 +24,8 @@ export const Upgrades = ({ data }: UpgradesProps) => {
   const [sort] = useSortParam();
 
   return (
-    <Card inset="headless">
-      <Card.Body>
+    <Card inset="list">
+      <Card.Body variant="enumeration">
         <UpgradeTable
           value={data}
           collapsible={false}

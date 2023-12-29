@@ -22,8 +22,8 @@ export const Pilots = ({ data }: PilotsProps) => {
   const [sort] = useSortParam();
 
   return (
-    <Card inset="headless">
-      <Card.Body>
+    <Card inset="list">
+      <Card.Body variant="enumeration">
         <PilotTable
           value={data}
           collapsible={false}

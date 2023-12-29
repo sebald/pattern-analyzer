@@ -22,8 +22,8 @@ export const Compositions = ({ data }: CompositionsProps) => {
   const [sort] = useSortParam();
 
   return (
-    <Card inset="headless">
-      <Card.Body>
+    <Card inset="list">
+      <Card.Body variant="enumeration">
         <CompositionTable
           value={data}
           collapsible={false}

@@ -15,9 +15,9 @@ import { Content } from './content';
 // Metadata
 // ---------------
 export const metadata = createMetadata({
-  title: 'Pilots',
+  title: 'Upgrades',
   description: 'Find out what is the best upgrade!',
-  ogTitle: 'Pilots',
+  ogTitle: 'Upgrades',
   ogWidth: 65,
 });
 

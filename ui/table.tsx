@@ -39,7 +39,7 @@ export interface TableHeaderProps {
 export const TableHeader = ({ className, children }: TableHeaderProps) => (
   <div
     className={cn(
-      'whitespace-nowrap px-4 pb-2 text-sm font-bold text-primary-800',
+      'whitespace-nowrap p-4 text-sm font-bold text-primary-800',
       className
     )}
   >
@@ -90,11 +90,7 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(
 
     // Add additional classes to first/last col
     const addColClasses = (idx: number, otherClassName?: string) =>
-      cn(
-        otherClassName,
-        isFirst(idx) && 'pl-2 bg-white sticky left-0',
-        isLast(idx) && 'pr-2'
-      );
+      cn(otherClassName, isFirst(idx) && 'bg-white sticky left-0');
 
     const styles = {
       '--table-cols': cols.join(' '),
