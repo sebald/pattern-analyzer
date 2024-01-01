@@ -198,6 +198,7 @@ export const groupUpgrades = (value: {
     list: XWSUpgrades;
     count: number;
     percentile: number;
+    deviation: number;
   }[] = [];
 
   value.upgrades.forEach((upgrades, idx) => {
@@ -221,6 +222,7 @@ export const groupUpgrades = (value: {
       id,
       count: data[id].count,
       percentile: average(data[id].percentiles, 4),
+      deviation: deviation(data[id].percentiles, 4),
       list: data[id].list,
     });
   });

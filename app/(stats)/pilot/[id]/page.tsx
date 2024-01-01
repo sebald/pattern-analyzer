@@ -81,7 +81,7 @@ const Page = async ({ params }: PageProps) => {
             </Card>
             <Card inset="headless">
               <Detail
-                label="Deviation"
+                label="Std. Deviation"
                 size="xlarge"
                 value={toPercentage(stats.deviation)}
               />

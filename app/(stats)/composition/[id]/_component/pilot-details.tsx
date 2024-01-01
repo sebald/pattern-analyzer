@@ -78,7 +78,7 @@ export const PilotDetails = ({ className, ships, value }: PilotDetailProps) => {
                       />
                       <Detail
                         className="max-w-[150px]"
-                        label="Deviation"
+                        label="Std. Deviation"
                         value={
                           current.deviation
                             ? toPercentage(current.deviation)

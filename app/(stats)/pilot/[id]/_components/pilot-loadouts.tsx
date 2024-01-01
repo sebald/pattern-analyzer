@@ -2,7 +2,8 @@
 
 import { getUpgradeName } from '@/lib/get-value';
 import { XWSUpgrades } from '@/lib/types';
-import { Badge, Headline, List } from '@/ui';
+import { toPercentage } from '@/lib/utils/math.utils';
+import { Badge, Detail, Headline, List } from '@/ui';
 import { Archive } from '@/ui/icons';
 import { useSmallSamplesFilter } from '@/ui/params/small-samples-filter';
 
@@ -56,12 +57,24 @@ export const PilotLoadouts = ({ value }: PilotLoadoutProps) => {
   return result.map(current => (
     <List key={current.id}>
       <List.Item variant="complex">
-        <div className="fle-row flex gap-4">
+        <div className="flex gap-4">
           <div className="w-14">
             <Badge variant="light">{current.count}</Badge>
           </div>
-          <div className="text-lg font-medium">
-            {current.id.split('.').map(getUpgradeName).join(', ')}
+          <div className="flex flex-col gap-8">
+            <div className="text-lg font-medium">
+              {current.id.split('.').map(getUpgradeName).join(', ')}
+            </div>
+            <div className="flex gap-4">
+              <Detail
+                label="Percentile"
+                value={toPercentage(current.percentile)}
+              />
+              <Detail
+                label="Std. Deviation"
+                value={toPercentage(current.percentile)}
+              />
+            </div>
           </div>
         </div>
       </List.Item>

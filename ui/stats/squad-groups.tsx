@@ -49,7 +49,7 @@ export const SquadGroups = ({ value }: SquadGroupsProps) => {
                 />
                 <Detail
                   size="large"
-                  label="Deviation"
+                  label="Std. Deviation"
                   value={
                     current.deviation ? toPercentage(current.deviation) : '-'
                   }
