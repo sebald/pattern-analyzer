@@ -57,8 +57,8 @@ export const PilotLoadouts = ({ value }: PilotLoadoutProps) => {
   return result.map(current => (
     <List key={current.id}>
       <List.Item variant="complex">
-        <div className="flex gap-4">
-          <div className="w-14">
+        <div className="flex gap-8">
+          <div className="w-10">
             <Badge variant="light">{current.count}</Badge>
           </div>
           <div className="flex-1 text-lg font-medium">
