@@ -8,7 +8,7 @@ const styles = {
   container: cva('', {
     variants: {
       align: {
-        left: 'flex items-center justify-between gap-2',
+        left: 'flex items-center justify-end gap-2',
       },
       variant: {
         default: '',
@@ -18,6 +18,7 @@ const styles = {
         default: '',
         large: '',
         xlarge: '',
+        fit: '',
       },
     },
     defaultVariants: {
@@ -35,6 +36,7 @@ const styles = {
         default: 'text-sm',
         large: 'text-sm',
         xlarge: 'text-base',
+        fit: 'text-sm',
       },
     },
     defaultVariants: {
@@ -52,6 +54,7 @@ const styles = {
         default: 'text-lg font-medium',
         large: 'text-2xl font-medium',
         xlarge: 'text-3xl font-medium',
+        fit: 'text-sm font-medium',
       },
     },
     defaultVariants: {

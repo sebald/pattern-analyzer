@@ -61,20 +61,22 @@ export const PilotLoadouts = ({ value }: PilotLoadoutProps) => {
           <div className="w-14">
             <Badge variant="light">{current.count}</Badge>
           </div>
-          <div className="flex flex-col gap-8">
-            <div className="text-lg font-medium">
-              {current.id.split('.').map(getUpgradeName).join(', ')}
-            </div>
-            <div className="flex gap-4">
-              <Detail
-                label="Percentile"
-                value={toPercentage(current.percentile)}
-              />
-              <Detail
-                label="Std. Deviation"
-                value={toPercentage(current.percentile)}
-              />
-            </div>
+          <div className="flex-1 text-lg font-medium">
+            {current.id.split('.').map(getUpgradeName).join(', ')}
+          </div>
+          <div className="flex flex-col gap-2">
+            <Detail
+              label="Percentile"
+              value={toPercentage(current.percentile)}
+              align="left"
+              size="fit"
+            />
+            <Detail
+              label="Std. Deviation"
+              value={toPercentage(current.percentile)}
+              align="left"
+              size="fit"
+            />
           </div>
         </div>
       </List.Item>
