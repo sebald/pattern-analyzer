@@ -5,7 +5,7 @@ import data from '@/lib/data/display-values.json';
 import { getFactionCount, getSquads } from '@/lib/db/squads';
 import { getPilotName } from '@/lib/get-value';
 import { createMetadata } from '@/lib/metadata';
-import { PilotStats, pilotDetails } from '@/lib/stats/details/pilot';
+import { pilotDetails } from '@/lib/stats/details/pilot';
 import { fromDate } from '@/lib/utils/date.utils';
 import { Card, Detail, Headline } from '@/ui';
 import { toPercentage } from '@/lib/utils';
@@ -60,13 +60,11 @@ const getPilotStats = async (pilot: string, from: Date) => {
 // Page
 // ---------------
 const Page = async ({ params }: PageProps) => {
-  let stats: PilotStats;
-  // try {
-  stats = await getPilotStats(params.id, fromDate(pointsUpdateDate));
-  // } catch (err) {
-  // console.log(err);
-  // notFound();
-  // }
+  if (!getPilotName(params.id)) {
+    notFound();
+  }
+
+  const stats = await getPilotStats(params.id, fromDate(pointsUpdateDate));
 
   return (
     <div className="flex flex-col gap-16">
