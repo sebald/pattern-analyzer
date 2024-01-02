@@ -75,34 +75,27 @@ export const PilotLoadouts = ({ value, baseline }: PilotLoadoutProps) => {
           <div className="w-10">
             <Badge variant="light">{current.count}</Badge>
           </div>
-          <div className="flex-1 text-lg font-medium">
+          <div className="flex flex-1 flex-col gap-x-4 gap-y-2 text-lg font-medium md:gap-x-8 md:gap-y-4">
             {current.id.split('.').map(getUpgradeName).join(', ')}
-          </div>
-          <div className="flex flex-col gap-2">
-            <Detail
-              label="Percentile"
-              value={toPercentage(current.percentile)}
-              align="left"
-              size="fit"
-              className={{ value: 'w-[7ch]' }}
-            />
-            <Detail
-              label="Std. Deviation"
-              value={toPercentage(current.deviation)}
-              align="left"
-              size="fit"
-              className={{ value: 'w-[7ch]' }}
-            />
-            <Detail
-              label="vs. Baseline"
-              value={toPercentage(current.percentile - baseline.percentile, {
-                sign: true,
-              })}
-              align="left"
-              size="fit"
-              className={{ value: 'w-[7ch]' }}
-              highlight={getHighlight(current.percentile - baseline.percentile)}
-            />
+            <div className="flex gap-x-8">
+              <Detail
+                label="Percentile"
+                value={toPercentage(current.percentile)}
+              />
+              <Detail
+                label="Std. Deviation"
+                value={toPercentage(current.deviation)}
+              />
+              <Detail
+                label="vs. Pilot Average"
+                value={toPercentage(current.percentile - baseline.percentile, {
+                  sign: true,
+                })}
+                highlight={getHighlight(
+                  current.percentile - baseline.percentile
+                )}
+              />
+            </div>
           </div>
         </div>
       </List.Item>

@@ -8,7 +8,7 @@ const styles = {
   container: cva('', {
     variants: {
       align: {
-        left: 'flex items-center justify-end gap-4 tabular-nums',
+        left: 'flex items-center justify-between gap-4',
       },
       variant: {
         default: '',
@@ -63,8 +63,8 @@ const styles = {
       },
       highlight: {
         neutral: '',
-        positive: 'text-green-800',
-        negative: 'text-red-800',
+        positive: 'text-green-700',
+        negative: 'text-red-700',
       },
     },
     defaultVariants: {
