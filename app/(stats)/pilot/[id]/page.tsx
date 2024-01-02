@@ -61,11 +61,12 @@ const getPilotStats = async (pilot: string, from: Date) => {
 // ---------------
 const Page = async ({ params }: PageProps) => {
   let stats: PilotStats;
-  try {
-    stats = await getPilotStats(params.id, fromDate(pointsUpdateDate));
-  } catch {
-    notFound();
-  }
+  // try {
+  stats = await getPilotStats(params.id, fromDate(pointsUpdateDate));
+  // } catch (err) {
+  // console.log(err);
+  // notFound();
+  // }
 
   return (
     <div className="flex flex-col gap-16">
