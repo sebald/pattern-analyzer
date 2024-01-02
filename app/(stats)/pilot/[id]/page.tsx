@@ -159,6 +159,23 @@ const Page = async ({ params }: PageProps) => {
           </Card>
         )}
       </div>
+      <div>
+        <div className="flex items-end justify-between">
+          <Headline level="2" variant="section">
+            Squadmates
+          </Headline>
+          <Filter>
+            <SmallSamplesFilter />
+          </Filter>
+        </div>
+        <Card size="fit" inset="list">
+          <Card.Body>
+            <pre>
+              <code>{JSON.stringify(stats.squadmates, null, 2)}</code>
+            </pre>
+          </Card.Body>
+        </Card>
+      </div>
     </div>
   );
 };

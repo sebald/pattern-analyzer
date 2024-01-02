@@ -1,6 +1,12 @@
 import type { SquadEntitiyWithXWS } from '@/lib/db/types';
 import type { GameRecord, XWSFaction, XWSUpgrades } from '@/lib/types';
-import { average, deviation, round, winrate } from '@/lib/utils/math.utils';
+import {
+  average,
+  createSubsets,
+  deviation,
+  round,
+  winrate,
+} from '@/lib/utils/math.utils';
 
 import {
   type DetailedSquadData,
@@ -11,6 +17,7 @@ import {
   groupSquads,
   groupUpgrades,
 } from './utils';
+import { getPilots } from '@/lib/xws';
 
 // Types
 // ---------------
@@ -26,6 +33,12 @@ interface SquadPilotData {
     percentiles: number[];
   };
   squads: DetailedSquadData[];
+  squadmates: {
+    [pids: string]: {
+      count: number;
+      percentiles: number[];
+    };
+  };
 }
 
 export interface PilotStats {
@@ -46,7 +59,35 @@ export interface PilotStats {
     percentile: number;
     deviation: number;
   }[];
+  squadmates: {
+    [pids: string]: {
+      count: number;
+      percentile: number;
+      deviation: number;
+    };
+  };
 }
+
+// Helpers
+// ---------------
+const squadmatesStats = (squadmates: SquadPilotData['squadmates']) => {
+  const entries = Object.entries(squadmates).map(
+    ([smid, { count, percentiles }]) => {
+      return [
+        smid,
+        {
+          count,
+          percentile: average(percentiles, 4),
+          deviation: deviation(percentiles, 4),
+        },
+      ];
+    }
+  ) as [string, { count: number; percentile: number; deviation: number }][];
+
+  return Object.fromEntries(
+    entries.toSorted(([, a], [, b]) => b.percentile - a.percentile)
+  );
+};
 
 // Module
 // ---------------
@@ -69,6 +110,7 @@ export const pilotDetails = ({ pilot, squads, count }: PilotDetailProps) => {
       percentiles: [],
     },
     squads: [],
+    squadmates: {},
   };
 
   squads.forEach(current => {
@@ -104,6 +146,26 @@ export const pilotDetails = ({ pilot, squads, count }: PilotDetailProps) => {
       rank: current.rank,
       percentile: current.percentile,
     });
+
+    const squadmates = getPilots(current.xws).filter(p => p !== pilot);
+    createSubsets(squadmates).forEach(subset => {
+      // Remove empty set
+      if (!subset.length) {
+        return;
+      }
+
+      const id = subset.sort().join('.');
+
+      if (!stats.squadmates[id]) {
+        stats.squadmates[id] = {
+          count: 0,
+          percentiles: [],
+        };
+      }
+
+      stats.squadmates[id].count += 1;
+      stats.squadmates[id].percentiles.push(current.percentile);
+    });
   });
 
   const result: PilotStats = {
@@ -117,6 +179,7 @@ export const pilotDetails = ({ pilot, squads, count }: PilotDetailProps) => {
     history: createHistory(stats.squads),
     squads: groupSquads(stats.squads),
     upgrades: groupUpgrades(stats.loadout),
+    squadmates: squadmatesStats(stats.squadmates),
   };
 
   return result;
