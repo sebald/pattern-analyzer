@@ -100,8 +100,8 @@ export interface PilotDetailProps {
 export const pilotDetails = ({ pilot, squads, count }: PilotDetailProps) => {
   const stats: SquadPilotData = {
     id: pilot,
-    // Get first squad to derive faction
-    faction: squads[0].faction,
+    // Get first squad to derive faction (failsafe for extended...)
+    faction: squads.length ? squads[0].faction : 'rebelalliance',
     count: 0,
     record: { wins: 0, ties: 0, losses: 0 },
     percentiles: [],
@@ -147,25 +147,25 @@ export const pilotDetails = ({ pilot, squads, count }: PilotDetailProps) => {
       percentile: current.percentile,
     });
 
-    const squadmates = getPilots(current.xws).filter(p => p !== pilot);
-    createSubsets(squadmates).forEach(subset => {
-      // Remove empty set
-      if (!subset.length) {
-        return;
-      }
+    // const squadmates = getPilots(current.xws).filter(p => p !== pilot);
+    // createSubsets(squadmates).forEach(subset => {
+    //   // Remove empty set
+    //   if (!subset.length) {
+    //     return;
+    //   }
 
-      const id = subset.sort().join('.');
+    //   const id = subset.sort().join('.');
 
-      if (!stats.squadmates[id]) {
-        stats.squadmates[id] = {
-          count: 0,
-          percentiles: [],
-        };
-      }
+    //   if (!stats.squadmates[id]) {
+    //     stats.squadmates[id] = {
+    //       count: 0,
+    //       percentiles: [],
+    //     };
+    //   }
 
-      stats.squadmates[id].count += 1;
-      stats.squadmates[id].percentiles.push(current.percentile);
-    });
+    //   stats.squadmates[id].count += 1;
+    //   stats.squadmates[id].percentiles.push(current.percentile);
+    // });
   });
 
   const result: PilotStats = {
@@ -179,7 +179,8 @@ export const pilotDetails = ({ pilot, squads, count }: PilotDetailProps) => {
     history: createHistory(stats.squads),
     squads: groupSquads(stats.squads),
     upgrades: groupUpgrades(stats.loadout),
-    squadmates: squadmatesStats(stats.squadmates),
+    // squadmates: squadmatesStats(stats.squadmates),
+    squadmates: {},
   };
 
   return result;
