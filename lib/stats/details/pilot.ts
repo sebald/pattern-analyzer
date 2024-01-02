@@ -71,7 +71,7 @@ export interface PilotStats {
 // Helpers
 // ---------------
 const squadmatesStats = (squadmates: SquadPilotData['squadmates']) => {
-  const entries = Object.entries(squadmates).map(
+  let entries = Object.entries(squadmates).map(
     ([smid, { count, percentiles }]) => {
       return [
         smid,
@@ -84,9 +84,8 @@ const squadmatesStats = (squadmates: SquadPilotData['squadmates']) => {
     }
   ) as [string, { count: number; percentile: number; deviation: number }][];
 
-  return Object.fromEntries(
-    entries.toSorted(([, a], [, b]) => b.percentile - a.percentile)
-  );
+  entries.sort(([, a], [, b]) => b.percentile - a.percentile);
+  return Object.fromEntries(entries);
 };
 
 // Module
