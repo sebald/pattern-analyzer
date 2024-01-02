@@ -63,7 +63,8 @@ const Page = async ({ params }: PageProps) => {
   let stats: PilotStats;
   try {
     stats = await getPilotStats(params.id, fromDate(pointsUpdateDate));
-  } catch {
+  } catch (err) {
+    console.log(err);
     notFound();
   }
 
