@@ -8,7 +8,7 @@ const styles = {
   container: cva('', {
     variants: {
       align: {
-        left: 'flex items-center justify-end gap-2',
+        left: 'flex items-center justify-end gap-4 tabular-nums',
       },
       variant: {
         default: '',
@@ -19,6 +19,11 @@ const styles = {
         large: '',
         xlarge: '',
         fit: '',
+      },
+      highlight: {
+        neutral: '',
+        positive: '',
+        negative: '',
       },
     },
     defaultVariants: {
@@ -56,6 +61,11 @@ const styles = {
         xlarge: 'text-3xl font-medium',
         fit: 'text-sm font-medium',
       },
+      highlight: {
+        neutral: '',
+        positive: 'text-green-800',
+        negative: 'text-red-800',
+      },
     },
     defaultVariants: {
       variant: 'default',
@@ -67,7 +77,11 @@ const styles = {
 // Props
 // ---------------
 export interface DetailProps extends VariantProps<typeof styles.container> {
-  className?: string;
+  className?: {
+    container?: string;
+    label?: string;
+    value?: string;
+  };
   label: ReactNode;
   value: ReactNode;
 }
@@ -80,13 +94,24 @@ export const Detail = ({
   variant,
   size,
   align,
+  highlight,
   className,
 }: DetailProps) => (
-  <div className={cn(styles.container({ variant, size, align }), className)}>
-    <div className={cn(styles.label({ variant, size }), className)}>
+  <div
+    className={cn(
+      styles.container({ variant, size, align }),
+      className?.container
+    )}
+  >
+    <div className={cn(styles.label({ variant, size }), className?.label)}>
       {label}
     </div>
-    <div className={cn(styles.value({ variant, size }), className)}>
+    <div
+      className={cn(
+        styles.value({ variant, size, highlight }),
+        className?.value
+      )}
+    >
       {value}
     </div>
   </div>

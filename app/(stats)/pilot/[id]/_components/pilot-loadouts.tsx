@@ -21,6 +21,16 @@ const EmptyState = () => (
   </div>
 );
 
+const getHighlight = (value: number) => {
+  if (value > 0) {
+    return 'positive';
+  }
+  if (value < 0) {
+    return 'negative';
+  }
+  return null;
+};
+
 // Props
 // ---------------
 export interface PilotLoadoutProps {
@@ -29,12 +39,16 @@ export interface PilotLoadoutProps {
     list: XWSUpgrades;
     count: number;
     percentile: number;
+    deviation: number;
   }[];
+  baseline: {
+    percentile: number;
+  };
 }
 
 // Components
 // ---------------
-export const PilotLoadouts = ({ value }: PilotLoadoutProps) => {
+export const PilotLoadouts = ({ value, baseline }: PilotLoadoutProps) => {
   const [smallSamples] = useSmallSamplesFilter();
   let result = value;
 
@@ -70,12 +84,24 @@ export const PilotLoadouts = ({ value }: PilotLoadoutProps) => {
               value={toPercentage(current.percentile)}
               align="left"
               size="fit"
+              className={{ value: 'w-[7ch]' }}
             />
             <Detail
               label="Std. Deviation"
-              value={toPercentage(current.percentile)}
+              value={toPercentage(current.deviation)}
               align="left"
               size="fit"
+              className={{ value: 'w-[7ch]' }}
+            />
+            <Detail
+              label="vs. Baseline"
+              value={toPercentage(current.percentile - baseline.percentile, {
+                sign: true,
+              })}
+              align="left"
+              size="fit"
+              className={{ value: 'w-[7ch]' }}
+              highlight={getHighlight(current.percentile - baseline.percentile)}
             />
           </div>
         </div>

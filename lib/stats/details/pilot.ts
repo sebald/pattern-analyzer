@@ -44,6 +44,7 @@ export interface PilotStats {
     list: XWSUpgrades;
     count: number;
     percentile: number;
+    deviation: number;
   }[];
 }
 

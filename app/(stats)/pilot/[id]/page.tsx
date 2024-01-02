@@ -151,7 +151,10 @@ const Page = async ({ params }: PageProps) => {
         ) : (
           <Card size="fit" inset="list">
             <Card.Body variant="enumeration">
-              <PilotLoadouts value={stats.upgrades} />
+              <PilotLoadouts
+                value={stats.upgrades}
+                baseline={{ percentile: stats.percentile }}
+              />
             </Card.Body>
           </Card>
         )}
