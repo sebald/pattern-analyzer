@@ -1,6 +1,4 @@
-'use client';
-
-import { Fragment, useState } from 'react';
+import { Fragment } from 'react';
 
 import { type Ships, getPilotName, getShipName } from '@/lib/get-value';
 import type { SquadCompositionStats } from '@/lib/stats/details/composition';
