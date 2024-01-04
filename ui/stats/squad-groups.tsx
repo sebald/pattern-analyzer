@@ -40,7 +40,7 @@ export const SquadGroups = ({ value }: SquadGroupsProps) => {
             {id.split('.').map(getPilotName).join(', ')}
           </Accordion.Trigger>
           <Accordion.Content>
-            <div className="flex flex-col gap-8 pt-6">
+            <div className="flex flex-col gap-12 lg:pl-16">
               <div className="flex flex-wrap gap-8 px-2">
                 <Detail
                   size="large"
