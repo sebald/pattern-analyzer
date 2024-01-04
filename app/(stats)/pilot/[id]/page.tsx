@@ -168,14 +168,10 @@ const Page = async ({ params }: PageProps) => {
             <SmallSamplesFilter />
           </Filter>
         </div>
-        <Card size="fit" inset="list">
-          <Card.Body>
-            <PilotSquadmates
-              value={stats.squadmates}
-              baseline={{ percentile: stats.percentile }}
-            />
-          </Card.Body>
-        </Card>
+        <PilotSquadmates
+          value={stats.squadmates}
+          baseline={{ percentile: stats.percentile }}
+        />
       </div>
     </div>
   );
