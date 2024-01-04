@@ -102,6 +102,7 @@ export const PilotSquadmates = ({ value, baseline }: PilotSquadmatesProps) => {
                     )}
                     highlight={current.percentile - baseline.percentile}
                   />
+                  <Detail label="Count (in same Squad)" value={current.count} />
                 </div>
               </div>
             </div>
