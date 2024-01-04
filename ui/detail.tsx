@@ -2,6 +2,18 @@ import type { ReactNode } from 'react';
 import { type VariantProps, cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils/classname.utils';
 
+// Helpers
+// ---------------
+const getHighlight = (value = 0) => {
+  if (value > 0) {
+    return 'positive';
+  }
+  if (value < 0) {
+    return 'negative';
+  }
+  return null;
+};
+
 // Styles
 // ---------------
 const styles = {
@@ -19,11 +31,6 @@ const styles = {
         large: '',
         xlarge: '',
         fit: '',
-      },
-      highlight: {
-        neutral: '',
-        positive: '',
-        negative: '',
       },
     },
     defaultVariants: {
@@ -84,6 +91,7 @@ export interface DetailProps extends VariantProps<typeof styles.container> {
   };
   label: ReactNode;
   value: ReactNode;
+  highlight?: number;
 }
 
 // Component
@@ -108,7 +116,7 @@ export const Detail = ({
     </div>
     <div
       className={cn(
-        styles.value({ variant, size, highlight }),
+        styles.value({ variant, size, highlight: getHighlight(highlight) }),
         className?.value
       )}
     >

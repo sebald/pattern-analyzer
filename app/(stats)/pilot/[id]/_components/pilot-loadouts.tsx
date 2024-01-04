@@ -21,16 +21,6 @@ const EmptyState = () => (
   </div>
 );
 
-const getHighlight = (value: number) => {
-  if (value > 0) {
-    return 'positive';
-  }
-  if (value < 0) {
-    return 'negative';
-  }
-  return null;
-};
-
 // Props
 // ---------------
 export interface PilotLoadoutProps {
@@ -60,14 +50,6 @@ export const PilotLoadouts = ({ value, baseline }: PilotLoadoutProps) => {
     return <EmptyState />;
   }
 
-  /**
-   * same as with the squads: filter out low frequency loadouts
-   * dont show loadout of SL?
-   * sort by percentile / count / ... ?
-   *
-   * Do we need "list" property!?
-   */
-
   return result.map(current => (
     <List key={current.id}>
       <List.Item variant="complex">
@@ -91,9 +73,7 @@ export const PilotLoadouts = ({ value, baseline }: PilotLoadoutProps) => {
                 value={toPercentage(current.percentile - baseline.percentile, {
                   sign: true,
                 })}
-                highlight={getHighlight(
-                  current.percentile - baseline.percentile
-                )}
+                highlight={current.percentile - baseline.percentile}
               />
             </div>
           </div>

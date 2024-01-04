@@ -17,6 +17,7 @@ import { FilteredSquadGroups } from './_components/filtered-squad-groups';
 import { PilotLoadouts } from './_components/pilot-loadouts';
 import { isStandardized } from '@/lib/xws';
 import { Info } from '@/ui/icons';
+import { PilotSquadmates } from './_components/pilot-suadmates';
 
 // Config
 // ---------------
@@ -169,9 +170,10 @@ const Page = async ({ params }: PageProps) => {
         </div>
         <Card size="fit" inset="list">
           <Card.Body>
-            <pre>
-              <code>{JSON.stringify(stats.squadmates, null, 2)}</code>
-            </pre>
+            <PilotSquadmates
+              value={stats.squadmates}
+              baseline={{ percentile: stats.percentile }}
+            />
           </Card.Body>
         </Card>
       </div>

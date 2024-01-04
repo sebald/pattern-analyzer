@@ -155,7 +155,13 @@ const Page = async ({ params }: PageProps) => {
           </Card.Body>
         </Card>
       </div>
-      <PilotDetails ships={stats.ships} value={stats.pilot} />
+      <PilotDetails
+        value={stats.pilot}
+        baseline={{
+          ships: stats.ships,
+          percentile: stats.percentile,
+        }}
+      />
     </div>
   );
 };
