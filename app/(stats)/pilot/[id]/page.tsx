@@ -69,7 +69,7 @@ const Page = async ({ params }: PageProps) => {
 
   return (
     <div className="flex flex-col gap-16">
-      <div className="grid gap-4 pt-3 md:grid-cols-12">
+      <div className="grid gap-4 md:grid-cols-12">
         <div className="md:col-span-5">
           <div className="grid grid-cols-2 gap-4 lg:grid-cols-3">
             <Card inset="headless">
@@ -117,14 +117,9 @@ const Page = async ({ params }: PageProps) => {
         </Card>
       </div>
       <div>
-        <div className="flex items-end justify-between">
-          <Headline level="2" variant="section">
-            Squads
-          </Headline>
-          <Filter>
-            <SmallSamplesFilter />
-          </Filter>
-        </div>
+        <Headline level="2" variant="section">
+          Squads
+        </Headline>
         <Card size="fit" inset="list">
           <Card.Body>
             <FilteredSquadGroups value={stats.squads} />
@@ -132,14 +127,9 @@ const Page = async ({ params }: PageProps) => {
         </Card>
       </div>
       <div>
-        <div className="flex items-end justify-between">
-          <Headline level="2" variant="section">
-            Loadouts
-          </Headline>
-          <Filter>
-            <SmallSamplesFilter />
-          </Filter>
-        </div>
+        <Headline level="2" variant="section">
+          Loadouts
+        </Headline>
         {isStandardized(params.id) ? (
           <Card
             inset="headless"
@@ -160,14 +150,9 @@ const Page = async ({ params }: PageProps) => {
         )}
       </div>
       <div>
-        <div className="flex items-end justify-between">
-          <Headline level="2" variant="section">
-            Squadmates
-          </Headline>
-          <Filter>
-            <SmallSamplesFilter />
-          </Filter>
-        </div>
+        <Headline level="2" variant="section">
+          Squadmates
+        </Headline>
         <PilotSquadmates
           value={stats.squadmates}
           baseline={{ percentile: stats.percentile }}
