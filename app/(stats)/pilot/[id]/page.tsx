@@ -18,6 +18,7 @@ import { PilotLoadouts } from './_components/pilot-loadouts';
 import { isStandardized } from '@/lib/xws';
 import { Info } from '@/ui/icons';
 import { PilotSquadmates } from './_components/pilot-suadmates';
+import { PilotSets } from './_components/pilot-sets';
 
 // Config
 // ---------------
@@ -156,6 +157,15 @@ const Page = async ({ params }: PageProps) => {
         <PilotSquadmates
           value={stats.squadmates}
           baseline={{ percentile: stats.percentile }}
+        />
+      </div>
+      <div>
+        <Headline level="2" variant="section">
+          Squadmate Sets
+        </Headline>
+        <PilotSets
+          value={stats.squadmates}
+          baseline={{ percentile: stats.percentile, count: stats.count }}
         />
       </div>
     </div>
