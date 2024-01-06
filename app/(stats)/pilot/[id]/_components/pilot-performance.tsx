@@ -1,7 +1,7 @@
 'use client';
 
 import type { ReactNode } from 'react';
-import { ResponsiveSwarmPlot } from '@nivo/swarmplot';
+import { ResponsiveScatterPlot } from '@nivo/scatterplot';
 
 import { Card } from '@/ui';
 import { useSmallSamplesFilter } from '@/ui/params/small-samples-filter';
@@ -17,7 +17,7 @@ const Tooltip = ({ children }: { children?: ReactNode }) => (
 
 // Props
 // ---------------
-export interface PilotSetsProps {
+export interface PilotPerformancepmProps {
   value: {
     [pids: string]: {
       count: number;
@@ -33,7 +33,10 @@ export interface PilotSetsProps {
 
 // Component
 // ---------------
-export const PilotSets = ({ value, baseline }: PilotSetsProps) => {
+export const PilotPerformance = ({
+  value,
+  baseline,
+}: PilotPerformancepmProps) => {
   const [smallSamples] = useSmallSamplesFilter();
   const data = Object.entries(value)
     .filter(([, stat]) => {
@@ -44,41 +47,41 @@ export const PilotSets = ({ value, baseline }: PilotSetsProps) => {
       return true;
     })
     .map(([id, stat]) => ({
-      id,
-      group: 'squadmates',
-      percentile: stat.percentile,
-      frequency: stat.count / baseline.count,
+      pilots: id,
+      x: stat.percentile,
+      y: stat.count / baseline.count,
       count: stat.count,
     }));
 
   return (
     <Card>
       <div className="h-[448px]">
-        <ResponsiveSwarmPlot
-          data={data}
-          groups={['squadmates']}
-          value="percentile"
-          valueScale={{ type: 'linear', min: 0, max: 1 }}
-          valueFormat=">-.2%"
-          tooltip={({ id, formattedValue }) => (
+        <ResponsiveScatterPlot
+          data={[{ id: 'squadmates', data }]}
+          xScale={{ type: 'linear', min: 0, max: 1 }}
+          xFormat=">-.2%"
+          yScale={{ type: 'linear', min: 0, max: 1 }}
+          yFormat=">-.2%"
+          tooltip={({ node }) => (
             <Tooltip>
-              <strong>{id.split('.').map(getPilotName).join(', ')}:</strong>{' '}
-              <span className="text-secondary-700">{formattedValue}</span>
+              <strong>
+                {node.data.pilots.split('.').map(getPilotName).join(', ')}:
+              </strong>{' '}
+              <span className="text-secondary-700">{node.formattedX}</span>
             </Tooltip>
           )}
-          size={{
-            key: 'frequency',
-            values: [0, 1],
-            sizes: [12, 60],
-          }}
-          spacing={6}
-          layout="horizontal"
-          forceStrength={4}
+          nodeSize={12}
+          blendMode="multiply"
           colors="#8490db"
           enableGridY={false}
-          axisLeft={null}
           axisRight={null}
           axisTop={null}
+          axisLeft={{
+            legend: 'Frequency',
+            legendPosition: 'middle',
+            legendOffset: -50,
+            format: '>-.0%',
+          }}
           axisBottom={{
             legend: 'Percentile',
             legendPosition: 'middle',
@@ -89,7 +92,7 @@ export const PilotSets = ({ value, baseline }: PilotSetsProps) => {
             top: 20,
             right: 30,
             bottom: 50,
-            left: 30,
+            left: 60,
           }}
           animate={false}
         />

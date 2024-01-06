@@ -19,6 +19,7 @@ import { isStandardized } from '@/lib/xws';
 import { Info } from '@/ui/icons';
 import { PilotSquadmates } from './_components/pilot-squadmates';
 import { PilotSets } from './_components/pilot-sets';
+import { PilotPerformance } from './_components/pilot-performance';
 
 // Config
 // ---------------
@@ -161,9 +162,13 @@ const Page = async ({ params }: PageProps) => {
       </div>
       <div>
         <Headline level="2" variant="section">
-          Squadmate Performances
+          Squadmate Performance
         </Headline>
         <PilotSets
+          value={stats.squadmates}
+          baseline={{ percentile: stats.percentile, count: stats.count }}
+        />
+        <PilotPerformance
           value={stats.squadmates}
           baseline={{ percentile: stats.percentile, count: stats.count }}
         />

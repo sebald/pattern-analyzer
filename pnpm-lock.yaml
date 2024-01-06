@@ -20,6 +20,9 @@ dependencies:
   '@nivo/pie':
     specifier: 0.84.0
     version: 0.84.0(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
+  '@nivo/scatterplot':
+    specifier: ^0.84.0
+    version: 0.84.0(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
   '@nivo/swarmplot':
     specifier: ^0.84.0
     version: 0.84.0(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
@@ -1350,6 +1353,31 @@ packages:
       d3-time: 1.1.0
       d3-time-format: 3.0.0
       lodash: 4.17.21
+    dev: false
+
+  /@nivo/scatterplot@0.84.0(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-E4AE0vspLo/7CwTNbL/lAO1K//51CpJhtWTbZwWcmjdo/SKv559CA4PPqXBgS6QgdzzE6Kn3hgp2io76UqIZvQ==}
+    peerDependencies:
+      react: '>= 16.14.0 < 19.0.0'
+    dependencies:
+      '@nivo/annotations': 0.84.0(react-dom@18.2.0)(react@18.2.0)
+      '@nivo/axes': 0.84.0(react-dom@18.2.0)(react@18.2.0)
+      '@nivo/colors': 0.84.0(react-dom@18.2.0)(react@18.2.0)
+      '@nivo/core': 0.84.0(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
+      '@nivo/legends': 0.84.0(react-dom@18.2.0)(react@18.2.0)
+      '@nivo/scales': 0.84.0
+      '@nivo/tooltip': 0.84.0(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
+      '@nivo/voronoi': 0.84.0(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
+      '@react-spring/web': 9.4.5(react-dom@18.2.0)(react@18.2.0)
+      '@types/d3-scale': 3.3.2
+      '@types/d3-shape': 2.1.3
+      d3-scale: 3.3.0
+      d3-shape: 1.3.7
+      lodash: 4.17.21
+      react: 18.2.0
+    transitivePeerDependencies:
+      - prop-types
+      - react-dom
     dev: false
 
   /@nivo/swarmplot@0.84.0(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0):
