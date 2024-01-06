@@ -161,7 +161,7 @@ const Page = async ({ params }: PageProps) => {
       </div>
       <div>
         <Headline level="2" variant="section">
-          Squadmate Sets
+          Squadmate Groups
         </Headline>
         <PilotSets
           value={stats.squadmates}
