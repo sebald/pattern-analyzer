@@ -17,7 +17,7 @@ import { FilteredSquadGroups } from './_components/filtered-squad-groups';
 import { PilotLoadouts } from './_components/pilot-loadouts';
 import { isStandardized } from '@/lib/xws';
 import { Info } from '@/ui/icons';
-import { PilotSquadmates } from './_components/pilot-suadmates';
+import { PilotSquadmates } from './_components/pilot-squadmates';
 import { PilotSets } from './_components/pilot-sets';
 
 // Config
