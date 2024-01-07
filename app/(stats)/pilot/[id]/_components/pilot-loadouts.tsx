@@ -57,7 +57,7 @@ export const PilotLoadouts = ({ value, baseline }: PilotLoadoutProps) => {
           <div className="w-10">
             <Badge variant="light">{current.count}</Badge>
           </div>
-          <div className="flex flex-1 flex-col gap-x-4 gap-y-2 text-lg font-medium md:gap-x-8 md:gap-y-6">
+          <div className="flex flex-1 flex-col gap-x-4 gap-y-2 text-lg font-medium md:gap-x-8 md:gap-y-4">
             {current.id.split('.').map(getUpgradeName).join(', ')}
             <div className="flex gap-x-8">
               <Detail
