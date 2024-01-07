@@ -58,8 +58,13 @@ export const PilotSets = ({ className, value, baseline }: PilotSetsProps) => {
           valueFormat=">-.2%"
           tooltip={({ id, formattedValue }) => (
             <Tooltip>
-              <strong>{id.split('.').map(getPilotName).join(', ')}:</strong>{' '}
-              <span className="text-secondary-700">{formattedValue}</span>
+              <strong>{id.split('.').map(getPilotName).join(', ')}</strong>
+              <ul>
+                <li>
+                  <span className="font-semibold">Percentile:</span>{' '}
+                  {formattedValue}
+                </li>
+              </ul>
             </Tooltip>
           )}
           size={{
