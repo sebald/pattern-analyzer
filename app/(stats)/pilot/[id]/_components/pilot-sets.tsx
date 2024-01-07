@@ -11,6 +11,7 @@ import { Tooltip } from '@/ui/stats/tooltip';
 // Props
 // ---------------
 export interface PilotSetsProps {
+  className?: string;
   value: {
     [pids: string]: {
       count: number;
@@ -26,7 +27,7 @@ export interface PilotSetsProps {
 
 // Component
 // ---------------
-export const PilotSets = ({ value, baseline }: PilotSetsProps) => {
+export const PilotSets = ({ className, value, baseline }: PilotSetsProps) => {
   const [smallSamples] = useSmallSamplesFilter();
   const data = Object.entries(value)
     .filter(([, stat]) => {
@@ -45,7 +46,7 @@ export const PilotSets = ({ value, baseline }: PilotSetsProps) => {
     }));
 
   return (
-    <Card>
+    <Card className={className}>
       <Card.Title>Performance of Squadmate Sets</Card.Title>
       <div className="h-[448px]">
         <ResponsiveSwarmPlot

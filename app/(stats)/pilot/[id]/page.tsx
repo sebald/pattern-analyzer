@@ -20,6 +20,7 @@ import { Info } from '@/ui/icons';
 import { PilotSquadmates } from './_components/pilot-squadmates';
 import { PilotSets } from './_components/pilot-sets';
 import { PilotPerformance } from './_components/pilot-sets-performance';
+import { PilotSquadSizePerformance } from './_components/pilot-squad-size-performance';
 
 // Config
 // ---------------
@@ -162,16 +163,24 @@ const Page = async ({ params }: PageProps) => {
       </div>
       <div>
         <Headline level="2" variant="section">
-          Performance Stats
+          Squad Performance
         </Headline>
-        <PilotSets
-          value={stats.squadmates}
-          baseline={{ percentile: stats.percentile, count: stats.count }}
-        />
-        <PilotPerformance
-          value={stats.squadmates}
-          baseline={{ percentile: stats.percentile, count: stats.count }}
-        />
+        <div className="grid grid-cols-12 gap-4">
+          <PilotSets
+            className="col-span-full"
+            value={stats.squadmates}
+            baseline={{ percentile: stats.percentile, count: stats.count }}
+          />
+          <PilotPerformance
+            className="col-span-full md:col-span-6"
+            value={stats.squadmates}
+            baseline={{ count: stats.count }}
+          />
+          <PilotSquadSizePerformance
+            className="col-span-full md:col-span-6"
+            value={stats.squads}
+          />
+        </div>
       </div>
     </div>
   );

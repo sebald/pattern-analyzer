@@ -11,6 +11,7 @@ import { getPilotName } from '@/lib/get-value';
 // Props
 // ---------------
 export interface PilotPerformanceProps {
+  className?: string;
   value: {
     [pids: string]: {
       count: number;
@@ -19,7 +20,6 @@ export interface PilotPerformanceProps {
     };
   };
   baseline: {
-    percentile: number;
     count: number;
   };
 }
@@ -27,6 +27,7 @@ export interface PilotPerformanceProps {
 // Component
 // ---------------
 export const PilotPerformance = ({
+  className,
   value,
   baseline,
 }: PilotPerformanceProps) => {
@@ -47,9 +48,9 @@ export const PilotPerformance = ({
     }));
 
   return (
-    <Card>
+    <Card className={className}>
       <Card.Title>Performance & Usage of Squadmates</Card.Title>
-      <div className="h-[448px]">
+      <div className="h-96">
         <ResponsiveScatterPlot
           data={[{ id: 'squadmates', data }]}
           theme={theme}
@@ -74,7 +75,7 @@ export const PilotPerformance = ({
               </ul>
             </Tooltip>
           )}
-          nodeSize={12}
+          nodeSize={16}
           blendMode="multiply"
           colors="#8490db"
           enableGridY={false}
