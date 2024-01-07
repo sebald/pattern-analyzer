@@ -49,7 +49,7 @@ export const PilotPerformance = ({
 
   return (
     <Card className={className}>
-      <Card.Title>Performance & Usage of Squadmates</Card.Title>
+      <Card.Title>Performance & Occurance</Card.Title>
       <div className="h-96">
         <ResponsiveScatterPlot
           data={[{ id: 'squadmates', data }]}
@@ -63,7 +63,7 @@ export const PilotPerformance = ({
               <strong className="block pb-1 text-base">
                 {node.data.pilots.split('.').map(getPilotName).join(', ')}:
               </strong>
-              <ul className="list-inside list-disc">
+              <ul>
                 <li>
                   <span className="font-semibold">Percentile:</span>{' '}
                   {node.formattedX}
@@ -102,9 +102,8 @@ export const PilotPerformance = ({
           animate={false}
         />
       </div>
-      <Card.Footer className="px-2 py-1 text-sm">
-        <strong>Note:</strong> Frequency scale is not linear in order to reduce
-        clutter.
+      <Card.Footer className="px-1 pt-2 text-xs font-medium">
+        Note: Frequency scale is not linear in order to reduce clutter.
       </Card.Footer>
     </Card>
   );

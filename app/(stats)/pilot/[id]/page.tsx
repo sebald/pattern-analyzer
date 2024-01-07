@@ -172,12 +172,12 @@ const Page = async ({ params }: PageProps) => {
             baseline={{ percentile: stats.percentile, count: stats.count }}
           />
           <PilotPerformance
-            className="col-span-full md:col-span-6"
+            className="col-span-full md:col-span-6 lg:col-span-7"
             value={stats.squadmates}
             baseline={{ count: stats.count }}
           />
           <PilotSquadSizePerformance
-            className="col-span-full md:col-span-6"
+            className="col-span-full md:col-span-6 lg:col-span-5"
             value={stats.squads}
           />
         </div>

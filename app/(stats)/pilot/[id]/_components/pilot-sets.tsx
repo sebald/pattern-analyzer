@@ -47,7 +47,7 @@ export const PilotSets = ({ className, value, baseline }: PilotSetsProps) => {
 
   return (
     <Card className={className}>
-      <Card.Title>Performance of Squadmate Sets</Card.Title>
+      <Card.Title>Squadmate Sets</Card.Title>
       <div className="h-[448px]">
         <ResponsiveSwarmPlot
           data={data}
