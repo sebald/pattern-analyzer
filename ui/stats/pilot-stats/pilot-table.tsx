@@ -61,31 +61,25 @@ export const PilotTable = ({
     return result !== 0
       ? result
       : sortBy === 'percentile'
-      ? b.deviation - a.deviation
-      : b.percentile - a.percentile;
+        ? b.deviation - a.deviation
+        : b.percentile - a.percentile;
   });
 
   const table = (
     <Table
-      cols={[
-        'minmax(auto, max-content)',
-        '1fr',
-        '1fr',
-        '1fr',
-        'minmax(90px, 1fr)',
-        '85px',
-        '85px',
-        'max-content',
-      ]}
-      headers={[
-        'Pilot',
-        'Percentile',
-        'Std. Deviation',
-        'Winrate',
-        'Frequency',
-        'Count',
-        'Score',
-        'View',
+      columns={[
+        { children: 'Pilot', width: 'minmax(auto, max-content)' },
+        { children: 'Percentile', width: '1fr', variant: 'number' },
+        { children: 'Std. Deviation', width: '1fr', variant: 'number' },
+        { children: 'Winrate', width: '1fr', variant: 'number' },
+        {
+          children: 'Frequency',
+          width: 'minmax(90px, 1fr)',
+          variant: 'number',
+        },
+        { children: 'Count', width: '85px', variant: 'number' },
+        { children: 'Score', width: '85px', variant: 'number' },
+        { children: 'View', width: 'max-content' },
       ]}
       numeration
     >
@@ -95,20 +89,16 @@ export const PilotTable = ({
             <ShipIcon ship={stat.ship} className="w-5 text-xl" />
             <div className="font-semibold">{getPilotName(id) || id}</div>
           </Table.Cell>
-          <Table.Cell variant="number">
-            {toPercentage(stat.percentile)}
-          </Table.Cell>
-          <Table.Cell variant="number">
+          <Table.Cell>{toPercentage(stat.percentile)}</Table.Cell>
+          <Table.Cell>
             {stat.deviation === 0 ? '-' : toPercentage(stat.deviation)}
           </Table.Cell>
-          <Table.Cell variant="number">
+          <Table.Cell>
             {stat.winrate !== null ? toPercentage(stat.winrate) : '-'}
           </Table.Cell>
-          <Table.Cell variant="number">
-            {toPercentage(stat.frequency)}
-          </Table.Cell>
-          <Table.Cell variant="number">{stat.count}</Table.Cell>
-          <Table.Cell variant="number">{stat.score.toFixed(2)}</Table.Cell>
+          <Table.Cell>{toPercentage(stat.frequency)}</Table.Cell>
+          <Table.Cell>{stat.count}</Table.Cell>
+          <Table.Cell>{stat.score.toFixed(2)}</Table.Cell>
           <Table.Cell className="justify-center">
             <Link
               href={`/pilot/${id}${

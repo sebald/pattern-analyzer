@@ -57,29 +57,20 @@ export const UpgradeTable = ({
     return result !== 0
       ? result
       : sortBy === 'percentile'
-      ? b.deviation - a.deviation
-      : b.percentile - a.percentile;
+        ? b.deviation - a.deviation
+        : b.percentile - a.percentile;
   });
 
   const table = (
     <Table
-      cols={[
-        'minmax(auto, max-content)',
-        '1fr',
-        '1fr',
-        '1fr',
-        'minmax(90px, 1fr)',
-        '85px',
-        '85px',
-      ]}
-      headers={[
-        'Upgrade',
-        'Percentile',
-        'Std. Deviation',
-        'Winrate',
-        'Frequency',
-        'Count',
-        'Score',
+      columns={[
+        { children: 'Upgrade', width: 'minmax(auto, max-content)' },
+        { children: 'Percentile', width: '1fr' },
+        { children: 'Std. Deviation', width: '1fr' },
+        { children: 'Winrate', width: '1fr' },
+        { children: 'Frequency', width: 'minmax(90px, 1fr)' },
+        { children: 'Count', width: '85px' },
+        { children: 'Score', width: '85px' },
       ]}
       numeration
     >

@@ -39,33 +39,22 @@ export const CompositionTable = ({
     return result !== 0
       ? result
       : sortBy === 'percentile'
-      ? b.deviation - a.deviation
-      : b.percentile - a.percentile;
+        ? b.deviation - a.deviation
+        : b.percentile - a.percentile;
   });
 
   const table = (
     <Table
-      cols={[
-        'max-content',
-        'max-content',
-        '1fr',
-        '1fr',
-        '1fr',
-        '1fr',
-        '1fr',
-        '1fr',
-        'max-content',
-      ]}
-      headers={[
-        'Ships',
-        'Faction',
-        'Percentile',
-        'Std. Deviation',
-        'Winrate',
-        'Frequency',
-        'Count',
-        'Score',
-        'View',
+      columns={[
+        { children: 'Ships', width: 'max-content' },
+        { children: 'Faction', width: 'max-content' },
+        { children: 'Percentile', width: '1fr' },
+        { children: 'Std. Deviation', width: '1fr' },
+        { children: 'Winrate', width: '1fr' },
+        { children: 'Frequency', width: '1fr' },
+        { children: 'Count', width: '1fr' },
+        { children: 'Score', width: '1fr' },
+        { children: 'View', width: 'max-content' },
       ]}
       numeration
     >
