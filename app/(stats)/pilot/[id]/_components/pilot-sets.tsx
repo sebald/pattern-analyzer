@@ -1,19 +1,12 @@
 'use client';
 
-import type { ReactNode } from 'react';
 import { ResponsiveSwarmPlot } from '@nivo/swarmplot';
 
 import { Card } from '@/ui';
 import { useSmallSamplesFilter } from '@/ui/params/small-samples-filter';
 import { getPilotName } from '@/lib/get-value';
-
-// Helpers
-// ---------------
-const Tooltip = ({ children }: { children?: ReactNode }) => (
-  <div className="rounded border border-secondary-100 bg-white px-3 py-1 text-sm shadow-sm shadow-secondary-600">
-    {children}
-  </div>
-);
+import { theme } from '@/ui/stats/theme';
+import { Tooltip } from '@/ui/stats/tooltip';
 
 // Props
 // ---------------
@@ -53,9 +46,11 @@ export const PilotSets = ({ value, baseline }: PilotSetsProps) => {
 
   return (
     <Card>
+      <Card.Title>Performance of Squadmate Sets</Card.Title>
       <div className="h-[448px]">
         <ResponsiveSwarmPlot
           data={data}
+          theme={theme}
           groups={['squadmates']}
           value="percentile"
           valueScale={{ type: 'linear', min: 0, max: 1 }}

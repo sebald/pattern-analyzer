@@ -75,11 +75,14 @@ const CardBody = ({ variant, children, className }: CardBodyProps) => (
 // Card.Footer
 // ---------------
 export interface CardFooterProps {
+  className?: string;
   children: React.ReactNode;
 }
 
-const CardFooter = ({ children }: CardFooterProps) => (
-  <div className="border-t border-secondary-100">{children}</div>
+const CardFooter = ({ className, children }: CardFooterProps) => (
+  <div className={cn('border-t border-secondary-100', className)}>
+    {children}
+  </div>
 );
 
 // Card.Menu

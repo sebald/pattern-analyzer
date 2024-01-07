@@ -1,23 +1,16 @@
 'use client';
 
-import type { ReactNode } from 'react';
 import { ResponsiveScatterPlot } from '@nivo/scatterplot';
 
 import { Card } from '@/ui';
 import { useSmallSamplesFilter } from '@/ui/params/small-samples-filter';
+import { theme } from '@/ui/stats/theme';
+import { Tooltip } from '@/ui/stats/tooltip';
 import { getPilotName } from '@/lib/get-value';
-
-// Helpers
-// ---------------
-const Tooltip = ({ children }: { children?: ReactNode }) => (
-  <div className="rounded border border-secondary-100 bg-white px-3 py-1 text-sm shadow-sm shadow-secondary-600">
-    {children}
-  </div>
-);
 
 // Props
 // ---------------
-export interface PilotPerformancepmProps {
+export interface PilotPerformanceProps {
   value: {
     [pids: string]: {
       count: number;
@@ -36,7 +29,7 @@ export interface PilotPerformancepmProps {
 export const PilotPerformance = ({
   value,
   baseline,
-}: PilotPerformancepmProps) => {
+}: PilotPerformanceProps) => {
   const [smallSamples] = useSmallSamplesFilter();
   const data = Object.entries(value)
     .filter(([, stat]) => {
@@ -55,19 +48,30 @@ export const PilotPerformance = ({
 
   return (
     <Card>
+      <Card.Title>Performance & Usage of Squadmates</Card.Title>
       <div className="h-[448px]">
         <ResponsiveScatterPlot
           data={[{ id: 'squadmates', data }]}
+          theme={theme}
           xScale={{ type: 'linear', min: 0, max: 1 }}
           xFormat=">-.2%"
-          yScale={{ type: 'linear', min: 0, max: 1 }}
+          yScale={{ type: 'symlog', min: 0, max: 1 }}
           yFormat=">-.2%"
           tooltip={({ node }) => (
             <Tooltip>
-              <strong>
+              <strong className="block pb-1 text-base">
                 {node.data.pilots.split('.').map(getPilotName).join(', ')}:
-              </strong>{' '}
-              <span className="text-secondary-700">{node.formattedX}</span>
+              </strong>
+              <ul className="list-inside list-disc">
+                <li>
+                  <span className="font-semibold">Percentile:</span>{' '}
+                  {node.formattedX}
+                </li>
+                <li>
+                  <span className="font-semibold">Frequency:</span>{' '}
+                  {node.formattedY}
+                </li>
+              </ul>
             </Tooltip>
           )}
           nodeSize={12}
@@ -97,6 +101,10 @@ export const PilotPerformance = ({
           animate={false}
         />
       </div>
+      <Card.Footer className="px-2 py-1 text-sm">
+        <strong>Note:</strong> Frequency scale is not linear in order to reduce
+        clutter.
+      </Card.Footer>
     </Card>
   );
 };
