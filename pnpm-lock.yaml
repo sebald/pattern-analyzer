@@ -45,8 +45,8 @@ dependencies:
     specifier: 1.11.10
     version: 1.11.10
   kysely:
-    specifier: 0.26.3
-    version: 0.26.3
+    specifier: 0.27.1
+    version: 0.27.1
   mysql2:
     specifier: 3.6.5
     version: 3.6.5
@@ -5037,8 +5037,8 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /kysely@0.26.3:
-    resolution: {integrity: sha512-yWSgGi9bY13b/W06DD2OCDDHQmq1kwTGYlQ4wpZkMOJqMGCstVCFIvxCCVG4KfY1/3G0MhDAcZsip/Lw8/vJWw==}
+  /kysely@0.27.1:
+    resolution: {integrity: sha512-X8IRdOYstCH0JmZVq9yk48QtmM5HULWQ3O6zy+G6olEUniV26voSGiZ+L4sJvNGQPiy/I9svSHEeaJcUyZamxw==}
     engines: {node: '>=14.0.0'}
     dev: false
 
