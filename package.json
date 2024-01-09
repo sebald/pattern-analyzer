@@ -19,7 +19,7 @@
     "class-variance-authority": "0.7.0",
     "clsx": "2.1.0",
     "dayjs": "1.11.10",
-    "kysely": "0.26.3",
+    "kysely": "0.27.1",
     "mysql2": "3.6.5",
     "next": "14.0.4",
     "nextjs-google-analytics": "2.3.3",
