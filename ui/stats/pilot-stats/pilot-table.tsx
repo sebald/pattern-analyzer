@@ -69,16 +69,16 @@ export const PilotTable = ({
     <Table
       columns={[
         { children: 'Pilot', width: 'minmax(auto, max-content)' },
-        { children: 'Percentile', width: '1fr', align: 'right' },
-        { children: 'Std. Deviation', width: '1fr', align: 'right' },
-        { children: 'Winrate', width: '1fr', align: 'right' },
+        { children: 'Percentile', width: '1fr', variant: 'number' },
+        { children: 'Std. Deviation', width: '1fr', variant: 'number' },
+        { children: 'Winrate', width: '1fr', variant: 'number' },
         {
           children: 'Frequency',
           width: 'minmax(90px, 1fr)',
-          align: 'right',
+          variant: 'number',
         },
-        { children: 'Count', width: '85px', align: 'right' },
-        { children: 'Score', width: '85px', align: 'right' },
+        { children: 'Count', width: '85px', variant: 'number' },
+        { children: 'Score', width: '85px', variant: 'number' },
         { children: 'View', width: 'max-content' },
       ]}
       numeration

@@ -1,9 +1,4 @@
-import {
-  Children,
-  cloneElement,
-  forwardRef,
-  isValidElement,
-} from 'react';
+import { Children, cloneElement, forwardRef, isValidElement } from 'react';
 import type { ReactNode } from 'react';
 import { cva } from 'class-variance-authority';
 import type { VariantProps } from 'class-variance-authority';
@@ -13,12 +8,14 @@ import { cn } from '@/lib/utils/classname.utils';
 // Styles
 // ---------------
 const styles = {
-  row: cva(['grid-cols-subgrid col-span-full grid','border-t border-secondary-100 first:border-none']),
+  row: cva([
+    'grid-cols-subgrid col-span-full grid',
+    'border-t border-secondary-100 first:border-none',
+  ]),
   header: cva('whitespace-nowrap p-4 text-sm font-bold text-primary-800', {
     variants: {
-      align: {
-        left: '',
-        right: 'text-right',
+      variant: {
+        number: 'text-right',
       },
     },
   }),
@@ -46,6 +43,46 @@ const styles = {
   ),
 };
 
+// Row
+// ---------------
+interface RowProps {
+  numeration?: ReactNode;
+  cellProps?: CellProps[];
+  className?: string;
+  children?: ReactNode;
+}
+
+const Row = ({ numeration, cellProps = [], className, children }: RowProps) => (
+  <div className={cn(styles.row(), className)}>
+    {numeration ? (
+      <Cell key="numeration" className="hidden md:flex">
+        {numeration}
+      </Cell>
+    ) : null}
+    {Children.map(children, (child, idx) => {
+      const row = !isValidElement<CellProps>(child)
+        ? child
+        : cloneElement(child, {
+            ...cellProps[idx],
+            ...child.props,
+          });
+
+      return row;
+    })}
+  </div>
+);
+
+// Header
+// ---------------
+export interface HeaderProps extends VariantProps<typeof styles.header> {
+  className?: string;
+  children?: React.ReactNode;
+}
+
+export const Header = ({ variant, className, children }: HeaderProps) => (
+  <div className={cn(styles.header({ variant }), className)}>{children}</div>
+);
+
 // Cell
 // ---------------
 export interface CellProps extends VariantProps<typeof styles.cell> {
@@ -53,36 +90,18 @@ export interface CellProps extends VariantProps<typeof styles.cell> {
   children?: React.ReactNode;
 }
 
-export const Cell = ({ variant, size, className, children }: CellProps) => (
-  <div className={cn(styles.cell({ variant, size }), className)}>
-    {children}
-  </div>
-);
-
-// Row
-// ---------------
-interface RowProps {
-  numeration?: ReactNode;
-  className?: string;
-  children?: ReactNode;
-}
-
-const Row = ({ numeration, className, children }: RowProps) => (
-  <div className={cn(styles.row(), className)}>
-    {numeration ? (
-      <Cell key="numeration" className="hidden md:flex">
-        {numeration}
-      </Cell>
-    ) : null}
-    {children}
-  </div>
-);
+export const Cell = ({ variant, size, className, children }: CellProps) =>
+  console.log(variant) || (
+    <div className={cn(styles.cell({ variant, size }), className)}>
+      {children}
+    </div>
+  );
 
 // Table
 // ---------------
 export interface TableColumnProps {
   width?: string;
-  align?: 'left' | 'center' | 'right';
+  variant?: 'number';
   children?: ReactNode;
 }
 
@@ -118,27 +137,27 @@ export const Table = forwardRef<HTMLDivElement, TableProps>(
         ref={ref}
         style={styles}
         className={cn(
-          'grid grid-cols-[var(--table-cols)] overflow-x-auto',
-          numeration && 'md:grid-cols-[var(--md-table-cols)]',
+          'grid grid-cols-[--table-cols] overflow-x-auto',
+          numeration && 'md:grid-cols-[--md-table-cols]',
           className
         )}
       >
         <Row>
-          <Cell>#</Cell>
-          {columns.map(({ children }, idx) => (
-            <Cell key={idx}>{children}</Cell>
+          <Header>#</Header>
+          {columns.map(({ children, variant }, idx) => (
+            <Header key={idx} variant={variant}>
+              {children}
+            </Header>
           ))}
         </Row>
         {Children.map(children, (child, idx) => {
-          const row = !isValidElement<{
-            className?: string;
-            variant?: string;
-            size?: string | null;
-            numeration?: ReactNode;
-          }>(child)
+          const row = !isValidElement<RowProps>(child)
             ? child
             : cloneElement(child, {
-              numeration: numeration ? idx+1 : undefined,
+                numeration: numeration ? idx + 1 : undefined,
+                cellProps: columns.map(({ variant }) => ({
+                  variant,
+                })),
                 ...child.props,
               });
 
