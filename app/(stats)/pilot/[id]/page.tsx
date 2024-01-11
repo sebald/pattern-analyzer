@@ -10,8 +10,6 @@ import { fromDate } from '@/lib/utils/date.utils';
 import { Card, Detail, Headline } from '@/ui';
 import { toPercentage } from '@/lib/utils';
 import { HistoryCurve } from '@/ui/stats/history-curve';
-import { SmallSamplesFilter } from '@/ui/params/small-samples-filter';
-import { Filter } from '@/ui/params/filter';
 
 import { FilteredSquadGroups } from './_components/filtered-squad-groups';
 import { PilotLoadouts } from './_components/pilot-loadouts';
@@ -74,41 +72,35 @@ const Page = async ({ params }: PageProps) => {
     <div className="flex flex-col gap-16">
       <div className="grid gap-4 md:grid-cols-12">
         <div className="md:col-span-5">
-          <div className="grid grid-cols-2 gap-4 lg:grid-cols-3">
-            <Card inset="headless">
-              <Detail
-                label="Percentile"
-                size="xlarge"
-                value={toPercentage(stats.percentile)}
-              />
-            </Card>
-            <Card inset="headless">
-              <Detail
-                label="Std. Deviation"
-                size="xlarge"
-                value={toPercentage(stats.deviation)}
-              />
-            </Card>
-            <Card inset="headless">
-              <Detail
-                label="Winrate"
-                size="xlarge"
-                value={
-                  stats.winrate !== null ? toPercentage(stats.winrate) : '-'
-                }
-              />
-            </Card>
-            <Card inset="headless" className="lg:col-span-2">
-              <Detail
-                label="Frequency (in Faction)"
-                size="xlarge"
-                value={toPercentage(stats.frequency)}
-              />
-            </Card>
-            <Card inset="headless">
-              <Detail label="Count" size="xlarge" value={stats.count} />
-            </Card>
-          </div>
+          <Card
+            inset="headless"
+            size="fit"
+            className="grid grid-cols-2 gap-x-4 gap-y-8 md:col-span-5 lg:grid-cols-3"
+          >
+            <Detail
+              label="Percentile"
+              size="xlarge"
+              value={toPercentage(stats.percentile)}
+            />
+            <Detail
+              label="Std. Deviation"
+              size="xlarge"
+              value={toPercentage(stats.deviation)}
+            />
+            <Detail
+              label="Winrate"
+              size="xlarge"
+              value={stats.winrate !== null ? toPercentage(stats.winrate) : '-'}
+            />
+            <Detail
+              label="Frequency (in Faction)"
+              size="xlarge"
+              className={{ container: 'lg:col-span-2' }}
+              value={toPercentage(stats.frequency)}
+            />
+
+            <Detail label="Count" size="xlarge" value={stats.count} />
+          </Card>
         </div>
         <Card className="col-span-full md:col-span-7">
           <Card.Header>

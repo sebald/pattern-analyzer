@@ -81,9 +81,9 @@ const Page = async ({ params }: PageProps) => {
   return (
     <div className="flex flex-col gap-16">
       <div className="grid gap-4 pt-3 md:grid-cols-12">
-        <div className="md:col-span-6">
-          <div className="grid grid-cols-2 gap-4 lg:grid-cols-3">
-            <Card inset="headless" className="col-span-full">
+        <div className="md:col-span-5">
+          <div className="flex flex-col gap-4">
+            <Card inset="headless">
               <Detail
                 label="Chassis"
                 size="xlarge"
@@ -101,21 +101,21 @@ const Page = async ({ params }: PageProps) => {
                 }
               />
             </Card>
-            <Card inset="headless">
+            <Card
+              inset="headless"
+              size="fit"
+              className="grid grid-cols-2 gap-x-4 gap-y-8 lg:grid-cols-3"
+            >
               <Detail
                 label="Percentile"
                 size="xlarge"
                 value={toPercentage(stats.percentile)}
               />
-            </Card>
-            <Card inset="headless">
               <Detail
                 label="Std. Deviation"
                 size="xlarge"
                 value={toPercentage(stats.deviation)}
               />
-            </Card>
-            <Card inset="headless">
               <Detail
                 label="Winrate"
                 size="xlarge"
@@ -123,20 +123,18 @@ const Page = async ({ params }: PageProps) => {
                   stats.winrate !== null ? toPercentage(stats.winrate) : '-'
                 }
               />
-            </Card>
-            <Card inset="headless">
               <Detail
                 label="Frequency (in Faction)"
                 size="xlarge"
+                className={{ container: 'lg:col-span-2' }}
                 value={toPercentage(stats.frequency)}
               />
-            </Card>
-            <Card inset="headless">
+
               <Detail label="Count" size="xlarge" value={stats.count} />
             </Card>
           </div>
         </div>
-        <Card className="col-span-full md:col-span-6">
+        <Card className="col-span-full md:col-span-7">
           <Card.Header>
             <Card.Title>History</Card.Title>
           </Card.Header>

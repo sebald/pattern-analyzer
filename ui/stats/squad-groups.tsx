@@ -43,19 +43,16 @@ export const SquadGroups = ({ value }: SquadGroupsProps) => {
             <div className="flex flex-col gap-12 lg:pl-16">
               <div className="flex flex-wrap gap-8 px-2">
                 <Detail
-                  size="large"
                   label="Percentile"
                   value={toPercentage(current.percentile)}
                 />
                 <Detail
-                  size="large"
                   label="Std. Deviation"
                   value={
                     current.deviation ? toPercentage(current.deviation) : '-'
                   }
                 />
                 <Detail
-                  size="large"
                   label="Winrate"
                   value={current.winrate ? toPercentage(current.winrate) : '-'}
                 />
