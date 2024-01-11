@@ -10,10 +10,11 @@
 .bg-blur-gradient {
   --width: 60vw;
   --speed: 50s;
+  --factor: 6;
   --easing: cubic-bezier(0.8, 0.2, 0.2, 0.8);
 
   width: var(--width);
-  filter: blur(calc(var(--width) / 6));
+  filter: blur(calc(var(--width) / var(--factor)));
   background-image: linear-gradient(
     55deg,
     hsl(238deg 38% 51%) 0%,
@@ -29,4 +30,16 @@
   );
   animation: rotate var(--speed) var(--easing) alternate infinite;
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}
+
+@media (min-width: 1024px) {
+  .bg-blur-gradient {
+    --factor: 7;
+  }
+}
+
+@media (min-width: 1280px) {
+  .bg-blur-gradient {
+    --factor: 8;
+  }
 }

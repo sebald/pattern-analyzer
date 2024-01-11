@@ -3,7 +3,7 @@ import { Headline } from '@/ui';
 const Home = () => {
   return (
     <div className="grid-stack container hidden place-items-center md:grid">
-      <div className="bg-blur-gradient h-[250px] lg:h-[300px]" />
+      <div className="bg-blur-gradient h-[250px] lg:h-[300px] xl:h-[320px]" />
       <div className="z-10 text-center">
         <Headline
           level="1"
