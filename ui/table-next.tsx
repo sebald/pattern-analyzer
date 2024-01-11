@@ -1,7 +1,6 @@
 import {
   Children,
   cloneElement,
-  createContext,
   forwardRef,
   isValidElement,
 } from 'react';
@@ -14,6 +13,7 @@ import { cn } from '@/lib/utils/classname.utils';
 // Styles
 // ---------------
 const styles = {
+  row: cva(['grid-cols-subgrid col-span-full grid','border-t border-secondary-100 first:border-none']),
   header: cva('whitespace-nowrap p-4 text-sm font-bold text-primary-800', {
     variants: {
       align: {
@@ -24,7 +24,7 @@ const styles = {
   }),
   cell: cva(
     [
-      'border-t border-secondary-100 font-light text-xs px-4 flex flex-row items-center lg:text-sm lg:font-normal',
+      'font-light text-xs px-4 flex flex-row items-center lg:text-sm lg:font-normal',
     ],
     {
       variants: {
@@ -68,7 +68,7 @@ interface RowProps {
 }
 
 const Row = ({ numeration, className, children }: RowProps) => (
-  <div className={cn('grid-cols-subgrid col-span-full grid', className)}>
+  <div className={cn(styles.row(), className)}>
     {numeration ? (
       <Cell key="numeration" className="hidden md:flex">
         {numeration}
@@ -109,7 +109,8 @@ export const Table = forwardRef<HTMLDivElement, TableProps>(
      * numeration: move it out of the component? maybe we can just hide
      * the numeration cell without changing the cols var?
      *
-     * ideally no cloneElement anymore, use context instead
+     * clone row
+     * make a class with var --child-<number>-align
      */
 
     return (
@@ -128,14 +129,16 @@ export const Table = forwardRef<HTMLDivElement, TableProps>(
             <Cell key={idx}>{children}</Cell>
           ))}
         </Row>
-        {Children.map(children, child => {
+        {Children.map(children, (child, idx) => {
           const row = !isValidElement<{
             className?: string;
             variant?: string;
             size?: string | null;
+            numeration?: ReactNode;
           }>(child)
             ? child
             : cloneElement(child, {
+              numeration: numeration ? idx+1 : undefined,
                 ...child.props,
               });
 

@@ -6,7 +6,7 @@ import { Collapsible, Link } from '@/ui';
 import type { SortOptions } from '@/ui';
 import { View } from '@/ui/icons';
 import { ShipIcon } from '@/ui/ship-icon';
-import { Table } from '@/ui/table';
+import { Table } from '@/ui/table-next';
 
 import { getPilotName } from '@/lib/get-value';
 import { toPercentage } from '@/lib/utils';
@@ -69,22 +69,22 @@ export const PilotTable = ({
     <Table
       columns={[
         { children: 'Pilot', width: 'minmax(auto, max-content)' },
-        { children: 'Percentile', width: '1fr', variant: 'number' },
-        { children: 'Std. Deviation', width: '1fr', variant: 'number' },
-        { children: 'Winrate', width: '1fr', variant: 'number' },
+        { children: 'Percentile', width: '1fr', align: 'right' },
+        { children: 'Std. Deviation', width: '1fr', align: 'right' },
+        { children: 'Winrate', width: '1fr', align: 'right' },
         {
           children: 'Frequency',
           width: 'minmax(90px, 1fr)',
-          variant: 'number',
+          align: 'right',
         },
-        { children: 'Count', width: '85px', variant: 'number' },
-        { children: 'Score', width: '85px', variant: 'number' },
+        { children: 'Count', width: '85px', align: 'right' },
+        { children: 'Score', width: '85px', align: 'right' },
         { children: 'View', width: 'max-content' },
       ]}
       numeration
     >
       {data.map(([id, stat]) => (
-        <Fragment key={`${stat.faction}-${id}`}>
+        <Table.Row key={`${stat.faction}-${id}`}>
           <Table.Cell variant="header">
             <ShipIcon ship={stat.ship} className="w-5 text-xl" />
             <div className="font-semibold">{getPilotName(id) || id}</div>
@@ -110,7 +110,7 @@ export const PilotTable = ({
               <View className="h-5 w-5" />
             </Link>
           </Table.Cell>
-        </Fragment>
+        </Table.Row>
       ))}
     </Table>
   );
