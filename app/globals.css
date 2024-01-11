@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Use Tailwind's grid class on the element in addition! */
+.grid-stack > * {
+  grid-area: 1 / -1;
+}
+
+.bg-blur-gradient {
+  --width: 60vw;
+  --speed: 50s;
+  --easing: cubic-bezier(0.8, 0.2, 0.2, 0.8);
+
+  width: var(--width);
+  filter: blur(calc(var(--width) / 6));
+  background-image: linear-gradient(
+    55deg,
+    hsl(238deg 38% 51%) 0%,
+    hsl(231deg 38% 51%) 11%,
+    hsl(224deg 38% 51%) 22%,
+    hsl(217deg 38% 51%) 33%,
+    hsl(210deg 38% 51%) 44%,
+    hsl(203deg 38% 51%) 56%,
+    hsl(196deg 38% 51%) 67%,
+    hsl(189deg 38% 51%) 78%,
+    hsl(182deg 38% 51%) 89%,
+    hsl(175deg 38% 51%) 100%
+  );
+  animation: rotate var(--speed) var(--easing) alternate infinite;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}

@@ -66,7 +66,7 @@ export const Headline = ({
   const Element = `h${level}` as any;
   return (
     <Element
-      className={cn(styles({ level, font, variant, className }))}
+      className={cn(styles({ level, font, variant }), className)}
       {...props}
     >
       {children}
