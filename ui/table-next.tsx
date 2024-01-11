@@ -9,10 +9,10 @@ import { cn } from '@/lib/utils/classname.utils';
 // ---------------
 const styles = {
   row: cva([
-    'grid-cols-subgrid col-span-full grid',
+    'grid-cols-subgrid col-span-full grid gap-5 px-4',
     'border-t border-secondary-100 first:border-none',
   ]),
-  header: cva('whitespace-nowrap p-4 text-sm font-bold text-primary-800', {
+  header: cva('whitespace-nowrap py-4 text-sm font-bold text-primary-800', {
     variants: {
       variant: {
         number: 'text-right',
@@ -20,9 +20,7 @@ const styles = {
     },
   }),
   cell: cva(
-    [
-      'font-light text-xs px-4 flex flex-row items-center lg:text-sm lg:font-normal',
-    ],
+    ['font-light text-xs flex flex-row items-center lg:text-sm lg:font-normal'],
     {
       variants: {
         variant: {
@@ -90,12 +88,11 @@ export interface CellProps extends VariantProps<typeof styles.cell> {
   children?: React.ReactNode;
 }
 
-export const Cell = ({ variant, size, className, children }: CellProps) =>
-  console.log(variant) || (
-    <div className={cn(styles.cell({ variant, size }), className)}>
-      {children}
-    </div>
-  );
+export const Cell = ({ variant, size, className, children }: CellProps) => (
+  <div className={cn(styles.cell({ variant, size }), className)}>
+    {children}
+  </div>
+);
 
 // Table
 // ---------------
