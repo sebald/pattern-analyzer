@@ -7,11 +7,11 @@ const Home = () => {
       <div className="z-10 text-center">
         <Headline
           level="1"
-          className="max-w-screen-lg text-balance text-6xl text-primary-900 md:text-7xl lg:text-8xl"
+          className="max-w-screen-lg text-balance text-primary-900 md:text-7xl lg:text-8xl"
         >
           Welcome to Pattern Analyzer
         </Headline>
-        <div className="mx-auto text-balance pt-8 text-xl text-primary-900/70 lg:w-[50vw]">
+        <div className="mx-auto text-balance pt-8 text-lg text-primary-900/70 lg:w-[50vw] lg:text-xl">
           Explore tournament results and dive into statistics of ship
           compositions, pilots, and upgrades.
         </div>
