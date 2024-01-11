@@ -119,16 +119,6 @@ export const Table = forwardRef<HTMLDivElement, TableProps>(
         : undefined,
     } as React.CSSProperties;
 
-    /**
-     * align via n-th child on row or table?
-     *
-     * numeration: move it out of the component? maybe we can just hide
-     * the numeration cell without changing the cols var?
-     *
-     * clone row
-     * make a class with var --child-<number>-align
-     */
-
     return (
       <div
         ref={ref}
