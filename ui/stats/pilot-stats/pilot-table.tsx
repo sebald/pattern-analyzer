@@ -1,12 +1,10 @@
 'use client';
 
-import { Fragment } from 'react';
-
 import { Collapsible, Link } from '@/ui';
 import type { SortOptions } from '@/ui';
 import { View } from '@/ui/icons';
 import { ShipIcon } from '@/ui/ship-icon';
-import { Table } from '@/ui/table-next';
+import { Table } from '@/ui/table';
 
 import { getPilotName } from '@/lib/get-value';
 import { toPercentage } from '@/lib/utils';

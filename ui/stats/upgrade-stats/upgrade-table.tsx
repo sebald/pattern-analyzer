@@ -1,7 +1,5 @@
 'use client';
 
-import { Fragment } from 'react';
-
 import { Collapsible, SortOptions, Table } from '@/ui';
 
 import { getUpgradeName } from '@/lib/get-value';
@@ -65,17 +63,21 @@ export const UpgradeTable = ({
     <Table
       columns={[
         { children: 'Upgrade', width: 'minmax(auto, max-content)' },
-        { children: 'Percentile', width: '1fr' },
-        { children: 'Std. Deviation', width: '1fr' },
-        { children: 'Winrate', width: '1fr' },
-        { children: 'Frequency', width: 'minmax(90px, 1fr)' },
-        { children: 'Count', width: '85px' },
-        { children: 'Score', width: '85px' },
+        { children: 'Percentile', width: '1fr', variant: 'number' },
+        { children: 'Std. Deviation', width: '1fr', variant: 'number' },
+        { children: 'Winrate', width: '1fr', variant: 'number' },
+        {
+          children: 'Frequency',
+          width: 'minmax(90px, 1fr)',
+          variant: 'number',
+        },
+        { children: 'Count', width: '85px', variant: 'number' },
+        { children: 'Score', width: '85px', variant: 'number' },
       ]}
       numeration
     >
       {data.map(([upgrade, stat]) => (
-        <Fragment key={`${stat.faction}-${stat.slot}-${upgrade}`}>
+        <Table.Row key={`${stat.faction}-${stat.slot}-${upgrade}`}>
           <Table.Cell variant="header">
             <div className="font-semibold">
               {getUpgradeName(upgrade) || upgrade}
@@ -95,7 +97,7 @@ export const UpgradeTable = ({
           </Table.Cell>
           <Table.Cell variant="number">{stat.count}</Table.Cell>
           <Table.Cell variant="number">{stat.score}</Table.Cell>
-        </Fragment>
+        </Table.Row>
       ))}
     </Table>
   );

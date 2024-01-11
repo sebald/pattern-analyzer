@@ -1,7 +1,5 @@
 'use client';
 
-import { Fragment } from 'react';
-
 import { toPercentage } from '@/lib/utils';
 import type { SortOptions } from '@/ui';
 import { Collapsible, FactionIcon, Link, ShipIcon, Table } from '@/ui';
@@ -46,20 +44,24 @@ export const CompositionTable = ({
   const table = (
     <Table
       columns={[
-        { children: 'Ships', width: 'max-content' },
+        { children: 'Ships', width: 'minmax(auto, max-content)' },
         { children: 'Faction', width: 'max-content' },
-        { children: 'Percentile', width: '1fr' },
-        { children: 'Std. Deviation', width: '1fr' },
-        { children: 'Winrate', width: '1fr' },
-        { children: 'Frequency', width: '1fr' },
-        { children: 'Count', width: '1fr' },
-        { children: 'Score', width: '1fr' },
+        { children: 'Percentile', width: '1fr', variant: 'number' },
+        { children: 'Std. Deviation', width: '1fr', variant: 'number' },
+        { children: 'Winrate', width: '1fr', variant: 'number' },
+        {
+          children: 'Frequency',
+          width: 'minmax(90px, 1fr)',
+          variant: 'number',
+        },
+        { children: 'Count', width: '85px', variant: 'number' },
+        { children: 'Score', width: '85px', variant: 'number' },
         { children: 'View', width: 'max-content' },
       ]}
       numeration
     >
       {data.map(([id, stat]) => (
-        <Fragment key={id}>
+        <Table.Row key={id}>
           <Table.Cell
             variant="header"
             className="flex w-full items-center gap-1 "
@@ -97,7 +99,7 @@ export const CompositionTable = ({
               <View className="h-5 w-5" />
             </Link>
           </Table.Cell>
-        </Fragment>
+        </Table.Row>
       ))}
     </Table>
   );
