@@ -5,6 +5,7 @@ import { toDate } from '@/lib/utils/date.utils';
 
 import { Database, db } from './db';
 import type { DateFilter, SquadEntitiy, SquadEntitiyWithXWS } from './types';
+
 // Add
 // ---------------
 export const addSquads = async (
@@ -68,7 +69,7 @@ export const getSquads = async <Props extends GetSquadsProps>({
 
   if (pilot) {
     query = query.where(
-      sql`JSON_CONTAINS(xws, '{ "id": "${sql.raw(pilot)}" }', '$.pilots')`
+      sql<any>`JSON_CONTAINS(xws, '{ "id": "${sql.raw(pilot)}" }', '$.pilots')`
     );
   }
 
