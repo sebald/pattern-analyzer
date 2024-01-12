@@ -9,18 +9,25 @@ import { cn } from '@/lib/utils/classname.utils';
 // ---------------
 const styles = {
   row: cva([
-    'grid-cols-subgrid col-span-full grid gap-5 px-4',
+    'grid-cols-subgrid col-span-full grid',
     'border-t border-secondary-100 first:border-none',
   ]),
-  header: cva('whitespace-nowrap py-4 text-sm font-bold text-primary-800', {
-    variants: {
-      variant: {
-        number: 'text-right',
+  header: cva(
+    'whitespace-nowrap py-4 px-4 text-sm font-bold text-primary-800',
+    {
+      variants: {
+        variant: {
+          number: 'text-right',
+        },
       },
-    },
-  }),
+    }
+  ),
   cell: cva(
-    ['font-light text-xs flex flex-row items-center lg:text-sm lg:font-normal'],
+    [
+      'flex flex-row items-center',
+      'font-light text-xs lg:text-sm lg:font-normal',
+      'px-4',
+    ],
     {
       variants: {
         variant: {
@@ -63,6 +70,10 @@ const Row = ({ numeration, cellProps = [], className, children }: RowProps) => (
         : cloneElement(child, {
             ...cellProps[idx],
             ...child.props,
+            className: cn(
+              child.props.className,
+              idx === 0 && 'bg-white sticky left-0'
+            ),
           });
 
       return row;
@@ -113,7 +124,7 @@ export interface TableProps {
 export const Table = forwardRef<HTMLDivElement, TableProps>(
   ({ columns, numeration, size, className, children }, ref) => {
     const columnWidths = columns.map(({ width }) => width).join(' ');
-    const styles = {
+    const cssVars = {
       '--table-cols': columnWidths,
       '--md-table-cols': numeration
         ? `minmax(auto, max-content) ${columnWidths}`
@@ -123,21 +134,25 @@ export const Table = forwardRef<HTMLDivElement, TableProps>(
     return (
       <div
         ref={ref}
-        style={styles}
+        style={cssVars}
         className={cn(
           'grid grid-cols-[--table-cols] overflow-x-auto',
           numeration && 'md:grid-cols-[--md-table-cols]',
           className
         )}
       >
-        <Row>
-          <Header>#</Header>
+        <div className={cn(styles.row(), className)}>
+          <Header className="hidden md:flex">#</Header>
           {columns.map(({ children, variant }, idx) => (
-            <Header key={idx} variant={variant}>
+            <Header
+              key={idx}
+              variant={variant}
+              className={idx == 0 ? 'sticky left-0 bg-white' : undefined}
+            >
               {children}
             </Header>
           ))}
-        </Row>
+        </div>
         {Children.map(children, (child, idx) => {
           const row = !isValidElement<RowProps>(child)
             ? child
