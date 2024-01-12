@@ -1,5 +1,11 @@
+import { Title } from '@/ui';
+
 const TournamentPage = () => {
-  return <div className="container">Tournament</div>;
+  return (
+    <>
+      <Title className="pb-6">Tournaments</Title>
+    </>
+  );
 };
 
 export default TournamentPage;

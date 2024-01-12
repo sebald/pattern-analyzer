@@ -1,6 +1,6 @@
 import { Link, Logo } from '@/ui';
 import { secondaryNavigation, siteNavigation } from '@/lib/config';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils/classname.utils';
 
 import { headline } from '../fonts';
 
@@ -9,12 +9,16 @@ import { headline } from '../fonts';
 interface NavLinkProps {
   name: string;
   href: string;
+  className?: string;
 }
 
-const NavLink = ({ name, href }: NavLinkProps) => (
+const NavLink = ({ name, href, className }: NavLinkProps) => (
   <Link
     href={href}
-    className="p-2 text-sm font-normal text-primary-900/75 first:pl-0 last:pr-0 hover:text-primary-900"
+    className={cn(
+      'py-2 text-sm font-normal text-primary-900/75 first:pl-0 last:pr-0 hover:text-primary-900',
+      className
+    )}
   >
     {name}
   </Link>
@@ -41,7 +45,12 @@ export const SiteNavigation = () => {
         ))}
         <span className="grow" role="separator" aria-hidden="true" />
         {secondaryNavigation.map(({ name, href }) => (
-          <NavLink key={href} href={href} name={name} />
+          <NavLink
+            className="hidden lg:block"
+            key={href}
+            href={href}
+            name={name}
+          />
         ))}
       </nav>
     </div>
