@@ -14,14 +14,14 @@ const Home = () => {
     <div className="container flex flex-col gap-24 md:gap-32">
       <div className="flex flex-col gap-4">
         <div className="grid-stack grid place-items-center">
-          <div className="bg-blur-gradient h-[250px] lg:h-[300px] xl:h-[320px]" />
+          <div className="bg-blur-gradient h-[150px] sm:h-[250px] lg:h-[300px] xl:h-[320px]" />
           <div
             className={`${headline.variable} z-10 max-w-screen-lg text-center font-headline uppercase`}
           >
             <div className="text-xl font-bold text-primary-900/70 md:text-2xl">
               Welcome to
             </div>
-            <div className="text-shadow-xs text-7xl font-extrabold !leading-[0.9] text-primary-900 shadow-primary-700 md:text-8xl lg:text-9xl">
+            <div className="text-shadow-xs text-5xl font-extrabold !leading-[0.9] text-primary-900 shadow-primary-700 sm:text-7xl md:text-8xl lg:text-9xl">
               Pattern Analyzer
             </div>
           </div>
