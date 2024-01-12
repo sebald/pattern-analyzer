@@ -33,11 +33,6 @@ const config = {
   redirects() {
     return [
       {
-        source: '/event',
-        destination: '/',
-        permanent: true,
-      },
-      {
         source: '/analyze/composition',
         destination: '/composition',
         permanent: true,
