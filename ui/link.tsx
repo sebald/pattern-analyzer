@@ -20,7 +20,7 @@ const styles = cva(
         ],
         cta: [
           'font-medium border text-center',
-          'border-primary-500 bg-primary-500 text-white',
+          'border-primary-600 bg-primary-600 text-white',
           'hover:border-primary-700 hover:bg-primary-700 focus-visible:ring-primary-200',
         ],
         highlight: 'opacity-50 hover:opacity-100',

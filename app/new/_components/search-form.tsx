@@ -5,20 +5,34 @@ import { useState } from 'react';
 import { vendors } from '@/lib/config';
 import type { Vendor } from '@/lib/types';
 
-import { Input, Link, Select } from '@/ui';
+import { Card, Input, Link, Select } from '@/ui';
+import { Trophy } from '@/ui/icons';
 
 export const SearchForm = () => {
   const [vendor, setVendor] = useState<Vendor>('listfortress');
   const [id, setId] = useState('');
 
   return (
-    <div className="flex flex-col gap-2">
-      <div className="font-medium">View Tournament:</div>
-      <div className="flex gap-4">
+    <div className="flex gap-4">
+      <Card
+        inset="none"
+        className="flex-row gap-0 divide-x divide-secondary-200"
+      >
+        <Input
+          placeholder="Event ID"
+          name="event"
+          variant="transparent"
+          size="large"
+          className="rounded-l-lg"
+          value={id}
+          onChange={e => setId(e.target.value)}
+          inputMode="numeric"
+        />
         <Select
           name="vendor"
-          variant="flat"
+          variant="transparent"
           size="large"
+          className="rounded-r-lg"
           onChange={e => setVendor(e.target.value as Vendor)}
         >
           {vendors.map(({ id, name }) => (
@@ -27,20 +41,15 @@ export const SearchForm = () => {
             </Select.Option>
           ))}
         </Select>
-        <Input
-          placeholder="Event ID"
-          name="event"
-          variant="flat"
-          size="large"
-          value={id}
-          onChange={e => setId(e.target.value)}
-          inputMode="numeric"
-          htmlSize={6}
-        />
-        <Link variant="cta" size="large" href={`/event/${vendor}/${id}`}>
-          View
-        </Link>
-      </div>
+      </Card>
+      <Link
+        variant="cta"
+        size="large"
+        className="flex items-center gap-1"
+        href={`/event/${vendor}/${id}`}
+      >
+        <Trophy className="size-4" /> View
+      </Link>
     </div>
   );
 };

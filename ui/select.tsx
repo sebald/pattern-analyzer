@@ -18,25 +18,29 @@ const Option = ({ children, ...props }: SelectOptionProps) => (
 const styles = {
   select: cva(
     [
-      'block appearance-none bg-none rounded-md cursor-pointer',
+      'block appearance-none bg-none cursor-pointer',
       'disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500',
     ],
     {
       variants: {
         variant: {
           default: [
-            'bg-white border-secondary-200 shadow-sm',
+            'bg-white border-secondary-200 rounded-md shadow-sm',
             'hover:border-primary-400 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50',
           ],
           flat: [
-            'bg-secondary-100 border-secondary-100',
+            'bg-secondary-100 border-secondary-100 rounded-md',
             'outline-none focus:ring-transparent focus:border-secondary-300',
+          ],
+          transparent: [
+            'border-transparent',
+            'focus:ring-0 focus:bg-secondary-50 focus:border-secondary-50',
           ],
         },
         size: {
           small: 'py-2 text-xs',
           regular: 'py-2',
-          large: 'py-3 pl-4 text-xl',
+          large: 'py-3 pl-5 text-xl',
           huge: 'py-5 pl-4 text-xl',
         },
       },
@@ -51,6 +55,7 @@ const styles = {
       variant: {
         default: 'text-secondary-300',
         flat: 'text-secondary-500',
+        transparent: 'text-secondary-500',
       },
       size: {
         small: 'right-2 top-2.5 h-4 w-4',

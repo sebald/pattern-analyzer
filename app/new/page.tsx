@@ -1,7 +1,7 @@
 import { headline } from '@/app/fonts';
-import { Card } from '@/ui';
 
 import { SearchForm } from './_components/search-form';
+import { Card } from '@/ui';
 
 // Config
 // ---------------
@@ -13,7 +13,7 @@ const Home = () => {
   return (
     <div className="container flex flex-col gap-24 md:gap-32">
       <div className="flex flex-col gap-4">
-        <div className="grid-stack grid place-items-center lg:mt-4">
+        <div className="grid-stack grid place-items-center">
           <div className="bg-blur-gradient h-[250px] lg:h-[300px] xl:h-[320px]" />
           <div
             className={`${headline.variable} text-shadow-xs z-10 max-w-screen-lg text-center font-headline uppercase shadow-primary-700`}
@@ -31,9 +31,18 @@ const Home = () => {
           compositions, pilots, and upgrades.
         </div>
       </div>
-      <Card inset="none" className="max-w-screen-sm">
+      <div className="mx-auto flex max-w-screen-sm flex-col gap-2">
+        <div className="text-sm font-medium text-secondary-700">
+          View Tournament Standings:
+        </div>
         <SearchForm />
-      </Card>
+      </div>
+      <div>
+        <Card>Placeholder Tournament</Card>
+        <Card>Placeholder Compositions</Card>
+        <Card>Placeholder Pilots</Card>
+        <Card>Placeholder Upgrades</Card>
+      </div>
     </div>
   );
 };
