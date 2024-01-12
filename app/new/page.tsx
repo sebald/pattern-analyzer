@@ -16,12 +16,12 @@ const Home = () => {
         <div className="grid-stack grid place-items-center">
           <div className="bg-blur-gradient h-[250px] lg:h-[300px] xl:h-[320px]" />
           <div
-            className={`${headline.variable} text-shadow-xs z-10 max-w-screen-lg text-center font-headline uppercase shadow-primary-700`}
+            className={`${headline.variable} z-10 max-w-screen-lg text-center font-headline uppercase`}
           >
-            <div className="text-xl font-bold text-primary-900/80 md:text-2xl">
+            <div className="text-xl font-bold text-primary-900/60 md:text-2xl">
               Welcome to
             </div>
-            <div className="text-7xl font-extrabold !leading-[0.9] text-primary-900 md:text-8xl lg:text-9xl">
+            <div className="text-shadow-xs text-7xl font-extrabold !leading-[0.9] text-primary-900 shadow-primary-700 md:text-8xl lg:text-9xl">
               Pattern Analyzer
             </div>
           </div>
@@ -33,7 +33,7 @@ const Home = () => {
       </div>
       <div className="mx-auto flex max-w-screen-sm flex-col gap-2">
         <div className="text-sm font-medium text-secondary-700">
-          View Tournament Standings:
+          View Tournament:
         </div>
         <SearchForm />
       </div>
