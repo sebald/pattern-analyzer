@@ -1,6 +1,8 @@
 import { headline } from '@/app/fonts';
 import { Card } from '@/ui';
 
+import { SearchForm } from './_components/search-form';
+
 // Config
 // ---------------
 export const revalidate = 43200; // 12 hours
@@ -29,7 +31,9 @@ const Home = () => {
           compositions, pilots, and upgrades.
         </div>
       </div>
-      <Card inset="headless">asd</Card>
+      <Card inset="headless">
+        <SearchForm />
+      </Card>
     </div>
   );
 };
