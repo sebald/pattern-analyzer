@@ -24,7 +24,7 @@ export const Upgrades = ({ data }: UpgradesProps) => {
   const [sort] = useSortParam();
 
   return (
-    <Card inset="list">
+    <Card inset="none">
       <Card.Body variant="enumeration">
         <UpgradeTable
           value={data}

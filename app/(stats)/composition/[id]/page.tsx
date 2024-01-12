@@ -147,7 +147,7 @@ const Page = async ({ params }: PageProps) => {
         <Headline level="2" variant="section">
           Squads
         </Headline>
-        <Card size="fit" inset="list">
+        <Card size="fit" inset="none">
           <Card.Body>
             <SquadGroups value={stats.squads} />
           </Card.Body>

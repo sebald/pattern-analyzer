@@ -16,7 +16,7 @@ const Home = () => {
         <div className="grid-stack grid place-items-center lg:mt-4">
           <div className="bg-blur-gradient h-[250px] lg:h-[300px] xl:h-[320px]" />
           <div
-            className={`${headline.variable} text-shadow-sm z-10 max-w-screen-lg text-center font-headline uppercase shadow-primary-700`}
+            className={`${headline.variable} text-shadow-xs z-10 max-w-screen-lg text-center font-headline uppercase shadow-primary-700`}
           >
             <div className="text-xl font-bold text-primary-900/80 md:text-2xl">
               Welcome to
@@ -31,7 +31,7 @@ const Home = () => {
           compositions, pilots, and upgrades.
         </div>
       </div>
-      <Card inset="headless" className="max-w-screen-sm">
+      <Card inset="none" className="max-w-screen-sm">
         <SearchForm />
       </Card>
     </div>

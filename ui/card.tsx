@@ -18,7 +18,7 @@ const styles = {
         inset: {
           default: 'px-3 pt-3 pb-2',
           headless: 'px-3 py-4', // No title/card.header
-          list: 'p-0', // when using a list
+          none: 'p-0', // when using a list
         },
         size: {
           stretch: 'h-full',

@@ -56,7 +56,7 @@ export const PilotDetails = ({
                 </span>
               </div>
             </Headline>
-            <Card inset="list" size="fit">
+            <Card inset="none" size="fit">
               <Card.Body variant="enumeration">
                 {pilots.map(([pid, current]) => (
                   <div key={pid} className="flex gap-4 px-4 py-5">

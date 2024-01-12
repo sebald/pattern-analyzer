@@ -49,6 +49,7 @@ module.exports = {
         card: '0 1px 3px 0 #c9cfd8, 0 1px 2px -1px #c9cfd8, 0px 0px 0px 1px #e2e6eb',
       },
       textShadow: {
+        xs: '0 1px 1px var(--tw-shadow-color)',
         sm: '0 1px 2px var(--tw-shadow-color)',
         DEFAULT: '0 2px 4px var(--tw-shadow-color)',
         lg: '0 8px 16px var(--tw-shadow-color)',

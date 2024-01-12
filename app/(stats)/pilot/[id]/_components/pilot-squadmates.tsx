@@ -63,7 +63,7 @@ export const PilotSquadmates = ({ value, baseline }: PilotSquadmatesProps) => {
   });
 
   return (
-    <Card size="fit" inset="list">
+    <Card size="fit" inset="none">
       <Card.Body variant="enumeration">
         {result.map(([pid, current]) => (
           <div key={pid} className="flex gap-4 px-4 py-5">

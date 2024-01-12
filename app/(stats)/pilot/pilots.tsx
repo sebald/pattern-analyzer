@@ -22,7 +22,7 @@ export const Pilots = ({ data }: PilotsProps) => {
   const [sort] = useSortParam();
 
   return (
-    <Card inset="list">
+    <Card inset="none">
       <Card.Body variant="enumeration">
         <PilotTable
           value={data}

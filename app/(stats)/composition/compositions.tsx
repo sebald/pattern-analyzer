@@ -22,7 +22,7 @@ export const Compositions = ({ data }: CompositionsProps) => {
   const [sort] = useSortParam();
 
   return (
-    <Card inset="list">
+    <Card inset="none">
       <Card.Body variant="enumeration">
         <CompositionTable
           value={data}
