@@ -29,7 +29,7 @@ export const SiteNavigation = () => {
         href="/"
         className={cn(
           headline.variable,
-          'prose mr-10 flex items-center gap-1 font-headline font-extrabold uppercase text-primary-900 hover:text-primary-700'
+          'prose mr-10 flex items-center gap-1 whitespace-nowrap font-headline font-extrabold uppercase text-primary-900 hover:text-primary-700'
         )}
       >
         <Logo className="h-6 w-6" />
