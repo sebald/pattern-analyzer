@@ -18,6 +18,11 @@ const styles = cva(
           'border-secondary-100 bg-white text-secondary-700',
           'hover:bg-secondary-50 focus-visible:ring-primary-200',
         ],
+        cta: [
+          'font-medium border text-center',
+          'border-primary-500 bg-primary-500 text-white',
+          'hover:border-primary-700 hover:bg-primary-700 focus-visible:ring-primary-200',
+        ],
         highlight: 'opacity-50 hover:opacity-100',
       },
       size: {
@@ -37,6 +42,16 @@ const styles = cva(
         variant: 'button',
         size: 'small',
         className: 'rounded',
+      },
+      {
+        variant: 'cta',
+        size: 'regular',
+        className: 'rounded-lg shadow-sm',
+      },
+      {
+        variant: 'cta',
+        size: 'large',
+        className: 'rounded-lg shadow-sm',
       },
     ],
     defaultVariants: {

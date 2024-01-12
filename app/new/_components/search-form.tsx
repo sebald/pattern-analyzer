@@ -35,8 +35,8 @@ export const SearchForm = () => {
         inputMode="numeric"
         htmlSize={6}
       />
-      <Link variant="button" size="large" href={`/event/${vendor}/${id}`}>
-        Go to
+      <Link variant="cta" size="large" href={`/event/${vendor}/${id}`}>
+        View
       </Link>
     </div>
   );
