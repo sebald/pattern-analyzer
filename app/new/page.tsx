@@ -31,7 +31,7 @@ const Home = () => {
           compositions, pilots, and upgrades.
         </div>
       </div>
-      <Card inset="headless">
+      <Card inset="headless" className="max-w-screen-sm">
         <SearchForm />
       </Card>
     </div>
