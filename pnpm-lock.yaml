@@ -21,8 +21,8 @@ dependencies:
     specifier: 0.84.0
     version: 0.84.0(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
   '@planetscale/database':
-    specifier: 1.11.0
-    version: 1.11.0
+    specifier: 1.13.0
+    version: 1.13.0
   '@radix-ui/react-accordion':
     specifier: 1.1.2
     version: 1.1.2(@types/react-dom@18.2.18)(@types/react@18.2.46)(react-dom@18.2.0)(react@18.2.0)
@@ -1389,8 +1389,8 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
 
-  /@planetscale/database@1.11.0:
-    resolution: {integrity: sha512-aWbU+D/IRHoDE9975y+Q4c+EwwAWxCPwFId+N1AhQVFXzbeJMkj6KN2iQtoi03elcLMRdfT+V3i9Z4WRw+/oIA==}
+  /@planetscale/database@1.13.0:
+    resolution: {integrity: sha512-sb9tUoF+Po55o+3PRHZVeH8XzUIABKBKcnq6oBUa+p/2uau/E2EXhnUPXmkC/x7oB6ILBqmqTL6dPP5Dn6d6iA==}
     engines: {node: '>=16'}
     dev: false
 
