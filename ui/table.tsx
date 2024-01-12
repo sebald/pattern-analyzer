@@ -105,12 +105,13 @@ export interface TableColumnProps {
 export interface TableProps {
   columns: TableColumnProps[];
   numeration?: boolean;
+  size?: VariantProps<typeof styles.cell>['size'];
   className?: string;
   children?: ReactNode;
 }
 
 export const Table = forwardRef<HTMLDivElement, TableProps>(
-  ({ columns, numeration, className, children }, ref) => {
+  ({ columns, numeration, size, className, children }, ref) => {
     const columnWidths = columns.map(({ width }) => width).join(' ');
     const styles = {
       '--table-cols': columnWidths,
@@ -144,6 +145,7 @@ export const Table = forwardRef<HTMLDivElement, TableProps>(
                 numeration: numeration ? idx + 1 : undefined,
                 cellProps: columns.map(({ variant }) => ({
                   variant,
+                  size,
                 })),
                 ...child.props,
               });
