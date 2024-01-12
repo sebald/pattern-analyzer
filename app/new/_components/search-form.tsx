@@ -12,9 +12,10 @@ export const SearchForm = () => {
   const [id, setId] = useState('');
 
   return (
-    <div className="flex">
+    <div className="flex gap-4">
       <Select
         name="vendor"
+        variant="flat"
         size="large"
         onChange={e => setVendor(e.target.value as Vendor)}
       >
@@ -27,6 +28,7 @@ export const SearchForm = () => {
       <Input
         placeholder="Event ID"
         name="event"
+        variant="flat"
         size="large"
         value={id}
         onChange={e => setId(e.target.value)}

@@ -7,7 +7,7 @@ import { Label } from './label';
 // ---------------
 const styles = cva(
   [
-    'block w-full rounded-md shadow-sm',
+    'block w-full rounded-md shadow-sm placeholder:italic',
     'focus:ring focus:ring-opacity-50',
     'disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500',
   ],
@@ -17,6 +17,10 @@ const styles = cva(
         default: [
           'border-secondary-200 hover:border-primary-400',
           'focus:border-primary-300 focus:ring-primary-200',
+        ],
+        flat: [
+          'bg-secondary-100 border-secondary-100 placeholder:text-secondary-400',
+          'outline-none focus:ring-transparent focus:border-secondary-300',
         ],
         error: ['border-red-400 focus:border-red-400 focus:ring-red-300'],
       },

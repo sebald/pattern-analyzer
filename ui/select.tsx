@@ -18,18 +18,20 @@ const Option = ({ children, ...props }: SelectOptionProps) => (
 const styles = {
   select: cva(
     [
-      'block appearance-none',
+      'block appearance-none bg-none rounded-md cursor-pointer',
       'disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500',
     ],
     {
       variants: {
         variant: {
           default: [
-            'bg-white bg-none cursor-pointer rounded-md border-secondary-200 shadow-sm',
-            'hover:border-primary-400',
-            'focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50',
+            'bg-white border-secondary-200 shadow-sm',
+            'hover:border-primary-400 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50',
           ],
-          flat: '',
+          flat: [
+            'bg-secondary-100 border-secondary-100',
+            'outline-none focus:ring-transparent focus:border-secondary-300',
+          ],
         },
         size: {
           small: 'py-2 text-xs',
@@ -44,8 +46,12 @@ const styles = {
       },
     }
   ),
-  indicator: cva('absolute text-secondary-300', {
+  indicator: cva('absolute', {
     variants: {
+      variant: {
+        default: 'text-secondary-300',
+        flat: 'text-secondary-500',
+      },
       size: {
         small: 'right-2 top-2.5 h-4 w-4',
         regular: 'right-2 top-3.5 h-4 w-4',
@@ -54,6 +60,7 @@ const styles = {
       },
     },
     defaultVariants: {
+      variant: 'default',
       size: 'regular',
     },
   }),
@@ -101,7 +108,7 @@ export const Select = ({
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 16 16"
         fill="currentColor"
-        className={styles.indicator({ size })}
+        className={styles.indicator({ variant, size })}
       >
         <path
           fillRule="evenodd"
