@@ -13,7 +13,7 @@ export const SearchForm = () => {
   const [id, setId] = useState('');
 
   return (
-    <div className="flex gap-4">
+    <div className="flex flex-col gap-x-4 gap-y-2 sm:flex-row">
       <Card
         inset="none"
         className="flex-row gap-0 divide-x divide-secondary-200"
@@ -45,7 +45,7 @@ export const SearchForm = () => {
       <Link
         variant="cta"
         size="large"
-        className="flex items-center gap-1"
+        className="flex items-center justify-center gap-1"
         href={`/event/${vendor}/${id}`}
       >
         <Trophy className="size-4" /> View
