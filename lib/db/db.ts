@@ -11,6 +11,8 @@ export interface TournamentsTable {
   listfortress_ref: number;
   name: string;
   date: string;
+  location?: string;
+  country?: string;
 }
 
 export interface SquadsTable {
@@ -72,6 +74,8 @@ export const initDatabase = async () =>
       )
       .addColumn('name', 'varchar(100)', col => col.notNull())
       .addColumn('date', 'datetime', col => col.notNull())
+      .addColumn('location', 'varchar(100)')
+      .addColumn('country', 'varchar(10)')
       .execute(),
     // Squads
     db.schema
