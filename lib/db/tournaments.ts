@@ -1,7 +1,7 @@
 import { toDate } from '@/lib/utils/date.utils';
 
 import { db, type TournamentsTable } from './db';
-import { type DateFilter } from './types';
+import { Pagination, type DateFilter } from './types';
 
 // Add
 // ---------------
@@ -11,21 +11,45 @@ export const addTournaments = async (
 
 // Get
 // ---------------
-export const getTournaments = async ({ from, to }: DateFilter) => {
+export const getTournaments = async ({
+  from,
+  to,
+  page,
+  pageSize = 25,
+}: DateFilter & Pagination) => {
   let query = db
     .selectFrom('tournaments')
-    .select(['listfortress_ref as id', 'name', 'date']);
+    .leftJoin(
+      'squads',
+      'squads.listfortress_ref',
+      'tournaments.listfortress_ref'
+    )
+    .select(({ fn }) => [
+      'tournaments.listfortress_ref as id',
+      'tournaments.name',
+      'tournaments.date',
+      'tournaments.country',
+      'tournaments.location',
+      fn.count<number>('squads.listfortress_ref').as('players'),
+    ])
+    .groupBy('tournaments.listfortress_ref')
+    .orderBy('tournaments.date desc')
+    .limit(pageSize);
 
   if (from) {
     query = query.where(
-      'date',
+      'tournaments.date',
       '>=',
       typeof from === 'string' ? from : toDate(from)
     );
   }
 
   if (to) {
-    query = query.where('date', '<=', typeof to === 'string' ? to : toDate(to));
+    query = query.where(
+      'tournaments.date',
+      '<=',
+      typeof to === 'string' ? to : toDate(to)
+    );
   }
 
   return query.execute();

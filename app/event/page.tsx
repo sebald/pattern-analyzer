@@ -1,10 +1,10 @@
 import { z } from 'zod';
 
 import { pointsUpdateDate } from '@/lib/config';
+import { getTournaments } from '@/lib/db/tournaments';
 import { createMetadata } from '@/lib/metadata';
-import { getAllTournaments } from '@/lib/vendor/listfortress';
 
-import { Card, Detail, Message, Title } from '@/ui';
+import { Card, Message, Title } from '@/ui';
 import { Calendar } from '@/ui/icons';
 import { formatDate, fromDate } from '@/lib/utils/date.utils';
 
@@ -19,15 +19,10 @@ export const metadata = createMetadata({
 // Data
 // ---------------
 const FROM_DATE = new Date(pointsUpdateDate); // Should be enough
-const PAGE_SIZE = 25;
 
-const getTournaments = async ({ page }: { page: number }) => {
-  console.log(page, (page - 1) * PAGE_SIZE, page * PAGE_SIZE);
-  const tournaments = await getAllTournaments({
-    format: 'standard',
-    from: FROM_DATE,
-  });
-  return tournaments.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+const getPage = async ({ page }: { page: number }) => {
+  const tournaments = await getTournaments({ from: FROM_DATE, page });
+  return tournaments;
 };
 
 const schema = z.object({
@@ -59,7 +54,7 @@ const TournamentPage = async ({ searchParams }: PageProps) => {
   }
 
   // TODO: Error handling
-  const tournaments = await getTournaments(params.data);
+  const tournaments = await getPage(params.data);
 
   return (
     <>
@@ -77,6 +72,7 @@ const TournamentPage = async ({ searchParams }: PageProps) => {
               <div>
                 <div>{t.location}</div>
                 <div>{t.country}</div>
+                <div>{t.players}</div>
               </div>
             </Card.Body>
           </Card>
