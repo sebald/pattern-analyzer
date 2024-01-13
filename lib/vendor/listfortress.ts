@@ -49,9 +49,9 @@ export const getAllTournaments = async ({
     throw new Error('[listfortress] Failed to fetch events...');
   }
 
-  const tournaments: ListfortressTournamentInfo[] = await res.json();
+  let tournaments: ListfortressTournamentInfo[] = await res.json();
 
-  return tournaments.filter(t => {
+  tournaments = tournaments.filter(t => {
     // Includes given name
     if (q && !t.name.toLocaleLowerCase().includes(q.toLocaleLowerCase())) {
       return false;
@@ -79,6 +79,13 @@ export const getAllTournaments = async ({
 
     return true;
   });
+
+  // Sort by date
+  tournaments.sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
+
+  return tournaments;
 };
 
 export const getTournament = async (id: string) => {
