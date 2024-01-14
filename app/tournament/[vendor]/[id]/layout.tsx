@@ -89,7 +89,7 @@ const Layout = async ({ params, children }: LayoutProps) => {
       </div>
       <Navigation
         className="pb-14"
-        path={`/event/${params.vendor}/${params.id}`}
+        path={`/tournament/${params.vendor}/${params.id}`}
         items={[
           {
             label: (

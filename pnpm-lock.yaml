@@ -3757,7 +3757,7 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /event-stream@3.3.4:
+  /tournament-stream@3.3.4:
     resolution: {integrity: sha1-SrTJoPWlTbkzi0w02Gv86PSzVXE=}
     dependencies:
       duplexer: 0.1.2

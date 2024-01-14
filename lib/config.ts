@@ -19,7 +19,7 @@ export const vendors = [
 export const siteNavigation = [
   {
     name: 'Tournaments',
-    href: '/event',
+    href: '/tournament',
   },
   {
     name: 'Analyze',

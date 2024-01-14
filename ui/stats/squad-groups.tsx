@@ -74,7 +74,7 @@ export const SquadGroups = ({ value }: SquadGroupsProps) => {
                           <Link
                             variant="button"
                             size="small"
-                            href={`/event/listfortress/${tournamentId}`}
+                            href={`/tournament/listfortress/${tournamentId}`}
                           >
                             <Trophy className="inline-block h-4 w-4" /> View
                             Tournament

@@ -108,7 +108,7 @@ const TournamentPage = async ({ searchParams }: PageProps) => {
                   </Table.Cell>
                   <Table.Cell>
                     <Link
-                      href={`/event/listfortress/${t.id}`}
+                      href={`/tournament/listfortress/${t.id}`}
                       variant="highlight"
                       className="text-primary-800"
                     >
@@ -126,7 +126,7 @@ const TournamentPage = async ({ searchParams }: PageProps) => {
             variant="cta"
             size="regular"
             className={cn('flex items-center gap-1', page <= 1 && 'opacity-0')}
-            href={`/event/?page=${page - 1}`}
+            href={`/tournament/?page=${page - 1}`}
           >
             <ChevronDown className="size-3 rotate-90" strokeWidth="2.5" /> Prev
           </Link>
@@ -137,7 +137,7 @@ const TournamentPage = async ({ searchParams }: PageProps) => {
             variant="cta"
             size="regular"
             className="flex items-center gap-1"
-            href={`/event/?page=${page + 1}`}
+            href={`/tournament/?page=${page + 1}`}
           >
             Next <ChevronDown className="size-3 -rotate-90" strokeWidth="2.5" />
           </Link>

@@ -46,7 +46,7 @@ export const SearchForm = () => {
         variant="cta"
         size="large"
         className="flex items-center justify-center gap-1"
-        href={`/event/${vendor}/${id}`}
+        href={`/tournament/${vendor}/${id}`}
       >
         <Trophy className="size-4" /> View
       </Link>
