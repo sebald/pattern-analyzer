@@ -1,66 +1,49 @@
-import { Card, Collapsible, Container, Headline, Link, List } from '@/ui';
-import { getAllTournaments } from '@/lib/vendor/listfortress';
+import { headline } from '@/app/fonts';
 
-import { EventForm } from './_components/event-form';
-import { daysAgo } from '@/lib/utils/date.utils';
+import { SearchForm } from './_components/search-form';
+import { Card } from '@/ui';
 
 // Config
 // ---------------
-/**
- * Segment Config (see: https://beta.nextjs.org/docs/api-reference/segment-config)
- */
-export const revalidate = 10800; // 3 hours
-
-// Data
-// ---------------
-const getRecentEvents = async () => {
-  const events = await getAllTournaments({
-    from: daysAgo(20),
-    format: 'standard',
-  });
-
-  return events;
-};
+export const revalidate = 43200; // 12 hours
 
 // Page
 // ---------------
-const Home = async () => {
-  const events = await getRecentEvents();
-
+const Home = () => {
   return (
-    <Container className="flex flex-col items-center gap-32">
-      <div className="pt-6 md:pt-10">
-        <Headline level="3" className="text-center text-primary-800">
-          Find an Event
-        </Headline>
-        <EventForm />
+    <div className="container flex flex-col gap-24 md:gap-32">
+      <div className="flex flex-col gap-4">
+        <div className="grid-stack grid place-items-center">
+          <div className="bg-blur-gradient h-[150px] sm:h-[250px] lg:h-[300px] xl:h-[320px]" />
+          <div
+            className={`${headline.variable} z-10 max-w-screen-lg text-center font-headline uppercase`}
+          >
+            <div className="text-xl font-bold text-primary-900/70 md:text-2xl">
+              Welcome to
+            </div>
+            <div className="text-shadow-xs text-5xl font-extrabold !leading-[0.9] text-primary-900 shadow-primary-700 sm:text-7xl md:text-8xl lg:text-9xl">
+              Pattern Analyzer
+            </div>
+          </div>
+        </div>
+        <div className="mx-auto max-w-screen-md pt-8 text-center text-lg text-primary-900 md:text-2xl md:opacity-70">
+          Explore tournament results and dive into statistics of ship
+          compositions, pilots, and upgrades.
+        </div>
       </div>
-      <div className="max-w-xl md:px-6">
-        <Headline level="3" className="text-center text-primary-800">
-          Recent Events
-        </Headline>
-        <Card className="h-fit">
-          <Collapsible maxHeight={350}>
-            <List variant="wide">
-              {events.map(({ id, name, date, country }) => (
-                <List.Item key={id}>
-                  <Link
-                    className="text-lg text-secondary-900"
-                    href={`/event/listfortress/${id}`}
-                  >
-                    <h3 className="font-medium">{name}</h3>
-                    <div className="text-sm text-secondary-400">
-                      {date}
-                      {country ? `, ${country}` : ''}
-                    </div>
-                  </Link>
-                </List.Item>
-              ))}
-            </List>
-          </Collapsible>
-        </Card>
+      <div className="mx-auto flex max-w-screen-sm flex-col gap-2">
+        <div className="text-sm font-medium text-secondary-700">
+          View Tournament:
+        </div>
+        <SearchForm />
       </div>
-    </Container>
+      <div>
+        <Card>Placeholder Tournament</Card>
+        <Card>Placeholder Compositions</Card>
+        <Card>Placeholder Pilots</Card>
+        <Card>Placeholder Upgrades</Card>
+      </div>
+    </div>
   );
 };
 
