@@ -52,6 +52,12 @@ const config = {
         port: '',
         pathname: '/xw2/images/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'flagicons.lipis.dev',
+        port: '',
+        pathname: '/flags/4x3/**',
+      },
     ],
   },
 };

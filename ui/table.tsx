@@ -142,12 +142,14 @@ export const Table = forwardRef<HTMLDivElement, TableProps>(
         )}
       >
         <div className={cn(styles.row(), className)}>
-          <Header className="hidden md:flex">#</Header>
+          {numeration ? <Header className="hidden md:flex">#</Header> : null}
           {columns.map(({ children, variant }, idx) => (
             <Header
               key={idx}
               variant={variant}
-              className={idx == 0 ? 'sticky left-0 bg-white' : undefined}
+              className={
+                idx == 0 ? 'sticky left-0 rounded-lg bg-white' : undefined
+              }
             >
               {children}
             </Header>
