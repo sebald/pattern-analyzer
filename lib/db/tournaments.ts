@@ -52,6 +52,10 @@ export const getTournaments = async ({
     );
   }
 
+  if (page) {
+    query = query.offset((page - 1) * pageSize);
+  }
+
   return query.execute();
 };
 
