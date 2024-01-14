@@ -33,6 +33,11 @@ const config = {
   redirects() {
     return [
       {
+        source: '/event/:path*',
+        destination: '/tournament/:path*',
+        permanent: true,
+      },
+      {
         source: '/analyze/composition',
         destination: '/composition',
         permanent: true,
