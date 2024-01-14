@@ -41,7 +41,7 @@ export const StatsInfo = ({ from, to }: StatsInfoProps) => {
   return (
     <Inline className="gap-4">
       <Inline className="whitespace-nowrap">
-        <Calendar className="h-3 w-3" /> {formatDate(from)} -{' '}
+        <Calendar className="size-3" /> {formatDate(from)} -{' '}
         {formatDate(to || today())}
       </Inline>
       <Suspense

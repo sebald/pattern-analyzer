@@ -1,14 +1,15 @@
-import type { ReactNode } from 'react';
+import Image from 'next/image';
 import { z } from 'zod';
 
 import { pointsUpdateDate } from '@/lib/config';
 import { getTournaments } from '@/lib/db/tournaments';
 import { createMetadata } from '@/lib/metadata';
+import { cn } from '@/lib/utils/classname.utils';
+import { ago, formatDate, fromDate } from '@/lib/utils/date.utils';
 
-import { Card, Link, Message, Table } from '@/ui';
-import { View } from '@/ui/icons';
-import { formatDate, fromDate } from '@/lib/utils/date.utils';
-import Image from 'next/image';
+import { Caption, Card, Inline, Link, Message, Table, Title } from '@/ui';
+import { ChevronDown, Info, View } from '@/ui/icons';
+import { getLastSync } from '@/lib/db/system';
 
 // Metadata
 // ---------------
@@ -57,63 +58,90 @@ const TournamentPage = async ({ searchParams }: PageProps) => {
 
   // TODO: Error handling
   const { page } = params.data;
-  const tournaments = await getPage({ page });
+  const [tournaments, lastSync] = await Promise.all([
+    getPage({ page }),
+    getLastSync(),
+  ]);
 
   return (
     <>
-      <Card inset="none">
-        <Card.Body variant="enumeration">
-          <Table
-            columns={[
-              { children: 'Name', width: '1fr' },
-              { children: 'Date', width: 'max-content' },
-              { children: 'Players', width: 'max-content' },
-              { children: 'Location', width: '1fr' },
-              { children: 'Country', width: 'max-content' },
-              { children: 'View', width: 'max-content' },
-            ]}
-          >
-            {tournaments.map(t => (
-              <Table.Row key={t.id}>
-                <Table.Cell className="!text-base !font-bold">
-                  {t.name}
-                </Table.Cell>
-                <Table.Cell>{formatDate(fromDate(t.date))}</Table.Cell>
-                <Table.Cell>{t.players}</Table.Cell>
-                <Table.Cell>{t.location || 'N/A'}</Table.Cell>
-                <Table.Cell>
-                  <Image
-                    src={`https://flagicons.lipis.dev/flags/4x3/${
-                      t.country?.toLocaleLowerCase() || 'xx'
-                    }.svg`}
-                    alt={t.location || '?'}
-                    height={16}
-                    width={16}
-                  />
-                </Table.Cell>
-                <Table.Cell>
-                  <Link
-                    href={`/event/listfortress/${t.id}`}
-                    variant="highlight"
-                    className="text-primary-800"
-                  >
-                    <View className="h-5 w-5" />
-                  </Link>
-                </Table.Cell>
-              </Table.Row>
-            ))}
-          </Table>
-        </Card.Body>
-      </Card>
+      <div className="pb-6">
+        <Title>Tournaments</Title>
+        <Caption>
+          <Inline className="whitespace-nowrap">
+            <Info className="size-3" /> Last sync {ago(lastSync)} ago
+            (listfortress.com)
+          </Inline>
+        </Caption>
+      </div>
 
-      <div className="flex items-center justify-between">
-        {page > 1 ? (
-          <Link href={`/event/?page=${page - 1}`}>Prev</Link>
-        ) : (
-          <div />
-        )}
-        <div>Page {page}</div>
-        <Link href={`/event/?page=${page + 1}`}>Next</Link>
+      <div className="flex flex-col gap-6">
+        <Card inset="none">
+          <Card.Body variant="enumeration">
+            <Table
+              columns={[
+                { children: 'Name', width: '1fr' },
+                { children: 'Date', width: 'max-content' },
+                { children: 'Players', width: 'max-content' },
+                { children: 'Location', width: '1fr' },
+                { children: 'Country', width: 'max-content' },
+                { children: 'View', width: 'max-content' },
+              ]}
+            >
+              {tournaments.map(t => (
+                <Table.Row key={t.id}>
+                  <Table.Cell className="!text-base !font-bold">
+                    {t.name}
+                  </Table.Cell>
+                  <Table.Cell>{formatDate(fromDate(t.date))}</Table.Cell>
+                  <Table.Cell>{t.players}</Table.Cell>
+                  <Table.Cell>{t.location || 'N/A'}</Table.Cell>
+                  <Table.Cell>
+                    <Image
+                      src={`https://flagicons.lipis.dev/flags/4x3/${
+                        t.country?.toLocaleLowerCase() || 'xx'
+                      }.svg`}
+                      alt={t.location || '?'}
+                      height={16}
+                      width={16}
+                    />
+                  </Table.Cell>
+                  <Table.Cell>
+                    <Link
+                      href={`/event/listfortress/${t.id}`}
+                      variant="highlight"
+                      className="text-primary-800"
+                    >
+                      <View className="h-5 w-5" />
+                    </Link>
+                  </Table.Cell>
+                </Table.Row>
+              ))}
+            </Table>
+          </Card.Body>
+        </Card>
+
+        <div className="flex items-center justify-center">
+          <Link
+            variant="cta"
+            size="regular"
+            className={cn('flex items-center gap-1', page <= 1 && 'opacity-0')}
+            href={`/event/?page=${page - 1}`}
+          >
+            <ChevronDown className="size-3 rotate-90" strokeWidth="2.5" /> Prev
+          </Link>
+          <div className="px-10 text-lg font-bold text-secondary-500">
+            Page {page}
+          </div>
+          <Link
+            variant="cta"
+            size="regular"
+            className="flex items-center gap-1"
+            href={`/event/?page=${page + 1}`}
+          >
+            Next <ChevronDown className="size-3 -rotate-90" strokeWidth="2.5" />
+          </Link>
+        </div>
       </div>
     </>
   );
