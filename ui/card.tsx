@@ -7,7 +7,10 @@ import { cn } from '@/lib/utils/classname.utils';
 // ---------------
 const styles = {
   card: cva(
-    ['flex w-full flex-col items-stretch gap-4', 'rounded-lg bg-white'],
+    [
+      'flex w-full flex-col items-stretch gap-4',
+      'rounded-lg bg-white overflow-hidden',
+    ],
     {
       variants: {
         elevation: {

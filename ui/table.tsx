@@ -147,9 +147,7 @@ export const Table = forwardRef<HTMLDivElement, TableProps>(
             <Header
               key={idx}
               variant={variant}
-              className={
-                idx == 0 ? 'sticky left-0 rounded-lg bg-white' : undefined
-              }
+              className={idx == 0 ? 'sticky left-0 bg-white' : undefined}
             >
               {children}
             </Header>
