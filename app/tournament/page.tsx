@@ -17,6 +17,7 @@ export const metadata = createMetadata({
   title: 'Tournaments',
   description: 'View the latest X-Wing tournments results.',
   ogTitle: 'Tournaments',
+  ogWidth: 65,
 });
 
 // Helpers
