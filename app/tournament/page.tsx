@@ -81,7 +81,7 @@ const TournamentPage = async ({ searchParams }: PageProps) => {
           <Card.Body variant="enumeration">
             <Table
               columns={[
-                { children: 'Name', width: '1fr' },
+                { children: 'Name', width: 'minmax(250px, 1fr)' },
                 { children: 'Date', width: 'max-content' },
                 { children: 'Players', width: 'max-content' },
                 { children: 'Location', width: '1fr' },
