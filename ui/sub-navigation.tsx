@@ -9,10 +9,10 @@ import { cn } from '@/lib/utils/classname.utils';
 import { usePathname } from 'next/navigation';
 
 const styles = cva([
-  'text-primary-900/50 px-4 py-2 font-medium text-lg lg:px-6',
+  'text-primary-800/50 px-4 py-2 font-medium text-lg lg:px-6',
   '-mb-px border-b-2 border-transparent',
-  'hover:text-primary-900/80',
-  'aria-[current=page]:text-primary-900 aria-[current=page]:border-primary-900',
+  'hover:text-primary-800/80',
+  'aria-[current=page]:text-primary-800 aria-[current=page]:border-primary-800',
 ]);
 
 // SubNavigation.Item

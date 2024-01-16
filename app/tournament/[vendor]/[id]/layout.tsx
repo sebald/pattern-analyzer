@@ -87,7 +87,7 @@ const Layout = async ({ params, children }: LayoutProps) => {
           </Inline>
         </Caption>
       </div>
-      <Navigation className="mb-6 mt-6" {...params} />
+      <Navigation className="my-6" {...params} />
       {children}
     </>
   );
