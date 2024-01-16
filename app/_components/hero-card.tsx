@@ -1,10 +1,11 @@
 import type { ReactNode } from 'react';
 
-import { Card, Headline, Link, Text } from '@/ui';
+import { cn } from '@/lib/utils/classname.utils';
+import { Headline, Link, Text } from '@/ui';
 import { ChevronDown } from '@/ui/icons';
 
 const HeroCardIcon = ({ children }: { children?: ReactNode }) => (
-  <div className="rounded-full border border-primary-300 bg-primary-200 p-4 text-primary-700 md:row-span-2">
+  <div className="rounded-full bg-primary-200 p-4 text-primary-700 md:row-span-2">
     {children}
   </div>
 );
@@ -39,13 +40,23 @@ const HeroLink = ({
   </Link>
 );
 
-const HeroCard = ({ children }: { children?: ReactNode }) => (
-  <Card
-    inset="relaxed"
-    className="grid grid-cols-1 place-items-center items-start gap-3 md:grid-cols-[min-content,1fr] md:place-items-start md:gap-x-6"
+const HeroCard = ({
+  className,
+  children,
+}: {
+  className?: string;
+  children?: ReactNode;
+}) => (
+  <div
+    className={cn(
+      'rounded-lg bg-primary-100 p-6',
+      'grid grid-cols-1 place-items-center items-start gap-3',
+      'md:grid-cols-[min-content,1fr] md:place-items-start md:gap-x-6',
+      className
+    )}
   >
     {children}
-  </Card>
+  </div>
 );
 
 export const Hero = {
