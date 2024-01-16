@@ -11,7 +11,7 @@ import { Trophy } from '@/ui/icons';
 export const SearchForm = () => {
   const [vendor, setVendor] = useState<Vendor>('listfortress');
   const [id, setId] = useState('');
-
+  console.log(vendor);
   return (
     <div className="flex flex-col gap-x-4 gap-y-2 sm:flex-row">
       <Card
@@ -33,10 +33,11 @@ export const SearchForm = () => {
           variant="transparent"
           size="large"
           className="rounded-r-lg"
+          value={vendor}
           onChange={e => setVendor(e.target.value as Vendor)}
         >
           {vendors.map(({ id, name }) => (
-            <Select.Option key={id} value={vendor}>
+            <Select.Option key={id} value={id}>
               {name}
             </Select.Option>
           ))}

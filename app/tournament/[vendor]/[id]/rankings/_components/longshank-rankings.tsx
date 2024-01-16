@@ -1,6 +1,9 @@
 'use client';
 
 import { useLongshanksSquads } from '@/lib/useLongshanksSquads';
+import { Skeleton, CardSkeleton } from '@/ui';
+
+import { Rankings } from './rankings';
 
 // Props
 // ---------------
@@ -11,7 +14,24 @@ export interface LongshanksRankingsProps {
 // Component
 // ---------------
 export const LongshanksRankings = ({ id }: LongshanksRankingsProps) => {
-  const squads = useLongshanksSquads({ id });
+  const { squads } = useLongshanksSquads({ id });
 
-  return 'todo!';
+  if (!squads) {
+    return (
+      <Skeleton>
+        <div className="grid gap-3">
+          <CardSkeleton lines={[2, 2, 3]} />
+          <CardSkeleton lines={[2, 2, 3]} />
+          <CardSkeleton lines={[2, 2, 3]} />
+          <CardSkeleton lines={[2, 2, 3]} />
+          <CardSkeleton lines={[2, 2, 3]} />
+          <CardSkeleton lines={[2, 2, 3]} />
+          <CardSkeleton lines={[2, 2, 3]} />
+          <CardSkeleton lines={[2, 2, 3]} />
+        </div>
+      </Skeleton>
+    );
+  }
+
+  return <Rankings squads={squads} />;
 };
