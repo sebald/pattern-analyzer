@@ -6,35 +6,38 @@ import { cn } from '@/lib/utils/classname.utils';
 // Styles
 // ---------------
 const styles = {
-  card: cva(
-    [
-      'flex w-full flex-col items-stretch gap-4',
-      'rounded-lg bg-white overflow-hidden',
-    ],
-    {
-      variants: {
-        elevation: {
-          default: 'shadow-card',
-          lightest: 'shadow-sm',
-          light: 'shadow',
-        },
-        inset: {
-          default: 'px-3 pt-3 pb-2',
-          headless: 'px-3 py-4', // No title/card.header
-          none: 'p-0', // when using a list
-        },
-        size: {
-          stretch: 'h-full',
-          fit: 'h-fit',
-        },
+  card: cva(['rounded-lg bg-white overflow-hidden'], {
+    variants: {
+      elevation: {
+        default: 'shadow-card',
+        lightest: 'shadow-sm',
+        light: 'shadow',
       },
-      defaultVariants: {
-        elevation: 'default',
-        inset: 'default',
-        size: 'stretch',
+      inset: {
+        default: 'px-3 pt-3 pb-2',
+        headless: 'px-3 py-4', // No title/card.header
+        none: 'p-0', // when using a list
       },
-    }
-  ),
+      size: {
+        stretch: 'h-full',
+        fit: 'h-fit',
+      },
+      /**
+       * If we don't have this the gap will override the
+       * parent's gap properties ...
+       */
+      subgrid: {
+        true: 'col-span-full grid grid-cols-subgrid',
+        false: 'flex w-full flex-col items-stretch gap-4',
+      },
+    },
+    defaultVariants: {
+      elevation: 'default',
+      inset: 'default',
+      size: 'stretch',
+      subgrid: false,
+    },
+  }),
   body: cva('flex-1', {
     variants: {
       variant: {
@@ -123,6 +126,7 @@ export interface CardProps
 export const Card = ({
   elevation,
   inset,
+  subgrid,
   size,
   className,
   children,
@@ -130,7 +134,7 @@ export const Card = ({
 }: CardProps) => (
   <div
     {...props}
-    className={cn(styles.card({ elevation, inset, size }), className)}
+    className={cn(styles.card({ elevation, inset, size, subgrid }), className)}
   >
     {children}
   </div>

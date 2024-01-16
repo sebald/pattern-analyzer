@@ -11,11 +11,11 @@ export interface NavigationProps {
 
 export const Navigation = ({ className, vendor, id }: NavigationProps) => (
   <SubNavigation className={className}>
-    <SubNavigation.Item href={`/tournament/${vendor}/${id}`}>
-      Squads
-    </SubNavigation.Item>
     <SubNavigation.Item href={`/tournament/${vendor}/${id}/rankings`}>
       Rankings
+    </SubNavigation.Item>
+    <SubNavigation.Item href={`/tournament/${vendor}/${id}`}>
+      Squads
     </SubNavigation.Item>
     <SubNavigation.Item href={`/tournament/${vendor}/${id}/insights`}>
       Insights
