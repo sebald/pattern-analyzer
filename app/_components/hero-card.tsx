@@ -31,7 +31,7 @@ const HeroLink = ({
   <Link
     variant="cta"
     size="regular"
-    className="flex items-center gap-1 place-self-end md:col-span-2"
+    className="flex items-center gap-1 md:col-span-2 md:place-self-end"
     href={href}
   >
     {children}

@@ -14,7 +14,7 @@ export const revalidate = 43200; // 12 hours
 const Home = () => {
   return (
     <div className="container flex flex-col gap-24 md:gap-32 lg:gap-44">
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 pt-8 md:pt-0">
         <div className="grid-stack grid place-items-center">
           <div className="bg-blur-gradient h-[150px] sm:h-[250px] lg:h-[300px] xl:h-[320px]" />
           <div
@@ -46,10 +46,9 @@ const Home = () => {
           </Hero.Icon>
           <Hero.Title>Tournaments</Hero.Title>
           <Hero.Body>
-            Dive into the heart of the action with tournaments coverage,
-            delivering the latest results and insightful analyses. Uncover the
-            evolving meta with in-depth insights, providing a front-row seat to
-            the ever-shifting landscape of competitive play.
+            Dive into the action with tournaments coverage, delivering the
+            latest results and insightful analyses. Uncover the evolving meta
+            with in-depth insights, navigating the competitive landscape.
           </Hero.Body>
           <Hero.Link href="/tournament">View Tournaments</Hero.Link>
         </Hero.Card>
@@ -59,11 +58,9 @@ const Home = () => {
           </Hero.Icon>
           <Hero.Title>Insights</Hero.Title>
           <Hero.Body>
-            Embark on a statistical journey as we dissect factional prowess in
-            competitive gaming. Uncover which factions reign supreme and gain
-            strategic foresight. Elevate your gameplay with concise yet powerful
-            insights. Stay ahead of the competition - it&apos;s not just about
-            winning; it&apos;s about knowing how.
+            Discover top-performing factions, gain strategic foresight, and
+            elevate your gameplay with powerful insights. Stay ahead – it&apos;s
+            not just about winning; it&apos;s about knowing how.
           </Hero.Body>
           <Hero.Link href="/insights">View Insights</Hero.Link>
         </Hero.Card>
@@ -73,10 +70,9 @@ const Home = () => {
           </Hero.Icon>
           <Hero.Title>Compositions</Hero.Title>
           <Hero.Body>
-            Discover winning compositions that dominate the meta and propel
-            yourself to victory. Our detailed breakdowns showcase the squads
-            that stand out, offering strategic insights to elevate your own
-            gameplay.
+            Uncover winning compositions that dominate the meta and give
+            yourself a strategic edge. Examine detailed breakdowns that
+            spotlight standout squads, offering strategic insights.
           </Hero.Body>
           <Hero.Link href="/composition">View Compositions</Hero.Link>
         </Hero.Card>
@@ -86,9 +82,9 @@ const Home = () => {
           </Hero.Icon>
           <Hero.Title>Pilots</Hero.Title>
           <Hero.Body>
-            Explore detailed pilot statistics that go beyond the surface,
-            offering a deep dive into the performance metrics that matter. From
-            win rates to game-changing loadouts, we have got you covered.
+            Explore pilot stats beyond the surface, from win rates to
+            game-changing loadouts. We&apos;ve got you covered with all the
+            performance metrics.
           </Hero.Body>
           <Hero.Link href="/pilot">View Pilots</Hero.Link>
         </Hero.Card>
