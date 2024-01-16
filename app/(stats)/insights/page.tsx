@@ -29,7 +29,7 @@ const Loading = () => (
 
 // Props
 // ---------------
-interface AnalyzePageProps {
+interface InsightsPageProps {
   searchParams: {
     from: string;
     to: string;
@@ -38,7 +38,7 @@ interface AnalyzePageProps {
 
 // Page
 // ---------------
-const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
+const InsightsPage = async ({ searchParams }: InsightsPageProps) => {
   const params = toDateRange(searchParams);
 
   if (params.error) {
@@ -57,7 +57,7 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
   return (
     <>
       <div className="pb-6">
-        <Title>Analyze</Title>
+        <Title>Insights</Title>
         <Caption>
           <StatsInfo from={from} to={to} />
         </Caption>
@@ -72,4 +72,4 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
   );
 };
 
-export default AnalyzePage;
+export default InsightsPage;

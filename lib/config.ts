@@ -22,8 +22,8 @@ export const siteNavigation = [
     href: '/tournament',
   },
   {
-    name: 'Analyze',
-    href: '/analyze',
+    name: 'Insights',
+    href: '/insights',
   },
   {
     name: 'Compositions',

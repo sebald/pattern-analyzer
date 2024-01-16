@@ -38,6 +38,11 @@ const config = {
         permanent: true,
       },
       {
+        source: '/analyze',
+        destination: '/insights',
+        permanent: true,
+      },
+      {
         source: '/analyze/composition',
         destination: '/composition',
         permanent: true,
