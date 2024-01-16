@@ -5,19 +5,19 @@ import { Headline, Link, Text } from '@/ui';
 import { ChevronDown } from '@/ui/icons';
 
 const HeroCardIcon = ({ children }: { children?: ReactNode }) => (
-  <div className="rounded-full bg-primary-200 p-4 text-primary-700 md:row-span-2">
+  <div className="rounded-full bg-primary-200/90 p-4 text-primary-700 md:row-span-2">
     {children}
   </div>
 );
 
 const HeroCardTitle = ({ children }: { children?: ReactNode }) => (
-  <Headline level="2" className="p-0">
+  <Headline level="2" className="p-0 text-3xl text-primary-900">
     {children}
   </Headline>
 );
 
 const HeroCardBody = ({ children }: { children?: ReactNode }) => (
-  <Text prose className="text-pretty">
+  <Text prose className="text-pretty text-primary-900/80">
     {children}
   </Text>
 );
@@ -49,7 +49,8 @@ const HeroCard = ({
 }) => (
   <div
     className={cn(
-      'rounded-lg bg-primary-100 p-6',
+      'rounded-lg p-6',
+      'bg-gradient-to-br from-primary-100 to-primary-200',
       'grid grid-cols-1 place-items-center items-start gap-3',
       'md:grid-cols-[min-content,1fr] md:place-items-start md:gap-x-6',
       className

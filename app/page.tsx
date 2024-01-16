@@ -39,7 +39,7 @@ const Home = () => {
         </div>
         <SearchForm />
       </div>
-      <div className="mx-auto grid gap-4 lg:w-11/12 lg:grid-cols-2">
+      <div className="mx-auto grid gap-6 lg:w-11/12 lg:grid-cols-2">
         <Hero.Card>
           <Hero.Icon>
             <Trophy className="size-12" />
