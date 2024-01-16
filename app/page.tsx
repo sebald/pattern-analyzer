@@ -1,7 +1,8 @@
 import { headline } from '@/app/fonts';
 
 import { SearchForm } from './_components/search-form';
-import { Card } from '@/ui';
+import { BarChart, Trophy, User, UserGroup } from '@/ui/icons';
+import { Hero } from './_components/hero-card';
 
 // Config
 // ---------------
@@ -37,43 +38,55 @@ const Home = () => {
         </div>
         <SearchForm />
       </div>
-      <div>
-        <Card inset="headless">
-          <Card.Title>Tournaments</Card.Title>
-          <Card.Body>
+      <div className="mx-auto grid gap-4 lg:grid-cols-2">
+        <Hero.Card className="ml-14">
+          <Hero.Icon>
+            <Trophy className="size-12" />
+          </Hero.Icon>
+          <Hero.Title>Tournaments</Hero.Title>
+          <Hero.Body>
             Dive into the heart of the action with tournaments coverage,
             delivering the latest results and insightful analyses. Uncover the
             evolving meta with in-depth insights, providing a front-row seat to
             the ever-shifting landscape of competitive play.
-          </Card.Body>
-        </Card>
-        <Card>
-          <Card.Title>Insights</Card.Title>
-          <Card.Body>
+          </Hero.Body>
+        </Hero.Card>
+        <Hero.Card>
+          <Hero.Icon>
+            <BarChart className="size-12" />
+          </Hero.Icon>
+          <Hero.Title>Insights</Hero.Title>
+          <Hero.Body>
             Embark on a statistical journey as we dissect factional prowess in
             competitive gaming. Uncover which factions reign supreme and gain
             strategic foresight. Elevate your gameplay with concise yet powerful
             insights. Stay ahead of the competition - it&apos;s not just about
             winning; it&apos;s about knowing how.
-          </Card.Body>
-        </Card>
-        <Card>
-          <Card.Title>Compositions</Card.Title>
-          <Card.Body>
+          </Hero.Body>
+        </Hero.Card>
+        <Hero.Card>
+          <Hero.Icon>
+            <UserGroup className="size-12" />
+          </Hero.Icon>
+          <Hero.Title>Compositions</Hero.Title>
+          <Hero.Body>
             Discover winning compositions that dominate the meta and propel
             yourself to victory. Our detailed breakdowns showcase the squads
             that stand out, offering strategic insights to elevate your own
             gameplay.
-          </Card.Body>
-        </Card>
-        <Card>
-          <Card.Title>Pilots</Card.Title>
-          <Card.Body>
+          </Hero.Body>
+        </Hero.Card>
+        <Hero.Card>
+          <Hero.Icon>
+            <User className="size-12" />
+          </Hero.Icon>
+          <Hero.Title>Pilots</Hero.Title>
+          <Hero.Body>
             Explore detailed pilot statistics that go beyond the surface,
             offering a deep dive into the performance metrics that matter. From
             win rates to game-changing loadouts, we have got you covered.
-          </Card.Body>
-        </Card>
+          </Hero.Body>
+        </Hero.Card>
       </div>
       <div className="mx-auto w-2/3 text-sm italic text-primary-900/40">
         <span className="font-bold">Disclaimer:</span> Please be advised that

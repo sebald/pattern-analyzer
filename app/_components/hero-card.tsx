@@ -1,32 +1,40 @@
 import type { ReactNode } from 'react';
+import { Card, Headline, Text } from '@/ui';
 
-import { Card } from '@/ui/card';
+const HeroCardIcon = ({ children }: { children?: ReactNode }) => (
+  <div className="rounded-full border border-primary-300 bg-primary-200 p-4 text-primary-700 md:row-span-2">
+    {children}
+  </div>
+);
 
-// Card.Title
-// ---------------
-export interface HeroCardTitleProps {
-  children: ReactNode;
-}
+const HeroCardTitle = ({ children }: { children?: ReactNode }) => (
+  <Headline level="2" className="p-0">
+    {children}
+  </Headline>
+);
 
-const CardTitle = ({ children }: HeroCardTitleProps) => <h2>{children}</h2>;
+const HeroCardBody = ({ children }: { children?: ReactNode }) => (
+  <Text prose>{children}</Text>
+);
 
-// Props
-// ---------------
-export interface HeroCardProps {
-  title?: ReactNode;
+const HeroCard = ({
+  className,
+  children,
+}: {
+  className?: string;
   children?: ReactNode;
-}
-
-// Component
-// ---------------
-export const HeroCard = ({ title, children }: HeroCardProps) => (
-  <Card inset="headless">
-    <h2>{}</h2>
-    <div>
-      explore detailed pilot statistics that go beyond the surface, offering a
-      deep dive into the performance metrics that matter. From win rates to
-      game-changing moments, we have got you covered with the most comprehensive
-      pilot data available.
-    </div>
+}) => (
+  <Card
+    inset="relaxed"
+    className="grid grid-cols-1 place-items-center items-start gap-2 md:grid-cols-[min-content,1fr] md:place-items-start md:gap-x-6"
+  >
+    {children}
   </Card>
 );
+
+export const Hero = {
+  Card: HeroCard,
+  Body: HeroCardBody,
+  Title: HeroCardTitle,
+  Icon: HeroCardIcon,
+};

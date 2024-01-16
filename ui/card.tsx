@@ -17,6 +17,7 @@ const styles = {
         default: 'px-3 pt-3 pb-2',
         headless: 'px-3 py-4', // No title/card.header
         none: 'p-0', // when using a list
+        relaxed: 'p-6',
       },
       size: {
         stretch: 'h-full',
