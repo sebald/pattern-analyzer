@@ -4,6 +4,7 @@ import { useDebouncedCallback } from 'use-debounce';
 
 import { FactionSelection, SearchField } from '@/ui';
 import { useFilter } from './context';
+import { ToggleGroup } from '@/ui/toggle-group';
 
 export const Filter = () => {
   const filter = useFilter();
@@ -24,6 +25,14 @@ export const Filter = () => {
         onChange={filter.setFaction}
         allowAll
       />
+      <ToggleGroup type="single" size="small">
+        <ToggleGroup.Item value="rankings" aria-label="Toggle rankings">
+          Rankings
+        </ToggleGroup.Item>
+        <ToggleGroup.Item value="lists" aria-label="Toggle lists">
+          Squads
+        </ToggleGroup.Item>
+      </ToggleGroup>
     </div>
   );
 };
