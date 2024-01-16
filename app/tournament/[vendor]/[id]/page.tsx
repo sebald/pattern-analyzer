@@ -1,13 +1,8 @@
 import { baseUrl } from '@/lib/config';
-import { SquadData, Vendor } from '@/lib/types';
+import type { Vendor, SquadData } from '@/lib/types';
 
-import { LongshanksSquadView } from './_components/longshanks-squad.view';
-import { SquadsView } from './_components/squad.view';
-
-/**
- * Opt into background revalidation. (see: https://github.com/vercel/next.js/discussions/43085)
- */
-export const generateStaticParams = () => [];
+import { Rankings } from './_components/rankings';
+import { LongshanksRankings } from './_components/longshank-rankings';
 
 // Data
 // ---------------
@@ -40,11 +35,11 @@ interface PageParams {
 // ---------------
 const Page = async ({ params }: PageParams) => {
   if (params.vendor === 'longshanks') {
-    return <LongshanksSquadView {...params} />;
+    return <LongshanksRankings {...params} />;
   }
 
   const squads = await getSquads(params);
-  return <SquadsView squads={squads} />;
+  return <Rankings squads={squads} />;
 };
 
 export default Page;

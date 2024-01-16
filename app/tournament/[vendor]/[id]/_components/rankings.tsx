@@ -33,7 +33,7 @@ export const Rankings = ({ squads }: RankingsProps) => (
                 className={cn(
                   'text-center text-lg font-bold md:text-2xl',
                   rank === 1 && 'text-amber-500',
-                  rank === 2 && 'text-zinc-500',
+                  rank === 2 && 'text-zinc-400',
                   rank === 3 && 'text-yellow-700'
                 )}
               >
