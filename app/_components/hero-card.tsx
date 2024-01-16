@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react';
-import { Card, Headline, Text } from '@/ui';
+
+import { Card, Headline, Link, Text } from '@/ui';
+import { ChevronDown } from '@/ui/icons';
 
 const HeroCardIcon = ({ children }: { children?: ReactNode }) => (
   <div className="rounded-full border border-primary-300 bg-primary-200 p-4 text-primary-700 md:row-span-2">
@@ -14,19 +16,33 @@ const HeroCardTitle = ({ children }: { children?: ReactNode }) => (
 );
 
 const HeroCardBody = ({ children }: { children?: ReactNode }) => (
-  <Text prose>{children}</Text>
+  <Text prose className="text-pretty">
+    {children}
+  </Text>
 );
 
-const HeroCard = ({
-  className,
+const HeroLink = ({
   children,
+  href,
 }: {
-  className?: string;
   children?: ReactNode;
+  href: string;
 }) => (
+  <Link
+    variant="cta"
+    size="regular"
+    className="flex items-center gap-1 place-self-end md:col-span-2"
+    href={href}
+  >
+    {children}
+    <ChevronDown className="size-3 -rotate-90" strokeWidth="3" />
+  </Link>
+);
+
+const HeroCard = ({ children }: { children?: ReactNode }) => (
   <Card
     inset="relaxed"
-    className="grid grid-cols-1 place-items-center items-start gap-2 md:grid-cols-[min-content,1fr] md:place-items-start md:gap-x-6"
+    className="grid grid-cols-1 place-items-center items-start gap-3 md:grid-cols-[min-content,1fr] md:place-items-start md:gap-x-6"
   >
     {children}
   </Card>
@@ -37,4 +53,5 @@ export const Hero = {
   Body: HeroCardBody,
   Title: HeroCardTitle,
   Icon: HeroCardIcon,
+  Link: HeroLink,
 };

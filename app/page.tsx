@@ -1,8 +1,9 @@
 import { headline } from '@/app/fonts';
 
 import { SearchForm } from './_components/search-form';
-import { BarChart, Trophy, User, UserGroup } from '@/ui/icons';
+import { BarChart, ChevronDown, Trophy, User, UserGroup } from '@/ui/icons';
 import { Hero } from './_components/hero-card';
+import { Link } from '@/ui';
 
 // Config
 // ---------------
@@ -12,7 +13,7 @@ export const revalidate = 43200; // 12 hours
 // ---------------
 const Home = () => {
   return (
-    <div className="container flex flex-col gap-24 md:gap-32">
+    <div className="container flex flex-col gap-24 md:gap-32 lg:gap-44">
       <div className="flex flex-col gap-4">
         <div className="grid-stack grid place-items-center">
           <div className="bg-blur-gradient h-[150px] sm:h-[250px] lg:h-[300px] xl:h-[320px]" />
@@ -38,8 +39,8 @@ const Home = () => {
         </div>
         <SearchForm />
       </div>
-      <div className="mx-auto grid gap-4 lg:grid-cols-2">
-        <Hero.Card className="ml-14">
+      <div className="mx-auto grid gap-4 lg:w-11/12 lg:grid-cols-2">
+        <Hero.Card>
           <Hero.Icon>
             <Trophy className="size-12" />
           </Hero.Icon>
@@ -50,6 +51,7 @@ const Home = () => {
             evolving meta with in-depth insights, providing a front-row seat to
             the ever-shifting landscape of competitive play.
           </Hero.Body>
+          <Hero.Link href="/tournament">View Tournaments</Hero.Link>
         </Hero.Card>
         <Hero.Card>
           <Hero.Icon>
@@ -63,6 +65,7 @@ const Home = () => {
             insights. Stay ahead of the competition - it&apos;s not just about
             winning; it&apos;s about knowing how.
           </Hero.Body>
+          <Hero.Link href="/insights">View Insights</Hero.Link>
         </Hero.Card>
         <Hero.Card>
           <Hero.Icon>
@@ -75,6 +78,7 @@ const Home = () => {
             that stand out, offering strategic insights to elevate your own
             gameplay.
           </Hero.Body>
+          <Hero.Link href="/composition">View Compositions</Hero.Link>
         </Hero.Card>
         <Hero.Card>
           <Hero.Icon>
@@ -86,9 +90,10 @@ const Home = () => {
             offering a deep dive into the performance metrics that matter. From
             win rates to game-changing loadouts, we have got you covered.
           </Hero.Body>
+          <Hero.Link href="/pilot">View Pilots</Hero.Link>
         </Hero.Card>
       </div>
-      <div className="mx-auto w-2/3 text-sm italic text-primary-900/40">
+      <div className="mx-auto w-2/3 pb-12 text-sm italic text-primary-900/40">
         <span className="font-bold">Disclaimer:</span> Please be advised that
         all statements made herein are presented without any explicit guarantee.
         We want to emphasize that individual experiences can differ
