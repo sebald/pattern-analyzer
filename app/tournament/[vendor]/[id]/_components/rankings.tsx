@@ -5,7 +5,7 @@ import { SquadData } from '@/lib/types';
 import { cn } from '@/lib/utils/classname.utils';
 import { round } from '@/lib/utils/math.utils';
 
-import { Card, Detail, FactionIcon } from '@/ui';
+import { Card, Detail, FactionIcon, ShipList } from '@/ui';
 
 // Props
 // ---------------
@@ -16,7 +16,7 @@ export interface RankingsProps {
 // View
 // ---------------
 export const Rankings = ({ squads }: RankingsProps) => (
-  <div className="grid grid-cols-[max-content,1fr,1fr,1fr,max-content] gap-x-3 gap-y-3 md:gap-x-6">
+  <div className="grid grid-cols-[max-content,max-content,1fr,1fr,1fr] gap-x-3 gap-y-3 md:grid-cols-[max-content,1fr,1fr,1fr,1fr,max-content] md:gap-x-6 lg:grid-cols-[max-content,max-content,1fr,1fr,1fr,max-content]">
     {squads.map(current => {
       const rank = current.rank.elimination || current.rank.swiss;
 
@@ -25,9 +25,9 @@ export const Rankings = ({ squads }: RankingsProps) => (
           key={current.player}
           inset="headless"
           subgrid
-          className="items-center pr-4"
+          className="items-center gap-y-6 pr-4"
         >
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center pr-2 md:pr-0">
             <div>
               <div
                 className={cn(
@@ -46,7 +46,7 @@ export const Rankings = ({ squads }: RankingsProps) => (
               ) : null}
             </div>
           </div>
-          <div className="flex flex-col gap-1 lg:pl-2">
+          <div className="col-span-4 flex flex-col gap-1 md:col-span-1 lg:pl-2">
             <div className="break-words text-xl font-bold md:text-2xl">
               {current.player}
             </div>
@@ -64,7 +64,16 @@ export const Rankings = ({ squads }: RankingsProps) => (
               )}
             </div>
           </div>
-          <Detail label="Points" value={current.points} />
+          <Detail
+            label="List"
+            value={<ShipList xws={current.xws} size="large" />}
+            className={{ container: 'col-start-2 md:col-start-auto' }}
+          />
+          <Detail
+            label="Points"
+            value={current.points}
+            className={{ container: 'col-start-3 md:col-start-auto' }}
+          />
           <Detail
             label="W/D/L"
             value={
@@ -74,8 +83,13 @@ export const Rankings = ({ squads }: RankingsProps) => (
                 <span>{current.record.losses}</span>
               </>
             }
+            className={{ container: 'col-start-4 md:col-start-auto' }}
           />
-          <Detail label="SOS" value={round(current.sos, 2)} />
+          <Detail
+            label="SOS"
+            value={round(current.sos, 2)}
+            className={{ container: 'col-start-6 md:col-start-auto' }}
+          />
         </Card>
       );
     })}
