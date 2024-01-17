@@ -20,8 +20,10 @@ export const Navigation = ({ className, vendor, id }: NavigationProps) => (
     <SubNavigation.Item href={`/tournament/${vendor}/${id}/insights`}>
       Insights
     </SubNavigation.Item>
-    <SubNavigation.Item href={`/tournament/${vendor}/${id}/export`}>
-      Export
-    </SubNavigation.Item>
+    {vendor !== 'listfortress' ? (
+      <SubNavigation.Item href={`/tournament/${vendor}/${id}/export`}>
+        Export
+      </SubNavigation.Item>
+    ) : null}
   </SubNavigation>
 );
