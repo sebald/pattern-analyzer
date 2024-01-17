@@ -12,8 +12,8 @@ import { Suspense } from 'react';
 // Metadata
 // ---------------
 export const metadata = createMetadata({
-  title: 'Analyze',
-  description: 'Analyze the current X-Wing meta!',
+  title: 'Insights',
+  description: 'Dive into the current X-Wing meta!',
 });
 
 // Helpers
