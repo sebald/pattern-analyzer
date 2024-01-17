@@ -88,7 +88,7 @@ const Home = () => {
           </Hero.Body>
           <Hero.Link href="/pilot">View Pilots</Hero.Link>
         </Hero.Card>
-        <div className="col-span-full mx-auto w-2/3 pb-12 text-sm italic text-primary-900/40">
+        <div className="col-span-full mx-auto pb-12 text-sm italic text-primary-900/40 lg:w-2/3">
           <span className="font-bold">Disclaimer:</span> Please be advised that
           all statements made herein are presented without any explicit
           guarantee. We want to emphasize that individual experiences can differ
