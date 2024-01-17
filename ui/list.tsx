@@ -23,6 +23,7 @@ const styles = {
         compact: 'py-1',
         spread: 'py-4',
         wide: 'py-6 first:pt-3 last:pb-3',
+        complex: 'px-4 md:px-6 py-5',
       },
     },
     defaultVariants: {

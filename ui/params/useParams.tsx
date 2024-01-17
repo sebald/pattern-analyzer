@@ -39,8 +39,10 @@ export const useParams = <Params extends string>(keys: Params[]) => {
   });
 
   const setParams = (values: { [key: string]: string | null }) => {
+    // Current search params
     const sp = new URLSearchParams(searchParams.toString());
 
+    // Update current search params
     Object.entries(values).forEach(([key, value]) => {
       if (value) {
         sp.set(key, value);

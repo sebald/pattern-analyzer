@@ -27,6 +27,7 @@ export * from './search-field';
 export * from './select';
 export * from './sheet';
 export * from './ship-icon';
+export * from './ship-list';
 export * from './skeleton';
 export * from './sort-selection';
 export * from './spinner';

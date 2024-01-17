@@ -142,6 +142,8 @@ export const toXWS = (raw: string) => {
   }
 };
 
+export const getPilots = (xws: XWSSquad) => xws.pilots.map(pilot => pilot.id);
+
 export const getBuilderLink = (xws: XWSSquad | null) =>
   xws?.vendor?.yasb?.link ||
   // Remove `print` from lbn to show the builder instead

@@ -1,19 +1,38 @@
-import React, { forwardRef } from 'react';
-import { cva, VariantProps } from 'class-variance-authority';
-import { cn, flattenChildren } from '@/lib/utils';
+import { Children, cloneElement, forwardRef, isValidElement } from 'react';
+import type { ReactNode } from 'react';
+import { cva } from 'class-variance-authority';
+import type { VariantProps } from 'class-variance-authority';
+
+import { cn } from '@/lib/utils/classname.utils';
 
 // Styles
 // ---------------
 const styles = {
+  row: cva([
+    'grid-cols-subgrid col-span-full grid',
+    'border-t border-secondary-100 first:border-none',
+  ]),
+  header: cva(
+    'whitespace-nowrap py-4 px-4 text-sm font-bold text-primary-800',
+    {
+      variants: {
+        variant: {
+          number: 'text-right',
+        },
+      },
+    }
+  ),
   cell: cva(
     [
-      'border-t border-secondary-100 font-light text-xs px-4 flex flex-row items-center lg:text-sm lg:font-normal',
+      'flex flex-row items-center',
+      'font-light text-xs lg:text-sm lg:font-normal',
+      'px-4',
     ],
     {
       variants: {
         variant: {
           default: 'text-secondary-600',
-          number: 'tabular-nums text-secondary-600',
+          number: 'tabular-nums text-secondary-600 justify-end',
           header: 'text-secondary-800',
         },
         size: {
@@ -29,37 +48,58 @@ const styles = {
   ),
 };
 
+// Row
+// ---------------
+interface RowProps {
+  numeration?: ReactNode;
+  cellProps?: CellProps[];
+  className?: string;
+  children?: ReactNode;
+}
+
+const Row = ({ numeration, cellProps = [], className, children }: RowProps) => (
+  <div className={cn(styles.row(), className)}>
+    {numeration ? (
+      <Cell key="numeration" className="hidden md:flex">
+        {numeration}
+      </Cell>
+    ) : null}
+    {Children.map(children, (child, idx) => {
+      const row = !isValidElement<CellProps>(child)
+        ? child
+        : cloneElement(child, {
+            ...cellProps[idx],
+            ...child.props,
+            className: cn(
+              child.props.className,
+              idx === 0 && 'bg-white sticky left-0'
+            ),
+          });
+
+      return row;
+    })}
+  </div>
+);
+
 // Header
 // ---------------
-export interface TableHeaderProps {
+export interface HeaderProps extends VariantProps<typeof styles.header> {
   className?: string;
   children?: React.ReactNode;
 }
 
-export const TableHeader = ({ className, children }: TableHeaderProps) => (
-  <div
-    className={cn(
-      'whitespace-nowrap px-4 pb-2 text-sm font-bold text-primary-800',
-      className
-    )}
-  >
-    {children}
-  </div>
+export const Header = ({ variant, className, children }: HeaderProps) => (
+  <div className={cn(styles.header({ variant }), className)}>{children}</div>
 );
 
 // Cell
 // ---------------
-export interface TableCellProps extends VariantProps<typeof styles.cell> {
+export interface CellProps extends VariantProps<typeof styles.cell> {
   className?: string;
   children?: React.ReactNode;
 }
 
-export const TableCell = ({
-  variant,
-  size,
-  className,
-  children,
-}: TableCellProps) => (
+export const Cell = ({ variant, size, className, children }: CellProps) => (
   <div className={cn(styles.cell({ variant, size }), className)}>
     {children}
   </div>
@@ -67,89 +107,65 @@ export const TableCell = ({
 
 // Table
 // ---------------
-export interface TableProps {
-  cols: string[];
-  headers: React.ReactNode[];
-  numeration?: boolean;
-  className?: string;
-  size?: VariantProps<typeof styles.cell>['size'];
-  children?: React.ReactNode;
+export interface TableColumnProps {
+  width?: string;
+  variant?: 'number';
+  children?: ReactNode;
 }
 
-export const Table = forwardRef<HTMLTableElement, TableProps>(
-  ({ cols, headers, numeration, className, size, children }, ref) => {
-    if (cols.length !== headers.length) {
-      throw new Error(
-        `[Table] Number of columns and headers must be equal, got ${cols.length} cols and ${headers.length} headers.`
-      );
-    }
+export interface TableProps {
+  columns: TableColumnProps[];
+  numeration?: boolean;
+  size?: VariantProps<typeof styles.cell>['size'];
+  className?: string;
+  children?: ReactNode;
+}
 
-    const count = cols.length;
-    const isFirst = (idx: number) => idx % count === 0;
-    const isLast = (idx: number) => (idx + 1) % count === 0;
-
-    // Add additional classes to first/last col
-    const addColClasses = (idx: number, otherClassName?: string) =>
-      cn(
-        otherClassName,
-        isFirst(idx) && 'pl-2 bg-white sticky left-0',
-        isLast(idx) && 'pr-2'
-      );
-
-    const styles = {
-      '--table-cols': cols.join(' '),
+export const Table = forwardRef<HTMLDivElement, TableProps>(
+  ({ columns, numeration, size, className, children }, ref) => {
+    const columnWidths = columns.map(({ width }) => width).join(' ');
+    const cssVars = {
+      '--table-cols': columnWidths,
       '--md-table-cols': numeration
-        ? `minmax(auto, max-content) ${cols.join(' ')}`
+        ? `minmax(auto, max-content) ${columnWidths}`
         : undefined,
     } as React.CSSProperties;
 
     return (
       <div
         ref={ref}
-        style={styles}
+        style={cssVars}
         className={cn(
-          'grid grid-cols-[var(--table-cols)] overflow-x-auto',
-          numeration && 'md:grid-cols-[var(--md-table-cols)]',
+          'grid grid-cols-[--table-cols] overflow-x-auto',
+          numeration && 'md:grid-cols-[--md-table-cols]',
           className
         )}
       >
-        {numeration ? (
-          <TableHeader key="idx-header" className="hidden md:flex">
-            #
-          </TableHeader>
-        ) : null}
-        {headers.map((header, idx) => (
-          <TableHeader key={idx} className={addColClasses(idx)}>
-            {header}
-          </TableHeader>
-        ))}
-
-        {flattenChildren(children).map((child, idx) => {
-          // Make TS happy.
-          const cell = !React.isValidElement<{
-            className?: string;
-            size?: string | null;
-          }>(child)
+        <div className={cn(styles.row(), className)}>
+          {numeration ? <Header className="hidden md:flex">#</Header> : null}
+          {columns.map(({ children, variant }, idx) => (
+            <Header
+              key={idx}
+              variant={variant}
+              className={idx == 0 ? 'sticky left-0 bg-white' : undefined}
+            >
+              {children}
+            </Header>
+          ))}
+        </div>
+        {Children.map(children, (child, idx) => {
+          const row = !isValidElement<RowProps>(child)
             ? child
-            : React.cloneElement(child, {
+            : cloneElement(child, {
+                numeration: numeration ? idx + 1 : undefined,
+                cellProps: columns.map(({ variant }) => ({
+                  variant,
+                  size,
+                })),
                 ...child.props,
-                className: addColClasses(idx, child.props.className),
-                size,
               });
 
-          return numeration && isFirst(idx) ? (
-            <>
-              <TableCell
-                key={`idx.${idx / count + 1}`}
-                className="hidden text-secondary-300 md:flex"
-              >
-                {idx / count + 1}
-              </TableCell>
-              {cell}
-            </>
-          ) : (
-            cell
-          );
+          return row;
         })}
       </div>
     );
@@ -157,11 +173,13 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(
 ) as Table;
 
 Table.displayName = 'Table';
-Table.Cell = TableCell;
+Table.Cell = Cell;
+Table.Row = Row;
 
 export interface Table
   extends React.ForwardRefExoticComponent<
     TableProps & React.RefAttributes<HTMLTableElement>
   > {
-  Cell: typeof TableCell;
+  Cell: typeof Cell;
+  Row: typeof Row;
 }

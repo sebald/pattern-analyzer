@@ -2,13 +2,25 @@ import type { ReactNode } from 'react';
 import { type VariantProps, cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils/classname.utils';
 
+// Helpers
+// ---------------
+const getHighlight = (value = 0) => {
+  if (value > 0) {
+    return 'positive';
+  }
+  if (value < 0) {
+    return 'negative';
+  }
+  return null;
+};
+
 // Styles
 // ---------------
 const styles = {
   container: cva('', {
     variants: {
       align: {
-        left: 'flex items-center justify-between gap-2',
+        left: 'flex items-center justify-between gap-4',
       },
       variant: {
         default: '',
@@ -17,6 +29,8 @@ const styles = {
       size: {
         default: '',
         large: '',
+        xlarge: '',
+        fit: '',
       },
     },
     defaultVariants: {
@@ -24,15 +38,17 @@ const styles = {
       size: 'default',
     },
   }),
-  label: cva('text-sm font-medium leading-none', {
+  label: cva('font-medium leading-none', {
     variants: {
       variant: {
         default: 'text-secondary-400',
         primary: 'text-primary-500',
       },
       size: {
-        default: '',
-        large: '',
+        default: 'text-sm',
+        large: 'text-sm',
+        xlarge: 'text-base',
+        fit: 'text-sm',
       },
     },
     defaultVariants: {
@@ -49,6 +65,13 @@ const styles = {
       size: {
         default: 'text-lg font-medium',
         large: 'text-2xl font-medium',
+        xlarge: 'text-3xl font-medium',
+        fit: 'text-sm font-medium',
+      },
+      highlight: {
+        neutral: '',
+        positive: 'text-green-700',
+        negative: 'text-red-700',
       },
     },
     defaultVariants: {
@@ -61,9 +84,14 @@ const styles = {
 // Props
 // ---------------
 export interface DetailProps extends VariantProps<typeof styles.container> {
-  className?: string;
+  className?: {
+    container?: string;
+    label?: string;
+    value?: string;
+  };
   label: ReactNode;
   value: ReactNode;
+  highlight?: number;
 }
 
 // Component
@@ -74,13 +102,24 @@ export const Detail = ({
   variant,
   size,
   align,
+  highlight,
   className,
 }: DetailProps) => (
-  <div className={cn(styles.container({ variant, size, align }), className)}>
-    <div className={cn(styles.label({ variant, size }), className)}>
+  <div
+    className={cn(
+      styles.container({ variant, size, align }),
+      className?.container
+    )}
+  >
+    <div className={cn(styles.label({ variant, size }), className?.label)}>
       {label}
     </div>
-    <div className={cn(styles.value({ variant, size }), className)}>
+    <div
+      className={cn(
+        styles.value({ variant, size, highlight: getHighlight(highlight) }),
+        className?.value
+      )}
+    >
       {value}
     </div>
   </div>

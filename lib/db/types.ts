@@ -14,6 +14,11 @@ export interface DateFilter {
   to?: string | Date;
 }
 
+export interface Pagination {
+  page?: number;
+  pageSize?: number;
+}
+
 export interface SquadEntitiy {
   id: number;
   player: string;

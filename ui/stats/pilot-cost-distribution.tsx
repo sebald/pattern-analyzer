@@ -6,6 +6,8 @@ import { ResponsiveLine } from '@nivo/line';
 import { Card } from '@/ui';
 import { weightedAverage } from '@/lib/utils';
 
+import { theme } from './theme';
+
 // Props
 // ---------------
 export interface PilotCostDistributionProps {
@@ -55,6 +57,7 @@ export const PilotCostDistribution = ({
               { offset: 100, color: '#d0dcf5' },
             ]),
           ]}
+          theme={theme}
           colors="#8490db"
           fill={[{ match: '*', id: 'gradient' }]}
           margin={{

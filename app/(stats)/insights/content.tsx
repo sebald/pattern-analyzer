@@ -2,32 +2,25 @@ import { Suspense } from 'react';
 import { getSquads, getFactionCount } from '@/lib/db/squads';
 import { getTournamentsCount } from '@/lib/db/tournaments';
 import { ChassisDistribution } from '@/ui/stats/chassis-distribution';
-import { CompositionStats } from '@/ui/stats/composition-stats';
 import { FactionDistribution } from '@/ui/stats/faction-distribution';
 import { FactionPerformance } from '@/ui/stats/faction-performance';
 import { FactionVictories } from '@/ui/stats/faction-victories';
 import { PilotCostDistribution } from '@/ui/stats/pilot-cost-distribution';
 import { PilotSkillDistribution } from '@/ui/stats/pilot-skill-distribution';
 import { CardChartSkeleton } from '@/ui/skeleton';
-import { PilotStats } from '@/ui/stats/pilot-stats';
 import { SquadSize } from '@/ui/stats/squad-size';
 import { StatsHint } from '@/ui/stats/stats-hint';
-import { UpgradeStats } from '@/ui/stats/upgrade-stats';
 import { setup } from '@/lib/stats';
 import {
-  CompositionData,
   FactionData,
-  PilotData,
   PilotCostDistributionData,
   PilotSkillDistributionData,
   ShipData,
   SquadSizeData,
   UpgradeData,
-  composition,
   faction,
   pilotCostDistribution,
   pilotSkillDistribution,
-  pilot,
   ship,
   squadSize,
   upgrade,
@@ -45,9 +38,7 @@ const Loading = () => (
 );
 
 interface StatsData
-  extends CompositionData,
-    FactionData,
-    PilotData,
+  extends FactionData,
     PilotCostDistributionData,
     PilotSkillDistributionData,
     ShipData,
@@ -55,11 +46,9 @@ interface StatsData
     UpgradeData {}
 
 const create = setup<StatsData>([
-  composition,
   faction,
   pilotCostDistribution,
   pilotSkillDistribution,
-  pilot,
   ship,
   squadSize,
   upgrade,
@@ -117,15 +106,6 @@ const AsyncContent = async ({ from, to }: ContentProps) => {
         </div>
         <div className="md:col-span-6">
           <PilotSkillDistribution value={stats.pilotSkillDistribution} />
-        </div>
-        <div className="col-span-full">
-          <PilotStats value={stats.pilot} />
-        </div>
-        <div className="col-span-full">
-          <UpgradeStats value={stats.upgrade} />
-        </div>
-        <div className="col-span-full">
-          <CompositionStats value={stats.composition} />
         </div>
         <div className="col-span-full pt-8 lg:col-start-2 lg:col-end-12">
           <StatsHint />

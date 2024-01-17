@@ -84,18 +84,18 @@ export const setup =
           hooks.ship(pilot.ship, ctx);
           cache.add(pilot.ship);
 
-          (
-            Object.entries(pilot.upgrades) as [XWSUpgradeSlots, string[]][]
-          ).forEach(([slot, upgrades]) => {
-            upgrades.forEach(upgrade => {
-              // Ignore Upgrades from Standarizes Cards
-              if (!isStandardized(pilot.id)) {
+          // Ignore Upgrades from Standarizes Cards
+          if (!isStandardized(pilot.id)) {
+            (
+              Object.entries(pilot.upgrades) as [XWSUpgradeSlots, string[]][]
+            ).forEach(([slot, upgrades]) => {
+              upgrades.forEach(upgrade => {
                 // HOOK: Upgrade
                 hooks.upgrade(upgrade, slot, ctx);
-              }
-              cache.add(upgrade);
+                cache.add(upgrade);
+              });
             });
-          });
+          }
         });
       }
     });

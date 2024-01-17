@@ -6,32 +6,39 @@ import { cn } from '@/lib/utils/classname.utils';
 // Styles
 // ---------------
 const styles = {
-  card: cva(
-    ['flex w-full flex-col items-stretch gap-4', 'rounded-lg bg-white'],
-    {
-      variants: {
-        elevation: {
-          default: 'shadow-card',
-          lightest: 'shadow-sm',
-          light: 'shadow',
-        },
-        inset: {
-          default: 'px-3 pt-3 pb-2',
-          headless: 'px-3 pt-4 pb-2', // No title/card.header
-          list: 'p-0', // when using a list
-        },
-        size: {
-          stretch: 'h-full',
-          fit: 'h-fit',
-        },
+  card: cva(['rounded-lg bg-white overflow-hidden'], {
+    variants: {
+      elevation: {
+        default: 'shadow-card',
+        lightest: 'shadow-sm',
+        light: 'shadow',
       },
-      defaultVariants: {
-        elevation: 'default',
-        inset: 'default',
-        size: 'stretch',
+      inset: {
+        default: 'px-3 pt-3 pb-2',
+        headless: 'px-3 py-4', // No title/card.header
+        none: 'p-0', // when using a list
+        relaxed: 'p-6',
       },
-    }
-  ),
+      size: {
+        stretch: 'h-full',
+        fit: 'h-fit',
+      },
+      /**
+       * If we don't have this the gap will override the
+       * parent's gap properties ...
+       */
+      subgrid: {
+        true: 'col-span-full grid grid-cols-subgrid',
+        false: 'flex w-full flex-col items-stretch gap-4',
+      },
+    },
+    defaultVariants: {
+      elevation: 'default',
+      inset: 'default',
+      size: 'stretch',
+      subgrid: false,
+    },
+  }),
   body: cva('flex-1', {
     variants: {
       variant: {
@@ -75,11 +82,14 @@ const CardBody = ({ variant, children, className }: CardBodyProps) => (
 // Card.Footer
 // ---------------
 export interface CardFooterProps {
+  className?: string;
   children: React.ReactNode;
 }
 
-const CardFooter = ({ children }: CardFooterProps) => (
-  <div className="border-t border-secondary-100">{children}</div>
+const CardFooter = ({ className, children }: CardFooterProps) => (
+  <div className={cn('border-t border-secondary-100', className)}>
+    {children}
+  </div>
 );
 
 // Card.Menu
@@ -117,6 +127,7 @@ export interface CardProps
 export const Card = ({
   elevation,
   inset,
+  subgrid,
   size,
   className,
   children,
@@ -124,7 +135,7 @@ export const Card = ({
 }: CardProps) => (
   <div
     {...props}
-    className={cn(styles.card({ elevation, inset, size }), className)}
+    className={cn(styles.card({ elevation, inset, size, subgrid }), className)}
   >
     {children}
   </div>

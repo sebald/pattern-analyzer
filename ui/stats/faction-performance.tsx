@@ -7,6 +7,8 @@ import type { XWSFaction } from '@/lib/types';
 import { getFactionName } from '@/lib/get-value';
 import { FACTION_ABBR, FACTION_COLORS, toPercentage } from '@/lib/utils';
 
+import { theme } from './theme';
+
 // Props
 // ---------------
 export interface FactionPerformanceProps {
@@ -56,6 +58,7 @@ export const FactionPerformance = ({
           axisBottom={{
             format: (faction: XWSFaction | 'unknown') => FACTION_ABBR[faction],
           }}
+          theme={theme}
           barComponent={({
             bar: {
               x,

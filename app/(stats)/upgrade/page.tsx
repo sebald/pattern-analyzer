@@ -1,35 +1,29 @@
 import { createMetadata } from '@/lib/metadata';
 import { toDateRange } from '@/lib/utils/params.utils';
 
-import { Caption, CardChartSkeleton, Message, Title } from '@/ui';
-import { Filter } from '@/ui/params/filter';
+import { Caption, Message, Title } from '@/ui';
 import { DateRangeFilter } from '@/ui/params/date-range-filter';
+import { FactionFilter } from '@/ui/params/faction-filter';
+import { Filter } from '@/ui/params/filter';
+import { SmallSamplesFilter } from '@/ui/params/small-samples-filter';
+import { SlotFilter } from '@/ui/params/slot-param';
+import { SortParam } from '@/ui/params/sort-param';
 import { StatsInfo } from '@/ui/stats/stats-info';
 
 import { Content } from './content';
-import { Suspense } from 'react';
 
 // Metadata
 // ---------------
 export const metadata = createMetadata({
-  title: 'Analyze',
-  description: 'Analyze the current X-Wing meta!',
+  title: 'Upgrades',
+  description: 'Find out what is the best upgrade!',
+  ogTitle: 'Upgrades',
+  ogWidth: 65,
 });
-
-// Helpers
-// ---------------
-const Loading = () => (
-  <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-    <CardChartSkeleton />
-    <CardChartSkeleton />
-    <CardChartSkeleton />
-    <CardChartSkeleton />
-  </div>
-);
 
 // Props
 // ---------------
-interface AnalyzePageProps {
+interface PageProps {
   searchParams: {
     from: string;
     to: string;
@@ -38,7 +32,7 @@ interface AnalyzePageProps {
 
 // Page
 // ---------------
-const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
+const UpgradesPage = async ({ searchParams }: PageProps) => {
   const params = toDateRange(searchParams);
 
   if (params.error) {
@@ -57,19 +51,21 @@ const AnalyzePage = async ({ searchParams }: AnalyzePageProps) => {
   return (
     <>
       <div className="pb-6">
-        <Title>Analyze</Title>
+        <Title>Upgrades</Title>
         <Caption>
           <StatsInfo from={from} to={to} />
         </Caption>
       </div>
       <Filter>
+        <SmallSamplesFilter />
         <DateRangeFilter />
+        <FactionFilter />
+        <SlotFilter />
+        <SortParam />
       </Filter>
-      <Suspense fallback={<Loading />}>
-        <Content from={from} to={to} />
-      </Suspense>
+      <Content from={from} to={to} />
     </>
   );
 };
 
-export default AnalyzePage;
+export default UpgradesPage;

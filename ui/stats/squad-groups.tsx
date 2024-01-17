@@ -40,22 +40,19 @@ export const SquadGroups = ({ value }: SquadGroupsProps) => {
             {id.split('.').map(getPilotName).join(', ')}
           </Accordion.Trigger>
           <Accordion.Content>
-            <div className="flex flex-col gap-8 pt-6">
+            <div className="flex flex-col gap-12 lg:pl-16">
               <div className="flex flex-wrap gap-8 px-2">
                 <Detail
-                  size="large"
                   label="Percentile"
                   value={toPercentage(current.percentile)}
                 />
                 <Detail
-                  size="large"
-                  label="Deviation"
+                  label="Std. Deviation"
                   value={
                     current.deviation ? toPercentage(current.deviation) : '-'
                   }
                 />
                 <Detail
-                  size="large"
                   label="Winrate"
                   value={current.winrate ? toPercentage(current.winrate) : '-'}
                 />
@@ -77,7 +74,7 @@ export const SquadGroups = ({ value }: SquadGroupsProps) => {
                           <Link
                             variant="button"
                             size="small"
-                            href={`/event/listfortress/${tournamentId}`}
+                            href={`/tournament/listfortress/${tournamentId}`}
                           >
                             <Trophy className="inline-block h-4 w-4" /> View
                             Tournament

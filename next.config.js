@@ -33,8 +33,13 @@ const config = {
   redirects() {
     return [
       {
-        source: '/event',
-        destination: '/',
+        source: '/event/:path*',
+        destination: '/tournament/:path*',
+        permanent: true,
+      },
+      {
+        source: '/analyze',
+        destination: '/insights',
         permanent: true,
       },
       {
@@ -56,6 +61,12 @@ const config = {
         hostname: 'infinitearenas.com',
         port: '',
         pathname: '/xw2/images/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'flagicons.lipis.dev',
+        port: '',
+        pathname: '/flags/4x3/**',
       },
     ],
   },

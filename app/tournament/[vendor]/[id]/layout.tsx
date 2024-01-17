@@ -1,14 +1,14 @@
-import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import { Caption, Inline, Link, Title } from '@/ui';
-import { Navigation } from '@/ui/navigation';
-import { Trophy, Download, BarChart, Calendar, Columns } from '@/ui/icons';
+import { Trophy, Calendar } from '@/ui/icons';
 
 import { baseUrl, vendors } from '@/lib/config';
 import { createMetadata } from '@/lib/metadata';
 import type { EventInfo, Vendor } from '@/lib/types';
 import { formatDate, fromDate } from '@/lib/utils/date.utils';
+
+import { Navigation } from './_components/navigation';
 
 // Config
 // ---------------
@@ -71,7 +71,7 @@ const Layout = async ({ params, children }: LayoutProps) => {
 
   return (
     <>
-      <div className="mb-4 border-b border-b-primary-100 pb-6 md:mt-3">
+      <div className="pb-6">
         <Title>{event.name || 'Unknown Event'}</Title>
         <Caption>
           <Inline className="gap-4">
@@ -87,38 +87,7 @@ const Layout = async ({ params, children }: LayoutProps) => {
           </Inline>
         </Caption>
       </div>
-      <Navigation
-        className="pb-14"
-        path={`/event/${params.vendor}/${params.id}`}
-        items={[
-          {
-            label: (
-              <>
-                <Columns className="hidden h-5 w-5 sm:block" />
-                Squads
-              </>
-            ),
-          },
-          {
-            label: (
-              <>
-                <BarChart className="hidden h-5 w-5 sm:block" />
-                Stats
-              </>
-            ),
-            slug: 'stats',
-          },
-          {
-            label: (
-              <>
-                <Download className="hidden h-5 w-5 sm:block" />
-                Export
-              </>
-            ),
-            slug: 'export',
-          },
-        ]}
-      />
+      <Navigation className="my-6" {...params} />
       {children}
     </>
   );

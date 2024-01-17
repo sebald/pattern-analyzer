@@ -1,6 +1,7 @@
 'use client';
 
 import type { ReactNode } from 'react';
+import { cn } from '@/lib/utils/classname.utils';
 
 import { Inline } from '../inline';
 import { Spinner } from '../spinner';
@@ -11,8 +12,17 @@ const Loading = () => {
   return pending ? <Spinner className="h-4 w-4" /> : null;
 };
 
-export const Filter = ({ children }: { children?: ReactNode }) => (
-  <Inline className="gap-2 pb-6 sm:gap-4" align="end">
+// Props
+// ---------------
+export interface FilterProps {
+  className?: string;
+  children?: ReactNode;
+}
+
+// Component
+// ---------------
+export const Filter = ({ className, children }: FilterProps) => (
+  <Inline className={cn('h-full gap-2 pb-6 sm:gap-4', className)} align="end">
     <ParamsProvier>
       <Loading />
       {children}

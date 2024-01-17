@@ -52,6 +52,12 @@ const PILOT_SUFFIX = {
   'jekporkins-swz106': 'SSP',
   'lukeskywalker-swz106': 'SSP',
   'sharabey-swz106': 'SSP',
+
+  // TIE bomber expansion
+  'deathfire-swz98': 'TBE',
+  'captainjonus-swz98': 'TBE',
+  'tomaxbren-swz98': 'TBE',
+  'majorrhymer-swz98': 'TBE',
 };
 
 const UPGRADE_SUFFIX = {

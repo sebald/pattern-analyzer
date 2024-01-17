@@ -37,7 +37,7 @@ const About = () => (
       to consume.
     </Text>
 
-    <Headline level="2" id="about-the-data">
+    <Headline level="2" className="pt-10" id="about-the-data">
       About the Data
     </Headline>
 
@@ -114,13 +114,45 @@ const About = () => (
           <strong>Score:</strong> The score value attempts to balance small
           sample sizes and their percentile. However, be aware that there is no
           elaborate science behind this number, even though it tries to quantify
-          the percentile, and count of an entity. The goal of the
-          score is to indicate whether a result is just a happy accident or if
-          it is somewhat reliable because multiple people achieved a similar
-          result. Essentially, it&quot;s a feel-good metric!
+          the percentile, and count of an entity. The goal of the score is to
+          indicate whether a result is just a happy accident or if it is
+          somewhat reliable because multiple people achieved a similar result.
+          Essentially, it&quot;s a feel-good metric!
         </Text>
       </List.Item>
     </List>
+
+    <Headline level="2" className="pt-10" id="credits">
+      Credits
+    </Headline>
+    <List enumeration="enum">
+      <List.Item>
+        <Text size="large" prose>
+          Data based on{' '}
+          <Link href="https://github.com/danrs/xwing-data2">xwing-data2</Link>{' '}
+          and <Link href="https://github.com/raithos/xwing">YASB</Link>
+        </Text>
+      </List.Item>
+      <List.Item>
+        <Text size="large" prose>
+          X-Wing fonts by{' '}
+          <Link href="https://github.com/raithos/xwing/tree/master/fonts">
+            raithos
+          </Link>{' '}
+          (originally by geordan)
+        </Text>
+      </List.Item>
+    </List>
+
+    <Headline level="2" className="pt-10" id="support">
+      Support
+    </Headline>
+    <Text size="large" prose>
+      Pattern Analyzer is and will remain free. I don&apos;t have a Patreon, but
+      if you&apos;re keen on supporting the project, you can treat me to a
+      coffee or contribute to expanding my collection of plastic spaceships{' '}
+      <Link href="https://paypal.me/sebsebald">here</Link>.
+    </Text>
   </div>
 );
 

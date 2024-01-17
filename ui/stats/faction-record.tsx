@@ -42,8 +42,13 @@ export const FactionRecord = ({ value }: FactionRecordProps) => {
       <Card.Title>Faction Record</Card.Title>
       <Card.Body>
         <Table
-          cols={['max-content', 'auto', 'max-content', 'auto', 'auto']}
-          headers={['Faction', 'Games', 'Record', 'Winrate', 'TOP']}
+          columns={[
+            { children: 'Faction', width: 'max-content' },
+            { children: 'Games', width: 'auto' },
+            { children: 'Record', width: 'max-content' },
+            { children: 'Winrate', width: 'auto' },
+            { children: 'TOP', width: 'auto' },
+          ]}
           size="relaxed"
         >
           {data.map(({ faction, games, record, winrate, top }) => (

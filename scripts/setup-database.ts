@@ -19,7 +19,7 @@ const limit = pLimit(100);
 // ---------------
 void (async () => {
   // Loading dynamically so env is correctly loaded.
-  const { db, initDatabase, teardownDatabase } = await import('@/lib/db/db');
+  const { initDatabase, teardownDatabase } = await import('@/lib/db/db');
   const { addTournaments } = await import('@/lib/db/tournaments');
   const { addSquads } = await import('@/lib/db/squads');
   const { setLastSync } = await import('@/lib/db/system');
@@ -34,10 +34,12 @@ void (async () => {
       from: fromDate(pointsUpdateDate),
       format: 'standard',
     }).then(result =>
-      result.map(({ id, name, date }) => ({
+      result.map(({ id, name, date, location, country }) => ({
         listfortress_ref: id,
         name,
         date,
+        location,
+        country,
       }))
     );
 
