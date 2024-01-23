@@ -54,8 +54,8 @@ dependencies:
     specifier: 0.27.1
     version: 0.27.1
   mysql2:
-    specifier: 3.6.5
-    version: 3.6.5
+    specifier: 3.7.1
+    version: 3.7.1
   next:
     specifier: 14.0.4
     version: 14.0.4(@babel/core@7.20.12)(react-dom@18.2.0)(react@18.2.0)
@@ -5383,8 +5383,8 @@ packages:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
     dev: true
 
-  /mysql2@3.6.5:
-    resolution: {integrity: sha512-pS/KqIb0xlXmtmqEuTvBXTmLoQ5LmAz5NW/r8UyQ1ldvnprNEj3P9GbmuQQ2J0A4LO+ynotGi6TbscPa8OUb+w==}
+  /mysql2@3.7.1:
+    resolution: {integrity: sha512-4EEqYu57mnkW5+Bvp5wBebY7PpfyrmvJ3knHcmLkp8FyBu4kqgrF2GxIjsC2tbLNZWqJaL21v/MYH7bU5f03oA==}
     engines: {node: '>= 8.0'}
     dependencies:
       denque: 2.1.0
