@@ -37,7 +37,7 @@ export const SiteNavigation = () => {
         )}
       >
         <Logo className="h-6 w-6" />
-        Pattern Analyzer
+        <span className="hidden lg:inline">Pattern Analyzer</span>
       </Link>
       <nav className="flex flex-1 items-center space-x-6 text-sm font-medium">
         {siteNavigation.map(({ name, href }) => (
@@ -45,12 +45,7 @@ export const SiteNavigation = () => {
         ))}
         <span className="grow" role="separator" aria-hidden="true" />
         {secondaryNavigation.map(({ name, href }) => (
-          <NavLink
-            className="hidden lg:block"
-            key={href}
-            href={href}
-            name={name}
-          />
+          <NavLink key={href} href={href} name={name} />
         ))}
       </nav>
     </div>
