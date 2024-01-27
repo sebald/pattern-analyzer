@@ -1,4 +1,4 @@
-import { Kysely, MysqlDialect } from 'kysely';
+import { Kysely, MysqlDialect, sql } from 'kysely';
 import { type ColumnType, type Generated } from 'kysely';
 import { createPool } from 'mysql2';
 
@@ -8,6 +8,7 @@ import type { GameRecord, XWSFaction, XWSSquad } from '@/lib/types';
 // ---------------
 export interface TournamentsTable {
   id: Generated<number>;
+  created_at: Date;
   listfortress_ref: number;
   name: string;
   date: string;
@@ -17,6 +18,7 @@ export interface TournamentsTable {
 
 export interface SquadsTable {
   id: Generated<number>;
+  created_at: Date;
   listfortress_ref: number;
   composition?: string;
   faction: XWSFaction | 'unknown';
@@ -48,8 +50,8 @@ export const pool = createPool({
   user: process.env.DATABASE_USERNAME,
   password: process.env.DATABASE_PASSWORD,
   database: 'main',
-  maxIdle: 1,
-  connectionLimit: 1,
+  // maxIdle: 1,
+  // connectionLimit: 1,
 });
 
 // Database
@@ -69,6 +71,9 @@ export const initDatabase = async () =>
       .addColumn('id', 'integer', col =>
         col.primaryKey().autoIncrement().unsigned()
       )
+      .addColumn('created_at', 'datetime', col =>
+        col.notNull().defaultTo(sql`now()`)
+      )
       .addColumn('listfortress_ref', 'integer', col =>
         col.unsigned().notNull().unique()
       )
@@ -82,6 +87,9 @@ export const initDatabase = async () =>
       .createTable('squads')
       .addColumn('id', 'integer', col =>
         col.primaryKey().autoIncrement().unsigned()
+      )
+      .addColumn('created_at', 'datetime', col =>
+        col.notNull().defaultTo(sql`now()`)
       )
       .addColumn('listfortress_ref', 'integer', col => col.unsigned().notNull())
       .addColumn('composition', 'varchar(255)')
