@@ -6,8 +6,12 @@ import { Pagination, type DateFilter } from './types';
 // Add
 // ---------------
 export const addTournaments = async (
-  tournaments: Omit<TournamentsTable, 'id'>[]
-) => db.insertInto('tournaments').values(tournaments).execute();
+  tournaments: Omit<TournamentsTable, 'id' | 'created_at'>[]
+) =>
+  db
+    .insertInto('tournaments')
+    .values(tournaments as any)
+    .execute();
 
 // Get
 // ---------------

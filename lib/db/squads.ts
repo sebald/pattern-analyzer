@@ -1,16 +1,23 @@
 import { sql } from 'kysely';
-import type { InsertObjectOrList } from 'kysely/dist/cjs/parser/insert-values-parser';
 
 import { toDate } from '@/lib/utils/date.utils';
 
-import { Database, db } from './db';
+import { SquadsTable, db } from './db';
 import type { DateFilter, SquadEntitiy, SquadEntitiyWithXWS } from './types';
 
 // Add
 // ---------------
-export const addSquads = async (
-  squads: InsertObjectOrList<Database, 'squads'>
-) => db.insertInto('squads').values(squads).execute();
+export interface InsertSquad
+  extends Omit<SquadsTable, 'id' | 'created_at' | 'xws' | 'record'> {
+  xws?: string;
+  record?: string;
+}
+
+export const addSquads = async (squads: InsertSquad[]) =>
+  db
+    .insertInto('squads')
+    .values(squads as any)
+    .execute();
 
 // Get
 // ---------------
@@ -23,8 +30,8 @@ export type GetSquadsResult<Props extends GetSquadsProps> =
   Props['composition'] extends string
     ? SquadEntitiyWithXWS[]
     : Props['pilot'] extends string
-    ? SquadEntitiyWithXWS[]
-    : SquadEntitiy[];
+      ? SquadEntitiyWithXWS[]
+      : SquadEntitiy[];
 
 export const getSquads = async <Props extends GetSquadsProps>({
   from,
