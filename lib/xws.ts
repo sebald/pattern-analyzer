@@ -133,10 +133,27 @@ export const normalize = (xws: XWSSquad | null): XWSSquad | null => {
 };
 
 export const toXWS = (raw: string) => {
+  // Cleanup not-JSON stuff
+  let val = raw.trim().replace(/\\'/g, "'").replace(/\\"/g, "'");
+
+  // LBN doesn't really have regular JSON?
+  if (val.includes("'link':'https://launchbaynext.app/print")) {
+    val = val
+      // Correctly URL encode
+      .replace(/'link':'([^,]*),/, match => {
+        match = match
+          .replace("'link':'", '')
+          .replace(/',$/, '')
+          .replace(/'/g, '%27');
+
+        return `"link":"${match}",`;
+      })
+      // Convert all ' to " so JSON.parse works
+      .replace(/'/g, '"');
+  }
+
   try {
-    return normalize(
-      JSON.parse(raw.trim().replace(/\\'/g, "'").replace(/\\"/g, "'"))
-    );
+    return normalize(JSON.parse(val));
   } catch {
     throw new Error('[xws] Could not parse raw value...');
   }
