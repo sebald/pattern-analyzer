@@ -4640,6 +4640,166 @@
       "points": 6,
       "skill": 3,
       "xwsaddon": "swz103-sl-scumandvillainy"
+    },
+    {
+      "id": 654,
+      "name": "Arvel Crynyd (BoE)",
+      "ship": "RZ-1 A-wing",
+      "points": 4,
+      "skill": 3,
+      "xwsaddon": "battleoverendor"
+    },
+    {
+      "id": 655,
+      "name": "Gemmer Sojan (BoE)",
+      "ship": "RZ-1 A-wing",
+      "points": 3,
+      "skill": 2,
+      "xwsaddon": "battleoverendor"
+    },
+    {
+      "id": 656,
+      "name": "Tycho Celchu (BoE)",
+      "ship": "RZ-1 A-wing",
+      "points": 4,
+      "skill": 5,
+      "xwsaddon": "battleoverendor"
+    },
+    {
+      "id": 657,
+      "name": "Adon Fox (BoE)",
+      "ship": "A/SF-01 B-wing",
+      "points": 5,
+      "skill": 1,
+      "xwsaddon": "battleoverendor"
+    },
+    {
+      "id": 658,
+      "name": "Braylen Stramm (BoE)",
+      "ship": "A/SF-01 B-wing",
+      "points": 4,
+      "skill": 4,
+      "xwsaddon": "battleoverendor"
+    },
+    {
+      "id": 659,
+      "name": "Gina Moonsong (BoE)",
+      "ship": "A/SF-01 B-wing",
+      "points": 5,
+      "skill": 5,
+      "xwsaddon": "battleoverendor"
+    },
+    {
+      "id": 660,
+      "name": "Kendy Idele (BoE)",
+      "ship": "T-65 X-wing",
+      "points": 4,
+      "skill": 4,
+      "xwsaddon": "battleoverendor"
+    },
+    {
+      "id": 661,
+      "name": "Wedge Antilles (BoE)",
+      "ship": "T-65 X-wing",
+      "points": 5,
+      "skill": 6,
+      "xwsaddon": "battleoverendor"
+    },
+    {
+      "id": 662,
+      "name": "Yendor (BoE)",
+      "ship": "T-65 X-wing",
+      "points": 5,
+      "skill": 5,
+      "xwsaddon": "battleoverendor"
+    },
+    {
+      "id": 663,
+      "name": "Lando Calrissian (BoE)",
+      "ship": "Modified YT-1300 Light Freighter",
+      "points": 7,
+      "skill": 5,
+      "xwsaddon": "battleoverendor"
+    },
+    {
+      "id": 664,
+      "name": "Captain Yorr (BoE)",
+      "ship": "TIE/d Defender",
+      "points": 6,
+      "skill": 4,
+      "xwsaddon": "battleoverendor"
+    },
+    {
+      "id": 665,
+      "name": "Colonel Jendon (BoE)",
+      "ship": "TIE/d Defender",
+      "points": 7,
+      "skill": 6,
+      "xwsaddon": "battleoverendor"
+    },
+    {
+      "id": 666,
+      "name": "Maus Monare (BoE)",
+      "ship": "TIE/in Interceptor",
+      "points": 5,
+      "skill": 3,
+      "xwsaddon": "battleoverendor"
+    },
+    {
+      "id": 667,
+      "name": "Sapphire 2 (BoE)",
+      "ship": "TIE/in Interceptor",
+      "points": 4,
+      "skill": 1,
+      "xwsaddon": "battleoverendor"
+    },
+    {
+      "id": 668,
+      "name": "Soontir Fel (BoE)",
+      "ship": "TIE/in Interceptor",
+      "points": 5,
+      "skill": 6,
+      "xwsaddon": "battleoverendor"
+    },
+    {
+      "id": 669,
+      "name": "Lieutenant Hebsly (BoE)",
+      "ship": "TIE/ln Fighter",
+      "points": 3,
+      "skill": 3,
+      "xwsaddon": "battleoverendor"
+    },
+    {
+      "id": 670,
+      "name": "Major Mianda (BoE)",
+      "ship": "TIE/ln Fighter",
+      "points": 4,
+      "skill": 5,
+      "xwsaddon": "battleoverendor"
+    },
+    {
+      "id": 671,
+      "name": "Scythe 6 (BoE)",
+      "ship": "TIE/ln Fighter",
+      "points": 3,
+      "skill": 2,
+      "xwsaddon": "battleoverendor"
+    },
+    {
+      "id": 672,
+      "name": "Scimitar 1 (BoE)",
+      "ship": "TIE/sa Bomber",
+      "points": 4,
+      "skill": 3,
+      "xwsaddon": "battleoverendor"
+    },
+    {
+      "id": 673,
+      "name": "Scimitar 3 (BoE)",
+      "ship": "TIE/sa Bomber",
+      "points": 4,
+      "skill": 4,
+      "xwsaddon": "battleoverendor"
     }
   ],
   "upgrades": [
@@ -7152,6 +7312,121 @@
       "id": 501,
       "name": "\"Leebo\" (YLF)",
       "slot": "Crew"
+    },
+    {
+      "id": 502,
+      "name": "It's A Trap! (BoE)",
+      "slot": "Talent"
+    },
+    {
+      "id": 503,
+      "name": "R2-A3 (BoE)",
+      "slot": "Talent"
+    },
+    {
+      "id": 504,
+      "name": "Ace In The Hole (BoE)",
+      "slot": "Talent"
+    },
+    {
+      "id": 505,
+      "name": "Airen Cracken (BoE)",
+      "slot": "Gunner"
+    },
+    {
+      "id": 506,
+      "name": "Millennium Falcon (BoE)",
+      "slot": "Title"
+    },
+    {
+      "id": 507,
+      "name": "Chaff Particles (BoE)",
+      "slot": "Modification"
+    },
+    {
+      "id": 508,
+      "name": "No Escape (BoE)",
+      "slot": "Talent"
+    },
+    {
+      "id": 509,
+      "name": "Reckless (BoE)",
+      "slot": "Talent"
+    },
+    {
+      "id": 510,
+      "name": "Push The Limit (BoE)",
+      "slot": "Talent"
+    },
+    {
+      "id": 511,
+      "name": "Computer-Assisted Handling (BoE)",
+      "slot": "Modification"
+    },
+    {
+      "id": 512,
+      "name": "Blank Signature (BoE)",
+      "slot": "Sensor"
+    },
+    {
+      "id": 513,
+      "name": "Feedback Emitter (BoE)",
+      "slot": "Illicit"
+    },
+    {
+      "id": 514,
+      "name": "Targeting Matrix (BoE)",
+      "slot": "Modification"
+    },
+    {
+      "id": 515,
+      "name": "Apex Predator (BoE)",
+      "slot": "Talent"
+    },
+    {
+      "id": 516,
+      "name": "Fuel Injection Override (BoE)",
+      "slot": "Modification"
+    },
+    {
+      "id": 517,
+      "name": "Target-Assist Algorithm (BoE)",
+      "slot": "Modification"
+    },
+    {
+      "id": 518,
+      "name": "Precision-Tuned Cannons (BoE)",
+      "slot": "Cannon"
+    },
+    {
+      "id": 519,
+      "name": "Heroic Sacrifice (BoE)",
+      "slot": "Talent"
+    },
+    {
+      "id": 520,
+      "name": "Parting Gift (BoE)",
+      "slot": "Talent"
+    },
+    {
+      "id": 521,
+      "name": "Stabilizing Astromech (BoE)",
+      "slot": "Astromech"
+    },
+    {
+      "id": 522,
+      "name": "Modified R4-P unit (BoE)",
+      "slot": "Astromech"
+    },
+    {
+      "id": 523,
+      "name": "Ion Maneuvering Jet (BoE)",
+      "slot": "Modification"
+    },
+    {
+      "id": 524,
+      "name": "Collected (BoE)",
+      "slot": "Talent"
     }
   ]
 }
