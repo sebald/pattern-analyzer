@@ -58,7 +58,7 @@
     "prettier": "3.1.1",
     "prettier-plugin-tailwindcss": "0.5.11",
     "tailwindcss": "3.4.1",
-    "tsx": "4.7.0",
+    "tsx": "4.7.1",
     "turbo": "1.10.16",
     "typescript": "5.3.3",
     "xwing-data2": "github:danrs/xwing-data2#0dcb92e",
