@@ -87,7 +87,7 @@ export const GET = async (_: NextRequest, { params }: RouteContext) => {
 
   const html = await res.text();
   const $ = load(html);
-  const raw = $('[id^=list_]').attr('value') || '';
+  const raw = $('[id^=list_]').attr('value')?.replaceAll('|| ', '') || '';
   const { url, xws } = getXWS(raw);
 
   return NextResponse.json({

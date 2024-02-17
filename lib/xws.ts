@@ -136,6 +136,16 @@ export const toXWS = (raw: string) => {
   // Cleanup not-JSON stuff
   let val = raw.trim().replace(/\\'/g, "'").replace(/\\"/g, "'");
 
+  // People put stuff in the list names that is not JSON-friendly
+  val = val.replace(/'name':'([^,]*),/, match => {
+    match = match
+      .replace("'link':'", '')
+      .replace(/',$/, '')
+      .replace(/'/g, "\\'");
+
+    return `"link":"${match}",`;
+  });
+
   // LBN doesn't really have regular JSON?
   if (val.includes("'link':'https://launchbaynext.app/print")) {
     val = val
