@@ -138,7 +138,9 @@ DialogDescription.displayName = Primitive.Description.displayName;
 
 // Export Dialog
 // ---------------
-export const Dialog = (props: Primitive.DialogProps) => (
+export interface DialogProps extends Primitive.DialogProps {}
+
+export const Dialog = (props: DialogProps) => (
   <Primitive.Root {...props}></Primitive.Root>
 );
 Dialog.Trigger = Primitive.Trigger;
