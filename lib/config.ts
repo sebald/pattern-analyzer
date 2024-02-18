@@ -37,14 +37,13 @@ export const siteNavigation = [
     name: 'Upgrades',
     href: '/upgrade',
   },
-];
-
-export const secondaryNavigation = [
   {
     name: 'About',
     href: '/about',
   },
 ];
+
+export const secondaryNavigation = [];
 
 export const xWingResources = [
   {

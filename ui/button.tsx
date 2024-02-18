@@ -25,6 +25,7 @@ const styles = cva(
           'flex flex-row gap-1 items-center',
           'cursor-pointer hover:text-primary-600',
         ],
+        sunken: ['bg-primary-100 text-primary-700', 'hover:bg-primary-200/60'],
         error: [
           'font-medium border text-center',
           'border-red-500 bg-red-500 text-white',
@@ -34,6 +35,7 @@ const styles = cva(
       size: {
         inherit: '', // inherit whatever is there
         small: 'rounded text-xs px-2 py-1',
+        medium: 'rounded-lg text-sm px-3 py-2',
         regular: 'rounded-lg text-sm px-5 py-2.5 shadow-sm',
         large: 'rounded-lg text-lg px-6 py-3 shadow',
         huge: 'rounded-lg text-xl px-12 py-5 shadow',

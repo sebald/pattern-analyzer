@@ -303,7 +303,8 @@ export const MagnifyingGlass = ({ className, ...props }: IconProps) => (
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className="h-6 w-6"
+    className={cn('flex-none', className)}
+    {...props}
   >
     <path
       strokeLinecap="round"

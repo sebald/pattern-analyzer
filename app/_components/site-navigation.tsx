@@ -3,6 +3,7 @@ import { secondaryNavigation, siteNavigation } from '@/lib/config';
 import { cn } from '@/lib/utils/classname.utils';
 
 import { headline } from '../fonts';
+import { SiteMenu } from './site-menu';
 
 // Helper
 // ---------------
@@ -47,6 +48,7 @@ export const SiteNavigation = () => {
         {secondaryNavigation.map(({ name, href }) => (
           <NavLink key={href} href={href} name={name} />
         ))}
+        <SiteMenu />
       </nav>
     </div>
   );
