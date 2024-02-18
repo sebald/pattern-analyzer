@@ -13,7 +13,9 @@ import type { DialogProps } from '@/ui/dialog';
 import { MagnifyingGlass } from '@/ui/icons';
 import { cn } from '@/lib/utils';
 
-const Command = forwardRef<
+// Command
+// ---------------
+export const Command = forwardRef<
   ElementRef<typeof CommandPrimitive>,
   ComponentPropsWithoutRef<typeof CommandPrimitive>
 >(({ className, ...props }, ref) => (
@@ -25,9 +27,11 @@ const Command = forwardRef<
     )}
     {...props}
   />
-));
+)) as Command;
 Command.displayName = CommandPrimitive.displayName;
 
+// Command.Dialog
+// ---------------
 interface CommandDialogProps extends DialogProps {}
 
 const CommandDialog = ({ children, ...props }: CommandDialogProps) => {
@@ -42,6 +46,8 @@ const CommandDialog = ({ children, ...props }: CommandDialogProps) => {
   );
 };
 
+// Command.Input
+// ---------------
 const CommandInput = forwardRef<
   ElementRef<typeof CommandPrimitive.Input>,
   ComponentPropsWithoutRef<typeof CommandPrimitive.Input>
@@ -61,6 +67,8 @@ const CommandInput = forwardRef<
 
 CommandInput.displayName = CommandPrimitive.Input.displayName;
 
+// Command.List
+// ---------------
 const CommandList = forwardRef<
   ElementRef<typeof CommandPrimitive.List>,
   ComponentPropsWithoutRef<typeof CommandPrimitive.List>
@@ -74,6 +82,8 @@ const CommandList = forwardRef<
 
 CommandList.displayName = CommandPrimitive.List.displayName;
 
+// Command.Empty
+// ---------------
 const CommandEmpty = forwardRef<
   ElementRef<typeof CommandPrimitive.Empty>,
   ComponentPropsWithoutRef<typeof CommandPrimitive.Empty>
@@ -87,6 +97,8 @@ const CommandEmpty = forwardRef<
 
 CommandEmpty.displayName = CommandPrimitive.Empty.displayName;
 
+// Command.Group
+// ---------------
 const CommandGroup = forwardRef<
   ElementRef<typeof CommandPrimitive.Group>,
   ComponentPropsWithoutRef<typeof CommandPrimitive.Group>
@@ -103,6 +115,8 @@ const CommandGroup = forwardRef<
 
 CommandGroup.displayName = CommandPrimitive.Group.displayName;
 
+// Command.Separator
+// ---------------
 const CommandSeparator = forwardRef<
   ElementRef<typeof CommandPrimitive.Separator>,
   ComponentPropsWithoutRef<typeof CommandPrimitive.Separator>
@@ -115,6 +129,8 @@ const CommandSeparator = forwardRef<
 ));
 CommandSeparator.displayName = CommandPrimitive.Separator.displayName;
 
+// Command.Item
+// ---------------
 const CommandItem = forwardRef<
   ElementRef<typeof CommandPrimitive.Item>,
   ComponentPropsWithoutRef<typeof CommandPrimitive.Item>
@@ -131,6 +147,8 @@ const CommandItem = forwardRef<
 
 CommandItem.displayName = CommandPrimitive.Item.displayName;
 
+// Command.Shortcut
+// ---------------
 const CommandShortcut = ({
   className,
   ...props
@@ -147,14 +165,28 @@ const CommandShortcut = ({
 };
 CommandShortcut.displayName = 'CommandShortcut';
 
-export {
-  Command,
-  CommandDialog,
-  CommandInput,
-  CommandList,
-  CommandEmpty,
-  CommandGroup,
-  CommandItem,
-  CommandShortcut,
-  CommandSeparator,
-};
+// Exports
+// ---------------
+Command.Dialog = CommandDialog;
+Command.Input = CommandInput;
+Command.List = CommandList;
+Command.Empty = CommandEmpty;
+Command.Group = CommandGroup;
+Command.Item = CommandItem;
+Command.Shortcut = CommandShortcut;
+Command.Separator = CommandSeparator;
+
+export interface Command
+  extends React.ForwardRefExoticComponent<
+    ComponentPropsWithoutRef<typeof CommandPrimitive> &
+      React.RefAttributes<HTMLDivElement>
+  > {
+  Dialog: typeof CommandDialog;
+  Input: typeof CommandInput;
+  List: typeof CommandList;
+  Empty: typeof CommandEmpty;
+  Group: typeof CommandGroup;
+  Item: typeof CommandItem;
+  Shortcut: typeof CommandShortcut;
+  Separator: typeof CommandSeparator;
+}
