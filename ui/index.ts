@@ -6,6 +6,7 @@ export * from './caption';
 export * from './card';
 export * from './center';
 export { Collapsible, type CollapsibleProps } from './collapsible';
+export * from './command';
 export * from './container';
 export { CopyButton, type CopyButtonProps } from './copy-button';
 export * from './date-selection';

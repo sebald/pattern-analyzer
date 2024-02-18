@@ -1,13 +1,26 @@
 'use client';
 
-import { Button } from '@/ui';
+import { useCallback, useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+
+import { siteNavigation } from '@/lib/config';
+import data from '@/lib/data/display-values.json';
+import { Button, Command } from '@/ui';
+import { useHasMounted } from '@/ui/hooks/useHasMounted';
 import { MagnifyingGlass } from '@/ui/icons';
-import { useEffect, useState } from 'react';
+
+const pilots = data.pilot;
 
 // Helpers
 // ---------------
-const Modifier = () =>
-  window.navigator.userAgent.includes('Mac') ? (
+const Hotkey = () => {
+  const mounted = useHasMounted();
+
+  if (!mounted) {
+    return null;
+  }
+
+  const modifier = window.navigator.userAgent.includes('Mac') ? (
     <span>⌘</span>
   ) : (
     <>
@@ -16,9 +29,17 @@ const Modifier = () =>
     </>
   );
 
+  return (
+    <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border border-secondary-100 bg-white px-1.5 font-mono text-xs font-medium text-secondary-400 shadow-sm">
+      {modifier}K
+    </kbd>
+  );
+};
+
 // Component
 // ---------------
 export const SiteMenu = () => {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -33,6 +54,11 @@ export const SiteMenu = () => {
     return () => document.removeEventListener('keydown', down);
   }, []);
 
+  const execute = useCallback((command: () => unknown) => {
+    setOpen(false);
+    command();
+  }, []);
+
   return (
     <>
       <Button
@@ -44,10 +70,36 @@ export const SiteMenu = () => {
         <span className="flex items-center gap-1">
           <MagnifyingGlass className="size-4" /> Search...
         </span>
-        <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border border-secondary-100 bg-white px-1.5 font-mono text-xs font-medium text-secondary-400 shadow-sm">
-          <Modifier />K
-        </kbd>
+        <Hotkey />
       </Button>
+      <Command.Dialog open={open} onOpenChange={setOpen}>
+        <Command.Input placeholder="Type a command or search..." />
+        <Command.List>
+          <Command.Empty>No results found.</Command.Empty>
+          <Command.Group heading="Pages">
+            {siteNavigation.map(({ name, href }) => (
+              <Command.Item
+                key={href}
+                value={name}
+                onSelect={() => execute(() => router.push(href))}
+              >
+                {name}
+              </Command.Item>
+            ))}
+          </Command.Group>
+          <Command.Group heading="Pilots">
+            {Object.entries(pilots).map(([id, name]) => (
+              <Command.Item
+                key={id}
+                value={name}
+                onSelect={() => execute(() => router.push(`/pilot/${id}`))}
+              >
+                {name}
+              </Command.Item>
+            ))}
+          </Command.Group>
+        </Command.List>
+      </Command.Dialog>
     </>
   );
 };
