@@ -85,8 +85,18 @@ await fs.outputJson(
  * Use YASB data to generate display values
  */
 const display = {
-  faction: {},
-  ship: {},
+  faction: {
+    rebelalliance: 'Rebel Alliance',
+    galacticempire: 'Galactic Empire',
+    scumandvillainy: 'Scum and Villainy',
+    resistance: 'Resistance',
+    firstorder: 'First Order',
+    galacticrepublic: 'Galactic Republic',
+    separatistalliance: 'Separatist Alliance',
+  },
+  ship: Object.fromEntries(
+    Object.keys(data.ships).map(ship => [canonicalize(ship), ship])
+  ),
   pilot: Object.fromEntries(
     pilots.map(pilot => [toPilotId(pilot), pilot.name])
   ),
