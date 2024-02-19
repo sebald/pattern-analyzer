@@ -17,105 +17,12 @@ const manifest = read('data/manifest.json');
 
 // Faction Data
 // ---------------
-const PILOT_SUFFIX = {
-  // Faction Hint
-  'hansolo-scumandvillainy': 'Scum',
-  'durge-separatistalliance': 'CIS',
-
-  // Ships / Configs
-  delta7baethersprite: '7b',
-  'oddball-arc170starfighter': 'ARC-170',
-  'oddball-btlbywing': 'Y-Wing',
-  'oddball-nimbusclassvwing': 'V-Wing',
-
-  // Ids (needed because Mauler and Temmin have the same caption ...)
-  'poedameron-swz68': 'HoH',
-  'temminwexley-swz68': 'HoH',
-
-  // Scenarios
-  'Siege of Coruscant': 'SoC',
-  'Battle of Yavin': 'BoY',
-
-  // SSP
-  'darthvader-swz105': 'SSP',
-  'maarekstele-swz105': 'SSP',
-  'idenversio-swz105': 'SSP',
-  'nightbeast-swz105': 'SSP',
-  'valenrudor-swz105': 'SSP',
-  'captainjonus-swz105': 'SSP',
-  'tomaxbren-swz105': 'SSP',
-
-  'arvelcrynyd-swz106': 'SSP',
-  'dutchvander-swz106': 'SSP',
-  'hortonsalm-swz106': 'SSP',
-  'jakefarrell-swz106': 'SSP',
-  'jekporkins-swz106': 'SSP',
-  'lukeskywalker-swz106': 'SSP',
-  'sharabey-swz106': 'SSP',
-
-  // TIE bomber expansion
-  'deathfire-swz98': 'TBE',
-  'captainjonus-swz98': 'TBE',
-  'tomaxbren-swz98': 'TBE',
-  'majorrhymer-swz98': 'TBE',
-};
-
-const UPGRADE_SUFFIX = {
-  // Slot
-  gunner: '(Gunner)',
-  crew: '(Crew)',
-
-  // Faction
-  republic: '(Republic)',
-  resistance: '(Resistance)',
-  'crew-swz19': '(Resistance)',
-  scum: '(Scum)',
-  'rebel-scum': '(Rebel/Scum)',
-  swz82: '(Scum/CIS)',
-
-  // Scenario
-  siegeofcoruscant: '(SoC)',
-  battleofyavin: '(BoY)',
-};
-
-/**
- * Additional upgrades that are not listed in x-wing-data2 because
- * they are part of a standard loadout.
- */
-const EXTRA_UPGRADES = {
-  attackspeed: 'Attack Speed',
-  r5k6: 'R5-K6',
-  vengeful: 'Vengeful',
-  vectoredcannons: 'Vectored Cannons',
-  r2a3: 'R2-A3',
-  l337sprogramming: 'L3-37’s Programming',
-  'contingencyprotocol-modification': 'Contingency Protocol',
-  'strutlockoverride-configuration': 'Strut-Lock Override',
-};
-
-/**
- * Only take certain properties from pilot and
- * append scenario abbreviation to name if applicable.
- */
-const parsePilots = (pilots, ship, faction) =>
+const parsePilots = pilots =>
   pilots.reduce((o, pilot) => {
-    const { xws: id, name, caption, standardLoadout, cost, standard } = pilot;
+    const { xws: id, standardLoadout, cost, standard } = pilot;
 
     o[id] = {
       id,
-      name:
-        PILOT_SUFFIX[id] ||
-        PILOT_SUFFIX[ship] ||
-        PILOT_SUFFIX[caption] ||
-        PILOT_SUFFIX[`${id}-${faction}`]
-          ? `${name} (${
-              PILOT_SUFFIX[id] ||
-              PILOT_SUFFIX[ship] ||
-              PILOT_SUFFIX[caption] ||
-              PILOT_SUFFIX[`${id}-${faction}`]
-            })`
-          : name,
-      caption,
       cost,
       standard,
     };
@@ -145,19 +52,14 @@ const getShipsByFaction = faction => {
   }, {});
 };
 
-const factions = read(manifest.factions[0]).reduce(
-  (o, { xws: id, name, icon }) => {
-    o[id] = {
-      id,
-      name,
-      icon,
-      ships: getShipsByFaction(id),
-    };
+const factions = read(manifest.factions[0]).reduce((o, { xws: id }) => {
+  o[id] = {
+    id,
+    ships: getShipsByFaction(id),
+  };
 
-    return o;
-  },
-  {}
-);
+  return o;
+}, {});
 
 // Upgrades
 // ---------------
@@ -180,29 +82,6 @@ const upgrades = manifest.upgrades.reduce((o, file) => {
   return o;
 }, {});
 
-// Output to File
-// ---------------
-
-/**
- * ℹ️ We do not use most of the xwing data to reduce bundle size.
- *   If we ever want to parse XWS data we might need it again.
- */
-
-// await fs.outputJson(
-//   `${TARGET}/xwing-data2.json`,
-//   { factions, upgrades },
-//   { spaces: 2 }
-// );
-
-// Display Values
-// ---------------
-const display = {
-  faction: {},
-  ship: {},
-  pilot: {},
-  upgrades: {},
-};
-
 // Normalization
 // ---------------
 const getUpgradeType = id => {
@@ -224,21 +103,13 @@ const normalization = {};
 // ---------------
 const ships = {};
 
-read(manifest.factions[0]).forEach(({ xws: factionId, name, icon }) => {
-  display.faction[factionId] = {
-    name,
-    icon,
-  };
+read(manifest.factions[0]).forEach(({ xws: factionId }) => {
   ships[factionId] = {
     ships: [],
   };
 
   Object.values(factions[factionId].ships).forEach(ship => {
-    display.ship[ship.id] = ship.name;
-
     Object.values(ship.pilots).forEach(pilot => {
-      display.pilot[pilot.id] = pilot.name;
-
       if (pilot.standardLoadout) {
         normalization[pilot.id] = {
           points: pilot.cost,
@@ -259,22 +130,8 @@ read(manifest.factions[0]).forEach(({ xws: factionId, name, icon }) => {
       }
     });
   });
-
-  Object.values(upgrades).forEach(type => {
-    Object.values(type).forEach(item => {
-      const addon = item.id.split('-')[1];
-      const suffix = addon ? UPGRADE_SUFFIX[addon] : '';
-
-      display.upgrades[item.id] = suffix ? `${item.name} ${suffix}` : item.name;
-    });
-  });
-
-  Object.entries(EXTRA_UPGRADES).forEach(([id, name]) => {
-    display.upgrades[id] = name;
-  });
 });
 
-// await fs.outputJson(`${TARGET}/display-values.json`, display, { spaces: 2 });
 await fs.outputJson(`${TARGET}/standard-loadout-pilots.json`, normalization, {
   spaces: 2,
 });
