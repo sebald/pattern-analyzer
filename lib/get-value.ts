@@ -5,7 +5,11 @@ import { XWSFaction } from './types';
 export type Factions = keyof typeof data.faction;
 export type Ships = keyof typeof data.ship;
 
-export const getAllFactions = () => data.faction;
+export const getAllFactions = () =>
+  (Object.entries(data.faction) as [Factions, string][]).map(([id, name]) => ({
+    id,
+    name,
+  }));
 
 export const getFactionName = (faction: XWSFaction) => data.faction[faction];
 
