@@ -18,6 +18,7 @@ export * from './faction-selection';
 export * from './headline';
 export * from './inline';
 export * from './input';
+export * from './key';
 export * from './label';
 export * from './link';
 export * from './list';

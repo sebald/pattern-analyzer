@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 
 import { siteNavigation } from '@/lib/config';
 import data from '@/lib/data/display-values.json';
-import { Button, Command } from '@/ui';
+import { Button, Command, Key } from '@/ui';
 import { useHasMounted } from '@/ui/hooks/useHasMounted';
 import { MagnifyingGlass } from '@/ui/icons';
 
@@ -20,19 +20,12 @@ const Hotkey = () => {
     return null;
   }
 
-  const modifier = window.navigator.userAgent.includes('Mac') ? (
-    <span>⌘</span>
-  ) : (
-    <>
-      <span>Ctrl</span>
-      <span>+</span>
-    </>
-  );
-
+  const modifier = window.navigator.userAgent.includes('Mac') ? '⌘' : 'Ctrl';
   return (
-    <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border border-secondary-100 bg-white px-1.5 font-mono text-xs font-medium text-secondary-400 shadow-sm">
-      {modifier}K
-    </kbd>
+    <div className="flex items-center gap-0.5">
+      <Key size="xs">{modifier}</Key>
+      <Key>K</Key>
+    </div>
   );
 };
 
@@ -91,7 +84,7 @@ export const SiteMenu = () => {
             {Object.entries(pilots).map(([id, name]) => (
               <Command.Item
                 key={id}
-                value={name}
+                value={id}
                 onSelect={() => execute(() => router.push(`/pilot/${id}`))}
               >
                 {name}
