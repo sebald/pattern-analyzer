@@ -78,10 +78,6 @@
       "skill": 3
     },
     {
-      "id": 11,
-      "name": "whoops"
-    },
-    {
       "id": 12,
       "name": "Kullbee Sperado",
       "ship": "T-65 X-wing",
@@ -129,10 +125,6 @@
       "ship": "BTL-S8 K-wing",
       "points": 5,
       "skill": 3
-    },
-    {
-      "id": 19,
-      "name": "empty"
     },
     {
       "id": 20,
@@ -1623,21 +1615,11 @@
       "skill": 6
     },
     {
-      "id": 232
-    },
-    {
       "id": 233,
       "name": "\"Midnight\"",
       "ship": "TIE/fo Fighter",
       "points": 3,
       "skill": 6
-    },
-    {
-      "id": 234,
-      "name": "\"Longshot\"",
-      "ship": "TIE/fo Fighter",
-      "points": 3,
-      "skill": 3
     },
     {
       "id": 235,
@@ -1680,10 +1662,6 @@
       "ship": "RZ-2 A-wing",
       "points": 4,
       "skill": 5
-    },
-    {
-      "id": 241,
-      "name": "blanks"
     },
     {
       "id": 242,
@@ -3539,10 +3517,6 @@
       "ship": "Fang Fighter",
       "points": 4,
       "skill": 4
-    },
-    {
-      "id": 506,
-      "name": "Bo-Katan Kryze"
     },
     {
       "id": 507,
@@ -5510,17 +5484,9 @@
       "slot": "Configuration"
     },
     {
-      "id": 141,
-      "name": "Pivot Wing (Open)"
-    },
-    {
       "id": 142,
       "name": "Servomotor S-Foils",
       "slot": "Configuration"
-    },
-    {
-      "id": 143,
-      "name": "Blank"
     },
     {
       "id": 144,
@@ -5593,9 +5559,6 @@
       "slot": "Title"
     },
     {
-      "id": 158
-    },
-    {
       "id": 159,
       "name": "Punishing One",
       "slot": "Title"
@@ -5641,15 +5604,6 @@
       "slot": "Title"
     },
     {
-      "id": 168
-    },
-    {
-      "id": 169
-    },
-    {
-      "id": 170
-    },
-    {
       "id": 171,
       "name": "Black One",
       "slot": "Title"
@@ -5673,10 +5627,6 @@
       "id": 175,
       "name": "Integrated S-Foils",
       "slot": "Configuration"
-    },
-    {
-      "id": 176,
-      "name": "Integrated S-Foils (Open)"
     },
     {
       "id": 177,

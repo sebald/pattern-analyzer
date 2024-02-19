@@ -8,6 +8,38 @@ const FONT_FOLDER = path.join(PROJECT_ROOT, 'app/fonts');
 const YASB_FILE_PATH = path.resolve(__dirname, 'yasb.tmp.js');
 
 /**
+ * Helper from yasb.ts (to lazy to compile and use them directly...)
+ */
+const canonicalize = val =>
+  val
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, '')
+    .replace(/\s+/g, '-');
+
+const toPilotId = pilot => {
+  // console.log(pilot);
+  const [name, suffix] = pilot.name.split(/[()]/);
+
+  return pilot.xws != null
+    ? pilot.xws
+    : pilot.xwsaddon != null
+      ? canonicalize(name) + '-' + pilot.xwsaddon
+      : canonicalize(name) +
+        (suffix != null ? '-' + canonicalize(pilot.ship) : '');
+};
+
+const toUpgradeId = upgrade => {
+  const [name, suffix] = upgrade.name.split(/[()]/);
+
+  return upgrade.xws != null
+    ? upgrade.xws
+    : upgrade.xwsaddon != null
+      ? canonicalize(name) + '-' + upgrade.xwsaddon
+      : canonicalize(name) +
+        (suffix != null ? '-' + canonicalize(upgrade.slot || '') : '');
+};
+
+/**
  * Get YASB data from the source file
  */
 const res = await fetch('https://yasb.app/javascripts/xwingcontent.min.js');
@@ -16,8 +48,10 @@ await fs.outputFile(YASB_FILE_PATH, contents);
 
 const data = require(YASB_FILE_PATH).basicCardData();
 
-const pilots = data.pilotsById.map(
-  ({ id, name, ship, points, skill, xws, xwsaddon }) => ({
+const pilots = data.pilotsById
+  // YASB skips some IDs?
+  .filter(({ skip }) => !skip)
+  .map(({ id, name, ship, points, skill, xws, xwsaddon }) => ({
     id,
     name,
     ship,
@@ -25,15 +59,18 @@ const pilots = data.pilotsById.map(
     skill,
     xws,
     xwsaddon,
-  })
-);
-const upgrades = data.upgradesById.map(({ id, name, slot, xws, xwsaddon }) => ({
-  id,
-  name,
-  slot,
-  xws,
-  xwsaddon,
-}));
+  }));
+
+const upgrades = data.upgradesById
+  // YASB skips some IDs?
+  .filter(({ skip }) => !skip)
+  .map(({ id, name, slot, xws, xwsaddon }) => ({
+    id,
+    name,
+    slot,
+    xws,
+    xwsaddon,
+  }));
 
 await fs.outputJson(
   `${DATA_FOLDER}/yasb.json`,
@@ -44,6 +81,25 @@ await fs.outputJson(
   { spaces: 2 }
 );
 
+/**
+ * Use YASB data to generate display values
+ */
+const display = {
+  faction: {},
+  ship: {},
+  pilot: Object.fromEntries(
+    pilots.map(pilot => [toPilotId(pilot), pilot.name])
+  ),
+  upgrades: Object.fromEntries(
+    upgrades.map(upgrade => [toUpgradeId(upgrade), upgrade.name])
+  ),
+};
+
+await fs.outputJson(`${DATA_FOLDER}/display-values.json`, display, {
+  spaces: 2,
+});
+
+// Remove downloaded yasb file
 await fs.remove(YASB_FILE_PATH);
 
 /**
