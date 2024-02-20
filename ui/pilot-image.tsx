@@ -19,7 +19,7 @@ export const PilotImage = ({
   <Image
     {...props}
     src={`https://infinitearenas.com/xw2/images/${
-      type === 'art' ? 'artwork/' : ''
+      type === 'art' ? 'artwork' : ''
     }/pilots/${pilot}.png`}
     alt={alt || getPilotName(pilot) || ''}
   />
