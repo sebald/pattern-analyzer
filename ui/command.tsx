@@ -36,19 +36,24 @@ interface CommandDialogProps
   extends DialogProps,
     ComponentPropsWithoutRef<typeof CommandPrimitive> {}
 
-const CommandDialog = ({ children, ...props }: CommandDialogProps) => {
+const CommandDialog = ({
+  children,
+  open,
+  onOpenChange,
+  ...props
+}: CommandDialogProps) => {
   return (
-    <Dialog {...props}>
+    <Dialog {...props} open={open} onOpenChange={onOpenChange}>
       <Dialog.Content className="overflow-hidden p-0">
         <Command
-          // filter={(value, search) => {
-          //   if (value.includes(search)) {
-          //     return 1;
-          //   }
-          //   return 0;
-          // }}
           {...props}
-          className="[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-secondary-400 [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 [&_[cmdk-group]]:px-2 [&_[cmdk-input-wrapper]_svg]:h-5 [&_[cmdk-input-wrapper]_svg]:w-5 [&_[cmdk-input]]:h-12 [&_[cmdk-item]]:px-2 [&_[cmdk-item]]:py-3 [&_[cmdk-item]_svg]:h-5 [&_[cmdk-item]_svg]:w-5"
+          className={cn(
+            '[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-secondary-400',
+            '[&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 [&_[cmdk-group]]:px-2',
+            '[&_[cmdk-input-wrapper]_svg]:size-5',
+            '[&_[cmdk-input]]:h-12 [&_[cmdk-item]]:px-2 [&_[cmdk-item]]:py-3',
+            '[&_[cmdk-item]_svg]:size-4'
+          )}
         >
           {children}
         </Command>
@@ -120,7 +125,10 @@ const CommandGroup = forwardRef<
   <CommandPrimitive.Group
     ref={ref}
     className={cn(
-      'overflow-hidden p-1 text-secondary-900 [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-secondary-400',
+      'overflow-hidden p-1 text-secondary-900',
+      // Child heading
+      '[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5',
+      '[&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-primary-500',
       className
     )}
     {...props}
@@ -152,9 +160,9 @@ const CommandItem = forwardRef<
   <CommandPrimitive.Item
     ref={ref}
     className={cn(
-      'relative flex cursor-default select-none items-center rounded px-2 py-1.5',
-      'text-sm outline-none aria-selected:bg-secondary-100/70',
-      'data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
+      'relative flex cursor-default select-none items-center gap-1.5 rounded px-2 py-1.5',
+      'text-sm font-medium outline-none aria-selected:bg-secondary-100/70',
+      'data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50',
       className
     )}
     {...props}

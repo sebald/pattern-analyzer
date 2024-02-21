@@ -7,7 +7,7 @@ import { siteNavigation } from '@/lib/config';
 import data from '@/lib/data/display-values.json';
 import { Button, Command, Key } from '@/ui';
 import { useHasMounted } from '@/ui/hooks/useHasMounted';
-import { MagnifyingGlass } from '@/ui/icons';
+import { MagnifyingGlass, Page, User } from '@/ui/icons';
 
 const pilots = data.pilot;
 
@@ -76,7 +76,7 @@ export const SiteMenu = () => {
                 value={name}
                 onSelect={() => execute(() => router.push(href))}
               >
-                {name}
+                <Page /> {name}
               </Command.Item>
             ))}
           </Command.Group>
@@ -87,7 +87,7 @@ export const SiteMenu = () => {
                 value={id}
                 onSelect={() => execute(() => router.push(`/pilot/${id}`))}
               >
-                {name}
+                <User /> {name}
               </Command.Item>
             ))}
           </Command.Group>
