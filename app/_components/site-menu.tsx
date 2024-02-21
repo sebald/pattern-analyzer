@@ -66,7 +66,7 @@ export const SiteMenu = () => {
         <Hotkey />
       </Button>
       <Command.Dialog open={open} onOpenChange={setOpen}>
-        <Command.Input placeholder="Type a command or search..." />
+        <Command.Input placeholder="Type what you are looking for..." />
         <Command.List>
           <Command.Empty>No results found.</Command.Empty>
           <Command.Group heading="Pages">
