@@ -10,6 +10,14 @@ const YASB_FILE_PATH = path.resolve(__dirname, 'yasb.tmp.js');
 /**
  * Helper from yasb.ts (to lazy to compile and use them directly...)
  */
+const EXPANSIONS = {
+  BoY: 'battleofyavin',
+  SoC: 'siegeofcoruscant',
+  TBE: 'swz98',
+  YLF: 'swz103',
+  BoE: 'battleoverendor',
+};
+
 const canonicalize = val =>
   val
     .toLowerCase()
@@ -36,7 +44,9 @@ const toUpgradeId = upgrade => {
     : upgrade.xwsaddon != null
       ? canonicalize(name) + '-' + upgrade.xwsaddon
       : canonicalize(name) +
-        (suffix != null ? '-' + canonicalize(upgrade.slot || '') : '');
+        (suffix != null
+          ? '-' + canonicalize(EXPANSIONS[suffix] || upgrade.slot || '')
+          : '');
 };
 
 /**
