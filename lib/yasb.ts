@@ -57,7 +57,8 @@ export const toUpgradeId = (upgrade: YASBUpgrade) => {
       ? canonicalize(name) + '-' + upgrade.xwsaddon
       : canonicalize(name) +
         (suffix != null
-          ? '-' + canonicalize(EXPANSIONS[suffix] || upgrade.slot || '')
+          ? '-' +
+            canonicalize((EXPANSIONS as any)[suffix] || upgrade.slot || '')
           : '');
 };
 
