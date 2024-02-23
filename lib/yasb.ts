@@ -23,6 +23,14 @@ export interface YASBUpgrade {
 export const YASB_URL_REGEXP =
   /https:\/\/yasb\.app\/\?f(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=,]*)/;
 
+export const EXPANSIONS = {
+  BoY: 'battleofyavin',
+  SoC: 'siegeofcoruscant',
+  TBE: 'swz98',
+  YLF: 'swz103',
+  BoE: 'battleoverendor',
+};
+
 export const canonicalize = (val: string) =>
   val
     .toLowerCase()
@@ -35,9 +43,9 @@ export const toPilotId = (pilot: YASBPilot) => {
   return pilot.xws != null
     ? pilot.xws
     : pilot.xwsaddon != null
-    ? canonicalize(name) + '-' + pilot.xwsaddon
-    : canonicalize(name) +
-      (suffix != null ? '-' + canonicalize(pilot.ship) : '');
+      ? canonicalize(name) + '-' + pilot.xwsaddon
+      : canonicalize(name) +
+        (suffix != null ? '-' + canonicalize(pilot.ship) : '');
 };
 
 export const toUpgradeId = (upgrade: YASBUpgrade) => {
@@ -46,9 +54,12 @@ export const toUpgradeId = (upgrade: YASBUpgrade) => {
   return upgrade.xws != null
     ? upgrade.xws
     : upgrade.xwsaddon != null
-    ? canonicalize(name) + '-' + upgrade.xwsaddon
-    : canonicalize(name) +
-      (suffix != null ? '-' + canonicalize(upgrade.slot || '') : '');
+      ? canonicalize(name) + '-' + upgrade.xwsaddon
+      : canonicalize(name) +
+        (suffix != null
+          ? '-' +
+            canonicalize((EXPANSIONS as any)[suffix] || upgrade.slot || '')
+          : '');
 };
 
 /**

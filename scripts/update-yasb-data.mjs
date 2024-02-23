@@ -10,6 +10,14 @@ const YASB_FILE_PATH = path.resolve(__dirname, 'yasb.tmp.js');
 /**
  * Helper from yasb.ts (to lazy to compile and use them directly...)
  */
+const EXPANSIONS = {
+  BoY: 'battleofyavin',
+  SoC: 'siegeofcoruscant',
+  TBE: 'swz98',
+  YLF: 'swz103',
+  BoE: 'battleoverendor',
+};
+
 const canonicalize = val =>
   val
     .toLowerCase()
@@ -36,7 +44,9 @@ const toUpgradeId = upgrade => {
     : upgrade.xwsaddon != null
       ? canonicalize(name) + '-' + upgrade.xwsaddon
       : canonicalize(name) +
-        (suffix != null ? '-' + canonicalize(upgrade.slot || '') : '');
+        (suffix != null
+          ? '-' + canonicalize(EXPANSIONS[suffix] || upgrade.slot || '')
+          : '');
 };
 
 /**
@@ -48,10 +58,8 @@ await fs.outputFile(YASB_FILE_PATH, contents);
 
 const data = require(YASB_FILE_PATH).basicCardData();
 
-const pilots = data.pilotsById
-  // YASB skips some IDs?
-  .filter(({ skip }) => !skip)
-  .map(({ id, name, ship, points, skill, xws, xwsaddon }) => ({
+const pilots = data.pilotsById.map(
+  ({ id, name, ship, points, skill, xws, xwsaddon }) => ({
     id,
     name,
     ship,
@@ -59,18 +67,16 @@ const pilots = data.pilotsById
     skill,
     xws,
     xwsaddon,
-  }));
+  })
+);
 
-const upgrades = data.upgradesById
-  // YASB skips some IDs?
-  .filter(({ skip }) => !skip)
-  .map(({ id, name, slot, xws, xwsaddon }) => ({
-    id,
-    name,
-    slot,
-    xws,
-    xwsaddon,
-  }));
+const upgrades = data.upgradesById.map(({ id, name, slot, xws, xwsaddon }) => ({
+  id,
+  name,
+  slot,
+  xws,
+  xwsaddon,
+}));
 
 await fs.outputJson(
   `${DATA_FOLDER}/yasb.json`,
@@ -98,10 +104,16 @@ const display = {
     Object.keys(data.ships).map(ship => [canonicalize(ship), ship])
   ),
   pilot: Object.fromEntries(
-    pilots.map(pilot => [toPilotId(pilot), pilot.name])
+    data.pilotsById
+      // YASB skips some IDs?
+      .filter(({ skip }) => !skip)
+      .map(pilot => [toPilotId(pilot), pilot.name])
   ),
   upgrades: Object.fromEntries(
-    upgrades.map(upgrade => [toUpgradeId(upgrade), upgrade.name])
+    data.upgradesById
+      // YASB skips some IDs?
+      .filter(({ skip }) => !skip)
+      .map(upgrade => [toUpgradeId(upgrade), upgrade.name])
   ),
 };
 
