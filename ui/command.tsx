@@ -50,7 +50,7 @@ const CommandDialog = ({
           className={cn(
             '[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-secondary-400',
             '[&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 [&_[cmdk-group]]:px-2',
-            '[&_[cmdk-input-wrapper]_svg]:size-5',
+            '[&_[cmdk-input-wrapper]_svg]:size-4',
             '[&_[cmdk-input]]:h-12 [&_[cmdk-item]]:px-2 [&_[cmdk-item]]:py-3',
             '[&_[cmdk-item]_svg]:size-4'
           )}
@@ -161,7 +161,7 @@ const CommandItem = forwardRef<
     ref={ref}
     className={cn(
       'relative flex cursor-default select-none items-center gap-1.5 rounded px-2 py-1.5',
-      'text-sm font-medium outline-none aria-selected:bg-secondary-100/70',
+      'text-sm font-medium outline-none aria-selected:bg-primary-100/70 aria-selected:text-primary-900',
       'data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50',
       className
     )}
