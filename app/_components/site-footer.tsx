@@ -8,7 +8,7 @@ import {
 
 export const SiteFooter = () => (
   <footer className="border border-b border-primary-200 px-4 pb-6 pt-10 md:pt-16">
-    <Container className="flex pb-14 text-sm text-primary-900">
+    <Container className="flex pb-14 text-sm text-primary-900/60">
       <div className="flex-1">
         <div className="pb-2 text-xs font-bold uppercase text-primary-600">
           Navigation
