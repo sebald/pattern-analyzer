@@ -47,6 +47,9 @@ dependencies:
   clsx:
     specifier: 2.1.0
     version: 2.1.0
+  cmdk:
+    specifier: github:pacocoursey/cmdk#eb4fd0f
+    version: github.com/pacocoursey/cmdk/eb4fd0f
   dayjs:
     specifier: 1.11.10
     version: 1.11.10
@@ -7370,6 +7373,13 @@ packages:
     dependencies:
       string-math: 1.2.2
     dev: true
+
+  github.com/pacocoursey/cmdk/eb4fd0f:
+    resolution: {tarball: https://codeload.github.com/pacocoursey/cmdk/tar.gz/eb4fd0f}
+    name: cmdk-root
+    version: 0.0.0
+    requiresBuild: true
+    dev: false
 
   github.com/raithos/xwing/1ae9036:
     resolution: {tarball: https://codeload.github.com/raithos/xwing/tar.gz/1ae9036}

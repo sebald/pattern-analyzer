@@ -117,6 +117,14 @@ const display = {
   ),
 };
 
+// const ships = Object.keys(data.ships).map(ship => [canonicalize(ship), ship]);
+// ships.sort(([a], [b]) => a.localeCompare(b));
+// data.ships = Object.fromEntries(ships);
+
+const p = pilots.map(pilot => [toPilotId(pilot), pilot.name]);
+p.sort(([a], [b]) => a.localeCompare(b));
+display.pilot = Object.fromEntries(p);
+
 await fs.outputJson(`${DATA_FOLDER}/display-values.json`, display, {
   spaces: 2,
 });

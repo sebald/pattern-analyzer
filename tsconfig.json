@@ -21,7 +21,8 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "cmdk": ["./node_modules/cmdk/cmdk/src"]
     }
   },
   "include": [

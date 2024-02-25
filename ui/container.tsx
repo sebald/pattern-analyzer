@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils/classname.utils';
 // ---------------
 export interface ContainerProps {
   as?: keyof JSX.IntrinsicElements;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
 }
 
