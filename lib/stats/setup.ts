@@ -45,7 +45,11 @@ export const setup =
 
       // Setup context for hooks.
       const cache = new Set<string>();
-      const faction = current.xws ? current.xws.faction : 'unknown';
+      const faction =
+        // @ts-expect-error (the faction can be "all" in epic)
+        current.xws && current.xws.faction !== 'all'
+          ? current.xws.faction
+          : 'unknown';
       const unique = (val: string) => cache.has(val);
 
       if (current.rank.elimination) {
