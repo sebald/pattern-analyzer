@@ -20,6 +20,7 @@ const styles = {
         relaxed: 'p-6',
       },
       size: {
+        auto: '',
         stretch: 'h-full',
         fit: 'h-fit',
       },

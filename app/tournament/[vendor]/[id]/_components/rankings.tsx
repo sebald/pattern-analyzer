@@ -24,6 +24,7 @@ export const Rankings = ({ squads }: RankingsProps) => (
         <Card
           key={current.player}
           inset="headless"
+          size="auto"
           subgrid
           className="items-center gap-y-6 pr-4"
         >
@@ -67,13 +68,8 @@ export const Rankings = ({ squads }: RankingsProps) => (
           <Detail
             label="List"
             value={<ShipList xws={current.xws} size="large" />}
-            className={{ container: 'col-start-2 md:col-start-auto' }}
           />
-          <Detail
-            label="Points"
-            value={current.points}
-            className={{ container: 'col-start-3 md:col-start-auto' }}
-          />
+          <Detail label="Points" value={current.points} />
           <Detail
             label="W/D/L"
             value={
@@ -83,13 +79,8 @@ export const Rankings = ({ squads }: RankingsProps) => (
                 <span>{current.record.losses}</span>
               </>
             }
-            className={{ container: 'col-start-4 md:col-start-auto' }}
           />
-          <Detail
-            label="SOS"
-            value={round(current.sos, 2)}
-            className={{ container: 'col-start-6 md:col-start-auto' }}
-          />
+          <Detail label="SOS" value={round(current.sos, 2)} />
         </Card>
       );
     })}
