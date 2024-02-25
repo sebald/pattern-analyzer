@@ -98,7 +98,7 @@ export const Squads = ({ squads }: SquadsProps) => {
   return (
     <Tiles>
       {filtered.map(squad => (
-        <Card key={squad.id}>
+        <Card size="auto" key={squad.id}>
           <Card.Body>
             {squad.xws ? (
               <Squad xws={squad.xws} />
