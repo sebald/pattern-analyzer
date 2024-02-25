@@ -45,9 +45,6 @@ export const SiteNavigation = () => {
           <NavLink key={href} href={href} name={name} />
         ))}
         <span className="grow" role="separator" aria-hidden="true" />
-        {secondaryNavigation.map(({ name, href }) => (
-          <NavLink key={href} href={href} name={name} />
-        ))}
         <SiteMenu />
       </nav>
     </div>

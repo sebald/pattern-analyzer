@@ -37,13 +37,18 @@ export const siteNavigation = [
     name: 'Upgrades',
     href: '/upgrade',
   },
+];
+
+export const secondaryNavigation = [
   {
     name: 'About',
     href: '/about',
   },
+  {
+    name: 'GitHub',
+    href: 'https://github.com/sebald/pattern-analyzer',
+  },
 ];
-
-export const secondaryNavigation = [];
 
 export const xWingResources = [
   {
