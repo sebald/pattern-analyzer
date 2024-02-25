@@ -52,7 +52,7 @@ const CommandDialog = ({
             '[&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 [&_[cmdk-group]]:px-2',
             '[&_[cmdk-input-wrapper]_svg]:size-4',
             '[&_[cmdk-input]]:h-12 [&_[cmdk-item]]:px-2 [&_[cmdk-item]]:py-3',
-            '[&_[cmdk-item]_svg]:size-4'
+            '[&_[cmdk-item]_svg]:size-4 [&_[cmdk-item]_svg]:opacity-50'
           )}
         >
           {children}
@@ -125,10 +125,10 @@ const CommandGroup = forwardRef<
   <CommandPrimitive.Group
     ref={ref}
     className={cn(
-      'overflow-hidden p-1 text-secondary-900',
+      'overflow-hidden p-1 text-secondary-700',
       // Child heading
       '[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5',
-      '[&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-primary-500',
+      '[&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-primary-600',
       className
     )}
     {...props}
