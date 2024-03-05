@@ -1,10 +1,11 @@
 import { XWSUpgradeSlots } from '@/lib/types';
 import { Select } from './select';
 
-const SLOTS = [
+const SLOTS: { id: XWSUpgradeSlots; name: string }[] = [
   { id: 'astromech', name: 'Astromech' },
   { id: 'cannon', name: 'Cannon' },
   { id: 'configuration', name: 'Configuration' },
+  { id: 'crew', name: 'Crew' },
   { id: 'device', name: 'Device' },
   { id: 'force-power', name: 'Force' },
   { id: 'gunner', name: 'Gunner' },
