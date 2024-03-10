@@ -33,7 +33,7 @@
     "react-is": "18.2.0",
     "react-use": "17.4.2",
     "react-use-clipboard": "1.0.9",
-    "swr": "2.2.4",
+    "swr": "2.2.5",
     "tailwind-merge": "2.2.1",
     "tailwindcss-animate": "1.0.7",
     "use-debounce": "10.0.0",
