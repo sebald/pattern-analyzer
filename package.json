@@ -23,7 +23,7 @@
     "cmdk": "github:pacocoursey/cmdk#eb4fd0f",
     "dayjs": "1.11.10",
     "kysely": "0.27.2",
-    "mysql2": "3.9.1",
+    "mysql2": "3.9.2",
     "next": "14.1.0",
     "nextjs-google-analytics": "2.3.3",
     "p-limit": "4.0.0",
