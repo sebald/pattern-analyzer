@@ -1,4 +1,51 @@
 {
+  "adonfox-battleoverendor": {
+    "points": 5,
+    "upgrades": {
+      "talent": [
+        "itsatrap-battleoverendor",
+        "partinggift-battleoverendor"
+      ],
+      "missile": [
+        "protonrockets"
+      ],
+      "device": [
+        "protonbombs"
+      ]
+    }
+  },
+  "ginamoonsong-battleoverendor": {
+    "points": 5,
+    "upgrades": {
+      "talent": [
+        "itsatrap-battleoverendor",
+        "juke"
+      ],
+      "torpedo": [
+        "protontorpedoes"
+      ],
+      "device": [
+        "ionbombs"
+      ]
+    }
+  },
+  "braylenstramm-battleoverendor": {
+    "points": 4,
+    "upgrades": {
+      "talent": [
+        "itsatrap-battleoverendor"
+      ],
+      "missile": [
+        "homingmissiles"
+      ],
+      "device": [
+        "protonbombs"
+      ],
+      "modification": [
+        "delayedfuses"
+      ]
+    }
+  },
   "dextiree-battleofyavin": {
     "points": 4,
     "upgrades": {
@@ -94,6 +141,24 @@
       ]
     }
   },
+  "landocalrissian-battleoverendor": {
+    "points": 7,
+    "upgrades": {
+      "talent": [
+        "aceinthehole-battleoverendor",
+        "itsatrap-battleoverendor"
+      ],
+      "crew": [
+        "niennunb"
+      ],
+      "gunner": [
+        "airencracken-battleoverendor"
+      ],
+      "title": [
+        "millenniumfalcon-battleoverendor"
+      ]
+    }
+  },
   "arvelcrynyd-swz106": {
     "points": 4,
     "upgrades": {
@@ -125,6 +190,48 @@
       ],
       "missile": [
         "concussionmissiles"
+      ]
+    }
+  },
+  "arvelcrynyd-battleoverendor": {
+    "points": 4,
+    "upgrades": {
+      "talent": [
+        "heroicsacrifice-battleoverendor",
+        "itsatrap-battleoverendor"
+      ],
+      "missile": [
+        "protonrockets"
+      ]
+    }
+  },
+  "tychocelchu-battleoverendor": {
+    "points": 4,
+    "upgrades": {
+      "talent": [
+        "itsatrap-battleoverendor",
+        "juke"
+      ],
+      "missile": [
+        "protonrockets"
+      ],
+      "modification": [
+        "chaffparticles-battleoverendor"
+      ]
+    }
+  },
+  "gemmersojan-battleoverendor": {
+    "points": 3,
+    "upgrades": {
+      "talent": [
+        "itsatrap-battleoverendor"
+      ],
+      "cannon": [
+        "precisiontunedcannons-battleoverendor"
+      ],
+      "modification": [
+        "chaffparticles-battleoverendor",
+        "targetassistalgorithm-battleoverendor"
       ]
     }
   },
@@ -225,6 +332,52 @@
       ],
       "astromech": [
         "r5d8-battleofyavin"
+      ]
+    }
+  },
+  "wedgeantilles-battleoverendor": {
+    "points": 5,
+    "upgrades": {
+      "talent": [
+        "itsatrap-battleoverendor",
+        "predator"
+      ],
+      "torpedo": [
+        "advprotontorpedoes"
+      ],
+      "astromech": [
+        "r2a3-battleoverendor"
+      ]
+    }
+  },
+  "yendor-battleoverendor": {
+    "points": 5,
+    "upgrades": {
+      "talent": [
+        "itsatrap-battleoverendor"
+      ],
+      "torpedo": [
+        "plasmatorpedoes"
+      ],
+      "astromech": [
+        "stabilizingastromech-battleoverendor"
+      ]
+    }
+  },
+  "kendyidele-battleoverendor": {
+    "points": 4,
+    "upgrades": {
+      "talent": [
+        "itsatrap-battleoverendor"
+      ],
+      "missile": [
+        "ionmissiles"
+      ],
+      "astromech": [
+        "modifiedr4punit-battleoverendor"
+      ],
+      "modification": [
+        "chaffparticles-battleoverendor"
       ]
     }
   },
@@ -352,6 +505,66 @@
       ]
     }
   },
+  "sapphire2-battleoverendor": {
+    "points": 4,
+    "upgrades": {
+      "talent": [
+        "noescape-battleoverendor",
+        "reckless-battleoverendor"
+      ],
+      "tech": [
+        "primedthrusters"
+      ],
+      "modification": [
+        "targetingmatrix-battleoverendor"
+      ]
+    }
+  },
+  "soontirfel-battleoverendor": {
+    "points": 5,
+    "upgrades": {
+      "talent": [
+        "apexpredator-battleoverendor",
+        "noescape-battleoverendor"
+      ],
+      "sensor": [
+        "blanksignature-battleoverendor"
+      ],
+      "illicit": [
+        "feedbackemitter-battleoverendor"
+      ]
+    }
+  },
+  "captainyorr-battleoverendor": {
+    "points": 6,
+    "upgrades": {
+      "talent": [
+        "noescape-battleoverendor",
+        "predator"
+      ],
+      "cannon": [
+        "ioncannon"
+      ],
+      "modification": [
+        "computerassistedhandling-battleoverendor"
+      ]
+    }
+  },
+  "coloneljendon-battleoverendor": {
+    "points": 7,
+    "upgrades": {
+      "talent": [
+        "noescape-battleoverendor",
+        "pushthelimit-battleoverendor"
+      ],
+      "cannon": [
+        "protoncannons"
+      ],
+      "modification": [
+        "computerassistedhandling-battleoverendor"
+      ]
+    }
+  },
   "backstabber-battleofyavin": {
     "points": 4,
     "upgrades": {
@@ -421,6 +634,39 @@
       ],
       "modification": [
         "precisionionengines"
+      ]
+    }
+  },
+  "lieutenanthebsly-battleoverendor": {
+    "points": 3,
+    "upgrades": {
+      "talent": [
+        "collected-battleoverendor",
+        "elusive",
+        "noescape-battleoverendor"
+      ]
+    }
+  },
+  "scythe6-battleoverendor": {
+    "points": 3,
+    "upgrades": {
+      "talent": [
+        "noescape-battleoverendor",
+        "predator"
+      ],
+      "modification": [
+        "ionmaneuveringjet-battleoverendor",
+        "targetingmatrix-battleoverendor"
+      ]
+    }
+  },
+  "majormianda-battleoverendor": {
+    "points": 4,
+    "upgrades": {
+      "talent": [
+        "noescape-battleoverendor",
+        "ruthless",
+        "swarmtactics"
       ]
     }
   },
