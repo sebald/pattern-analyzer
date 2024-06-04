@@ -20,7 +20,7 @@
     "cheerio": "1.0.0-rc.12",
     "class-variance-authority": "0.7.0",
     "clsx": "2.1.1",
-    "cmdk": "github:pacocoursey/cmdk#eb4fd0f",
+    "cmdk": "github:pacocoursey/cmdk#541fad2",
     "dayjs": "1.11.10",
     "kysely": "0.27.3",
     "mysql2": "3.9.2",

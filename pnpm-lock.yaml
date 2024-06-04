@@ -48,8 +48,8 @@ dependencies:
     specifier: 2.1.1
     version: 2.1.1
   cmdk:
-    specifier: github:pacocoursey/cmdk#eb4fd0f
-    version: github.com/pacocoursey/cmdk/eb4fd0f
+    specifier: github:pacocoursey/cmdk#541fad2
+    version: github.com/pacocoursey/cmdk/541fad2
   dayjs:
     specifier: 1.11.10
     version: 1.11.10
@@ -7347,8 +7347,8 @@ packages:
       yaml: 2.3.1
     dev: true
 
-  github.com/pacocoursey/cmdk/eb4fd0f:
-    resolution: {tarball: https://codeload.github.com/pacocoursey/cmdk/tar.gz/eb4fd0f}
+  github.com/pacocoursey/cmdk/541fad2:
+    resolution: {tarball: https://codeload.github.com/pacocoursey/cmdk/tar.gz/541fad2}
     name: cmdk-root
     version: 0.0.0
     requiresBuild: true
