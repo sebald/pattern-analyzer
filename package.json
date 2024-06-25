@@ -63,7 +63,7 @@
     "turbo": "1.10.16",
     "typescript": "5.4.3",
     "xwing-data2": "https://github.com/xwingtmg/xwing-data2#c2414bc",
-    "yasb": "github:raithos/xwing#1a1471a",
+    "yasb": "github:raithos/xwing#b8588c9",
     "zx": "7.2.3"
   },
   "scripts": {
