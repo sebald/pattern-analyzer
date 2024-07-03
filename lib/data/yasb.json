@@ -3326,14 +3326,14 @@
       "id": 475,
       "name": "Colicoid Destroyer",
       "ship": "Trident-class Assault Ship",
-      "points": 12,
+      "points": 11,
       "skill": 8
     },
     {
       "id": 476,
       "name": "Lawless Pirates",
       "ship": "Trident-class Assault Ship",
-      "points": 12,
+      "points": 11,
       "skill": 8
     },
     {
@@ -4599,7 +4599,7 @@
       "ship": "YT-2400 Light Freighter",
       "points": 7,
       "skill": 5,
-      "xwsaddon": "swz103"
+      "xwsaddon": "swz103-rebelalliance"
     },
     {
       "id": 649,
@@ -4623,7 +4623,7 @@
       "ship": "YT-2400 Light Freighter",
       "points": 6,
       "skill": 3,
-      "xwsaddon": "swz103"
+      "xwsaddon": "swz103-rebelalliance"
     },
     {
       "id": 652,
@@ -7427,6 +7427,46 @@
       "id": 524,
       "name": "Collected (BoE)",
       "slot": "Talent"
+    },
+    {
+      "id": 525,
+      "name": "New Recruit",
+      "slot": "Command"
+    },
+    {
+      "id": 526,
+      "name": "Locked-Turret Specialist",
+      "slot": "Command"
+    },
+    {
+      "id": 527,
+      "name": "Heavy Reinforced Vanguard",
+      "slot": "Command"
+    },
+    {
+      "id": 528,
+      "name": "Evasive Interceptor",
+      "slot": "Command"
+    },
+    {
+      "id": 529,
+      "name": "Countermeasures Specialist",
+      "slot": "Command"
+    },
+    {
+      "id": 530,
+      "name": "Combat Veteran",
+      "slot": "Command"
+    },
+    {
+      "id": 531,
+      "name": "Force Adept Pilot",
+      "slot": "Command"
+    },
+    {
+      "id": 532,
+      "name": "Adaptable Pilot",
+      "slot": "Command"
     }
   ]
 }

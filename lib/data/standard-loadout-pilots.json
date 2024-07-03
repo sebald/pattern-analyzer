@@ -535,6 +535,18 @@
       ]
     }
   },
+  "mausmonare-battleoverendor": {
+    "points": 5,
+    "upgrades": {
+      "talent": [
+        "noescape-battleoverendor",
+        "outmaneuver"
+      ],
+      "modification": [
+        "fuelinjectionoverride-battleoverendor"
+      ]
+    }
+  },
   "captainyorr-battleoverendor": {
     "points": 6,
     "upgrades": {
@@ -747,6 +759,36 @@
       "modification": [
         "automatedloaders-swz98",
         "afterburners"
+      ]
+    }
+  },
+  "scimitar1-battleoverendor": {
+    "points": 4,
+    "upgrades": {
+      "talent": [
+        "marksmanship",
+        "noescape-battleoverendor"
+      ],
+      "torpedo": [
+        "protontorpedoes"
+      ],
+      "device": [
+        "ionbombs"
+      ]
+    }
+  },
+  "scimitar3-battleoverendor": {
+    "points": 4,
+    "upgrades": {
+      "talent": [
+        "noescape-battleoverendor",
+        "partinggift-battleoverendor"
+      ],
+      "torpedo": [
+        "protontorpedoes"
+      ],
+      "device": [
+        "protonbombs"
       ]
     }
   },

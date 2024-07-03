@@ -26,7 +26,7 @@ const canonicalize = val =>
 
 const toPilotId = pilot => {
   // console.log(pilot);
-  const [name, suffix] = pilot.name.split(/[()]/);
+  const [name, suffix] = pilot.name ? pilot.name.split(/[()]/) : ['', null];
 
   return pilot.xws != null
     ? pilot.xws

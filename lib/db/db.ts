@@ -50,8 +50,8 @@ export const pool = createPool({
   user: process.env.DATABASE_USERNAME,
   password: process.env.DATABASE_PASSWORD,
   database: 'main',
-  maxIdle: 1,
-  connectionLimit: 1,
+  // maxIdle: 1,
+  // connectionLimit: 1,
 });
 
 // Database
