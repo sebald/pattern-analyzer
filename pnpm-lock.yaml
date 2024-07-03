@@ -51,8 +51,8 @@ dependencies:
     specifier: 1.0.0
     version: 1.0.0(@types/react-dom@18.2.22)(@types/react@18.2.70)(react-dom@18.2.0)(react@18.2.0)
   dayjs:
-    specifier: 1.11.10
-    version: 1.11.10
+    specifier: 1.11.11
+    version: 1.11.11
   kysely:
     specifier: 0.27.3
     version: 0.27.3
@@ -3232,8 +3232,8 @@ packages:
       whatwg-url: 11.0.0
     dev: true
 
-  /dayjs@1.11.10:
-    resolution: {integrity: sha512-vjAczensTgRcqDERK0SR2XMwsF/tSvnvlv6VcF2GIhg6Sx4yOIt/irsr1RDJsKiIyBzJDpCoXiWWq28MqH2cnQ==}
+  /dayjs@1.11.11:
+    resolution: {integrity: sha512-okzr3f11N6WuqYtZSvm+F776mB41wRZMhKP+hc34YdW+KmtYYK9iqvHSwo2k9FEH3fhGXvOPV6yz2IcSrfRUDg==}
     dev: false
 
   /debug@3.2.7:
