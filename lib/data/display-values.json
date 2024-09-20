@@ -298,6 +298,7 @@
     "dutchvander-battleofyavin": "\"Dutch\" Vander (BoY)",
     "dutchvander-swz106": "\"Dutch\" Vander (SSP)",
     "echo": "\"Echo\"",
+    "echo-ssl": "\"Echo\" (SSL)",
     "echobaseevacuees": "Echo Base Evacuees",
     "edonkappehl": "Edon Kappehl",
     "edriotwotubes": "Edrio Two Tubes",
@@ -473,6 +474,7 @@
     "lieutenantgalek": "Lieutenant Galek",
     "lieutenanthebsly-battleoverendor": "Lieutenant Hebsly (BoE)",
     "lieutenantkarsabi": "Lieutenant Karsabi",
+    "lieutenantkarsabi-ssl": "Lieutenant Karsabi (SSL)",
     "lieutenantkestal": "Lieutenant Kestal",
     "lieutenantlehuse": "Lieutenant LeHuse",
     "lieutenantlorrir": "Lieutenant Lorrir",
@@ -508,6 +510,7 @@
     "majorvermeil": "Major Vermeil",
     "majorvonreg": "Major Vonreg",
     "majorvynder": "Major Vynder",
+    "majorvynder-ssl": "Major Vynder (SSL)",
     "manaroo": "Manaroo",
     "mandalorianresistancepilot": "Mandalorian Resistance Pilot",
     "mandalorianroyalguard": "Mandalorian Royal Guard",
@@ -746,6 +749,7 @@
     "wesjanson": "Wes Janson",
     "whirlwind": "\"Whirlwind\"",
     "whisper": "\"Whisper\"",
+    "whisper-ssl": "\"Whisper\" (SSL)",
     "whoops": "whoops",
     "wildspacefringer": "Wild Space Fringer",
     "wilhufftarkin": "Wilhuff Tarkin",
@@ -1298,6 +1302,15 @@
     "countermeasuresspecialist": "Countermeasures Specialist",
     "combatveteran": "Combat Veteran",
     "forceadeptpilot": "Force Adept Pilot",
-    "adaptablepilot": "Adaptable Pilot"
+    "adaptablepilot": "Adaptable Pilot",
+    "withoutatrace-talent": "Without A Trace (SL)",
+    "relaysystem-sensor": "Relay System (SL)",
+    "stygiumreserve-modification": "Stygium Reserve (SL)",
+    "silenthunter-talent": "Silent Hunter (SL)",
+    "stealthgambit-talent": "Stealth Gambit (SL)",
+    "manualailerons-modification": "Manual Ailerons (SL)",
+    "saturationrockets-missile": "Saturation Rockets (SL)",
+    "longrangescanners-sensor": "Long-Range Scanners (SL)",
+    "heavyplasmamissiles-missile": "Heavy Plasma Missiles (SL)"
   }
 }

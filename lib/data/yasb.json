@@ -623,7 +623,7 @@
       "id": 89,
       "name": "Han Solo (Scum)",
       "ship": "Customized YT-1300 Light Freighter",
-      "points": 6,
+      "points": 5,
       "skill": 6,
       "xws": "hansolo"
     },
@@ -723,7 +723,7 @@
       "id": 103,
       "name": "Boba Fett",
       "ship": "Firespray-class Patrol Craft",
-      "points": 9,
+      "points": 8,
       "skill": 5
     },
     {
@@ -1479,7 +1479,7 @@
       "id": 211,
       "name": "\"Duchess\"",
       "ship": "TIE/sk Striker",
-      "points": 5,
+      "points": 4,
       "skill": 5
     },
     {
@@ -1899,7 +1899,7 @@
       "id": 272,
       "name": "Darth Maul",
       "ship": "Sith Infiltrator",
-      "points": 7,
+      "points": 6,
       "skill": 5
     },
     {
@@ -2707,7 +2707,7 @@
       "id": 387,
       "name": "Zizi Tlo",
       "ship": "RZ-2 A-wing",
-      "points": 5,
+      "points": 4,
       "skill": 5
     },
     {
@@ -3241,7 +3241,7 @@
       "id": 463,
       "name": "Ahsoka Tano (A-Wing)",
       "ship": "RZ-1 A-wing",
-      "points": 5,
+      "points": 4,
       "skill": 5
     },
     {
@@ -3718,7 +3718,7 @@
       "id": 531,
       "name": "Ahsoka Tano (Delta-7b)",
       "ship": "Delta-7b Aethersprite",
-      "points": 6,
+      "points": 5,
       "skill": 3
     },
     {
@@ -4064,7 +4064,7 @@
       "id": 577,
       "name": "\"Odd Ball\" (SoC)",
       "ship": "ARC-170 Starfighter",
-      "points": 4,
+      "points": 5,
       "skill": 5,
       "xwsaddon": "siegeofcoruscant"
     },
@@ -4104,7 +4104,7 @@
       "id": 582,
       "name": "\"Kickback\" (SoC)",
       "ship": "V-19 Torrent Starfighter",
-      "points": 3,
+      "points": 4,
       "skill": 5,
       "xwsaddon": "siegeofcoruscant"
     },
@@ -4589,7 +4589,7 @@
       "id": 647,
       "name": "Tomax Bren (TBE)",
       "ship": "TIE/sa Bomber",
-      "points": 3,
+      "points": 4,
       "skill": 5,
       "xwsaddon": "swz98"
     },
@@ -4605,7 +4605,7 @@
       "id": 649,
       "name": "Dash Rendar (YLF-SL)",
       "ship": "YT-2400 Light Freighter",
-      "points": 7,
+      "points": 6,
       "skill": 5,
       "xwsaddon": "swz103-sl-rebelalliance"
     },
@@ -4613,7 +4613,7 @@
       "id": 650,
       "name": "Dash Rendar (Scum)",
       "ship": "YT-2400 Light Freighter",
-      "points": 7,
+      "points": 6,
       "skill": 5,
       "xwsaddon": "swz103-sl-scumandvillainy"
     },
@@ -4653,7 +4653,7 @@
       "id": 655,
       "name": "Gemmer Sojan (BoE)",
       "ship": "RZ-1 A-wing",
-      "points": 3,
+      "points": 4,
       "skill": 2,
       "xwsaddon": "battleoverendor"
     },
@@ -4677,7 +4677,7 @@
       "id": 658,
       "name": "Braylen Stramm (BoE)",
       "ship": "A/SF-01 B-wing",
-      "points": 4,
+      "points": 5,
       "skill": 4,
       "xwsaddon": "battleoverendor"
     },
@@ -4800,6 +4800,38 @@
       "points": 4,
       "skill": 4,
       "xwsaddon": "battleoverendor"
+    },
+    {
+      "id": 674,
+      "name": "Lieutenant Karsabi (SSL)",
+      "ship": "Alpha-Class Star Wing",
+      "points": 5,
+      "skill": 3,
+      "xwsaddon": "ssl"
+    },
+    {
+      "id": 675,
+      "name": "Major Vynder (SSL)",
+      "ship": "Alpha-Class Star Wing",
+      "points": 5,
+      "skill": 4,
+      "xwsaddon": "ssl"
+    },
+    {
+      "id": 676,
+      "name": "\"Echo\" (SSL)",
+      "ship": "TIE/ph Phantom",
+      "points": 5,
+      "skill": 4,
+      "xwsaddon": "ssl"
+    },
+    {
+      "id": 677,
+      "name": "\"Whisper\" (SSL)",
+      "ship": "TIE/ph Phantom",
+      "points": 5,
+      "skill": 5,
+      "xwsaddon": "ssl"
     }
   ],
   "upgrades": [
@@ -7467,6 +7499,51 @@
       "id": 532,
       "name": "Adaptable Pilot",
       "slot": "Command"
+    },
+    {
+      "id": 533,
+      "name": "Without A Trace (SL)",
+      "slot": "Talent"
+    },
+    {
+      "id": 534,
+      "name": "Relay System (SL)",
+      "slot": "Sensor"
+    },
+    {
+      "id": 535,
+      "name": "Stygium Reserve (SL)",
+      "slot": "Modification"
+    },
+    {
+      "id": 536,
+      "name": "Silent Hunter (SL)",
+      "slot": "Talent"
+    },
+    {
+      "id": 537,
+      "name": "Stealth Gambit (SL)",
+      "slot": "Talent"
+    },
+    {
+      "id": 538,
+      "name": "Manual Ailerons (SL)",
+      "slot": "Modification"
+    },
+    {
+      "id": 539,
+      "name": "Saturation Rockets (SL)",
+      "slot": "Missile"
+    },
+    {
+      "id": 540,
+      "name": "Long-Range Scanners (SL)",
+      "slot": "Sensor"
+    },
+    {
+      "id": 541,
+      "name": "Heavy Plasma Missiles (SL)",
+      "slot": "Missile"
     }
   ]
 }
