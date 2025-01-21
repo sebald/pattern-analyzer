@@ -30,7 +30,7 @@
     }
   },
   "braylenstramm-battleoverendor": {
-    "points": 4,
+    "points": 5,
     "upgrades": {
       "talent": [
         "itsatrap-battleoverendor"
@@ -221,7 +221,7 @@
     }
   },
   "gemmersojan-battleoverendor": {
-    "points": 3,
+    "points": 4,
     "upgrades": {
       "talent": [
         "itsatrap-battleoverendor"
@@ -409,6 +409,34 @@
       ],
       "title": [
         "outrider"
+      ]
+    }
+  },
+  "lieutenantkarsabi-ssl": {
+    "points": 5,
+    "upgrades": {
+      "torpedo": [
+        "protontorpedoes"
+      ],
+      "missile": [
+        "saturationrockets-alphaclassstarwing"
+      ],
+      "modification": [
+        "electronicbaffle"
+      ]
+    }
+  },
+  "majorvynder-ssl": {
+    "points": 5,
+    "upgrades": {
+      "sensor": [
+        "longrangescanners-alphaclassstarwing"
+      ],
+      "cannon": [
+        "ioncannon"
+      ],
+      "missile": [
+        "heavyplasmamissiles-alphaclassstarwing"
       ]
     }
   },
@@ -682,6 +710,32 @@
       ]
     }
   },
+  "whisper-ssl": {
+    "points": 5,
+    "upgrades": {
+      "talent": [
+        "withoutatrace-tiephphantom"
+      ],
+      "sensor": [
+        "relaysystem-tiephphantom"
+      ],
+      "modification": [
+        "stygiumreserve-tiephphantom"
+      ]
+    }
+  },
+  "echo-ssl": {
+    "points": 5,
+    "upgrades": {
+      "talent": [
+        "silenthunter-tiephphantom",
+        "stealthgambit-tiephphantom"
+      ],
+      "modification": [
+        "manualailerons-tiephphantom"
+      ]
+    }
+  },
   "captainjonus-swz105": {
     "points": 4,
     "upgrades": {
@@ -737,7 +791,7 @@
     }
   },
   "tomaxbren-swz98": {
-    "points": 3,
+    "points": 4,
     "upgrades": {
       "talent": [
         "truegrit-swz98"
@@ -807,7 +861,7 @@
     }
   },
   "dashrendar-swz103-sl-scumandvillainy": {
-    "points": 7,
+    "points": 6,
     "upgrades": {
       "talent": [
         "mercenary-swz103"
@@ -824,7 +878,7 @@
     }
   },
   "oddball-siegeofcoruscant": {
-    "points": 4,
+    "points": 5,
     "upgrades": {
       "talent": [
         "selfless"
@@ -866,7 +920,7 @@
     }
   },
   "kickback-siegeofcoruscant": {
-    "points": 3,
+    "points": 4,
     "upgrades": {
       "missile": [
         "diamondboronmissiles"

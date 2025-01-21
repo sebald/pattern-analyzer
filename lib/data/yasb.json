@@ -1633,11 +1633,7 @@
       "skill": 6
     },
     {
-      "id": 234,
-      "name": "\"Longshot\"",
-      "ship": "TIE/fo Fighter",
-      "points": 3,
-      "skill": 3
+      "id": 234
     },
     {
       "id": 235,
@@ -7462,86 +7458,46 @@
     },
     {
       "id": 525,
-      "name": "New Recruit",
-      "slot": "Command"
-    },
-    {
-      "id": 526,
-      "name": "Locked-Turret Specialist",
-      "slot": "Command"
-    },
-    {
-      "id": 527,
-      "name": "Heavy Reinforced Vanguard",
-      "slot": "Command"
-    },
-    {
-      "id": 528,
-      "name": "Evasive Interceptor",
-      "slot": "Command"
-    },
-    {
-      "id": 529,
-      "name": "Countermeasures Specialist",
-      "slot": "Command"
-    },
-    {
-      "id": 530,
-      "name": "Combat Veteran",
-      "slot": "Command"
-    },
-    {
-      "id": 531,
-      "name": "Force Adept Pilot",
-      "slot": "Command"
-    },
-    {
-      "id": 532,
-      "name": "Adaptable Pilot",
-      "slot": "Command"
-    },
-    {
-      "id": 533,
       "name": "Without A Trace (SL)",
       "slot": "Talent"
     },
     {
-      "id": 534,
+      "id": 526,
       "name": "Relay System (SL)",
       "slot": "Sensor"
     },
     {
-      "id": 535,
+      "id": 527,
       "name": "Stygium Reserve (SL)",
       "slot": "Modification"
     },
     {
-      "id": 536,
+      "id": 528,
       "name": "Silent Hunter (SL)",
       "slot": "Talent"
     },
     {
-      "id": 537,
+      "id": 529,
       "name": "Stealth Gambit (SL)",
       "slot": "Talent"
     },
     {
-      "id": 538,
+      "id": 530,
       "name": "Manual Ailerons (SL)",
       "slot": "Modification"
     },
     {
-      "id": 539,
+      "id": 531,
       "name": "Saturation Rockets (SL)",
       "slot": "Missile"
     },
     {
-      "id": 540,
+      "id": 532,
       "name": "Long-Range Scanners (SL)",
       "slot": "Sensor"
     },
     {
-      "id": 541,
+      "id": 533,
       "name": "Heavy Plasma Missiles (SL)",
       "slot": "Missile"
     }

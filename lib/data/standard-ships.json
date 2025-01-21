@@ -20,6 +20,7 @@
   },
   "galacticempire": {
     "ships": [
+      "alphaclassstarwing",
       "gauntletfighter",
       "tieadvancedv1",
       "tieadvancedx1",
@@ -27,6 +28,7 @@
       "tiereaper",
       "tieddefender",
       "tielnfighter",
+      "tiephphantom",
       "tiesabomber",
       "tieskstriker",
       "vt49decimator",
