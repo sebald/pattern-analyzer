@@ -173,8 +173,8 @@ devDependencies:
     specifier: https://github.com/xwingtmg/xwing-data2#ed1befc
     version: github.com/xwingtmg/xwing-data2/ed1befc
   yasb:
-    specifier: github:raithos/xwing#a6753af
-    version: github.com/raithos/xwing/a6753af
+    specifier: github:raithos/xwing#cedff74
+    version: github.com/raithos/xwing/cedff74
   zx:
     specifier: 7.2.3
     version: 7.2.3
@@ -7382,8 +7382,8 @@ packages:
       yaml: 2.3.1
     dev: true
 
-  github.com/raithos/xwing/a6753af:
-    resolution: {tarball: https://codeload.github.com/raithos/xwing/tar.gz/a6753af}
+  github.com/raithos/xwing/cedff74:
+    resolution: {tarball: https://codeload.github.com/raithos/xwing/tar.gz/cedff74}
     name: yasb
     version: 2.5.0
     dev: true
