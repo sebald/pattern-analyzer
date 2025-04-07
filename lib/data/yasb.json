@@ -4828,6 +4828,358 @@
       "points": 5,
       "skill": 5,
       "xwsaddon": "ssl"
+    },
+    {
+      "id": 678,
+      "name": "Raymus Antilles",
+      "ship": "CR90 Corellian Corvette",
+      "points": 12,
+      "skill": 8,
+      "xwsaddon": "epicsl-rebelalliance"
+    },
+    {
+      "id": 679,
+      "name": "Raymus Antilles (Republic)",
+      "ship": "CR90 Corellian Corvette",
+      "points": 12,
+      "skill": 8,
+      "xwsaddon": "epicsl-galacticrepublic"
+    },
+    {
+      "id": 680,
+      "name": "Leia Organa (CR90)",
+      "ship": "CR90 Corellian Corvette",
+      "points": 12,
+      "skill": 8,
+      "xwsaddon": "epicsl"
+    },
+    {
+      "id": 681,
+      "name": "Iden Versio (Raider)",
+      "ship": "Raider-class Corvette",
+      "points": 13,
+      "skill": 8,
+      "xwsaddon": "epicsl"
+    },
+    {
+      "id": 682,
+      "name": "Gideon Hask (Raider)",
+      "ship": "Raider-class Corvette",
+      "points": 13,
+      "skill": 8,
+      "xwsaddon": "epicsl"
+    },
+    {
+      "id": 683,
+      "name": "Aut-0",
+      "ship": "Gozanti-class Cruiser",
+      "points": 8,
+      "skill": 7,
+      "xwsaddon": "epicsl"
+    },
+    {
+      "id": 684,
+      "name": "Cerra Fellian",
+      "ship": "Gozanti-class Cruiser",
+      "points": 8,
+      "skill": 7,
+      "xwsaddon": "epicsl"
+    },
+    {
+      "id": 685,
+      "name": "Rik Virgilio",
+      "ship": "Gozanti-class Cruiser",
+      "points": 8,
+      "skill": 7,
+      "xwsaddon": "epicsl"
+    },
+    {
+      "id": 686,
+      "name": "Wez Synat",
+      "ship": "Gozanti-class Cruiser",
+      "points": 8,
+      "skill": 7,
+      "xwsaddon": "epicsl"
+    },
+    {
+      "id": 687,
+      "name": "Oraf Desyk",
+      "ship": "GR-75 Medium Transport",
+      "points": 8,
+      "skill": 7,
+      "xwsaddon": "epicsl"
+    },
+    {
+      "id": 688,
+      "name": "Trebor Zednem",
+      "ship": "GR-75 Medium Transport",
+      "points": 8,
+      "skill": 7,
+      "xwsaddon": "epicsl"
+    },
+    {
+      "id": 689,
+      "name": "Cikatro Vizago",
+      "ship": "C-ROC Cruiser",
+      "points": 8,
+      "skill": 7,
+      "xwsaddon": "epicsl"
+    },
+    {
+      "id": 690,
+      "name": "Asajj Ventress (Trident)",
+      "ship": "Trident-class Assault Ship",
+      "points": 8,
+      "skill": 8,
+      "xwsaddon": "epicsl"
+    },
+    {
+      "id": 691,
+      "name": "Sorc Tormo",
+      "ship": "Trident-class Assault Ship",
+      "points": 8,
+      "skill": 8,
+      "xwsaddon": "epicsl"
+    },
+    {
+      "id": 692,
+      "name": "Kylo Ren (EoD)",
+      "ship": "TIE/vn Silencer",
+      "points": 7,
+      "skill": 5,
+      "xwsaddon": "evacuationofdqar"
+    },
+    {
+      "id": 693,
+      "name": "\"Scorch\" (EoD)",
+      "ship": "TIE/fo Fighter",
+      "points": 4,
+      "skill": 4,
+      "xwsaddon": "evacuationofdqar"
+    },
+    {
+      "id": 694,
+      "name": "\"Longshot\" (EoD)",
+      "ship": "TIE/fo Fighter",
+      "points": 3,
+      "skill": 3,
+      "xwsaddon": "evacuationofdqar"
+    },
+    {
+      "id": 695,
+      "name": "\"Midnight\" (EoD)",
+      "ship": "TIE/fo Fighter",
+      "points": 4,
+      "skill": 6,
+      "xwsaddon": "evacuationofdqar"
+    },
+    {
+      "id": 696,
+      "name": "Zeta 5 (EoD)",
+      "ship": "TIE/fo Fighter",
+      "points": 3,
+      "skill": 2,
+      "xwsaddon": "evacuationofdqar"
+    },
+    {
+      "id": 697,
+      "name": "Omega 2 (EoD)",
+      "ship": "TIE/fo Fighter",
+      "points": 3,
+      "skill": 3,
+      "xwsaddon": "evacuationofdqar"
+    },
+    {
+      "id": 698,
+      "name": "Lieutenant LeHuse (EoD)",
+      "ship": "TIE/sf Fighter",
+      "points": 4,
+      "skill": 5,
+      "xwsaddon": "evacuationofdqar"
+    },
+    {
+      "id": 699,
+      "name": "Theta 3 (EoD)",
+      "ship": "TIE/sf Fighter",
+      "points": 4,
+      "skill": 3,
+      "xwsaddon": "evacuationofdqar"
+    },
+    {
+      "id": 700,
+      "name": "Theta 4 (EoD)",
+      "ship": "TIE/sf Fighter",
+      "points": 4,
+      "skill": 4,
+      "xwsaddon": "evacuationofdqar"
+    },
+    {
+      "id": 701,
+      "name": "Petty Officer Thanisson (EoD)",
+      "ship": "Upsilon-Class Command Shuttle",
+      "points": 6,
+      "skill": 1,
+      "xwsaddon": "evacuationofdqar"
+    },
+    {
+      "id": 702,
+      "name": "Poe Dameron (EoD)",
+      "ship": "T-70 X-wing",
+      "points": 6,
+      "skill": 6,
+      "xwsaddon": "evacuationofdqar"
+    },
+    {
+      "id": 703,
+      "name": "Jaycris Tubbs (EoD)",
+      "ship": "T-70 X-wing",
+      "points": 4,
+      "skill": 1,
+      "xwsaddon": "evacuationofdqar"
+    },
+    {
+      "id": 704,
+      "name": "Stomeroni Starck (EoD)",
+      "ship": "T-70 X-wing",
+      "points": 5,
+      "skill": 4,
+      "xwsaddon": "evacuationofdqar"
+    },
+    {
+      "id": 705,
+      "name": "C'ai Threnalli (EoD)",
+      "ship": "T-70 X-wing",
+      "points": 4,
+      "skill": 4,
+      "xwsaddon": "evacuationofdqar"
+    },
+    {
+      "id": 706,
+      "name": "Ronith Blario (EoD)",
+      "ship": "RZ-2 A-wing",
+      "points": 3,
+      "skill": 2,
+      "xwsaddon": "evacuationofdqar"
+    },
+    {
+      "id": 707,
+      "name": "Tallissan Lintra (EoD)",
+      "ship": "RZ-2 A-wing",
+      "points": 4,
+      "skill": 5,
+      "xwsaddon": "evacuationofdqar"
+    },
+    {
+      "id": 708,
+      "name": "Zizi Tlo (EoD)",
+      "ship": "RZ-2 A-wing",
+      "points": 4,
+      "skill": 5,
+      "xwsaddon": "evacuationofdqar"
+    },
+    {
+      "id": 709,
+      "name": "Pammich Nerro Goode (EoD)",
+      "ship": "Resistance Transport",
+      "points": 4,
+      "skill": 3,
+      "xwsaddon": "evacuationofdqar"
+    },
+    {
+      "id": 710,
+      "name": "Finch Dallow (EoD)",
+      "ship": "MG-100 StarFortress",
+      "points": 6,
+      "skill": 4,
+      "xwsaddon": "evacuationofdqar"
+    },
+    {
+      "id": 711,
+      "name": "Vennie (EoD)",
+      "ship": "MG-100 StarFortress",
+      "points": 6,
+      "skill": 2,
+      "xwsaddon": "evacuationofdqar"
+    },
+    {
+      "id": 712,
+      "name": "Boba Fett (AaD)",
+      "ship": "Firespray-class Patrol Craft",
+      "points": 7,
+      "skill": 5,
+      "xwsaddon": "armedanddangerous"
+    },
+    {
+      "id": 713,
+      "name": "The Mandalorian (AaD)",
+      "ship": "Naboo Royal N-1 Starfighter",
+      "points": 4,
+      "skill": 5,
+      "xwsaddon": "armedanddangerous"
+    },
+    {
+      "id": 714,
+      "name": "Han Solo (AaD)",
+      "ship": "Customized YT-1300 Light Freighter",
+      "points": 6,
+      "skill": 6,
+      "xwsaddon": "armedanddangerous"
+    },
+    {
+      "id": 715,
+      "name": "Bo-Katan Kryze (AaD)",
+      "ship": "Gauntlet Fighter",
+      "points": 6,
+      "skill": 4,
+      "xwsaddon": "armedanddangerous"
+    },
+    {
+      "id": 716,
+      "name": "Dengar (AaD)",
+      "ship": "JumpMaster 5000",
+      "points": 6,
+      "skill": 6,
+      "xwsaddon": "armedanddangerous"
+    },
+    {
+      "id": 717,
+      "name": "Bossk (AaD)",
+      "ship": "YV-666 Light Freighter",
+      "points": 6,
+      "skill": 4,
+      "xwsaddon": "armedanddangerous"
+    },
+    {
+      "id": 718,
+      "name": "Cad Bane (AaD)",
+      "ship": "Rogue-class Starfighter",
+      "points": 4,
+      "skill": 4,
+      "xwsaddon": "armedanddangerous"
+    },
+    {
+      "id": 719,
+      "name": "Fenn Rau (AaD)",
+      "ship": "Fang Fighter",
+      "points": 6,
+      "skill": 6,
+      "xwsaddon": "armedanddangerous"
+    },
+    {
+      "id": 720,
+      "name": "Prince Xizor (AaD)",
+      "ship": "StarViper-class Attack Platform",
+      "points": 5,
+      "skill": 4,
+      "xwsaddon": "armedanddangerous"
+    },
+    {
+      "id": 721,
+      "name": "Zuckuss (AaD)",
+      "ship": "G-1A Starfighter",
+      "points": 5,
+      "skill": 3,
+      "xwsaddon": "armedanddangerous"
     }
   ],
   "upgrades": [
@@ -7500,6 +7852,426 @@
       "id": 533,
       "name": "Heavy Plasma Missiles (SL)",
       "slot": "Missile"
+    },
+    {
+      "id": 534,
+      "name": "Leia Organa (Epic)",
+      "slot": "Crew"
+    },
+    {
+      "id": 535,
+      "name": "R2-D2 (Epic)",
+      "slot": "Crew"
+    },
+    {
+      "id": 536,
+      "name": "C-3PO (Epic)",
+      "slot": "Crew"
+    },
+    {
+      "id": 537,
+      "name": "Endless Hordes (Epic)",
+      "slot": "Cargo"
+    },
+    {
+      "id": 538,
+      "name": "Bail Organa (Epic)",
+      "slot": "Crew"
+    },
+    {
+      "id": 539,
+      "name": "Alpha Revue (Epic)",
+      "slot": "Title"
+    },
+    {
+      "id": 540,
+      "name": "Secret Provisions (Epic)",
+      "slot": "Modification"
+    },
+    {
+      "id": 541,
+      "name": "Nien Nunb (Epic)",
+      "slot": "Command"
+    },
+    {
+      "id": 542,
+      "name": "Urcos Furdam (Epic)",
+      "slot": "Command"
+    },
+    {
+      "id": 543,
+      "name": "Tantive IV (Resistance)",
+      "slot": "Title"
+    },
+    {
+      "id": 544,
+      "name": "Twin Missile Launcher (Epic)",
+      "slot": "Missile"
+    },
+    {
+      "id": 545,
+      "name": "Fanatical (Epic)",
+      "slot": "Talent"
+    },
+    {
+      "id": 546,
+      "name": "Inferno Squad (Epic)",
+      "slot": "Crew"
+    },
+    {
+      "id": 547,
+      "name": "Corvus (Epic)",
+      "slot": "Title"
+    },
+    {
+      "id": 548,
+      "name": "Agent Terex (Epic)",
+      "slot": "Crew"
+    },
+    {
+      "id": 549,
+      "name": "Protectorate Gleb (Epic)",
+      "slot": "Crew"
+    },
+    {
+      "id": 550,
+      "name": "Jinata Security Forces (Epic)",
+      "slot": "Crew"
+    },
+    {
+      "id": 551,
+      "name": "Precursor (Epic)",
+      "slot": "Title"
+    },
+    {
+      "id": 552,
+      "name": "TX-25 (Epic)",
+      "slot": "Tactical Relay"
+    },
+    {
+      "id": 553,
+      "name": "Petty Officer Thanisson (Epic)",
+      "slot": "Crew"
+    },
+    {
+      "id": 554,
+      "name": "Malefactor (Epic)",
+      "slot": "Title"
+    },
+    {
+      "id": 555,
+      "name": "Thrawn (Epic)",
+      "slot": "Crew"
+    },
+    {
+      "id": 556,
+      "name": "Heavy Laser Cannon Turret (Epic)",
+      "slot": "Hardpoint"
+    },
+    {
+      "id": 557,
+      "name": "Blood Crow (Epic)",
+      "slot": "Title"
+    },
+    {
+      "id": 558,
+      "name": "Spectre of Nayr (Epic)",
+      "slot": "Title"
+    },
+    {
+      "id": 559,
+      "name": "GA-75 (Epic)",
+      "slot": "Crew"
+    },
+    {
+      "id": 560,
+      "name": "Hosnian Lament (Epic)",
+      "slot": "Title"
+    },
+    {
+      "id": 561,
+      "name": "Planetary Ion Bombardment (Epic)",
+      "slot": "Hardpoint"
+    },
+    {
+      "id": 562,
+      "name": "Azmorigan (Epic)",
+      "slot": "Crew"
+    },
+    {
+      "id": 563,
+      "name": "Illegal Countermeasures (Epic)",
+      "slot": "Cargo"
+    },
+    {
+      "id": 564,
+      "name": "Modified Dorsal Turret (Epic)",
+      "slot": "Hardpoint"
+    },
+    {
+      "id": 565,
+      "name": "AQ-Series Battle Droids (Epic)",
+      "slot": "Crew"
+    },
+    {
+      "id": 566,
+      "name": "Drill Beak (Epic)",
+      "slot": "Hardpoint"
+    },
+    {
+      "id": 567,
+      "name": "Trident (Epic)",
+      "slot": "Title"
+    },
+    {
+      "id": 568,
+      "name": "Caij Vanda (Epic)",
+      "slot": "Crew"
+    },
+    {
+      "id": 569,
+      "name": "Nautolan's Revenge (Epic)",
+      "slot": "Title"
+    },
+    {
+      "id": 570,
+      "name": "Tantive IV (Republic)",
+      "slot": "Title"
+    },
+    {
+      "id": 571,
+      "name": "Born for This (Epic)",
+      "slot": "Talent"
+    },
+    {
+      "id": 572,
+      "name": "Point Defense Battery (Epic)",
+      "slot": "Hardpoint"
+    },
+    {
+      "id": 573,
+      "name": "Determination (EoD)",
+      "slot": "Talent"
+    },
+    {
+      "id": 574,
+      "name": "Experimental Scanners (EoD)",
+      "slot": "Tech"
+    },
+    {
+      "id": 575,
+      "name": "Advanced Warning Systems (EoD)",
+      "slot": "Modification"
+    },
+    {
+      "id": 576,
+      "name": "Targeting Relay (EoD)",
+      "slot": "Tech"
+    },
+    {
+      "id": 577,
+      "name": "Interference Array (EoD)",
+      "slot": "Tech"
+    },
+    {
+      "id": 578,
+      "name": "BB-8 (EoD)",
+      "slot": "Astromech"
+    },
+    {
+      "id": 579,
+      "name": "Primed Overdrive Thrusters (EoD)",
+      "slot": "Tech"
+    },
+    {
+      "id": 580,
+      "name": "Black One (EoD)",
+      "slot": "Title"
+    },
+    {
+      "id": 581,
+      "name": "For The Cause (EoD)",
+      "slot": "Talent"
+    },
+    {
+      "id": 582,
+      "name": "R0 Astromech (EoD)",
+      "slot": "Astromech"
+    },
+    {
+      "id": 583,
+      "name": "Accelerated Sensor Array (EoD)",
+      "slot": "Tech"
+    },
+    {
+      "id": 584,
+      "name": "Repulsorlift Engines (EoD)",
+      "slot": "Modification"
+    },
+    {
+      "id": 585,
+      "name": "Escort Fighter (EoD)",
+      "slot": "Talent"
+    },
+    {
+      "id": 586,
+      "name": "Precision Holo-Targeter (EoD)",
+      "slot": "Tech"
+    },
+    {
+      "id": 587,
+      "name": "R0-GR (EoD)",
+      "slot": "Tech"
+    },
+    {
+      "id": 588,
+      "name": "Black Squadron R4 (EoD)",
+      "slot": "Tech"
+    },
+    {
+      "id": 589,
+      "name": "Nix Jerd (EoD)",
+      "slot": "Crew"
+    },
+    {
+      "id": 590,
+      "name": "Paige Tico (EoD)",
+      "slot": "Gunner"
+    },
+    {
+      "id": 591,
+      "name": "Dedicated Gunners (EoD)",
+      "slot": "Gunner"
+    },
+    {
+      "id": 592,
+      "name": "Homing Beacon (AaD)",
+      "slot": "Sensor"
+    },
+    {
+      "id": 593,
+      "name": "Fennec Shand (AaD)",
+      "slot": "Gunner"
+    },
+    {
+      "id": 594,
+      "name": "The Child (AaD)",
+      "slot": "Crew"
+    },
+    {
+      "id": 595,
+      "name": "Kineso-Switch (AaD)",
+      "slot": "Illicit"
+    },
+    {
+      "id": 596,
+      "name": "L3-37 (AaD)",
+      "slot": "Crew"
+    },
+    {
+      "id": 597,
+      "name": "Tobias Beckett (AaD)",
+      "slot": "Gunner"
+    },
+    {
+      "id": 598,
+      "name": "Lando's Millennium Falcon (AaD)",
+      "slot": "Title"
+    },
+    {
+      "id": 599,
+      "name": "Mandalorian Tactics (AaD)",
+      "slot": "Talent"
+    },
+    {
+      "id": 600,
+      "name": "Nite Owl Sentries (AaD)",
+      "slot": "Crew"
+    },
+    {
+      "id": 601,
+      "name": "R2-G8 (AaD)",
+      "slot": "Astromech"
+    },
+    {
+      "id": 602,
+      "name": "Synchronized Handling (AaD)",
+      "slot": "Tech"
+    },
+    {
+      "id": 603,
+      "name": "Starboard Thrusters (AaD)",
+      "slot": "Modification"
+    },
+    {
+      "id": 604,
+      "name": "Embo (AaD)",
+      "slot": "Crew"
+    },
+    {
+      "id": 605,
+      "name": "Flechette Cannons (AaD)",
+      "slot": "Cannon"
+    },
+    {
+      "id": 606,
+      "name": "Todo 360 (AaD)",
+      "slot": "Crew"
+    },
+    {
+      "id": 607,
+      "name": "Xanadu Blood (AaD)",
+      "slot": "Title"
+    },
+    {
+      "id": 608,
+      "name": "Adaptable Power Systems (AaD)",
+      "slot": "Modification"
+    },
+    {
+      "id": 609,
+      "name": "Crime Lord (AaD)",
+      "slot": "Talent"
+    },
+    {
+      "id": 610,
+      "name": "Virago (AaD)",
+      "slot": "Title"
+    },
+    {
+      "id": 611,
+      "name": "Persistent Tracker (AaD)",
+      "slot": "Talent"
+    },
+    {
+      "id": 612,
+      "name": "4-LOM (AaD)",
+      "slot": "Crew"
+    },
+    {
+      "id": 613,
+      "name": "Mist Hunter (AaD)",
+      "slot": "Title"
+    },
+    {
+      "id": 614,
+      "name": "First Order Ordnance Tech (EoD)",
+      "slot": "Gunner"
+    },
+    {
+      "id": 615,
+      "name": "Threat Sensors (EoD)",
+      "slot": "Tech"
+    },
+    {
+      "id": 616,
+      "name": "General Hux (EoD)",
+      "slot": "Crew"
+    },
+    {
+      "id": 617,
+      "name": "Hound's Tooth (AaD)",
+      "slot": "Title"
     }
   ]
 }
