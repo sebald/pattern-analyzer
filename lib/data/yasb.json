@@ -8272,6 +8272,11 @@
       "id": 617,
       "name": "Hound's Tooth (AaD)",
       "slot": "Title"
+    },
+    {
+      "id": 618,
+      "name": "Chewbacca (AaD)",
+      "slot": "Crew"
     }
   ]
 }
