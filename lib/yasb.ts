@@ -29,6 +29,8 @@ export const EXPANSIONS = {
   TBE: 'swz98',
   YLF: 'swz103',
   BoE: 'battleoverendor',
+  EoD: 'evacuationofdqar',
+  AoD: 'armedanddangerous',
 };
 
 export const canonicalize = (val: string) =>
@@ -169,7 +171,7 @@ export const yasb2xws = (val: string | YASBParams): XWSSquad => {
       if (!o[slot]) {
         o[slot] = [];
       }
-      //@ts-expect-error
+
       o[slot].push(name);
 
       return o;
