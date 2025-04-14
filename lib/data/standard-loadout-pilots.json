@@ -15,7 +15,7 @@
     }
   },
   "ginamoonsong-battleoverendor": {
-    "points": 5,
+    "points": 6,
     "upgrades": {
       "talent": [
         "itsatrap-battleoverendor",
@@ -75,7 +75,7 @@
     }
   },
   "holokand-battleofyavin": {
-    "points": 3,
+    "points": 4,
     "upgrades": {
       "turret": [
         "dorsalturret"
@@ -171,7 +171,7 @@
     }
   },
   "jakefarrell-swz106": {
-    "points": 5,
+    "points": 4,
     "upgrades": {
       "talent": [
         "elusive",
@@ -183,7 +183,7 @@
     }
   },
   "sharabey-swz106": {
-    "points": 4,
+    "points": 3,
     "upgrades": {
       "talent": [
         "hopeful"
@@ -251,7 +251,7 @@
     }
   },
   "garvendreis-battleofyavin": {
-    "points": 4,
+    "points": 5,
     "upgrades": {
       "torpedo": [
         "advprotontorpedoes"
@@ -262,7 +262,7 @@
     }
   },
   "jekporkins-battleofyavin": {
-    "points": 4,
+    "points": 5,
     "upgrades": {
       "torpedo": [
         "advprotontorpedoes"
@@ -276,7 +276,7 @@
     }
   },
   "lukeskywalker-battleofyavin": {
-    "points": 5,
+    "points": 6,
     "upgrades": {
       "talent": [
         "attackspeed-battleofyavin"
@@ -293,7 +293,7 @@
     }
   },
   "wedgeantilles-battleofyavin": {
-    "points": 5,
+    "points": 6,
     "upgrades": {
       "talent": [
         "attackspeed-battleofyavin",
@@ -336,7 +336,7 @@
     }
   },
   "wedgeantilles-battleoverendor": {
-    "points": 5,
+    "points": 6,
     "upgrades": {
       "talent": [
         "itsatrap-battleoverendor",
@@ -382,7 +382,7 @@
     }
   },
   "leebo-swz103-sl-rebelalliance": {
-    "points": 6,
+    "points": 7,
     "upgrades": {
       "talent": [
         "efficientprocessing-swz103"
@@ -427,7 +427,7 @@
     }
   },
   "majorvynder-ssl": {
-    "points": 5,
+    "points": 6,
     "upgrades": {
       "sensor": [
         "longrangescanners-alphaclassstarwing"
@@ -441,7 +441,7 @@
     }
   },
   "darthvader-battleofyavin": {
-    "points": 6,
+    "points": 7,
     "upgrades": {
       "talent": [
         "marksmanship"
@@ -455,7 +455,7 @@
     }
   },
   "darthvader-swz105": {
-    "points": 6,
+    "points": 7,
     "upgrades": {
       "force-power": [
         "hate"
@@ -564,7 +564,7 @@
     }
   },
   "mausmonare-battleoverendor": {
-    "points": 5,
+    "points": 4,
     "upgrades": {
       "talent": [
         "noescape-battleoverendor",
@@ -576,7 +576,7 @@
     }
   },
   "captainyorr-battleoverendor": {
-    "points": 6,
+    "points": 7,
     "upgrades": {
       "talent": [
         "noescape-battleoverendor",
@@ -591,7 +591,7 @@
     }
   },
   "coloneljendon-battleoverendor": {
-    "points": 7,
+    "points": 8,
     "upgrades": {
       "talent": [
         "noescape-battleoverendor",
@@ -629,7 +629,7 @@
     }
   },
   "maulermithel-battleofyavin": {
-    "points": 3,
+    "points": 4,
     "upgrades": {
       "talent": [
         "predator"
@@ -688,7 +688,7 @@
     }
   },
   "scythe6-battleoverendor": {
-    "points": 3,
+    "points": 4,
     "upgrades": {
       "talent": [
         "noescape-battleoverendor",
@@ -711,7 +711,7 @@
     }
   },
   "whisper-ssl": {
-    "points": 5,
+    "points": 6,
     "upgrades": {
       "talent": [
         "withoutatrace-tiephphantom"
@@ -725,7 +725,7 @@
     }
   },
   "echo-ssl": {
-    "points": 5,
+    "points": 6,
     "upgrades": {
       "talent": [
         "silenthunter-tiephphantom",
@@ -751,7 +751,7 @@
     }
   },
   "tomaxbren-swz105": {
-    "points": 5,
+    "points": 4,
     "upgrades": {
       "talent": [
         "elusive"
@@ -765,7 +765,7 @@
     }
   },
   "deathfire-swz98": {
-    "points": 3,
+    "points": 4,
     "upgrades": {
       "talent": [
         "swiftapproach-swz98"
@@ -805,7 +805,7 @@
     }
   },
   "majorrhymer-swz98": {
-    "points": 4,
+    "points": 5,
     "upgrades": {
       "torpedo": [
         "advprotontorpedoes"
@@ -846,6 +846,157 @@
       ]
     }
   },
+  "hansolo-armedanddangerous": {
+    "points": 6,
+    "upgrades": {
+      "crew": [
+        "chewbacca-armedanddangerous",
+        "l337-armedanddangerous"
+      ],
+      "gunner": [
+        "tobiasbeckett-armedanddangerous"
+      ],
+      "title": [
+        "landosmillenniumfalcon-armedanddangerous"
+      ]
+    }
+  },
+  "fennrau-armedanddangerous": {
+    "points": 6,
+    "upgrades": {
+      "talent": [
+        "fearless"
+      ],
+      "modification": [
+        "adaptablepowersystems-armedanddangerous",
+        "beskarreinforcedplating"
+      ]
+    }
+  },
+  "bobafett-armedanddangerous": {
+    "points": 7,
+    "upgrades": {
+      "sensor": [
+        "homingbeacon-armedanddangerous"
+      ],
+      "gunner": [
+        "fennecshand-armedanddangerous"
+      ],
+      "device": [
+        "seismiccharges"
+      ],
+      "title": [
+        "slavei-swz82"
+      ]
+    }
+  },
+  "zuckuss-armedanddangerous": {
+    "points": 5,
+    "upgrades": {
+      "talent": [
+        "persistenttracker-armedanddangerous"
+      ],
+      "cannon": [
+        "tractorbeam"
+      ],
+      "crew": [
+        "4lom-armedanddangerous"
+      ],
+      "title": [
+        "misthunter-armedanddangerous"
+      ]
+    }
+  },
+  "bokatankryze-armedanddangerous": {
+    "points": 6,
+    "upgrades": {
+      "talent": [
+        "mandaloriantactics-armedanddangerous"
+      ],
+      "crew": [
+        "niteowlsentries-armedanddangerous"
+      ],
+      "gunner": [
+        "veterantailgunner"
+      ]
+    }
+  },
+  "dengar-armedanddangerous": {
+    "points": 6,
+    "upgrades": {
+      "gunner": [
+        "r2g8-armedanddangerous"
+      ],
+      "unknown": [
+        "synchronizedhandling-armedanddangerous"
+      ],
+      "modification": [
+        "starboardthrusters-armedanddangerous"
+      ],
+      "title": [
+        "punishingone"
+      ]
+    }
+  },
+  "themandalorian-armedanddangerous": {
+    "points": 4,
+    "upgrades": {
+      "talent": [
+        "outmaneuver"
+      ],
+      "crew": [
+        "thechild-armedanddangerous"
+      ],
+      "illicit": [
+        "kinesoswitch-armedanddangerous"
+      ],
+      "configuration": [
+        "calibratedlasertargeting"
+      ]
+    }
+  },
+  "cadbane-armedanddangerous": {
+    "points": 4,
+    "upgrades": {
+      "cannon": [
+        "flechettecannons-armedanddangerous"
+      ],
+      "crew": [
+        "todo360-armedanddangerous"
+      ],
+      "title": [
+        "xanadublood-armedanddangerous"
+      ]
+    }
+  },
+  "princexizor-armedanddangerous": {
+    "points": 5,
+    "upgrades": {
+      "talent": [
+        "crimelord-armedanddangerous"
+      ],
+      "modification": [
+        "mandalorianoptics"
+      ],
+      "title": [
+        "virago-armedanddangerous"
+      ]
+    }
+  },
+  "bossk-armedanddangerous": {
+    "points": 6,
+    "upgrades": {
+      "crew": [
+        "embo-armedanddangerous"
+      ],
+      "illicit": [
+        "contrabandcybernetics"
+      ],
+      "title": [
+        "houndstooth-armedanddangerous"
+      ]
+    }
+  },
   "leebo-swz103-sl-scumandvillainy": {
     "points": 6,
     "upgrades": {
@@ -861,7 +1012,7 @@
     }
   },
   "dashrendar-swz103-sl-scumandvillainy": {
-    "points": 6,
+    "points": 7,
     "upgrades": {
       "talent": [
         "mercenary-swz103"
@@ -874,6 +1025,273 @@
       ],
       "title": [
         "outrider"
+      ]
+    }
+  },
+  "finchdallow-evacuationofdqar": {
+    "points": 6,
+    "upgrades": {
+      "crew": [
+        "nixjerd-evacuationofdqar"
+      ],
+      "gunner": [
+        "paigetico-evacuationofdqar"
+      ],
+      "device": [
+        "protonbombs",
+        "thermaldetonators"
+      ]
+    }
+  },
+  "vennie-evacuationofdqar": {
+    "points": 6,
+    "upgrades": {
+      "crew": [
+        "perceptivecopilot"
+      ],
+      "gunner": [
+        "dedicatedgunners-evacuationofdqar"
+      ],
+      "device": [
+        "protonbombs"
+      ]
+    }
+  },
+  "ronithblario-evacuationofdqar": {
+    "points": 3,
+    "upgrades": {
+      "talent": [
+        "escortfighter-evacuationofdqar",
+        "heroic",
+        "starbirdslash"
+      ]
+    }
+  },
+  "tallissanlintra-evacuationofdqar": {
+    "points": 4,
+    "upgrades": {
+      "talent": [
+        "heroic",
+        "pushthelimit-battleoverendor"
+      ],
+      "missile": [
+        "xx23sthreadtracers"
+      ]
+    }
+  },
+  "zizitlo-evacuationofdqar": {
+    "points": 4,
+    "upgrades": {
+      "talent": [
+        "forthecause-evacuationofdqar",
+        "heroic"
+      ],
+      "tech": [
+        "precisionholotargeter-evacuationofdqar"
+      ]
+    }
+  },
+  "caithrenalli-evacuationofdqar": {
+    "points": 4,
+    "upgrades": {
+      "talent": [
+        "forthecause-evacuationofdqar",
+        "heroic"
+      ],
+      "astromech": [
+        "bbastromech"
+      ],
+      "modification": [
+        "repulsorliftengines-evacuationofdqar"
+      ]
+    }
+  },
+  "jaycristubbs-evacuationofdqar": {
+    "points": 4,
+    "upgrades": {
+      "talent": [
+        "forthecause-evacuationofdqar"
+      ],
+      "astromech": [
+        "r0astromech-evacuationofdqar"
+      ]
+    }
+  },
+  "poedameron-evacuationofdqar": {
+    "points": 6,
+    "upgrades": {
+      "talent": [
+        "heroic"
+      ],
+      "astromech": [
+        "bb8-evacuationofdqar"
+      ],
+      "tech": [
+        "primedoverdrivethrusters-evacuationofdqar"
+      ],
+      "title": [
+        "blackone-evacuationofdqar"
+      ]
+    }
+  },
+  "stomeronistarck-evacuationofdqar": {
+    "points": 5,
+    "upgrades": {
+      "talent": [
+        "forthecause-evacuationofdqar"
+      ],
+      "tech": [
+        "acceleratedsensorarray-evacuationofdqar"
+      ],
+      "astromech": [
+        "r5x3-evacuationofdqar"
+      ]
+    }
+  },
+  "pammichnerrogoode-evacuationofdqar": {
+    "points": 4,
+    "upgrades": {
+      "talent": [
+        "forthecause-evacuationofdqar"
+      ],
+      "crew": [
+        "r0gr-evacuationofdqar"
+      ],
+      "astromech": [
+        "blacksquadronr4-evacuationofdqar"
+      ]
+    }
+  },
+  "longshot-evacuationofdqar": {
+    "points": 3,
+    "upgrades": {
+      "talent": [
+        "determination-evacuationofdqar",
+        "fanatical"
+      ],
+      "tech": [
+        "experimentalscanners-evacuationofdqar"
+      ]
+    }
+  },
+  "midnight-evacuationofdqar": {
+    "points": 4,
+    "upgrades": {
+      "talent": [
+        "determination-evacuationofdqar"
+      ],
+      "tech": [
+        "targetingsynchronizer"
+      ],
+      "modification": [
+        "advancedwarningsystems-evacuationofdqar"
+      ]
+    }
+  },
+  "omega2-evacuationofdqar": {
+    "points": 3,
+    "upgrades": {
+      "talent": [
+        "determination-evacuationofdqar"
+      ],
+      "tech": [
+        "targetingrelay-evacuationofdqar"
+      ]
+    }
+  },
+  "scorch-evacuationofdqar": {
+    "points": 4,
+    "upgrades": {
+      "talent": [
+        "determination-evacuationofdqar",
+        "fanatical"
+      ],
+      "tech": [
+        "threatsensors-evacuationofdqar"
+      ]
+    }
+  },
+  "zeta5-evacuationofdqar": {
+    "points": 3,
+    "upgrades": {
+      "talent": [
+        "determination-evacuationofdqar"
+      ],
+      "tech": [
+        "patternanalyzer"
+      ],
+      "modification": [
+        "targetingmatrix-battleoverendor"
+      ]
+    }
+  },
+  "lieutenantlehuse-evacuationofdqar": {
+    "points": 4,
+    "upgrades": {
+      "talent": [
+        "determination-evacuationofdqar"
+      ],
+      "missile": [
+        "concussionmissiles"
+      ],
+      "gunner": [
+        "firstorderordnancetech-evacuationofdqar"
+      ]
+    }
+  },
+  "theta3-evacuationofdqar": {
+    "points": 4,
+    "upgrades": {
+      "missile": [
+        "seekermissiles-swz103"
+      ],
+      "sensor": [
+        "passivesensors"
+      ],
+      "gunner": [
+        "firstorderordnancetech-evacuationofdqar"
+      ]
+    }
+  },
+  "theta4-evacuationofdqar": {
+    "points": 4,
+    "upgrades": {
+      "talent": [
+        "determination-evacuationofdqar"
+      ],
+      "missile": [
+        "barragerockets"
+      ],
+      "tech": [
+        "patternanalyzer"
+      ]
+    }
+  },
+  "kyloren-evacuationofdqar": {
+    "points": 7,
+    "upgrades": {
+      "talent": [
+        "determination-evacuationofdqar"
+      ],
+      "force-power": [
+        "malice"
+      ],
+      "torpedo": [
+        "protontorpedoes"
+      ]
+    }
+  },
+  "pettyofficerthanisson-evacuationofdqar": {
+    "points": 6,
+    "upgrades": {
+      "crew": [
+        "generalhux-evacuationofdqar"
+      ],
+      "sensor": [
+        "advancedsensors"
+      ],
+      "tech": [
+        "interferencearray-evacuationofdqar"
       ]
     }
   },
@@ -892,7 +1310,7 @@
     }
   },
   "wolffe-siegeofcoruscant": {
-    "points": 4,
+    "points": 5,
     "upgrades": {
       "crew": [
         "wolfpack-siegeofcoruscant"
@@ -942,7 +1360,7 @@
     }
   },
   "anakinskywalker-siegeofcoruscant": {
-    "points": 4,
+    "points": 5,
     "upgrades": {
       "force-power": [
         "malice"
@@ -1032,7 +1450,7 @@
     }
   },
   "dfs311-siegeofcoruscant": {
-    "points": 3,
+    "points": 2,
     "upgrades": {
       "missile": [
         "discordmissiles"
@@ -1072,7 +1490,7 @@
     }
   },
   "dbs32c-siegeofcoruscant": {
-    "points": 3,
+    "points": 4,
     "upgrades": {
       "torpedo": [
         "plasmatorpedoes"
@@ -1086,7 +1504,7 @@
     }
   },
   "dbs404-siegeofcoruscant": {
-    "points": 3,
+    "points": 4,
     "upgrades": {
       "torpedo": [
         "advprotontorpedoes"
@@ -1114,7 +1532,7 @@
     }
   },
   "dis347-siegeofcoruscant": {
-    "points": 3,
+    "points": 4,
     "upgrades": {
       "talent": [
         "marksmanship"

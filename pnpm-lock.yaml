@@ -170,8 +170,8 @@ devDependencies:
     specifier: 5.4.3
     version: 5.4.3
   xwing-data2:
-    specifier: https://github.com/xwingtmg/xwing-data2#0dc446f
-    version: github.com/xwingtmg/xwing-data2/0dc446f
+    specifier: https://github.com/gregkash16/xwing-data2#ed7e2f5
+    version: github.com/gregkash16/xwing-data2/ed7e2f5
   yasb:
     specifier: github:raithos/xwing#d45b772
     version: github.com/raithos/xwing/d45b772
@@ -7582,6 +7582,14 @@ packages:
       yaml: 2.3.1
     dev: true
 
+  github.com/gregkash16/xwing-data2/ed7e2f5:
+    resolution: {tarball: https://codeload.github.com/gregkash16/xwing-data2/tar.gz/ed7e2f5}
+    name: xwing-data2
+    version: 3.9.1
+    dependencies:
+      string-math: 1.2.2
+    dev: true
+
   github.com/raithos/xwing/d45b772:
     resolution: {tarball: https://codeload.github.com/raithos/xwing/tar.gz/d45b772}
     name: yasb
@@ -7589,12 +7597,4 @@ packages:
     dependencies:
       install: 0.13.0
       sass: 1.86.3
-    dev: true
-
-  github.com/xwingtmg/xwing-data2/0dc446f:
-    resolution: {tarball: https://codeload.github.com/xwingtmg/xwing-data2/tar.gz/0dc446f}
-    name: xwing-data2
-    version: 3.9.1
-    dependencies:
-      string-math: 1.2.2
     dev: true

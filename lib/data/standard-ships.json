@@ -42,13 +42,16 @@
       "escapecraft",
       "fangfighter",
       "firesprayclasspatrolcraft",
+      "g1astarfighter",
       "gauntletfighter",
       "hwk290lightfreighter",
       "jumpmaster5000",
       "m3ainterceptor",
       "modifiedtielnfighter",
+      "nabooroyaln1starfighter",
       "rogueclassstarfighter",
       "st70assaultship",
+      "starviperclassattackplatform",
       "yv666lightfreighter",
       "yt2400lightfreighter",
       "z95af4headhunter"
@@ -56,6 +59,7 @@
   },
   "resistance": {
     "ships": [
+      "mg100starfortress",
       "scavengedyt1300",
       "rz2awing",
       "t70xwing",
@@ -71,6 +75,7 @@
       "tiefofighter",
       "tiesffighter",
       "tievnsilencer",
+      "upsilonclassshuttle",
       "xiclasslightshuttle",
       "tiesebomber",
       "tiewiwhispermodifiedinterceptor"
