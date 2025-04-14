@@ -17,7 +17,7 @@ const EXPANSIONS = {
   YLF: 'swz103',
   BoE: 'battleoverendor',
   EoD: 'evacuationofdqar',
-  AoD: 'armedanddangerous',
+  AaD: 'armedanddangerous',
 };
 
 const canonicalize = val =>

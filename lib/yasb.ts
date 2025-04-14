@@ -30,7 +30,7 @@ export const EXPANSIONS = {
   YLF: 'swz103',
   BoE: 'battleoverendor',
   EoD: 'evacuationofdqar',
-  AoD: 'armedanddangerous',
+  AaD: 'armedanddangerous',
 };
 
 export const canonicalize = (val: string) =>
