@@ -170,8 +170,8 @@ devDependencies:
     specifier: 5.4.3
     version: 5.4.3
   xwing-data2:
-    specifier: https://github.com/gregkash16/xwing-data2#ef18d55
-    version: github.com/gregkash16/xwing-data2/ef18d55
+    specifier: https://github.com/gregkash16/xwing-data2#8e2954a
+    version: github.com/gregkash16/xwing-data2/8e2954a
   yasb:
     specifier: github:raithos/xwing#d45b772
     version: github.com/raithos/xwing/d45b772
@@ -7582,8 +7582,8 @@ packages:
       yaml: 2.3.1
     dev: true
 
-  github.com/gregkash16/xwing-data2/ef18d55:
-    resolution: {tarball: https://codeload.github.com/gregkash16/xwing-data2/tar.gz/ef18d55}
+  github.com/gregkash16/xwing-data2/8e2954a:
+    resolution: {tarball: https://codeload.github.com/gregkash16/xwing-data2/tar.gz/8e2954a}
     name: xwing-data2
     version: 3.9.1
     dependencies:
