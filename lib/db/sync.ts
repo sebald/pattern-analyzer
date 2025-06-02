@@ -10,7 +10,7 @@ export const sync = async (date: Date) => {
   // Find new tournaments
   const tournaments = await getAllTournaments({
     created_after: date,
-    format: 'standard',
+    format: 'other',
   }).then(result =>
     result.map(({ id, name, date }) => ({
       listfortress_ref: id,

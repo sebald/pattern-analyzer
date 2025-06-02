@@ -6,6 +6,7 @@ import type {
 import { toXWS, getBuilderLink } from '../xws';
 
 export const FORMAT_MAP = {
+  other: 4, // also XWA
   standard: 36, // 2.5 Standard actually
   legacy: 37,
 };

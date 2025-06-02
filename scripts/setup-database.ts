@@ -32,7 +32,7 @@ void (async () => {
     console.log('🏆 Fetching tournaments...');
     const tournaments = await getAllTournaments({
       from: fromDate(pointsUpdateDate),
-      format: 'standard',
+      format: 'other',
     }).then(result =>
       result.map(({ id, name, date, location, country }) => ({
         listfortress_ref: id,
