@@ -170,7 +170,7 @@ devDependencies:
     specifier: 5.4.3
     version: 5.4.3
   xwing-data2:
-    specifier: https://github.com/gregkash16/xwing-data2#8e2954a
+    specifier: github:gregkash16/xwing-data2#8e2954a
     version: github.com/gregkash16/xwing-data2/8e2954a
   yasb:
     specifier: github:raithos/xwing#85b3950
