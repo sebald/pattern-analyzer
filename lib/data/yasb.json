@@ -5186,70 +5186,80 @@
       "name": "Zorii Bliss (Wartime)",
       "ship": "BTA-NR2-W Y-wing",
       "points": 12,
-      "skill": 5
+      "skill": 5,
+      "xwsaddon": "wartime"
     },
     {
       "id": 723,
       "name": "Teza Nasz (Wartime)",
       "ship": "BTA-NR2-W Y-wing",
       "points": 11,
-      "skill": 4
+      "skill": 4,
+      "xwsaddon": "wartime"
     },
     {
       "id": 724,
       "name": "Wilsa Teshlo (Wartime)",
       "ship": "BTA-NR2-W Y-wing",
       "points": 11,
-      "skill": 4
+      "skill": 4,
+      "xwsaddon": "wartime"
     },
     {
       "id": 725,
       "name": "Shasa Zaro (Wartime)",
       "ship": "BTA-NR2-W Y-wing",
       "points": 11,
-      "skill": 3
+      "skill": 3,
+      "xwsaddon": "wartime"
     },
     {
       "id": 726,
       "name": "Lega Fossang (Wartime)",
       "ship": "BTA-NR2-W Y-wing",
       "points": 10,
-      "skill": 3
+      "skill": 3,
+      "xwsaddon": "wartime"
     },
     {
       "id": 727,
       "name": "Aftab Ackbar (Wartime)",
       "ship": "BTA-NR2-W Y-wing",
       "points": 10,
-      "skill": 2
+      "skill": 2,
+      "xwsaddon": "wartime"
     },
     {
       "id": 728,
       "name": "Corus Kapellim (Wartime)",
       "ship": "BTA-NR2-W Y-wing",
       "points": 11,
-      "skill": 1
+      "skill": 1,
+      "xwsaddon": "wartime"
     },
     {
       "id": 729,
       "name": "C'ai Threnalli (Y-Wing) (Wartime)",
       "ship": "BTA-NR2-W Y-wing",
       "points": 10,
-      "skill": 2
+      "skill": 2,
+      "xwsaddon": "wartime"
     },
     {
       "id": 730,
       "name": "New Republic Patrol (Wartime)",
       "ship": "BTA-NR2-W Y-wing",
       "points": 10,
-      "skill": 3
+      "skill": 3,
+      "xwsaddon": "wartime"
     },
     {
       "id": 731,
       "name": "Kijimi Spice Runner (Wartime)",
       "ship": "BTA-NR2-W Y-wing",
       "points": 11,
-      "skill": 2
+      "skill": 2,
+      "xwsaddon": "wartime"
     }
   ],
   "upgrades": [
