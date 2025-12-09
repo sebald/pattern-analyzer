@@ -483,7 +483,7 @@
       "id": 69,
       "name": "Fenn Rau (Sheathipede)",
       "ship": "Sheathipede-Class Shuttle",
-      "points": 10,
+      "points": 11,
       "skill": 6
     },
     {
@@ -681,7 +681,7 @@
       "id": 97,
       "name": "Fenn Rau",
       "ship": "Fang Fighter",
-      "points": 13,
+      "points": 14,
       "skill": 6
     },
     {
@@ -723,7 +723,7 @@
       "id": 103,
       "name": "Boba Fett",
       "ship": "Firespray-class Patrol Craft",
-      "points": 20,
+      "points": 21,
       "skill": 5
     },
     {
@@ -1937,7 +1937,7 @@
       "id": 278,
       "name": "Obi-Wan Kenobi",
       "ship": "Delta-7 Aethersprite",
-      "points": 13,
+      "points": 12,
       "skill": 5
     },
     {
@@ -2126,7 +2126,7 @@
       "id": 305,
       "name": "General Grievous",
       "ship": "Belbullab-22 Starfighter",
-      "points": 12,
+      "points": 13,
       "skill": 4
     },
     {
@@ -2316,7 +2316,7 @@
       "id": 332,
       "name": "Padmé Amidala",
       "ship": "Naboo Royal N-1 Starfighter",
-      "points": 11,
+      "points": 10,
       "skill": 4,
       "xws": "padmeamidala"
     },
@@ -2324,7 +2324,7 @@
       "id": 333,
       "name": "Ric Olié",
       "ship": "Naboo Royal N-1 Starfighter",
-      "points": 10,
+      "points": 11,
       "skill": 5,
       "xws": "ricolie"
     },
@@ -3279,7 +3279,7 @@
       "id": 469,
       "name": "Darth Vader (TIE Defender)",
       "ship": "TIE/d Defender",
-      "points": 21,
+      "points": 22,
       "skill": 6
     },
     {
@@ -3728,7 +3728,7 @@
       "id": 533,
       "name": "Obi-Wan Kenobi (Delta-7b)",
       "ship": "Delta-7b Aethersprite",
-      "points": 15,
+      "points": 14,
       "skill": 5
     },
     {
@@ -5041,7 +5041,7 @@
       "id": 704,
       "name": "Stomeroni Starck (EoD)",
       "ship": "T-70 X-wing",
-      "points": 13,
+      "points": 14,
       "skill": 4,
       "xwsaddon": "evacuationofdqar"
     },
