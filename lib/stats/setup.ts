@@ -1,7 +1,7 @@
 import type { SquadEntitiy } from '@/lib/db/types';
 import type { Ships } from '@/lib/get-value';
 import type { XWSPilot, XWSSquad, XWSUpgradeSlots } from '@/lib/types';
-import { isStandardized } from '@/lib/xws';
+import { isStandardized, toFaction } from '@/lib/xws';
 import type {
   StatModule,
   StatsConfig,
@@ -48,7 +48,7 @@ export const setup =
       const faction =
         // @ts-expect-error (the faction can be "all" in epic)
         current.xws && current.xws.faction !== 'all'
-          ? current.xws.faction
+          ? toFaction(current.xws.faction)
           : 'unknown';
       const unique = (val: string) => cache.has(val);
 
