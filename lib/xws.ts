@@ -191,3 +191,23 @@ export const toCompositionId = (xws: XWSSquad) => {
 
   return id.join('.');
 };
+
+const KNOWN_FACTIONS: XWSFaction[] = [
+  'rebelalliance',
+  'galacticempire',
+  'scumandvillainy',
+  'resistance',
+  'firstorder',
+  'galacticrepublic',
+  'separatistalliance',
+];
+
+/**
+ * Returns the value as XWSFaction if it is a known faction, otherwise 'unknown'.
+ */
+export const toFaction = (value: string | null | undefined): XWSFaction | 'unknown' => {
+  if (KNOWN_FACTIONS.includes(value as XWSFaction)) {
+    return value as XWSFaction;
+  }
+  return 'unknown';
+};

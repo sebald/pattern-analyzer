@@ -1,4 +1,4 @@
-import { parsePilotId, toXWS } from '@/lib/xws';
+import { parsePilotId, toXWS, toFaction } from '@/lib/xws';
 
 test('normalize pilot', () => {
   expect(parsePilotId('hansoloboy', 'rebelalliance')).toMatchInlineSnapshot(
@@ -13,6 +13,14 @@ test('normalize pilot', () => {
   expect(
     parsePilotId('durgeseparatist', 'separatistalliance')
   ).toMatchInlineSnapshot(`"durge-separatistalliance"`);
+});
+
+test('toFaction', () => {
+  expect(toFaction('rebelalliance')).toBe('rebelalliance');
+  expect(toFaction('galacticrepublic')).toBe('galacticrepublic');
+  expect(toFaction('garbage')).toBe('unknown');
+  expect(toFaction(undefined)).toBe('unknown');
+  expect(toFaction(null)).toBe('unknown');
 });
 
 test('parse raw to XWS', () => {

@@ -1,6 +1,6 @@
 import { getAllTournaments, getSquads } from '@/lib/vendor/listfortress';
 import { percentile } from '@/lib/utils';
-import { toCompositionId, normalize } from '@/lib/xws';
+import { toCompositionId, normalize, toFaction } from '@/lib/xws';
 
 import { addSquads } from './squads';
 import { setLastSync } from './system';
@@ -43,7 +43,7 @@ export const sync = async (date: Date) => {
         squads.map(squad => ({
           listfortress_ref: tournament.listfortress_ref,
           composition: squad.xws ? toCompositionId(squad.xws) : undefined,
-          faction: squad.xws?.faction ?? 'unknown',
+          faction: toFaction(squad.xws?.faction),
           player: squad.player,
           date: tournament.date,
           xws: squad.xws
