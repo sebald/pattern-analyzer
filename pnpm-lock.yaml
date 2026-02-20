@@ -63,8 +63,8 @@ dependencies:
     specifier: 14.2.4
     version: 14.2.4(@babel/core@7.20.12)(react-dom@18.3.1)(react@18.3.1)
   nextjs-google-analytics:
-    specifier: 2.3.3
-    version: 2.3.3(next@14.2.4)(react@18.3.1)
+    specifier: 2.3.7
+    version: 2.3.7(next@14.2.4)(react@18.3.1)
   p-limit:
     specifier: 4.0.0
     version: 4.0.0
@@ -5719,8 +5719,8 @@ packages:
       - babel-plugin-macros
     dev: false
 
-  /nextjs-google-analytics@2.3.3(next@14.2.4)(react@18.3.1):
-    resolution: {integrity: sha512-Y6sI6A7wt5dji8hYBnVkOh9LTyImSLFZXx3FpyQgVW7W4b4qEFHjH2u3fhDJsrRZeLlUGM8/RuHD/mhHc2Axfg==}
+  /nextjs-google-analytics@2.3.7(next@14.2.4)(react@18.3.1):
+    resolution: {integrity: sha512-kuE5OcqmAg1qh9J6LskoDLybj8WmLyfxD+KsVGGvRe5zZg6bGQ/QM/1/7TdJq/u7hIeVqFqcloadD0pcosRXUw==}
     peerDependencies:
       next: '>=11.0.0'
       react: '>=17.0.0'
