@@ -17,7 +17,7 @@
     "@radix-ui/react-dialog": "1.0.5",
     "@radix-ui/react-switch": "1.0.3",
     "@radix-ui/react-toggle-group": "1.0.4",
-    "cheerio": "1.0.0-rc.12",
+    "cheerio": "1.2.0",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
     "cmdk": "1.0.0",
