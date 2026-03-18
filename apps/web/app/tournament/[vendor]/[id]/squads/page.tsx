@@ -29,16 +29,17 @@ const getSquads = async ({ vendor, id }: GetSquadsProps) => {
 // Props
 // ---------------
 interface PageParams {
-  params: {
-    vendor: Vendor;
+  params: Promise<{
+    vendor: string;
     id: string;
-  };
+  }>;
 }
 
 // Page
 // ---------------
 const Page = async ({ params }: PageParams) => {
-  const squads = await getSquads(params);
+  const { vendor, id } = await params;
+  const squads = await getSquads({ vendor: vendor as Vendor, id });
   return <SquadsView squads={squads} />;
 };
 

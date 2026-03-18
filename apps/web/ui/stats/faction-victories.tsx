@@ -45,7 +45,6 @@ export const FactionVictories = ({ value, total }: FactionWinrateProps) => {
           data={[...data].sort((a, b) => a.wins - b.wins)}
           indexBy="faction"
           keys={['percentage']}
-          minValue={0}
           valueFormat={toPercentage}
           axisLeft={{
             format: toPercentage,

@@ -53,6 +53,7 @@ const DialogContent = forwardRef<
     <DialogOverlay />
     <Primitive.Content
       ref={ref}
+      aria-describedby={undefined}
       className={cn(
         'border border-secondary-100 bg-white px-4 py-3 shadow shadow-secondary-600 sm:max-w-lg sm:rounded-lg',
         'fixed z-50 grid w-full scale-100 gap-2 opacity-100 animate-in fade-in-90 slide-in-from-bottom-10 sm:zoom-in-90 sm:slide-in-from-bottom-0',

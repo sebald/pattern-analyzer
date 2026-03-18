@@ -24,16 +24,16 @@ export const metadata = createMetadata({
 // Props
 // ---------------
 interface PageProps {
-  searchParams: {
+  searchParams: Promise<{
     from: string;
     to: string;
-  };
+  }>;
 }
 
 // Page
 // ---------------
 const UpgradesPage = async ({ searchParams }: PageProps) => {
-  const params = toDateRange(searchParams);
+  const params = toDateRange(await searchParams);
 
   if (params.error) {
     return (

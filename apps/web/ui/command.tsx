@@ -10,6 +10,7 @@ import { Command as CommandPrimitive } from 'cmdk';
 
 import { Dialog } from '@/ui/dialog';
 import type { DialogProps } from '@/ui/dialog';
+import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
 import { MagnifyingGlass } from '@/ui/icons';
 import { cn } from '@/lib/utils';
 
@@ -45,6 +46,9 @@ const CommandDialog = ({
   return (
     <Dialog {...props} open={open} onOpenChange={onOpenChange}>
       <Dialog.Content className="overflow-hidden p-0">
+        <VisuallyHidden.Root>
+          <Dialog.Title>Command Palette</Dialog.Title>
+        </VisuallyHidden.Root>
         <Command
           {...props}
           className={cn(

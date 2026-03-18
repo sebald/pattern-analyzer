@@ -66,7 +66,7 @@ export const List = ({
   return (
     <Element className={styles.list({ enumeration, className })}>
       {React.Children.map(children, child => {
-        if (React.isValidElement(child)) {
+        if (React.isValidElement<ListItemProps>(child)) {
           return React.cloneElement(child, {
             variant,
             ...child.props,

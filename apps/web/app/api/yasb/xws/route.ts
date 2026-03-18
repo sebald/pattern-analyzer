@@ -5,7 +5,7 @@ import { yasb2xws } from '@/lib/yasb';
 
 // Config
 // ---------------
-export const revalidate = 'force-cache';
+export const revalidate = false;
 export const fetchCache = 'force-cache';
 
 // Helpers

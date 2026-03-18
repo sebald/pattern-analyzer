@@ -2,9 +2,9 @@ import { type NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 
 export interface RouteContext {
-  params: {
+  params: Promise<{
     id?: string;
-  };
+  }>;
 }
 
 const schema = z.object({
@@ -12,7 +12,8 @@ const schema = z.object({
 });
 
 export const GET = async (_: NextRequest, { params }: RouteContext) => {
-  const result = schema.safeParse(params);
+  const resolvedParams = await params;
+  const result = schema.safeParse(resolvedParams);
 
   if (!result.success) {
     return NextResponse.json(

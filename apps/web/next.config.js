@@ -27,10 +27,6 @@ const securityHeaders = [
 
 /** @type {import('next').NextConfig} */
 const config = {
-  typescript: {
-    // Needed to use cmkd from source...
-    ignoreBuildErrors: true,
-  },
   headers() {
     return [{ source: '/(.*)', headers: securityHeaders }];
   },

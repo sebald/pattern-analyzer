@@ -1,7 +1,7 @@
 'use client';
 
 import { cloneElement, useRef, useState } from 'react';
-import useMeasure from 'react-use/lib/useMeasure';
+import { useResizeObserver } from 'usehooks-ts';
 import { cva } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils/classname.utils';
@@ -50,9 +50,10 @@ export const Collapsible = ({
   children,
 }: CollapsibleProps) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const [ref, { height }] = useMeasure<HTMLDivElement>();
+  const ref = useRef<HTMLDivElement>(null);
+  const { height = 0 } = useResizeObserver({ ref: ref as React.RefObject<HTMLElement> });
   const [collapsed, setCollapsed] = useState(defaultCollapsed);
-  const child = cloneElement(children, { ...children.props, ref });
+  const child = cloneElement(children, { ref } as Record<string, unknown>);
 
   const toggle = () => {
     setCollapsed(!collapsed);

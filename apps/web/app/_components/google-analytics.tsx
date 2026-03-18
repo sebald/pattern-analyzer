@@ -1,5 +1,5 @@
-'use client';
+import { GoogleAnalytics } from '@next/third-parties/google';
 
-import { GoogleAnalytics } from "nextjs-google-analytics";
-
-export const Analytics = () => <GoogleAnalytics trackPageViews />;
+export const Analytics = () => (
+  <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || ''} />
+);

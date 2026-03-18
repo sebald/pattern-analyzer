@@ -5,7 +5,7 @@ import { getSquads } from '@/lib/vendor/listfortress';
 
 // Config
 // ---------------
-export const revalidate = 'force-cache';
+export const revalidate = false;
 export const fetchCache = 'force-cache';
 
 // Helpers
@@ -19,15 +19,16 @@ const schema = {
 // Props
 // ---------------
 interface RouteContext {
-  params: {
+  params: Promise<{
     id?: string;
-  };
+  }>;
 }
 
 // Handler
 // ---------------
 export const GET = async (_: NextRequest, { params }: RouteContext) => {
-  const result = schema.params.safeParse(params);
+  const resolvedParams = await params;
+  const result = schema.params.safeParse(resolvedParams);
 
   if (!result.success) {
     return NextResponse.json(

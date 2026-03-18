@@ -33,15 +33,16 @@ export const generateStaticParams = async () =>
 // Props
 // ---------------
 interface PageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 // Metadata
 // ---------------
-export const generateMetadata = ({ params }: PageProps) => {
-  const pilot = getPilotName(params.id) || params.id;
+export const generateMetadata = async ({ params }: PageProps) => {
+  const { id } = await params;
+  const pilot = getPilotName(id) || id;
   return createMetadata({
     title: pilot,
     description: `Statistics and other data for ${pilot}`,
@@ -62,11 +63,13 @@ const getPilotStats = async (pilot: string, from: Date) => {
 // Page
 // ---------------
 const Page = async ({ params }: PageProps) => {
-  if (!getPilotName(params.id)) {
+  const { id } = await params;
+
+  if (!getPilotName(id)) {
     notFound();
   }
 
-  const stats = await getPilotStats(params.id, fromDate(pointsUpdateDate));
+  const stats = await getPilotStats(id, fromDate(pointsUpdateDate));
 
   return (
     <div className="flex flex-col gap-16">
@@ -125,7 +128,7 @@ const Page = async ({ params }: PageProps) => {
         <Headline level="2" variant="section">
           Loadouts
         </Headline>
-        {isStandardized(params.id) ? (
+        {isStandardized(id) ? (
           <Card
             inset="headless"
             className="flex flex-row items-center gap-1 text-lg italic"

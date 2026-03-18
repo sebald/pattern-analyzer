@@ -40,19 +40,17 @@ const getEventInfo = async ({ vendor, id }: GetEventInfoProps) => {
 // ---------------
 interface LayoutProps {
   children: React.ReactNode;
-  params: {
-    vendor: Vendor;
+  params: Promise<{
+    vendor: string;
     id: string;
-  };
+  }>;
 }
 
 // Metadata
 // ---------------
 export const generateMetadata = async ({ params }: LayoutProps) => {
-  const event = await getEventInfo({
-    vendor: params.vendor,
-    id: params.id,
-  });
+  const { vendor, id } = await params;
+  const event = await getEventInfo({ vendor: vendor as Vendor, id });
 
   return createMetadata({
     title: event.name,
@@ -64,10 +62,9 @@ export const generateMetadata = async ({ params }: LayoutProps) => {
 // Component
 // ---------------
 const Layout = async ({ params, children }: LayoutProps) => {
-  const event = await getEventInfo({
-    vendor: params.vendor,
-    id: params.id,
-  });
+  const { vendor: vendorParam, id } = await params;
+  const vendor = vendorParam as Vendor;
+  const event = await getEventInfo({ vendor, id });
 
   return (
     <>
@@ -81,13 +78,13 @@ const Layout = async ({ params, children }: LayoutProps) => {
             </Inline>
             <Link href={event.url} target="_blank">
               <Inline className="whitespace-nowrap">
-                <Trophy className="h-3 w-3" /> Event #{params.id}
+                <Trophy className="h-3 w-3" /> Event #{id}
               </Inline>
             </Link>
           </Inline>
         </Caption>
       </div>
-      <Navigation className="my-6" {...params} />
+      <Navigation className="my-6" vendor={vendor} id={id} />
       {children}
     </>
   );

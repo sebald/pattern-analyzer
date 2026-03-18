@@ -148,7 +148,6 @@ export const FactionCut = ({ tournament, value }: FactionCutProps) => {
           data={[...data].sort((a, b) => a.cutrate - b.cutrate)}
           indexBy="faction"
           keys={['cutrate']}
-          minValue={0}
           valueFormat={value => (value > 0 ? toPercentage(value) : '')}
           axisLeft={{
             format: toPercentage,

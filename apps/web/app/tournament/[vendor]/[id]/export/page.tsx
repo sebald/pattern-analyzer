@@ -20,24 +20,26 @@ const EXPORT_COMPONENT = {
 // Props
 // ---------------
 interface PageProps {
-  params: {
-    vendor: Vendor;
+  params: Promise<{
+    vendor: string;
     id: string;
-  };
+  }>;
 }
 
 // Page
 // ---------------
 const Page = async ({ params }: PageProps) => {
-  const Export = EXPORT_COMPONENT[params.vendor];
+  const { vendor: vendorParam, id } = await params;
+  const vendor = vendorParam as Vendor;
+  const Export = EXPORT_COMPONENT[vendor];
 
   return (
     <div className="grid grid-cols-12 gap-y-14 md:gap-y-8">
       <div className="col-span-full md:col-span-4">
-        <Export id={params.id} />
+        <Export id={id} />
       </div>
       <div className="col-span-full px-4 md:col-span-7 md:col-start-6 md:px-0">
-        {params.vendor === 'listfortress' ? (
+        {vendor === 'listfortress' ? (
           <>
             <Headline level="3" font="inherit" className="font-medium">
               Listfortress Export
