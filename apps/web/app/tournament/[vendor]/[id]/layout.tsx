@@ -62,8 +62,8 @@ export const generateMetadata = async ({ params }: LayoutProps) => {
 // Component
 // ---------------
 const Layout = async ({ params, children }: LayoutProps) => {
-  const { id, ...rest } = await params;
-  const vendor = rest.vendor as Vendor;
+  const { vendor: vendorParam, id } = await params;
+  const vendor = vendorParam as Vendor;
   const event = await getEventInfo({ vendor, id });
 
   return (

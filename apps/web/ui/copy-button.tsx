@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import { useCopyToClipboard } from 'usehooks-ts';
 import { Button, ButtonProps } from './button';
 
@@ -19,11 +19,19 @@ export const CopyButton = ({
 }: CopyButtonProps) => {
   const [isCopied, setIsCopied] = useState(false);
   const [, copy] = useCopyToClipboard();
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, []);
 
   const handleCopy = useCallback(() => {
     copy(content);
     setIsCopied(true);
-    setTimeout(() => setIsCopied(false), 2000);
+    if (timerRef.current) clearTimeout(timerRef.current);
+    timerRef.current = setTimeout(() => setIsCopied(false), 2000);
   }, [content, copy]);
 
   return (
