@@ -2,7 +2,21 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Monorepo Structure
+
+This is a pnpm monorepo managed by Turborepo. The Next.js app lives in `apps/web/`.
+
+```
+├── apps/web/          # Next.js app (pattern-analyzer)
+├── packages/          # Shared packages (future)
+├── turbo.json         # Turborepo task config
+├── pnpm-workspace.yaml
+└── package.json       # Root (turbo + prettier)
+```
+
 ## Commands
+
+Root-level commands run via Turborepo across all workspaces:
 
 ```bash
 pnpm dev          # Start development server
@@ -14,18 +28,18 @@ pnpm test         # Jest (all tests)
 pnpm test -- --testPathPattern=xws  # Run a single test file by pattern
 pnpm clean        # Remove .next build output
 
-# Database
-pnpm db:setup     # Full DB rebuild from Listfortress (destructive)
-pnpm db:sync      # Incremental sync from Listfortress
+# Database (run from apps/web)
+pnpm --filter @pattern-analyzer/web db:setup     # Full DB rebuild from Listfortress (destructive)
+pnpm --filter @pattern-analyzer/web db:sync      # Incremental sync from Listfortress
 
-# Data updates
-pnpm update:xwing # Refresh lib/data/display-values.json etc. from xwing-data2
-pnpm update:yasb  # Refresh lib/data/yasb.json point costs
+# Data updates (run from apps/web)
+pnpm --filter @pattern-analyzer/web update:xwing # Refresh apps/web/lib/data/display-values.json etc. from xwing-data2
+pnpm --filter @pattern-analyzer/web update:yasb  # Refresh apps/web/lib/data/yasb.json point costs
 ```
 
-Required env vars (`.env.local`): `DATABASE_HOST`, `DATABASE_USERNAME`, `DATABASE_PASSWORD`, `NEXT_PUBLIC_APP_URL` or `NEXT_PUBLIC_VERCEL_URL`, `SYNC_TOKEN`.
+Required env vars (`apps/web/.env.local`): `DATABASE_HOST`, `DATABASE_USERNAME`, `DATABASE_PASSWORD`, `NEXT_PUBLIC_APP_URL` or `NEXT_PUBLIC_VERCEL_URL`, `SYNC_TOKEN`.
 
-**Note:** `next.config.js` sets `ignoreBuildErrors: true` to work around a `cmdk` source path alias — TypeScript errors won't fail `next build`, so always run `pnpm typecheck` separately.
+**Note:** `apps/web/next.config.js` sets `ignoreBuildErrors: true` to work around a `cmdk` source path alias — TypeScript errors won't fail `next build`, so always run `pnpm typecheck` separately.
 
 ## Architecture
 
@@ -33,7 +47,7 @@ Required env vars (`.env.local`): `DATABASE_HOST`, `DATABASE_USERNAME`, `DATABAS
 
 X-Wing Miniatures Game tournament analytics app. Core domain concepts: factions (7: `rebelalliance`, `galacticempire`, `scumandvillainy`, `resistance`, `firstorder`, `galacticrepublic`, `separatistalliance`), ships, pilots, upgrades, and squads in XWS format. Tournament data is sourced from Listfortress (DB), Longshanks, and Rollbetter (live proxy).
 
-### Stats Pipeline (`lib/stats/`)
+### Stats Pipeline (`apps/web/lib/stats/`)
 
 Plugin architecture for single-pass aggregation over all squads. `setup.ts` takes an array of module factories; each module (e.g. `faction.ts`, `pilot.ts`, `upgrade.ts`) implements `StatModule<T>` with hooks `squad`, `xws`, `pilot`, `ship`, `upgrade`. The pipeline calls each hook while iterating squads, then calls `get()` on each module for final results. Compose new stat views by creating a module and passing it to `setup()`.
 
@@ -41,29 +55,29 @@ Plugin architecture for single-pass aggregation over all squads. `setup.ts` take
 
 ```
 Listfortress API
-  → lib/db/sync.ts (incremental, via POST /api/sync — called 4x/day by GitHub Actions)
-  → MySQL (Kysely: lib/db/{db,squads,tournaments,system}.ts)
-  → lib/stats/setup.ts (pipeline) + lib/stats/module/*.ts
-  → app/(stats)/*/page.tsx (React Server Components)
-  → ui/stats/*.tsx (@nivo charts)
+  → apps/web/lib/db/sync.ts (incremental, via POST /api/sync — called 4x/day by GitHub Actions)
+  → MySQL (Kysely: apps/web/lib/db/{db,squads,tournaments,system}.ts)
+  → apps/web/lib/stats/setup.ts (pipeline) + apps/web/lib/stats/module/*.ts
+  → apps/web/app/(stats)/*/page.tsx (React Server Components)
+  → apps/web/ui/stats/*.tsx (@nivo charts)
 
 Longshanks / Rollbetter APIs
-  → app/api/{longshanks,rollbetter}/ (proxy routes)
-  → app/tournament/[vendor]/[id]/ (live tournament view)
+  → apps/web/app/api/{longshanks,rollbetter}/ (proxy routes)
+  → apps/web/app/tournament/[vendor]/[id]/ (live tournament view)
 ```
 
-### XWS Normalization (`lib/xws.ts`)
+### XWS Normalization (`apps/web/lib/xws.ts`)
 
 Critical: tournament platforms export inconsistent XWS. `normalize()` applies a `PILOT_ID_MAP` lookup to fix known spelling errors across platforms. `toXWS()` parses single-quoted JSON strings (Launch Bay Next / Longshanks format). `toCompositionId()` produces a canonical squad fingerprint (sorted ship IDs joined by `.`).
 
 ### Page Structure
 
-All stats pages follow: `page.tsx` (server, fetches data) + `content.tsx` (client, URL-param filters) + `loading.tsx` (Suspense skeleton). URL params drive filtering; see `ui/params/` and `lib/utils/params.utils.ts`.
+All stats pages follow: `page.tsx` (server, fetches data) + `content.tsx` (client, URL-param filters) + `loading.tsx` (Suspense skeleton). URL params drive filtering; see `apps/web/ui/params/` and `apps/web/lib/utils/params.utils.ts`.
 
-### UI Components (`ui/`)
+### UI Components (`apps/web/ui/`)
 
-~50 components, barrel-exported from `ui/index.ts`. Built on Radix UI primitives. Charts via `@nivo`. `cmdk` (command palette) is imported from source via a `tsconfig.json` path alias pointing to `node_modules/cmdk/cmdk/src` — this is why `ignoreBuildErrors` is needed. Ship icons use a custom font (`xwing-miniatures-ships.ttf`); faction icons are inline SVG in `ui/faction-icon.tsx`.
+~50 components, barrel-exported from `apps/web/ui/index.ts`. Built on Radix UI primitives. Charts via `@nivo`. `cmdk` (command palette) is imported from source via a `tsconfig.json` path alias pointing to `node_modules/cmdk/cmdk/src` — this is why `ignoreBuildErrors` is needed. Ship icons use a custom font (`xwing-miniatures-ships.ttf`); faction icons are inline SVG in `apps/web/ui/faction-icon.tsx`.
 
-### Static Game Data (`lib/data/`)
+### Static Game Data (`apps/web/lib/data/`)
 
-JSON files generated by `update:xwing` and `update:yasb` scripts. `lib/get-value.ts` provides lookups (human-readable names, icons) from these files. Do not hand-edit these files.
+JSON files generated by `update:xwing` and `update:yasb` scripts. `apps/web/lib/get-value.ts` provides lookups (human-readable names, icons) from these files. Do not hand-edit these files.
