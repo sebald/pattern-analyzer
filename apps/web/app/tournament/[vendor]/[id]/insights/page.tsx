@@ -2,7 +2,6 @@ import { baseUrl } from '@/lib/config';
 import type { SquadData, Vendor } from '@/lib/types';
 
 import { StatsView } from './_components/stats.view';
-import { LongshanksStatsView } from './_components/longshanks-stats.view';
 
 /**
  * Opt into background revalidation. (see: https://github.com/vercel/next.js/discussions/43085)
@@ -39,10 +38,6 @@ interface PageProps {
 // Components
 // ---------------
 const Page = async ({ params }: PageProps) => {
-  if (params.vendor === 'longshanks') {
-    return <LongshanksStatsView {...params} />;
-  }
-
   const squads = await getSquads(params);
   return <StatsView squads={squads} />;
 };

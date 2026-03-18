@@ -2,7 +2,6 @@ import { baseUrl } from '@/lib/config';
 import type { Vendor, SquadData } from '@/lib/types';
 
 import { Rankings } from './_components/rankings';
-import { LongshanksRankings } from './_components/longshank-rankings';
 
 // Data
 // ---------------
@@ -34,10 +33,6 @@ interface PageParams {
 // Page
 // ---------------
 const Page = async ({ params }: PageParams) => {
-  if (params.vendor === 'longshanks') {
-    return <LongshanksRankings {...params} />;
-  }
-
   const squads = await getSquads(params);
   return <Rankings squads={squads} />;
 };

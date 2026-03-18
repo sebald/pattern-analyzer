@@ -20,21 +20,16 @@ const About = () => (
       .
     </Text>
     <Text size="large" prose>
-      These are great tools for gaining deep insight into a tournament after it
-      has finished, but they require the data to be exported from the tournament
-      page and uploaded to Listfortress. However, with the sunsetting of TTO and
-      the switch to Longshanks, there is currently no way to export the
-      tournament data from Longshanks. This means a chunk of the tournament data
-      is missing from Listfortress.
-    </Text>
-    <Text size="large" prose>
-      Pattern Analyzer tries to fill this gap by obtaining data directly from
-      Longshanks (and other vendors) and allowing people to discover what squads
-      are played and gain some additional insights into an X-Wing tournament
-      while it is still in progress. And since Pattern Analyzer acquires all
-      this data anyway, it can also provide an export for Listforstress, so that
-      it stays up to date and other tools like MetaWing and PBM have information
-      to consume.
+      Pattern Analyzer originally started as a way to obtain tournament data
+      directly from Longshanks when its data wasn&apos;t available on
+      Listfortress. While the Longshanks integration is no longer active,
+      Pattern Analyzer has since evolved to work with{' '}
+      <Link href="https://rollbetter.gg">Rollbetter</Link> and{' '}
+      <Link href="https://listfortress.com">Listfortress</Link>, allowing
+      people to discover what squads are played and gain insights into X-Wing
+      tournaments. It can also provide an export for Listfortress, so that it
+      stays up to date and other tools like MetaWing and PBM have information to
+      consume.
     </Text>
 
     <Headline level="2" className="pt-10" id="about-the-data">
