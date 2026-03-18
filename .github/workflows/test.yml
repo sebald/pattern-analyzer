@@ -26,4 +26,4 @@ jobs:
 
       # Action
       - name: Run Test Suite
-        run: pnpm test -- --ci
+        run: pnpm test -- -- --ci
