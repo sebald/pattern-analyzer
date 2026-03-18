@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import useMedia from 'react-use/lib/useMedia';
+import { useMediaQuery } from 'usehooks-ts';
 import type { AxisTickProps } from '@nivo/axes';
 import { BarCustomLayer, BarSvgProps, ResponsiveBar } from '@nivo/bar';
 
@@ -41,7 +41,7 @@ const barLabel: BarCustomLayer<{ frequency: number }> = ({
         <text
           key={`${data.id}-${data.indexValue}`}
           transform={`translate(${width + 10}, ${y + height / 2})`}
-          textAnchor="left"
+          textAnchor="start"
           dominantBaseline="central"
           style={{
             fontFamily: 'sans-serif',
@@ -90,7 +90,7 @@ export const ChassisDistribution = ({ value }: ChassisDistributionProps) => {
   });
 
   // Configure chart based on windows size
-  const isWide = useMedia('(min-width: 1024px)', false);
+  const isWide = useMediaQuery('(min-width: 1024px)');
   const chartConfig = (
     isWide
       ? {
@@ -174,8 +174,7 @@ export const ChassisDistribution = ({ value }: ChassisDistributionProps) => {
           data={data}
           indexBy="ship"
           keys={['frequency']}
-          minValue={0}
-          maxValue={1}
+          valueScale={{ type: 'linear', min: 0, max: 1 }}
           valueFormat={value => (value > 0 ? toPercentage(value) : '')}
           {...chartConfig}
           theme={theme}

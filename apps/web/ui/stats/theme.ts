@@ -1,6 +1,6 @@
-import type { Theme } from '@nivo/core';
+import type { PartialTheme } from '@nivo/theming';
 
-export const theme: Theme = {
+export const theme: PartialTheme = {
   text: {
     color: '#09090b',
   },

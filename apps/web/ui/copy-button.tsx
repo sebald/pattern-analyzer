@@ -1,6 +1,7 @@
 'use client';
 
-import useClipboard from 'react-use-clipboard';
+import { useState, useCallback } from 'react';
+import { useCopyToClipboard } from 'usehooks-ts';
 import { Button, ButtonProps } from './button';
 
 // Props
@@ -16,12 +17,17 @@ export const CopyButton = ({
   children,
   ...props
 }: CopyButtonProps) => {
-  const [isCopied, setCopied] = useClipboard(content, {
-    successDuration: 2000,
-  });
+  const [isCopied, setIsCopied] = useState(false);
+  const [, copy] = useCopyToClipboard();
+
+  const handleCopy = useCallback(() => {
+    copy(content);
+    setIsCopied(true);
+    setTimeout(() => setIsCopied(false), 2000);
+  }, [content, copy]);
 
   return (
-    <Button {...props} onClick={setCopied}>
+    <Button {...props} onClick={handleCopy}>
       {isCopied ? 'Copied to Clipboard' : children}
     </Button>
   );

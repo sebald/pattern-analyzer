@@ -1,6 +1,7 @@
 'use client';
 
-import useClipboard from 'react-use-clipboard';
+import { useState, useCallback } from 'react';
+import { useCopyToClipboard } from 'usehooks-ts';
 import useSWR from 'swr';
 
 import { getJson } from '@/lib/utils';
@@ -11,13 +12,18 @@ import { Button } from '@/ui';
 export const ExportRollbetter = ({ id }: { id: string }) => {
   const { data, isLoading } = useSWR(`/api/rollbetter/${id}}/export`, getJson);
 
-  const [isCopied, setCopied] = useClipboard(JSON.stringify(data || {}), {
-    successDuration: 2000,
-  });
+  const [isCopied, setIsCopied] = useState(false);
+  const [, copy] = useCopyToClipboard();
+
+  const handleCopy = useCallback(() => {
+    copy(JSON.stringify(data || {}));
+    setIsCopied(true);
+    setTimeout(() => setIsCopied(false), 2000);
+  }, [data, copy]);
 
   return (
     <div className="flex flex-col gap-1">
-      <Button size="large" disabled={isLoading} onClick={setCopied}>
+      <Button size="large" disabled={isLoading} onClick={handleCopy}>
         Export for Listfortress
       </Button>
       <div className="text-center text-xs text-secondary-500">

@@ -27,7 +27,7 @@ export const flattenChildren = (
         acc.push.apply(
           acc,
           flattenChildren(
-            node.props.children,
+            (node.props as { children?: ReactNode }).children,
             depth + 1,
             /**
              * No need for index fallback, React will always assign keys

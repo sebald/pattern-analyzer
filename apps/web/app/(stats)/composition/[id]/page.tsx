@@ -42,19 +42,20 @@ export const generateStaticParams = async () => {
 // Props
 // ---------------
 interface PageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 // Metadata
 // ---------------
-export const generateMetadata = ({ params }: PageProps) => {
-  const ships = params.id.split('.').map(ship => getShipName(ship));
+export const generateMetadata = async ({ params }: PageProps) => {
+  const { id } = await params;
+  const ships = id.split('.').map(ship => getShipName(ship));
   return createMetadata({
     title: `Squad Composition: ${ships.join(', ')}`,
     description: 'Take a look at what is currently flown in X-Wing!',
-    ogShips: params.id,
+    ogShips: id,
   });
 };
 
@@ -71,9 +72,11 @@ const getCompositionStats = async (composition: string, from: Date) => {
 // Page
 // ---------------
 const Page = async ({ params }: PageProps) => {
+  const { id } = await params;
+
   let stats: SquadCompositionStats;
   try {
-    stats = await getCompositionStats(params.id, fromDate(pointsUpdateDate));
+    stats = await getCompositionStats(id, fromDate(pointsUpdateDate));
   } catch {
     notFound();
   }

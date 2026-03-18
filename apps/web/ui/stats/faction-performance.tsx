@@ -49,8 +49,7 @@ export const FactionPerformance = ({
           data={[...data].sort((a, b) => a.percentile - b.percentile)}
           indexBy="faction"
           keys={['percentile']}
-          minValue={0}
-          maxValue={1}
+          valueScale={{ type: 'linear', min: 0, max: 1 }}
           valueFormat={toPercentage}
           axisLeft={{
             format: toPercentage,

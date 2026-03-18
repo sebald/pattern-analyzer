@@ -42,7 +42,7 @@ export const Text = ({
   className,
   children,
 }: TextProps) => {
-  const Element = as as keyof JSX.IntrinsicElements;
+  const Element = as as keyof React.JSX.IntrinsicElements;
   return (
     <Element className={styles({ space, size, prose, className })}>
       {children}

@@ -36,15 +36,15 @@ const schema = z.object({
 // Props
 // ---------------
 interface PageProps {
-  searchParams: {
+  searchParams: Promise<{
     page?: string;
-  };
+  }>;
 }
 
 // Page
 // ---------------
 const TournamentPage = async ({ searchParams }: PageProps) => {
-  const params = schema.safeParse(searchParams);
+  const params = schema.safeParse(await searchParams);
 
   if (!params.success) {
     return (

@@ -30,16 +30,16 @@ const Loading = () => (
 // Props
 // ---------------
 interface InsightsPageProps {
-  searchParams: {
+  searchParams: Promise<{
     from: string;
     to: string;
-  };
+  }>;
 }
 
 // Page
 // ---------------
 const InsightsPage = async ({ searchParams }: InsightsPageProps) => {
-  const params = toDateRange(searchParams);
+  const params = toDateRange(await searchParams);
 
   if (params.error) {
     return (

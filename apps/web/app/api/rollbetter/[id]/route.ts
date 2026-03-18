@@ -51,15 +51,16 @@ const getTournament = async (id: string) => {
 // Props
 // ---------------
 interface RouteContext {
-  params: {
+  params: Promise<{
     id?: string;
-  };
+  }>;
 }
 
 // Handler
 // ---------------
 export const GET = async (_: NextRequest, { params }: RouteContext) => {
-  const result = schema.params.safeParse(params);
+  const resolvedParams = await params;
+  const result = schema.params.safeParse(resolvedParams);
 
   if (!result.success) {
     return NextResponse.json(

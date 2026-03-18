@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils/classname.utils';
 // Props
 // ---------------
 export interface ContainerProps {
-  as?: keyof JSX.IntrinsicElements;
+  as?: keyof React.JSX.IntrinsicElements;
   children?: React.ReactNode;
   className?: string;
 }

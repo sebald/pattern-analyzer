@@ -9,23 +9,27 @@ import { SmallSamplesFilter } from '@/ui/params/small-samples-filter';
 // ---------------
 interface LayoutProps {
   children: ReactNode;
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 // Layout
 // ---------------
-const Layout = ({ children, params }: LayoutProps) => (
+const Layout = async ({ children, params }: LayoutProps) => {
+  const { id } = await params;
+
+  return (
   <>
     <div className="flex flex-col justify-between gap-x-8 gap-y-6 pb-6 md:flex-row md:items-end">
-      <Title>{getPilotName(params.id) || params.id}</Title>
+      <Title>{getPilotName(id) || id}</Title>
       <Filter className="pb-0">
         <SmallSamplesFilter />
       </Filter>
     </div>
     {children}
   </>
-);
+  );
+};
 
 export default Layout;
