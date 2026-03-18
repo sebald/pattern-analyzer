@@ -1,5 +1,3 @@
-import type { CSSProperties } from 'react';
-
 import { getFactionName } from '@/lib/get-value';
 import { SquadData } from '@/lib/types';
 import { cn } from '@/lib/utils/classname.utils';
@@ -22,7 +20,7 @@ export const Rankings = ({ squads }: RankingsProps) => (
 
       return (
         <Card
-          key={current.player}
+          key={current.id}
           inset="headless"
           size="auto"
           subgrid

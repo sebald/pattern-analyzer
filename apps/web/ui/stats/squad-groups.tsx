@@ -60,7 +60,7 @@ export const SquadGroups = ({ value }: SquadGroupsProps) => {
               <Timeline>
                 {current.items.map(
                   ({ date, rank, tournamentId, player, xws }) => (
-                    <Timeline.Item key={date + player}>
+                    <Timeline.Item key={`${tournamentId}-${player}`}>
                       <Timeline.Header>
                         {formatDate(new Date(date))}
                         <Timeline.Caption>

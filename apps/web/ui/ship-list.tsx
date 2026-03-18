@@ -37,8 +37,8 @@ export const ShipList = ({ xws, size }: ShipListProps) => {
 
   return (
     <div className={styles({ size })}>
-      {ships.map(([pid, ship]) => (
-        <ShipIcon key={pid} ship={ship} />
+      {ships.map(([pid, ship], idx) => (
+        <ShipIcon key={`${pid}-${idx}`} ship={ship} />
       ))}
     </div>
   );
