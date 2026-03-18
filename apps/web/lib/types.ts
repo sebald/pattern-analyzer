@@ -1,6 +1,6 @@
 import type { Ships } from './get-value';
 
-export type Vendor = 'longshanks' | 'rollbetter' | 'listfortress';
+export type Vendor = 'rollbetter' | 'listfortress';
 
 // Data
 // ---------------

@@ -1,7 +1,6 @@
 import { baseUrl } from '@/lib/config';
 import { SquadData, Vendor } from '@/lib/types';
 
-import { LongshanksSquadView } from './_components/longshanks-squad.view';
 import { SquadsView } from './_components/squad.view';
 
 /**
@@ -39,10 +38,6 @@ interface PageParams {
 // Page
 // ---------------
 const Page = async ({ params }: PageParams) => {
-  if (params.vendor === 'longshanks') {
-    return <LongshanksSquadView {...params} />;
-  }
-
   const squads = await getSquads(params);
   return <SquadsView squads={squads} />;
 };

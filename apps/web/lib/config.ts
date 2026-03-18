@@ -10,7 +10,6 @@ export const pointsUpdateDate = '2025-11-02';
 
 export const vendors = [
   { id: 'listfortress', name: 'Listfortress' },
-  { id: 'longshanks', name: 'Longshanks' },
   { id: 'rollbetter', name: 'Rollbetter' },
 ];
 
