@@ -16,18 +16,18 @@ dotenv.config({ path: '.env.local' });
 process.env.DB_POOL_SIZE = '10';
 const limit = pLimit(100);
 
+// Workaround: tsx on Node 24 wraps ESM dynamic imports in a default export
+const resolve = <T>(mod: T): T =>
+  (mod as any).default ?? mod;
+
 // Script
 // ---------------
 void (async () => {
   // Loading dynamically so env is correctly loaded.
-  const dbModule = await import('@/lib/db/db');
-  const { db, initDatabase, teardownDatabase } = dbModule.default ?? dbModule;
-  const tournamentsModule = await import('@/lib/db/tournaments');
-  const { addTournaments } = tournamentsModule.default ?? tournamentsModule;
-  const squadsModule = await import('@/lib/db/squads');
-  const { addSquads } = squadsModule.default ?? squadsModule;
-  const systemModule = await import('@/lib/db/system');
-  const { setLastSync } = systemModule.default ?? systemModule;
+  const { db, initDatabase, teardownDatabase } = resolve(await import('@/lib/db/db'));
+  const { addTournaments } = resolve(await import('@/lib/db/tournaments'));
+  const { addSquads } = resolve(await import('@/lib/db/squads'));
+  const { setLastSync } = resolve(await import('@/lib/db/system'));
 
   try {
     console.log('🌱 Create Tables...');
