@@ -25,5 +25,9 @@ jobs:
         run: pnpm install
 
       # Action
+      - name: Lint
+        run: pnpm lint
+      - name: Typecheck
+        run: pnpm typecheck
       - name: Run Test Suite
         run: pnpm test

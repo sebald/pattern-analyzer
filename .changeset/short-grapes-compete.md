@@ -1,5 +1,5 @@
 ---
-"@pattern-analyzer/web": patch
+"pattern-analyzer.app": patch
 "@pattern-analyzer/xws": patch
 ---
 
