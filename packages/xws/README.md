@@ -8,9 +8,15 @@ Utilities for working with [XWS](https://github.com/elistevens/xws-spec) (X-Wing
 npm install @pattern-analyzer/xws
 ```
 
+## Supported Platforms
+
+- [YASB](https://yasb.app)
+- [Launch Bay Next](https://launchbaynext.app)
+- [Rollbetter](https://rollbetter.gg)
+
 ## Features
 
-- Parse and normalize XWS squad data from various tournament platforms
+- Parse and normalize XWS squad data across supported platforms
 - Convert [YASB](https://yasb.app) URLs directly to XWS objects
 - Look up human-readable names for factions, ships, pilots, and upgrades
 - Query pilot point costs and skill values
