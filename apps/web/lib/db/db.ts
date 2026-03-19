@@ -46,13 +46,14 @@ export interface Database {
   system: SystemTable;
 }
 
+const poolSize = Number(process.env.DB_POOL_SIZE) || 1;
 export const pool = createPool({
   host: process.env.DATABASE_HOST,
   user: process.env.DATABASE_USERNAME,
   password: process.env.DATABASE_PASSWORD,
   database: 'main',
-  maxIdle: 1,
-  connectionLimit: 1,
+  maxIdle: poolSize,
+  connectionLimit: poolSize,
 });
 
 // Database
@@ -114,34 +115,12 @@ export const initDatabase = async () =>
       .execute(),
   ]).then(() =>
     Promise.all([
-      db.schema
-        .createIndex('idx_squads_date')
-        .on('squads')
-        .column('date')
-        .execute(),
-      db.schema
-        .createIndex('idx_squads_faction')
-        .on('squads')
-        .column('faction')
-        .execute(),
-      db.schema
-        .createIndex('idx_squads_composition')
-        .on('squads')
-        .column('composition')
-        .execute(),
-      db.schema
-        .createIndex('idx_squads_listfortress_ref')
-        .on('squads')
-        .column('listfortress_ref')
-        .execute(),
-      db.schema
-        .createIndex('idx_tournaments_date')
-        .on('tournaments')
-        .column('date')
-        .execute(),
-    ]).catch(err => {
-      console.warn('⚠️  Could not create indexes (missing INDEX privilege?):', err.message);
-    })
+      sql`ALTER TABLE squads ADD INDEX idx_squads_date (date)`.execute(db),
+      sql`ALTER TABLE squads ADD INDEX idx_squads_faction (faction)`.execute(db),
+      sql`ALTER TABLE squads ADD INDEX idx_squads_composition (composition)`.execute(db),
+      sql`ALTER TABLE squads ADD INDEX idx_squads_listfortress_ref (listfortress_ref)`.execute(db),
+      sql`ALTER TABLE tournaments ADD INDEX idx_tournaments_date (date)`.execute(db),
+    ])
   );
 
 export const teardownDatabase = async () =>

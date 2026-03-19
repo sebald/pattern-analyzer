@@ -29,9 +29,9 @@ void (async () => {
     const latestSync = await getLastSync();
     console.log(`✅ Latest Sync: ${latestSync}`);
 
-    await db.destroy();
   } catch (err: any) {
     console.log(chalk.red.bold(err?.body?.message || err.message || err));
+  } finally {
     await db.destroy();
   }
 })();

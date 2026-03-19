@@ -11,6 +11,9 @@
 ## Medium Priority
 
 - [x] Add database indexes for frequently queried columns (`date`, `composition`, `faction`)
+- [x] Fix DB scripts hanging (missing `db.destroy()`, race condition in squad inserts)
+- [x] Fix CJS/ESM interop for DB scripts on Node 24
+- [x] Add configurable DB pool size (`DB_POOL_SIZE`) for scripts
 - [ ] Add `.env.example` documenting required environment variables
 - [ ] Fix `jest.config.js` broken module aliases (`$` instead of `(.*)`)
 - [ ] Sync API should return 401 for invalid tokens, not 200

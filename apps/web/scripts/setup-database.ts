@@ -13,6 +13,7 @@ import { normalize, toCompositionId, toFaction } from '@pattern-analyzer/xws';
 // ---------------
 $.verbose = false;
 dotenv.config({ path: '.env.local' });
+process.env.DB_POOL_SIZE = '10';
 const limit = pLimit(100);
 
 // Script
@@ -98,9 +99,9 @@ void (async () => {
       `🏁 Setup done! (${tournaments.length} Tournaments, ${squadCount} Squads)`
     );
 
-    await db.destroy();
   } catch (err: any) {
     console.log(chalk.red.bold(err?.body?.message || err.message || err));
+  } finally {
     await db.destroy();
   }
 })();
