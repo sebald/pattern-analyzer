@@ -1,4 +1,4 @@
-import { parsePilotId, toXWS, toFaction } from '@/lib/xws';
+import { parsePilotId, toXWS, toFaction } from '@pattern-analyzer/xws';
 
 test('normalize pilot', () => {
   expect(parsePilotId('hansoloboy', 'rebelalliance')).toMatchInlineSnapshot(

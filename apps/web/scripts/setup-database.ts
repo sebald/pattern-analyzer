@@ -7,7 +7,7 @@ import { pointsUpdateDate } from '@/lib/config';
 import { getAllTournaments, getSquads } from '@/lib/vendor/listfortress';
 import { fromDate } from '@/lib/utils/date.utils';
 import { percentile } from '@/lib/utils/math.utils';
-import { normalize, toCompositionId, toFaction } from '@/lib/xws';
+import { normalize, toCompositionId, toFaction } from '@pattern-analyzer/xws';
 
 // Config
 // ---------------

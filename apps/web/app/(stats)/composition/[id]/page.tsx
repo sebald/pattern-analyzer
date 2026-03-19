@@ -7,7 +7,7 @@ import {
 import { createMetadata } from '@/lib/metadata';
 import { fromDate } from '@/lib/utils/date.utils';
 import { getFactionCount, getSquads } from '@/lib/db/squads';
-import { getShipName } from '@/lib/get-value';
+import { getShipName } from '@pattern-analyzer/xws';
 import { pointsUpdateDate } from '@/lib/config';
 import { toPercentage } from '@/lib/utils';
 

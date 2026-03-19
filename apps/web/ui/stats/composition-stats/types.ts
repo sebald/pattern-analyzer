@@ -1,5 +1,5 @@
-import type { Ships } from '@/lib/get-value';
-import type { XWSFaction, GameRecord } from '@/lib/types';
+import type { Ships, XWSFaction } from '@pattern-analyzer/xws';
+import type { GameRecord } from '@/lib/types';
 
 export interface CompositionStatsType {
   ships: Ships[];

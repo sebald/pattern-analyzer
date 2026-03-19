@@ -2,9 +2,8 @@
 
 import { Collapsible, SortOptions, Table } from '@/ui';
 
-import { getUpgradeName } from '@/lib/get-value';
+import { type XWSFaction, getUpgradeName } from '@pattern-analyzer/xws';
 import type { FactionMapWithAll } from '@/lib/stats/types';
-import type { XWSFaction } from '@/lib/types';
 import { toPercentage } from '@/lib/utils';
 
 import { UpgradeStatsType } from './types';

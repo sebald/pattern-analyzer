@@ -1,5 +1,6 @@
 import type { SquadEntitiyWithXWS } from '@/lib/db/types';
-import type { GameRecord, XWSFaction, XWSUpgrades } from '@/lib/types';
+import { type XWSFaction, type XWSUpgrades, getPilots } from '@pattern-analyzer/xws';
+import type { GameRecord } from '@/lib/types';
 import {
   average,
   createSubsets,
@@ -17,7 +18,7 @@ import {
   groupSquads,
   groupUpgrades,
 } from './utils';
-import { getPilots } from '@/lib/xws';
+
 
 // Types
 // ---------------

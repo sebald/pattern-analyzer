@@ -1,7 +1,6 @@
 import { xwingShips } from 'app/fonts';
-import icons from '@/lib/data/ship-icons.json';
+import { shipIcons as icons, getShipName } from '@pattern-analyzer/xws';
 import { cn } from '@/lib/utils';
-import { getShipName } from '@/lib/get-value';
 
 // Props
 // ---------------

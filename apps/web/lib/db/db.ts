@@ -2,7 +2,8 @@ import { Kysely, MysqlDialect, sql } from 'kysely';
 import { type ColumnType, type Generated } from 'kysely';
 import { createPool } from 'mysql2';
 
-import type { GameRecord, XWSFaction, XWSSquad } from '@/lib/types';
+import type { XWSFaction, XWSSquad } from '@pattern-analyzer/xws';
+import type { GameRecord } from '@/lib/types';
 
 // Types
 // ---------------

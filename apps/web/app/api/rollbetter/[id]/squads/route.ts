@@ -1,10 +1,9 @@
 import { type NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 
-import type { PlayerData, XWSSquad } from '@/lib/types';
+import { type XWSSquad, toXWS, getBuilderLink, yasb2xws, xwsFromText } from '@pattern-analyzer/xws';
+import type { PlayerData } from '@/lib/types';
 import { round } from '@/lib/utils';
-import { toXWS, getBuilderLink } from '@/lib/xws';
-import { yasb2xws, xwsFromText } from '@/lib/yasb';
 
 // Config
 // ---------------

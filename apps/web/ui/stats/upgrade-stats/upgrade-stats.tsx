@@ -11,7 +11,7 @@ import {
 } from '@/ui';
 
 import type { FactionMapWithAll } from '@/lib/stats/types';
-import { XWSFaction, XWSUpgradeSlots } from '@/lib/types';
+import { XWSFaction, XWSUpgradeSlots } from '@pattern-analyzer/xws';
 
 import type { UpgradeStatsType } from './types';
 import { UpgradeTable } from './upgrade-table';

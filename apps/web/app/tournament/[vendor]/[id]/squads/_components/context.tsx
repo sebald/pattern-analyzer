@@ -1,7 +1,7 @@
 'use client';
 
 import { createContext, ReactNode, useContext, useState } from 'react';
-import { Factions } from '@/lib/get-value';
+import { Factions } from '@pattern-analyzer/xws';
 
 export type FactionOptions = 'all' | Factions;
 

@@ -5,9 +5,8 @@ import { ResponsiveBar } from '@nivo/bar';
 
 import { Button, Card, Dialog, Input } from '@/ui';
 import { Cog } from '@/ui/icons';
-import { getFactionName } from '@/lib/get-value';
+import { type XWSFaction, getFactionName } from '@pattern-analyzer/xws';
 import { FACTION_ABBR, FACTION_COLORS, round, toPercentage } from '@/lib/utils';
-import type { XWSFaction } from '@/lib/types';
 
 import { theme } from './theme';
 

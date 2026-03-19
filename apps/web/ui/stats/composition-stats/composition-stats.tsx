@@ -6,7 +6,7 @@ import type { SortOptions } from '@/ui';
 
 import { CompositionTable } from './composition-table';
 import type { CompositionStatsType } from './types';
-import { XWSFaction } from '@/lib/types';
+import { XWSFaction } from '@pattern-analyzer/xws';
 
 // Props
 // ---------------

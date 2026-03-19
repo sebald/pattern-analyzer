@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 
 import { Title } from '@/ui';
-import { getPilotName } from '@/lib/get-value';
+import { getPilotName } from '@pattern-analyzer/xws';
 import { Filter } from '@/ui/params/filter';
 import { SmallSamplesFilter } from '@/ui/params/small-samples-filter';
 

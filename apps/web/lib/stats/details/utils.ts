@@ -1,6 +1,7 @@
 import { fromDate, toMonth } from '@/lib/utils/date.utils';
 import { average, deviation, round, winrate } from '@/lib/utils/math.utils';
-import type { GameRecord, XWSSquad, XWSUpgrades } from '@/lib/types';
+import type { XWSSquad, XWSUpgrades } from '@pattern-analyzer/xws';
+import type { GameRecord } from '@/lib/types';
 
 /**
  * Create a composition id from XWS (pilot ids separated by a ".")

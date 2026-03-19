@@ -6,10 +6,9 @@ import { View } from '@/ui/icons';
 import { ShipIcon } from '@/ui/ship-icon';
 import { Table } from '@/ui/table';
 
-import { getPilotName } from '@/lib/get-value';
+import { type XWSFaction, getPilotName } from '@pattern-analyzer/xws';
 import { toPercentage } from '@/lib/utils';
 import type { FactionMap } from '@/lib/stats/types';
-import type { XWSFaction } from '@/lib/types';
 
 import { PilotStatsType } from './types';
 

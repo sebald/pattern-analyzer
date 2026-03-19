@@ -6,7 +6,7 @@ import { Card } from '@/ui';
 import { useSmallSamplesFilter } from '@/ui/params/small-samples-filter';
 import { theme } from '@/ui/stats/theme';
 import { Tooltip } from '@/ui/stats/tooltip';
-import { getPilotName } from '@/lib/get-value';
+import { getPilotName } from '@pattern-analyzer/xws';
 
 // Props
 // ---------------

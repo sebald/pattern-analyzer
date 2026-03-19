@@ -1,5 +1,6 @@
 import { average, deviation, round, winrate } from '@/lib/utils/math.utils';
-import type { GameRecord, XWSFaction, XWSUpgradeSlots } from '@/lib/types';
+import type { XWSFaction, XWSUpgradeSlots } from '@pattern-analyzer/xws';
+import type { GameRecord } from '@/lib/types';
 
 import { magic } from '../magic';
 import type { FactionMapWithAll, StatModule } from '../types';

@@ -1,4 +1,4 @@
-import type { Ships } from '@/lib/get-value';
+import type { Ships } from '@pattern-analyzer/xws';
 import type { GameRecord } from '@/lib/types';
 
 export interface PilotStatsType {

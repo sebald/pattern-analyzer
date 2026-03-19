@@ -12,7 +12,7 @@ import {
 
 import { Copy, Trophy } from '@/ui/icons';
 import { formatDate } from '@/lib/utils/date.utils';
-import { getPilotName } from '@/lib/get-value';
+import { getPilotName } from '@pattern-analyzer/xws';
 import { ordinalize } from '@/lib/utils/number.utils';
 import { toPercentage } from '@/lib/utils/math.utils';
 import { type SquadCompositionStats } from '@/lib/stats/details/composition';

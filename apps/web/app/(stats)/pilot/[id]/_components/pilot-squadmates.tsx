@@ -1,6 +1,6 @@
 'use client';
 
-import { getPilotName } from '@/lib/get-value';
+import { getPilotName } from '@pattern-analyzer/xws';
 import { toPercentage } from '@/lib/utils';
 import { Card, Detail, Link, PilotImage } from '@/ui';
 import { Archive, View } from '@/ui/icons';

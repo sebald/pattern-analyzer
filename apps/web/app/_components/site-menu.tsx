@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 import { siteNavigation } from '@/lib/config';
-import data from '@/lib/data/display-values.json';
+import { displayValues as data } from '@pattern-analyzer/xws';
 import { Button, Command, Key } from '@/ui';
 import { useHasMounted } from '@/ui/hooks/useHasMounted';
 import { MagnifyingGlass, Page, User } from '@/ui/icons';

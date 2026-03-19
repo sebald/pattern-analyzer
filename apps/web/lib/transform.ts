@@ -2,7 +2,7 @@ import { SquadEntitiy } from './db/types';
 import { SquadData } from './types';
 import { percentile } from './utils/math.utils';
 import { toDate } from './utils/date.utils';
-import { toCompositionId } from './xws';
+import { toCompositionId } from '@pattern-analyzer/xws';
 
 export const toSquadEntitiy = (
   val: SquadData,

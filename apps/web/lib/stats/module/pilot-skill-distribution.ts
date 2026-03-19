@@ -1,4 +1,4 @@
-import { getPilotSkill } from '@/lib/yasb';
+import { getPilotSkill } from '@pattern-analyzer/xws';
 import { StatModule } from '../types';
 
 // Types
