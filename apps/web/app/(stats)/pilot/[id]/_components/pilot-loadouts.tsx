@@ -1,7 +1,6 @@
 'use client';
 
-import { getUpgradeName } from '@/lib/get-value';
-import { XWSUpgrades } from '@/lib/types';
+import { getUpgradeName, XWSUpgrades } from '@pattern-analyzer/xws';
 import { toPercentage } from '@/lib/utils/math.utils';
 import { Badge, Detail, Headline, List } from '@/ui';
 import { Archive } from '@/ui/icons';

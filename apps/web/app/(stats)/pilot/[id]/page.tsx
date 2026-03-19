@@ -1,9 +1,9 @@
 import { notFound } from 'next/navigation';
 
 import { pointsUpdateDate } from '@/lib/config';
-import data from '@/lib/data/display-values.json';
+import { displayValues as data } from '@pattern-analyzer/xws';
 import { getFactionCount, getSquads } from '@/lib/db/squads';
-import { getPilotName } from '@/lib/get-value';
+import { getPilotName, isStandardized } from '@pattern-analyzer/xws';
 import { createMetadata } from '@/lib/metadata';
 import { pilotDetails } from '@/lib/stats/details/pilot';
 import { fromDate } from '@/lib/utils/date.utils';
@@ -13,7 +13,7 @@ import { HistoryCurve } from '@/ui/stats/history-curve';
 
 import { FilteredSquadGroups } from './_components/filtered-squad-groups';
 import { PilotLoadouts } from './_components/pilot-loadouts';
-import { isStandardized } from '@/lib/xws';
+
 import { Info } from '@/ui/icons';
 import { PilotSquadmates } from './_components/pilot-squadmates';
 import { PilotSets } from './_components/pilot-sets';

@@ -2,7 +2,8 @@
 
 import { Card, Center, Message, Link, Squad, Tiles, CopyButton } from '@/ui';
 import { Archive } from '@/ui/icons';
-import type { SquadData, XWSSquad } from '@/lib/types';
+import type { XWSSquad } from '@pattern-analyzer/xws';
+import type { SquadData } from '@/lib/types';
 
 import { useFilter } from './context';
 

@@ -2,8 +2,7 @@
 import 'zx/globals';
 
 const PROJECT_ROOT = path.resolve(__dirname, '..');
-const DATA_FOLDER = path.join(PROJECT_ROOT, 'lib/data');
-const FONT_FOLDER = path.join(PROJECT_ROOT, 'app/fonts');
+const DATA_FOLDER = path.join(PROJECT_ROOT, 'src/data');
 
 const YASB_FILE_PATH = path.resolve(__dirname, 'yasb.tmp.js');
 
@@ -138,12 +137,6 @@ await fs.remove(YASB_FILE_PATH);
  * Copy X-Wing fonts and data from raithos/xwing repo since
  * they are the most up to date I can find ...
  */
-
-const SHIP_FONT_FILE = path.join(
-  PROJECT_ROOT,
-  'node_modules/yasb/fonts/xwing-miniatures-ships.ttf'
-);
-$`cp ${SHIP_FONT_FILE} ${FONT_FOLDER}`;
 
 const css = await fs.readFile(
   path.join(PROJECT_ROOT, 'node_modules/yasb/fonts/xwing-miniatures.css'),

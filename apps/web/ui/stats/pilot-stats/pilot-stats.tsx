@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { Card, FactionSelection, Select, type SortOptions } from '@/ui';
 
 import type { FactionMap } from '@/lib/stats/types';
-import type { XWSFaction } from '@/lib/types';
+import type { XWSFaction } from '@pattern-analyzer/xws';
 
 import { PilotTable } from './pilot-table';
 import type { PilotStatsType } from './types';

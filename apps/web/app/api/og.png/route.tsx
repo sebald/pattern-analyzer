@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og';
 import type { NextRequest } from 'next/server';
-import shipIcons from '@/lib/data/ship-icons.json';
+import { shipIcons } from '@pattern-analyzer/xws';
 import { baseUrl } from '@/lib/config';
 
 // Logo

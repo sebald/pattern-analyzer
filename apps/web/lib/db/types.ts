@@ -1,4 +1,5 @@
-import type { GameRecord, XWSSquad, XWSFaction } from '@/lib/types';
+import type { XWSSquad, XWSFaction } from '@pattern-analyzer/xws';
+import type { GameRecord } from '@/lib/types';
 
 /**
  * Used when a certain input results in certain values are always present.

@@ -78,7 +78,7 @@ export const getPilotByName = (id: string) => {
   }
 
   // Normalize names that contain weird quotes and use regular instead
-  const name = getPilotName(id)?.replace(/[“”]/g, '"');
+  const name = getPilotName(id)?.replace(/[""]/g, '"');
   return yasb.pilots.find(pilot => pilot.name === name) as
     | YASBPilot
     | undefined;

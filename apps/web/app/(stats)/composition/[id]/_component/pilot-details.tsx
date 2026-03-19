@@ -1,9 +1,8 @@
 import { Fragment } from 'react';
 
-import { type Ships, getPilotName, getShipName } from '@/lib/get-value';
+import { type Ships, getPilotName, getShipName, isStandardized, upgradesToList } from '@pattern-analyzer/xws';
 import type { SquadCompositionStats } from '@/lib/stats/details/composition';
 import { toPercentage } from '@/lib/utils';
-import { isStandardized, upgradesToList } from '@/lib/xws';
 
 import { PilotImage, Detail, Card, Headline, ShipIcon } from '@/ui';
 import { Info } from '@/ui/icons';

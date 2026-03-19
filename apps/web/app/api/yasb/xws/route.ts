@@ -1,7 +1,7 @@
 import { type NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 
-import { yasb2xws } from '@/lib/yasb';
+import { yasb2xws } from '@pattern-analyzer/xws';
 
 // Config
 // ---------------

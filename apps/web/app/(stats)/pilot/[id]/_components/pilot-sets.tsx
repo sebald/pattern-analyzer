@@ -4,7 +4,7 @@ import { ResponsiveSwarmPlot } from '@nivo/swarmplot';
 
 import { Card } from '@/ui';
 import { useSmallSamplesFilter } from '@/ui/params/small-samples-filter';
-import { getPilotName } from '@/lib/get-value';
+import { getPilotName } from '@pattern-analyzer/xws';
 import { theme } from '@/ui/stats/theme';
 import { Tooltip } from '@/ui/stats/tooltip';
 

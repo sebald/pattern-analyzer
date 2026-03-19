@@ -6,9 +6,8 @@ import type { AxisTickProps } from '@nivo/axes';
 import { BarCustomLayer, BarSvgProps, ResponsiveBar } from '@nivo/bar';
 
 import { Card, FactionSelection, Select, ShipText } from '@/ui';
-import { getStandardShips, Ships } from '@/lib/get-value';
+import { type XWSFaction, getStandardShips, Ships } from '@pattern-analyzer/xws';
 import type { FactionMap } from '@/lib/stats/types';
-import type { XWSFaction } from '@/lib/types';
 import { COLOR_MAP, toPercentage } from '@/lib/utils';
 
 import { theme } from './theme';

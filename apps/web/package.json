@@ -36,7 +36,8 @@
     "tailwindcss-animate": "1.0.7",
     "use-debounce": "10.0.0",
     "usehooks-ts": "^3.1.0",
-    "zod": "3.22.4"
+    "zod": "3.22.4",
+    "@pattern-analyzer/xws": "workspace:*"
   },
   "devDependencies": {
     "@tailwindcss/forms": "0.5.10",
@@ -60,7 +61,6 @@
     "tailwindcss": "3.4.1",
     "tsx": "4.7.1",
     "typescript": "^5.5.0",
-    "xwing-data2": "github:gregkash16/xwing-data2#7fc3f76",
     "yasb": "github:raithos/xwing#906481f",
     "zx": "7.2.3"
   },
@@ -75,7 +75,7 @@
     "clean": "rm -rf .next",
     "db:setup": "tsx ./scripts/setup-database.ts",
     "db:sync": "tsx ./scripts/sync-database.ts",
-    "update:xwing": "zx scripts/update-xwing-data.mjs",
-    "update:yasb": "zx scripts/update-yasb-data.mjs"
+    "update:xwing": "pnpm --filter @pattern-analyzer/xws update:xwing",
+    "update:yasb": "pnpm --filter @pattern-analyzer/xws update:yasb && cp node_modules/yasb/fonts/xwing-miniatures-ships.ttf app/fonts/"
   }
 }

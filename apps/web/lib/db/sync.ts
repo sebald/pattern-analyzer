@@ -1,6 +1,6 @@
 import { getAllTournaments, getSquads } from '@/lib/vendor/listfortress';
 import { percentile } from '@/lib/utils';
-import { toCompositionId, normalize, toFaction } from '@/lib/xws';
+import { toCompositionId, normalize, toFaction } from '@pattern-analyzer/xws';
 
 import { addSquads } from './squads';
 import { setLastSync } from './system';

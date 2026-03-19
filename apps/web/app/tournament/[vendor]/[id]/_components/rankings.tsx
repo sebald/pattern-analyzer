@@ -1,4 +1,4 @@
-import { getFactionName } from '@/lib/get-value';
+import { getFactionName } from '@pattern-analyzer/xws';
 import { SquadData } from '@/lib/types';
 import { cn } from '@/lib/utils/classname.utils';
 import { round } from '@/lib/utils/math.utils';

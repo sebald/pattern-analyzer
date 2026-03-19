@@ -1,4 +1,4 @@
-import { XWSFaction } from '@/lib/types';
+import { XWSFaction } from '@pattern-analyzer/xws';
 import { cn } from '@/lib/utils/classname.utils';
 import { SVGProps } from 'react';
 

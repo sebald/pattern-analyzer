@@ -1,5 +1,4 @@
-import type { Ships } from '@/lib/get-value';
-import type { XWSFaction } from '@/lib/types';
+import type { Ships, XWSFaction } from '@pattern-analyzer/xws';
 import { round } from '@/lib/utils/math.utils';
 
 import type { FactionMap, StatModule } from '../types';
