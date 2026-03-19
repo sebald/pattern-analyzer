@@ -1,5 +1,5 @@
 {
-  "name": "@pattern-analyzer/web",
+  "name": "pattern-analyzer.app",
   "version": "0.1.0",
   "private": true,
   "repository": "github:sebald/pattern-analyzer",

@@ -7,8 +7,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 This is a pnpm monorepo managed by Turborepo. The Next.js app lives in `apps/web/`.
 
 ```
-├── apps/web/          # Next.js app (pattern-analyzer)
-├── packages/          # Shared packages (future)
+├── apps/web/          # Next.js app (pattern-analyzer.app)
+├── packages/xws/      # @pattern-analyzer/xws (npm published)
 ├── turbo.json         # Turborepo task config
 ├── pnpm-workspace.yaml
 └── package.json       # Root (turbo + prettier)
@@ -29,12 +29,12 @@ pnpm test -- --testPathPattern=xws  # Run a single test file by pattern
 pnpm clean        # Remove .next build output
 
 # Database (run from apps/web)
-pnpm --filter @pattern-analyzer/web db:setup     # Full DB rebuild from Listfortress (destructive)
-pnpm --filter @pattern-analyzer/web db:sync      # Incremental sync from Listfortress
+pnpm --filter pattern-analyzer.app db:setup     # Full DB rebuild from Listfortress (destructive)
+pnpm --filter pattern-analyzer.app db:sync      # Incremental sync from Listfortress
 
 # Data updates (run from apps/web)
-pnpm --filter @pattern-analyzer/web update:xwing # Refresh apps/web/lib/data/display-values.json etc. from xwing-data2
-pnpm --filter @pattern-analyzer/web update:yasb  # Refresh apps/web/lib/data/yasb.json point costs
+pnpm --filter pattern-analyzer.app update:xwing # Refresh apps/web/lib/data/display-values.json etc. from xwing-data2
+pnpm --filter pattern-analyzer.app update:yasb  # Refresh apps/web/lib/data/yasb.json point costs
 ```
 
 Required env vars (`apps/web/.env.local`): `DATABASE_HOST`, `DATABASE_USERNAME`, `DATABASE_PASSWORD`, `NEXT_PUBLIC_APP_URL` or `NEXT_PUBLIC_VERCEL_URL`, `SYNC_TOKEN`.
@@ -77,6 +77,26 @@ All stats pages follow: `page.tsx` (server, fetches data) + `content.tsx` (clien
 ### UI Components (`apps/web/ui/`)
 
 ~50 components, barrel-exported from `apps/web/ui/index.ts`. Built on Radix UI primitives. Charts via `@nivo`. `cmdk` (command palette) is imported from source via a `tsconfig.json` path alias pointing to `node_modules/cmdk/cmdk/src` — this is why `ignoreBuildErrors` is needed. Ship icons use a custom font (`xwing-miniatures-ships.ttf`); faction icons are inline SVG in `apps/web/ui/faction-icon.tsx`.
+
+## Changesets
+
+This repo uses [Changesets](https://github.com/changesets/changesets) for versioning. When creating a PR, always include a changeset:
+
+```bash
+pnpm changeset  # Interactive prompt to select packages and bump type
+```
+
+Or create a changeset file manually in `.changeset/` (e.g. `.changeset/my-change.md`):
+
+```markdown
+---
+'pattern-analyzer.app': patch
+---
+
+Description of the change.
+```
+
+Use `patch` for fixes/small changes, `minor` for new features, `major` for breaking changes. Include all affected packages.
 
 ### Static Game Data (`apps/web/lib/data/`)
 

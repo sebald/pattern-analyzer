@@ -1,4 +1,4 @@
-name: Test
+name: CI
 
 on: ['push']
 
@@ -7,15 +7,14 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  test:
-    name: Test
+  lint:
+    name: Lint
     runs-on: ubuntu-latest
     env:
       CI: true
     steps:
-      # Setup
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v3.0.0 # Uses version from package.json#packageManager
+      - uses: pnpm/action-setup@v3.0.0
       - name: Setup Node (using .node-version)
         uses: actions/setup-node@v4
         with:
@@ -23,7 +22,41 @@ jobs:
           cache: 'pnpm'
       - name: Install dependencies
         run: pnpm install
+      - name: Lint
+        run: pnpm lint
 
-      # Action
-      - name: Run Test Suite
+  typecheck:
+    name: Typecheck
+    runs-on: ubuntu-latest
+    env:
+      CI: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3.0.0
+      - name: Setup Node (using .node-version)
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.node-version'
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install
+      - name: Typecheck
+        run: pnpm typecheck
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    env:
+      CI: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3.0.0
+      - name: Setup Node (using .node-version)
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.node-version'
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install
+      - name: Test
         run: pnpm test
