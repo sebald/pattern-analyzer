@@ -11,6 +11,7 @@ const config = {
     'app/$': '<rootDir>/app/$1',
     '@/components/$': '<rootDir>/components/$1',
     '@/lib/$': '<rootDir>/@/lib/$1',
+    '^@pattern-analyzer/xws$': '<rootDir>/../../packages/xws/src/index.ts',
   },
   testEnvironment: 'jest-environment-jsdom',
   prettierPath: null,
