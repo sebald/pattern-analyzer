@@ -7,18 +7,16 @@ import dotenv from 'dotenv';
 $.verbose = true;
 dotenv.config({ path: '.env.local' });
 
-// Queries
-// ---------------
+// Workaround: tsx on Node 24 wraps ESM dynamic imports in a default export
+const resolve = <T>(mod: T): T =>
+  (mod as any).default ?? mod;
 
 // Script
 // ---------------
 void (async () => {
-  const dbModule = await import('@/lib/db/db');
-  const { db } = dbModule.default ?? dbModule;
-  const systemModule = await import('@/lib/db/system');
-  const { getLastSync } = systemModule.default ?? systemModule;
-  const syncModule = await import('@/lib/db/sync');
-  const { sync } = syncModule.default ?? syncModule;
+  const { db } = resolve(await import('@/lib/db/db'));
+  const { getLastSync } = resolve(await import('@/lib/db/system'));
+  const { sync } = resolve(await import('@/lib/db/sync'));
 
   try {
     console.log('🔄 Starting Sync...');
@@ -29,9 +27,9 @@ void (async () => {
     const latestSync = await getLastSync();
     console.log(`✅ Latest Sync: ${latestSync}`);
 
-    await db.destroy();
   } catch (err: any) {
     console.log(chalk.red.bold(err?.body?.message || err.message || err));
+  } finally {
     await db.destroy();
   }
 })();
