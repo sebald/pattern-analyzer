@@ -14,7 +14,7 @@
   "devDependencies": {
     "vitest": "^3.1.0",
     "xwing-data2": "github:gregkash16/xwing-data2#7fc3f76",
-    "yasb": "github:raithos/xwing#906481f",
+    "yasb": "github:raithos/xwing#41a5a11",
     "zx": "7.2.3"
   }
 }
