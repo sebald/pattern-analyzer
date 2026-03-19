@@ -13,9 +13,12 @@ dotenv.config({ path: '.env.local' });
 // Script
 // ---------------
 void (async () => {
-  const { db } = await import('@/lib/db/db');
-  const { getLastSync } = await import('@/lib/db/system');
-  const { sync } = await import('@/lib/db/sync');
+  const dbModule = await import('@/lib/db/db');
+  const { db } = dbModule.default ?? dbModule;
+  const systemModule = await import('@/lib/db/system');
+  const { getLastSync } = systemModule.default ?? systemModule;
+  const syncModule = await import('@/lib/db/sync');
+  const { sync } = syncModule.default ?? syncModule;
 
   try {
     console.log('🔄 Starting Sync...');
@@ -29,5 +32,6 @@ void (async () => {
     await db.destroy();
   } catch (err: any) {
     console.log(chalk.red.bold(err?.body?.message || err.message || err));
+    await db.destroy();
   }
 })();

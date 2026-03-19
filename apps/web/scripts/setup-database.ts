@@ -19,10 +19,14 @@ const limit = pLimit(100);
 // ---------------
 void (async () => {
   // Loading dynamically so env is correctly loaded.
-  const { initDatabase, teardownDatabase } = await import('@/lib/db/db');
-  const { addTournaments } = await import('@/lib/db/tournaments');
-  const { addSquads } = await import('@/lib/db/squads');
-  const { setLastSync } = await import('@/lib/db/system');
+  const dbModule = await import('@/lib/db/db');
+  const { db, initDatabase, teardownDatabase } = dbModule.default ?? dbModule;
+  const tournamentsModule = await import('@/lib/db/tournaments');
+  const { addTournaments } = tournamentsModule.default ?? tournamentsModule;
+  const squadsModule = await import('@/lib/db/squads');
+  const { addSquads } = squadsModule.default ?? squadsModule;
+  const systemModule = await import('@/lib/db/system');
+  const { setLastSync } = systemModule.default ?? systemModule;
 
   try {
     console.log('🌱 Create Tables...');
@@ -48,45 +52,44 @@ void (async () => {
 
     let squadCount = 0;
     console.log('🚀 Adding squads...');
-    await Promise.all(
-      tournaments
-        .map(async tournament => {
-          const squads = await getSquads({
-            id: `${tournament.listfortress_ref}`,
-          });
-          squadCount += squads.length;
+    const squadInserts = await Promise.all(
+      tournaments.map(async tournament => {
+        const squads = await getSquads({
+          id: `${tournament.listfortress_ref}`,
+        });
+        squadCount += squads.length;
 
-          return squads.map(squad =>
-            limit(() =>
-              addSquads([
-                {
-                  listfortress_ref: tournament.listfortress_ref,
-                  composition: squad.xws
-                    ? toCompositionId(squad.xws)
-                    : undefined,
-                  faction: toFaction(squad.xws?.faction),
-                  player: squad.player,
-                  date: tournament.date,
-                  xws: squad.xws
-                    ? JSON.stringify(normalize(squad.xws)) || undefined
-                    : undefined,
-                  wins: squad.record.wins,
-                  ties: squad.record.ties,
-                  losses: squad.record.losses,
-                  record: JSON.stringify(squad.record),
-                  swiss: squad.rank.swiss,
-                  cut: squad.rank.elimination,
-                  percentile: percentile(
-                    squad.rank.elimination ?? squad.rank.swiss,
-                    squads.length
-                  ).toString(),
-                },
-              ])
-            )
-          );
-        })
-        .flat()
+        return squads.map(squad =>
+          limit(() =>
+            addSquads([
+              {
+                listfortress_ref: tournament.listfortress_ref,
+                composition: squad.xws
+                  ? toCompositionId(squad.xws)
+                  : undefined,
+                faction: toFaction(squad.xws?.faction),
+                player: squad.player,
+                date: tournament.date,
+                xws: squad.xws
+                  ? JSON.stringify(normalize(squad.xws)) || undefined
+                  : undefined,
+                wins: squad.record.wins,
+                ties: squad.record.ties,
+                losses: squad.record.losses,
+                record: JSON.stringify(squad.record),
+                swiss: squad.rank.swiss,
+                cut: squad.rank.elimination,
+                percentile: percentile(
+                  squad.rank.elimination ?? squad.rank.swiss,
+                  squads.length
+                ).toString(),
+              },
+            ])
+          )
+        );
+      })
     );
+    await Promise.all(squadInserts.flat());
 
     console.log('⏲️  Update last sync...');
     await setLastSync();
@@ -95,8 +98,9 @@ void (async () => {
       `🏁 Setup done! (${tournaments.length} Tournaments, ${squadCount} Squads)`
     );
 
-    // await db.destroy();
+    await db.destroy();
   } catch (err: any) {
     console.log(chalk.red.bold(err?.body?.message || err.message || err));
+    await db.destroy();
   }
 })();

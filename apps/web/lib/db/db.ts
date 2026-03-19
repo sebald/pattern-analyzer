@@ -112,7 +112,37 @@ export const initDatabase = async () =>
       .addColumn('key', 'varchar(50)', col => col.primaryKey())
       .addColumn('value', 'text')
       .execute(),
-  ]);
+  ]).then(() =>
+    Promise.all([
+      db.schema
+        .createIndex('idx_squads_date')
+        .on('squads')
+        .column('date')
+        .execute(),
+      db.schema
+        .createIndex('idx_squads_faction')
+        .on('squads')
+        .column('faction')
+        .execute(),
+      db.schema
+        .createIndex('idx_squads_composition')
+        .on('squads')
+        .column('composition')
+        .execute(),
+      db.schema
+        .createIndex('idx_squads_listfortress_ref')
+        .on('squads')
+        .column('listfortress_ref')
+        .execute(),
+      db.schema
+        .createIndex('idx_tournaments_date')
+        .on('tournaments')
+        .column('date')
+        .execute(),
+    ]).catch(err => {
+      console.warn('⚠️  Could not create indexes (missing INDEX privilege?):', err.message);
+    })
+  );
 
 export const teardownDatabase = async () =>
   Promise.all([
