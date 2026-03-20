@@ -1,6 +1,6 @@
-import yasb from './data/yasb.json';
-import { getPilotName, type Ships } from './get-value';
-import type { XWSSquad, XWSFaction, XWSPilot, XWSUpgrades } from './types';
+import yasb from './data/yasb.json' with { type: 'json' };
+import { getPilotName, type Ships } from './get-value.js';
+import type { XWSSquad, XWSFaction, XWSPilot, XWSUpgrades } from './types.js';
 
 export interface YASBPilot {
   id: number;

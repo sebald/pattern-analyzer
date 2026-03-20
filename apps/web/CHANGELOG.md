@@ -1,5 +1,23 @@
 # pattern-analyzer.app
 
+## 0.3.1
+
+### Patch Changes
+
+- Updated dependencies [[`3b1a89a`](https://github.com/sebald/pattern-analyzer/commit/3b1a89ae6b992b5abacf447770acc6a697e4c699)]:
+  - @pattern-analyzer/xws@3.0.1
+
+## 0.3.0
+
+### Minor Changes
+
+- [#499](https://github.com/sebald/pattern-analyzer/pull/499) [`4619bf0`](https://github.com/sebald/pattern-analyzer/commit/4619bf06a9c902e0adca2a553c36c070fcd267fd) Thanks [@sebald](https://github.com/sebald)! - Remove barrel files across all projects, replacing re-exports with direct module imports for better tree-shaking and faster TypeScript compilation.
+
+### Patch Changes
+
+- Updated dependencies [[`4619bf0`](https://github.com/sebald/pattern-analyzer/commit/4619bf06a9c902e0adca2a553c36c070fcd267fd)]:
+  - @pattern-analyzer/xws@3.0.0
+
 ## 0.2.0
 
 ### Minor Changes

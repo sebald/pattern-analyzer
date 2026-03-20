@@ -1,1 +1,1 @@
-export { default } from './display-values.json';
+export { default } from './display-values.json' with { type: 'json' };

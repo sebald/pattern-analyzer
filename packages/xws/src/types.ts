@@ -1,4 +1,4 @@
-import type { Ships } from './get-value';
+import type { Ships } from './get-value.js';
 
 export type XWSFaction =
   | 'rebelalliance'

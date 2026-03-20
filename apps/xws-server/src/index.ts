@@ -6,4 +6,4 @@ const port = Number(process.env['PORT'] || 3001);
 
 console.log(`xws-server listening on port ${port}`);
 
-serve({ fetch: app.fetch, port });
+serve({ fetch: app.fetch, port, hostname: '0.0.0.0' });
