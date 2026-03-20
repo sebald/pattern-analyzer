@@ -1,5 +1,11 @@
 # @pattern-analyzer/xws
 
+## 3.0.0
+
+### Major Changes
+
+- [#499](https://github.com/sebald/pattern-analyzer/pull/499) [`4619bf0`](https://github.com/sebald/pattern-analyzer/commit/4619bf06a9c902e0adca2a553c36c070fcd267fd) Thanks [@sebald](https://github.com/sebald)! - Remove barrel files across all projects, replacing re-exports with direct module imports for better tree-shaking and faster TypeScript compilation.
+
 ## 2.0.0
 
 ### Major Changes
