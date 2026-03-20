@@ -1,5 +1,11 @@
 # @pattern-analyzer/xws
 
+## 3.0.1
+
+### Patch Changes
+
+- [#504](https://github.com/sebald/pattern-analyzer/pull/504) [`3b1a89a`](https://github.com/sebald/pattern-analyzer/commit/3b1a89ae6b992b5abacf447770acc6a697e4c699) Thanks [@sebald](https://github.com/sebald)! - Configure npm trusted publishing via OIDC.
+
 ## 3.0.0
 
 ### Major Changes
