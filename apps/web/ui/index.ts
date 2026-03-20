@@ -34,6 +34,7 @@ export * from './skeleton';
 export * from './sort-selection';
 export * from './spinner';
 export * from './squad';
+export * from './stats';
 export * from './switch';
 export * from './table';
 export * from './text';
