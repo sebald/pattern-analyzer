@@ -103,7 +103,7 @@ export const getTournament = async (id: string) => {
 
 // Squads
 // ---------------
-const updateRcord = (
+const updateRecord = (
   record: SquadData['record'] = {
     wins: 0,
     ties: 0,
@@ -128,7 +128,7 @@ export const getSquads = async ({ id }: { id: string }) => {
   rounds.forEach(round => {
     round.matches.forEach(
       ({ player1_id, player1_points, player2_id, player2_points }) => {
-        records[player1_id] = updateRcord(
+        records[player1_id] = updateRecord(
           records[player1_id],
           player1_points,
           player2_points
@@ -136,7 +136,7 @@ export const getSquads = async ({ id }: { id: string }) => {
 
         // Buys don't have a second player
         if (player2_id !== undefined) {
-          records[player2_id] = updateRcord(
+          records[player2_id] = updateRecord(
             records[player2_id],
             player2_points,
             player1_points
