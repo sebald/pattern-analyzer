@@ -1,6 +1,6 @@
-import data from './data/display-values.json';
-import standard from './data/standard-ships.json';
-import { XWSFaction } from './types';
+import data from './data/display-values.json' with { type: 'json' };
+import standard from './data/standard-ships.json' with { type: 'json' };
+import { XWSFaction } from './types.js';
 
 export type Factions = keyof typeof data.faction;
 export type Ships = keyof typeof data.ship;

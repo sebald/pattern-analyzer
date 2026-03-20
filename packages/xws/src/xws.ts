@@ -3,10 +3,10 @@ import type {
   XWSSquad,
   XWSUpgradeSlots,
   XWSUpgrades,
-} from './types';
-import SL_PILOTS from './data/standard-loadout-pilots.json';
-import { getPointsByName } from './yasb';
-import { getUpgradeName } from './get-value';
+} from './types.js';
+import SL_PILOTS from './data/standard-loadout-pilots.json' with { type: 'json' };
+import { getPointsByName } from './yasb.js';
+import { getUpgradeName } from './get-value.js';
 
 // LBN has some error and unnormalized in pilot ids.
 const PILOT_ID_MAP = {
