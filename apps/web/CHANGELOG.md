@@ -1,5 +1,16 @@
 # pattern-analyzer.app
 
+## 0.4.0
+
+### Minor Changes
+
+- [#506](https://github.com/sebald/pattern-analyzer/pull/506) [`189bf95`](https://github.com/sebald/pattern-analyzer/commit/189bf95d9951fd7054272d099b88a12beb19220c) Thanks [@sebald](https://github.com/sebald)! - Replace API proxy routes with direct vendor calls from server components.
+
+### Patch Changes
+
+- Updated dependencies [[`189bf95`](https://github.com/sebald/pattern-analyzer/commit/189bf95d9951fd7054272d099b88a12beb19220c)]:
+  - @pattern-analyzer/xws@3.1.0
+
 ## 0.3.1
 
 ### Patch Changes
