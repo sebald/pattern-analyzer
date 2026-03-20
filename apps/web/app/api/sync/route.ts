@@ -21,11 +21,11 @@ export const POST = async (request: NextRequest) => {
   if (token !== process.env.SYNC_TOKEN) {
     return NextResponse.json(
       {
-        name: 'Sync Info!',
-        message: `Latest sync at ${lastSync}`,
+        name: 'Unauthorized',
+        message: 'Invalid or missing sync token.',
       },
       {
-        status: 200,
+        status: 401,
       }
     );
   }
