@@ -10,6 +10,7 @@ const config = {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/$1',
     '^@pattern-analyzer/xws/(.*)$': '<rootDir>/../../packages/xws/src/$1',
+    '^(\\.{1,2}/.*)\\.js$': '$1',
   },
   testEnvironment: 'jest-environment-jsdom',
   prettierPath: null,
