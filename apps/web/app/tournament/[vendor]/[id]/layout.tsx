@@ -6,38 +6,17 @@ import { Link } from '@/ui/link';
 import { Title } from '@/ui/title';
 import { Trophy, Calendar } from '@/ui/icons';
 
-import { baseUrl, vendors } from '@/lib/config';
+import { vendors } from '@/lib/config';
 import { createMetadata } from '@/lib/metadata';
-import type { EventInfo, Vendor } from '@/lib/types';
+import type { Vendor } from '@/lib/types';
 import { formatDate, fromDate } from '@/lib/utils/date.utils';
+import { getVendor } from '@/lib/vendor';
 
 import { Navigation } from './_components/navigation';
 
 // Config
 // ---------------
 export const revalidate = 300; // 5min
-
-// Data
-// ---------------
-interface GetEventInfoProps {
-  vendor: Vendor;
-  id: string;
-}
-
-const getEventInfo = async ({ vendor, id }: GetEventInfoProps) => {
-  if (!vendors.find(v => v.id === vendor)) {
-    notFound();
-  }
-
-  const res = await fetch(`${baseUrl}/api/${vendor}/${id}`);
-
-  if (!res.ok) {
-    throw new Error(`Failed to fetch event info... (${vendor}/${id})`);
-  }
-
-  const info = await res.json();
-  return info as EventInfo;
-};
 
 // Props
 // ---------------
@@ -52,8 +31,14 @@ interface LayoutProps {
 // Metadata
 // ---------------
 export const generateMetadata = async ({ params }: LayoutProps) => {
-  const { vendor, id } = await params;
-  const event = await getEventInfo({ vendor: vendor as Vendor, id });
+  const { vendor: vendorParam, id } = await params;
+  const vendor = vendorParam as Vendor;
+
+  if (!vendors.find(v => v.id === vendor)) {
+    notFound();
+  }
+
+  const event = await getVendor(vendor).getEventInfo(id);
 
   return createMetadata({
     title: event.name,
@@ -67,7 +52,12 @@ export const generateMetadata = async ({ params }: LayoutProps) => {
 const Layout = async ({ params, children }: LayoutProps) => {
   const { vendor: vendorParam, id } = await params;
   const vendor = vendorParam as Vendor;
-  const event = await getEventInfo({ vendor, id });
+
+  if (!vendors.find(v => v.id === vendor)) {
+    notFound();
+  }
+
+  const event = await getVendor(vendor).getEventInfo(id);
 
   return (
     <>

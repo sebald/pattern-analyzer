@@ -1,4 +1,5 @@
 import type {
+  EventInfo,
   ListfortressTournament,
   ListfortressTournamentInfo,
   SquadData,
@@ -90,7 +91,7 @@ export const getAllTournaments = async ({
 
 export const getTournament = async (id: string) => {
   const api_url = `https://listfortress.com/api/v1/tournaments/${id}`;
-  const res = await fetch(api_url);
+  const res = await fetch(api_url, { cache: 'force-cache' });
 
   if (!res.ok) {
     throw new Error(`[listfortress] Failed to fetch event data... (${id})`);
@@ -98,6 +99,17 @@ export const getTournament = async (id: string) => {
 
   const tournament: ListfortressTournament = await res.json();
   return tournament;
+};
+
+export const getEventInfo = async (id: string): Promise<EventInfo> => {
+  const { name, date } = await getTournament(id);
+  return {
+    id,
+    name,
+    date,
+    url: `https://listfortress.com/tournaments/${id}`,
+    vendor: 'listfortress',
+  };
 };
 
 // Squads

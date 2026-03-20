@@ -1,4 +1,5 @@
 import type { Vendor } from '@/lib/types';
+import { getExportData } from '@/lib/vendor/rollbetter';
 import { Headline } from '@/ui/headline';
 import { Link } from '@/ui/link';
 import { List } from '@/ui/list';
@@ -12,13 +13,6 @@ import { ExportRollbetter } from './_components/export-rollbetter';
  */
 export const generateStaticParams = () => [];
 export const revalidate = 3600; // 1 hour
-
-// Helpers
-// ---------------
-const EXPORT_COMPONENT = {
-  listfortress: ExportListfortress,
-  rollbetter: ExportRollbetter,
-};
 
 // Props
 // ---------------
@@ -34,12 +28,16 @@ interface PageProps {
 const Page = async ({ params }: PageProps) => {
   const { vendor: vendorParam, id } = await params;
   const vendor = vendorParam as Vendor;
-  const Export = EXPORT_COMPONENT[vendor];
+  const exportData = vendor === 'rollbetter' ? await getExportData(id) : null;
 
   return (
     <div className="grid grid-cols-12 gap-y-14 md:gap-y-8">
       <div className="col-span-full md:col-span-4">
-        <Export id={id} />
+        {vendor === 'rollbetter' ? (
+          <ExportRollbetter data={exportData} />
+        ) : (
+          <ExportListfortress />
+        )}
       </div>
       <div className="col-span-full px-4 md:col-span-7 md:col-start-6 md:px-0">
         {vendor === 'listfortress' ? (

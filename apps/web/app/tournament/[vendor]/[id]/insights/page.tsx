@@ -1,5 +1,5 @@
-import { baseUrl } from '@/lib/config';
-import type { SquadData, Vendor } from '@/lib/types';
+import type { Vendor } from '@/lib/types';
+import { getVendor } from '@/lib/vendor';
 
 import { StatsView } from './_components/stats.view';
 
@@ -7,24 +7,6 @@ import { StatsView } from './_components/stats.view';
  * Opt into background revalidation. (see: https://github.com/vercel/next.js/discussions/43085)
  */
 export const generateStaticParams = () => [];
-
-// Data
-// ---------------
-interface GetSquadsProps {
-  vendor: Vendor;
-  id: string;
-}
-
-const getSquads = async ({ vendor, id }: GetSquadsProps) => {
-  const res = await fetch(`${baseUrl}/api/${vendor}/${id}/squads`);
-
-  if (!res.ok) {
-    throw new Error(`Failed to fetch squdas... (${vendor}/${id})`);
-  }
-
-  const squads = await res.json();
-  return squads as SquadData[];
-};
 
 // Props
 // ---------------
@@ -39,7 +21,7 @@ interface PageProps {
 // ---------------
 const Page = async ({ params }: PageProps) => {
   const { vendor, id } = await params;
-  const squads = await getSquads({ vendor: vendor as Vendor, id });
+  const squads = await getVendor(vendor as Vendor).getSquads({ id });
   return <StatsView squads={squads} />;
 };
 

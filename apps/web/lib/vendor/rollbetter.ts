@@ -1,30 +1,38 @@
-import { type NextRequest, NextResponse } from 'next/server';
-import { z } from 'zod';
-
 import type { XWSSquad } from '@pattern-analyzer/xws/types';
 import { toXWS, getBuilderLink } from '@pattern-analyzer/xws/xws';
 import { yasb2xws, xwsFromText } from '@pattern-analyzer/xws/yasb';
-import type { PlayerData } from '@/lib/types';
-import { round } from '@/lib/utils/math.utils';
+import type { EventInfo, PlayerData, SquadData } from '../types';
+import { round } from '../utils/math.utils';
 
-// Config
+// Types
 // ---------------
-export const revalidate = 300; // 5 min
-
-// Helpers
-// ---------------
-const schema = {
-  params: z.object({
-    id: z.string().regex(/^[0-9]+$/),
-  }),
-};
+interface RollBetterTournament {
+  id: number;
+  title: string;
+  startDate: string;
+  endDate: string | null;
+  timezone: string;
+  description: string;
+  registrationCount: number;
+  rounds: {
+    id: number;
+    roundNumber: number;
+    cutSize: number | null;
+    startState: string;
+    startTime: any;
+    endTime: any;
+    startDate: any;
+    endDate: any;
+    type: 'Swiss' | 'Graduated Cut';
+  }[];
+}
 
 interface RollBetterLists {
   registrations: RollBetterRegistration[];
   count: number;
 }
 
-export interface RollBetterRegistration {
+interface RollBetterRegistration {
   id: number;
   lists: {
     id: number;
@@ -87,6 +95,8 @@ interface RollBetterLadder {
   };
 }
 
+// Internal helpers
+// ---------------
 const getRegistration = async (id: string, count: number) => {
   // rollbetter's max page count seems to be 25
   const pageSize = 20;
@@ -101,7 +111,8 @@ const getRegistration = async (id: string, count: number) => {
   const responses = await Promise.all(
     pagination.map(skip =>
       fetch(
-        `https://rollbetter-linux.azurewebsites.net/tournaments/${id}/lists?skip=${skip}&take=${pageSize}&query=`
+        `https://rollbetter-linux.azurewebsites.net/tournaments/${id}/lists?skip=${skip}&take=${pageSize}&query=`,
+        { next: { revalidate: 300 } }
       )
     )
   );
@@ -128,7 +139,8 @@ const getRegistration = async (id: string, count: number) => {
 
 const getPlayerData = async (id: string) => {
   const res = await fetch(
-    `https://rollbetter-linux.azurewebsites.net/tournaments/${id}/players`
+    `https://rollbetter-linux.azurewebsites.net/tournaments/${id}/players`,
+    { next: { revalidate: 300 } }
   );
 
   if (!res.ok) {
@@ -231,35 +243,48 @@ const getSquadsData = async (id: string, players: PlayerData[]) => {
   });
 };
 
-// Props
+// Exported functions
 // ---------------
-interface RouteContext {
-  params: Promise<{
-    id?: string;
-  }>;
-}
+export const getEventInfo = async (id: string): Promise<EventInfo> => {
+  const api_url = `https://rollbetter-linux.azurewebsites.net/tournaments/${id}`;
+  const res = await fetch(api_url, { next: { revalidate: 86_400 } });
 
-// Handler
-// ---------------
-export const GET = async (_: NextRequest, { params }: RouteContext) => {
-  const resolvedParams = await params;
-  const result = schema.params.safeParse(resolvedParams);
+  if (!res.ok) {
+    throw new Error(`[rollbetter] Failed to fetch event data... (${id})`);
+  }
 
-  if (!result.success) {
-    return NextResponse.json(
-      {
-        name: 'Error parsing input.',
-        message: result.error.issues,
-      },
-      {
-        status: 400,
-      }
+  const { title, startDate }: RollBetterTournament = await res.json();
+
+  return {
+    id,
+    name: title,
+    date: startDate,
+    url: `https://rollbetter.gg/tournaments/${id}`,
+    vendor: 'rollbetter',
+  };
+};
+
+export const getSquads = async ({
+  id,
+}: {
+  id: string;
+}): Promise<SquadData[]> => {
+  const players = await getPlayerData(id);
+  const squads = await getSquadsData(id, players);
+  return squads;
+};
+
+export const getExportData = async (id: string): Promise<unknown> => {
+  const res = await fetch(
+    `https://rollbetter-linux.azurewebsites.net/tournaments/${id}/list-fortress-json`,
+    { next: { revalidate: 3600 } }
+  );
+
+  if (!res.ok) {
+    throw new Error(
+      `[rollbetter] Failed to fetch export data... (${id})`
     );
   }
 
-  const { id } = result.data;
-  const players = await getPlayerData(id);
-  const squads = await getSquadsData(id, players);
-
-  return NextResponse.json(squads);
+  return res.json();
 };
