@@ -1,4 +1,4 @@
-import { Container } from '@/ui';
+import { Container } from '@/ui/container';
 
 import { MobileNavigation } from './mobile-navigation';
 import { SiteNavigation } from './site-navigation';

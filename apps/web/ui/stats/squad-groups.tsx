@@ -1,18 +1,16 @@
 'use client';
 
-import {
-  Accordion,
-  Badge,
-  CopyButton,
-  Detail,
-  Link,
-  Squad,
-  Timeline,
-} from '@/ui';
+import { Accordion } from '@/ui/accordion';
+import { Badge } from '@/ui/badge';
+import { CopyButton } from '@/ui/copy-button';
+import { Detail } from '@/ui/detail';
+import { Link } from '@/ui/link';
+import { Squad } from '@/ui/squad';
+import { Timeline } from '@/ui/timeline';
 
 import { Copy, Trophy } from '@/ui/icons';
 import { formatDate } from '@/lib/utils/date.utils';
-import { getPilotName } from '@pattern-analyzer/xws';
+import { getPilotName } from '@pattern-analyzer/xws/get-value';
 import { ordinalize } from '@/lib/utils/number.utils';
 import { toPercentage } from '@/lib/utils/math.utils';
 import { type SquadCompositionStats } from '@/lib/stats/details/composition';

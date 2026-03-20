@@ -1,4 +1,5 @@
-import { Link, Message } from '@/ui';
+import { Link } from '@/ui/link';
+import { Message } from '@/ui/message';
 
 export const StatsHint = () => (
   <Message align="center">

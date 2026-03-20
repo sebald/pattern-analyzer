@@ -9,7 +9,7 @@ import {
 import { type VariantProps, cva } from 'class-variance-authority';
 import * as SwitchPrimitives from '@radix-ui/react-switch';
 
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils/classname.utils';
 import { Label } from './label';
 
 const styles = {

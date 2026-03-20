@@ -1,6 +1,6 @@
 'use client';
 
-import { XWSUpgradeSlots } from '@pattern-analyzer/xws';
+import { XWSUpgradeSlots } from '@pattern-analyzer/xws/types';
 import { UpgradeSlotSelection } from '@/ui/upgrade-slot-selection';
 
 import { useParams } from './useParams';

@@ -1,6 +1,6 @@
 'use client';
 
-import { Message } from '@/ui';
+import { Message } from '@/ui/message';
 
 export interface ErrorProps {
   error: Error;

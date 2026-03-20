@@ -12,7 +12,7 @@ import { Dialog } from '@/ui/dialog';
 import type { DialogProps } from '@/ui/dialog';
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
 import { MagnifyingGlass } from '@/ui/icons';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils/classname.utils';
 
 // Command
 // ---------------

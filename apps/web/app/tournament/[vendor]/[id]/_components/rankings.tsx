@@ -1,9 +1,12 @@
-import { getFactionName } from '@pattern-analyzer/xws';
+import { getFactionName } from '@pattern-analyzer/xws/get-value';
 import { SquadData } from '@/lib/types';
 import { cn } from '@/lib/utils/classname.utils';
 import { round } from '@/lib/utils/math.utils';
 
-import { Card, Detail, FactionIcon, ShipList } from '@/ui';
+import { Card } from '@/ui/card';
+import { Detail } from '@/ui/detail';
+import { FactionIcon } from '@/ui/faction-icon';
+import { ShipList } from '@/ui/ship-list';
 
 // Props
 // ---------------

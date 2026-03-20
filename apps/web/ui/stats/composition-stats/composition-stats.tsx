@@ -1,13 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { Card, FactionSelection, SortSelection } from '@/ui';
-import type { SortOptions } from '@/ui';
+import { Card } from '@/ui/card';
+import { FactionSelection } from '@/ui/faction-selection';
+import { SortSelection, type SortOptions } from '@/ui/sort-selection';
 
 import { CompositionTable } from './composition-table';
 import type { CompositionStatsType } from './types';
-import { XWSFaction } from '@pattern-analyzer/xws';
-
+import { XWSFaction } from '@pattern-analyzer/xws/types';
 // Props
 // ---------------
 export interface CompositionStatsProps {

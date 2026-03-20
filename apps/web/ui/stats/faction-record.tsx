@@ -1,9 +1,12 @@
 import { Fragment } from 'react';
 
-import { Card, Table } from '@/ui';
-import { type XWSFaction, getFactionName } from '@pattern-analyzer/xws';
+import { Card } from '@/ui/card';
+import { Table } from '@/ui/table';
+import { getFactionName } from '@pattern-analyzer/xws/get-value';
+import type { XWSFaction } from '@pattern-analyzer/xws/types';
 import type { GameRecord } from '@/lib/types';
-import { FACTION_COLORS, toPercentage } from '@/lib/utils';
+import { FACTION_COLORS } from '@/lib/utils/colors.utils';
+import { toPercentage } from '@/lib/utils/math.utils';
 
 // Props
 // ---------------

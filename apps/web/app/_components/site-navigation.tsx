@@ -1,4 +1,5 @@
-import { Link, Logo } from '@/ui';
+import { Link } from '@/ui/link';
+import { Logo } from '@/ui/logo';
 import { secondaryNavigation, siteNavigation } from '@/lib/config';
 import { cn } from '@/lib/utils/classname.utils';
 

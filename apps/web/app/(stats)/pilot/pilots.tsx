@@ -1,9 +1,9 @@
 'use client';
 
-import type { PilotData } from '@/lib/stats/module';
+import type { PilotData } from '@/lib/stats/module/pilot';
 
-import { Card } from '@/ui';
-import { PilotTable } from '@/ui/stats/pilot-stats';
+import { Card } from '@/ui/card';
+import { PilotTable } from '@/ui/stats/pilot-stats/pilot-table';
 import { useFactionFilter } from '@/ui/params/faction-filter';
 import { useSmallSamplesFilter } from '@/ui/params/small-samples-filter';
 import { useSortParam } from '@/ui/params/sort-param';

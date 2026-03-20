@@ -1,6 +1,6 @@
-import { Container } from '@/ui';
+import { Container } from '@/ui/container';
 import { createMetadata } from '@/lib/metadata';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils/classname.utils';
 
 import './globals.css';
 import { sans } from './fonts';

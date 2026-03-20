@@ -2,8 +2,7 @@ import { SquadEntitiy } from './db/types';
 import { SquadData } from './types';
 import { percentile } from './utils/math.utils';
 import { toDate } from './utils/date.utils';
-import { toCompositionId } from '@pattern-analyzer/xws';
-
+import { toCompositionId } from '@pattern-analyzer/xws/xws';
 export const toSquadEntitiy = (
   val: SquadData,
   tournament: { date: Date; total: number }

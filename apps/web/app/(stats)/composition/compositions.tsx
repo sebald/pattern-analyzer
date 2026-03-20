@@ -2,11 +2,11 @@
 
 import type { CompositionData } from '@/lib/stats/module/composition';
 
-import { Card } from '@/ui';
+import { Card } from '@/ui/card';
 import { useSmallSamplesFilter } from '@/ui/params/small-samples-filter';
 import { useFactionFilter } from '@/ui/params/faction-filter';
 import { useSortParam } from '@/ui/params/sort-param';
-import { CompositionTable } from '@/ui/stats/composition-stats';
+import { CompositionTable } from '@/ui/stats/composition-stats/composition-table';
 
 // Props
 // ---------------

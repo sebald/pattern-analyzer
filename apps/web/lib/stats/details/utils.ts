@@ -1,6 +1,6 @@
 import { fromDate, toMonth } from '@/lib/utils/date.utils';
 import { average, deviation, round, winrate } from '@/lib/utils/math.utils';
-import type { XWSSquad, XWSUpgrades } from '@pattern-analyzer/xws';
+import type { XWSSquad, XWSUpgrades } from '@pattern-analyzer/xws/types';
 import type { GameRecord } from '@/lib/types';
 
 /**

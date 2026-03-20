@@ -1,5 +1,5 @@
-import type { Ships, XWSFaction, XWSUpgradeSlots } from '@pattern-analyzer/xws';
-
+import type { Ships } from '@pattern-analyzer/xws/get-value';
+import type { XWSFaction, XWSUpgradeSlots } from '@pattern-analyzer/xws/types';
 export type FactionMap<Key extends string, Value> = {
   [faction in XWSFaction]: { [key in Key]?: Value };
 };

@@ -1,6 +1,6 @@
 'use client';
 
-import { XWSFaction } from '@pattern-analyzer/xws';
+import { XWSFaction } from '@pattern-analyzer/xws/types';
 import { FactionSelection } from '@/ui/faction-selection';
 
 import { useParams } from './useParams';

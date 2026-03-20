@@ -1,4 +1,4 @@
-import type { XWSUpgradeSlots } from '@pattern-analyzer/xws';
+import type { XWSUpgradeSlots } from '@pattern-analyzer/xws/types';
 import type { GameRecord } from '@/lib/types';
 
 export interface UpgradeStatsType {

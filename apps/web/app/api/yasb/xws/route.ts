@@ -1,8 +1,7 @@
 import { type NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 
-import { yasb2xws } from '@pattern-analyzer/xws';
-
+import { yasb2xws } from '@pattern-analyzer/xws/yasb';
 // Config
 // ---------------
 export const revalidate = false;

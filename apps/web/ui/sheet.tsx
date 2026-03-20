@@ -4,7 +4,7 @@ import * as React from 'react';
 import * as Primitive from '@radix-ui/react-dialog';
 import { cva, type VariantProps } from 'class-variance-authority';
 
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils/classname.utils';
 import { Close } from '@/ui/icons';
 
 // Styles

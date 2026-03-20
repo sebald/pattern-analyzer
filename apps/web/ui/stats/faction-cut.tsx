@@ -3,10 +3,15 @@
 import { useState } from 'react';
 import { ResponsiveBar } from '@nivo/bar';
 
-import { Button, Card, Dialog, Input } from '@/ui';
+import { Button } from '@/ui/button';
+import { Card } from '@/ui/card';
+import { Dialog } from '@/ui/dialog';
+import { Input } from '@/ui/input';
 import { Cog } from '@/ui/icons';
-import { type XWSFaction, getFactionName } from '@pattern-analyzer/xws';
-import { FACTION_ABBR, FACTION_COLORS, round, toPercentage } from '@/lib/utils';
+import { getFactionName } from '@pattern-analyzer/xws/get-value';
+import type { XWSFaction } from '@pattern-analyzer/xws/types';
+import { FACTION_ABBR, FACTION_COLORS } from '@/lib/utils/colors.utils';
+import { round, toPercentage } from '@/lib/utils/math.utils';
 
 import { theme } from './theme';
 

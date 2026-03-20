@@ -1,38 +1,28 @@
 import type { SquadEntitiy } from '@/lib/db/types';
-import { setup } from '@/lib/stats';
-import {
-  composition,
-  faction,
-  pilot,
-  pilotCostDistribution,
-  pilotSkillDistribution,
-  ship,
-  squadSize,
-  upgrade,
-  type CompositionData,
-  type FactionData,
-  type PilotData,
-  type PilotCostDistributionData,
-  type PilotSkillDistributionData,
-  type ShipData,
-  type SquadSizeData,
-  type UpgradeData,
-} from '@/lib/stats/module';
+import { setup } from '@/lib/stats/setup';
+import { type CompositionData, composition } from '@/lib/stats/module/composition';
+import { type FactionData, faction } from '@/lib/stats/module/faction';
+import { type PilotData, pilot } from '@/lib/stats/module/pilot';
+import { type PilotCostDistributionData, pilotCostDistribution } from '@/lib/stats/module/pilot-cost-distribution';
+import { type PilotSkillDistributionData, pilotSkillDistribution } from '@/lib/stats/module/pilot-skill-distribution';
+import { type ShipData, ship } from '@/lib/stats/module/ship';
+import { type SquadSizeData, squadSize } from '@/lib/stats/module/squad-size';
+import { type UpgradeData, upgrade } from '@/lib/stats/module/upgrade';
 import { toSquadEntitiy } from '@/lib/transform';
 import type { SquadData } from '@/lib/types';
 
 import { ChassisDistribution } from '@/ui/stats/chassis-distribution';
-import { CompositionStats } from '@/ui/stats/composition-stats';
+import { CompositionStats } from '@/ui/stats/composition-stats/composition-stats';
 import { FactionCut } from '@/ui/stats/faction-cut';
 import { FactionDistribution } from '@/ui/stats/faction-distribution';
 import { FactionPerformance } from '@/ui/stats/faction-performance';
 import { FactionRecord } from '@/ui/stats/faction-record';
 import { PilotCostDistribution } from '@/ui/stats/pilot-cost-distribution';
 import { PilotSkillDistribution } from '@/ui/stats/pilot-skill-distribution';
-import { PilotStats } from '@/ui/stats/pilot-stats';
+import { PilotStats } from '@/ui/stats/pilot-stats/pilot-stats';
 import { SquadSize } from '@/ui/stats/squad-size';
 import { StatsHint } from '@/ui/stats/stats-hint';
-import { UpgradeStats } from '@/ui/stats/upgrade-stats';
+import { UpgradeStats } from '@/ui/stats/upgrade-stats/upgrade-stats';
 
 // Helpers
 // ---------------

@@ -1,4 +1,4 @@
-import { LogoSkeleton } from '@/ui';
+import { LogoSkeleton } from '@/ui/skeleton';
 
 const Loading = () => (
   <div className="grid flex-1 place-items-center">

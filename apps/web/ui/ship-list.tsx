@@ -1,4 +1,4 @@
-import { XWSSquad } from '@pattern-analyzer/xws';
+import { XWSSquad } from '@pattern-analyzer/xws/types';
 import { cva } from 'class-variance-authority';
 import type { VariantProps } from 'class-variance-authority';
 

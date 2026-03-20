@@ -1,11 +1,11 @@
 import { Suspense } from 'react';
 import { getFactionCount, getSquads } from '@/lib/db/squads';
 import { getTournamentsCount } from '@/lib/db/tournaments';
-import { setup } from '@/lib/stats';
-import { CompositionData, composition } from '@/lib/stats/module';
+import { setup } from '@/lib/stats/setup';
+import { type CompositionData, composition } from '@/lib/stats/module/composition';
 
 import { StatsHint } from '@/ui/stats/stats-hint';
-import { CardTableSkeleton } from '@/ui';
+import { CardTableSkeleton } from '@/ui/skeleton';
 
 import { Compositions } from './compositions';
 

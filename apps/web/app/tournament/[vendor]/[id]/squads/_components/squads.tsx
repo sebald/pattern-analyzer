@@ -1,8 +1,14 @@
 'use client';
 
-import { Card, Center, Message, Link, Squad, Tiles, CopyButton } from '@/ui';
+import { Card } from '@/ui/card';
+import { Center } from '@/ui/center';
+import { CopyButton } from '@/ui/copy-button';
+import { Link } from '@/ui/link';
+import { Message } from '@/ui/message';
+import { Squad } from '@/ui/squad';
+import { Tiles } from '@/ui/tiles';
 import { Archive } from '@/ui/icons';
-import type { XWSSquad } from '@pattern-analyzer/xws';
+import type { XWSSquad } from '@pattern-analyzer/xws/types';
 import type { SquadData } from '@/lib/types';
 
 import { useFilter } from './context';

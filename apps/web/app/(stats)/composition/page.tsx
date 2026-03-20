@@ -1,6 +1,8 @@
 import { createMetadata } from '@/lib/metadata';
 
-import { Caption, Message, Title } from '@/ui';
+import { Caption } from '@/ui/caption';
+import { Message } from '@/ui/message';
+import { Title } from '@/ui/title';
 
 import { DateRangeFilter } from '@/ui/params/date-range-filter';
 import { FactionFilter } from '@/ui/params/faction-filter';

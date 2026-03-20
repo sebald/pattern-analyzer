@@ -1,5 +1,5 @@
 // From: https://heroicons.com/
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils/classname.utils';
 import { SVGProps } from 'react';
 
 export interface IconProps extends SVGProps<SVGSVGElement> {}

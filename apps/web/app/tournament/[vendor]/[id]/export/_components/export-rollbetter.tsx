@@ -2,8 +2,8 @@
 
 import useSWR from 'swr';
 
-import { getJson } from '@/lib/utils';
-import { CopyButton } from '@/ui';
+import { getJson } from '@/lib/utils/fetch.utils';
+import { CopyButton } from '@/ui/copy-button';
 
 // Component
 // ---------------

@@ -2,17 +2,14 @@
 
 import { useState } from 'react';
 
-import {
-  Card,
-  FactionSelection,
-  Select,
-  UpgradeSlotSelection,
-  type SortOptions,
-} from '@/ui';
+import { Card } from '@/ui/card';
+import { FactionSelection } from '@/ui/faction-selection';
+import { Select } from '@/ui/select';
+import { type SortOptions } from '@/ui/sort-selection';
+import { UpgradeSlotSelection } from '@/ui/upgrade-slot-selection';
 
 import type { FactionMapWithAll } from '@/lib/stats/types';
-import { XWSFaction, XWSUpgradeSlots } from '@pattern-analyzer/xws';
-
+import { XWSFaction, XWSUpgradeSlots } from '@pattern-analyzer/xws/types';
 import type { UpgradeStatsType } from './types';
 import { UpgradeTable } from './upgrade-table';
 

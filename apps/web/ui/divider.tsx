@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils/classname.utils';
 
 export interface DividerProps {
   className?: string;

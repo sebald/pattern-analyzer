@@ -2,10 +2,10 @@ import { Suspense } from 'react';
 
 import { getFactionCount, getSquads } from '@/lib/db/squads';
 import { getTournamentsCount } from '@/lib/db/tournaments';
-import { pilot, type PilotData } from '@/lib/stats/module';
+import { pilot, type PilotData } from '@/lib/stats/module/pilot';
 import { setup } from '@/lib/stats/setup';
 
-import { CardTableSkeleton } from '@/ui';
+import { CardTableSkeleton } from '@/ui/skeleton';
 import { StatsHint } from '@/ui/stats/stats-hint';
 
 import { Pilots } from './pilots';

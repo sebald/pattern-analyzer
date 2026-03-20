@@ -1,4 +1,4 @@
-import type { XWSFaction } from '@pattern-analyzer/xws';
+import type { XWSFaction } from '@pattern-analyzer/xws/types';
 
 export const FACTION_COLORS: { [key in XWSFaction | 'unknown']: string } = {
   rebelalliance: '#fca5a5',

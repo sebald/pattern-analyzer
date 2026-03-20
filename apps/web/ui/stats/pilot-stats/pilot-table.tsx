@@ -1,13 +1,15 @@
 'use client';
 
-import { Collapsible, Link } from '@/ui';
-import type { SortOptions } from '@/ui';
+import { Collapsible } from '@/ui/collapsible';
+import { Link } from '@/ui/link';
+import type { SortOptions } from '@/ui/sort-selection';
 import { View } from '@/ui/icons';
 import { ShipIcon } from '@/ui/ship-icon';
 import { Table } from '@/ui/table';
 
-import { type XWSFaction, getPilotName } from '@pattern-analyzer/xws';
-import { toPercentage } from '@/lib/utils';
+import { getPilotName } from '@pattern-analyzer/xws/get-value';
+import type { XWSFaction } from '@pattern-analyzer/xws/types';
+import { toPercentage } from '@/lib/utils/math.utils';
 import type { FactionMap } from '@/lib/stats/types';
 
 import { PilotStatsType } from './types';

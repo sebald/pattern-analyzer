@@ -2,8 +2,9 @@
 
 import { BarCustomLayer, ResponsiveBar } from '@nivo/bar';
 
-import { Card } from '@/ui';
-import { COLOR_MAP, toPercentage, weightedAverage } from '@/lib/utils';
+import { Card } from '@/ui/card';
+import { COLOR_MAP } from '@/lib/utils/colors.utils';
+import { toPercentage, weightedAverage } from '@/lib/utils/math.utils';
 
 import { theme } from './theme';
 

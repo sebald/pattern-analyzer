@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import { Container, Link } from '@/ui';
+import { Container } from '@/ui/container';
+import { Link } from '@/ui/link';
 import {
   secondaryNavigation,
   siteNavigation,

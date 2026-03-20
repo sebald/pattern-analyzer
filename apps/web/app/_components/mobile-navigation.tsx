@@ -3,13 +3,16 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-import { Button, Link, Logo, Sheet, type LinkProps } from '@/ui';
+import { Button } from '@/ui/button';
+import { Link, type LinkProps } from '@/ui/link';
+import { Logo } from '@/ui/logo';
+import { Sheet } from '@/ui/sheet';
 import {
   secondaryNavigation,
   siteNavigation,
   xWingResources,
 } from '@/lib/config';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils/classname.utils';
 
 import { headline } from '../fonts';
 import { Lines } from '@/ui/icons';

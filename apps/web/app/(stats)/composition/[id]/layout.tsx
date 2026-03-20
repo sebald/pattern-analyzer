@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { Title } from '@/ui';
+import { Title } from '@/ui/title';
 
 const Layout = ({ children }: { children: ReactNode }) => (
   <>

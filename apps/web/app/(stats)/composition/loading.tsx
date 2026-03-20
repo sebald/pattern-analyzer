@@ -1,4 +1,4 @@
-import { Skeleton, HeadlineSkeleton, CardTableSkeleton } from '@/ui';
+import { Skeleton, HeadlineSkeleton, CardTableSkeleton } from '@/ui/skeleton';
 
 export const Loading = () => (
   <Skeleton>

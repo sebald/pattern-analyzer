@@ -3,7 +3,7 @@ import { headline } from '@/app/fonts';
 import { SearchForm } from './_components/search-form';
 import { BarChart, ChevronDown, Trophy, User, UserGroup } from '@/ui/icons';
 import { Hero } from './_components/hero-card';
-import { Link } from '@/ui';
+import { Link } from '@/ui/link';
 
 // Config
 // ---------------

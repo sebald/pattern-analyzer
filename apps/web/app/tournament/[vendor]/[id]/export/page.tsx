@@ -1,5 +1,8 @@
 import type { Vendor } from '@/lib/types';
-import { Headline, List, Link, Text } from '@/ui';
+import { Headline } from '@/ui/headline';
+import { Link } from '@/ui/link';
+import { List } from '@/ui/list';
+import { Text } from '@/ui/text';
 
 import { ExportListfortress } from './_components/export-listfortress';
 import { ExportRollbetter } from './_components/export-rollbetter';

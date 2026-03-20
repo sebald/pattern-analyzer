@@ -5,10 +5,15 @@ import { useMediaQuery } from 'usehooks-ts';
 import type { AxisTickProps } from '@nivo/axes';
 import { BarCustomLayer, BarSvgProps, ResponsiveBar } from '@nivo/bar';
 
-import { Card, FactionSelection, Select, ShipText } from '@/ui';
-import { type XWSFaction, getStandardShips, Ships } from '@pattern-analyzer/xws';
+import { Card } from '@/ui/card';
+import { FactionSelection } from '@/ui/faction-selection';
+import { Select } from '@/ui/select';
+import { ShipText } from '@/ui/ship-icon';
+import { getStandardShips, Ships } from '@pattern-analyzer/xws/get-value';
+import type { XWSFaction } from '@pattern-analyzer/xws/types';
 import type { FactionMap } from '@/lib/stats/types';
-import { COLOR_MAP, toPercentage } from '@/lib/utils';
+import { COLOR_MAP } from '@/lib/utils/colors.utils';
+import { toPercentage } from '@/lib/utils/math.utils';
 
 import { theme } from './theme';
 

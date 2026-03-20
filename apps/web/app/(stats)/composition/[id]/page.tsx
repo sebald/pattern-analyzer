@@ -7,11 +7,14 @@ import {
 import { createMetadata } from '@/lib/metadata';
 import { fromDate } from '@/lib/utils/date.utils';
 import { getFactionCount, getSquads } from '@/lib/db/squads';
-import { getShipName } from '@pattern-analyzer/xws';
+import { getShipName } from '@pattern-analyzer/xws/get-value';
 import { pointsUpdateDate } from '@/lib/config';
-import { toPercentage } from '@/lib/utils';
+import { toPercentage } from '@/lib/utils/math.utils';
 
-import { Card, Detail, Headline, ShipIcon } from '@/ui';
+import { Card } from '@/ui/card';
+import { Detail } from '@/ui/detail';
+import { Headline } from '@/ui/headline';
+import { ShipIcon } from '@/ui/ship-icon';
 import { HistoryCurve } from '@/ui/stats/history-curve';
 import { SquadGroups } from '@/ui/stats/squad-groups';
 

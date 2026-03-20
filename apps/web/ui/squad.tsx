@@ -1,7 +1,9 @@
 import { VariantProps, cva } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils/classname.utils';
-import { type XWSSquad, getPilotName, getShipName, upgradesToList } from '@pattern-analyzer/xws';
+import { getPilotName, getShipName } from '@pattern-analyzer/xws/get-value';
+import type { XWSSquad } from '@pattern-analyzer/xws/types';
+import { upgradesToList } from '@pattern-analyzer/xws/xws';
 
 // Helper
 // ---------------

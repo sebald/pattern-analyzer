@@ -3,7 +3,7 @@
 import { ResponsiveScatterPlot } from '@nivo/scatterplot';
 import type { ScatterPlotNodeProps } from '@nivo/scatterplot';
 
-import { Card } from '@/ui';
+import { Card } from '@/ui/card';
 import { theme } from '@/ui/stats/theme';
 import type { SquadCompositionStats } from '@/lib/stats/details/composition';
 import { average, round } from '@/lib/utils/math.utils';

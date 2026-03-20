@@ -1,8 +1,11 @@
 'use client';
 
-import { getPilotName } from '@pattern-analyzer/xws';
-import { toPercentage } from '@/lib/utils';
-import { Card, Detail, Link, PilotImage } from '@/ui';
+import { getPilotName } from '@pattern-analyzer/xws/get-value';
+import { toPercentage } from '@/lib/utils/math.utils';
+import { Card } from '@/ui/card';
+import { Detail } from '@/ui/detail';
+import { Link } from '@/ui/link';
+import { PilotImage } from '@/ui/pilot-image';
 import { Archive, View } from '@/ui/icons';
 import { useSmallSamplesFilter } from '@/ui/params/small-samples-filter';
 import { pid } from 'process';

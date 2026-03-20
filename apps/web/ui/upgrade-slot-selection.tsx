@@ -1,4 +1,4 @@
-import { XWSUpgradeSlots } from '@pattern-analyzer/xws';
+import { XWSUpgradeSlots } from '@pattern-analyzer/xws/types';
 import { Select } from './select';
 
 const SLOTS: { id: XWSUpgradeSlots; name: string }[] = [

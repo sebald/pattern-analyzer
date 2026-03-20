@@ -1,4 +1,4 @@
-import type { XWSFaction } from '@pattern-analyzer/xws';
+import type { XWSFaction } from '@pattern-analyzer/xws/types';
 import type { GameRecord } from '@/lib/types';
 import type { StatModule } from '../types';
 import { average, deviation, round, winrate } from '@/lib/utils/math.utils';
