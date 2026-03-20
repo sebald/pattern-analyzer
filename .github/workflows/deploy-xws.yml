@@ -20,10 +20,6 @@ jobs:
           username: ${{ secrets.HETZNER_USER }}
           key: ${{ secrets.HETZNER_SSH_KEY }}
           script: |
-            cd ~/pattern-analyzer
-            git pull origin main
-            pnpm install --frozen-lockfile
-            pnpm --filter @pattern-analyzer/xws build
-            pnpm --filter xws-server build
-            cd apps/xws-server
-            pm2 restart xws-server || pm2 start ecosystem.config.js
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+            ~/pattern-analyzer/apps/xws-server/deploy.sh
