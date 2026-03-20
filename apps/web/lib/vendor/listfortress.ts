@@ -173,9 +173,9 @@ export const getSquads = async ({ id }: { id: string }) => {
         ties: 0,
       },
       sos: Number(p.sos),
-      missionPoints: p.mission_points,
+      missionPoints: Number(p.mission_points ?? 0),
       mov: p.mov,
-      dropped: p.dropped,
+      dropped: Boolean(p.dropped),
     };
   }) satisfies SquadData[];
 

@@ -121,7 +121,7 @@ export interface ListfortressTournamentInfo {
   country: string;
   date: string;
   format_id: number;
-  version_id: any;
+  version_id: unknown;
   tournament_type_id: number;
   created_at: string;
   updated_at: string;
@@ -135,7 +135,7 @@ export interface ListfortressTournament {
   country: string;
   date: string;
   format_id: number;
-  version_id: any;
+  version_id: unknown;
   tournament_type_id: number;
   created_at: string;
   updated_at: string;
@@ -154,8 +154,8 @@ export interface ListfortressTournament {
       player2_points: number;
       result: string;
       winner_id?: number;
-      rounds_played: any;
-      went_to_time: any;
+      rounds_played: unknown;
+      went_to_time: unknown;
     }[];
   }[];
 }
@@ -169,9 +169,9 @@ export interface ListfortressParticipant {
   top_cut_rank?: number;
   mov: number;
   sos: string;
-  dropped: any;
-  list_points: any;
+  dropped: unknown;
+  list_points: unknown;
   list_json?: string;
-  event_points: any;
-  mission_points: any;
+  event_points: unknown;
+  mission_points: unknown;
 }
