@@ -1,3 +1,0 @@
-xws.pattern-analyzer.app {
-	reverse_proxy localhost:3001
-}
