@@ -17,7 +17,7 @@
 - [ ] Add `.env.example` documenting required environment variables
 - [ ] Fix `jest.config.js` broken module aliases (`$` instead of `(.*)`)
 - [ ] Sync API should return 401 for invalid tokens, not 200
-- [ ] Remove `delay(5000)` hack in sync route
+- [x] Remove `delay(5000)` hack in sync route
 
 ## Low Priority
 
