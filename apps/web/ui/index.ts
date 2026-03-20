@@ -1,4 +1,5 @@
 export * from './accordion';
+export * from './params';
 export * from './alert';
 export * from './badge';
 export * from './button';
@@ -33,6 +34,7 @@ export * from './ship-list';
 export * from './skeleton';
 export * from './sort-selection';
 export * from './spinner';
+export * from './stats';
 export * from './squad';
 export * from './switch';
 export * from './table';
