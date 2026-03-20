@@ -1,5 +1,15 @@
 # @pattern-analyzer/xws
 
+## 2.0.0
+
+### Major Changes
+
+- [#497](https://github.com/sebald/pattern-analyzer/pull/497) [`51b7c69`](https://github.com/sebald/pattern-analyzer/commit/51b7c690fd36d79b06c6dad8cb5e6e936c7052b1) Thanks [@sebald](https://github.com/sebald)! - Remove barrel files across all projects, replacing re-exports with direct module imports for better tree-shaking and faster TypeScript compilation.
+
+### Patch Changes
+
+- [#493](https://github.com/sebald/pattern-analyzer/pull/493) [`144d335`](https://github.com/sebald/pattern-analyzer/commit/144d3353b9d01b996b61b17e1e74485396ec4b5a) Thanks [@sebald](https://github.com/sebald)! - Add `declarationMap: true` to tsconfig for improved IDE navigation.
+
 ## 1.0.0
 
 ### Major Changes
