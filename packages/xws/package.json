@@ -1,6 +1,6 @@
 {
   "name": "@pattern-analyzer/xws",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "XWS normalization, game data lookups, and YASB integration for X-Wing Miniatures",
   "license": "MIT",
   "repository": {
@@ -9,12 +9,30 @@
     "directory": "packages/xws"
   },
   "exports": {
-    "./xws": { "types": "./dist/xws.d.ts", "import": "./dist/xws.js" },
-    "./yasb": { "types": "./dist/yasb.d.ts", "import": "./dist/yasb.js" },
-    "./get-value": { "types": "./dist/get-value.d.ts", "import": "./dist/get-value.js" },
-    "./types": { "types": "./dist/types.d.ts", "import": "./dist/types.js" },
-    "./data/ship-icons": { "types": "./dist/data/ship-icons.d.ts", "import": "./dist/data/ship-icons.js" },
-    "./data/display-values": { "types": "./dist/data/display-values.d.ts", "import": "./dist/data/display-values.js" }
+    "./xws": {
+      "types": "./dist/xws.d.ts",
+      "import": "./dist/xws.js"
+    },
+    "./yasb": {
+      "types": "./dist/yasb.d.ts",
+      "import": "./dist/yasb.js"
+    },
+    "./get-value": {
+      "types": "./dist/get-value.d.ts",
+      "import": "./dist/get-value.js"
+    },
+    "./types": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/types.js"
+    },
+    "./data/ship-icons": {
+      "types": "./dist/data/ship-icons.d.ts",
+      "import": "./dist/data/ship-icons.js"
+    },
+    "./data/display-values": {
+      "types": "./dist/data/display-values.d.ts",
+      "import": "./dist/data/display-values.js"
+    }
   },
   "files": [
     "dist"
