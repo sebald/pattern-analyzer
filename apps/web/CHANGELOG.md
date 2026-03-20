@@ -1,5 +1,24 @@
 # pattern-analyzer.app
 
+## 0.2.0
+
+### Minor Changes
+
+- [#497](https://github.com/sebald/pattern-analyzer/pull/497) [`51b7c69`](https://github.com/sebald/pattern-analyzer/commit/51b7c690fd36d79b06c6dad8cb5e6e936c7052b1) Thanks [@sebald](https://github.com/sebald)! - Remove barrel files across all projects, replacing re-exports with direct module imports for better tree-shaking and faster TypeScript compilation.
+
+### Patch Changes
+
+- [#488](https://github.com/sebald/pattern-analyzer/pull/488) [`cf9d512`](https://github.com/sebald/pattern-analyzer/commit/cf9d512fd7cbbaef4c70d831fa9d7e7db6c10ab8) Thanks [@sebald](https://github.com/sebald)! - Add `engines` field to root package.json to enforce Node and pnpm versions.
+
+- [#494](https://github.com/sebald/pattern-analyzer/pull/494) [`1080c80`](https://github.com/sebald/pattern-analyzer/commit/1080c800ebb568e1fc1a2516e45d82b7644fee5c) Thanks [@sebald](https://github.com/sebald)! - Re-export `ui/stats/` and `ui/params/` from barrel file for consistency.
+
+- [#491](https://github.com/sebald/pattern-analyzer/pull/491) [`8821ea0`](https://github.com/sebald/pattern-analyzer/commit/8821ea045b5ea6797931cd74cf146bd30e6a6612) Thanks [@sebald](https://github.com/sebald)! - Fix typo: rename `updateRcord` to `updateRecord` in listfortress vendor module.
+
+- [#492](https://github.com/sebald/pattern-analyzer/pull/492) [`43975c8`](https://github.com/sebald/pattern-analyzer/commit/43975c8e416e9ef81261e709fea1bb7815bcec63) Thanks [@sebald](https://github.com/sebald)! - Tighten `any` types to `unknown` in Listfortress API type definitions.
+
+- Updated dependencies [[`51b7c69`](https://github.com/sebald/pattern-analyzer/commit/51b7c690fd36d79b06c6dad8cb5e6e936c7052b1), [`144d335`](https://github.com/sebald/pattern-analyzer/commit/144d3353b9d01b996b61b17e1e74485396ec4b5a)]:
+  - @pattern-analyzer/xws@2.0.0
+
 ## 0.1.2
 
 ### Patch Changes
