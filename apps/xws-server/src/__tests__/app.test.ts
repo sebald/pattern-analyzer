@@ -83,6 +83,7 @@ describe('GET /health', () => {
 
     const body = await res.json();
     expect(body.status).toBe('ok');
+    expect(body.version).toMatch(/^\d+\.\d+\.\d+$/);
   });
 });
 

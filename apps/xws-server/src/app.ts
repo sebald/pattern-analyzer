@@ -1,7 +1,12 @@
+import { readFileSync } from 'node:fs';
 import { zValidator } from '@hono/zod-validator';
 import { Hono, type Context, type Next } from 'hono';
 import { cors } from 'hono/cors';
 import { z } from 'zod';
+
+const { version } = JSON.parse(
+  readFileSync(new URL('../package.json', import.meta.url), 'utf-8')
+);
 
 import { yasb2xws } from '@pattern-analyzer/xws/yasb';
 
@@ -87,4 +92,4 @@ app.get(
 );
 
 // Health check
-app.get('/health', (c) => c.json({ status: 'ok' }));
+app.get('/health', (c) => c.json({ status: 'ok', version }));
