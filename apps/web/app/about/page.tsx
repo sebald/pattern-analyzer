@@ -1,5 +1,9 @@
 import { createMetadata } from '@/lib/metadata';
-import { Headline, Link, List, Text, Title } from '@/ui';
+import { Headline } from '@/ui/headline';
+import { Link } from '@/ui/link';
+import { List } from '@/ui/list';
+import { Text } from '@/ui/text';
+import { Title } from '@/ui/title';
 
 export const metadata = createMetadata({ title: 'About' });
 

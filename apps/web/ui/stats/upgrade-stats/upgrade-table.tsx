@@ -1,10 +1,13 @@
 'use client';
 
-import { Collapsible, SortOptions, Table } from '@/ui';
+import { Collapsible } from '@/ui/collapsible';
+import { type SortOptions } from '@/ui/sort-selection';
+import { Table } from '@/ui/table';
 
-import { type XWSFaction, getUpgradeName } from '@pattern-analyzer/xws';
+import { getUpgradeName } from '@pattern-analyzer/xws/get-value';
+import type { XWSFaction } from '@pattern-analyzer/xws/types';
 import type { FactionMapWithAll } from '@/lib/stats/types';
-import { toPercentage } from '@/lib/utils';
+import { toPercentage } from '@/lib/utils/math.utils';
 
 import { UpgradeStatsType } from './types';
 

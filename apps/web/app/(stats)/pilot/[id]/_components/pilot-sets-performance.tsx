@@ -2,12 +2,11 @@
 
 import { ResponsiveScatterPlot } from '@nivo/scatterplot';
 
-import { Card } from '@/ui';
+import { Card } from '@/ui/card';
 import { useSmallSamplesFilter } from '@/ui/params/small-samples-filter';
 import { theme } from '@/ui/stats/theme';
 import { Tooltip } from '@/ui/stats/tooltip';
-import { getPilotName } from '@pattern-analyzer/xws';
-
+import { getPilotName } from '@pattern-analyzer/xws/get-value';
 // Props
 // ---------------
 export interface PilotPerformanceProps {

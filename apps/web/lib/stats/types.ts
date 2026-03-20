@@ -1,5 +1,6 @@
 import type { SquadEntitiy } from '@/lib/db/types';
-import type { Ships, XWSFaction, XWSUpgradeSlots, XWSPilot, XWSSquad } from '@pattern-analyzer/xws';
+import type { Ships } from '@pattern-analyzer/xws/get-value';
+import type { XWSFaction, XWSUpgradeSlots, XWSPilot, XWSSquad } from '@pattern-analyzer/xws/types';
 import type { GameRecord } from '@/lib/types';
 
 // Maps

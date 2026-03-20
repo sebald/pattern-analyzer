@@ -1,7 +1,7 @@
 'use client';
 
 import { pointsUpdateDate } from '@/lib/config';
-import { Select, type SelectProps } from '@/ui';
+import { Select, type SelectProps } from '@/ui/select';
 import {
   fromDate,
   lastWeekend,

@@ -1,8 +1,12 @@
 'use client';
 
-import { getUpgradeName, XWSUpgrades } from '@pattern-analyzer/xws';
+import { getUpgradeName } from '@pattern-analyzer/xws/get-value';
+import { XWSUpgrades } from '@pattern-analyzer/xws/types';
 import { toPercentage } from '@/lib/utils/math.utils';
-import { Badge, Detail, Headline, List } from '@/ui';
+import { Badge } from '@/ui/badge';
+import { Detail } from '@/ui/detail';
+import { Headline } from '@/ui/headline';
+import { List } from '@/ui/list';
 import { Archive } from '@/ui/icons';
 import { useSmallSamplesFilter } from '@/ui/params/small-samples-filter';
 

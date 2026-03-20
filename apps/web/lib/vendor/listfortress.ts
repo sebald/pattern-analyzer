@@ -3,8 +3,7 @@ import type {
   ListfortressTournamentInfo,
   SquadData,
 } from '../types';
-import { toXWS, getBuilderLink } from '@pattern-analyzer/xws';
-
+import { toXWS, getBuilderLink } from '@pattern-analyzer/xws/xws';
 export const FORMAT_MAP = {
   other: 4, // also XWA
   standard: 36, // 2.5 Standard actually

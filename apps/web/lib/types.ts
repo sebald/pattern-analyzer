@@ -1,4 +1,4 @@
-import type { XWSSquad } from '@pattern-analyzer/xws';
+import type { XWSSquad } from '@pattern-analyzer/xws/types';
 
 export type Vendor = 'rollbetter' | 'listfortress';
 

@@ -1,7 +1,9 @@
 import type { ReactNode } from 'react';
 
 import { cn } from '@/lib/utils/classname.utils';
-import { Headline, Link, Text } from '@/ui';
+import { Headline } from '@/ui/headline';
+import { Link } from '@/ui/link';
+import { Text } from '@/ui/text';
 import { ChevronDown } from '@/ui/icons';
 
 const HeroCardIcon = ({ children }: { children?: ReactNode }) => (

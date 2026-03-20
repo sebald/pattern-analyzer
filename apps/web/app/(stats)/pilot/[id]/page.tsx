@@ -1,14 +1,17 @@
 import { notFound } from 'next/navigation';
 
 import { pointsUpdateDate } from '@/lib/config';
-import { displayValues as data } from '@pattern-analyzer/xws';
+import data from '@pattern-analyzer/xws/data/display-values';
 import { getFactionCount, getSquads } from '@/lib/db/squads';
-import { getPilotName, isStandardized } from '@pattern-analyzer/xws';
+import { getPilotName } from '@pattern-analyzer/xws/get-value';
+import { isStandardized } from '@pattern-analyzer/xws/xws';
 import { createMetadata } from '@/lib/metadata';
 import { pilotDetails } from '@/lib/stats/details/pilot';
 import { fromDate } from '@/lib/utils/date.utils';
-import { Card, Detail, Headline } from '@/ui';
-import { toPercentage } from '@/lib/utils';
+import { Card } from '@/ui/card';
+import { Detail } from '@/ui/detail';
+import { Headline } from '@/ui/headline';
+import { toPercentage } from '@/lib/utils/math.utils';
 import { HistoryCurve } from '@/ui/stats/history-curve';
 
 import { FilteredSquadGroups } from './_components/filtered-squad-groups';

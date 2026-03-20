@@ -9,7 +9,7 @@ const config = {
   moduleDirectories: ['node_modules', '<rootDir>/'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/$1',
-    '^@pattern-analyzer/xws$': '<rootDir>/../../packages/xws/src/index.ts',
+    '^@pattern-analyzer/xws/(.*)$': '<rootDir>/../../packages/xws/src/$1',
   },
   testEnvironment: 'jest-environment-jsdom',
   prettierPath: null,

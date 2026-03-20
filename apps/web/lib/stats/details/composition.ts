@@ -1,5 +1,6 @@
 import { SquadEntitiyWithXWS } from '@/lib/db/types';
-import type { Ships, XWSFaction, XWSUpgrades } from '@pattern-analyzer/xws';
+import type { Ships } from '@pattern-analyzer/xws/get-value';
+import type { XWSFaction, XWSUpgrades } from '@pattern-analyzer/xws/types';
 import type { GameRecord } from '@/lib/types';
 import { average, deviation, round, winrate } from '@/lib/utils/math.utils';
 

@@ -1,4 +1,5 @@
-import { getAllFactions, XWSFaction } from '@pattern-analyzer/xws';
+import { getAllFactions } from '@pattern-analyzer/xws/get-value';
+import { XWSFaction } from '@pattern-analyzer/xws/types';
 import { Select } from './select';
 
 export type FactionSelectionProps =

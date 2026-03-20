@@ -2,9 +2,11 @@
 
 import { ResponsiveBar } from '@nivo/bar';
 
-import { Card } from '@/ui';
-import { type XWSFaction, getFactionName } from '@pattern-analyzer/xws';
-import { FACTION_ABBR, FACTION_COLORS, toPercentage } from '@/lib/utils';
+import { Card } from '@/ui/card';
+import { getFactionName } from '@pattern-analyzer/xws/get-value';
+import type { XWSFaction } from '@pattern-analyzer/xws/types';
+import { FACTION_ABBR, FACTION_COLORS } from '@/lib/utils/colors.utils';
+import { toPercentage } from '@/lib/utils/math.utils';
 
 import { theme } from './theme';
 

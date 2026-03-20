@@ -1,8 +1,8 @@
 'use client';
 
-import type { UpgradeData } from '@/lib/stats/module';
+import type { UpgradeData } from '@/lib/stats/module/upgrade';
 
-import { Card } from '@/ui';
+import { Card } from '@/ui/card';
 import { useFactionFilter } from '@/ui/params/faction-filter';
 import { useSlotFilter } from '@/ui/params/slot-param';
 import { useSmallSamplesFilter } from '@/ui/params/small-samples-filter';

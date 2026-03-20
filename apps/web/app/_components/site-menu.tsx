@@ -4,8 +4,10 @@ import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 import { siteNavigation } from '@/lib/config';
-import { displayValues as data } from '@pattern-analyzer/xws';
-import { Button, Command, Key } from '@/ui';
+import data from '@pattern-analyzer/xws/data/display-values';
+import { Button } from '@/ui/button';
+import { Command } from '@/ui/command';
+import { Key } from '@/ui/key';
 import { useHasMounted } from '@/ui/hooks/useHasMounted';
 import { MagnifyingGlass, Page, User } from '@/ui/icons';
 

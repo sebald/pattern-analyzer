@@ -5,7 +5,10 @@ import { useState } from 'react';
 import { vendors } from '@/lib/config';
 import type { Vendor } from '@/lib/types';
 
-import { Card, Input, Link, Select } from '@/ui';
+import { Card } from '@/ui/card';
+import { Input } from '@/ui/input';
+import { Link } from '@/ui/link';
+import { Select } from '@/ui/select';
 import { Trophy } from '@/ui/icons';
 
 export const SearchForm = () => {

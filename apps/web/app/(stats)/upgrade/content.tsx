@@ -2,10 +2,10 @@ import { Suspense } from 'react';
 
 import { getFactionCount, getSquads } from '@/lib/db/squads';
 import { getTournamentsCount } from '@/lib/db/tournaments';
-import { upgrade, type UpgradeData } from '@/lib/stats/module';
+import { upgrade, type UpgradeData } from '@/lib/stats/module/upgrade';
 import { setup } from '@/lib/stats/setup';
 
-import { CardTableSkeleton } from '@/ui';
+import { CardTableSkeleton } from '@/ui/skeleton';
 import { StatsHint } from '@/ui/stats/stats-hint';
 
 import { Upgrades } from './upgrades';

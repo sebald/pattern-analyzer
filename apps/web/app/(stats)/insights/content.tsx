@@ -10,21 +10,13 @@ import { PilotSkillDistribution } from '@/ui/stats/pilot-skill-distribution';
 import { CardChartSkeleton } from '@/ui/skeleton';
 import { SquadSize } from '@/ui/stats/squad-size';
 import { StatsHint } from '@/ui/stats/stats-hint';
-import { setup } from '@/lib/stats';
-import {
-  FactionData,
-  PilotCostDistributionData,
-  PilotSkillDistributionData,
-  ShipData,
-  SquadSizeData,
-  UpgradeData,
-  faction,
-  pilotCostDistribution,
-  pilotSkillDistribution,
-  ship,
-  squadSize,
-  upgrade,
-} from '@/lib/stats/module';
+import { setup } from '@/lib/stats/setup';
+import { type FactionData, faction } from '@/lib/stats/module/faction';
+import { type PilotCostDistributionData, pilotCostDistribution } from '@/lib/stats/module/pilot-cost-distribution';
+import { type PilotSkillDistributionData, pilotSkillDistribution } from '@/lib/stats/module/pilot-skill-distribution';
+import { type ShipData, ship } from '@/lib/stats/module/ship';
+import { type SquadSizeData, squadSize } from '@/lib/stats/module/squad-size';
+import { type UpgradeData, upgrade } from '@/lib/stats/module/upgrade';
 
 // Helpers
 // ---------------

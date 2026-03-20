@@ -1,4 +1,4 @@
-import type { XWSSquad, XWSFaction } from '@pattern-analyzer/xws';
+import type { XWSSquad, XWSFaction } from '@pattern-analyzer/xws/types';
 import type { GameRecord } from '@/lib/types';
 
 /**

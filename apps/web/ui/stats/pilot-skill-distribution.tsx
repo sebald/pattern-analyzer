@@ -3,8 +3,8 @@
 import { linearGradientDef } from '@nivo/core';
 import { ResponsiveLine } from '@nivo/line';
 
-import { Card } from '@/ui';
-import { weightedAverage } from '@/lib/utils';
+import { Card } from '@/ui/card';
+import { weightedAverage } from '@/lib/utils/math.utils';
 
 import { theme } from './theme';
 

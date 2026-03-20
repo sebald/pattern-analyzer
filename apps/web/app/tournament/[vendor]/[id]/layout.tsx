@@ -1,6 +1,9 @@
 import { notFound } from 'next/navigation';
 
-import { Caption, Inline, Link, Title } from '@/ui';
+import { Caption } from '@/ui/caption';
+import { Inline } from '@/ui/inline';
+import { Link } from '@/ui/link';
+import { Title } from '@/ui/title';
 import { Trophy, Calendar } from '@/ui/icons';
 
 import { baseUrl, vendors } from '@/lib/config';

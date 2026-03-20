@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils/classname.utils';
 import { headline } from 'app/fonts';
 
 export interface TitleProps {

@@ -7,7 +7,13 @@ import { createMetadata } from '@/lib/metadata';
 import { cn } from '@/lib/utils/classname.utils';
 import { ago, formatDate, fromDate } from '@/lib/utils/date.utils';
 
-import { Caption, Card, Inline, Link, Message, Table, Title } from '@/ui';
+import { Caption } from '@/ui/caption';
+import { Card } from '@/ui/card';
+import { Inline } from '@/ui/inline';
+import { Link } from '@/ui/link';
+import { Message } from '@/ui/message';
+import { Table } from '@/ui/table';
+import { Title } from '@/ui/title';
 import { ChevronDown, Info, View } from '@/ui/icons';
 import { getLastSync } from '@/lib/db/system';
 

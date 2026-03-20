@@ -1,10 +1,15 @@
 import { Fragment } from 'react';
 
-import { type Ships, getPilotName, getShipName, isStandardized, upgradesToList } from '@pattern-analyzer/xws';
+import { type Ships, getPilotName, getShipName } from '@pattern-analyzer/xws/get-value';
+import { isStandardized, upgradesToList } from '@pattern-analyzer/xws/xws';
 import type { SquadCompositionStats } from '@/lib/stats/details/composition';
-import { toPercentage } from '@/lib/utils';
+import { toPercentage } from '@/lib/utils/math.utils';
 
-import { PilotImage, Detail, Card, Headline, ShipIcon } from '@/ui';
+import { Card } from '@/ui/card';
+import { Detail } from '@/ui/detail';
+import { Headline } from '@/ui/headline';
+import { PilotImage } from '@/ui/pilot-image';
+import { ShipIcon } from '@/ui/ship-icon';
 import { Info } from '@/ui/icons';
 
 // Props

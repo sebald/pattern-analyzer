@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils/classname.utils';
 
 import { Card } from './card';
 import { Logo, LogoProps } from './logo';

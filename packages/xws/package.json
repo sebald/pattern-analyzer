@@ -8,15 +8,13 @@
     "url": "https://github.com/sebald/pattern-analyzer",
     "directory": "packages/xws"
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "default": "./dist/index.js"
-    }
+    "./xws": { "types": "./dist/xws.d.ts", "import": "./dist/xws.js" },
+    "./yasb": { "types": "./dist/yasb.d.ts", "import": "./dist/yasb.js" },
+    "./get-value": { "types": "./dist/get-value.d.ts", "import": "./dist/get-value.js" },
+    "./types": { "types": "./dist/types.d.ts", "import": "./dist/types.js" },
+    "./data/ship-icons": { "types": "./dist/data/ship-icons.d.ts", "import": "./dist/data/ship-icons.js" },
+    "./data/display-values": { "types": "./dist/data/display-values.d.ts", "import": "./dist/data/display-values.js" }
   },
   "files": [
     "dist"

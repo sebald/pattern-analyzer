@@ -1,7 +1,10 @@
 import { createMetadata } from '@/lib/metadata';
 import { toDateRange } from '@/lib/utils/params.utils';
 
-import { Caption, CardChartSkeleton, Message, Title } from '@/ui';
+import { Caption } from '@/ui/caption';
+import { Message } from '@/ui/message';
+import { CardChartSkeleton } from '@/ui/skeleton';
+import { Title } from '@/ui/title';
 import { Filter } from '@/ui/params/filter';
 import { DateRangeFilter } from '@/ui/params/date-range-filter';
 import { StatsInfo } from '@/ui/stats/stats-info';

@@ -1,8 +1,12 @@
 'use client';
 
-import { toPercentage } from '@/lib/utils';
-import type { SortOptions } from '@/ui';
-import { Collapsible, FactionIcon, Link, ShipIcon, Table } from '@/ui';
+import { toPercentage } from '@/lib/utils/math.utils';
+import { Collapsible } from '@/ui/collapsible';
+import { FactionIcon } from '@/ui/faction-icon';
+import { Link } from '@/ui/link';
+import { ShipIcon } from '@/ui/ship-icon';
+import type { SortOptions } from '@/ui/sort-selection';
+import { Table } from '@/ui/table';
 import { View } from '@/ui/icons';
 
 import type { CompositionStatsType } from './types';
