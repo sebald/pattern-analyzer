@@ -1,5 +1,11 @@
 # @pattern-analyzer/xws
 
+## 3.1.0
+
+### Patch Changes
+
+- [#506](https://github.com/sebald/pattern-analyzer/pull/506) [`189bf95`](https://github.com/sebald/pattern-analyzer/commit/189bf95d9951fd7054272d099b88a12beb19220c) Thanks [@sebald](https://github.com/sebald)! - Fix npm publish in release workflow to use OIDC trusted publishing.
+
 ## 3.0.1
 
 ### Patch Changes
