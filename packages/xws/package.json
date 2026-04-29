@@ -49,7 +49,7 @@
     "typescript": "^5.5.0",
     "vitest": "^3.1.0",
     "xwing-data2": "github:gregkash16/xwing-data2#8abad14",
-    "yasb": "github:raithos/xwing#41a5a11",
+    "yasb": "github:raithos/xwing#b4c2b61",
     "zx": "7.2.3"
   }
 }

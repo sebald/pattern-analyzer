@@ -184,8 +184,8 @@ importers:
         specifier: ^5.5.0
         version: 5.9.3
       yasb:
-        specifier: github:raithos/xwing#41a5a11
-        version: github.com/raithos/xwing/41a5a11
+        specifier: github:raithos/xwing#b4c2b61
+        version: github.com/raithos/xwing/b4c2b61
       zx:
         specifier: 7.2.3
         version: 7.2.3
@@ -233,8 +233,8 @@ importers:
         specifier: github:gregkash16/xwing-data2#8abad14
         version: github.com/gregkash16/xwing-data2/8abad14
       yasb:
-        specifier: github:raithos/xwing#41a5a11
-        version: github.com/raithos/xwing/41a5a11
+        specifier: github:raithos/xwing#b4c2b61
+        version: github.com/raithos/xwing/b4c2b61
       zx:
         specifier: 7.2.3
         version: 7.2.3
@@ -9489,8 +9489,8 @@ packages:
       string-math: 1.2.2
     dev: true
 
-  github.com/raithos/xwing/41a5a11:
-    resolution: {tarball: https://codeload.github.com/raithos/xwing/tar.gz/41a5a11}
+  github.com/raithos/xwing/b4c2b61:
+    resolution: {tarball: https://codeload.github.com/raithos/xwing/tar.gz/b4c2b61}
     name: yasb
     version: 2.5.0
     dependencies:
