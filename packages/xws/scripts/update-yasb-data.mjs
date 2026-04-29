@@ -4,7 +4,7 @@ import 'zx/globals';
 const PROJECT_ROOT = path.resolve(__dirname, '..');
 const DATA_FOLDER = path.join(PROJECT_ROOT, 'src/data');
 
-const YASB_FILE_PATH = path.resolve(__dirname, 'yasb.tmp.js');
+const YASB_FILE_PATH = path.resolve(__dirname, 'yasb.tmp.cjs');
 
 /**
  * Helper from yasb.ts (to lazy to compile and use them directly...)
