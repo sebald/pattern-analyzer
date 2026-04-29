@@ -15,7 +15,7 @@
     }
   },
   "ginamoonsong-battleoverendor": {
-    "points": 16,
+    "points": 15,
     "upgrades": {
       "talent": [
         "itsatrap-battleoverendor",
@@ -125,7 +125,7 @@
     }
   },
   "raymusantilles-epicsl-rebelalliance": {
-    "points": 12,
+    "points": 32,
     "upgrades": {
       "crew": [
         "leiaorgana-epicsl",
@@ -224,7 +224,7 @@
     }
   },
   "arvelcrynyd-battleoverendor": {
-    "points": 10,
+    "points": 9,
     "upgrades": {
       "talent": [
         "heroicsacrifice-battleoverendor",
@@ -306,7 +306,7 @@
     }
   },
   "lukeskywalker-battleofyavin": {
-    "points": 16,
+    "points": 15,
     "upgrades": {
       "talent": [
         "attackspeed-battleofyavin"
@@ -323,7 +323,7 @@
     }
   },
   "wedgeantilles-battleofyavin": {
-    "points": 15,
+    "points": 13,
     "upgrades": {
       "talent": [
         "attackspeed-battleofyavin",
@@ -338,7 +338,7 @@
     }
   },
   "lukeskywalker-swz106": {
-    "points": 16,
+    "points": 15,
     "upgrades": {
       "force-power": [
         "instinctiveaim"
@@ -366,7 +366,7 @@
     }
   },
   "wedgeantilles-battleoverendor": {
-    "points": 16,
+    "points": 15,
     "upgrades": {
       "talent": [
         "itsatrap-battleoverendor",
@@ -412,7 +412,7 @@
     }
   },
   "leebo-swz103-sl-rebelalliance": {
-    "points": 16,
+    "points": 15,
     "upgrades": {
       "talent": [
         "efficientprocessing-swz103"
@@ -426,7 +426,7 @@
     }
   },
   "dashrendar-swz103-sl-rebelalliance": {
-    "points": 17,
+    "points": 16,
     "upgrades": {
       "talent": [
         "mercenary-swz103"
@@ -485,7 +485,7 @@
     }
   },
   "idenversio-epicsl": {
-    "points": 33,
+    "points": 32,
     "upgrades": {
       "talent": [
         "ruthless",
@@ -611,7 +611,7 @@
     }
   },
   "soontirfel-battleoverendor": {
-    "points": 14,
+    "points": 15,
     "upgrades": {
       "talent": [
         "apexpredator-battleoverendor",
@@ -638,7 +638,7 @@
     }
   },
   "captainyorr-battleoverendor": {
-    "points": 17,
+    "points": 16,
     "upgrades": {
       "talent": [
         "noescape-battleoverendor",
@@ -680,7 +680,7 @@
     }
   },
   "darkcurse-battleofyavin": {
-    "points": 9,
+    "points": 10,
     "upgrades": {
       "talent": [
         "ruthless"
@@ -839,7 +839,7 @@
     }
   },
   "captainjonus-swz98": {
-    "points": 11,
+    "points": 10,
     "upgrades": {
       "talent": [
         "topcover-swz98"
@@ -926,7 +926,7 @@
     }
   },
   "hansolo-armedanddangerous": {
-    "points": 16,
+    "points": 15,
     "upgrades": {
       "crew": [
         "chewbacca-armedanddangerous",
@@ -941,7 +941,7 @@
     }
   },
   "fennrau-armedanddangerous": {
-    "points": 15,
+    "points": 17,
     "upgrades": {
       "talent": [
         "fearless"
@@ -1018,7 +1018,7 @@
     }
   },
   "themandalorian-armedanddangerous": {
-    "points": 11,
+    "points": 10,
     "upgrades": {
       "talent": [
         "outmaneuver"
@@ -1092,7 +1092,7 @@
     }
   },
   "leebo-swz103-sl-scumandvillainy": {
-    "points": 16,
+    "points": 15,
     "upgrades": {
       "talent": [
         "efficientprocessing-swz103"
@@ -1106,7 +1106,7 @@
     }
   },
   "dashrendar-swz103-sl-scumandvillainy": {
-    "points": 17,
+    "points": 16,
     "upgrades": {
       "talent": [
         "mercenary-swz103"
@@ -1170,7 +1170,7 @@
     }
   },
   "vennie-evacuationofdqar": {
-    "points": 16,
+    "points": 17,
     "upgrades": {
       "crew": [
         "perceptivecopilot"
@@ -1262,7 +1262,7 @@
     }
   },
   "stomeronistarck-evacuationofdqar": {
-    "points": 14,
+    "points": 13,
     "upgrades": {
       "talent": [
         "forthecause-evacuationofdqar"
@@ -1290,7 +1290,7 @@
     }
   },
   "cerrafellian-epicsl": {
-    "points": 8,
+    "points": 14,
     "upgrades": {
       "crew": [
         "pettyofficerthanisson"
@@ -1304,7 +1304,7 @@
     }
   },
   "gideonhask-epicsl": {
-    "points": 13,
+    "points": 33,
     "upgrades": {
       "crew": [
         "agentterex-epicsl",
@@ -1399,7 +1399,7 @@
     }
   },
   "theta3-evacuationofdqar": {
-    "points": 11,
+    "points": 10,
     "upgrades": {
       "sensor": [
         "passivesensors"
@@ -1427,7 +1427,7 @@
     }
   },
   "kyloren-evacuationofdqar": {
-    "points": 18,
+    "points": 17,
     "upgrades": {
       "talent": [
         "determination-evacuationofdqar"
@@ -1469,7 +1469,7 @@
     }
   },
   "oddball-siegeofcoruscant": {
-    "points": 13,
+    "points": 12,
     "upgrades": {
       "talent": [
         "selfless"
@@ -1612,7 +1612,7 @@
     }
   },
   "contrail-siegeofcoruscant": {
-    "points": 10,
+    "points": 9,
     "upgrades": {
       "talent": [
         "ionlimiteroverride"
@@ -1671,7 +1671,7 @@
     }
   },
   "countdooku-siegeofcoruscant": {
-    "points": 16,
+    "points": 15,
     "upgrades": {
       "force-power": [
         "malice",
@@ -1725,7 +1725,7 @@
     }
   },
   "dis347-siegeofcoruscant": {
-    "points": 10,
+    "points": 9,
     "upgrades": {
       "talent": [
         "marksmanship"
@@ -1737,7 +1737,7 @@
     }
   },
   "dist81-siegeofcoruscant": {
-    "points": 11,
+    "points": 10,
     "upgrades": {
       "talent": [
         "outmaneuver"
