@@ -1,6 +1,6 @@
 {
   "name": "@pattern-analyzer/xws",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "XWS normalization, game data lookups, and YASB integration for X-Wing Miniatures",
   "type": "module",
   "license": "MIT",
