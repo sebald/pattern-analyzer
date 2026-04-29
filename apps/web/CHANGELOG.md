@@ -1,5 +1,14 @@
 # pattern-analyzer.app
 
+## 0.4.1
+
+### Patch Changes
+
+- [#510](https://github.com/sebald/pattern-analyzer/pull/510) [`7dd7b34`](https://github.com/sebald/pattern-analyzer/commit/7dd7b34f494362efce70a43384c6787ee803662c) Thanks [@sebald](https://github.com/sebald)! - Fix `update:yasb` script failing on Node 24. The downloaded YASB content is CommonJS-style code, but it was saved as `.js` under a `"type": "module"` package, causing Node to load it as ESM where `this` is undefined. Renamed the temp file to `.cjs` so it's always loaded as CommonJS.
+
+- Updated dependencies [[`7dd7b34`](https://github.com/sebald/pattern-analyzer/commit/7dd7b34f494362efce70a43384c6787ee803662c)]:
+  - @pattern-analyzer/xws@3.1.1
+
 ## 0.4.0
 
 ### Minor Changes
