@@ -1,5 +1,25 @@
 # pattern-analyzer.app
 
+## 0.4.2
+
+### Patch Changes
+
+- [`4fd68de`](https://github.com/sebald/pattern-analyzer/commit/4fd68dec481423087446afbcbaee83fb33f50b19) Thanks [@sebald](https://github.com/sebald)! - Remove the "Powered by Vercel" banner from the site footer.
+
+  Add a "Last 6 Months" option to the date range filter used by the stats and data pages. Like "Last 3 Months", it only shows up once the last points update is older than that, so a selected range never spans two metas.
+
+- [#525](https://github.com/sebald/pattern-analyzer/pull/525) [`f7e269d`](https://github.com/sebald/pattern-analyzer/commit/f7e269d07f6ab44aa4f01014b7bbc8619136daca) Thanks [@sebald](https://github.com/sebald)! - Fix stats pages being empty and composition/pilot detail pages returning a 404
+  right after a points update.
+
+  The window all stats are calculated for is now resolved in one place
+  (`lib/stats/range.ts`). It defaults to the last points update and automatically
+  widens to the last six months while that window does not hold enough data yet,
+  which the date range caption now points out. Detail pages use the same window
+  instead of hardcoding the points update date.
+
+  Aggregating an empty set of squads no longer throws (which was reported as a 404) but renders an empty state, and frequencies show 0% instead of NaN when
+  there is nothing to divide by.
+
 ## 0.4.1
 
 ### Patch Changes
