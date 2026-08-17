@@ -1,5 +1,19 @@
 # @pattern-analyzer/xws
 
+## 3.2.0
+
+### Minor Changes
+
+- [#522](https://github.com/sebald/pattern-analyzer/pull/522) [`ad8eae6`](https://github.com/sebald/pattern-analyzer/commit/ad8eae6197bf2b4c5fdb02fb5a4b142746e377ed) Thanks [@sebald](https://github.com/sebald)! - Declare `engines.node: ">=20.19"`. The `require` condition added in the previous release maps to ESM output, so CommonJS callers depend on `require(esm)` — available unflagged in Node 20.19+ and 22.12+. On older versions `require()` throws `ERR_REQUIRE_ESM`, so the constraint now matches what the package actually supports.
+
+- [#520](https://github.com/sebald/pattern-analyzer/pull/520) [`4fd9eca`](https://github.com/sebald/pattern-analyzer/commit/4fd9ecafa7c931ee9bbfd6d500a43acaf13a2cfc) Thanks [@sebald](https://github.com/sebald)! - Add a `require` condition to every export subpath. The package stays ESM-only, but CommonJS callers on Node versions with `require(esm)` support can now load it — which is what the `tsx`-run database scripts in the app need.
+
+### Patch Changes
+
+- [#510](https://github.com/sebald/pattern-analyzer/pull/510) [`7dd7b34`](https://github.com/sebald/pattern-analyzer/commit/7dd7b34f494362efce70a43384c6787ee803662c) Thanks [@sebald](https://github.com/sebald)! - Fix `update:yasb` script failing on Node 24. The downloaded YASB content is CommonJS-style code, but it was saved as `.js` under a `"type": "module"` package, causing Node to load it as ESM where `this` is undefined. Renamed the temp file to `.cjs` so it's always loaded as CommonJS.
+
+- [#518](https://github.com/sebald/pattern-analyzer/pull/518) [`a8dd7ac`](https://github.com/sebald/pattern-analyzer/commit/a8dd7ac658593d742c14f0b1e87777ce4b77f728) Thanks [@sebald](https://github.com/sebald)! - Add root `update:points` script that runs the YASB and xwing-data updates, and refresh the generated point costs and display values.
+
 ## 3.1.0
 
 ### Patch Changes

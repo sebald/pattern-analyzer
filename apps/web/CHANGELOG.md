@@ -1,5 +1,24 @@
 # pattern-analyzer.app
 
+## 0.4.1
+
+### Patch Changes
+
+- [#519](https://github.com/sebald/pattern-analyzer/pull/519) [`bb4e556`](https://github.com/sebald/pattern-analyzer/commit/bb4e5567ab0af85a8204ac674c59f5bcaffecf2a) Thanks [@sebald](https://github.com/sebald)! - Declare the database environment variables in `turbo.json` so they reach `next build`. Turborepo's strict env mode was filtering them out, which made the Vercel build fall back to `127.0.0.1:3306` and fail with `ECONNREFUSED` while collecting page data.
+
+- [#510](https://github.com/sebald/pattern-analyzer/pull/510) [`7dd7b34`](https://github.com/sebald/pattern-analyzer/commit/7dd7b34f494362efce70a43384c6787ee803662c) Thanks [@sebald](https://github.com/sebald)! - Fix `update:yasb` script failing on Node 24. The downloaded YASB content is CommonJS-style code, but it was saved as `.js` under a `"type": "module"` package, causing Node to load it as ESM where `this` is undefined. Renamed the temp file to `.cjs` so it's always loaded as CommonJS.
+
+- [#522](https://github.com/sebald/pattern-analyzer/pull/522) [`ad8eae6`](https://github.com/sebald/pattern-analyzer/commit/ad8eae6197bf2b4c5fdb02fb5a4b142746e377ed) Thanks [@sebald](https://github.com/sebald)! - Import the last six months of tournaments during `db:setup` when the last points update is less than six months ago. Right after a points update there is barely any tournament data, which previously left the database empty.
+
+  Also guard `addTournaments` and `addSquads` against empty arrays. An insert without rows is invalid SQL, which made both `db:setup` and the scheduled sync fail whenever there was nothing new to add.
+
+- [#521](https://github.com/sebald/pattern-analyzer/pull/521) [`5147e83`](https://github.com/sebald/pattern-analyzer/commit/5147e83fd902e606cc002c9f7953d52ccac4177d) Thanks [@sebald](https://github.com/sebald)! - Set the last points update to 2026-08-16.
+
+- [#518](https://github.com/sebald/pattern-analyzer/pull/518) [`a8dd7ac`](https://github.com/sebald/pattern-analyzer/commit/a8dd7ac658593d742c14f0b1e87777ce4b77f728) Thanks [@sebald](https://github.com/sebald)! - Add root `update:points` script that runs the YASB and xwing-data updates, and refresh the generated point costs and display values.
+
+- Updated dependencies [[`7dd7b34`](https://github.com/sebald/pattern-analyzer/commit/7dd7b34f494362efce70a43384c6787ee803662c), [`a8dd7ac`](https://github.com/sebald/pattern-analyzer/commit/a8dd7ac658593d742c14f0b1e87777ce4b77f728), [`ad8eae6`](https://github.com/sebald/pattern-analyzer/commit/ad8eae6197bf2b4c5fdb02fb5a4b142746e377ed), [`4fd9eca`](https://github.com/sebald/pattern-analyzer/commit/4fd9ecafa7c931ee9bbfd6d500a43acaf13a2cfc)]:
+  - @pattern-analyzer/xws@3.2.0
+
 ## 0.4.0
 
 ### Minor Changes
