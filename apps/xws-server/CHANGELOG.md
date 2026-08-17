@@ -1,5 +1,12 @@
 # xws-server
 
+## 3.2.0
+
+### Patch Changes
+
+- Updated dependencies [[`7dd7b34`](https://github.com/sebald/pattern-analyzer/commit/7dd7b34f494362efce70a43384c6787ee803662c), [`a8dd7ac`](https://github.com/sebald/pattern-analyzer/commit/a8dd7ac658593d742c14f0b1e87777ce4b77f728), [`ad8eae6`](https://github.com/sebald/pattern-analyzer/commit/ad8eae6197bf2b4c5fdb02fb5a4b142746e377ed), [`4fd9eca`](https://github.com/sebald/pattern-analyzer/commit/4fd9ecafa7c931ee9bbfd6d500a43acaf13a2cfc)]:
+  - @pattern-analyzer/xws@3.2.0
+
 ## 3.1.0
 
 ### Minor Changes
