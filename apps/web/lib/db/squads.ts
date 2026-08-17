@@ -13,11 +13,17 @@ export interface InsertSquad
   record?: string;
 }
 
-export const addSquads = async (squads: InsertSquad[]) =>
-  db
+export const addSquads = async (squads: InsertSquad[]) => {
+  // An insert without rows is invalid SQL, so there is nothing to do here.
+  if (squads.length === 0) {
+    return;
+  }
+
+  return db
     .insertInto('squads')
     .values(squads as any)
     .execute();
+};
 
 // Get
 // ---------------

@@ -7,11 +7,17 @@ import { Pagination, type DateFilter } from './types';
 // ---------------
 export const addTournaments = async (
   tournaments: Omit<TournamentsTable, 'id' | 'created_at'>[]
-) =>
-  db
+) => {
+  // An insert without rows is invalid SQL, so there is nothing to do here.
+  if (tournaments.length === 0) {
+    return;
+  }
+
+  return db
     .insertInto('tournaments')
     .values(tournaments as any)
     .execute();
+};
 
 // Get
 // ---------------
