@@ -24,6 +24,13 @@ jobs:
           node-version-file: '.node-version'
           cache: 'pnpm'
           registry-url: 'https://registry.npmjs.org'
+
+      # Node 20 bundles npm 10.8.2, which predates OIDC trusted publishing.
+      # Without this the publish goes out unauthenticated and npm answers 404.
+      # Pinned to 11.x: npm 12 requires Node 22+ and would not run here.
+      - name: Upgrade npm for trusted publishing
+        run: npm install -g npm@^11
+
       - name: Install dependencies
         run: pnpm install
 
