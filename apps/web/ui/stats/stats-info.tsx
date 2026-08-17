@@ -4,7 +4,7 @@ import { getFactionCount } from '@/lib/db/squads';
 import { getTournamentsCount } from '@/lib/db/tournaments';
 import { formatDate, today } from '@/lib/utils/date.utils';
 
-import { Trophy, Rocket, Calendar } from '@/ui/icons';
+import { Trophy, Rocket, Calendar, Info } from '@/ui/icons';
 import { Inline } from '@/ui/inline';
 import { Skeleton, LineSkeleton } from '@/ui/skeleton';
 
@@ -13,6 +13,11 @@ import { Skeleton, LineSkeleton } from '@/ui/skeleton';
 export interface StatsInfoProps {
   from: Date;
   to?: Date;
+  /**
+   * Shows a hint that the window was widened because there is not enough data
+   * since the last points update yet.
+   */
+  fallback?: boolean;
 }
 
 // Async Content
@@ -37,13 +42,19 @@ const AsyncStatsInfo = async ({ from, to }: StatsInfoProps) => {
 
 // Component
 // ---------------
-export const StatsInfo = ({ from, to }: StatsInfoProps) => {
+export const StatsInfo = ({ from, to, fallback }: StatsInfoProps) => {
   return (
     <Inline className="gap-4">
       <Inline className="whitespace-nowrap">
         <Calendar className="size-3" /> {formatDate(from)} -{' '}
         {formatDate(to || today())}
       </Inline>
+      {fallback ? (
+        <Inline className="whitespace-nowrap italic">
+          <Info className="size-3" /> Not enough data since the last points
+          update
+        </Inline>
+      ) : null}
       <Suspense
         fallback={
           <Skeleton>

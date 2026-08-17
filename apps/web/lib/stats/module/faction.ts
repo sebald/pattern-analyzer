@@ -1,7 +1,7 @@
 import type { XWSFaction } from '@pattern-analyzer/xws/types';
 import type { GameRecord } from '@/lib/types';
 import type { StatModule } from '../types';
-import { average, deviation, round, winrate } from '@/lib/utils/math.utils';
+import { average, deviation, ratio, winrate } from '@/lib/utils/math.utils';
 
 // Types
 // ---------------
@@ -97,10 +97,7 @@ export const faction: () => StatModule<FactionData> = () => {
         result.faction[fid].record = data.record;
         result.faction[fid].ranks = data.ranks;
 
-        result.faction[fid].frequency = round(
-          data.count / tournament.count.all,
-          4
-        );
+        result.faction[fid].frequency = ratio(data.count, tournament.count.all);
         result.faction[fid].percentile = average(data.percentiles, 4);
         result.faction[fid].deviation = deviation(data.percentiles, 4);
         result.faction[fid].winrate = winrate([data.record]);

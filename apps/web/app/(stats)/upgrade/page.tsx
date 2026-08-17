@@ -1,5 +1,5 @@
 import { createMetadata } from '@/lib/metadata';
-import { toDateRange } from '@/lib/utils/params.utils';
+import { statsRange } from '@/lib/stats/range';
 
 import { Caption } from '@/ui/caption';
 import { Message } from '@/ui/message';
@@ -35,7 +35,7 @@ interface PageProps {
 // Page
 // ---------------
 const UpgradesPage = async ({ searchParams }: PageProps) => {
-  const params = toDateRange(await searchParams);
+  const params = await statsRange(await searchParams);
 
   if (params.error) {
     return (
@@ -48,14 +48,14 @@ const UpgradesPage = async ({ searchParams }: PageProps) => {
     );
   }
 
-  const { from, to } = params;
+  const { from, to, fallback } = params;
 
   return (
     <>
       <div className="pb-6">
         <Title>Upgrades</Title>
         <Caption>
-          <StatsInfo from={from} to={to} />
+          <StatsInfo from={from} to={to} fallback={fallback} />
         </Caption>
       </div>
       <Filter>

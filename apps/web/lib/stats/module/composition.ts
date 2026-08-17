@@ -1,7 +1,7 @@
 import type { Ships } from '@pattern-analyzer/xws/get-value';
 import type { XWSFaction } from '@pattern-analyzer/xws/types';
 import type { GameRecord } from '@/lib/types';
-import { average, deviation, round, winrate } from '@/lib/utils/math.utils';
+import { average, deviation, ratio, winrate } from '@/lib/utils/math.utils';
 
 import { magic } from '../magic';
 import type { StatModule } from '../types';
@@ -90,7 +90,7 @@ export const composition: () => StatModule<CompositionData> = () => {
           faction: item.faction,
           count: item.count,
           record: item.record,
-          frequency: round(item.count / tournament.count[item.faction], 4),
+          frequency: ratio(item.count, tournament.count[item.faction]),
           percentile: stat.percentile,
           deviation: stat.deviation,
           winrate: winrate([item.record]),

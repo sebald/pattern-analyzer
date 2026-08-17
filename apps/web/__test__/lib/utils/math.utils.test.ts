@@ -2,6 +2,7 @@ import {
   average,
   deviation,
   percentile,
+  ratio,
   winrate,
   round,
 } from '@/lib/utils/math.utils';
@@ -9,6 +10,15 @@ import {
 test('round number', () => {
   expect(round(0, 2)).toMatchInlineSnapshot(`0`);
   expect(round(0, 4)).toMatchInlineSnapshot(`0`);
+});
+
+test('calculate ratio', () => {
+  expect(ratio(1, 4)).toMatchInlineSnapshot(`0.25`);
+  expect(ratio(1, 3)).toMatchInlineSnapshot(`0.3333`);
+
+  // No NaN if there is nothing to divide by
+  expect(ratio(0, 0)).toMatchInlineSnapshot(`0`);
+  expect(ratio(1, 0)).toMatchInlineSnapshot(`0`);
 });
 
 test('calcualte average', () => {

@@ -23,6 +23,12 @@ export const toPercentage = (
   }).format(value);
 
 /**
+ * Calculate a ratio. Returns 0 instead of NaN if there is nothing to divide by.
+ */
+export const ratio = (value: number, total: number, digits = 4) =>
+  total === 0 ? 0 : round(value / total, digits);
+
+/**
  * Calculate average (not weighted).
  */
 export const average = (vals: number[], digits = 2) =>
