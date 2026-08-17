@@ -230,8 +230,8 @@ importers:
         specifier: ^3.1.0
         version: 3.2.4(@types/node@20.19.33)(tsx@4.21.0)
       xwing-data2:
-        specifier: github:gregkash16/xwing-data2#8abad14
-        version: github.com/gregkash16/xwing-data2/8abad14
+        specifier: github:gregkash16/xwing-data2#01691ad
+        version: github.com/gregkash16/xwing-data2/01691ad
       yasb:
         specifier: github:raithos/xwing#b4c2b61
         version: github.com/raithos/xwing/b4c2b61
@@ -9481,8 +9481,8 @@ packages:
       yaml: 2.8.2
     dev: true
 
-  github.com/gregkash16/xwing-data2/8abad14:
-    resolution: {tarball: https://codeload.github.com/gregkash16/xwing-data2/tar.gz/8abad14}
+  github.com/gregkash16/xwing-data2/01691ad:
+    resolution: {tarball: https://codeload.github.com/gregkash16/xwing-data2/tar.gz/01691ad}
     name: xwing-data2
     version: 3.9.1
     dependencies:
