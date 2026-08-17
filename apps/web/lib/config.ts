@@ -6,7 +6,7 @@ export const baseUrl =
 
 // Settings
 // ---------------
-export const pointsUpdateDate = '2025-11-02';
+export const pointsUpdateDate = '2026-08-16';
 
 export const vendors = [
   { id: 'listfortress', name: 'Listfortress' },
