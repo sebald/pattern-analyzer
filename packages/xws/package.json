@@ -12,27 +12,33 @@
   "exports": {
     "./xws": {
       "types": "./dist/xws.d.ts",
-      "import": "./dist/xws.js"
+      "import": "./dist/xws.js",
+      "require": "./dist/xws.js"
     },
     "./yasb": {
       "types": "./dist/yasb.d.ts",
-      "import": "./dist/yasb.js"
+      "import": "./dist/yasb.js",
+      "require": "./dist/yasb.js"
     },
     "./get-value": {
       "types": "./dist/get-value.d.ts",
-      "import": "./dist/get-value.js"
+      "import": "./dist/get-value.js",
+      "require": "./dist/get-value.js"
     },
     "./types": {
       "types": "./dist/types.d.ts",
-      "import": "./dist/types.js"
+      "import": "./dist/types.js",
+      "require": "./dist/types.js"
     },
     "./data/ship-icons": {
       "types": "./dist/data/ship-icons.d.ts",
-      "import": "./dist/data/ship-icons.js"
+      "import": "./dist/data/ship-icons.js",
+      "require": "./dist/data/ship-icons.js"
     },
     "./data/display-values": {
       "types": "./dist/data/display-values.d.ts",
-      "import": "./dist/data/display-values.js"
+      "import": "./dist/data/display-values.js",
+      "require": "./dist/data/display-values.js"
     }
   },
   "files": [
