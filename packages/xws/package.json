@@ -44,6 +44,9 @@
   "files": [
     "dist"
   ],
+  "engines": {
+    "node": ">=20.19"
+  },
   "scripts": {
     "build": "tsc",
     "test": "vitest run",

@@ -5,9 +5,13 @@ import pLimit from 'p-limit';
 
 import { pointsUpdateDate } from '@/lib/config';
 import { getAllTournaments, getSquads } from '@/lib/vendor/listfortress';
-import { fromDate } from '@/lib/utils/date.utils';
+import { importDate, toDate } from '@/lib/utils/date.utils';
 import { percentile } from '@/lib/utils/math.utils';
-import { normalize, toCompositionId, toFaction } from '@pattern-analyzer/xws/xws';
+import {
+  normalize,
+  toCompositionId,
+  toFaction,
+} from '@pattern-analyzer/xws/xws';
 // Config
 // ---------------
 $.verbose = false;
@@ -16,14 +20,15 @@ process.env.DB_POOL_SIZE = '10';
 const limit = pLimit(100);
 
 // Workaround: tsx on Node 24 wraps ESM dynamic imports in a default export
-const resolve = <T>(mod: T): T =>
-  (mod as any).default ?? mod;
+const resolve = <T>(mod: T): T => (mod as any).default ?? mod;
 
 // Script
 // ---------------
 void (async () => {
   // Loading dynamically so env is correctly loaded.
-  const { db, initDatabase, teardownDatabase } = resolve(await import('@/lib/db/db'));
+  const { db, initDatabase, teardownDatabase } = resolve(
+    await import('@/lib/db/db')
+  );
   const { addTournaments } = resolve(await import('@/lib/db/tournaments'));
   const { addSquads } = resolve(await import('@/lib/db/squads'));
   const { setLastSync } = resolve(await import('@/lib/db/system'));
@@ -33,9 +38,11 @@ void (async () => {
     await teardownDatabase();
     await initDatabase();
 
-    console.log('🏆 Fetching tournaments...');
+    const from = importDate(pointsUpdateDate);
+
+    console.log(`🏆 Fetching tournaments (since ${toDate(from)})...`);
     const tournaments = await getAllTournaments({
-      from: fromDate(pointsUpdateDate),
+      from,
       format: 'other',
     }).then(result =>
       result.map(({ id, name, date, location, country }) => ({
@@ -64,9 +71,7 @@ void (async () => {
             addSquads([
               {
                 listfortress_ref: tournament.listfortress_ref,
-                composition: squad.xws
-                  ? toCompositionId(squad.xws)
-                  : undefined,
+                composition: squad.xws ? toCompositionId(squad.xws) : undefined,
                 faction: toFaction(squad.xws?.faction),
                 player: squad.player,
                 date: tournament.date,
@@ -97,7 +102,6 @@ void (async () => {
     console.log(
       `🏁 Setup done! (${tournaments.length} Tournaments, ${squadCount} Squads)`
     );
-
   } catch (err: any) {
     console.log(chalk.red.bold(err?.body?.message || err.message || err));
   } finally {

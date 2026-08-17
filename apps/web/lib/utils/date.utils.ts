@@ -55,6 +55,18 @@ export const fromDate = (val: string) =>
   dayjs(val, 'YYYY-MM-DD').startOf('day').toDate();
 
 /**
+ * Returns the date from which tournaments should be imported. Usually this is
+ * the last points update, but right after an update there is barely any data
+ * to work with. In that case we fall back to the last six months.
+ */
+export const importDate = (pointsUpdate: string, months = 6) => {
+  const lastUpdate = fromDate(pointsUpdate);
+  const fallback = monthsAgo(months);
+
+  return lastUpdate > fallback ? fallback : lastUpdate;
+};
+
+/**
  * Transforms a date object to a date string ('YYYY-MM-DD'). If multiple dates
  * are passed, it will return a date range ('YYYY-MM-DD/YYYY-MM-DD') instead.
  */
