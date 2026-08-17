@@ -39,9 +39,12 @@ export const DateRangeFilter = () => {
     'Last Points Update': '',
     'Last Weekend': toDate.apply(null, lastWeekend()),
     'Last Month': toDate(monthsAgo(1)),
-    // Add the option if the last points update is older
+    // Add the options if the last points update is older
     ...(fromDate(pointsUpdateDate) < monthsAgo(3)
       ? { 'Last 3 Months': toDate(monthsAgo(3)) }
+      : {}),
+    ...(fromDate(pointsUpdateDate) < monthsAgo(6)
+      ? { 'Last 6 Months': toDate(monthsAgo(6)) }
       : {}),
   };
   type Options = keyof typeof options;

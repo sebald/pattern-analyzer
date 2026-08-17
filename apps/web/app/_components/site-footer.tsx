@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { Container } from '@/ui/container';
 import { Link } from '@/ui/link';
 import {
@@ -49,18 +48,6 @@ export const SiteFooter = () => (
         This is an unofficial website. It is not affiliated with Atomic Mass
         Games, Lucasfilm Ltd., or Disney.
       </p>
-      <a
-        href="https://vercel.com/?utm_source=sebald&utm_campaign=oss"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <Image
-          src="/powered-by-vercel.svg"
-          alt="Powered by Vercel"
-          width={159}
-          height={33}
-        />
-      </a>
     </Container>
   </footer>
 );
