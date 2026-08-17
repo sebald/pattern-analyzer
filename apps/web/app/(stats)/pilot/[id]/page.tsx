@@ -1,17 +1,18 @@
 import { notFound } from 'next/navigation';
 
-import { pointsUpdateDate } from '@/lib/config';
 import data from '@pattern-analyzer/xws/data/display-values';
 import { getFactionCount, getSquads } from '@/lib/db/squads';
 import { getPilotName } from '@pattern-analyzer/xws/get-value';
 import { isStandardized } from '@pattern-analyzer/xws/xws';
 import { createMetadata } from '@/lib/metadata';
 import { pilotDetails } from '@/lib/stats/details/pilot';
-import { fromDate } from '@/lib/utils/date.utils';
+import { defaultStatsRange } from '@/lib/stats/range';
+import { toDate } from '@/lib/utils/date.utils';
 import { Card } from '@/ui/card';
 import { Detail } from '@/ui/detail';
 import { Headline } from '@/ui/headline';
 import { toPercentage } from '@/lib/utils/math.utils';
+import { EmptyRange } from '@/ui/stats/empty-range';
 import { HistoryCurve } from '@/ui/stats/history-curve';
 
 import { FilteredSquadGroups } from './_components/filtered-squad-groups';
@@ -55,10 +56,13 @@ export const generateMetadata = async ({ params }: PageProps) => {
 
 // Data
 // ---------------
-const getPilotStats = async (pilot: string, from: Date) => {
+const getPilotStats = async (
+  pilot: string,
+  { from, to }: { from: Date; to?: Date }
+) => {
   const [squads, count] = await Promise.all([
-    getSquads({ from, pilot }),
-    getFactionCount({ from }),
+    getSquads({ from, to, pilot }),
+    getFactionCount({ from, to }),
   ]);
   return pilotDetails({ pilot, squads, count });
 };
@@ -72,7 +76,13 @@ const Page = async ({ params }: PageProps) => {
     notFound();
   }
 
-  const stats = await getPilotStats(id, fromDate(pointsUpdateDate));
+  const range = await defaultStatsRange();
+  const stats = await getPilotStats(id, range);
+
+  // The pilot exists, they were just not flown in the current window.
+  if (!stats) {
+    return <EmptyRange subject="pilot" range={range} />;
+  }
 
   return (
     <div className="flex flex-col gap-16">
@@ -113,7 +123,11 @@ const Page = async ({ params }: PageProps) => {
             <Card.Title>History</Card.Title>
           </Card.Header>
           <Card.Body>
-            <HistoryCurve from={pointsUpdateDate} value={stats.history} />
+            <HistoryCurve
+              from={toDate(range.from)}
+              to={range.to ? toDate(range.to) : undefined}
+              value={stats.history}
+            />
           </Card.Body>
         </Card>
       </div>

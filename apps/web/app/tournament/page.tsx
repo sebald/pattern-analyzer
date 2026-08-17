@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import { z } from 'zod';
 
-import { pointsUpdateDate } from '@/lib/config';
 import { getTournaments } from '@/lib/db/tournaments';
 import { createMetadata } from '@/lib/metadata';
+import { defaultStatsRange } from '@/lib/stats/range';
 import { cn } from '@/lib/utils/classname.utils';
 import { ago, formatDate, fromDate } from '@/lib/utils/date.utils';
 
@@ -28,10 +28,9 @@ export const metadata = createMetadata({
 
 // Helpers
 // ---------------
-const FROM_DATE = new Date(pointsUpdateDate); // Should be enough
-
 const getPage = async ({ page }: { page: number }) => {
-  const tournaments = await getTournaments({ from: FROM_DATE, page });
+  const { from } = await defaultStatsRange();
+  const tournaments = await getTournaments({ from, page });
   return tournaments;
 };
 

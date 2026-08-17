@@ -1,4 +1,4 @@
-import { average, deviation, round, winrate } from '@/lib/utils/math.utils';
+import { average, deviation, ratio, winrate } from '@/lib/utils/math.utils';
 import type { XWSFaction, XWSUpgradeSlots } from '@pattern-analyzer/xws/types';
 import type { GameRecord } from '@/lib/types';
 
@@ -127,7 +127,7 @@ export const upgrade: () => StatModule<UpgradeData> = () => {
             count: item.count,
             lists: item.lists,
             record: item.record,
-            frequency: round(item.lists / tournament.count[fid], 4),
+            frequency: ratio(item.lists, tournament.count[fid]),
             percentile: stat.percentile,
             deviation: stat.deviation,
             winrate: winrate([item.record]),

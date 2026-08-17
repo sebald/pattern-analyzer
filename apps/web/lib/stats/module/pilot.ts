@@ -1,7 +1,7 @@
 import type { Ships } from '@pattern-analyzer/xws/get-value';
 import type { XWSFaction } from '@pattern-analyzer/xws/types';
 import type { GameRecord } from '@/lib/types';
-import { average, deviation, round, winrate } from '@/lib/utils/math.utils';
+import { average, deviation, ratio, winrate } from '@/lib/utils/math.utils';
 
 import { magic } from '../magic';
 import type { FactionMap } from '../types';
@@ -111,7 +111,7 @@ export const pilot: () => StatModule<PilotData> = () => {
             count: item.count,
             lists: item.lists,
             record: item.record,
-            frequency: round(item.lists / tournament.count[fid], 4),
+            frequency: ratio(item.lists, tournament.count[fid]),
             percentile: stat.percentile,
             deviation: stat.deviation,
             winrate: winrate([item.record]),

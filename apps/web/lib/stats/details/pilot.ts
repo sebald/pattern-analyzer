@@ -6,7 +6,7 @@ import {
   average,
   createSubsets,
   deviation,
-  round,
+  ratio,
   winrate,
 } from '@/lib/utils/math.utils';
 
@@ -19,7 +19,6 @@ import {
   groupSquads,
   groupUpgrades,
 } from './utils';
-
 
 // Types
 // ---------------
@@ -99,10 +98,15 @@ export interface PilotDetailProps {
 }
 
 export const pilotDetails = ({ pilot, squads, count }: PilotDetailProps) => {
+  // Nothing to aggregate and no faction to derive from.
+  if (!squads.length) {
+    return null;
+  }
+
   const stats: SquadPilotData = {
     id: pilot,
-    // Get first squad to derive faction (failsafe for extended...)
-    faction: squads.length ? squads[0].faction : 'rebelalliance',
+    // Get first squad to derive faction
+    faction: squads[0].faction,
     count: 0,
     record: { wins: 0, ties: 0, losses: 0 },
     percentiles: [],
@@ -116,7 +120,6 @@ export const pilotDetails = ({ pilot, squads, count }: PilotDetailProps) => {
 
   squads.forEach(current => {
     if (!current.xws) {
-      console.log(current);
       return;
     }
 
@@ -173,7 +176,7 @@ export const pilotDetails = ({ pilot, squads, count }: PilotDetailProps) => {
     id: stats.id,
     faction: stats.faction,
     count: stats.count,
-    frequency: round(stats.count / count[stats.faction], 4),
+    frequency: ratio(stats.count, count[stats.faction]),
     winrate: winrate([stats.record]),
     percentile: average(stats.percentiles, 4),
     deviation: deviation(stats.percentiles, 4),

@@ -1,6 +1,6 @@
 import type { Ships } from '@pattern-analyzer/xws/get-value';
 import type { XWSFaction } from '@pattern-analyzer/xws/types';
-import { round } from '@/lib/utils/math.utils';
+import { ratio } from '@/lib/utils/math.utils';
 
 import type { FactionMap, StatModule } from '../types';
 
@@ -78,7 +78,7 @@ export const ship: () => StatModule<ShipData> = () => {
           result.ship[fid][sid as Ships] = {
             count: item.count,
             lists: item.lists,
-            frequency: round(item.lists / tournament.count[fid], 4),
+            frequency: ratio(item.lists, tournament.count[fid]),
           };
         });
       });

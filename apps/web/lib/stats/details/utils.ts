@@ -1,5 +1,5 @@
 import { fromDate, toMonth } from '@/lib/utils/date.utils';
-import { average, deviation, round, winrate } from '@/lib/utils/math.utils';
+import { average, deviation, ratio, winrate } from '@/lib/utils/math.utils';
 import type { XWSSquad, XWSUpgrades } from '@pattern-analyzer/xws/types';
 import type { GameRecord } from '@/lib/types';
 
@@ -163,7 +163,7 @@ export const groupSquads = (squads: DetailedSquadData[]) => {
 
     groups[id] = {
       items: current.items,
-      frequency: round(current.items.length / squads.length, 4),
+      frequency: ratio(current.items.length, squads.length),
       winrate: winrate([current.record]),
       percentile: average(current.percentiles, 4),
       deviation: deviation(current.percentiles, 4),

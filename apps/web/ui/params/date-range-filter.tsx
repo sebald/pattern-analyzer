@@ -1,13 +1,6 @@
 'use client';
 
-import { pointsUpdateDate } from '@/lib/config';
-import {
-  toDate,
-  lastWeekend,
-  monthsAgo,
-  fromDate,
-} from '@/lib/utils/date.utils';
-import { fromDateRange } from '@/lib/utils/params.utils';
+import { dateRangePresets, fromDateRange } from '@/lib/utils/params.utils';
 import { Select } from '@/ui/select';
 
 import { useParams } from './useParams';
@@ -21,11 +14,12 @@ export const useDateRangeFilter = () => {
     setFilter(fromDateRange(val));
   };
 
+  // No param means the default preset, which is resolved server side.
   const dateRange = filter.from
     ? filter.to
       ? `${filter.from}/${filter.to}`
       : filter.from
-    : pointsUpdateDate;
+    : '';
 
   return [dateRange, setDateRange] as const;
 };
@@ -35,18 +29,7 @@ export const useDateRangeFilter = () => {
 export const DateRangeFilter = () => {
   const [dateRange, setDateRange] = useDateRangeFilter();
 
-  let options = {
-    'Last Points Update': '',
-    'Last Weekend': toDate.apply(null, lastWeekend()),
-    'Last Month': toDate(monthsAgo(1)),
-    // Add the options if the last points update is older
-    ...(fromDate(pointsUpdateDate) < monthsAgo(3)
-      ? { 'Last 3 Months': toDate(monthsAgo(3)) }
-      : {}),
-    ...(fromDate(pointsUpdateDate) < monthsAgo(6)
-      ? { 'Last 6 Months': toDate(monthsAgo(6)) }
-      : {}),
-  };
+  const options = dateRangePresets();
   type Options = keyof typeof options;
 
   return (

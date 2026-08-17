@@ -2,7 +2,7 @@ import { SquadEntitiyWithXWS } from '@/lib/db/types';
 import type { Ships } from '@pattern-analyzer/xws/get-value';
 import type { XWSFaction, XWSUpgrades } from '@pattern-analyzer/xws/types';
 import type { GameRecord } from '@/lib/types';
-import { average, deviation, round, winrate } from '@/lib/utils/math.utils';
+import { average, deviation, ratio, winrate } from '@/lib/utils/math.utils';
 
 import {
   type DetailedSquadData,
@@ -83,6 +83,11 @@ export const compositionDetails = ({
   squads,
   count,
 }: CompositionDetailsProps) => {
+  // Nothing to aggregate and no faction to derive from.
+  if (!squads.length) {
+    return null;
+  }
+
   const stats: SquadCompositionData = {
     id: composition,
     // Get first squad to derive faction
@@ -96,7 +101,6 @@ export const compositionDetails = ({
 
   squads.forEach(current => {
     if (!current.xws) {
-      console.log(current);
       return;
     }
 
@@ -145,7 +149,7 @@ export const compositionDetails = ({
     faction: stats.faction,
     ships: stats.id.split('.') as Ships[],
     count: stats.count,
-    frequency: round(stats.count / count[stats.faction], 4),
+    frequency: ratio(stats.count, count[stats.faction]),
     winrate: winrate([stats.record]),
     percentile: average(stats.percentiles, 4),
     deviation: deviation(stats.percentiles, 4),
@@ -160,7 +164,7 @@ export const compositionDetails = ({
       ship: pilot.ship,
       upgrades: groupUpgrades(pilot),
       count: pilot.count,
-      frequency: round(pilot.count / stats.count, 4),
+      frequency: ratio(pilot.count, stats.count),
       winrate: winrate([pilot.record]),
       percentile: average(pilot.percentiles, 4),
       deviation: deviation(pilot.percentiles, 4),

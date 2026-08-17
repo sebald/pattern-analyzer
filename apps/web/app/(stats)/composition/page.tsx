@@ -9,7 +9,7 @@ import { FactionFilter } from '@/ui/params/faction-filter';
 import { SmallSamplesFilter } from '@/ui/params/small-samples-filter';
 import { SortParam } from '@/ui/params/sort-param';
 
-import { toDateRange } from '@/lib/utils/params.utils';
+import { statsRange } from '@/lib/stats/range';
 import { Filter } from '@/ui/params/filter';
 import { StatsInfo } from '@/ui/stats/stats-info';
 
@@ -36,7 +36,7 @@ interface PageProps {
 // Page
 // ---------------
 const CompositionsPage = async ({ searchParams }: PageProps) => {
-  const params = toDateRange(await searchParams);
+  const params = await statsRange(await searchParams);
 
   if (params.error) {
     return (
@@ -49,14 +49,14 @@ const CompositionsPage = async ({ searchParams }: PageProps) => {
     );
   }
 
-  const { from, to } = params;
+  const { from, to, fallback } = params;
 
   return (
     <>
       <div className="pb-6">
         <Title>Compositions</Title>
         <Caption>
-          <StatsInfo from={from} to={to} />
+          <StatsInfo from={from} to={to} fallback={fallback} />
         </Caption>
       </div>
       <Filter>
