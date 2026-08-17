@@ -15,6 +15,7 @@
     "test": "turbo test",
     "format": "prettier . --write",
     "clean": "turbo clean",
+    "update:points": "pnpm --filter pattern-analyzer.app update:yasb && pnpm --filter pattern-analyzer.app update:xwing",
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "turbo build --filter @pattern-analyzer/xws && changeset publish"

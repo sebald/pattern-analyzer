@@ -113,7 +113,7 @@
       "id": 16,
       "name": "Captain Rex",
       "ship": "TIE/ln Fighter",
-      "points": 7,
+      "points": 6,
       "skill": 2
     },
     {
@@ -159,7 +159,7 @@
       "id": 23,
       "name": "Rogue Squadron Escort",
       "ship": "E-wing",
-      "points": 14,
+      "points": 13,
       "skill": 4
     },
     {
@@ -292,7 +292,7 @@
       "id": 42,
       "name": "Han Solo",
       "ship": "Modified YT-1300 Light Freighter",
-      "points": 19,
+      "points": 21,
       "skill": 6,
       "xwsaddon": "modifiedyt1300lightfreighter"
     },
@@ -413,7 +413,7 @@
       "id": 59,
       "name": "Lowhhrick",
       "ship": "Auzituck Gunship",
-      "points": 12,
+      "points": 11,
       "skill": 3
     },
     {
@@ -884,7 +884,7 @@
       "id": 126,
       "name": "Ketsu Onyo",
       "ship": "Lancer-Class Pursuit Craft",
-      "points": 15,
+      "points": 16,
       "skill": 5
     },
     {
@@ -1367,7 +1367,7 @@
       "id": 195,
       "name": "Countess Ryad",
       "ship": "TIE/d Defender",
-      "points": 16,
+      "points": 15,
       "skill": 4
     },
     {
@@ -1629,7 +1629,7 @@
       "id": 233,
       "name": "\"Midnight\"",
       "ship": "TIE/fo Fighter",
-      "points": 11,
+      "points": 10,
       "skill": 6
     },
     {
@@ -2126,7 +2126,7 @@
       "id": 305,
       "name": "General Grievous",
       "ship": "Belbullab-22 Starfighter",
-      "points": 13,
+      "points": 14,
       "skill": 4
     },
     {
@@ -2224,7 +2224,7 @@
       "id": 319,
       "name": "\"Tucker\"",
       "ship": "V-19 Torrent Starfighter",
-      "points": 9,
+      "points": 8,
       "skill": 2
     },
     {
@@ -2259,7 +2259,7 @@
       "id": 324,
       "name": "Techno Union Bomber",
       "ship": "Hyena-class Droid Bomber",
-      "points": 8,
+      "points": 7,
       "skill": 1
     },
     {
@@ -2493,7 +2493,7 @@
       "id": 357,
       "name": "Sun Fac",
       "ship": "Nantex-Class Starfighter",
-      "points": 13,
+      "points": 14,
       "skill": 6
     },
     {
@@ -2871,7 +2871,7 @@
       "id": 411,
       "name": "Onderon Oppressor",
       "ship": "HMP Droid Gunship",
-      "points": 9,
+      "points": 10,
       "skill": 3
     },
     {
@@ -3088,7 +3088,7 @@
       "id": 442,
       "name": "Poe Dameron (HoH)",
       "ship": "T-70 X-wing",
-      "points": 14,
+      "points": 15,
       "skill": 6,
       "xwsaddon": "swz68"
     },
@@ -3139,7 +3139,7 @@
       "id": 449,
       "name": "C'ai Threnalli",
       "ship": "T-70 X-wing",
-      "points": 12,
+      "points": 10,
       "skill": 4
     },
     {
@@ -3160,7 +3160,7 @@
       "id": 452,
       "name": "Wedge Antilles (A-Wing)",
       "ship": "RZ-1 A-wing",
-      "points": 10,
+      "points": 9,
       "skill": 4
     },
     {
@@ -3174,7 +3174,7 @@
       "id": 454,
       "name": "Vult Skerris",
       "ship": "TIE/d Defender",
-      "points": 15,
+      "points": 16,
       "skill": 5
     },
     {
@@ -3195,7 +3195,7 @@
       "id": 457,
       "name": "Kanan Jarrus (HWK-290)",
       "ship": "HWK-290 Light Freighter",
-      "points": 9,
+      "points": 10,
       "skill": 3
     },
     {
@@ -3343,7 +3343,7 @@
       "id": 478,
       "name": "Teza Nasz",
       "ship": "BTA-NR2 Y-wing",
-      "points": 8,
+      "points": 9,
       "skill": 4
     },
     {
@@ -3371,7 +3371,7 @@
       "id": 482,
       "name": "Aftab Ackbar",
       "ship": "BTA-NR2 Y-wing",
-      "points": 7,
+      "points": 8,
       "skill": 2
     },
     {
@@ -3693,7 +3693,7 @@
       "id": 528,
       "name": "Anakin Skywalker (Delta-7b)",
       "ship": "Delta-7b Aethersprite",
-      "points": 16,
+      "points": 17,
       "skill": 6
     },
     {
@@ -3813,7 +3813,7 @@
       "id": 545,
       "name": "\"Slider\"",
       "ship": "Clone Z-95 Headhunter",
-      "points": 7,
+      "points": 8,
       "skill": 4
     },
     {
@@ -4156,7 +4156,7 @@
       "id": 589,
       "name": "DIS-T81 (SoC)",
       "ship": "Droid Tri-fighter",
-      "points": 10,
+      "points": 11,
       "skill": 4,
       "xwsaddon": "siegeofcoruscant"
     },
@@ -4217,7 +4217,7 @@
       "id": 597,
       "name": "Keo Venzee",
       "ship": "RZ-1 A-wing",
-      "points": 10,
+      "points": 9,
       "skill": 3
     },
     {
@@ -4809,7 +4809,7 @@
       "id": 675,
       "name": "Major Vynder (SSL)",
       "ship": "Alpha-Class Star Wing",
-      "points": 14,
+      "points": 13,
       "skill": 4,
       "xwsaddon": "ssl"
     },
@@ -5057,7 +5057,7 @@
       "id": 706,
       "name": "Ronith Blario (EoD)",
       "ship": "RZ-2 A-wing",
-      "points": 9,
+      "points": 8,
       "skill": 2,
       "xwsaddon": "evacuationofdqar"
     },
@@ -5113,7 +5113,7 @@
       "id": 713,
       "name": "The Mandalorian (AaD)",
       "ship": "Naboo Royal N-1 Starfighter",
-      "points": 10,
+      "points": 11,
       "skill": 5,
       "xwsaddon": "armedanddangerous"
     },
@@ -5137,7 +5137,7 @@
       "id": 716,
       "name": "Dengar (AaD)",
       "ship": "JumpMaster 5000",
-      "points": 15,
+      "points": 16,
       "skill": 6,
       "xwsaddon": "armedanddangerous"
     },
@@ -5273,7 +5273,7 @@
       "id": 733,
       "name": "Carnor Jax",
       "ship": "TIE/in Interceptor",
-      "points": 12,
+      "points": 13,
       "skill": 5,
       "xwsaddon": "legendsandrelics"
     },
@@ -5313,7 +5313,7 @@
       "id": 738,
       "name": "Ursa Wren",
       "ship": "Gauntlet Fighter",
-      "points": 15,
+      "points": 16,
       "skill": 3,
       "xwsaddon": "legendsandrelics"
     },
@@ -5321,7 +5321,7 @@
       "id": 739,
       "name": "DIS-L9B2",
       "ship": "Droid Tri-fighter",
-      "points": 11,
+      "points": 10,
       "skill": 6,
       "xwsaddon": "legendsandrelics"
     }
@@ -8010,7 +8010,8 @@
     {
       "id": 536,
       "name": "C-3PO (Epic)",
-      "slot": "Crew"
+      "slot": "Crew",
+      "xwsaddon": "epicsl"
     },
     {
       "id": 537,
@@ -8265,12 +8266,12 @@
     {
       "id": 587,
       "name": "R0-GR (EoD)",
-      "slot": "Tech"
+      "slot": "Crew"
     },
     {
       "id": 588,
       "name": "Black Squadron R4 (EoD)",
-      "slot": "Tech"
+      "slot": "Astromech"
     },
     {
       "id": 589,
