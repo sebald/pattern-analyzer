@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 // Config
 // ---------------
 $.verbose = true;
-dotenv.config({ path: '.env.local' });
+dotenv.config({ path: '.env.local', quiet: true });
 
 // Workaround: tsx on Node 24 wraps ESM dynamic imports in a default export
 const resolve = <T>(mod: T): T =>
