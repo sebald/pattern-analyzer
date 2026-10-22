@@ -1,5 +1,11 @@
 # @pattern-analyzer/xws
 
+## 3.2.1
+
+### Patch Changes
+
+- [#528](https://github.com/sebald/pattern-analyzer/pull/528) [`af78de9`](https://github.com/sebald/pattern-analyzer/commit/af78de98a7fa1d8d46b421537c59176f83c7f9ca) Thanks [@sebald](https://github.com/sebald)! - Update all dependencies. Next.js 16.4.2, Kysely 0.29, mysql2 3.24, Zod 4, Hono 4.13 and `@hono/node-server` 2 close the open security advisories; Jest 30, Vitest 5, ESLint 10, zx 8 and Prettier 3.9 bring the tooling up to date. CI now runs on Node 22, matching Vercel.
+
 ## 3.2.0
 
 ### Minor Changes
