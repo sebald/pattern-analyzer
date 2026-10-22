@@ -58,7 +58,7 @@
     "@types/node": "^22.20.5",
     "typescript": "^5.9.3",
     "vitest": "^5.0.5",
-    "xwing-data2": "github:gregkash16/xwing-data2#8abad14",
+    "xwing-data2": "github:gregkash16/xwing-data2#01691ad",
     "yasb": "github:raithos/xwing#b4c2b61",
     "zx": "8.8.5"
   }
