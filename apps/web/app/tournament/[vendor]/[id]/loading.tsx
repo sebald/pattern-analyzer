@@ -1,4 +1,9 @@
-import { Skeleton, HeadlineSkeleton, LineSkeleton, CardSkeleton } from '@/ui/skeleton';
+import {
+  Skeleton,
+  HeadlineSkeleton,
+  LineSkeleton,
+  CardSkeleton,
+} from '@/ui/skeleton';
 import { Tiles } from '@/ui/tiles';
 
 export const Loading = () => (

@@ -281,9 +281,7 @@ export const getExportData = async (id: string): Promise<unknown> => {
   );
 
   if (!res.ok) {
-    throw new Error(
-      `[rollbetter] Failed to fetch export data... (${id})`
-    );
+    throw new Error(`[rollbetter] Failed to fetch export data... (${id})`);
   }
 
   return res.json();

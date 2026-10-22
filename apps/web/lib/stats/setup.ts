@@ -1,6 +1,10 @@
 import type { SquadEntitiy } from '@/lib/db/types';
 import type { Ships } from '@pattern-analyzer/xws/get-value';
-import type { XWSPilot, XWSSquad, XWSUpgradeSlots } from '@pattern-analyzer/xws/types';
+import type {
+  XWSPilot,
+  XWSSquad,
+  XWSUpgradeSlots,
+} from '@pattern-analyzer/xws/types';
 import { isStandardized, toFaction } from '@pattern-analyzer/xws/xws';
 import type {
   StatModule,

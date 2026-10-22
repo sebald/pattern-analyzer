@@ -29,8 +29,8 @@ const About = () => (
       Listfortress. While the Longshanks integration is no longer active,
       Pattern Analyzer has since evolved to work with{' '}
       <Link href="https://rollbetter.gg">Rollbetter</Link> and{' '}
-      <Link href="https://listfortress.com">Listfortress</Link>, allowing
-      people to discover what squads are played and gain insights into X-Wing
+      <Link href="https://listfortress.com">Listfortress</Link>, allowing people
+      to discover what squads are played and gain insights into X-Wing
       tournaments. It can also provide an export for Listfortress, so that it
       stays up to date and other tools like MetaWing and PBM have information to
       consume.

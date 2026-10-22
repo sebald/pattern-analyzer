@@ -51,7 +51,8 @@ const styles = cva(
 // Props
 // ---------------
 export interface ButtonProps
-  extends VariantProps<typeof styles>,
+  extends
+    VariantProps<typeof styles>,
     React.ComponentPropsWithoutRef<'button'> {
   className?: string;
   children: React.ReactNode;

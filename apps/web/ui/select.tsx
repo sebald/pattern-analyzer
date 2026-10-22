@@ -4,8 +4,7 @@ import { Label } from './label';
 
 // Select.Option
 // ---------------
-export interface SelectOptionProps
-  extends React.ComponentPropsWithRef<'option'> {
+export interface SelectOptionProps extends React.ComponentPropsWithRef<'option'> {
   children: React.ReactNode;
 }
 
@@ -74,7 +73,8 @@ const styles = {
 // Props
 // ---------------
 export interface SelectProps
-  extends VariantProps<typeof styles.select>,
+  extends
+    VariantProps<typeof styles.select>,
     Omit<React.ComponentPropsWithRef<'select'>, 'size'> {
   label?: React.ReactNode;
   htmlSize?: React.ComponentPropsWithRef<'select'>['size'];

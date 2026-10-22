@@ -37,7 +37,8 @@ const styles = cva(
 // Props
 // ---------------
 export interface TextareaProps
-  extends VariantProps<typeof styles>,
+  extends
+    VariantProps<typeof styles>,
     Omit<React.ComponentPropsWithoutRef<'textarea'>, 'size'> {
   label?: React.ReactNode;
   error?: React.ReactNode;

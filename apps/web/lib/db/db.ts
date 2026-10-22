@@ -116,10 +116,18 @@ export const initDatabase = async () =>
   ]).then(() =>
     Promise.all([
       sql`ALTER TABLE squads ADD INDEX idx_squads_date (date)`.execute(db),
-      sql`ALTER TABLE squads ADD INDEX idx_squads_faction (faction)`.execute(db),
-      sql`ALTER TABLE squads ADD INDEX idx_squads_composition (composition)`.execute(db),
-      sql`ALTER TABLE squads ADD INDEX idx_squads_listfortress_ref (listfortress_ref)`.execute(db),
-      sql`ALTER TABLE tournaments ADD INDEX idx_tournaments_date (date)`.execute(db),
+      sql`ALTER TABLE squads ADD INDEX idx_squads_faction (faction)`.execute(
+        db
+      ),
+      sql`ALTER TABLE squads ADD INDEX idx_squads_composition (composition)`.execute(
+        db
+      ),
+      sql`ALTER TABLE squads ADD INDEX idx_squads_listfortress_ref (listfortress_ref)`.execute(
+        db
+      ),
+      sql`ALTER TABLE tournaments ADD INDEX idx_tournaments_date (date)`.execute(
+        db
+      ),
     ])
   );
 

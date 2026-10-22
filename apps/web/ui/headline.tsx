@@ -47,8 +47,7 @@ const styles = cva(['scroll-m-20'], {
 // Props
 // ---------------
 export interface HeadlineProps
-  extends VariantProps<typeof styles>,
-    ComponentPropsWithoutRef<'h1'> {
+  extends VariantProps<typeof styles>, ComponentPropsWithoutRef<'h1'> {
   className?: string;
   children?: React.ReactNode;
 }

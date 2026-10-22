@@ -17,8 +17,7 @@ export interface ParamsError {
 }
 
 export type ParsedDateRange =
-  | ParamsError
-  | { error: false; from?: Date; to?: Date };
+  ParamsError | { error: false; from?: Date; to?: Date };
 
 /**
  * Parses `searchParams` into an explicit date range. `from` is undefined when

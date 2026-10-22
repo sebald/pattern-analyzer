@@ -1,6 +1,10 @@
 import { Fragment } from 'react';
 
-import { type Ships, getPilotName, getShipName } from '@pattern-analyzer/xws/get-value';
+import {
+  type Ships,
+  getPilotName,
+  getShipName,
+} from '@pattern-analyzer/xws/get-value';
 import { isStandardized, upgradesToList } from '@pattern-analyzer/xws/xws';
 import type { SquadCompositionStats } from '@/lib/stats/details/composition';
 import { toPercentage } from '@/lib/utils/math.utils';

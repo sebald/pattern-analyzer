@@ -68,7 +68,7 @@ export const CompositionTable = ({
         <Table.Row key={id}>
           <Table.Cell
             variant="header"
-            className="flex w-full items-center gap-1 "
+            className="flex w-full items-center gap-1"
           >
             {stat.ships.map((ship, idx) => (
               <ShipIcon key={idx} ship={ship} className="text-2xl" />

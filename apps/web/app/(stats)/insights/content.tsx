@@ -12,8 +12,14 @@ import { SquadSize } from '@/ui/stats/squad-size';
 import { StatsHint } from '@/ui/stats/stats-hint';
 import { setup } from '@/lib/stats/setup';
 import { type FactionData, faction } from '@/lib/stats/module/faction';
-import { type PilotCostDistributionData, pilotCostDistribution } from '@/lib/stats/module/pilot-cost-distribution';
-import { type PilotSkillDistributionData, pilotSkillDistribution } from '@/lib/stats/module/pilot-skill-distribution';
+import {
+  type PilotCostDistributionData,
+  pilotCostDistribution,
+} from '@/lib/stats/module/pilot-cost-distribution';
+import {
+  type PilotSkillDistributionData,
+  pilotSkillDistribution,
+} from '@/lib/stats/module/pilot-skill-distribution';
 import { type ShipData, ship } from '@/lib/stats/module/ship';
 import { type SquadSizeData, squadSize } from '@/lib/stats/module/squad-size';
 import { type UpgradeData, upgrade } from '@/lib/stats/module/upgrade';
@@ -30,7 +36,8 @@ const Loading = () => (
 );
 
 interface StatsData
-  extends FactionData,
+  extends
+    FactionData,
     PilotCostDistributionData,
     PilotSkillDistributionData,
     ShipData,

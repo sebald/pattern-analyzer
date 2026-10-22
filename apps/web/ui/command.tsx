@@ -34,8 +34,7 @@ Command.displayName = CommandPrimitive.displayName;
 // Command.Dialog
 // ---------------
 interface CommandDialogProps
-  extends DialogProps,
-    ComponentPropsWithoutRef<typeof CommandPrimitive> {}
+  extends DialogProps, ComponentPropsWithoutRef<typeof CommandPrimitive> {}
 
 const CommandDialog = ({
   children,
@@ -204,11 +203,10 @@ Command.Item = CommandItem;
 Command.Shortcut = CommandShortcut;
 Command.Separator = CommandSeparator;
 
-export interface Command
-  extends React.ForwardRefExoticComponent<
-    ComponentPropsWithoutRef<typeof CommandPrimitive> &
-      React.RefAttributes<HTMLDivElement>
-  > {
+export interface Command extends React.ForwardRefExoticComponent<
+  ComponentPropsWithoutRef<typeof CommandPrimitive> &
+    React.RefAttributes<HTMLDivElement>
+> {
   Dialog: typeof CommandDialog;
   Input: typeof CommandInput;
   List: typeof CommandList;

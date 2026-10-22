@@ -51,7 +51,9 @@ export const Collapsible = ({
 }: CollapsibleProps) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const ref = useRef<HTMLDivElement>(null);
-  const { height = 0 } = useResizeObserver({ ref: ref as React.RefObject<HTMLElement> });
+  const { height = 0 } = useResizeObserver({
+    ref: ref as React.RefObject<HTMLElement>,
+  });
   const [collapsed, setCollapsed] = useState(defaultCollapsed);
   const child = cloneElement(children, { ref } as Record<string, unknown>);
 

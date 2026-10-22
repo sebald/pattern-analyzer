@@ -7,10 +7,7 @@ import { CopyButton } from '@/ui/copy-button';
 export const ExportRollbetter = ({ data }: { data: unknown }) => {
   return (
     <div className="flex flex-col gap-1">
-      <CopyButton
-        size="large"
-        content={JSON.stringify(data || {})}
-      >
+      <CopyButton size="large" content={JSON.stringify(data || {})}>
         Export for Listfortress
       </CopyButton>
       <div className="text-center text-xs text-secondary-500">
