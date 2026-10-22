@@ -2,8 +2,10 @@ import type { ComponentProps } from 'react';
 import Image from 'next/image';
 
 import { getPilotName } from '@pattern-analyzer/xws/get-value';
-export interface PilotImageProps
-  extends Omit<ComponentProps<typeof Image>, 'src' | 'alt'> {
+export interface PilotImageProps extends Omit<
+  ComponentProps<typeof Image>,
+  'src' | 'alt'
+> {
   pilot: string;
   type?: 'card' | 'art';
   alt?: string;

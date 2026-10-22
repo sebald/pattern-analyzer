@@ -176,10 +176,9 @@ Table.displayName = 'Table';
 Table.Cell = Cell;
 Table.Row = Row;
 
-export interface Table
-  extends React.ForwardRefExoticComponent<
-    TableProps & React.RefAttributes<HTMLTableElement>
-  > {
+export interface Table extends React.ForwardRefExoticComponent<
+  TableProps & React.RefAttributes<HTMLTableElement>
+> {
   Cell: typeof Cell;
   Row: typeof Row;
 }

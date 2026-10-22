@@ -25,8 +25,7 @@ const MessageBody = ({ className, children }: MessageBodyProps) => (
 
 // Message.Button
 // ---------------
-export interface MessageButtonProps
-  extends React.ComponentPropsWithoutRef<'button'> {
+export interface MessageButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   children?: React.ReactNode;
 }
 

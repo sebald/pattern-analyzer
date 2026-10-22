@@ -57,7 +57,8 @@ const styles = {
 // Props
 // ---------------
 export interface SwitchProps
-  extends VariantProps<typeof styles.root>,
+  extends
+    VariantProps<typeof styles.root>,
     ComponentPropsWithoutRef<typeof SwitchPrimitives.Root> {
   label?: React.ReactNode;
 }

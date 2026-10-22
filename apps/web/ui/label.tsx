@@ -20,8 +20,7 @@ const styles = cva(['mb-1 block font-medium text-secondary-700'], {
 // Props
 // ---------------
 export interface LabelProps
-  extends VariantProps<typeof styles>,
-    React.ComponentPropsWithoutRef<'label'> {
+  extends VariantProps<typeof styles>, React.ComponentPropsWithoutRef<'label'> {
   children: React.ReactNode;
 }
 

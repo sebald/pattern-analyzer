@@ -126,24 +126,22 @@ export const GET = async (req: NextRequest) => {
     );
 
   return new ImageResponse(
-    (
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          width: '100%',
-          height: '100%',
-          color: '#3c4073',
-          fontFamily: 'Inter',
-          backgroundColor: '#f1f5fc',
-          background: 'radial-gradient(circle, #b4c5ed 5%, transparent 6%)',
-          backgroundSize: '50px 50px',
-        }}
-      >
-        {content}
-      </div>
-    ),
+    <div
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '100%',
+        height: '100%',
+        color: '#3c4073',
+        fontFamily: 'Inter',
+        backgroundColor: '#f1f5fc',
+        background: 'radial-gradient(circle, #b4c5ed 5%, transparent 6%)',
+        backgroundSize: '50px 50px',
+      }}
+    >
+      {content}
+    </div>,
     {
       width: 1_200,
       height: 630,

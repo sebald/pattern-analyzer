@@ -52,7 +52,8 @@ const SearchIcon = () => (
 // Props
 // ---------------
 export interface SearchFieldProps
-  extends VariantProps<typeof styles>,
+  extends
+    VariantProps<typeof styles>,
     Omit<React.ComponentPropsWithRef<'input'>, 'size'> {
   label?: React.ReactNode;
   htmlSize?: React.ComponentPropsWithRef<'input'>['size'];

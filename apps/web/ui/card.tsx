@@ -119,8 +119,7 @@ const CardActions = ({ className, children }: CardActionsProps) => (
 // Card
 // ---------------
 export interface CardProps
-  extends VariantProps<typeof styles.card>,
-    ComponentPropsWithoutRef<'div'> {
+  extends VariantProps<typeof styles.card>, ComponentPropsWithoutRef<'div'> {
   className?: string;
   children: React.ReactNode;
 }

@@ -3,12 +3,7 @@ import { Select } from './select';
 // Props
 // ---------------
 export type SortOptions =
-  | 'percentile'
-  | 'deviation'
-  | 'winrate'
-  | 'frequency'
-  | 'count'
-  | 'score';
+  'percentile' | 'deviation' | 'winrate' | 'frequency' | 'count' | 'score';
 
 export interface SortSelectionProps {
   value: SortOptions;

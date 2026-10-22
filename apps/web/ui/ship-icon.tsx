@@ -13,8 +13,7 @@ export interface ShipComponentProps {
 // Usage in HTML
 // ---------------
 export interface ShipIconProps
-  extends ShipComponentProps,
-    React.ComponentPropsWithoutRef<'span'> {}
+  extends ShipComponentProps, React.ComponentPropsWithoutRef<'span'> {}
 
 export const ShipIcon = ({ ship, className, ...props }: ShipIconProps) => (
   <span
@@ -29,8 +28,7 @@ export const ShipIcon = ({ ship, className, ...props }: ShipIconProps) => (
 // Usage in SVG
 // ---------------
 export interface ShipTextProps
-  extends ShipComponentProps,
-    React.ComponentPropsWithoutRef<'text'> {}
+  extends ShipComponentProps, React.ComponentPropsWithoutRef<'text'> {}
 
 export const ShipText = ({ ship, className, ...props }: ShipTextProps) => (
   <text

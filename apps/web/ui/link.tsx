@@ -64,8 +64,7 @@ const styles = cva(
 // Props
 // ---------------
 export interface LinkProps
-  extends ComponentProps<typeof NextLink>,
-    VariantProps<typeof styles> {}
+  extends ComponentProps<typeof NextLink>, VariantProps<typeof styles> {}
 
 // Component
 // ---------------

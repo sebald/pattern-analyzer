@@ -131,7 +131,6 @@ ToggleGroup.displayName = ToggleGroupPrimitive.Root.displayName;
 
 ToggleGroup.Item = ToggleGroupItem;
 
-export interface ToggleGroup
-  extends ForwardRefExoticComponent<ToggleGroupProps> {
+export interface ToggleGroup extends ForwardRefExoticComponent<ToggleGroupProps> {
   Item: typeof ToggleGroupItem;
 }

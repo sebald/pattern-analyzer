@@ -35,7 +35,8 @@ const styles = {
 // List.Item
 // ---------------
 export interface ListItemProps
-  extends VariantProps<typeof styles.item>,
+  extends
+    VariantProps<typeof styles.item>,
     React.ComponentPropsWithoutRef<'li'> {
   children: React.ReactNode;
 }
@@ -47,7 +48,8 @@ export const ListItem = ({ children, variant, className }: ListItemProps) => (
 // Props
 // ---------------
 export interface ListProps
-  extends VariantProps<typeof styles.list>,
+  extends
+    VariantProps<typeof styles.list>,
     VariantProps<typeof styles.item>,
     React.ComponentPropsWithoutRef<'li'> {
   children: React.ReactNode;

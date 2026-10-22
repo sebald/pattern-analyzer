@@ -78,7 +78,10 @@ export const HistoryCurve = ({ from, to, value }: HistoryCurveProps) => {
         }
         pointSymbol={({ datum }) => (
           <circle
-            r={Math.min(round(5 * Math.max(Math.log((datum as any).count || 1), 1), 0), 15)}
+            r={Math.min(
+              round(5 * Math.max(Math.log((datum as any).count || 1), 1), 0),
+              15
+            )}
             fill="#5155b1"
             style={{ pointerEvents: 'none' }}
           />

@@ -7,8 +7,10 @@ import type { DateFilter, SquadEntitiy, SquadEntitiyWithXWS } from './types';
 
 // Add
 // ---------------
-export interface InsertSquad
-  extends Omit<SquadsTable, 'id' | 'created_at' | 'xws' | 'record'> {
+export interface InsertSquad extends Omit<
+  SquadsTable,
+  'id' | 'created_at' | 'xws' | 'record'
+> {
   xws?: string;
   record?: string;
 }

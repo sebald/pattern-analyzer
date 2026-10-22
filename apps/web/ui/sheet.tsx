@@ -63,7 +63,8 @@ SheetOverlay.displayName = Primitive.Overlay.displayName;
 // Sheet.Content
 // ---------------
 interface SheetContentProps
-  extends React.ComponentPropsWithoutRef<typeof Primitive.Content>,
+  extends
+    React.ComponentPropsWithoutRef<typeof Primitive.Content>,
     VariantProps<typeof styles.content> {}
 
 const SheetContent = React.forwardRef<

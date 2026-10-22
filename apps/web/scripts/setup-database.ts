@@ -15,7 +15,7 @@ import {
 // Config
 // ---------------
 $.verbose = false;
-dotenv.config({ path: '.env.local' });
+dotenv.config({ path: '.env.local', quiet: true });
 process.env.DB_POOL_SIZE = '10';
 const limit = pLimit(100);
 

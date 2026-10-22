@@ -48,7 +48,8 @@ const styles = cva(
 // Props
 // ---------------
 export interface InputProps
-  extends VariantProps<typeof styles>,
+  extends
+    VariantProps<typeof styles>,
     Omit<React.ComponentPropsWithoutRef<'input'>, 'size'> {
   label?: React.ReactNode;
   htmlSize?: React.ComponentPropsWithoutRef<'input'>['size'];
