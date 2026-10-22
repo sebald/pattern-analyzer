@@ -59,7 +59,7 @@
     "tailwindcss": "3.4.19",
     "tsx": "4.23.15",
     "typescript": "^5.9.3",
-    "yasb": "github:raithos/xwing#b4c2b61",
+    "yasb": "github:raithos/xwing#b252228",
     "zx": "8.8.5"
   },
   "scripts": {
